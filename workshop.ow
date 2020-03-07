@@ -393,7 +393,7 @@
 	6: StealEnergy
 }
 
-规则("【SERVER】Initload")
+禁用 规则("【SERVER】Initload")
 {
 	事件
 	{
@@ -408,7 +408,7 @@
 	}
 }
 
-规则("【SERVER】Red")
+禁用 规则("【SERVER】Red")
 {
 	事件
 	{
@@ -429,7 +429,7 @@
 	}
 }
 
-规则("【SERVER】Yellow")
+禁用 规则("【SERVER】Yellow")
 {
 	事件
 	{
@@ -451,7 +451,7 @@
 	}
 }
 
-规则("【SERVER】Green")
+禁用 规则("【SERVER】Green")
 {
 	事件
 	{
