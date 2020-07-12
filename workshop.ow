@@ -725,7 +725,7 @@
 	}
 }
 
-规则("AI 获得 3/s HP 恢复")
+规则("[Bot]Obtain 3.333 per second healing")
 {
 	事件
 	{
