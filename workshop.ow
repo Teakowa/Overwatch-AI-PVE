@@ -498,19 +498,10 @@
 	全局:
 		26: Mechanical
 		27: Disarm
-		28: Bots
-		29: PriorityGoalAttack
 
 	玩家:
 		17: anna
-		26: moveSpeed
-		27: Abi_1
-		28: moveSpeedDefault
-		29: dealtDamageDefault
-		30: dealtDamage
 		31: brigitteRepairPack
-		32: deadeyeLocked
-		33: dying
 }
 
 子程序
@@ -521,7 +512,6 @@
 	3: UnSettleDown
 	5: EMPDamageMechanical
 	6: StealEnergy
-	7: createBot
 }
 
 禁用 规则("【SERVER】Initload")
