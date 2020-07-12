@@ -663,7 +663,7 @@
 	}
 }
 
-规则("默认重生时间")
+规则("[Player]Default respawn time")
 {
 	事件
 	{
