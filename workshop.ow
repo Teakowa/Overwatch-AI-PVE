@@ -526,7 +526,7 @@
 	6: StealEnergy
 }
 
-规则("[Global]Robot Heros Array")
+规则("[Global]Robot heroes array")
 {
 	事件
 	{
@@ -590,7 +590,6 @@
 	}
 }
 
-规则("[Bot]Heros Array")
 规则("[Global]Disable Jump heroes array")
 {
 	事件
@@ -610,6 +609,8 @@
 		修改全局变量(DisableJump, 添加至数组, 英雄(莱因哈特));
 	}
 }
+
+规则("[Global]Bot heroes array")
 {
 	事件
 	{
