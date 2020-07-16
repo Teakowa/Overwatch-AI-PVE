@@ -509,6 +509,7 @@
 	全局:
 		26: Mechanical
 		27: Disarm
+		28: DisableJump
 
 	玩家:
 		17: anna
@@ -590,6 +591,25 @@
 }
 
 规则("[Bot]Heros Array")
+规则("[Global]Disable Jump heroes array")
+{
+	事件
+	{
+		持续 - 全局;
+	}
+
+	动作
+	{
+		全局.DisableJump = 空数组;
+		修改全局变量(DisableJump, 添加至数组, 英雄(D.Va));
+		修改全局变量(DisableJump, 添加至数组, 英雄(奥丽莎));
+		修改全局变量(DisableJump, 添加至数组, 英雄(天使));
+		修改全局变量(DisableJump, 添加至数组, 英雄(布丽吉塔));
+		修改全局变量(DisableJump, 添加至数组, 英雄(法老之鹰));
+		修改全局变量(DisableJump, 添加至数组, 英雄(破坏球));
+		修改全局变量(DisableJump, 添加至数组, 英雄(莱因哈特));
+	}
+}
 {
 	事件
 	{
