@@ -525,6 +525,19 @@
 	6: StealEnergy
 }
 
+规则("[Global]Disable Record")
+{
+	事件
+	{
+		持续 - 全局;
+	}
+
+	动作
+	{
+		禁用查看器录制;
+	}
+}
+
 规则("[Global]Robot heroes array")
 {
 	事件
