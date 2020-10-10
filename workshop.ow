@@ -1768,7 +1768,7 @@
 	}
 }
 
-规则("[Bot]TP")
+规则("[Bot]TP to Roadhog")
 {
 	事件
 	{
