@@ -502,6 +502,7 @@
 		33: DamageBotTotal
 		34: SupportBotTotal
 		35: Brigitte_RepairPacksArmor
+		36: Debug_Record
 
 	玩家:
 		17: anna
@@ -532,6 +533,7 @@
 	动作
 	{
 		禁用 等待(1, 无视条件);
+		全局.Debug_Record = 地图工坊设置开关(自定义字符串("Debug"), 自定义字符串("查看器录制"), 假);
 		全局.TankBotTotal = 地图工坊设置整数(自定义字符串("Bot Role Set"), 自定义字符串("Tank"), 0, 0, 3);
 		全局.DamageBotTotal = 地图工坊设置整数(自定义字符串("Bot Role Set"), 自定义字符串("Damage"), 2, 0, 3);
 		全局.SupportBotTotal = 地图工坊设置整数(自定义字符串("Bot Role Set"), 自定义字符串("Support"), 1, 0, 3);
@@ -547,6 +549,11 @@
 	事件
 	{
 		持续 - 全局;
+	}
+
+	条件
+	{
+		全局.Debug_Record == 假;
 	}
 
 	动作
