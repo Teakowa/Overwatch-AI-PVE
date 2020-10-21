@@ -501,6 +501,7 @@
 		32: TankBotTotal
 		33: DamageBotTotal
 		34: SupportBotTotal
+		35: Brigitte_RepairPacksArmor
 
 	玩家:
 		17: anna
@@ -536,6 +537,7 @@
 		全局.SupportBotTotal = 地图工坊设置整数(自定义字符串("Bot Role Set"), 自定义字符串("Support"), 1, 0, 3);
 		全局.Brigitte_ChargesGained = 地图工坊设置整数(自定义字符串("布丽吉塔"), 自定义字符串("集结号令获得的额外恢复包"), 3, 0, 6);
 		全局.Brigitte_RallyArmor = 地图工坊设置整数(自定义字符串("布丽吉塔"), 自定义字符串("集结号令为自身提供的护甲 *10"), 5, 0, 10) * 10;
+		全局.Brigitte_RepairPacksArmor = 地图工坊设置整数(自定义字符串("布丽吉塔"), 自定义字符串("恢复包提供的护甲值 *10"), 5, 0, 15) * 10;
 		全局.Orisa_FortifyArmor = 地图工坊设置整数(自定义字符串("奥丽莎"), 自定义字符串("Armor Gained By Fortify *10"), 10, 0, 15) * 10;
 	}
 }
