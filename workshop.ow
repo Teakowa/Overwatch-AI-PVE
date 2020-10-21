@@ -494,6 +494,7 @@
 		26: Mechanical
 		27: Disarm
 		28: DisableJump
+		29: Brigitte_ChargesGained
 		32: TankBotTotal
 		33: DamageBotTotal
 		34: SupportBotTotal
@@ -530,6 +531,7 @@
 		全局.TankBotTotal = 地图工坊设置整数(自定义字符串("Bot Role Set"), 自定义字符串("Tank"), 0, 0, 3);
 		全局.DamageBotTotal = 地图工坊设置整数(自定义字符串("Bot Role Set"), 自定义字符串("Damage"), 2, 0, 3);
 		全局.SupportBotTotal = 地图工坊设置整数(自定义字符串("Bot Role Set"), 自定义字符串("Support"), 1, 0, 3);
+		全局.Brigitte_ChargesGained = 地图工坊设置整数(自定义字符串("布丽吉塔"), 自定义字符串("集结号令获得的额外恢复包"), 3, 0, 6);
 	}
 }
 
@@ -1617,7 +1619,7 @@
 
 	动作
 	{
-		设置技能充能(事件玩家, 按钮(技能2), 6);
+		设置技能充能(事件玩家, 按钮(技能2), 技能充能(事件玩家, 按钮(技能2)) + 全局.Brigitte_ChargesGained);
 	}
 }
 
