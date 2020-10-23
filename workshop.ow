@@ -1771,6 +1771,7 @@
 	条件
 	{
 		正在使用终极技能(事件玩家) == 真;
+		全局.Ana_NanoBoostProvideUltCharge != 0;
 	}
 
 	动作
