@@ -1537,6 +1537,7 @@
 	条件
 	{
 		正在使用技能 2(事件玩家) == 真;
+		全局.Brigitte_RepairPacksArmor != 0;
 	}
 
 	动作
@@ -1601,6 +1602,7 @@
 	条件
 	{
 		正在使用终极技能(事件玩家) == 真;
+		全局.Brigitte_ChargesGained != 0;
 	}
 
 	动作
