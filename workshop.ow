@@ -3697,6 +3697,27 @@
 		开始规则(ClearEffectFromAnaBiotic, 无动作);
 	}
 }
+
+规则("[Mei]Cryo-Freeze Clear Effect")
+{
+	事件
+	{
+		持续 - 每名玩家;
+		双方;
+		美;
+	}
+
+	条件
+	{
+		具有状态(事件玩家, 点燃) == 真;
+		正在使用技能 1(事件玩家) == 真;
+	}
+
+	动作
+	{
+		开始规则(ClearEffectFromAnaBiotic, 无动作);
+	}
+}
 	动作
 	{
 		开始规则(ClearEffectFromAnaBiotic, 无动作);
