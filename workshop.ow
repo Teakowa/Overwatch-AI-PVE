@@ -525,6 +525,7 @@
 	1: Disarm
 	2: EMPKillMechanical
 	3: UnSettleDown
+	4: ClearEffectFromAnaBiotic
 	5: EMPDamageMechanical
 	8: CreateTankBot
 	9: CreateDamageBot
@@ -1450,6 +1451,21 @@
 	{
 		设置状态(事件玩家, 攻击方, 点燃, 5);
 		开始持续伤害(事件玩家, 攻击方, 5, 8);
+	}
+}
+
+规则("[Sub]Clear Effect From Ana Biotic Grenade")
+{
+	事件
+	{
+		子程序;
+		ClearEffectFromAnaBiotic;
+	}
+
+	动作
+	{
+		清除状态(事件玩家, 点燃);
+		停止所有持续伤害(事件玩家);
 	}
 }
 
