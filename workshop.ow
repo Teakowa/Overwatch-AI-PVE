@@ -3635,6 +3635,68 @@
 		开始规则(ClearEffectFromAnaBiotic, 无动作);
 	}
 }
+
+规则("[Zarya]Particle Clear Effect")
+{
+	事件
+	{
+		持续 - 每名玩家;
+		双方;
+		查莉娅;
+	}
+
+	条件
+	{
+		具有状态(事件玩家, 点燃) == 真;
+		正在使用技能 1(事件玩家) == 真;
+	}
+
+	动作
+	{
+		开始规则(ClearEffectFromAnaBiotic, 无动作);
+	}
+}
+
+规则("[Zarya]Particle Barrier Target")
+{
+	事件
+	{
+		持续 - 每名玩家;
+		双方;
+		查莉娅;
+	}
+
+	条件
+	{
+		正在使用技能 2(事件玩家) == 真;
+	}
+
+	动作
+	{
+		已排序的数组(所有存活玩家(所在队伍(事件玩家)), 矢量间夹角(面朝方向(事件玩家), 方向(所选位置(事件玩家), 所选位置(当前数组元素))))[0].ZaryaParticleBarrier = 真;
+	}
+}
+
+规则("[Zarya]Particle Barrier Clear Effect")
+{
+	事件
+	{
+		持续 - 每名玩家;
+		双方;
+		全部;
+	}
+
+	条件
+	{
+		具有状态(事件玩家, 点燃) == 真;
+		事件玩家.ZaryaParticleBarrier == 真;
+	}
+
+	动作
+	{
+		开始规则(ClearEffectFromAnaBiotic, 无动作);
+	}
+}
 	动作
 	{
 		开始规则(ClearEffectFromAnaBiotic, 无动作);
