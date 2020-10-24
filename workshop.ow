@@ -3718,6 +3718,28 @@
 		开始规则(ClearEffectFromAnaBiotic, 无动作);
 	}
 }
+
+规则("[Sombra]Translocator Clear Effect")
+{
+	事件
+	{
+		持续 - 每名玩家;
+		双方;
+		黑影;
+	}
+
+	条件
+	{
+		具有状态(事件玩家, 点燃) == 真;
+		正在使用技能 2(事件玩家) == 真;
+		按钮被按下(事件玩家, 技能2) == 真;
+	}
+
+	动作
+	{
+		开始规则(ClearEffectFromAnaBiotic, 无动作);
+	}
+}
 	动作
 	{
 		开始规则(ClearEffectFromAnaBiotic, 无动作);
