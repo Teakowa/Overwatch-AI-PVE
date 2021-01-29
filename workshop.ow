@@ -1655,6 +1655,7 @@
 		为玩家添加生命池(事件玩家, 护甲, 全局.Brigitte_RepairPacksArmor, 假, 真);
 		等待(5, 无视条件);
 		移除玩家的生命池(最后创建的生命池);
+		事件玩家.BrigitteRepairPack = 假;
 	}
 }
 
@@ -1676,7 +1677,7 @@
 	动作
 	{
 		治疗(事件玩家, 选择英雄的玩家(英雄(布丽吉塔), 所在队伍(事件玩家)), 全局.Brigitte_RepairPacksHealing);
-		事件玩家.BrigitteRepairPack = 假;
+		禁用 事件玩家.BrigitteRepairPack = 假;
 	}
 }
 
