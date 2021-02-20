@@ -535,6 +535,7 @@
 		26: Zarya_ParticleBarrierShield
 		27: Disarm
 		28: DisableJump
+		29: Debug_GameTime
 		30: Orisa_FortifyArmor
 		31: Brigitte_RallyArmor
 		32: TankBotTotal
@@ -582,6 +583,7 @@
 	{
 		全局.Debug_Record = 地图工坊设置开关(自定义字符串("Debug"), 自定义字符串("查看器录制"), 假, 0);
 		全局.Debug_UltimateGain = 地图工坊设置开关(自定义字符串("Debug"), 自定义字符串("即时终极技能充能"), 假, 1);
+		全局.Debug_GameTime = 地图工坊设置开关(自定义字符串("Debug"), 自定义字符串("即时开始"), 假, 2);
 		全局.TankBotTotal = 地图工坊设置整数(自定义字符串("机器人职责"), 自定义字符串("重装"), 0, 0, 3, 0);
 		全局.DamageBotTotal = 地图工坊设置整数(自定义字符串("机器人职责"), 自定义字符串("输出"), 2, 0, 3, 1);
 		全局.SupportBotTotal = 地图工坊设置整数(自定义字符串("机器人职责"), 自定义字符串("支援"), 1, 0, 3, 2);
@@ -636,6 +638,44 @@
 		设置终极技能充能(事件玩家, 100);
 		等待(0.250, 无视条件);
 		如条件为”真“则循环;
+	}
+}
+
+规则("[Global][Debug]Game Time")
+{
+	事件
+	{
+		持续 - 全局;
+	}
+
+	条件
+	{
+		全局.Debug_GameTime == 真;
+		正在集结英雄 == 真;
+	}
+
+	动作
+	{
+		设置比赛时间(5);
+	}
+}
+
+规则("[Global][Debug]Game Time")
+{
+	事件
+	{
+		持续 - 全局;
+	}
+
+	条件
+	{
+		全局.Debug_GameTime == 真;
+		正在设置 == 真;
+	}
+
+	动作
+	{
+		设置比赛时间(5);
 	}
 }
 
