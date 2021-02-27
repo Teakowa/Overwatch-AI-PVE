@@ -1261,7 +1261,7 @@
 	}
 }
 
-规则("[Doomfist]50 base health converted to shields")
+禁用 规则("[Doomfist]50 base health converted to shields")
 {
 	事件
 	{
