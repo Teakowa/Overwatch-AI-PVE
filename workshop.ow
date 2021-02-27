@@ -1214,7 +1214,7 @@
 	}
 }
 
-规则("[Pharah]50 base health converted to shields")
+禁用 规则("[Pharah]50 base health converted to shields")
 {
 	事件
 	{
