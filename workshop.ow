@@ -1238,7 +1238,7 @@
 	}
 }
 
-规则("[Tracer]Add 50 shields")
+禁用 规则("[Tracer]Add 50 shields")
 {
 	事件
 	{
