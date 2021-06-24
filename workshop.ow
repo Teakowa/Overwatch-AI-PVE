@@ -2947,7 +2947,7 @@
 	}
 }
 
-规则("[Bot]Genji Attack Mode")
+禁用 规则("[Bot]Genji Attack Mode")
 {
 	事件
 	{
@@ -2975,7 +2975,7 @@
 	}
 }
 
-规则("[Bot]Genji Attack Mode")
+禁用 规则("[Bot]Genji Attack Mode")
 {
 	事件
 	{
@@ -3004,7 +3004,7 @@
 	}
 }
 
-规则("[Bot]Genji Attack Mode")
+禁用 规则("[Bot]Genji Attack Mode")
 {
 	事件
 	{
@@ -3030,7 +3030,7 @@
 	}
 }
 
-规则("[Bot]Genji Jump")
+禁用 规则("[Bot]Genji Jump")
 {
 	事件
 	{
@@ -3057,7 +3057,7 @@
 	}
 }
 
-规则("[Bot]Genji E")
+禁用 规则("[Bot]Genji E")
 {
 	事件
 	{
@@ -3078,7 +3078,15 @@
 	}
 }
 
-规则("[Bot]Genji Dragonblade")
+禁用 规则("### Bot Attack Mode ###")
+{
+	事件
+	{
+		持续 - 全局;
+	}
+}
+
+禁用 规则("[Bot]Genji Dragonblade")
 {
 	事件
 	{
@@ -3101,7 +3109,7 @@
 	}
 }
 
-规则("[Bot]Genji Dragonblade Attack Mode")
+禁用 规则("[Bot]Genji Dragonblade Attack Mode")
 {
 	事件
 	{
@@ -3128,7 +3136,7 @@
 	}
 }
 
-规则("[Bot]Genji Dragonblade Attack Mode")
+禁用 规则("[Bot]Genji Dragonblade Attack Mode")
 {
 	事件
 	{
