@@ -2963,7 +2963,7 @@
 	}
 }
 
-禁用 规则("[Bot]Genji Attack Mode")
+规则("[Bot]Genji Attack Mode")
 {
 	事件
 	{
