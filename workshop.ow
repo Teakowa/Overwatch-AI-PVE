@@ -692,6 +692,25 @@
 	}
 }
 
+规则("[Global][Debug]Game Time")
+{
+	事件
+	{
+		持续 - 全局;
+	}
+
+	条件
+	{
+		全局.Debug_GameTime == 真;
+		游戏正在进行中 == 真;
+	}
+
+	动作
+	{
+		设置比赛时间(120);
+	}
+}
+
 规则("[Global]Robot heroes array")
 {
 	事件
