@@ -541,6 +541,7 @@
 		3: Damage
 		5: Debug_UltimateGain
 		6: Genji_Rank
+		7: Debug_UltimateGainTeam
 		12: Mechanical
 		18: Support
 		19: Tank
