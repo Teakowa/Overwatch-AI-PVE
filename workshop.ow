@@ -3966,7 +3966,7 @@
 	}
 }
 
-规则("[Sigma] barrier size")
+禁用 规则("[Sigma] barrier size")
 {
 	事件
 	{
