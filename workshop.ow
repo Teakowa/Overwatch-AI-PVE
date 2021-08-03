@@ -538,7 +538,6 @@
 		4: Death_Penalty
 		5: Debug_UltimateGain
 		6: Genji_Rank
-		7: Debug_UltimateGainTeam
 		8: Heros
 		9: Hero_BAN
 		12: Mechanical
@@ -591,8 +590,8 @@
 	动作
 	{
 		全局.Debug_Record = 地图工坊设置开关(自定义字符串("Debug"), 自定义字符串("查看器录制"), 假, 0);
-		全局.Debug_UltimateGain = 地图工坊设置开关(自定义字符串("Debug"), 自定义字符串("即时终极技能充能"), 假, 1);
-		全局.Debug_UltimateGainTeam = 地图工坊设置组合(自定义字符串("Debug"), 自定义字符串("即时终极技能充能队伍"), 0, 数组(自定义字符串("双方"), 自定义字符串("队伍1"), 自定义字符串("队伍2")), 2);
+		全局.Debug_UltimateGain = 地图工坊设置组合(自定义字符串("Debug"), 自定义字符串("即时终极技能充能"), 0, 数组(自定义字符串("关"), 自定义字符串("双方"), 自定义字符串("队伍1"), 自定义字符串(
+			"队伍2")), 2);
 		全局.Debug_GameTime = 地图工坊设置开关(自定义字符串("Debug"), 自定义字符串("即时开始"), 假, 3);
 		全局.Death_Penalty = 地图工坊设置开关(自定义字符串("模式"), 自定义字符串("阵亡惩罚"), 真, 0);
 		全局.Hero_BAN = 地图工坊设置开关(自定义字符串("模式"), 自定义字符串("英雄BAN池"), 假, 1);
@@ -642,17 +641,17 @@
 
 	条件
 	{
-		全局.Debug_UltimateGain == 真;
+		全局.Debug_UltimateGain != 0;
 		终极技能充能百分比(事件玩家) < 100;
 	}
 
 	动作
 	{
-		根据条件跳过(全局.Debug_UltimateGainTeam != 0, 1);
+		根据条件跳过(全局.Debug_UltimateGain != 1, 1);
 		设置终极技能充能(事件玩家, 100);
-		根据条件跳过(全局.Debug_UltimateGainTeam != 1, 1);
+		根据条件跳过(全局.Debug_UltimateGain != 2, 1);
 		设置终极技能充能(所有玩家(队伍1), 100);
-		根据条件跳过(全局.Debug_UltimateGainTeam != 2, 1);
+		根据条件跳过(全局.Debug_UltimateGain != 3, 1);
 		设置终极技能充能(所有玩家(队伍2), 100);
 		等待(0.250, 无视条件);
 		如条件为”真“则循环;
