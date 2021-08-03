@@ -524,6 +524,7 @@
 		女武神受到伤害比率: 100
 		恢复包提供的瞬间治疗量: 0
 		美: 关闭
+		重装英雄受到的击退效果比例: 65
 		黑客入侵偷取终极技能充能能量: 10
 		黑百合: 关闭
 	}
@@ -543,6 +544,7 @@
 		12: Mechanical
 		18: Support
 		19: Tank
+		20: Tank_RepelResistance
 		26: Debug_AbilitiesCooldown
 		27: Disarm
 		28: DisableJump
