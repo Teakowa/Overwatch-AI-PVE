@@ -535,9 +535,11 @@
 		8: Heros
 		9: Hero_BAN
 		12: Mechanical
+		17: S
 		18: Support
 		19: Tank
 		20: Tank_RepelResistance
+		22: U
 		26: Debug_AbilitiesCooldown
 		27: Disarm
 		28: DisableJump
