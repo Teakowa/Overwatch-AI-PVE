@@ -1470,11 +1470,12 @@
 	动作
 	{
 		全局.HealthModifiedHeroes = 空数组;
-		修改全局变量(HealthModifiedHeroes, 添加至数组, 英雄(奥丽莎));
+		禁用 修改全局变量(HealthModifiedHeroes, 添加至数组, 英雄(奥丽莎));
 		修改全局变量(HealthModifiedHeroes, 添加至数组, 英雄(布丽吉塔));
 		修改全局变量(HealthModifiedHeroes, 添加至数组, 英雄(查莉娅));
-		修改全局变量(HealthModifiedHeroes, 添加至数组, 英雄(莱因哈特));
-		禁用 修改全局变量(HealthModifiedHeroes, 添加至数组, 英雄(破坏球));
+		修改全局变量(HealthModifiedHeroes, 添加至数组, 英雄(堡垒));
+		修改全局变量(HealthModifiedHeroes, 添加至数组, 英雄(托比昂));
+		修改全局变量(HealthModifiedHeroes, 添加至数组, 英雄(麦克雷));
 	}
 }
 
