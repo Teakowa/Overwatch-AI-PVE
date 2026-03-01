@@ -2,6 +2,12 @@
 
 一个拥有 ~~OWL~~ 百强水平的困难人机，采用竞技规则，AI 支持多种阵容。
 
+## 开发文档
+
+- [模块文档入口](./docs/modules/README.md)
+- [`src/main.opy` 代码逻辑总览](./docs/modules/01-main-opy-architecture.md)
+- [`src/main.opy` 附录索引（行号）](./docs/modules/appendix-src-file-index.md)
+
 ## 模式
 
 - 占领要点
