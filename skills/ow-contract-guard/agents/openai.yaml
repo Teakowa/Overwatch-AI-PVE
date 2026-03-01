@@ -1,0 +1,4 @@
+interface:
+  display_name: "OW Contract Guard"
+  short_description: "Check Workshop contract invariants before commit"
+  default_prompt: "Run ow-contract-guard checks, report failures and warnings, and propose the minimum safe fix set."
