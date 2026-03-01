@@ -1,0 +1,6191 @@
+
+
+settings {
+    "main": {
+        "description": "语音频道：kook.vip/EEC9UH\n\n企鹅聊天群：361913638\n\n更新日志：workshop.codes/77QS1 | v25.1123.1\n\n中途退永久BAN  |  玻璃心别玩  |  育碧平衡",
+        "modeName": "真·困难人机 6v6 竞技 PVE"
+    },
+    "lobby": {
+        "mapRotation": "afterGame",
+        "swapTeamsAfterMatch": false,
+        "team1Slots": 5,
+        "team2Slots": 6,
+        "spectatorSlots": 6,
+        "returnToLobby": "never"
+    },
+    "gamemodes": {
+        "skirmish": {
+            "disabledMaps": [
+                "hanamuraWinter"
+            ]
+        },
+        "general": {
+            "gamemodeStartTrigger": "manual",
+            "enableCompetitiveRules": true,
+            "tankPassiveHealthBonus": "disabled"
+        }
+    },
+    "heroes": {
+        "team1": {
+            "hanzo": {
+                "ability2Quantity%": 6,
+                "ability3Cooldown%": 50,
+                "damageDealt%": 110,
+                "projectileSpeed%": 135,
+                "projectileGravity%": 0,
+                "ultGen%": 149
+            },
+            "cassidy": {
+                "damageDealt%": 110,
+                "damageReceived%": 70,
+                "ability2Cooldown%": 67
+            },
+            "lucio": {
+                "damageDealt%": 105,
+                "damageReceived%": 70,
+                "healingReceived%": 140,
+                "ability2Cooldown%": 65,
+                "enableInfiniteAmmo": true,
+                "healingDealt%": 233,
+                "ultGen%": 153
+            },
+            "soldier": {
+                "damageDealt%": 115,
+                "enableInfiniteAmmo": true,
+                "ability2Cooldown%": 56,
+                "ultDuration%": 134,
+                "secondaryFireCooldown%": 67,
+                "secondaryFireKb%": 120
+            },
+            "mercy": {
+                "damageDealt%": 200,
+                "damageReceived%": 35,
+                "projectileSpeed%": 150,
+                "ability1Cooldown%": 0,
+                "enableInfiniteAmmo": true,
+                "healingDealt%": 193,
+                "ability2Cooldown%": 0
+            },
+            "orisa": {
+                "damageReceived%": 60,
+                "projectileSpeed%": 130,
+                "ability1Cooldown%": 73,
+                "secondaryFireCooldown%": 117,
+                "projectileGravity%": 0,
+                "enableInfiniteAmmo": true,
+                "ability2Cooldown%": 75,
+                "health%": 100,
+                "movementSpeed%": 105,
+                "ultGen%": 135
+            },
+            "ana": {
+                "enableInfiniteAmmo": true,
+                "healingDealt%": 190,
+                "ultGen%": 163,
+                "enableSpawningWithUlt": true,
+                "ability1Cooldown%": 57
+            },
+            "baptiste": {
+                "damageDealt%": 125,
+                "ability1Cooldown%": 53,
+                "enableInfiniteAmmo": true,
+                "healingDealt%": 175,
+                "ultDuration%": 200,
+                "ability2Cooldown%": 48
+            },
+            "brigitte": {
+                "damageDealt%": 115,
+                "damageReceived%": 50,
+                "healingReceived%": 140,
+                "ability1Kb%": 125,
+                "secondaryFireRechargeRate%": 118,
+                "secondaryFireCooldown%": 100,
+                "healingDealt%": 165,
+                "health%": 100,
+                "ultGen%": 135,
+                "shieldBashKb%": 25
+            },
+            "freja": {
+                "damageDealt%": 120,
+                "damageReceived%": 80,
+                "ability2Cooldown%": 62,
+                "ability2Height%": 120,
+                "ability1Cooldown%": 78,
+                "ability1Distance%": 120,
+                "secondaryFireCooldown%": 75,
+                "secondaryFireDuration%": 200
+            },
+            "torbjorn": {
+                "damageDealt%": 115,
+                "damageReceived%": 60,
+                "projectileSpeed%": 200,
+                "ability2Cooldown%": 50,
+                "ability2Duration%": 150,
+                "ability1Cooldown%": 0,
+                "combatUltGen%": 148,
+                "ultGen%": 148,
+                "ultDuration%": 150,
+                "passiveUltGen%": 148,
+                "enableInfiniteAmmo": true
+            },
+            "ramattra": {
+                "damageDealt%": 105,
+                "damageReceived%": 65,
+                "ability2Cooldown%": 67,
+                "ability1Cooldown%": 86,
+                "enableInfiniteAmmo": true,
+                "ultGen%": 145,
+                "ultDuration%": 500,
+                "secondaryFireCooldown%": 62
+            },
+            "venture": {
+                "damageDealt%": 125,
+                "damageReceived%": 55,
+                "ultGen%": 127,
+                "ability1Duration%": 300,
+                "secondaryFireCooldown%": 63
+            },
+            "vendetta": {
+                "damageDealt%": 135,
+                "damageReceived%": 45,
+                "healingReceived%": 165,
+                "ultGen%": 126
+            },
+            "wuyang": {
+                "passiveHealthRegen": false,
+                "secondaryFireRechargeRate%": 80,
+                "secondaryFireCost%": 136,
+                "ability2Cooldown%": 83,
+                "ability1Cooldown%": 86
+            },
+            "illari": {
+                "damageDealt%": 250,
+                "healingDealt%": 125,
+                "damageReceived%": 70,
+                "solarEnergyRecharge%": 200,
+                "projectileSpeed%": 200,
+                "ability2Cooldown%": 25,
+                "enableInfiniteAmmo": true
+            },
+            "juno": {
+                "healingDealt%": 145,
+                "damageDealt%": 125,
+                "damageReceived%": 60,
+                "ultGen%": 165,
+                "secondaryFireCooldown%": 80,
+                "ability2Cooldown%": 86
+            },
+            "doomfist": {
+                "damageDealt%": 120,
+                "damageReceived%": 40,
+                "ammoRegenerationTime%": 80,
+                "enableInfiniteAmmo": true
+            },
+            "zarya": {
+                "damageDealt%": 115,
+                "damageReceived%": 50,
+                "ability2Cooldown%": 67,
+                "enableInfiniteAmmo": true,
+                "ability1Cooldown%": 55,
+                "ultGen%": 147
+            },
+            "reaper": {
+                "damageDealt%": 110,
+                "damageReceived%": 50,
+                "enableInfiniteAmmo": true,
+                "healingDealt%": 350
+            },
+            "mauga": {
+                "damageDealt%": 110,
+                "damageReceived%": 50,
+                "ability2Cooldown%": 59,
+                "ability2Healing%": 400,
+                "enableInfiniteAmmo": true,
+                "ultDuration%": 188,
+                "primaryFireIgniteDuration": 150,
+                "primaryFireIgniteRate": 150
+            },
+            "pharah": {
+                "damageDealt%": 125,
+                "damageReceived%": 75,
+                "passiveExtraFuel%": 200,
+                "ability1Cooldown%": 57,
+                "ability1RefuelScalar": 300,
+                "secondaryFireCooldown%": 67,
+                "ability2Cooldown%": 86
+            },
+            "junkerQueen": {
+                "damageDealt%": 110,
+                "damageReceived%": 60,
+                "ability1Cooldown%": 57,
+                "ability2Cooldown%": 75,
+                "secondaryFireCooldown%": 67
+            },
+            "winston": {
+                "damageDealt%": 150,
+                "damageReceived%": 20,
+                "ability1Cooldown%": 50,
+                "ability2Cooldown%": 40,
+                "enableInfiniteAmmo": true
+            },
+            "genji": {
+                "damageDealt%": 105,
+                "damageReceived%": 60,
+                "healingReceived%": 150,
+                "enableInfiniteAmmo": true,
+                "ultDuration%": 134,
+                "ultGen%": 180
+            },
+            "junkrat": {
+                "damageDealt%": 125,
+                "ability2Cooldown%": 50,
+                "enableInfiniteAmmo": true,
+                "ability1Cooldown%": 63
+            },
+            "tracer": {
+                "damageDealt%": 115,
+                "damageReceived%": 50,
+                "projectileSpeed%": 120,
+                "ultGen%": 195,
+                "ability2Cooldown%": 62,
+                "ability1Cooldown%": 60
+            },
+            "zenyatta": {
+                "damageDealt%": 110,
+                "healingReceived%": 150,
+                "ultGen%": 194,
+                "projectileSpeed%": 150,
+                "enableInfiniteAmmo": true,
+                "healingDealt%": 200
+            },
+            "symmetra": {
+                "projectileSpeed%": 200,
+                "ability2Cooldown%": 0,
+                "damageDealt%": 120,
+                "damageReceived%": 50,
+                "ability1Cooldown%": 30,
+                "enableInfiniteAmmo": true
+            },
+            "sojourn": {
+                "secondaryFireEnergyChargeRate%": 200,
+                "damageReceived%": 68,
+                "ability2Cooldown%": 54,
+                "projectileSpeed%": 130
+            },
+            "mei": {
+                "damageDealt%": 115,
+                "ability2Cooldown%": 50,
+                "primaryFireFreezeDuration%": 138,
+                "damageReceived%": 50,
+                "ability1Cooldown%": 57,
+                "enableInfiniteAmmo": true,
+                "healingDealt%": 150
+            },
+            "ashe": {
+                "damageDealt%": 115,
+                "ability2Cooldown%": 66,
+                "ability2FuseTime%": 35,
+                "enableInfiniteAmmo": true,
+                "ability1Cooldown%": 80,
+                "ultDuration%": 200
+            },
+            "moira": {
+                "damageDealt%": 145,
+                "damageReceived%": 50,
+                "healingReceived%": 200,
+                "healingDealt%": 200,
+                "ability2MaxDamage%": 500,
+                "ability2Cooldown%": 75,
+                "ability2MaxHealing%": 500,
+                "primaryFireRechargeRate%": 500,
+                "ultGen%": 211
+            },
+            "reinhardt": {
+                "ability1Cooldown%": 79,
+                "damageReceived%": 60,
+                "secondaryFireRechargeRate%": 170,
+                "combatUltGen%": 165,
+                "health%": 140
+            },
+            "sigma": {
+                "ability1Cooldown%": 67,
+                "damageReceived%": 60,
+                "secondaryFireRechargeRate%": 350,
+                "health%": 100,
+                "ability2Cooldown%": 80
+            },
+            "roadhog": {
+                "damageReceived%": 30,
+                "secondaryFireRechargeRate%": 150,
+                "ability2Cooldown%": 50,
+                "enableInfiniteAmmo": true,
+                "healingDealt%": 150,
+                "movementSpeed%": 105
+            },
+            "kiriko": {
+                "ability1Distance%": 300,
+                "damageDealt%": 120,
+                "projectileSpeed%": 115,
+                "healingDealt%": 180,
+                "ability2Cooldown%": 53,
+                "ultGen%": 185
+            },
+            "hazard": {
+                "damageDealt%": 115,
+                "damageReceived%": 50,
+                "secondaryFireRegen%": 150,
+                "secondaryFireCost%": 50,
+                "combatUltGen%": 0,
+                "passiveUltGen%": 0
+            },
+            "sombra": {
+                "damageDealt%": 110,
+                "damageReceived%": 70,
+                "healingReceived%": 125,
+                "enableInfiniteAmmo": false,
+                "passiveUltGen%": 149,
+                "secondaryFireCooldown%": 100,
+                "ammoClipSize%": 125
+            },
+            "widowmaker": {
+                "damageDealt%": 165,
+                "damageReceived%": 70,
+                "enableInfiniteAmmo": true,
+                "movementSpeed%": 102,
+                "ultGen%": 200
+            },
+            "general": {
+                "damageReceived%": 80,
+                "abilityCooldown%": 70,
+                "ultGen%": 115
+            }
+        },
+        "team2": {
+            "hanzo": {
+                "damageDealt%": 125,
+                "ability2Cooldown%": 88,
+                "ultGen%": 132,
+                "projectileSpeed%": 135,
+                "ability1Cooldown%": 75
+            },
+            "cassidy": {
+                "damageDealt%": 125,
+                "damageReceived%": 92,
+                "ultGen%": 84,
+                "ability2Cooldown%": 67
+            },
+            "lucio": {
+                "passiveHealthRegen": false,
+                "damageDealt%": 120,
+                "healingDealt%": 130,
+                "damageReceived%": 70,
+                "ability2Cooldown%": 100
+            },
+            "echo": {
+                "damageDealt%": 135,
+                "damageReceived%": 65,
+                "passiveUltGen%": 105,
+                "ability2Cooldown%": 75,
+                "secondaryFireCooldown%": 100
+            },
+            "bastion": {
+                "secondaryFireCooldown%": 75,
+                "damageDealt%": 125,
+                "ability1Cooldown%": 50,
+                "damageReceived%": 70
+            },
+            "soldier": {
+                "damageDealt%": 130,
+                "ability2Cooldown%": 83,
+                "ultDuration%": 134,
+                "secondaryFireKb%": 100
+            },
+            "mercy": {
+                "passiveHealthRegen": false,
+                "damageReceived%": 100,
+                "healingDealt%": 135,
+                "enablePassive": false,
+                "ability1Cooldown%": 50,
+                "ability2Cooldown%": 26
+            },
+            "orisa": {
+                "damageReceived%": 55,
+                "projectileSpeed%": 130,
+                "ability1Cooldown%": 73,
+                "secondaryFireCooldown%": 117,
+                "enableInfiniteAmmo": true,
+                "health%": 100,
+                "movementSpeed%": 100,
+                "ultGen%": 105
+            },
+            "ana": {
+                "passiveHealthRegen": false,
+                "damageDealt%": 115,
+                "healingDealt%": 150,
+                "ability2Cooldown%": 100,
+                "ultGen%": 115,
+                "ability1Cooldown%": 71
+            },
+            "baptiste": {
+                "passiveHealthRegen": false,
+                "damageDealt%": 150,
+                "ammoClipSize%": 100,
+                "ability1Cooldown%": 53,
+                "healingDealt%": 150,
+                "ultDuration%": 150,
+                "ability2Cooldown%": 48
+            },
+            "brigitte": {
+                "passiveHealthRegen": false,
+                "damageDealt%": 125,
+                "damageReceived%": 43,
+                "ability1Kb%": 125,
+                "secondaryFireRechargeRate%": 118,
+                "secondaryFireCooldown%": 100,
+                "ability2Cooldown%": 91,
+                "health%": 100,
+                "healingDealt%": 145,
+                "ultGen%": 117,
+                "shieldBashCooldown%": 100,
+                "shieldBashKb%": 25
+            },
+            "freja": {
+                "damageDealt%": 110,
+                "damageReceived%": 90,
+                "ability2Cooldown%": 67,
+                "ability1Cooldown%": 89,
+                "secondaryFireCooldown%": 75,
+                "secondaryFireDuration%": 200
+            },
+            "torbjorn": {
+                "damageDealt%": 105,
+                "ammoClipSize%": 100,
+                "combatUltGen%": 92,
+                "ultGen%": 92,
+                "ultDuration%": 100,
+                "passiveUltGen%": 92
+            },
+            "ramattra": {
+                "damageDealt%": 115,
+                "damageReceived%": 65,
+                "ability2Cooldown%": 67,
+                "ability1Cooldown%": 86,
+                "ultGen%": 110,
+                "ultDuration%": 320,
+                "secondaryFireCooldown%": 62
+            },
+            "venture": {
+                "damageDealt%": 140,
+                "damageReceived%": 70,
+                "ability1Duration%": 250,
+                "secondaryFireCooldown%": 75,
+                "ultGen%": 127
+            },
+            "vendetta": {
+                "damageDealt%": 135,
+                "damageReceived%": 55,
+                "ability1Cooldown%": 80,
+                "ultGen%": 126
+            },
+            "illari": {
+                "passiveHealthRegen": false,
+                "damageDealt%": 160,
+                "damageReceived%": 105,
+                "solarEnergyRecharge%": 125,
+                "projectileSpeed%": 100,
+                "ability2Cooldown%": 50
+            },
+            "juno": {
+                "passiveHealthRegen": false,
+                "healingDealt%": 145,
+                "ultGen%": 165,
+                "secondaryFireCooldown%": 80,
+                "ability2Cooldown%": 86
+            },
+            "doomfist": {
+                "damageDealt%": 115,
+                "damageReceived%": 65,
+                "ammoRegenerationTime%": 80,
+                "ability1Cooldown%": 100,
+                "secondaryFireCooldown%": 100,
+                "ability2Cooldown%": 84
+            },
+            "zarya": {
+                "damageDealt%": 135,
+                "damageReceived%": 75,
+                "ammoClipSize%": 100,
+                "ability2Cooldown%": 70,
+                "ability1Cooldown%": 89,
+                "ultGen%": 108
+            },
+            "reaper": {
+                "damageDealt%": 135,
+                "damageReceived%": 65,
+                "healingDealt%": 300
+            },
+            "mauga": {
+                "damageDealt%": 125,
+                "damageReceived%": 65,
+                "ammoClipSize%": 150,
+                "ability2Cooldown%": 84,
+                "ability2Healing%": 200,
+                "ultDuration%": 188
+            },
+            "pharah": {
+                "damageDealt%": 135,
+                "damageReceived%": 85,
+                "passiveExtraFuel%": 125,
+                "ability1Cooldown%": 72,
+                "ability1RefuelScalar": 300,
+                "ability2Cooldown%": 143
+            },
+            "junkerQueen": {
+                "damageDealt%": 130,
+                "damageReceived%": 60,
+                "ability1Cooldown%": 125,
+                "ability2Cooldown%": 75,
+                "secondaryFireCooldown%": 67,
+                "ultGen%": 87
+            },
+            "winston": {
+                "damageDealt%": 110,
+                "damageReceived%": 65,
+                "ability2Cooldown%": 92
+            },
+            "genji": {
+                "damageDealt%": 145,
+                "damageReceived%": 50,
+                "ability1Cooldown%": 75,
+                "enableInfiniteAmmo": true,
+                "ultDuration%": 134,
+                "ultGen%": 140,
+                "ability2Cooldown%": 75
+            },
+            "junkrat": {
+                "damageDealt%": 95,
+                "damageReceived%": 130,
+                "combatUltGen%": 70,
+                "primaryFireKb%": 50,
+                "ability2Cooldown%": 100,
+                "ultGen%": 70,
+                "ultDuration%": 40,
+                "passiveUltGen%": 70,
+                "ability1Kb%": 50
+            },
+            "tracer": {
+                "damageDealt%": 160,
+                "damageReceived%": 35,
+                "ultGen%": 160,
+                "ability2Cooldown%": 62,
+                "ability1Cooldown%": 60
+            },
+            "zenyatta": {
+                "passiveHealthRegen": false,
+                "damageDealt%": 160,
+                "damageReceived%": 100,
+                "ultGen%": 144,
+                "projectileSpeed%": 125
+            },
+            "symmetra": {
+                "ability2Cooldown%": 67,
+                "damageDealt%": 95,
+                "damageReceived%": 100,
+                "ability1Cooldown%": 100,
+                "ammoClipSize%": 100
+            },
+            "sojourn": {
+                "damageDealt%": 130,
+                "secondaryFireEnergyChargeRate%": 125,
+                "ability2Cooldown%": 54
+            },
+            "mei": {
+                "damageDealt%": 100,
+                "ability2Cooldown%": 84,
+                "primaryFireFreezeDuration%": 200,
+                "primaryFireFreezeRate%": 200,
+                "primaryFireFreezeMinimum%": 10,
+                "damageReceived%": 100,
+                "ammoClipSize%": 100,
+                "ability1Cooldown%": 100
+            },
+            "ashe": {
+                "damageDealt%": 140,
+                "ability2Cooldown%": 66,
+                "ammoClipSize%": 125,
+                "ability1Cooldown%": 80,
+                "ultDuration%": 150
+            },
+            "moira": {
+                "passiveHealthRegen": false,
+                "damageDealt%": 100,
+                "damageReceived%": 90,
+                "healingDealt%": 160,
+                "ability2MaxDamage%": 100,
+                "ability2Cooldown%": 100,
+                "ability2MaxHealing%": 100,
+                "primaryFireMaximumTime%": 100,
+                "ultGen%": 181
+            },
+            "reinhardt": {
+                "damageDealt%": 105,
+                "ability1Cooldown%": 115,
+                "damageReceived%": 75,
+                "secondaryFireRechargeRate%": 130,
+                "combatUltGen%": 135,
+                "health%": 140,
+                "ultGen%": 115,
+                "passiveUltGen%": 115
+            },
+            "sigma": {
+                "damageDealt%": 125,
+                "ability1Cooldown%": 67,
+                "damageReceived%": 75,
+                "secondaryFireRechargeRate%": 300,
+                "health%": 100,
+                "ultGen%": 115,
+                "ability2Cooldown%": 80
+            },
+            "roadhog": {
+                "damageDealt%": 90,
+                "damageReceived%": 110,
+                "secondaryFireCooldown%": 480,
+                "ability2Cooldown%": 117,
+                "ability1Cooldown%": 167
+            },
+            "kiriko": {
+                "passiveHealthRegen": false,
+                "ability1Distance%": 243,
+                "damageDealt%": 135,
+                "healingDealt%": 135,
+                "ability2Cooldown%": 57,
+                "ultGen%": 135
+            },
+            "hazard": {
+                "damageDealt%": 125,
+                "damageReceived%": 55,
+                "secondaryFireCost%": 75,
+                "combatUltGen%": 0,
+                "passiveUltGen%": 0
+            },
+            "sombra": {
+                "damageDealt%": 135,
+                "ability2Cooldown%": 100,
+                "damageReceived%": 78,
+                "passiveUltGen%": 107,
+                "secondaryFireCooldown%": 134
+            },
+            "widowmaker": {
+                "damageDealt%": 135,
+                "damageReceived%": 115,
+                "ammoClipSize%": 86,
+                "ultGen%": 130
+            },
+            "general": {
+                "ultGen%": 115,
+                "passiveHealthRegen": true
+            }
+        },
+        "allTeams": {
+            "dva": {
+                "damageDealt%": 135,
+                "damageReceived%": 75,
+                "ability1Cooldown%": 85,
+                "ability2Cooldown%": 86,
+                "secondaryFireRechargeRate%": 200,
+                "secondaryFireMaximumTime%": 134
+            },
+            "lifeweaver": {
+                "healingDealt%": 160,
+                "passiveHealthRegen": false,
+                "enableInfiniteAmmo": false,
+                "ability2Cooldown%": 39,
+                "primaryFireRange%": 200,
+                "secondaryFireCooldown%": 75
+            },
+            "wreckingBall": {
+                "damageDealt%": 135,
+                "damageReceived%": 85,
+                "secondaryFireCooldown%": 80,
+                "ability2Cooldown%": 80,
+                "ability3Cooldown%": 75
+            },
+            "disabledHeroes": [
+                "bastion"
+            ]
+        }
+    },
+    "workshop": {
+        "Ash暴击倍率": 2750,
+        "Hanzo暴击倍率": 2750,
+        "Baptiste暴击倍率": 2500,
+        "Zenyatta暴击倍率": 2500,
+        "诛 （终极技能）额外造成伤害 %": 0
+    }
+}
+
+#Global variables
+
+globalvar Mark 0
+globalvar Collaborator 1
+globalvar ANTI_CRASH_ACTIVATE_PERCENT 2
+globalvar ANTI_CRASH_HOLD_TIME 3
+globalvar ANTI_CRASH_DEACTIVATE_PERCENT 4
+globalvar Debug_UltimateGain 5
+globalvar FalloffMin 6
+globalvar ProjectileSpeed 7
+globalvar BotHeroArray 8
+globalvar Heros 9
+globalvar Hero_BAN 10
+globalvar Genji 11
+globalvar Orisa_Fortify 12
+globalvar HeadshotDamage 13
+globalvar ZaryaBuff 14
+globalvar IllariBuff 15
+globalvar MercyBuff 16
+globalvar SombraBuff 17
+globalvar Tracer_Ability 18
+globalvar ReaperBuff 19
+globalvar MaugaBuff 20
+globalvar HanzoBuff 21
+globalvar S76Buff 22
+globalvar SojournBuff 23
+globalvar HazardBuff 24
+globalvar FrejaBuff 25
+globalvar WuyangBuff 26
+globalvar Brigitte 27
+globalvar SigmaBuff 28
+globalvar JunoBuff 29
+globalvar Ana_GrenadeDamage 30
+globalvar DoomBuff 31
+globalvar Zen_KnockupStrength 32
+globalvar Ram_Annihilation 33
+globalvar VendettaBuff 34
+globalvar health_pool 38
+globalvar Counters 46
+globalvar Counter_Bot 47
+globalvar Blacklist 50
+globalvar CustomAI 51
+globalvar CustomAIArray 52
+
+
+#Player variables
+
+playervar custom_hp_pvar 0
+playervar reset_pvar 1
+playervar heroNum 2
+playervar botTemp 3
+playervar botTarget 4
+playervar Strafe 5
+playervar hudText 6
+playervar unaffected 7
+playervar mov_speed_penalty 8
+playervar mov_speed_buff 9
+playervar orisa_buff 11
+playervar ram_block_damage 12
+playervar ram_block_damage_hud 13
+playervar ram_dmg_reduc 14
+playervar hack_timer 15
+playervar taunt 16
+playervar illari_captive_hud 17
+playervar brigitte_buff 18
+playervar zarya_barrier_shields 19
+playervar brig_repair_pack 21
+playervar brig_repair_pack_id 22
+playervar brig_rally_armor_id 23
+playervar reinhardt_charge_cd 24
+playervar isKnocked 25
+playervar KnockbackDirection 26
+playervar wuyang_buff 27
+playervar orisa_fortify_armor_id 28
+playervar mauga_berserker_soul 29
+playervar mauga_berserker_soul_id 30
+playervar ChangelogText1 31
+playervar ChangelogText2 32
+playervar hazard_hp_id 34
+playervar reaper_buff 35
+playervar zarya_buff 36
+playervar rein_charge_fix 38
+playervar sigma_hyperspheres_hud 39
+playervar sigma_hyperspheres 40
+playervar doom_buff 41
+playervar doom_buff_hud 42
+playervar juno_buff 43
+playervar freja_buff 44
+playervar reinhardt_buff 45
+playervar junker_queen_buff 46
+playervar kiriko_buff 47
+playervar heart_steel 48
+playervar hero_id_duplicated 49
+playervar nano_full_health 50
+playervar has_nano 51
+playervar sombra_buff 52
+playervar healing_increase 53
+playervar healing_decrease 54
+playervar dmg_amplification 55
+playervar dmg_decrease 56
+playervar dmg_reduction 57
+playervar overhealth_decay 58
+playervar storedOverhealth 59
+playervar hazard_using_ability_sec 60
+playervar rein_health_id 61
+playervar vendetta_hud 62
+playervar scoped_shot_distance 106
+playervar scoped_damage_base 107
+playervar ow2_scoped_damage_falloff_scalar 108
+playervar ow1_scoped_damage_falloff_scalar 109
+playervar expected_scoped_damage 110
+
+
+#Subroutine names
+
+subroutine Knockback 0
+subroutine applyCustomHp 1
+subroutine clearCustomHp 2
+subroutine resetFrenemies 3
+subroutine resetStats 4
+subroutine resetStatuses 5
+subroutine executeUppercut 6
+subroutine enableAllAbilities 7
+subroutine disableAllAbilities 8
+subroutine changelogText 9
+subroutine resetHero 10
+subroutine removeTankPassive 11
+subroutine storeOverhealth 12
+subroutine botAim2Target 13
+
+
+#Only remove the following directive if the gamemode does not use tricks such as A+0, A*0, "am" == "**", etc which would otherwise be optimized out.
+#!optimizeStrict
+
+
+rule "Copyright (c) 2019-2025 他又（aka Teakowa）":
+    disableInspector()
+    Heros = getAllHeroes().exclude([Hero.MERCY, Hero.JUNKRAT, Hero.TORBJORN, Hero.BASTION])
+    Collaborator = ["他又", "别感冒", "步六孤", "Destiny", "smile"]
+    Mark = " \r\n\n 非重装 AI 减伤 25%\r\n 重装 AI 最高减伤 40%\r\n 完整更新日志 workshop.codes/3TP7F/update-log\r\n 企鹅聊天群：361913638\r\n 中途退、挂机永久BAN，不服的现在滚"
+    #Setup Anti Crash
+    ANTI_CRASH_ACTIVATE_PERCENT = createWorkshopSettingInt("Anti Crash", "激活阈值", 230, 0, 250)
+    ANTI_CRASH_HOLD_TIME = createWorkshopSettingFloat("Anti Crash", "激活持续时间", 8, 0, 20, 1)
+    ANTI_CRASH_DEACTIVATE_PERCENT = createWorkshopSettingInt("Anti Crash", "停用阈值", 180, 0, 250, 2)
+
+
+rule "Initialize global variables":
+    Debug_UltimateGain = createWorkshopSettingBool("Debug", "即时终极技能充能", false, 4)
+    #随机禁用英雄池中的4名英雄（1 重装 2输出 1辅助）
+    Hero_BAN = createWorkshopSettingBool("模式", "英雄BAN池", false, 11)
+    CustomAIArray = [Hero.FREJA, Hero.VENTURE, Hero.PHARAH, Hero.ILLARI, Hero.JUNO, Hero.HAZARD, Hero.VENDETTA]
+    CustomAI = createWorkshopSettingEnum("模式", "自定义 AI", 0, ["弗蕾娅", "探奇", "法老之鹰", "伊拉锐", "朱诺", "骇灾", "斩仇"], 12)
+    #AI/Script Initial
+    FalloffMin = [2.5, 2.5, 50, 8, 1, 10, 14, 22, 40, 18, 30, 10, 12.5, 25, 30, 10, 2.5, 3.75, 2.5, 23, 15, 100000000, 2.5, 20, 2.5, 17.5, 5.75, 15, 30, 25, 9.6, 15, 32, 2.5, 18, 9.75, 20, 30, 30, 15, 20, 2.5, 25]
+    ProjectileSpeed = [100000000, 100000000, 100000000, 40, 100000000, 50, 70, 110, 100000000, 90, 100000000, 100000000, 100000000, 100000000, 100000000, 50, 80, 35, 100000000, 115, 75, 100000000, 100000000, 100, 80, 100000000, 100000000, 100000000, 100000000, 100000000, 48, 75, 160, 100000000, 90, 80, 100, 100000000, 100000000, 50, 100000000, 140, 625]
+    BotHeroArray = [Hero.TRACER, Hero.REAPER, Hero.WIDOWMAKER, Hero.PHARAH, Hero.REINHARDT, Hero.MERCY, Hero.TORBJORN, Hero.HANZO, Hero.WINSTON, Hero.ZENYATTA, Hero.BASTION, Hero.SYMMETRA, Hero.ZARYA, Hero.CASSIDY, Hero.SOLDIER, Hero.LUCIO, Hero.ROADHOG, Hero.JUNKRAT, Hero.DVA, Hero.MEI, Hero.GENJI, Hero.ANA, Hero.SOMBRA, Hero.ORISA, Hero.DOOMFIST, Hero.MOIRA, Hero.BRIGITTE, Hero.WRECKING_BALL, Hero.ASHE, Hero.BAPTISTE, Hero.SIGMA, Hero.ECHO, Hero.SOJOURN, Hero.JUNKER_QUEEN, Hero.KIRIKO, Hero.RAMATTRA, Hero.LIFEWEAVER, Hero.ILLARI, Hero.MAUGA, Hero.VENTURE, Hero.JUNO, Hero.HAZARD, Hero.FREJA]
+
+
+rule "Initialize Hero Ability Settings":
+    #Brigitte_RepairPacksArmor
+    Brigitte[1] = createWorkshopSettingInt("英雄：布丽吉塔", "恢复包：提供的护甲", 125, 0, 200, 30)
+    Brigitte[3] = createWorkshopSettingInt("英雄：布丽吉塔", "能量盾击：使敌人减速 %", 70, 0, 90, 31)
+    #Brigitte_RallyArmor
+    Brigitte[2] = createWorkshopSettingInt("英雄：布丽吉塔", "集结号令：每秒额外护甲", 25, 0, 150, 34)
+    Brigitte[0] = createWorkshopSettingInt("英雄：布丽吉塔", "集结号令：每秒伤害减免", 1, 0, 5, 33)
+    MercyBuff[0] = createWorkshopSettingInt("英雄：天使", "女武神：伤害减免", 35, 0, 90, 40)
+    HazardBuff[0] = createWorkshopSettingInt("英雄：骇灾", "尖刺护体：基于受到伤害的额外伤害 %", 300, 0, 500, 70) / 100
+    HazardBuff[1] = createWorkshopSettingFloat("英雄：骇灾", "灾厄馈赠（被动）：基于受到伤害获得终极技能充能 %", 3, 0, 500, 70)
+    HazardBuff[2] = createWorkshopSettingInt("英雄：骇灾", "灾厄馈赠（被动）：基于受到原始伤害（未被减伤）回复生命值 %", 65, 0, 500, 70) / 100
+    Orisa_Fortify[0] = createWorkshopSettingInt("英雄：奥丽莎", "强固防御：获得的临时护甲", 200, 0, 300, 50)
+    #Orisa_FortifyRicochet
+    Orisa_Fortify[1] = createWorkshopSettingInt("英雄：奥丽莎", "强固防御：反弹伤害比例", 50, 0, 100, 51)
+    Orisa_Fortify[2] = createWorkshopSettingInt("英雄：奥丽莎", "能量标枪：使敌人减速 %", 70, 0, 90, 31)
+    Genji[0] = createWorkshopSettingInt("英雄：源氏", "分数", 1500, 500, 5000, 60)
+    Genji[1] = createWorkshopSettingInt("英雄：源氏", "龙刃：额外造成伤害 %", 50, 0, 100, 61)
+    Zen_KnockupStrength = createWorkshopSettingFloat("英雄：禅雅塔", "无影脚击退距离", 15.5, 0, 100, 71)
+    #Ram_AnnihilationDamage
+    Ram_Annihilation[0] = createWorkshopSettingInt("英雄：拉玛刹", "天罚形态：铁臂：最大临时生命值", 400, 0, 1000, 100)
+    Ram_Annihilation[1] = createWorkshopSettingInt("英雄：拉玛刹", "诛 （终极技能）基于已造成伤害的百分比回复 ", 150, 0, 500, 101) / 100
+    Ram_Annihilation[5] = createWorkshopSettingInt("英雄：拉玛刹", "诛 （终极技能）额外造成伤害 %", 30, 0, 100, 101)
+    #Ram_AnnihilationSpeed
+    Ram_Annihilation[3] = createWorkshopSettingInt("英雄：拉玛刹", "诛 （终极技能）移动速度加成 %", 10, 0, 100, 102)
+    Ram_Annihilation[4] = createWorkshopSettingInt("英雄：拉玛刹", "诛 （终极技能）受到伤害减免 %", 20, 0, 99, 103)
+    Ana_GrenadeDamage[0] = createWorkshopSettingInt("英雄：安娜", "生物手雷 额外最大生命值伤害 %", 15, 0, 20, 104)
+    Ana_GrenadeDamage[1] = createWorkshopSettingInt("英雄：安娜", "猎头精英：生命汲取比例 %", 150, 0, 250, 104) / 100
+    #SojournBuffHP
+    SojournBuff[0] = createWorkshopSettingInt("英雄：索杰恩", "处决生命值低于 % 的英雄", 15, 0, 30, 105) / 100
+    #SojournBuffDamage
+    SojournBuff[1] = createWorkshopSettingInt("英雄：索杰恩", "处决造成的伤害", 44444, 44444, 99999, 106)
+    SojournBuff[3] = createWorkshopSettingInt("英雄：索杰恩", "机体超频： 流血伤害", 25, 0, 90, 108)
+    #Sombra_HackHealRec
+    SombraBuff[0] = createWorkshopSettingInt("英雄：黑影", "黑客入侵减少治疗量 %", 50, 0, 50, 111)
+    #Tracer_KillResetCooldown
+    Tracer_Ability[0] = createWorkshopSettingBool("英雄：猎空", "猎空：参与击杀后重置技能冷却", true, 113)
+    #Tracer_KillHeal
+    Tracer_Ability[1] = createWorkshopSettingBool("英雄：猎空", "猎空：参与击杀后回复已损失生命值", true, 114)
+    ZaryaBuff[0] = createWorkshopSettingInt("英雄：查莉娅", "投射屏障 为目标提供的临时生命值", 50, 0, 150, 117)
+    ZaryaBuff[2] = createWorkshopSettingBool("英雄：查莉娅", "胜利意志（被动）", true, 115)
+    ZaryaBuff[3] = createWorkshopSettingInt("英雄：查莉娅", "胜利意志（被动） 持续时间", 30, 0, 45, 116)
+    ZaryaBuff[4] = createWorkshopSettingInt("英雄：查莉娅", "胜利意志（被动） 每秒治疗量", 45, 0, 60, 116)
+    IllariBuff = createWorkshopSettingFloat("英雄：伊拉锐", "桎梏灼日 额外伤害增幅 %", 5, 0, 20, 118) / 100
+    ReaperBuff[0] = createWorkshopSettingInt("英雄：死神", "收割：击杀获得灵魂层数", 1, 0, 5, 119)
+    ReaperBuff[1] = createWorkshopSettingFloat("英雄：死神", "收割：每层灵魂减少技能冷却", 0.08, 0, 0.1, 119)
+    ReaperBuff[2] = createWorkshopSettingInt("英雄：死神", "幽灵形态：基础伤害增幅 %", 20, 0, 30, 119)
+    ReaperBuff[3] = createWorkshopSettingInt("英雄：死神", "幽灵形态：灵魂层数提供伤害增幅 %", 2, 0, 5, 119)
+    ReaperBuff[4] = createWorkshopSettingInt("英雄：死神", "暗影步：基础伤害减免 %", 10, 0, 25, 119)
+    ReaperBuff[5] = createWorkshopSettingInt("英雄：死神", "暗影步：灵魂层数提供伤害减免 %", 1, 0, 1.5, 119)
+    ReaperBuff[6] = createWorkshopSettingFloat("英雄：死神", "恐怖扳机：冷却时间", 1.5, 0, 3, 119)
+    ReaperBuff[7] = createWorkshopSettingFloat("英雄：死神", "恐怖扳机：基于灵魂层数造成流血伤害", 1, 0, 3, 119) / 2
+    ReaperBuff[8] = createWorkshopSettingInt("英雄：死神", "死亡绽放：灵魂层数提供伤害增幅 %", 1, 0, 5, 119)
+    MaugaBuff[0] = createWorkshopSettingInt("英雄：毛加", "狂战士之魂：额外最大生命值 %", 150, 0, 500, 122) / 100
+    MaugaBuff[1] = createWorkshopSettingInt("英雄：毛加", "狂战士之魂：额外伤害减免 %", 45, 0, 80, 123)
+    MaugaBuff[2] = createWorkshopSettingInt("英雄：毛加", "狂战士之魂：额外伤害增幅 %", 50, 0, 80, 120)
+    MaugaBuff[5] = createWorkshopSettingInt("英雄：毛加", "狂战士之魂：击退抵抗 %", 80, 0, 80, 122)
+    MaugaBuff[6] = createWorkshopSettingInt("英雄：毛加", "狂战士之魂：每秒损失最大生命值 %", 15, 0, 50, 122) / 100
+    MaugaBuff[7] = createWorkshopSettingInt("英雄：毛加", "狂战士之魂：击杀回复最大生命值 %", 20, 0, 50, 122) / 100
+    MaugaBuff[3] = createWorkshopSettingInt("英雄：毛加", "蛮力冲撞：被击倒的敌人造成最大生命值伤害 %", 10, 0, 50, 122) / 100
+    MaugaBuff[4] = createWorkshopSettingFloat("英雄：毛加", "心脏过载：额外伤害减免", 25, 0, 50, 121)
+    S76Buff[0] = createWorkshopSettingInt("英雄：士兵 76", "螺旋飞弹：燃烧持续时间", 3, 0, 3, 124)
+    S76Buff[1] = createWorkshopSettingInt("英雄：士兵 76", "螺旋飞弹：每秒伤害", 25, 0, 100, 125)
+    SigmaBuff[0] = createWorkshopSettingInt("英雄：西格玛", "超能之球：基于当前生命值造成额外伤害 %", 25, 0, 200, 130) / 100
+    JunoBuff = createWorkshopSettingInt("英雄：朱诺", "轨道射线：友方英雄伤害减免 %", 50, 0, 200, 130)
+    DoomBuff[0] = createWorkshopSettingFloat("英雄：末日铁拳", "悍猛格挡：伤害吸收倍率", 4, 0, 5, 131)
+    DoomBuff[1] = createWorkshopSettingInt("英雄：末日铁拳", "悍猛格挡：最大吸收伤害", 300, 0, 500, 132) + 0.001
+    FrejaBuff[0] = createWorkshopSettingInt("英雄：弗蕾娅", "无情猎杀：每层伤害", 20, 0, 25, 133)
+    FrejaBuff[1] = createWorkshopSettingInt("英雄：弗蕾娅", "无情猎杀：最大生命值百分比伤害", 10, 0, 25, 134) / 100
+    FrejaBuff[2] = createWorkshopSettingInt("英雄：弗蕾娅", "无情猎杀：斩杀阈值", 20, 0, 25, 135) / 100
+    WuyangBuff[0] = createWorkshopSettingInt("英雄：无漾", "玄武杖：水珠爆炸减速 %", 30, 0, 70, 136)
+    WuyangBuff[1] = createWorkshopSettingInt("英雄：无漾", "养神泉：泉水提供的额外护盾", 75, 0, 300, 137)
+    WuyangBuff[2] = createWorkshopSettingInt("英雄：无漾", "飞流步：每秒自我治疗", 50, 0, 300, 138)
+    WuyangBuff[3] = createWorkshopSettingInt("英雄：无漾", "飞流步：伤害减免", 30, 0, 90, 139)
+    WuyangBuff[4] = createWorkshopSettingInt("英雄：无漾", "惊涛波：爆炸减速 %", 70, 0, 90, 140)
+    WuyangBuff[5] = createWorkshopSettingInt("英雄：无漾", "惊涛波：友方每秒额外生命值回复 %", 15, 0, 50, 141) / 100
+    #Setup Headshot Damage
+    HeadshotDamage[0] = createWorkshopSettingFloat("暴击倍率", "禅雅塔：暴击倍率（以下实际数值将被除以100）", 250, 200, 300, 70) / 100
+    #AshHeadshotDamage
+    HeadshotDamage[1] = createWorkshopSettingFloat("暴击倍率", "艾什：暴击倍率", 275, 200, 300, 107) / 100
+    HeadshotDamage[3] = createWorkshopSettingFloat("暴击倍率", "半藏：暴击倍率", 275, 200, 300, 107) / 100
+    #Baptiste_HeadshotDamage
+    HeadshotDamage[4] = createWorkshopSettingFloat("暴击倍率", "巴蒂斯特：暴击倍率", 250, 200, 300, 110) / 100
+    HeadshotDamage[2] = createWorkshopSettingFloat("暴击倍率", "雾子：暴击倍率", 250, 200, 300, 110) / 100
+    VendettaBuff[0] = createWorkshopSettingInt("英雄：斩仇", "帕拉蒂尼之牙：暴击造成额外最大生命值伤害 %", 8, 0, 30, 150) / 100
+    VendettaBuff[1] = createWorkshopSettingInt("英雄：斩仇", "帕拉蒂尼之牙：暴击对护甲造成额外最大生命值伤害 %", 16, 0, 50, 150) / 100
+    VendettaBuff[2] = createWorkshopSettingInt("英雄：斩仇", "旋风疾步：命中敌人回复已损失生命值 %", 40, 0, 100, 152) / 100
+    VendettaBuff[3] = createWorkshopSettingInt("英雄：斩仇", "旋风疾步：对护甲造成额外伤害", 25, 0, 50, 153)
+    VendettaBuff[4] = createWorkshopSettingFloat("英雄：斩仇", "斩地巨剑：击倒持续时间", 3.5, 0, 5, 154)
+    VendettaBuff[5] = createWorkshopSettingInt("英雄：斩仇", "斩地巨剑：斩杀阈值 %", 20, 0, 40, 155) / 100
+    VendettaBuff[6] = createWorkshopSettingInt("英雄：斩仇", "帕拉蒂尼之牙：暴击回复最大生命值 %", 40, 0, 80, 150) / 100
+
+
+rule "[Anti Crash]: Activate anti crash":
+    @Condition getServerLoad() > ANTI_CRASH_ACTIVATE_PERCENT
+    
+    wait(ANTI_CRASH_HOLD_TIME, Wait.ABORT_WHEN_FALSE)
+    smallMessage(getAllPlayers(), "  服务器过载  ")
+    setSlowMotion(1)
+    wait(0.5)
+    waitUntil(getServerLoad() < ANTI_CRASH_DEACTIVATE_PERCENT, 999999986991104)
+    setSlowMotion(100)
+
+
+rule "[Global]Setup Blacklist":
+    Blacklist = []
+    wait(getAverageServerLoad() / 100)
+    Blacklist.append("小哲-比奇堡悍匪-蓝海-啊哈哈哈哈-EdwardJoe-EQUA-小余天天开心-梦想成为源氏糕手".split("-"))
+    Blacklist.append("假如给我三天雨姐-YyX-挽风-太酱樱铃-笙墨-秘泽-高大的死灵-大魔王皮平1-两毛五-Robotman-三十三岁上班族-土豆焖马铃薯-Freakybab".split("-"))
+    Blacklist.append("膨胀的魔丸-坦诚的巨鹰-我可能喝了假奶-我可能喝了假白酒-陆陆好公路收费站-炉火糖粥-一曲柳暗花-王中王鱿鱼火腿肠-蒙牛牌特仑苏-魔王献捷".split("-"))
+    Blacklist.append("焦糖-亭中烟-坦诚的熊-我的禅雅塔没有球-易水寒兮风萧萧-修凡-压力我没奶吃-我才13岁-玩不明白-Shadowwitch-二十五夜-晓山瑞希".split("-"))
+    Blacklist.append("拉扯美如画-Anderson-Arrow-REM-王源发根烟-白银之鹰-卡卡-REMEMBER-徐凤年-Daylight-长时间的战场-间谍川建国-傅里叶变换-小冰冰".split("-"))
+    Blacklist.append("龙晓浩-信仰之跃-夏鸭-邻家的豺狼人-格兰蒂娅-eggyellow-柚子-远坂凛不厨我厨-掂掂热狗-曾许人间第一流-溺水的鱼-时卡-Slow-月球猫猫".split("-"))
+    Blacklist.append("长时间的战场-性感天使在线牵人-Zhenj8NB-户晨风-二妹-丶苏四-可乐交响曲-去幻想乡当秘书-超菜小妖-嘎嘎嘎-明日方舟高手-小冰冰-REfrian".split("-"))
+    Blacklist.append("站好别动我奶不中-小熊敏感鸡-Pakho-F4xIIO-RenoJackson-其實我喜歡你-暗影-这个枪手不太准-高桥梁介-十二月-KMERK-玖採禾子-墨狸渊".split("-"))
+    Blacklist.append("HiddenDragon-骤雨狭-混沌星辰-張依依-这事儿李白知道吗-Lizzz-radium-关于小熊-AngelFRANXX-Jason-腼腆的小喷菇-违规昵称3764".split("-"))
+    Blacklist.append("哪个是友人啊晕-别想开我裤链-请叫我肉饭团丶-番茄炒蛋-肥婆奶奶-野蛮人森达克斯-丑丑哒-邮寄月亮-没人能逃过悲伤-琥珀-机械之忍-一线生机".split("-"))
+    Blacklist.append("折七五-Kabane-过儿桑桑桑-ikkk-lovely-无敌大大-喵喵很菜-守望先锋真好玩-OVERLORD-暗影之龙-十一来了快跑-Sirius-夜惊鸿-死神".split("-"))
+    Blacklist.append("嘟嘟嘟嘟嘟-我复活的都是妹妹-BOOM-一战老兵-穆云冰寒-此爱隔山海-胡萝阿卜-星空泪痕-雨宫-南风-无懂-驾驭不住-墙和柱子能奶你吗-南瓜".split("-"))
+    Blacklist.append("一起变橙汁-苦茶子-菜菜的大胖-小叮做事小叮当-有人死就有人哭-大叔来瓶啤酒-无言的猜忌-FinnickC13-淡雅暮-Geass-Temmie-Kiara".split("-"))
+    Blacklist.append("HADE-可爱的英雄-新手-丁丹-风中男孩-托马斯-青春靓丽脑壳痛-靠谱的豺狼人-无聊的牛犊-栉名安娜-我的炉石没有传说-清心寡欲冠希哥".split("-"))
+    Blacklist.append("布不不-hustle-昊天承-绪小夜-双哥豆腐店-听风说拥抱过你-flat-INSANEBOI-DFmin-玛尔其玛-RagHjpt-哦呵呵-哎呦你干嘛-南于".split("-"))
+    Blacklist.append("墨汐-战斗软泥怪-话语是误会的源泉-死亡之翼-荒谬的渔夫-柠檬呀-Blueprint-疯狂的鹿-叙利亚大兵-宇多-初识伊人粉正浓-已卸载退坑".split("-"))
+    Blacklist.append("安之若素-迟缓的窃贼-cocoa-kawaiiruki-原来我也有今天丶-爱意随风起-我是小橙子-请别杀死我的浪漫-冷静的食人魔-沉默之风暴-三带王".split("-"))
+    Blacklist.append("死在二十岁-恐惧之裤-苍白的萨特-我不是仓鼠-大咕咕-冷漠-不闹来抱-潜行之鲷-守林人-华丽之裤-STAN-草东没有我-我是菜鸟-浪里淘沙".split("-"))
+    Blacklist.append("成成-不吃芹菜-jiejjjie-啊咧咧-冥王死月-loveYCone-千束龙奈-Sw3Et-薛定谔的睡针-桃源奈奈生-我只是比较蠢咯-Aurora-WenDylucJean".split("-"))
+    Blacklist.append("雾雾雾雾雾雾子-栖鱼-熊熊爱上幼儿园-多情的烤包子-VIKENNN-东莞牛得滑-Vincent0401-安兹乌尔恭-夏虫语冰-洪世贤-落花无意-查无此人".split("-"))
+    Blacklist.append("木头鳄鱼-TuiTui233-HELP-PercyVI-走路太骚会闪腰-张富贵-无垢识-单纯爱回忆-Apollo-醉瑾年-莱因哈特盾很厚-巨硕之矮人-激励前行".split("-"))
+    Blacklist.append("腾讯游戏-GabrielReyes-我超凶的-庄周梦蝶-恶人自有恶人嬷-控梦-小菜鸟-山有木兮木有枝丶-Martin-春风十里-吃老婆饼吗-子春十二".split("-"))
+    Blacklist.append("永远有多远-十六岁添柴少年-枫叶红时多可怜-再见-毒蛇堂堂主山鸡-呆头飞鸟阿羞羞-马萨国人-老八没有饱疲-XHeAns-李面瘫-爆裂黎明".split("-"))
+    Blacklist.append("易千万-贪睡之熊-八十八岁八世同堂-情绪化的小腻腻-真白-暗夜之鸦-忧郁小恶魔-星空-李秋实-老牛带你入坑-秋沫-cosmic-青云子-大团子".split("-"))
+    Blacklist.append("修改回忆中的你-荔枝汽水-港九九九-她说那天只是阳了-你男神王守义-月照七星北斗-疯间彻-无敌叮当大王-宇冉-Tragheir-枫桥踏雪歌".split("-"))
+    Blacklist.append("小涵是人间理想-萨克斯-老板放过我吧-茉莉小哥-她曾胜过世间所有-呆萌学徒法师-烫头纹身真男人-RunXenia-风催雨-春和景明-别烦-此木".split("-"))
+    Blacklist.append("小千丶云长-暗影之风暴-teaser1225-前尘舊夢-拉钩还要上钓-冰封玫瑰-你的班主任-泉州周杰伦-达瓦里氏-儿时的星空-请拨打110-星辰".split("-"))
+
+
+rule "[Player]Remove Player from Blacklist":
+    @Event playerJoined
+    @Team 2
+    @Condition "{0}".format(eventPlayer) in Blacklist == true
+    
+    eventPlayer.removeFromGame()
+
+
+rule "[Player]Remove Player from Blacklist":
+    @Event playerLeft
+    @Team 2
+    @Condition isGameInProgress() == true
+    
+    smallMessage(hostPlayer, "  {0}".format(eventPlayer))
+    smallMessage(hostPlayer, "  {0}".format(eventPlayer))
+    smallMessage(hostPlayer, "  {0}".format(eventPlayer))
+
+
+rule "[Player]Hero BAN":
+    @Condition Hero_BAN == true
+    
+    if not getCurrentMap() in [Map.ILIOS, Map.NEPAL, Map.LIJIANG_TOWER, Map.BUSAN, Map.OASIS, Map.PARIS, Map.ROUTE66]:
+        goto lbl_0
+    Heros.remove(Hero.ROADHOG)
+    lbl_0:
+    if getCurrentMap() in [Map.ILIOS, Map.NEPAL, Map.LIJIANG_TOWER, Map.BUSAN, Map.OASIS, Map.PARIS, Map.ROUTE66]:
+        goto lbl_1
+    Heros.remove(random.choice(getTankHeroes()))
+    lbl_1:
+    Heros.remove(random.choice(getDamageHeroes()))
+    Heros.remove(random.choice(getDamageHeroes()))
+    if not getCurrentMap() in [Map.ILIOS, Map.NEPAL, Map.LIJIANG_TOWER, Map.OASIS, Map.BUSAN]:
+        goto lbl_2
+    Heros.remove(Hero.LUCIO)
+    lbl_2:
+    if getCurrentMap() in [Map.ILIOS, Map.NEPAL, Map.LIJIANG_TOWER, Map.OASIS, Map.BUSAN]:
+        goto lbl_3
+    Heros.remove(random.choice(getSupportHeroes()))
+    lbl_3:
+
+
+rule "[Player]: Override allowed heroes list when player joins lobby":
+    @Event playerJoined
+    @Team 2
+    
+    if "{0}".format(eventPlayer) in ["他又"]:
+        eventPlayer.setAllowedHeroes(getAllHeroes())
+    elif "{0}".format(eventPlayer) in Collaborator:
+        eventPlayer.setAllowedHeroes(Heros.concat([Hero.MERCY, Hero.JUNKRAT, Hero.TORBJORN]))
+    else:
+        eventPlayer.setAllowedHeroes(Heros)
+    wait(0.16)
+    eventPlayer.hudText = ""
+
+
+rule "[Player]: hudText init":
+    wait(1)
+    hudText(getPlayersInSlot(0, Team.2), null, "\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r", getPlayersInSlot(0, Team.2).hudText, HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
+    hudText(getPlayersInSlot(1, Team.2), null, "\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r", getPlayersInSlot(1, Team.2).hudText, HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
+    hudText(getPlayersInSlot(2, Team.2), null, "\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r", getPlayersInSlot(2, Team.2).hudText, HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
+    hudText(getPlayersInSlot(3, Team.2), null, "\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r", getPlayersInSlot(3, Team.2).hudText, HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
+    hudText(getPlayersInSlot(4, Team.2), null, "\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r", getPlayersInSlot(4, Team.2).hudText, HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
+    hudText(getPlayersInSlot(5, Team.2), null, "\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r", getPlayersInSlot(5, Team.2).hudText, HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
+
+
+rule "[utilities/reset]: setup var when player joins lobby":
+    @Event eachPlayer
+    
+    resetFrenemies()
+
+
+rule "[utilities/reset]: Default respawn time":
+    @Event eachPlayer
+    @Team 1
+    
+    eventPlayer.setRespawnTime(5)
+
+
+rule "[utilities/reset]: Default respawn time":
+    @Event eachPlayer
+    @Team 2
+    
+    eventPlayer.setRespawnTime(10)
+
+
+rule "[utilities/reset]: reset when died":
+    @Event playerDied
+    
+    wait(getAverageServerLoad() / 100)
+    eventPlayer.hudText = ""
+    eventPlayer.has_nano = false
+    eventPlayer.zarya_buff[0] = true
+    eventPlayer.zarya_buff[1] = null
+    eventPlayer.ram_block_damage = 0
+    eventPlayer.sigma_hyperspheres = 0
+    eventPlayer.doom_buff = 0
+    resetStats()
+    resetStatuses()
+    resetFrenemies()
+
+
+def storeOverhealth():
+    @Name "[utilities/overhealth]: Store Overhealth"
+    
+    eventPlayer.storedOverhealth[0] = eventPlayer.getMaxHealth() - eventPlayer.getMaxHealthOfType(Health.NORMAL) - eventPlayer.getMaxHealthOfType(Health.ARMOR) - eventPlayer.getMaxHealthOfType(Health.SHIELDS)
+
+
+def enableAllAbilities():
+    @Name "[utilities/reset.opy]: enableAllAbilities()"
+    
+    eventPlayer.allowButton(Button.PRIMARY_FIRE)
+    eventPlayer.allowButton(Button.SECONDARY_FIRE)
+    eventPlayer.allowButton(Button.ABILITY_1)
+    eventPlayer.allowButton(Button.ABILITY_2)
+    eventPlayer.allowButton(Button.ULTIMATE)
+    eventPlayer.allowButton(Button.MELEE)
+    eventPlayer.allowButton(Button.JUMP)
+    eventPlayer.allowButton(Button.CROUCH)
+    eventPlayer.allowButton(Button.RELOAD)
+    eventPlayer.allowButton(Button.INTERACT)
+    eventPlayer.setPrimaryFireEnabled(true)
+    eventPlayer.setSecondaryFireEnabled(true)
+    eventPlayer.setAbility1Enabled(true)
+    eventPlayer.setAbility2Enabled(true)
+    eventPlayer.setUltEnabled(true)
+    eventPlayer.setMeleeEnabled(true)
+    eventPlayer.setJumpEnabled(true)
+    eventPlayer.setCrouchEnabled(true)
+    eventPlayer.setReloadEnabled(true)
+
+
+def disableAllAbilities():
+    @Name "[utilities/reset.opy]: disableAllAbilities()"
+    
+    #eventPlayer.disallowButton(Button.PRIMARY_FIRE)
+    eventPlayer.disallowButton(Button.SECONDARY_FIRE)
+    eventPlayer.disallowButton(Button.ABILITY_1)
+    eventPlayer.disallowButton(Button.ABILITY_2)
+    eventPlayer.disallowButton(Button.ULTIMATE)
+    eventPlayer.disallowButton(Button.MELEE)
+    #eventPlayer.disallowButton(Button.JUMP)
+    #eventPlayer.disallowButton(Button.CROUCH)
+    #eventPlayer.disallowButton(Button.RELOAD)
+    #eventPlayer.disallowButton(Button.INTERACT)
+    #eventPlayer.setPrimaryFireEnabled(false)
+    #eventPlayer.setSecondaryFireEnabled(false)
+    #eventPlayer.setAbility1Enabled(false)
+    #eventPlayer.setAbility2Enabled(false)
+    #eventPlayer.setUltEnabled(false)
+    #eventPlayer.setMeleeEnabled(false)
+    #eventPlayer.setJumpEnabled(false)
+    #eventPlayer.setCrouchEnabled(false)
+    #eventPlayer.setReloadEnabled(false)
+
+
+def resetStats():
+    @Name "[utilities/reset.opy]: resetStats()"
+    
+    eventPlayer.mov_speed_penalty = 0
+    eventPlayer.mov_speed_buff = 0
+    eventPlayer.setDamageReceived(100)
+    eventPlayer.setProjectileSpeed(100)
+    eventPlayer.setProjectileGravity(100)
+    eventPlayer.setHealingReceived(100)
+    eventPlayer.setKnockbackReceived(100)
+    eventPlayer.setKnockbackDealt(100)
+    eventPlayer.setGravity(100)
+    eventPlayer.setMoveSpeed(100)
+
+
+def resetStatuses():
+    @Name "[utilities/reset.opy]: resetStatuses()"
+    
+    eventPlayer.stopAllDamageOverTime()
+    eventPlayer.stopForcingThrottle()
+    eventPlayer.freja_buff[0] = 0
+    eventPlayer.freja_buff[1] = 0
+    eventPlayer.brigitte_buff[0] = false
+    eventPlayer.orisa_buff = false
+    eventPlayer.mov_speed_penalty = 0
+    eventPlayer.mov_speed_buff = 0
+    eventPlayer.taunt = false
+    eventPlayer.clearStatusEffect(Status.ASLEEP)
+    eventPlayer.clearStatusEffect(Status.BURNING)
+    eventPlayer.clearStatusEffect(Status.FROZEN)
+    eventPlayer.clearStatusEffect(Status.HACKED)
+    eventPlayer.clearStatusEffect(Status.INVINCIBLE)
+    eventPlayer.clearStatusEffect(Status.KNOCKED_DOWN)
+    eventPlayer.clearStatusEffect(Status.PHASED_OUT)
+    eventPlayer.clearStatusEffect(Status.ROOTED)
+    eventPlayer.clearStatusEffect(Status.STUNNED)
+    eventPlayer.clearStatusEffect(Status.UNKILLABLE)
+
+
+def resetFrenemies():
+    @Name "[utilities/reset.opy]: resetFrenemies()"
+    
+    eventPlayer.reset_pvar[1] = getPlayersOnHero(Hero.BRIGITTE, eventPlayer.getTeam())[0]
+    eventPlayer.reset_pvar[3] = getPlayersOnHero(Hero.KIRIKO, eventPlayer.getTeam())[0]
+    eventPlayer.reset_pvar[4] = getPlayersOnHero(Hero.SOMBRA, eventPlayer.getTeam())[0]
+    eventPlayer.reset_pvar[5] = getPlayersOnHero(Hero.RAMATTRA, getOppositeTeam(eventPlayer.getTeam()))[0]
+    eventPlayer.reset_pvar[6] = getPlayersOnHero(Hero.SOMBRA, getOppositeTeam(eventPlayer.getTeam()))[0]
+    eventPlayer.reset_pvar[7] = getPlayersOnHero(Hero.ANA, getOppositeTeam(eventPlayer.getTeam()))[0]
+    eventPlayer.reset_pvar[9] = getPlayersOnHero(Hero.HANZO, getOppositeTeam(eventPlayer.getTeam()))[0]
+    eventPlayer.reset_pvar[11] = getPlayersOnHero(Hero.FREJA, getOppositeTeam(eventPlayer.getTeam()))[0]
+    eventPlayer.reset_pvar[12] = getPlayersOnHero(Hero.BAPTISTE, eventPlayer.getTeam())[0]
+    eventPlayer.reset_pvar[13] = getPlayersOnHero(Hero.WUYANG, eventPlayer.getTeam())[0]
+    eventPlayer.reset_pvar[14] = getPlayersOnHero(Hero.WUYANG, getOppositeTeam(eventPlayer.getTeam()))[0]
+    eventPlayer.reset_pvar[15] = getPlayersInSlot(0, eventPlayer.getTeam())
+    eventPlayer.reset_pvar[16] = getPlayersInSlot(5, eventPlayer.getTeam())
+
+
+rule "[reset.opy]: Reinitialize hero on new round":
+    @Event eachPlayer
+    @Condition isMatchBetweenRounds() == true
+    @Condition eventPlayer.getHero() != Hero.SOMBRA
+    
+    waitUntil(not isMatchBetweenRounds(), 999999986991104)
+    wait(1)
+    resetHero()
+    eventPlayer.reset_pvar[0] = true
+    logToInspector("called init after new round")
+
+
+rule "[utilities/hero_setup.opy]: Reset and initialize hero on hero switch":
+    @Event eachPlayer
+    @Condition eventPlayer.reset_pvar[0] != false
+    
+    #wait(10 * TICK_DURATION)
+    destroyHudText(eventPlayer.ChangelogText1)
+    destroyHudText(eventPlayer.ChangelogText2)
+    resetHero()
+    logToInspector("called reset hero")
+
+
+rule "[utilities/overhealth]: Decay Overhealth":
+    @Event eachPlayer
+    @Condition eventPlayer.overhealth_decay == true
+    @Condition eventPlayer.getMaxHealth() - eventPlayer.getMaxHealthOfType(Health.NORMAL) - eventPlayer.getMaxHealthOfType(Health.ARMOR) - eventPlayer.getMaxHealthOfType(Health.SHIELDS) > 0
+    @Disabled
+    
+    wait(5, Wait.RESTART_WHEN_TRUE)
+    storeOverhealth()
+    #While has OH
+    while eventPlayer.getMaxHealth() - eventPlayer.getMaxHealthOfType(Health.NORMAL) - eventPlayer.getMaxHealthOfType(Health.ARMOR) - eventPlayer.getMaxHealthOfType(Health.SHIELDS) > 0:
+        #If OH gained, delay again
+        if eventPlayer.getMaxHealth() - eventPlayer.getMaxHealthOfType(Health.NORMAL) - eventPlayer.getMaxHealthOfType(Health.ARMOR) - eventPlayer.getMaxHealthOfType(Health.SHIELDS) > eventPlayer.storedOverhealth[0]:
+            loop()
+        #If not full HP, replace current OH with current OH - 1
+        if eventPlayer.getHealth() < eventPlayer.getMaxHealth():
+            eventPlayer.storedOverhealth[1] = eventPlayer.getHealth() - eventPlayer.storedOverhealth[0]
+            while eventPlayer.getHealth() > eventPlayer.storedOverhealth[1]:
+                eventPlayer.setHealth(eventPlayer.storedOverhealth[1])
+            eventPlayer.storedOverhealth[0]--
+            if eventPlayer.storedOverhealth[0] < 1:
+                return
+            eventPlayer.addHealthPool(Health.NORMAL, eventPlayer.storedOverhealth[0], false, false)
+            #Else just subtract 1 from health
+        else:
+            eventPlayer.setHealth(eventPlayer.getHealth() - 1)
+            storeOverhealth()
+        wait(0.12)
+
+
+def clearCustomHp():
+    @Name "[utilities/custom_hp.opy]: clearCustomHp()"
+    
+    eventPlayer.reset_pvar[8] = false
+    eventPlayer.removeAllHealthPools()
+    wait()
+    eventPlayer.setMaxHealth(100)
+    wait()
+    eventPlayer.custom_hp_pvar[0] = 0
+    eventPlayer.custom_hp_pvar[1] = 0
+    eventPlayer.custom_hp_pvar[2] = 0
+    eventPlayer.custom_hp_pvar[3] = eventPlayer.getMaxHealthOfType(Health.NORMAL)
+    eventPlayer.custom_hp_pvar[4] = eventPlayer.getMaxHealthOfType(Health.ARMOR)
+    eventPlayer.custom_hp_pvar[5] = eventPlayer.getMaxHealthOfType(Health.SHIELDS)
+    eventPlayer.custom_hp_pvar[6] = 1
+    eventPlayer.reset_pvar[8] = true
+
+
+def applyCustomHp():
+    @Name "[utilities/custom_hp.opy]: applyCustomHp()"
+    
+    if eventPlayer.getMaxHealthOfType(Health.NORMAL) == eventPlayer.custom_hp_pvar[0] and eventPlayer.getMaxHealthOfType(Health.ARMOR) == eventPlayer.custom_hp_pvar[1] and eventPlayer.getMaxHealthOfType(Health.SHIELDS) == eventPlayer.custom_hp_pvar[2]:
+        return
+    #Find minimum hp scalar value that ensures
+    #the scaled health/armor/shields is less or equal to
+    #the desired custom health/armor/shield value
+    eventPlayer.custom_hp_pvar[6] = min(min(eventPlayer.custom_hp_pvar[0] / eventPlayer.custom_hp_pvar[3] if eventPlayer.custom_hp_pvar[3] > 0 else 999999995904, eventPlayer.custom_hp_pvar[1] / eventPlayer.custom_hp_pvar[4] if eventPlayer.custom_hp_pvar[4] > 0 else 999999995904), eventPlayer.custom_hp_pvar[2] / eventPlayer.custom_hp_pvar[5] if eventPlayer.custom_hp_pvar[5] > 0 else 999999995904)
+    eventPlayer.setMaxHealth(100 * eventPlayer.custom_hp_pvar[6])
+    waitUntil(eventPlayer.getMaxHealth() != eventPlayer.custom_hp_pvar[3] + eventPlayer.custom_hp_pvar[4] + eventPlayer.custom_hp_pvar[5], 1)
+    if eventPlayer.custom_hp_pvar[0] - eventPlayer.getMaxHealthOfType(Health.NORMAL) >= 1:
+        eventPlayer.addHealthPool(Health.NORMAL, eventPlayer.custom_hp_pvar[0] - eventPlayer.getMaxHealthOfType(Health.NORMAL), true, false)
+    if eventPlayer.custom_hp_pvar[1] - eventPlayer.getMaxHealthOfType(Health.ARMOR) >= 1:
+        eventPlayer.addHealthPool(Health.ARMOR, eventPlayer.custom_hp_pvar[1] - eventPlayer.getMaxHealthOfType(Health.ARMOR), true, false)
+    if eventPlayer.custom_hp_pvar[2] - eventPlayer.getMaxHealthOfType(Health.SHIELDS) >= 1:
+        eventPlayer.addHealthPool(Health.SHIELDS, eventPlayer.custom_hp_pvar[2] - eventPlayer.getMaxHealthOfType(Health.SHIELDS), true, false)
+
+
+def resetHero():
+    @Name "[utilities/reset.opy]: resetHero()"
+    
+    destroyHudText(eventPlayer.reaper_buff[2])
+    destroyHudText(eventPlayer.ram_block_damage_hud)
+    destroyHudText(eventPlayer.sigma_hyperspheres_hud)
+    destroyHudText(eventPlayer.doom_buff_hud)
+    eventPlayer.reaper_buff[2] = 0
+    eventPlayer.hudText = ""
+    eventPlayer.ram_block_damage = 0
+    eventPlayer.sigma_hyperspheres = 0
+    eventPlayer.doom_buff = 0
+    eventPlayer.reaper_buff[1] = 0
+    eventPlayer.dmg_reduction = 0
+    eventPlayer.dmg_amplification = 0
+    eventPlayer.has_nano = false
+    clearCustomHp()
+    resetStats()
+    resetStatuses()
+    resetFrenemies()
+    enableAllAbilities()
+    #wait at least 1 tick
+    wait()
+
+
+def removeTankPassive():
+    @Name "[passives/tank/knockback.opy]: removeTankPassive()"
+    @Disabled
+    
+    eventPlayer.setKnockbackReceived(166.667)
+
+
+rule "Initialize AI Scripts":
+    @Disabled
+    @Delimiter
+    
+
+
+def botAim2Target():
+    @Name "[AI/global]: botAim2Target"
+    
+    eventPlayer.startFacing(directionTowards(eventPlayer + Vector.UP * distance(eventPlayer, eventPlayer.getEyePosition()) + worldVector(vect(0, 0, 0), eventPlayer, Transform.ROTATION), eventPlayer.botTarget.getEyePosition()), 10000)
+
+
+rule "[AI/global]: Generated at the beginning":
+    @Condition any([isWaitingForPlayers(), isInSetup(), isGameInProgress()]) == true
+    @Condition getPlayersOnHero(CustomAIArray[CustomAI], Team.1).hasSpawned() != true
+    
+    wait(getAverageServerLoad() / 100)
+    #waitUntil(getPlayersOnHero(CustomAIArray[CustomAI], Team.1).hasSpawned() != true, 9999)
+    destroyAllDummies()
+    wait(0.25)
+    createDummy(CustomAIArray[CustomAI], Team.1, -1, nearestWalkablePosition(random.choice(getLivingPlayers(Team.1)).getPosition() + vect(random.uniform(-1, 1), random.uniform(-1, 1), random.uniform(-1, 1)) * random.uniform(7, 10)))
+
+
+rule "[AI/global]: Per second healing":
+    @Event eachPlayer
+    @Team 1
+    @Condition isGameInProgress() == true
+    
+    eventPlayer.startHealingOverTime(eventPlayer, 3600, 8)
+
+
+rule "[AI/global]: Counter Heros":
+    Counters = [Hero.HAZARD, Hero.DVA, Hero.HANZO, Hero.SOLDIER, Hero.ORISA, Hero.TORBJORN, Hero.DOOMFIST, Hero.ZARYA, Hero.REAPER, Hero.PHARAH, Hero.GENJI, Hero.TRACER, Hero.WRECKING_BALL, Hero.MEI, Hero.ASHE, Hero.REINHARDT, Hero.SIGMA, Hero.CASSIDY, Hero.SOMBRA, Hero.ILLARI, Hero.RAMATTRA, Hero.JUNKER_QUEEN, Hero.WINSTON, Hero.SOJOURN]
+    Counter_Bot = [Hero.ROADHOG, Hero.CASSIDY, Hero.MEI, Hero.ASHE, Hero.SOJOURN, Hero.LUCIO, Hero.ZENYATTA, Hero.BRIGITTE, Hero.KIRIKO, Hero.ILLARI, Hero.HAZARD, Hero.JUNO, Hero.FREJA, Hero.SOMBRA, Hero.SYMMETRA]
+
+
+rule "[AI/ultimate]: Counter Ultimate Ability":
+    @Event playerTookDamage
+    @Team 1
+    @Condition eventAbility == Button.ULTIMATE
+    @Condition victim.getHero() in Counter_Bot == true
+    @Condition attacker.getHero() in Counters == true
+    @Condition attacker.isUsingUltimate() != true
+    @Condition (eventPlayer.isAlive() and eventPlayer.getUltCharge() == 100) == true
+    
+    eventPlayer.startForcingButton(Button.ULTIMATE)
+    wait(2)
+    eventPlayer.stopForcingButton(Button.ULTIMATE)
+
+
+rule "[AI/ultimate]: Auto use Ultimate Ability":
+    @Event playerTookDamage
+    @Team 1
+    #@Condition getPlayersInRadius(eventPlayer, 10, getOppositeTeam(eventPlayer.getTeam()), LosCheck.SURFACES) >= 3
+    @Condition (len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) and distance(eventPlayer, player) <= 10])) >= 3
+    #@Condition getPlayersInRadius(eventPlayer, 15, eventPlayer.getTeam(), LosCheck.SURFACES) >= 3
+    @Condition (len([player for player in getLivingPlayers(eventPlayer.getTeam()) if isInLoS(eventPlayer, player) and distance(eventPlayer, player) <= 15])) >= 3
+    @Condition victim.getHero() in Counter_Bot == false
+    @Condition (eventPlayer.isAlive() and eventPlayer.getUltCharge() == 100) == true
+    
+    eventPlayer.startForcingButton(Button.ULTIMATE)
+    wait(0.34)
+    eventPlayer.stopForcingButton(Button.ULTIMATE)
+
+
+rule "[AI/ultimate]: Auto charge Ultimate":
+    @Event eachPlayer
+    @Team 1
+    @Condition eventPlayer.getUltCharge() >= 95 == true
+    
+    eventPlayer.setUltCharge(100)
+
+
+rule "[AI/global]: TP":
+    @Event eachPlayer
+    @Team 1
+    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.reset_pvar[15].isAlive() == true
+    @Condition eventPlayer.hasStatus(Status.FROZEN) == false
+    @Condition eventPlayer.hasStatus(Status.ASLEEP) == false
+    @Condition eventPlayer.hasStatus(Status.ROOTED) == false
+    @Condition eventPlayer.hasStatus(Status.KNOCKED_DOWN) == false
+    @Condition eventPlayer.hazard_using_ability_sec != true
+    @Condition (eventPlayer.isFiringPrimaryFire() or eventPlayer.isFiringSecondaryFire() or eventPlayer.isUsingAbility1() or eventPlayer.isUsingAbility2() or eventPlayer.isUsingUltimate()) != true
+    @Condition (distance(eventPlayer, eventPlayer.reset_pvar[15]) >= 2.5 or not isInLoS(eventPlayer, eventPlayer.reset_pvar[15])) == true
+    @Condition (not eventPlayer.isOnObjective() or not eventPlayer.isInSpawnRoom()) == true
+    
+    wait(3.5, Wait.ABORT_WHEN_FALSE)
+    if eventPlayer.isOnObjective() == true:
+        goto lbl_0
+    eventPlayer.teleport(nearestWalkablePosition(eventPlayer.reset_pvar[15] - worldVector(vect(0, 0, -2), eventPlayer, Transform.ROTATION)))
+    if ruleCondition:
+        loop()
+    lbl_0:
+
+
+rule "[AI/Movement]: Movement":
+    @Event eachPlayer
+    @Team 1
+    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.isAlive() == true
+    
+    if len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) == true]) == 0 or eventPlayer.botTarget == null:
+        eventPlayer.startThrottleInDirection(directionTowards(eventPlayer, eventPlayer.reset_pvar[15]), 1, Relativity.TO_WORLD)
+    else:
+        eventPlayer.startThrottleInDirection(directionFromAngles(horizontalAngleOfDirection(directionTowards(eventPlayer, eventPlayer.botTarget)) + eventPlayer.Strafe, 0), 1, Relativity.TO_WORLD)
+    eventPlayer.Strafe = 90 if distance(eventPlayer, eventPlayer.botTarget) <= FalloffMin[eventPlayer.heroNum] else 0 if eventPlayer.getHero() in getTankHeroes() else 45
+    chaseAtRate(eventPlayer.Strafe, 90 if distance(eventPlayer, eventPlayer.botTarget) <= FalloffMin[eventPlayer.heroNum] else 0 if eventPlayer.getHero() in getTankHeroes() else 45, (0 if abs(eventPlayer.Strafe) == 90 else 9999) if distance(eventPlayer, eventPlayer.botTarget) <= FalloffMin[eventPlayer.heroNum] else 0 if abs(eventPlayer.Strafe) == 45 else 9999)
+    eventPlayer.Strafe *= -1
+    wait(0.5)
+    if ruleCondition:
+        loop()
+    eventPlayer.stopThrottleInDirection()
+
+
+rule "[AI/Movement]: Strafing":
+    @Event eachPlayer
+    @Team 1
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.getHero() != Hero.ILLARI
+    @Condition eventPlayer.getHero() != Hero.ECHO
+    @Condition eventPlayer.getHero() != Hero.GENJI
+    @Condition len(getPlayersInRadius(eventPlayer, 22, getOppositeTeam(eventPlayer.getTeam()))) > 0
+    
+    eventPlayer.startThrottleInDirection(random.choice([Vector.LEFT, Vector.RIGHT]), 1, Relativity.TO_PLAYER)
+    wait(random.uniform(0.2, 0.5), Wait.ABORT_WHEN_FALSE)
+    wait(min(0.016, getAverageServerLoad() / 100))
+    if ruleCondition:
+        loop()
+    eventPlayer.stopThrottleInDirection()
+
+
+rule "[AI/Movement]: Strafing Genji":
+    @Event eachPlayer
+    @Team 1
+    @Hero genji
+    @Condition eventPlayer.isAlive() == true
+    @Condition len(getPlayersInRadius(eventPlayer, 22, getOppositeTeam(eventPlayer.getTeam()))) > 0
+    
+    eventPlayer.startThrottleInDirection(random.choice([Vector.LEFT, Vector.RIGHT]), 1, Relativity.TO_PLAYER)
+    wait(random.uniform(0.2, 0.8), Wait.ABORT_WHEN_FALSE)
+    wait(min(0.016, getAverageServerLoad() / 100))
+    if ruleCondition:
+        loop()
+    eventPlayer.stopThrottleInDirection()
+
+
+rule "[AI/Movement]: Jump Crouch":
+    @Event eachPlayer
+    @Team 1
+    @Condition eventPlayer.isAlive() == true
+    #@Condition eventPlayer.isUsingUltimate() == false
+    @Condition (len(getPlayersInRadius(eventPlayer, 22, getOppositeTeam(eventPlayer.getTeam()))) > 0 or eventPlayer.isFiringPrimaryFire() or eventPlayer.isFiringSecondaryFire()) == true
+    
+    if random.randint(1, 100) <= 33:
+        goto lbl_0
+    eventPlayer.startForcingButton(Button.CROUCH)
+    if eventPlayer.getHero() != Hero.BAPTISTE:
+        goto lbl_1
+    wait(random.uniform(0.25, 0.3))
+    eventPlayer.forceButtonPress(Button.JUMP)
+    lbl_1:
+    wait(random.uniform(0, 0.2))
+    eventPlayer.stopForcingButton(Button.CROUCH)
+    lbl_0:
+    if random.randint(1, 100) <= 33:
+        goto lbl_2
+    if eventPlayer.getHero() == Hero.WIDOWMAKER and eventPlayer.isFiringSecondaryFire():
+        goto lbl_3
+    eventPlayer.forceButtonPress(Button.JUMP)
+    if eventPlayer.getHero() == Hero.HANZO:
+        wait(0.5)
+        eventPlayer.forceButtonPress(Button.JUMP)
+    lbl_2:
+    lbl_3:
+    wait(0.6)
+    if ruleCondition:
+        loop()
+
+
+rule "[AI/Movement]: reset speed":
+    @Event eachPlayer
+    @Team 1
+    @Hero torbjorn
+    @Condition eventPlayer.isUsingUltimate() == true
+    
+    eventPlayer.setProjectileSpeed(50)
+    waitUntil(not eventPlayer.isUsingUltimate(), 15)
+    eventPlayer.setProjectileSpeed(100)
+
+
+rule "[AI]: Target in line of sight":
+    @Event eachPlayer
+    @Team 1
+    @Condition eventPlayer.getHero() in CustomAIArray.concat([Hero.REAPER, Hero.KIRIKO, Hero.MAUGA, Hero.SOJOURN, Hero.GENJI, Hero.TRACER]) == true
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if distance(eventPlayer, player) <= 22]) > 0
+    #@Condition getPlayersInRadius(eventPlayer.getEyePosition(), 50, getOppositeTeam(eventPlayer.getTeam()))[0] != false
+    
+    eventPlayer.botTemp = [player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player)]
+    wait()
+    if not eventPlayer.botTemp:
+        eventPlayer.botTarget = null
+        goto lbl_0
+    eventPlayer.botTemp.remove([player for player in eventPlayer.botTemp if not player.hasSpawned() or player.hasStatus(Status.INVINCIBLE) or player.hasStatus(Status.PHASED_OUT) or player.getHero() == Hero.ORISA and player.isUsingAbility1() or player.getHero() == Hero.GENJI and player.isUsingAbility2() or player.getHero() == Hero.DOOMFIST and player.isUsingAbility2()])
+    wait()
+    if len(eventPlayer.botTemp) > 1:
+        eventPlayer.botTemp = sorted(eventPlayer.botTemp, lambda player: player.getHealth() * distance(eventPlayer, player))
+        wait()
+    eventPlayer.botTarget = eventPlayer.botTemp[0]
+    lbl_0:
+    wait(random.uniform(0.256, 0.512))
+    if ruleCondition:
+        loop()
+    #eventPlayer.botTarget = null
+
+
+rule "[AI]: Target increase aim to prep for flicking to a target entering range":
+    @Event eachPlayer
+    @Team 1
+    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.botTarget != null
+    
+    botAim2Target()
+
+
+rule "[AI/control]: Tracer Ability 2":
+    @Event playerTookDamage
+    @Team 1
+    @Hero tracer
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.isInSpawnRoom() != true
+    
+    waitUntil(eventPlayer.getNormalizedHealth() < 0.3, 3)
+    eventPlayer.forceButtonPress(Button.ABILITY_2)
+
+
+rule "[AI/control]: Tracer Ultimate":
+    @Event eachPlayer
+    @Team 1
+    @Hero tracer
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.getUltCharge() == 100
+    @Condition eventPlayer.isAlive() == true
+    
+    waitUntil(true and distance(eventPlayer.getPosition(), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) < 2.6, 99999)
+    eventPlayer.startForcingButton(Button.ULTIMATE)
+    wait(3)
+    eventPlayer.stopForcingButton(Button.ULTIMATE)
+
+
+rule "[AI/control]: Reaper Primary":
+    @Event eachPlayer
+    @Team 1
+    @Hero reaper
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.botTarget != null
+    
+    eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
+
+
+rule "[AI/control]: Reaper Ability 1":
+    @Event playerTookDamage
+    @Team 1
+    @Hero reaper
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) == 0
+    @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) <= 3
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.botTarget != null
+    
+    eventPlayer.startForcingButton(Button.ABILITY_1)
+    wait(0.4)
+    waitUntil(distance(eventPlayer.getPosition() * vect(1, 0, 1), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) < 2.6, 3)
+    eventPlayer.cancelPrimaryAction()
+    eventPlayer.setPrimaryFireEnabled(false)
+    eventPlayer.setAbilityCooldown(Button.ABILITY_1, 8)
+    eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
+    wait(0.4)
+    eventPlayer.setPrimaryFireEnabled(true)
+    eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
+    wait(0.192)
+    if ruleCondition:
+        loop()
+
+
+rule "[AI/control]: Reaper Ability 2":
+    @Event eachPlayer
+    @Team 1
+    @Hero reaper
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) <= 3
+    @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) == 0
+    @Condition eventPlayer.botTarget != null
+    
+    waitUntil(not eventPlayer.getAbilityCooldown(Button.ABILITY_2) and distance(eventPlayer.getPosition(), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) > 5, 99999)
+    eventPlayer.startForcingButton(Button.ABILITY_2)
+    eventPlayer.startFacing(directionTowards(eventPlayer.getEyePosition(), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)), 10000)
+    wait(0.192)
+    eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
+    eventPlayer.startFacing(directionTowards(eventPlayer.getEyePosition(), eventPlayer.botTarget.getEyePosition()), 10000)
+    eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
+    wait(0.192)
+    if ruleCondition:
+        loop()
+
+
+rule "[AI/control]: Reaper Ultimate":
+    @Event eachPlayer
+    @Team 1
+    @Hero reaper
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.getUltCharge() == 100
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.botTarget != null
+    @Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if distance(eventPlayer, player) <= 8.3]) > 0
+    
+    waitUntil(not eventPlayer.isFiringPrimaryFire() and distance(eventPlayer.getPosition(), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) < 3, 99999)
+    eventPlayer.startForcingButton(Button.ULTIMATE)
+    waitUntil(not eventPlayer.isUsingUltimate(), 99999)
+    eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
+    wait(0.192)
+    if ruleCondition:
+        loop()
+
+
+rule "[AI/control]: Ana Set botTarget":
+    @Event eachPlayer
+    @Team 2
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.getHero() in [Hero.GENJI, Hero.SOMBRA, Hero.SIGMA, Hero.FREJA, Hero.PHARAH, Hero.CASSIDY, Hero.ILLARI] == true
+    @Condition eventPlayer.getUltCharge() == 100
+    @Condition isInLoS(eventPlayer, eventPlayer.reset_pvar[7]) == true
+    @Condition (eventPlayer.isUsingUltimate() or eventPlayer.isHoldingButton(Button.ULTIMATE)) == true
+    @Condition eventPlayer.reset_pvar[7].botTarget == null
+    
+    eventPlayer.reset_pvar[7].botTarget = true
+    wait(2)
+
+
+rule "[AI/control]: Ana Sleep Drat Counter":
+    @Event eachPlayer
+    @Team 1
+    @Hero ana
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) == 0
+    #@Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if distance(eventPlayer, player) <= 22]) > 0
+    @Condition eventPlayer.botTarget != null
+    
+    eventPlayer.botTarget = (sorted([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if player.getHero() in [Hero.GENJI, Hero.SOMBRA, Hero.SIGMA, Hero.FREJA, Hero.PHARAH, Hero.CASSIDY, Hero.ILLARI] and isInLoS(eventPlayer, player)], lambda i: distance(eventPlayer, i)))[0]
+    wait(random.uniform(0.08, 0.096 if eventPlayer.botTarget.getHero() == Hero.SOMBRA else 0.576), Wait.ABORT_WHEN_FALSE)
+    #wait()
+    eventPlayer.startFacing(updateEveryFrame(directionTowards(eventPlayer.getEyePosition(), eventPlayer.botTarget.getEyePosition())), 10000)
+    #botAim2Target()
+    #eventPlayer.startFacing(updateEveryFrame(directionTowards(eventPlayer.getEyePosition(), eventPlayer.botTarget.getPosition() + eventPlayer.botTarget.getVelocity() * distance(eventPlayer.getEyePosition(), eventPlayer.botTarget.getPosition()) / ProjectileSpeed[eventPlayer.heroNum])), 10000)
+    eventPlayer.setProjectileSpeed(125)
+    if eventPlayer.botTarget.getHero() == Hero.GENJI:
+        waitUntil(eventPlayer.botTarget.isUsingAbility1(), 0.096)
+        eventPlayer.setFacing(directionTowards(eventPlayer.getEyePosition(), eventPlayer.botTarget.getEyePosition()), Relativity.TO_WORLD)
+    eventPlayer.forceButtonPress(Button.ABILITY_1)
+    #eventPlayer.setFacing(directionTowards(eventPlayer.getEyePosition(), eventPlayer.botTarget.getEyePosition()), Relativity.TO_WORLD)
+    wait(0.192)
+    eventPlayer.stopFacing()
+    eventPlayer.setProjectileSpeed(100)
+    eventPlayer.botTarget = null
+
+
+rule "[AI/control]: Sojourn Ability 1":
+    @Event playerTookDamage
+    @Team 1
+    @Hero sojourn
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) == 0
+    @Condition eventPlayer.isAlive() == true
+    @Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if distance(eventPlayer, player) <= 22]) > 0
+    
+    eventPlayer.startForcingButton(Button.ABILITY_1)
+    wait(0.75)
+    eventPlayer.stopForcingButton(Button.ABILITY_1)
+    eventPlayer.forceButtonPress(Button.JUMP)
+    waitUntil(not eventPlayer.isUsingAbility1(), 99999)
+    wait(0.25)
+
+
+rule "[AI/control]: Kiriko Ability 1":
+    @Event eachPlayer
+    @Team 1
+    @Hero kiriko
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) != true
+    @Condition eventPlayer.getNormalizedHealth() < 0.5
+    
+    if len(getLivingPlayers(Team.2)) < 2:
+        goto lbl_0
+    eventPlayer.startFacing(directionTowards(eventPlayer.getEyePosition(), (sorted(getLivingPlayers(Team.1).exclude(eventPlayer), lambda i: i.getHealth())[0].getEyePosition() + sorted(getLivingPlayers(Team.1).exclude(eventPlayer), lambda i: i.getHealth()).getPosition()) / 2), 10000)
+    wait(0.192)
+    eventPlayer.startForcingButton(Button.ABILITY_1)
+    waitUntil(eventPlayer.isUsingAbility1(), 5)
+    eventPlayer.startFacing(updateEveryFrame(directionTowards(eventPlayer.getEyePosition(), eventPlayer.botTarget.getEyePosition() + eventPlayer.botTarget.getVelocity() * distance(eventPlayer.getEyePosition(), eventPlayer.botTarget.getEyePosition()) / ProjectileSpeed[getAllHeroes().index(eventPlayer.getHero())])), 10000)
+    lbl_0:
+    eventPlayer.setProjectileSpeed(0)
+    eventPlayer.setProjectileGravity(500)
+    wait(0.192)
+    eventPlayer.stopForcingButton(Button.SECONDARY_FIRE)
+    eventPlayer.startForcingButton(Button.ABILITY_2)
+    waitUntil(eventPlayer.getAbilityCooldown(Button.ABILITY_2), 5)
+    eventPlayer.stopForcingButton(Button.ABILITY_2)
+    eventPlayer.setProjectileSpeed(100)
+    eventPlayer.setProjectileGravity(100)
+    eventPlayer.startForcingButton(Button.SECONDARY_FIRE)
+
+
+rule "[AI/control]: Ramattra Ability 1":
+    @Event eachPlayer
+    @Team 1
+    @Hero ramattra
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.isAlive() == true
+    @Condition (not eventPlayer.getAbilityCooldown(Button.ABILITY_1)) == true
+    @Condition (not eventPlayer.isUsingAbility1()) == true
+    @Condition distance(eventPlayer.getPosition(), eventPlayer.botTarget.getPosition()) <= 10
+    @Condition (not eventPlayer.isUsingUltimate()) == true
+    
+    eventPlayer.startForcingButton(Button.ABILITY_1)
+    #wait(0.192)
+    #eventPlayer.stopForcingButton(Button.ABILITY_1)
+
+
+rule "[AI/control]: Ramattra Ability 2":
+    @Event playerTookDamage
+    @Team 1
+    @Hero ramattra
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.isAlive() == true
+    @Condition any([i == true for i in [eventPlayer.isUsingAbility1(), eventPlayer.isUsingUltimate()]]) == true
+    
+    eventPlayer.startForcingButton(Button.SECONDARY_FIRE)
+    #wait(0.192)
+    #eventPlayer.stopForcingButton(Button.ABILITY_1)
+    if eventPlayer.isUsingAbility1() == true:
+        waitUntil(not eventPlayer.isUsingAbility1(), 999999986991104)
+    else:
+        waitUntil(not eventPlayer.isUsingUltimate(), 999999986991104)
+    eventPlayer.stopForcingButton(Button.SECONDARY_FIRE)
+
+
+rule "[AI/control]: Mauga Secondary":
+    @Event eachPlayer
+    @Team 1
+    @Hero mauga
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.isAlive() == true
+    @Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if distance(eventPlayer, player) <= 10]) > 0
+    @Disabled
+    
+    eventPlayer.startForcingButton(Button.SECONDARY_FIRE)
+    waitUntil(distance(eventPlayer.getPosition(), eventPlayer.botTarget) > 10 or len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if distance(eventPlayer, player) <= 10]) == 0, 99999)
+    eventPlayer.stopForcingButton(Button.SECONDARY_FIRE)
+
+
+rule "[AI/control]: Mauga Ability 2":
+    @Event playerTookDamage
+    @Team 1
+    @Hero mauga
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) < 0.5
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.getNormalizedHealth() < 0.5
+    
+    eventPlayer.forceButtonPress(Button.ABILITY_2)
+    wait(3)
+
+
+rule "[AI/control]: Freja Primary":
+    @Event eachPlayer
+    @Team 1
+    @Hero freja
+    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.botTarget != null
+    #@Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) == true]) > 0
+    
+    eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
+    waitUntil(eventPlayer.isUsingAbility1(), 1.5)
+    eventPlayer.startForcingButton(Button.SECONDARY_FIRE)
+    wait(max(getServerLoad() / 1000, 0.192))
+    eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
+    wait(max(getServerLoad() / 1000, 0.192))
+    eventPlayer.stopForcingButton(Button.SECONDARY_FIRE)
+    wait(max(getServerLoad() / 1000, 0.5))
+    if ruleCondition:
+        loop()
+    eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
+    eventPlayer.forceButtonPress(Button.RELOAD)
+
+
+rule "[AI/control]: Freja Ability 2":
+    @Event eachPlayer
+    @Team 1
+    @Hero freja
+    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) != true
+    @Condition eventPlayer.botTarget != null
+    @Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) == true]) > 0
+    
+    eventPlayer.startForcingButton(Button.ABILITY_2)
+    wait(1)
+    eventPlayer.stopForcingButton(Button.ABILITY_2)
+    eventPlayer.forceButtonPress(Button.ABILITY_1)
+    wait(max(getServerLoad() / 1000, 0.4))
+    eventPlayer.forceButtonPress(Button.ABILITY_1)
+    wait(max(getServerLoad() / 1000, 0.4))
+
+
+rule "[AI/control]: Freja Ultimate":
+    @Event eachPlayer
+    @Team 1
+    @Hero freja
+    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.getUltCharge() == 100
+    @Condition eventPlayer.botTarget != null
+    @Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) == true]) > 0
+    
+    waitUntil(true and distance(eventPlayer.getPosition(), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) < 18.6, 99999)
+    eventPlayer.startForcingButton(Button.ULTIMATE)
+    wait(3)
+    eventPlayer.stopForcingButton(Button.ULTIMATE)
+
+
+rule "[AI/control]: Freja Ammo":
+    @Event eachPlayer
+    @Team 1
+    @Hero freja
+    @Condition eventPlayer.getAmmo() <= 1
+    #@Condition (eventPlayer.isUsingAbility1() or eventPlayer.isUsingAbility2() or eventPlayer.isUsingUltimate()) == true
+    
+    eventPlayer.setAmmo(0, eventPlayer.getMaxAmmo())
+
+
+rule "[AI/control]: Pharah Primary":
+    @Event eachPlayer
+    @Team 1
+    @Hero pharah
+    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.botTarget != null
+    @Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) == true]) > 0
+    
+    eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
+    wait(max(getServerLoad() / 1000, 1))
+    if ruleCondition:
+        loop()
+    eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
+
+
+rule "[AI/control]: Pharah Secondary":
+    @Event playerTookDamage
+    @Team 1
+    @Hero pharah
+    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.getAbilityCooldown(Button.SECONDARY_FIRE) == 0
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.botTarget != null
+    @Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) == true]) > 0
+    
+    eventPlayer.startForcingButton(Button.SECONDARY_FIRE)
+    wait(max(getServerLoad() / 1000, 0.192))
+    eventPlayer.stopForcingButton(Button.SECONDARY_FIRE)
+    wait(4)
+
+
+rule "[AI/control]: Pharah Ability 1":
+    @Event eachPlayer
+    @Team 1
+    @Hero pharah
+    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) == 0
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.botTarget != null
+    @Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) == true]) > 0
+    
+    eventPlayer.startForcingButton(Button.ABILITY_1)
+    wait(max(getServerLoad() / 1000, 0.192))
+    eventPlayer.stopForcingButton(Button.ABILITY_1)
+
+
+rule "[AI/control]: Pharah Ability 2":
+    @Event eachPlayer
+    @Team 1
+    @Hero pharah
+    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) == 0
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.botTarget != null
+    @Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) == true]) > 0
+    
+    eventPlayer.startForcingButton(Button.ABILITY_2)
+    wait(max(getServerLoad() / 1000, 0.192))
+    eventPlayer.stopForcingButton(Button.ABILITY_2)
+
+
+rule "[AI/control]: Pharah Jump":
+    @Event eachPlayer
+    @Team 1
+    @Hero pharah
+    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.botTarget != null
+    @Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) == true]) > 0
+    
+    eventPlayer.startForcingButton(Button.JUMP)
+    wait(max(getServerLoad() / 1000, 0.333))
+    eventPlayer.stopForcingButton(Button.JUMP)
+    wait(0.167)
+    while eventPlayer.isInAir():
+        eventPlayer.startForcingButton(Button.JUMP)
+        wait(max(getServerLoad() / 1000, 0.333))
+        eventPlayer.stopForcingButton(Button.JUMP)
+        wait(max(getServerLoad() / 1000, 0.333))
+    wait(1.167)
+    loop()
+
+
+rule "[AI/control]: Pharah Ultimate":
+    @Event eachPlayer
+    @Team 1
+    @Hero pharah
+    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.getUltCharge() == 100
+    @Condition eventPlayer.isAlive() == true
+    
+    waitUntil(true and distance(eventPlayer.getPosition(), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) < 10, 99999)
+    eventPlayer.startForcingButton(Button.ULTIMATE)
+
+
+rule "[AI/control]: Venture Primary":
+    @Event eachPlayer
+    @Team 1
+    @Hero venture
+    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.botTarget != null
+    @Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) == true]) > 0
+    
+    eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
+    wait(max(getServerLoad() / 1000, 0.192))
+    eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
+    if ruleCondition:
+        loop()
+    eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
+
+
+rule "[AI/control]: Venture Secondary":
+    @Event eachPlayer
+    @Team 1
+    @Hero venture
+    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.getAbilityCooldown(Button.SECONDARY_FIRE) == 0
+    @Condition eventPlayer.botTarget != null
+    @Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) == true]) > 0
+    
+    eventPlayer.startForcingButton(Button.SECONDARY_FIRE)
+
+
+rule "[AI/control]: Venture Ability 1":
+    @Event eachPlayer
+    @Team 1
+    @Hero venture
+    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) == 0
+    @Condition eventPlayer.botTarget != null
+    @Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) == true]) > 0
+    
+    eventPlayer.startForcingButton(Button.ABILITY_1)
+    eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
+    eventPlayer.startThrottleInDirection(directionTowards(eventPlayer.getPosition(), eventPlayer.botTarget), 1, Relativity.TO_WORLD)
+    wait(0.192)
+    eventPlayer.stopForcingButton(Button.ABILITY_1)
+    wait(3.792)
+    eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
+    wait(random.uniform(0.65, 1.3))
+    eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
+    wait(0.624)
+    eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
+    eventPlayer.startThrottleInDirection(directionFromAngles(horizontalAngleOfDirection(directionTowards(eventPlayer, eventPlayer.botTarget)) + eventPlayer.Strafe, 0), 1, Relativity.TO_WORLD)
+    if ruleCondition:
+        loop()
+    eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
+
+
+rule "[AI/control]: Venture Ultimate":
+    @Event eachPlayer
+    @Team 1
+    @Hero venture
+    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.getUltCharge() == 100
+    @Condition eventPlayer.isAlive() == true
+    
+    waitUntil(true and distance(eventPlayer.getPosition(), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) < 20, 99999)
+    eventPlayer.startForcingButton(Button.ULTIMATE)
+
+
+rule "[AI/control]: Vendetta Primary":
+    @Event eachPlayer
+    @Team 1
+    @Hero vendetta
+    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.botTarget != null
+    @Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) == true]) > 0
+    
+    eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
+    wait(max(getServerLoad() / 1000, 0.192))
+    eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
+    if ruleCondition:
+        loop()
+    eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
+
+
+rule "[AI/control]: Vendetta Secondary":
+    @Event playerTookDamage
+    @Team 1
+    @Hero vendetta
+    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.botTarget != null
+    @Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) == true]) > 0
+    
+    eventPlayer.startForcingButton(Button.SECONDARY_FIRE)
+    wait(max(getServerLoad() / 1000, 0.192))
+    eventPlayer.forceButtonPress(Button.PRIMARY_FIRE)
+    eventPlayer.stopForcingButton(Button.SECONDARY_FIRE)
+
+
+rule "[AI/control]: Vendetta Ability 1":
+    @Event eachPlayer
+    @Team 1
+    @Hero vendetta
+    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) == 0
+    @Condition eventPlayer.botTarget != null
+    @Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) == true]) > 0
+    
+    waitUntil(true and distance(eventPlayer.getPosition(), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) < 6.8, random.uniform(0.65, 1.2))
+    eventPlayer.startForcingButton(Button.ABILITY_1)
+    wait(max(getServerLoad() / 1000, 0.192))
+    eventPlayer.stopForcingButton(Button.ABILITY_1)
+
+
+rule "[AI/control]: Vendetta Ability 2":
+    @Event eachPlayer
+    @Team 1
+    @Hero vendetta
+    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) != true
+    @Condition eventPlayer.botTarget != null
+    @Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) == true]) > 0
+    
+    eventPlayer.startForcingButton(Button.ABILITY_2)
+    wait(1)
+    eventPlayer.stopForcingButton(Button.ABILITY_2)
+
+
+rule "[AI/control]: Vendetta Ultimate":
+    @Event eachPlayer
+    @Team 1
+    @Hero vendetta
+    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.getUltCharge() == 100
+    @Condition eventPlayer.isAlive() == true
+    
+    waitUntil(true and distance(eventPlayer.getPosition(), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) < 16 or eventPlayer.isInAir(), 99999)
+    resetStatuses()
+    eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
+    eventPlayer.forceButtonPress(Button.ULTIMATE)
+    wait(random.uniform(2, 4))
+    eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
+
+
+rule "[AI/control]: Tracer Primary":
+    @Event eachPlayer
+    @Team 1
+    @Hero tracer
+    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.isAlive() == true
+    @Condition entityExists(eventPlayer.botTarget[0]) == true
+    @Condition eventPlayer.isHoldingButton(Button.PRIMARY_FIRE) != true
+    @Condition isInLoS(eventPlayer.getEyePosition(), eventPlayer.botTarget[0].getEyePosition()) == true
+    @Condition eventPlayer.botTarget != null
+    #@Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) == true]) > 0
+    
+    eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
+    wait(max(getServerLoad() / 1000, 0.5))
+    if ruleCondition:
+        loop()
+    eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
+
+
+rule "[AI/control]: Tracer Recall (Remove Pluse Bomb)":
+    @Event playerTookDamage
+    @Team 1
+    @Hero tracer
+    @Condition eventAbility == Button.ABILITY_2
+    @Condition attacker.getHero() == Hero.TRACER == true
+    @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) == 0
+    
+    eventPlayer.forceButtonPress(Button.ABILITY_2)
+    wait(max(getServerLoad() / 1000, 0.1))
+
+
+rule "[AI/control]: Widowmaker Fly Sky Attack Mode":
+    @Event eachPlayer
+    @Team 1
+    @Hero widowmaker
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.isFiringPrimaryFire() == false
+    @Condition eventPlayer.isOnGround() == true
+    @Condition eventPlayer.getPosition().y > -2
+    @Condition (eventPlayer.hasStatus(Status.KNOCKED_DOWN) or eventPlayer.hasStatus(Status.ASLEEP) or eventPlayer.hasStatus(Status.FROZEN)) != true
+    @Condition len(getPlayersInRadius(eventPlayer, 22, getOppositeTeam(eventPlayer.getTeam()))) > 0
+    
+    wait(0.3)
+    eventPlayer.setAbility2Enabled(false)
+    eventPlayer.setAbilityCooldown(Button.ABILITY_1, 4)
+    eventPlayer.startForcingButton(Button.SECONDARY_FIRE)
+    eventPlayer.setDamageReceived(70)
+    if not eventPlayer.isOnGround():
+        goto lbl_0
+    eventPlayer.applyImpulse(vect(random.uniform(-0.3, 0.3), 1, random.uniform(-0.3, 0.3)), 30, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
+    eventPlayer.setGravity(0)
+    wait(1.2)
+    eventPlayer.forceButtonPress(Button.PRIMARY_FIRE)
+    eventPlayer.setGravity(60)
+    wait(0.4)
+    lbl_0:
+    eventPlayer.setGravity(80)
+    waitUntil(eventPlayer.isOnGround(), 999999986991104)
+    eventPlayer.setDamageReceived(100)
+    eventPlayer.setAbility2Enabled(true)
+    eventPlayer.setGravity(100)
+    eventPlayer.stopForcingButton(Button.SECONDARY_FIRE)
+    wait(3)
+    if ruleCondition:
+        loop()
+
+
+rule "[AI/control]: Genji Ability 2":
+    @Event playerTookDamage
+    @Team 1
+    @Hero genji
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) == 0
+    #@Condition eventPlayer.isUsingAbility2() == true
+    #@Condition eventPlayer.isHoldingButton(Button.PRIMARY_FIRE) == true
+    
+    wait()
+    if len(eventPlayer.botTemp) <= 0:
+        goto lbl_0
+    botAim2Target()
+    lbl_0:
+    eventPlayer.startForcingButton(Button.ABILITY_2)
+    wait(2)
+    eventPlayer.stopFacing()
+    eventPlayer.stopForcingButton(Button.ABILITY_2)
+
+
+rule "[AI/control]: Genji Ultimate":
+    @Event eachPlayer
+    @Team 1
+    @Hero genji
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.isUsingUltimate() == true
+    @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) == 0
+    
+    eventPlayer.forceButtonPress(Button.ABILITY_1)
+    wait(0.5)
+    if ruleCondition:
+        loop()
+
+
+rule "[AI/control]: Hazard Primary":
+    @Event eachPlayer
+    @Team 1
+    @Hero hazard
+    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.botTarget != null
+    @Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) == true]) > 0
+    
+    eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
+    wait(max(getServerLoad() / 1000, 0.192))
+    eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
+    if ruleCondition:
+        loop()
+    eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
+
+
+rule "[AI/control]: Hazard Secondary":
+    @Event playerTookDamage
+    @Team 1
+    @Hero hazard
+    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.botTarget != null
+    @Condition eventPlayer.botTarget.isAlive() == true
+    
+    eventPlayer.startForcingButton(Button.SECONDARY_FIRE)
+    wait(0.192)
+    wait(0.192, Wait.RESTART_WHEN_TRUE)
+    eventPlayer.stopForcingButton(Button.SECONDARY_FIRE)
+
+
+rule "[AI/control]: Hazard Ability 1":
+    @Event eachPlayer
+    @Team 1
+    @Hero hazard
+    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) != true
+    @Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) == true]) > 0
+    
+    eventPlayer.startForcingButton(Button.ABILITY_1)
+    waitUntil(eventPlayer.getAltitude() > 0.1, 99999)
+    waitUntil(eventPlayer.getAltitude() < 0.1, 99999)
+    eventPlayer.startForcingButton(Button.ABILITY_1)
+    wait(0.192)
+    eventPlayer.stopForcingButton(Button.ABILITY_1)
+
+
+rule "[AI/control]: Hazard Ability 2":
+    @Event eachPlayer
+    @Team 1
+    @Hero hazard
+    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) != true
+    @Condition eventPlayer.botTarget != null
+    @Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) == true]) > 0
+    
+    eventPlayer.forceButtonPress(Button.ABILITY_2)
+    wait(2)
+
+
+rule "[AI/control]: Hazard Ultimate":
+    @Event eachPlayer
+    @Team 1
+    @Hero hazard
+    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.getUltCharge() == 100
+    @Condition eventPlayer.isAlive() == true
+    
+    waitUntil(true and distance(eventPlayer.getPosition(), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) < 25.5, 99999)
+    eventPlayer.startForcingButton(Button.ULTIMATE)
+
+
+rule "[AI/control]: Illari Primary":
+    @Event eachPlayer
+    @Team 1
+    @Hero illari
+    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.botTarget != null
+    @Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) == true]) > 0
+    
+    eventPlayer.forceButtonPress(Button.PRIMARY_FIRE)
+    wait(0.9)
+    if ruleCondition:
+        loop()
+
+
+rule "[AI/control]: Illari Secondary":
+    @Event eachPlayer
+    @Team 1
+    @Hero illari
+    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.isAlive() == true
+    @Condition ((sorted([player for player in getLivingPlayers(eventPlayer.getTeam()) if player != eventPlayer and distance(eventPlayer, player) <= 20 and player.getNormalizedHealth() < 0.5], lambda i: i.getHealth() * distance(eventPlayer, i)))[0]) != null
+    @Condition eventPlayer.getAbilityResource(Button.SECONDARY_FIRE) <= 80
+    
+    eventPlayer.startFacing(directionTowards(eventPlayer + Vector.UP * distance(eventPlayer, eventPlayer.getEyePosition()) + worldVector(vect(0, 0, 0), eventPlayer, Transform.ROTATION), ((sorted([player for player in getLivingPlayers(eventPlayer.getTeam()) if player != eventPlayer and distance(eventPlayer, player) <= 20 and player.getNormalizedHealth() < 1], lambda i: i.getHealth() * distance(eventPlayer, i)))[0]).getEyePosition()), 10000)
+    eventPlayer.startForcingButton(Button.SECONDARY_FIRE)
+    waitUntil(eventPlayer.getAbilityResource(Button.SECONDARY_FIRE) >= 45, 1.5)
+    if ruleCondition:
+        loop()
+    eventPlayer.stopFacing()
+    eventPlayer.stopForcingButton(Button.SECONDARY_FIRE)
+    wait(random.uniform(2.256, 5.5))
+
+
+rule "[AI/control]: Illari Ability 1":
+    @Event playerTookDamage
+    @Team 1
+    @Hero illari
+    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) != true
+    
+    eventPlayer.startForcingButton(Button.ABILITY_1)
+    wait(0.192)
+    eventPlayer.stopForcingButton(Button.ABILITY_1)
+
+
+rule "[AI/control]: Illari Ability 2":
+    @Event eachPlayer
+    @Team 1
+    @Hero illari
+    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.isAlive() == true
+    @Condition (not eventPlayer.getAbilityCooldown(Button.ABILITY_2)) == true
+    @Condition (not eventPlayer.isUsingAbility2()) == true
+    @Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) == true]) > 0
+    
+    eventPlayer.setProjectileSpeed(10)
+    eventPlayer.setProjectileGravity(250)
+    wait(0.192)
+    eventPlayer.startForcingButton(Button.ABILITY_2)
+    wait(0.192)
+    eventPlayer.setProjectileSpeed(100)
+    eventPlayer.setProjectileGravity(100)
+    waitUntil(eventPlayer.getAbilityCooldown(Button.ABILITY_2), 5)
+    eventPlayer.stopForcingButton(Button.ABILITY_2)
+    waitUntil(eventPlayer.getAbilityCooldown(Button.ABILITY_2) > 10, 5)
+    if ruleCondition:
+        loop()
+
+
+rule "[AI/control]: Illari Ultimate":
+    @Event eachPlayer
+    @Team 1
+    @Hero illari
+    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.getUltCharge() == 100
+    @Condition eventPlayer.isAlive() == true
+    
+    waitUntil(true and distance(eventPlayer.getPosition(), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) < 25.5, 99999)
+    eventPlayer.startForcingButton(Button.ULTIMATE)
+    eventPlayer.startForcingButton(Button.JUMP)
+    waitUntil(not eventPlayer.isUsingUltimate(), 4)
+    eventPlayer.stopForcingButton(Button.JUMP)
+
+
+rule "[AI/control]: Juno Primary":
+    @Event eachPlayer
+    @Team 1
+    @Hero juno
+    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.botTarget != null
+    @Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) == true]) > 0
+    
+    eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
+    if eventPlayer.getAbilityCooldown(Button.SECONDARY_FIRE) != 0:
+        goto lbl_0
+    eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
+    eventPlayer.startForcingButton(Button.SECONDARY_FIRE)
+    wait(0.88)
+    eventPlayer.stopForcingButton(Button.SECONDARY_FIRE)
+    lbl_0:
+    wait(random.uniform(1, 4))
+    eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
+    wait(max(getServerLoad() / 1000, 0.192))
+    if ruleCondition:
+        loop()
+    eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
+
+
+rule "[AI/control]: Juno Ability 2":
+    @Event eachPlayer
+    @Team 1
+    @Hero juno
+    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) == 0
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.botTarget != null
+    @Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) == true]) > 0
+    
+    eventPlayer.startForcingButton(Button.ABILITY_2)
+    wait(0.192)
+    eventPlayer.stopForcingButton(Button.ABILITY_2)
+
+
+rule "[AI/control]: Juno Jump":
+    @Event eachPlayer
+    @Team 1
+    @Hero juno
+    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.isDummy() == true
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.isOnGround() == true
+    
+    eventPlayer.forceButtonPress(Button.JUMP)
+    wait(0.5)
+    eventPlayer.forceButtonPress(Button.JUMP)
+    wait(0.192)
+    if eventPlayer.getAbilityCooldown(Button.ABILITY_1) != 0:
+        goto lbl_0
+    eventPlayer.startForcingButton(Button.ABILITY_1)
+    waitUntil(not eventPlayer.isUsingAbility1(), 4)
+    eventPlayer.stopForcingButton(Button.ABILITY_1)
+    lbl_0:
+
+
+rule "[AI/control]: Juno Ultimate":
+    @Event playerTookDamage
+    @Team 1
+    @Hero juno
+    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.getUltCharge() == 100
+    @Condition eventPlayer.isAlive() == true
+    
+    waitUntil(true and (((len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) and distance(eventPlayer, player) <= 10])) + (len([player for player in getLivingPlayers(eventPlayer.getTeam()) if isInLoS(eventPlayer, player) and distance(eventPlayer, player) <= 15]))) >= 3), 99999)
+    eventPlayer.forceButtonPress(Button.ULTIMATE)
+
+
+rule "Initialize AI Scripts End":
+    @Disabled
+    @Delimiter
+    
+
+
+rule "[Player]: status reset":
+    @Event eachPlayer
+    @Condition eventPlayer.isAlive() == true
+    @Condition (eventPlayer.hasStatus(Status.INVINCIBLE) or eventPlayer.hasStatus(Status.PHASED_OUT) or eventPlayer.unaffected == true) == true
+    @Condition eventPlayer.mauga_berserker_soul != true
+    
+    resetStatuses()
+    wait(1)
+
+
+rule "[Brigitte]: remove Rally provides permanent armor":
+    @Event eachPlayer
+    @Condition Brigitte[2] != 0
+    @Condition getPlayersOnHero(Hero.BRIGITTE, eventPlayer.getTeam())[0].isUsingUltimate() == true
+    
+    waitUntil(not eventPlayer.reset_pvar[1].isUsingUltimate() and eventPlayer.brig_rally_armor_id != [], 60)
+    wait(2)
+    removeHealthPool(eventPlayer.brig_rally_armor_id[0])
+    eventPlayer.brig_rally_armor_id.remove(eventPlayer.brig_rally_armor_id[0])
+    if len(eventPlayer.brig_rally_armor_id) != 0:
+        loop()
+    eventPlayer.brig_rally_armor_id = []
+    eventPlayer.dmg_reduction = 0
+    eventPlayer.hudText = ""
+    eventPlayer.setDamageReceived(100)
+
+
+rule "[Brigitte]Rally provides permanent armor to self":
+    @Event eachPlayer
+    @Hero brigitte
+    @Condition Brigitte[2] != 0
+    @Condition eventPlayer.isUsingUltimate() == true
+    @Condition len(eventPlayer.brig_rally_armor_id) < 9
+    @Condition getServerLoad() < ANTI_CRASH_DEACTIVATE_PERCENT
+    
+    eventPlayer.dmg_reduction += 1.5
+    eventPlayer.setDamageReceived(100 - eventPlayer.dmg_reduction)
+    eventPlayer.hudText = "受到伤害减免：{0}%".format(eventPlayer.dmg_reduction)
+    eventPlayer.addHealthPool(Health.ARMOR, Brigitte[2], false, false)
+    eventPlayer.brig_rally_armor_id.append(getLastCreatedHealthPool())
+    wait(0.5)
+    if ruleCondition:
+        loop()
+
+
+rule "[Brigitte]Rally provides permanent armor to allies":
+    @Event eachPlayer
+    @Team 2
+    @Condition getPlayersOnHero(Hero.BRIGITTE, eventPlayer.getTeam()).isUsingUltimate() == true
+    @Condition distance(eventPlayer, getPlayersOnHero(Hero.BRIGITTE, eventPlayer.getTeam())) <= 8.5
+    @Condition eventPlayer.getHero() != Hero.BRIGITTE
+    @Condition len(eventPlayer.brig_rally_armor_id) < 9
+    @Condition getServerLoad() < ANTI_CRASH_DEACTIVATE_PERCENT
+    
+    eventPlayer.addHealthPool(Health.ARMOR, Brigitte[2], false, false)
+    eventPlayer.brig_rally_armor_id.append(getLastCreatedHealthPool())
+    wait(0.5)
+    if ruleCondition:
+        loop()
+
+
+rule "[Orisa]: Fortify provides 100 temporary armor":
+    @Event eachPlayer
+    @Hero orisa
+    @Condition Orisa_Fortify[0] != 0
+    #@Condition (eventPlayer.isUsingAbility1() or eventPlayer.isUsingUltimate()) == true
+    @Condition any([i == true for i in [eventPlayer.isUsingAbility1(), eventPlayer.isUsingUltimate()]]) == true
+    
+    eventPlayer.unaffected = true
+    wait(0.096, Wait.ABORT_WHEN_FALSE)
+    eventPlayer.brigitte_buff[0] = false
+    eventPlayer.orisa_buff = false
+    eventPlayer.addHealthPool(Health.ARMOR, Orisa_Fortify[0], true, false)
+    eventPlayer.orisa_fortify_armor_id = getLastCreatedHealthPool()
+    if eventPlayer.isUsingAbility1() == true:
+        waitUntil(not eventPlayer.isUsingAbility1(), 999999986991104)
+    else:
+        waitUntil(not eventPlayer.isUsingUltimate(), 999999986991104)
+    removeHealthPool(eventPlayer.orisa_fortify_armor_id)
+    eventPlayer.unaffected = false
+
+
+rule "[Mauga]: Fortify provides 100 temporary armor":
+    @Event eachPlayer
+    @Hero mauga
+    @Condition eventPlayer.isUsingAbility1() == true
+    
+    eventPlayer.unaffected = true
+    waitUntil(not eventPlayer.isUsingAbility1(), 3)
+    eventPlayer.unaffected = false
+
+
+rule "[Mercy]: Valkyrie":
+    @Event eachPlayer
+    @Hero mercy
+    @Condition MercyBuff[0] != 0
+    @Condition eventPlayer.isUsingUltimate() == true
+    
+    getLivingPlayers(eventPlayer.getTeam()).startHealingOverTime(eventPlayer, 15, 45)
+    eventPlayer.setDamageDealt(200)
+    eventPlayer.setDamageReceived(100 - MercyBuff[0])
+    waitUntil(not eventPlayer.isUsingUltimate(), 20)
+    eventPlayer.setDamageReceived(100)
+    eventPlayer.setDamageDealt(100)
+
+
+rule "【天使】女武神刷新复活冷却时间":
+    @Event eachPlayer
+    @Hero mercy
+    @Condition eventPlayer.isUsingUltimate() == true
+    @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) != 0
+    
+    eventPlayer.setAbilityCooldown(Button.ABILITY_2, 0)
+
+
+rule "[Mercy]: Flash Heal cd":
+    @Event eachPlayer
+    @Hero mercy
+    @Condition eventPlayer.getAbilityCooldown(Button.RELOAD) != 0
+    
+    eventPlayer.setAbilityCooldown(Button.RELOAD, 2)
+
+
+rule "[Ana]: Headhunter":
+    @Event playerDealtDamage
+    @Team 2
+    @Hero ana
+    @Condition eventWasCriticalHit == true
+    @Disabled
+    
+    if eventPlayer.getNormalizedHealth() != 1:
+        eventPlayer.startHealingOverTime(eventPlayer, 0.625, ceil(eventDamage * 31.25 * 0.75))
+    else:
+        ([player for player in getLivingPlayers(eventPlayer.getTeam()) if isInLoS(eventPlayer, player, BarrierLos.BLOCKED_BY_ENEMY_BARRIERS) == true and player != eventPlayer]).startHealingOverTime(eventPlayer, 0.625, ceil(eventDamage * 31.25 * Ana_GrenadeDamage[1]) / (len([player for player in getLivingPlayers(eventPlayer.getTeam()) if isInLoS(eventPlayer, player, BarrierLos.BLOCKED_BY_ENEMY_BARRIERS) == true and player != eventPlayer])))
+    wait(0.625)
+
+
+rule "[Ana] Biotic Grenade Hit":
+    @Event playerTookDamage
+    @Condition eventAbility == Button.ABILITY_2
+    @Condition attacker.getHero() == Hero.ANA == true
+    @Condition (victim.hasStatus(Status.INVINCIBLE) or victim.hasStatus(Status.UNKILLABLE) or victim.hasStatus(Status.PHASED_OUT)) == false
+    @Condition victim.has_nano != true
+    
+    if victim.zarya_buff[1] != null:
+        goto lbl_0
+    eventPlayer.setStatusEffect(attacker, Status.BURNING, 3)
+    eventPlayer.startDamageOverTime(attacker, 3, ceil(Ana_GrenadeDamage[0] / 100 * victim.getMaxHealth()))
+    wait(3)
+    lbl_0:
+
+
+rule "[Ana]: Damage Full Health Allies So Nano Can Heal":
+    @Event eachPlayer
+    @Hero ana
+    @Condition eventPlayer.getUltCharge() == 100
+    
+    waitUntil(eventPlayer.getUltCharge() == 0, 99999)
+    eventPlayer.nano_full_health = [i for i in eventPlayer.getPlayerClosestToReticle(eventPlayer.getTeam()) if i.getHealth() >= i.getMaxHealth()]
+    damage(eventPlayer.nano_full_health, null, 0.05)
+    wait(0.216)
+    heal(eventPlayer.nano_full_health, null, 0.05)
+    eventPlayer.nano_full_health = null
+
+
+rule "Has Nano":
+    @Event playerReceivedHealing
+    #This checks that the ability used to deal the healing is the ultimate.
+    @Condition eventAbility == Button.ULTIMATE
+    #This checks if the player who dealt the healing is Ana or an Echo duplicating an Ana.
+    @Condition healer.getHero() == Hero.ANA
+    
+    eventPlayer.has_nano = true
+    waitUntil(eventPlayer.isDead(), 8)
+    eventPlayer.has_nano = false
+
+
+rule "[Ana] Nano Boost Healing":
+    @Event playerDealtHealing
+    @Hero ana
+    @Condition eventAbility == Button.ULTIMATE
+    @Condition healer.getHero() == Hero.ANA == true
+    
+    heal(healee, healer, 99999)
+
+
+rule "【布丽吉塔】盾击伤害调整":
+    @Event playerDealtDamage
+    @Hero brigitte
+    @Condition eventAbility == Button.PRIMARY_FIRE
+    @Condition attacker.isFiringSecondaryFire() == true
+    @Condition attacker.isUsingUltimate() != true
+    
+    victim.setStatusEffect(attacker, Status.STUNNED, 1.2)
+    if victim.zarya_buff[1] != null:
+        goto lbl_0
+    victim.brigitte_buff[0] = true
+    lbl_0:
+    victim.mov_speed_penalty += Brigitte[3]
+
+
+rule "[Brigitte]: speed":
+    @Event eachPlayer
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.unaffected != true
+    @Condition eventPlayer.brigitte_buff[0] == true
+    
+    eventPlayer.setMoveSpeed(100 - eventPlayer.mov_speed_penalty + eventPlayer.mov_speed_buff)
+    waitUntil(not eventPlayer.brigitte_buff[0] or eventPlayer.mov_speed_penalty == 0 or eventPlayer.unaffected or eventPlayer.hasStatus(Status.INVINCIBLE), 1.5)
+    eventPlayer.setMoveSpeed(100)
+    eventPlayer.brigitte_buff[0] = false
+    eventPlayer.mov_speed_penalty = 0
+
+
+rule "【布丽吉塔】恢复包选中目标":
+    @Event eachPlayer
+    @Hero brigitte
+    @Condition Brigitte[1] != 0
+    @Condition eventPlayer.isUsingAbility2() == true
+    @Condition distance(eventPlayer, eventPlayer.getPlayerClosestToReticle(eventPlayer.getTeam())) <= 27.25
+    
+    sorted(getLivingPlayers(eventPlayer.getTeam()), lambda player: angleBetweenVectors(eventPlayer.getFacingDirection(), directionTowards(eventPlayer.getPosition(), player.getPosition())))[0].brig_repair_pack = true
+
+
+rule "【布丽吉塔】恢复包提供护甲":
+    @Event eachPlayer
+    @Condition Brigitte[1] != 0
+    @Condition eventPlayer.getHero() != Hero.BRIGITTE
+    @Condition (eventPlayer.isAlive() and eventPlayer.brig_repair_pack) == true
+    
+    eventPlayer.brig_repair_pack = false
+    if eventPlayer.brig_repair_pack_id == null:
+        goto lbl_0
+    removeHealthPool(eventPlayer.brig_repair_pack_id)
+    lbl_0:
+    eventPlayer.addHealthPool(Health.ARMOR, Brigitte[1], false, false)
+    smallMessage(eventPlayer, "  {0} 获得来自 {1} 的护甲".format(abilityIconString(Hero.BRIGITTE, Button.ABILITY_2), eventPlayer.reset_pvar[1].getHero()))
+    eventPlayer.brig_repair_pack_id = getLastCreatedHealthPool()
+
+
+rule "[brigitte/rally.opy]: Rally 30% speed boost":
+    @Event eachPlayer
+    @Hero brigitte
+    @Condition eventPlayer.isUsingUltimate() == true
+    
+    #30% movement speed buff during ralley
+    eventPlayer.mov_speed_buff += 13.043
+    eventPlayer.setMoveSpeed(100 + eventPlayer.mov_speed_buff)
+    waitUntil(not eventPlayer.isUsingUltimate(), 10)
+    eventPlayer.mov_speed_buff = 0
+    eventPlayer.setMoveSpeed(100)
+
+
+rule "[Bot] PTP1":
+    @Event eachPlayer
+    @Team 1
+    @Condition eventPlayer.hasStatus(Status.FROZEN) == false
+    @Condition eventPlayer.hasStatus(Status.ASLEEP) == false
+    @Condition eventPlayer.hasStatus(Status.ROOTED) == false
+    @Condition eventPlayer.hasStatus(Status.KNOCKED_DOWN) == false
+    @Condition (getCurrentMap() in [Map.ROUTE66, Map.HAVANA, Map.CIRCUIT_ROYAL, Map.DORADO, Map.JUNKERTOWN, Map.RIALTO, Map.SHAMBALI_MONASTERY] or getCurrentMap() in [Map.BLIZZ_WORLD, Map.BLIZZ_WORLD_WINTER, Map.EICHENWALDE, Map.EICHENWALDE_HALLOWEEN, Map.HOLLYWOOD, Map.HOLLYWOOD_HALLOWEEN, Map.KINGS_ROW, Map.KINGS_ROW_WINTER, Map.MIDTOWN, Map.NUMBANI, Map.PARAISO]) == true
+    @Condition (isInLoS(eventPlayer, getPayloadPosition()) != true and getPlayersInRadius(eventPlayer, 37.5, Team.2, LosCheck.SURFACES) != true and len(getPlayersOnObjective(Team.2)) == 0 and eventPlayer.isUsingUltimate() != true) == true
+    @Condition (eventPlayer.isAlive() and getPayloadProgressPercentage() >= 5 and distance(eventPlayer, getPayloadPosition()) >= 5 and distance(eventPlayer, getPayloadPosition()) < 20) == true
+    
+    wait(2, Wait.ABORT_WHEN_FALSE)
+    eventPlayer.teleport(getPayloadPosition() + vect(random.uniform(0, 1.5), 1.5, random.uniform(0, 1.5)))
+
+
+rule "[Bot] ACC":
+    @Event eachPlayer
+    @Team 1
+    @Condition getMatchTime() == 0
+    @Condition (getCurrentMap() in [Map.ROUTE66, Map.HAVANA, Map.CIRCUIT_ROYAL, Map.DORADO, Map.JUNKERTOWN, Map.RIALTO, Map.SHAMBALI_MONASTERY] or getCurrentMap() in [Map.BLIZZ_WORLD, Map.BLIZZ_WORLD_WINTER, Map.EICHENWALDE, Map.EICHENWALDE_HALLOWEEN, Map.HOLLYWOOD, Map.HOLLYWOOD_HALLOWEEN, Map.KINGS_ROW, Map.KINGS_ROW_WINTER, Map.MIDTOWN, Map.NUMBANI, Map.PARAISO]) == true
+    @Condition (isInLoS(eventPlayer, getPayloadPosition()) and eventPlayer.isAlive() and len(getPlayersOnObjective(Team.2)) >= 1 and len(getPlayersOnObjective(Team.1)) < 3 and getPayloadProgressPercentage() >= 2.5 and distance(eventPlayer, getPayloadPosition()) >= 2.5 and distance(eventPlayer, getPayloadPosition()) < 25) == true
+    
+    eventPlayer.startAcceleration(directionTowards(eventPlayer, getPayloadPosition()), 80, 3, Relativity.TO_WORLD)
+    wait(2)
+    if ruleCondition:
+        loop()
+    eventPlayer.stopAcceleration()
+
+
+rule "[Kiriko]: Protection Suzu Clear Effect":
+    @Event playerDealtHealing
+    @Hero kiriko
+    @Condition eventAbility == Button.ABILITY_2
+    #@Condition healer.getHero() == Hero.KIRIKO == true
+    @Condition healee.mauga_berserker_soul != true
+    
+    if healee != healer:
+        goto lbl_0
+    resetStatuses()
+    lbl_0:
+    healee.unaffected = true
+    healee.setStatusEffect(healer, Status.INVINCIBLE, 1.8)
+    healee.setStatusEffect(healer, Status.PHASED_OUT, 1.8)
+    wait(1.8)
+    healee.unaffected = false
+
+
+rule "[Kiriko]: Swift Step":
+    @Event eachPlayer
+    @Hero kiriko
+    @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) > 0
+    
+    resetStatuses()
+    eventPlayer.setStatusEffect(eventPlayer, Status.INVINCIBLE, 1.5)
+    eventPlayer.setStatusEffect(eventPlayer, Status.PHASED_OUT, 1.5)
+
+
+rule "[kiriko]: swift step hp":
+    @Event eachPlayer
+    @Condition getPlayersOnHero(Hero.KIRIKO, eventPlayer.getTeam())[0].isHoldingButton(Button.ABILITY_1) == true
+    @Condition getPlayersOnHero(Hero.KIRIKO, eventPlayer.getTeam())[0].isUsingAbility1() == true
+    @Condition len(eventPlayer.kiriko_buff) < 5
+    
+    waitUntil(not eventPlayer.reset_pvar[3].isUsingAbility1() and len(getPlayersInRadius(eventPlayer.reset_pvar[3], 5, eventPlayer.getTeam(), LosCheck.SURFACES)) > 0 and eventPlayer.reset_pvar[3].hasStatus(Status.PHASED_OUT) == true, 0.5)
+    wait(0.16)
+    #if eventPlayer.kiriko_buff == null:
+    #        goto lbl_0
+    #removeHealthPool(eventPlayer.kiriko_buff[0])
+    lbl_0:
+    if not eventPlayer.isAlive() or distance(eventPlayer.reset_pvar[3], eventPlayer) > 5 and not isInLoS(eventPlayer.reset_pvar[3], eventPlayer):
+        goto lbl_1
+    eventPlayer.addHealthPool(Health.NORMAL, 100, false, false)
+    #eventPlayer.kiriko_buff = getLastCreatedHealthPool()
+    lbl_1:
+    eventPlayer.kiriko_buff.append(getLastCreatedHealthPool())
+
+
+rule "[kiriko]: remove swift step hp":
+    @Event eachPlayer
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.kiriko_buff != []
+    
+    wait(3, Wait.ABORT_WHEN_FALSE)
+    removeHealthPool(eventPlayer.kiriko_buff[0])
+    eventPlayer.kiriko_buff.remove(eventPlayer.kiriko_buff[0])
+    if len(eventPlayer.kiriko_buff) != 0:
+        loop()
+    eventPlayer.kiriko_buff = []
+
+
+rule "[Lifeweaver]: Life Grip Clear Effect":
+    @Event playerReceivedHealing
+    @Condition eventAbility == Button.ABILITY_2
+    @Condition healer.getHero() == Hero.LIFEWEAVER == true
+    @Condition eventPlayer.mauga_berserker_soul != true
+    
+    resetStatuses()
+
+
+rule "[Sigma]: shield cd":
+    @Event eachPlayer
+    @Hero sigma
+    @Condition eventPlayer.getAbilityCooldown(Button.SECONDARY_FIRE) <= 0.98
+    
+    eventPlayer.setAbilityCooldown(Button.SECONDARY_FIRE, 0.5)
+    wait(0.5)
+
+
+rule "[Sigma]: ult damage":
+    @Event playerDealtDamage
+    @Hero sigma
+    @Condition eventAbility == Button.ULTIMATE
+    @Condition eventDamage > 75
+    
+    damage(victim, attacker, eventDamage / 2)
+
+
+rule "[Sigma]: Accretion knockdown":
+    @Event playerDealtDamage
+    @Hero sigma
+    @Condition eventAbility == Button.ABILITY_2
+    @Condition victim.hasStatus(Status.KNOCKED_DOWN) == true
+    
+    victim.setStatusEffect(attacker, Status.KNOCKED_DOWN, 1.8)
+
+
+rule "[Sigma]: Hyperspheres Layer Damage":
+    @Event playerDealtDamage
+    @Hero sigma
+    @Condition SigmaBuff[0] != 0
+    @Condition eventPlayer.sigma_hyperspheres < 4
+    @Condition eventAbility == Button.PRIMARY_FIRE
+    
+    eventPlayer.sigma_hyperspheres++
+    eventPlayer.hudText = "{0}|{1}".format(eventPlayer.sigma_hyperspheres, 3)
+    wait(0.6)
+
+
+rule "[Sigma]: Hyperspheres Layer Damage":
+    @Event playerDealtDamage
+    @Hero sigma
+    @Condition SigmaBuff[0] != 0
+    @Condition eventPlayer.sigma_hyperspheres == 4
+    @Condition eventAbility == Button.PRIMARY_FIRE
+    
+    eventPlayer.sigma_hyperspheres = 0
+    eventPlayer.hudText = "{0}|{1}".format(eventPlayer.sigma_hyperspheres, 3)
+    damage(victim, attacker, (attacker.custom_hp_pvar[0] + attacker.custom_hp_pvar[2]) * SigmaBuff[0])
+    wait(4)
+
+
+rule "[Sigma]: Hyperspheres HUD":
+    @Event eachPlayer
+    @Team 2
+    @Hero sigma
+    @Condition SigmaBuff[0] != 0
+    @Condition eventPlayer.isInSpawnRoom() != true
+    @Condition eventPlayer.reset_pvar[0] == false
+    @Disabled
+    
+    eventPlayer.hudText = "{0}|{1}".format(eventPlayer.sigma_hyperspheres, 3)
+    #hudText(eventPlayer, null, "\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r", "{0}|{1}".format(eventPlayer.sigma_hyperspheres, 3), HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
+    #eventPlayer.sigma_hyperspheres_hud = getLastCreatedText()
+    waitUntil(eventPlayer.reset_pvar[0] or eventPlayer.isInSpawnRoom(), 999999986991104)
+    eventPlayer.hudText = ""
+    #destroyHudText(eventPlayer.sigma_hyperspheres_hud)
+
+
+rule "[Genji] Dragonblade Healing":
+    @Event playerDealtDamage
+    @Hero genji
+    @Condition eventAbility == Button.ULTIMATE
+    
+    heal(eventPlayer, eventPlayer, eventDamage)
+
+
+rule "[Genji] Dragonblade Damage Fix":
+    @Event eachPlayer
+    @Hero genji
+    @Condition eventPlayer.isUsingUltimate() == true
+    
+    eventPlayer.setDamageDealt(100 + Genji[1])
+    eventPlayer.setDamageReceived(90)
+    waitUntil(not eventPlayer.isUsingUltimate(), 8)
+    eventPlayer.setDamageDealt(100)
+    eventPlayer.setDamageReceived(100)
+
+
+rule "[Tracer] Recall Healing":
+    @Event eachPlayer
+    @Hero tracer
+    @Condition eventPlayer.isUsingAbility2() == true
+    
+    eventPlayer.startHealingOverTime(null, 2, 25)
+
+
+rule "[Venture] Burrow speed and healing":
+    @Event eachPlayer
+    @Hero venture
+    @Condition eventPlayer.isUsingAbility1() == true
+    
+    eventPlayer.mov_speed_buff = 56
+    eventPlayer.setMoveSpeed(100 + eventPlayer.mov_speed_buff)
+    waitUntil(not eventPlayer.isUsingAbility1(), 99999)
+    eventPlayer.mov_speed_buff = 0
+    eventPlayer.setMoveSpeed(100)
+
+
+rule "[Cassdy] Flashbang stun":
+    @Event playerDealtDamage
+    @Hero cassidy
+    @Condition eventAbility == Button.ABILITY_2
+    
+    victim.setStatusEffect(attacker, Status.STUNNED, 0.8)
+
+
+rule "[Cassdy] Peacekeeper Alt Fire":
+    @Event eachPlayer
+    @Hero cassidy
+    @Condition eventPlayer.isFiringSecondaryFire() == true
+    
+    eventPlayer.setDamageDealt(135)
+    waitUntil(not eventPlayer.isFiringSecondaryFire(), 0.75)
+    eventPlayer.setDamageDealt(100)
+
+
+rule "[Cassdy] Peacekeeper Alt Fire Reload":
+    @Event eachPlayer
+    @Hero cassidy
+    @Condition eventPlayer.getAmmo() == 0
+    
+    wait(0.75, Wait.ABORT_WHEN_FALSE)
+    eventPlayer.setAmmo(0, eventPlayer.getMaxAmmo())
+
+
+rule "[Sojourn] Overclock Buff":
+    @Event eachPlayer
+    @Hero sojourn
+    @Condition eventPlayer.isUsingUltimate() == true
+    
+    SojournBuff[0] = 0.2
+    SojournBuff[3] = 30
+    waitUntil(not eventPlayer.isUsingUltimate(), 10)
+    SojournBuff[0] = 0.15
+    SojournBuff[3] = 15
+
+
+rule "[Sojourn] Execution players less 10% HP expectancy":
+    @Event playerDealtDamage
+    @Hero sojourn
+    @Condition SojournBuff[0] != 0
+    @Condition (eventAbility == Button.SECONDARY_FIRE or eventAbility == Button.ULTIMATE) == true
+    @Condition victim.zarya_buff[1] == null
+    @Condition (victim.hasStatus(Status.INVINCIBLE) or victim.hasStatus(Status.UNKILLABLE) or victim.hasStatus(Status.PHASED_OUT)) == false
+    @Condition victim.has_nano != true
+    @Condition victim.getHealth() <= SojournBuff[0] * victim.getMaxHealth()
+    
+    damage(victim, attacker, SojournBuff[1])
+    wait(0.2)
+
+
+rule "[Ash] ammo restored by kills":
+    @Event playerDealtFinalBlow
+    @Team 2
+    @Hero ashe
+    @Condition isGameInProgress() == true
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.getAmmo() < eventPlayer.getMaxAmmo()
+    
+    eventPlayer.setAmmo(0, eventPlayer.getMaxAmmo())
+
+
+rule "[Ash] ammo add by Coach Gun":
+    @Event eachPlayer
+    @Team 2
+    @Hero ashe
+    @Condition eventPlayer.isUsingAbility1() == true
+    
+    waitUntil(not eventPlayer.isUsingAbility1(), 0.55)
+    eventPlayer.setAmmo(0, eventPlayer.getMaxAmmo() if eventPlayer.getAmmo() + 5 > eventPlayer.getMaxAmmo() else eventPlayer.getAmmo() + 5)
+
+
+rule "[Cassdy] ammo restored by kills":
+    @Event playerDealtFinalBlow
+    @Team 1
+    @Hero cassidy
+    @Condition isGameInProgress() == true
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.getAmmo() < eventPlayer.getMaxAmmo()
+    
+    eventPlayer.setAmmo(0, eventPlayer.getMaxAmmo())
+
+
+rule "[Ashe]: headshot damage":
+    @Event playerDealtDamage
+    @Hero ashe
+    @Condition HeadshotDamage[1] > 2
+    @Condition eventWasCriticalHit == true
+    @Condition eventAbility != Button.ABILITY_1
+    @Condition eventAbility != Button.ABILITY_2
+    @Condition eventAbility != Button.ULTIMATE
+    
+    damage(victim, attacker, ceil((eventDamage * (HeadshotDamage[1] - 2)) / 2))
+
+
+rule "[Zenyatta]: headshot damage":
+    @Event playerDealtDamage
+    @Hero zenyatta
+    @Condition HeadshotDamage[0] > 2
+    @Condition eventWasCriticalHit == true
+    @Condition eventAbility != Button.ABILITY_1
+    @Condition eventAbility != Button.ABILITY_2
+    @Condition eventAbility != Button.ULTIMATE
+    
+    damage(victim, attacker, ceil((eventDamage * (HeadshotDamage[0] - 2)) / 2))
+
+
+rule "[Baptiste]: headshot damage":
+    @Event playerDealtDamage
+    @Hero baptiste
+    @Condition HeadshotDamage[4] > 2
+    @Condition eventWasCriticalHit == true
+    @Condition eventAbility == Button.PRIMARY_FIRE
+    
+    damage(victim, attacker, ceil((eventDamage * (HeadshotDamage[4] - 2)) / 2))
+
+
+rule "[Hanzo]: headshot damage":
+    @Event playerDealtDamage
+    @Hero hanzo
+    @Condition HeadshotDamage[3] > 2
+    @Condition eventWasCriticalHit == true
+    
+    damage(victim, attacker, ceil((eventDamage * (HeadshotDamage[3] - 2)) / 2))
+
+
+rule "[Kiriko]: headshot damage":
+    @Event playerDealtDamage
+    @Hero kiriko
+    @Condition HeadshotDamage[2] > 2
+    @Condition eventWasCriticalHit == true
+    @Condition eventAbility == Button.PRIMARY_FIRE
+    
+    damage(victim, attacker, ceil((eventDamage * (HeadshotDamage[2] - 2)) / 2))
+
+
+rule "[Baptiste]: Immortality Field":
+    @Event eachPlayer
+    @Condition eventPlayer.hasStatus(Status.UNKILLABLE) == true
+    @Condition eventPlayer.reset_pvar[12].getAbilityCooldown(Button.ABILITY_2) > 0
+    
+    eventPlayer.setStatusEffect(eventPlayer.reset_pvar[12], Status.PHASED_OUT, 0.26)
+    #heal(eventPlayer, eventPlayer.reset_pvar[12], 50)
+    eventPlayer.startHealingOverTime(eventPlayer.reset_pvar[12], 5, 50 if eventPlayer.getTeam() == Team.1 else 25)
+    wait(8)
+
+
+rule "[Mauga] Overrun knockdown duration":
+    @Event playerDealtDamage
+    @Hero mauga
+    @Condition eventAbility == Button.ABILITY_1
+    
+    victim.setStatusEffect(attacker, Status.BURNING, 2)
+    if not victim.hasStatus(Status.KNOCKED_DOWN):
+        goto lbl_0
+    victim.setStatusEffect(attacker, Status.KNOCKED_DOWN, 2)
+    if victim.hasStatus(Status.INVINCIBLE) or victim.hasStatus(Status.UNKILLABLE) or victim.hasStatus(Status.PHASED_OUT) or victim.has_nano:
+        goto lbl_1
+    damage(victim, attacker, ceil(victim.getMaxHealth() * MaugaBuff[3]))
+    lbl_0:
+    lbl_1:
+
+
+rule "[Orisa]Fortify ricochet damage":
+    @Event playerTookDamage
+    @Hero orisa
+    @Condition (eventPlayer.isUsingAbility1() or eventPlayer.isUsingUltimate()) == true
+    @Condition eventPlayer.hasStatus(Status.HACKED) != true
+    
+    damage(attacker, eventPlayer, Orisa_Fortify[1] / 100 * eventDamage)
+
+
+rule "[Illari]: Captive Sun HUD":
+    @Event eachPlayer
+    @Hero illari
+    @Condition eventPlayer.isUsingUltimate() == true
+    
+    createEffect(eventPlayer, Effect.RING, rgb(254, 180, 21), eventPlayer, 10, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
+    eventPlayer.illari_captive_hud[0] = getLastCreatedEntity()
+    eventPlayer.hudText = "最大生命值伤害：{0}%".format(((len([player for player in getLivingPlayers(eventPlayer.getTeam()) if isInLoS(eventPlayer, player) and distance(eventPlayer, player) <= 10 and player != eventPlayer])) * IllariBuff) * 100)
+    #hudText(eventPlayer, null, "\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r", "最大生命值伤害：{0}%".format(((len([player for player in getLivingPlayers(eventPlayer.getTeam()) if isInLoS(eventPlayer, player) and distance(eventPlayer, player) <= 10 and player != eventPlayer])) * IllariBuff) * 100), HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
+    #eventPlayer.illari_captive_hud[1] = getLastCreatedText()
+    waitUntil(not eventPlayer.isUsingUltimate(), 8)
+    wait(0.98)
+    destroyEffect(eventPlayer.illari_captive_hud[0])
+    #destroyHudText(eventPlayer.illari_captive_hud[1])
+    eventPlayer.hudText = ""
+    eventPlayer.illari_captive_hud[0] = 0
+    eventPlayer.illari_captive_hud[1] = 0
+
+
+rule "[Illari] Captive Sun":
+    @Event playerDealtDamage
+    @Hero illari
+    @Condition eventAbility == Button.ULTIMATE
+    @Condition eventDamage > 5
+    
+    damage(victim, attacker, (IllariBuff * (len([player for player in getLivingPlayers(eventPlayer.getTeam()) if isInLoS(eventPlayer, player) and distance(eventPlayer, player) <= 10 and player != eventPlayer]))) * victim.getMaxHealth())
+
+
+rule "[Sombra] TP to Support":
+    @Event eachPlayer
+    @Team 1
+    @Hero sombra
+    @Condition eventPlayer.isUsingAbility1() == false
+    @Condition eventPlayer.isFiringSecondaryFire() == false
+    @Condition eventPlayer.isFiringPrimaryFire() == false
+    @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) != 0
+    @Condition (eventPlayer.reset_pvar[9][0].isAlive() and not eventPlayer.reset_pvar[9][0].isInSpawnRoom()) == true
+    @Condition (not eventPlayer.isOnObjective() or not eventPlayer.isInSpawnRoom()) == true
+    @Condition distance(eventPlayer, eventPlayer.reset_pvar[9][0]) >= 5.5
+    @Condition distance(getClosestPlayer(eventPlayer, eventPlayer.getTeam()), eventPlayer.reset_pvar[9][0]) <= 30
+    
+    wait(2, Wait.ABORT_WHEN_FALSE)
+    eventPlayer.teleport(nearestWalkablePosition(eventPlayer.reset_pvar[9][0] - worldVector(vect(0, 0, -7), eventPlayer, Transform.ROTATION)))
+    eventPlayer.startFacing(vectorTowards(updateEveryFrame(eventPlayer.getEyePosition()), ((sorted([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer.getEyePosition(), player.getEyePosition()) == true], lambda i: distance(eventPlayer.getEyePosition(), i.getEyePosition())))[0]).getEyePosition()), 10000)
+    waitUntil(not eventPlayer.reset_pvar[4].reset_pvar[9][0].isAlive(), 2)
+    eventPlayer.stopFacing()
+    wait(3)
+
+
+rule "[Sombra]: AI Auto use Translocator":
+    @Event eachPlayer
+    @Team 1
+    @Hero sombra
+    @Condition eventPlayer.isInSpawnRoom() != true
+    @Condition (eventPlayer.isAlive() and eventPlayer.getAbilityCooldown(Button.ABILITY_2) == 0) == true
+    @Condition distance(eventPlayer, eventPlayer.reset_pvar[9][0]) >= 5.5
+    @Condition distance(getClosestPlayer(eventPlayer, eventPlayer.getTeam()), eventPlayer.reset_pvar[9][0]) <= 30
+    
+    eventPlayer.forceButtonPress(Button.ABILITY_2)
+
+
+rule "[Zenyatta] Snap Kick (enemy)":
+    @Event playerTookDamage
+    @Condition eventAbility == Button.MELEE
+    @Condition attacker.getHero() == Hero.ZENYATTA == true
+    
+    eventPlayer.KnockbackDirection = directionFromAngles(attacker.getHorizontalFacingAngle(), -10)
+    eventPlayer.startForcingThrottle(0, 0, 0, 0, 0, 0.5)
+    Knockback()
+    damage(eventPlayer, attacker, eventDamage * 0.5)
+    eventPlayer.isKnocked = true
+
+
+def Knockback():
+    @Name "[Zenyatta] Sub Knockback"
+    
+    wait()
+    eventPlayer.applyImpulse(eventPlayer.KnockbackDirection, Zen_KnockupStrength, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
+    eventPlayer.applyImpulse(Vector.UP, Zen_KnockupStrength * 0.3, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
+
+
+rule "[Zenyatta] Snap Kick (Self Ground)":
+    @Event eachPlayer
+    @Hero zenyatta
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.isMeleeing() == Button.MELEE
+    @Condition eventPlayer.getVerticalFacingAngle() >= 45
+    
+    if distance(raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 2.51, getAllPlayers(), eventPlayer, true).getHitPosition(), eventPlayer.getEyePosition()) <= 2.5:
+        eventPlayer.KnockbackDirection = eventPlayer.getFacingDirection() * -1
+        Knockback()
+
+
+rule "[Zenyatta] stop knocked":
+    @Event eachPlayer
+    @Condition eventPlayer.isKnocked == true
+    
+    wait(0.016, Wait.ABORT_WHEN_FALSE)
+    eventPlayer.stopForcingThrottle()
+    eventPlayer.isKnocked = false
+
+
+rule "[Zenyatta] Snap Kick (Self Wall)":
+    @Event eachPlayer
+    @Hero zenyatta
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.isMeleeing() == Button.MELEE
+    @Condition eventPlayer.getVerticalFacingAngle() < 45
+    
+    if distance(raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 2.51, getAllPlayers(), eventPlayer, true).getHitPosition(), eventPlayer.getEyePosition()) <= 2.5:
+        if raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 5, getAllPlayers(), eventPlayer, true).getPlayerHit() == null:
+            eventPlayer.KnockbackDirection = eventPlayer.getFacingDirection() * -1
+            Knockback()
+
+
+rule "[Zenyatta]: Transcendence":
+    @Event eachPlayer
+    @Hero zenyatta
+    @Condition eventPlayer.isUsingUltimate() == true
+    
+    eventPlayer.mov_speed_penalty = 0
+    eventPlayer.mov_speed_buff += 25
+    wait(0.16)
+    eventPlayer.setStatusEffect(null, Status.PHASED_OUT, 6)
+    eventPlayer.setHealingDealt(133.34)
+    eventPlayer.setMoveSpeed(100 + eventPlayer.mov_speed_buff)
+    waitUntil(not eventPlayer.isUsingUltimate(), 6)
+    eventPlayer.mov_speed_buff = 0
+    eventPlayer.setHealingDealt(100)
+    eventPlayer.setMoveSpeed(100)
+
+
+rule "[Tracer] Instant Respawn":
+    @Event playerDied
+    @Hero tracer
+    
+    wait(0.16)
+    eventPlayer.respawn()
+    eventPlayer.setAbilityCharge(Button.ABILITY_1, 3)
+
+
+rule "[Ramattra]: Pummel Knockback":
+    @Event playerDealtDamage
+    @Hero ramattra
+    @Condition eventAbility == Button.ABILITY_1
+    
+    victim.applyImpulse(directionFromAngles(horizontalAngleOfDirection(victim.getPosition() - attacker.getPosition()), -20), 5, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
+    victim.applyImpulse(Vector.UP, 2.5, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
+    victim.setEnvironmentalKillCreditor(attacker)
+    wait(0.5)
+
+
+rule "[Ramattra] ult speed":
+    @Event eachPlayer
+    @Hero ramattra
+    @Condition eventPlayer.isUsingUltimate() == true
+    
+    eventPlayer.mov_speed_buff += Ram_Annihilation[3]
+    eventPlayer.setDamageDealt(100 + Ram_Annihilation[5])
+    eventPlayer.setDamageReceived(100 - Ram_Annihilation[4])
+    eventPlayer.setMoveSpeed(100 - eventPlayer.mov_speed_penalty + eventPlayer.mov_speed_buff)
+    eventPlayer.setKnockbackReceived(30)
+    waitUntil(not eventPlayer.isUsingUltimate(), 999999986991104)
+    eventPlayer.mov_speed_buff = 0
+    eventPlayer.setMoveSpeed(100)
+    eventPlayer.setDamageReceived(100)
+    eventPlayer.setKnockbackReceived(100)
+    eventPlayer.setDamageDealt(100)
+    wait(0.16)
+    #removeTankPassive()
+
+
+rule "[Ramattra] ult start":
+    @Event eachPlayer
+    @Hero ramattra
+    @Condition eventPlayer.isUsingUltimate() == true
+    @Condition eventPlayer.getHealthOfType(Health.NORMAL) <= eventPlayer.custom_hp_pvar[0] + 50
+    
+    eventPlayer.ram_block_damage += 50
+    eventPlayer.hudText = "{0}/{1}".format(floor(eventPlayer.ram_block_damage), Ram_Annihilation[0])
+    wait(1.16)
+    if ruleCondition:
+        loop()
+
+
+rule "[Ramattra] ult healing":
+    @Event playerDealtDamage
+    @Hero ramattra
+    #@Condition attacker.getHero() == Hero.RAMATTRA == true
+    @Condition attacker.isUsingUltimate() == true
+    @Condition attacker.getHealth() < attacker.getMaxHealth()
+    #@Condition eventAbility == Button.PRIMARY_FIRE == true
+    
+    #heal(eventPlayer, eventPlayer, Ram_Annihilation[2] * 15 * len(getPlayersInRadius(eventPlayer, 13, getOppositeTeam(eventPlayer.getTeam()), LosCheck.SURFACES_AND_ENEMY_BARRIERS)))
+    #wait(0.5)
+    #playEffect(eventPlayer, DynamicEffect.GOOD_PICKUP_EFFECT, Color.YELLOW, eventPlayer, 200)
+    heal(attacker, attacker, eventDamage * Ram_Annihilation[1])
+    wait(0.0016)
+
+
+rule "[Ramattra]: Pummel healing":
+    @Event playerDealtDamage
+    @Team 1
+    @Hero ramattra
+    @Condition eventPlayer.isUsingAbility1() == true
+    @Condition eventAbility == Button.ABILITY_1
+    @Condition eventPlayer.getHealthOfType(Health.NORMAL) <= eventPlayer.custom_hp_pvar[0] + 50
+    
+    eventPlayer.ram_block_damage += eventDamage * 2.5
+    wait(0.3)
+
+
+rule "[Ramattra]: Pummel healing":
+    @Event playerDealtDamage
+    @Team 2
+    @Hero ramattra
+    @Condition eventPlayer.isUsingAbility1() == true
+    @Condition eventAbility == Button.ABILITY_1
+    @Condition eventPlayer.getHealthOfType(Health.NORMAL) <= eventPlayer.custom_hp_pvar[0] + 50
+    
+    eventPlayer.ram_block_damage += eventDamage * 1.5
+    eventPlayer.hudText = "{0}/{1}".format(floor(eventPlayer.ram_block_damage), Ram_Annihilation[0])
+    wait(0.3)
+
+
+rule "[Ramattra]: Pain endures":
+    @Event playerDealtFinalBlow
+    @Hero ramattra
+    @Condition eventPlayer.getUltCharge() != 100
+    @Condition eventPlayer.isUsingUltimate() == true
+    @Condition (eventAbility == Button.ULTIMATE or eventAbility == Button.ABILITY_1) == true
+    
+    eventPlayer.setUltCharge(eventPlayer.getUltCharge() + 25)
+    wait(0.3)
+
+
+rule "[Wrecking Ball] Grappling Claw cd reset":
+    @Event eachPlayer
+    @Hero wreckingBall
+    @Condition eventPlayer.isInSpawnRoom() == true
+    @Condition eventPlayer.getAbilityCooldown(Button.SECONDARY_FIRE) != 0
+    
+    eventPlayer.setAbilityCooldown(Button.SECONDARY_FIRE, 0)
+
+
+rule "[Tracer] Pulse Bomb Damage":
+    @Event playerDealtDamage
+    @Hero tracer
+    #@Condition attacker.getHero() == Hero.TRACER == true
+    @Condition eventAbility == Button.ULTIMATE
+    @Condition eventDamage > 10
+    
+    damage(victim, attacker, ceil(eventDamage))
+
+
+rule "[Sombra]: Apply OW1 hack on top of OW2 hack":
+    @Event eachPlayer
+    @Condition eventPlayer.hasStatus(Status.HACKED) == true
+    @Condition eventPlayer.vendetta_hud != true
+    
+    stopChasingVariable(eventPlayer.hack_timer)
+    eventPlayer.setStatusEffect(eventPlayer.reset_pvar[6], Status.HACKED, 4 if eventPlayer.getTeam() == Team.1 else 6)
+    eventPlayer.hack_timer = 4 if eventPlayer.getTeam() == Team.1 else 6
+    chaseAtRate(eventPlayer.hack_timer, 0, 1, ChaseRateReeval.NONE)
+
+
+rule "[Sombra]: hack healing received":
+    @Event eachPlayer
+    @Condition eventPlayer.hasStatus(Status.HACKED) == true
+    @Condition eventPlayer.mauga_berserker_soul != true
+    
+    eventPlayer.healing_decrease += SombraBuff[0]
+    eventPlayer.setHealingReceived(100 - eventPlayer.healing_decrease + eventPlayer.healing_increase)
+    #eventPlayer.sombra_buff = getLastCreatedEntity()
+    waitUntil(not eventPlayer.hasStatus(Status.HACKED), 4 if eventPlayer.getTeam() == Team.1 else 6)
+    eventPlayer.setHealingReceived(100)
+    #destroyEffect(eventPlayer.sombra_buff)
+    #eventPlayer.sombra_buff = null
+    eventPlayer.healing_decrease = 0
+
+
+rule "[Sombra]: kiil reset cooldown":
+    @Event playerEarnedElimination
+    @Hero sombra
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) > 0
+    
+    eventPlayer.setAbilityCooldown(Button.ABILITY_2, 0)
+    wait(0.5)
+
+
+rule "[Tracer] Kill Heal":
+    @Event playerEarnedElimination
+    @Hero tracer
+    @Condition Tracer_Ability[1] == true
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.getHealth() < eventPlayer.getMaxHealth() == true
+    
+    heal(eventPlayer, null, 99999)
+
+
+rule "[Tracer]: kiil reset cooldown":
+    @Event playerEarnedElimination
+    @Hero tracer
+    @Condition Tracer_Ability[0] == true
+    @Condition eventPlayer.isAlive() == true
+    @Condition (eventPlayer.getAbilityCharge(Button.ABILITY_1) < 3 or eventPlayer.getAbilityCooldown(Button.ABILITY_2) > 0) == true
+    
+    eventPlayer.setAbilityCharge(Button.ABILITY_1, 3)
+    eventPlayer.setAbilityCooldown(Button.ABILITY_2, 0)
+
+
+rule "[Tracer]: Recall follow Sombra":
+    @Event eachPlayer
+    @Team 1
+    @Hero tracer
+    @Condition eventPlayer.reset_pvar[4] != null
+    @Condition eventPlayer.reset_pvar[4].reset_pvar[9] != null
+    @Condition eventPlayer.isUsingAbility1() == false
+    @Condition eventPlayer.isFiringSecondaryFire() == false
+    @Condition eventPlayer.isFiringPrimaryFire() == false
+    @Condition eventPlayer.reset_pvar[4].isAlive() == true
+    @Condition eventPlayer.reset_pvar[4].reset_pvar[9][0].isAlive() == true
+    @Condition (not eventPlayer.isOnObjective() or not eventPlayer.isInSpawnRoom()) == true
+    @Condition distance(eventPlayer.reset_pvar[4], eventPlayer.reset_pvar[4].reset_pvar[9][0]) <= 5.5
+    @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) == 0
+    
+    wait(0.8, Wait.ABORT_WHEN_FALSE)
+    eventPlayer.startForcingButton(Button.ABILITY_2)
+    waitUntil(not eventPlayer.isUsingAbility2(), 0.91)
+    eventPlayer.teleport(nearestWalkablePosition(eventPlayer.reset_pvar[4][0] - worldVector(vect(0, 0, -5), eventPlayer, Transform.ROTATION)))
+    eventPlayer.startFacing(vectorTowards(updateEveryFrame(eventPlayer.getEyePosition()), ((sorted([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer.getEyePosition(), player.getEyePosition()) == true], lambda i: distance(eventPlayer.getEyePosition(), i.getEyePosition())))[0]).getEyePosition()), 10000)
+    waitUntil(not eventPlayer.reset_pvar[4].reset_pvar[9][0].isAlive(), 3)
+    eventPlayer.stopFacing()
+
+
+rule "[Ana]: Sleep tanks for longer duration":
+    @Event playerDealtDamage
+    @Hero ana
+    @Condition eventAbility == Button.ABILITY_1
+    @Condition victim.unaffected == false
+    
+    victim.clearStatusEffect(Status.ASLEEP)
+    #waitUntil(victim.hasStatus(Status.ASLEEP), 999999986991104)
+    victim.setStatusEffect(attacker, Status.KNOCKED_DOWN, 4)
+
+
+rule "[Wrecking Ball] Disable Adaptive Shield for allies":
+    @Event eachPlayer
+    @Hero wreckingBall
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.isUsingAbility2() == true
+    @Disabled
+    
+    eventPlayer.disallowButton(Button.ABILITY_2)
+    waitUntil(not eventPlayer.isUsingAbility2() or eventPlayer.reset_pvar[0] != false, 7)
+    eventPlayer.allowButton(Button.ABILITY_2)
+
+
+rule "[Zarya]: Projected Barrier Target":
+    @Event eachPlayer
+    @Hero zarya
+    @Condition eventPlayer.isUsingAbility2() == true
+    
+    [i for i in sorted(getLivingPlayers(eventPlayer.getTeam()), lambda player: angleBetweenVectors(eventPlayer.getFacingDirection(), directionTowards(eventPlayer.getPosition(), player.getPosition()))) if i.hasStatus(Status.INVINCIBLE)][0].zarya_barrier_shields[0] = true
+
+
+rule "[Zarya]: Projected Barrier Shields":
+    @Event eachPlayer
+    @Condition eventPlayer.getHero() != Hero.ZARYA
+    @Condition (eventPlayer.isAlive() and eventPlayer.zarya_barrier_shields[0]) == true
+    
+    if eventPlayer.mauga_berserker_soul == true:
+        goto lbl_0
+    resetStatuses()
+    lbl_0:
+    eventPlayer.zarya_barrier_shields[0] = false
+    if eventPlayer.zarya_barrier_shields[1] == null:
+        goto lbl_1
+    removeHealthPool(eventPlayer.zarya_barrier_shields[1])
+    lbl_1:
+    eventPlayer.addHealthPool(Health.NORMAL, 50, false, false)
+    eventPlayer.zarya_barrier_shields[1] = getLastCreatedHealthPool()
+    wait(3, Wait.RESTART_WHEN_TRUE)
+    removeHealthPool(eventPlayer.zarya_barrier_shields[1])
+    eventPlayer.zarya_barrier_shields[1] = null
+
+
+rule "[Genji]: Deflect":
+    @Event eachPlayer
+    @Hero genji
+    @Condition eventPlayer.isUsingAbility2() == true
+    
+    eventPlayer.setStatusEffect(eventPlayer, Status.INVINCIBLE, 2.192)
+    eventPlayer.setDamageDealt(200)
+    waitUntil(not eventPlayer.isUsingAbility2(), 3)
+    eventPlayer.setDamageDealt(100)
+
+
+rule "[Soldier: 76]: Helix Rockets lose control":
+    @Event playerDealtDamage
+    @Hero soldier
+    #@Condition attacker.getHero() == Hero.SOLDIER
+    @Condition eventAbility == Button.SECONDARY_FIRE
+    @Condition attacker != victim
+    
+    #victim.applyImpulse(Vector.BACKWARD, 7, Relativity.TO_PLAYER)
+    victim.setStatusEffect(attacker, Status.BURNING, S76Buff[0])
+    victim.startDamageOverTime(attacker, S76Buff[0], S76Buff[1])
+
+
+rule "[Reinhardt] firestrike healing":
+    @Event playerDealtDamage
+    @Hero reinhardt
+    @Condition (eventAbility == Button.ABILITY_2 or eventAbility == Button.ULTIMATE) == true
+    
+    if eventAbility == Button.ULTIMATE:
+        goto lbl_0
+    eventPlayer.startHealingOverTime(eventPlayer, 2, eventDamage / 2)
+    lbl_0:
+    victim.setStatusEffect(attacker, Status.BURNING, 2)
+    victim.startDamageOverTime(attacker, 2, 20)
+
+
+rule "[Reinhardt]: Earthshatter":
+    @Event playerDealtFinalBlow
+    @Hero reinhardt
+    @Condition eventWasCriticalHit == true
+    @Condition eventAbility == Button.ULTIMATE
+    
+    eventPlayer.setUltCharge(100)
+
+
+rule "[Reinhardt]: Crusaders stand":
+    @Event eachPlayer
+    @Hero reinhardt
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.reinhardt_buff[0] == false
+    @Condition eventPlayer.getHealthOfType(Health.ARMOR) <= 0
+    
+    eventPlayer.reinhardt_buff[0] = true
+
+
+rule "[Reinhardt]: Crusaders stand":
+    @Event eachPlayer
+    @Hero reinhardt
+    @Condition eventPlayer.reinhardt_buff[0] == true
+    
+    bigMessage(eventPlayer, "  十字军坚定")
+    smallMessage(eventPlayer, "  {0} 无视击退".format(abilityIconString(eventPlayer.getHero(), Button.SECONDARY_FIRE)))
+    eventPlayer.addHealthPool(Health.NORMAL, 200, false, false)
+    eventPlayer.setKnockbackReceived(0)
+    waitUntil(not eventPlayer.reinhardt_buff[0], 8)
+    eventPlayer.setKnockbackReceived(100)
+    wait(30)
+    eventPlayer.reinhardt_buff[0] = false
+    smallMessage(eventPlayer, "  {0} 十字军坚定 已就绪".format(abilityIconString(eventPlayer.getHero(), Button.SECONDARY_FIRE)))
+
+
+rule "[Reinhardt]: Charge cd":
+    @Event eachPlayer
+    @Hero reinhardt
+    @Condition eventPlayer.isUsingAbility1() == true
+    
+    wait(0.592, Wait.ABORT_WHEN_FALSE)
+    eventPlayer.reinhardt_charge_cd = 3
+    chaseOverTime(eventPlayer.reinhardt_charge_cd, 0, 3, ChaseTimeReeval.NONE)
+    waitUntil(not eventPlayer.isUsingAbility1() and eventPlayer.getAbilityCooldown(Button.ABILITY_1) >= 6, 3.592)
+    if eventPlayer.reinhardt_charge_cd == 0:
+        goto lbl_0
+    eventPlayer.setAbilityCooldown(Button.ABILITY_1, eventPlayer.getAbilityCooldown(Button.ABILITY_1) - eventPlayer.reinhardt_charge_cd)
+    lbl_0:
+
+
+rule "[Reinhardt]: Shield Slam knockback":
+    @Event eachPlayer
+    @Team 2
+    @Hero reinhardt
+    @Condition eventPlayer.isFiringSecondaryFire() == true
+    
+    eventPlayer.setKnockbackDealt(50)
+    waitUntil(not eventPlayer.isFiringSecondaryFire(), 99999)
+    eventPlayer.setKnockbackDealt(100)
+
+
+rule "[Reinhardt]: Shield Slam stun":
+    @Event playerDealtKnockback
+    @Hero reinhardt
+    @Condition eventAbility == Button.SECONDARY_FIRE
+    
+    victim.setStatusEffect(attacker, Status.STUNNED, 1.2)
+
+
+rule "[Reinhardt]: Charge dmg fix":
+    @Event playerReceivedKnockback
+    @Condition attacker.getHero() == Hero.REINHARDT
+    @Condition eventAbility == null
+    @Condition eventPlayer.getMaxHealth() <= 300
+    @Condition eventPlayer.hasStatus(Status.STUNNED) == true
+    
+    startDamageModification(eventPlayer, attacker, 200, DamageReeval.RECEIVERS_AND_DAMAGERS)
+    eventPlayer.rein_charge_fix = getLastDamageModification()
+    waitUntil(eventPlayer.getAbilityCooldown(Button.ABILITY_1) > 0, 3.12)
+    stopDamageModification(eventPlayer.rein_charge_fix)
+
+
+rule "[Reinhardt]: Attack to get overhealth":
+    @Event playerDealtKnockback
+    @Hero reinhardt
+    @Condition eventAbility == Button.PRIMARY_FIRE
+    @Condition attacker.getHero() == Hero.REINHARDT
+    @Condition len(eventPlayer.rein_health_id) < 5
+    
+    eventPlayer.addHealthPool(Health.NORMAL, 50, false, false)
+    eventPlayer.rein_health_id.append(getLastCreatedHealthPool())
+    wait(0.5)
+    #if ruleCondition:
+    #        loop()
+
+
+rule "[Reinhardt]: Attack to get overhealth removal":
+    @Event eachPlayer
+    @Hero reinhardt
+    @Condition len(eventPlayer.rein_health_id) != 0
+    
+    wait(5, Wait.ABORT_WHEN_FALSE)
+    removeHealthPool(eventPlayer.rein_health_id[0])
+    eventPlayer.rein_health_id.remove(eventPlayer.rein_health_id[0])
+    wait(0.25)
+    if ruleCondition:
+        loop()
+    eventPlayer.rein_health_id = []
+
+
+rule "[Mauga]: Cardiac Overdrive Dmg. reduction":
+    @Event eachPlayer
+    @Hero mauga
+    @Condition evalOnce(MaugaBuff[4]) != 0
+    @Condition eventPlayer.mauga_berserker_soul != true
+    @Condition eventPlayer.isUsingAbility2() == true
+    @Condition eventPlayer.dmg_reduction >= 0
+    
+    eventPlayer.dmg_reduction = eventPlayer.dmg_reduction if eventPlayer.dmg_reduction > MaugaBuff[4] else MaugaBuff[4]
+    eventPlayer.setDamageReceived(100 - eventPlayer.dmg_reduction)
+    waitUntil(not eventPlayer.isUsingAbility2(), 3)
+    eventPlayer.dmg_reduction -= MaugaBuff[4]
+    eventPlayer.setDamageReceived(100)
+
+
+rule "[Mauga]: Cage Fight ignore headshot":
+    @Event eachPlayer
+    @Team 1
+    @Hero mauga
+    @Condition eventPlayer.isUsingUltimate() == true
+    
+    eventPlayer.startHealingOverTime(eventPlayer, 50, 15)
+
+
+rule "[Doomfist] Seismic Slam upper":
+    @Event playerDealtDamage
+    @Hero doomfist
+    @Condition eventAbility == Button.ABILITY_1
+    @Condition eventAbility == Button.ABILITY_1
+    @Condition victim.unaffected != true
+    @Condition (victim.getHero() == Hero.ORISA and (victim.isUsingAbility1() or victim.isUsingUltimate())) == false
+    @Condition (victim.getHero() == Hero.MAUGA and victim.isUsingAbility1()) == false
+    
+    eventPlayer.doom_buff += 25
+    eventPlayer.hudText = "{0}".format(floor(eventPlayer.doom_buff))
+    victim.applyImpulse(Vector.UP, 6, Relativity.TO_PLAYER)
+    victim.applyImpulse(worldVector(Vector.BACKWARD, attacker, Transform.ROTATION), 3.5, Relativity.TO_WORLD)
+    victim.startForcingThrottle(0, 0, 0, 0, 0, 0)
+    waitUntil(victim.isOnGround() or victim.hasStatus(Status.PHASED_OUT), 1.2)
+    victim.stopForcingThrottle()
+
+
+rule "[Doomfist]: Power Block":
+    @Event playerTookDamage
+    @Team 1
+    @Hero doomfist
+    @Condition eventPlayer.isUsingAbility2() == true
+    @Condition eventPlayer.doom_buff <= DoomBuff[1]
+    
+    eventPlayer.doom_buff += DoomBuff[1] - eventPlayer.doom_buff if eventPlayer.doom_buff + eventDamage * 5 > DoomBuff[1] else eventDamage * DoomBuff[0]
+    wait()
+
+
+rule "[Doomfist]: Power Block":
+    @Event playerTookDamage
+    @Team 2
+    @Hero doomfist
+    @Condition eventPlayer.isUsingAbility2() == true
+    @Condition eventPlayer.doom_buff <= DoomBuff[1]
+    
+    eventPlayer.doom_buff += DoomBuff[1] - eventPlayer.doom_buff if eventPlayer.doom_buff + eventDamage * DoomBuff[0] > DoomBuff[1] else eventDamage * DoomBuff[0]
+    eventPlayer.hudText = "{0}".format(floor(eventPlayer.doom_buff))
+    wait()
+
+
+rule "[Doomfist]: Power Block Damage":
+    @Event playerDealtDamage
+    @Hero doomfist
+    @Condition eventAbility == Button.SECONDARY_FIRE
+    @Condition eventPlayer.doom_buff != 0
+    
+    damage(victim, attacker, eventPlayer.doom_buff)
+    eventPlayer.doom_buff = 0
+
+
+rule "[Doomfist]: block HUD":
+    @Event eachPlayer
+    @Hero doomfist
+    @Condition eventPlayer.doom_buff != 0
+    @Condition eventPlayer.isInSpawnRoom() != true
+    @Condition eventPlayer.reset_pvar[0] == false
+    @Condition eventPlayer.doom_buff > 0
+    
+    #hudText(eventPlayer, null, "\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r", "{0}".format(floor(eventPlayer.doom_buff)), HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
+    #eventPlayer.doom_buff_hud = getLastCreatedText()
+    waitUntil(eventPlayer.doom_buff == 0 or eventPlayer.reset_pvar[0] or eventPlayer.isInSpawnRoom(), 999999986991104)
+    eventPlayer.hudText = ""
+    #destroyHudText(eventPlayer.doom_buff_hud)
+
+
+rule "[Doomfist] The Best Defense get armor":
+    @Event playerTookDamage
+    @Condition attacker.getHero() == Hero.DOOMFIST
+    @Condition eventAbility in [Button.SECONDARY_FIRE, Button.ABILITY_1, Button.ULTIMATE] == true
+    
+    attacker.heart_steel[1] += 50
+    if attacker.heart_steel[0] == null:
+        goto lbl_0
+    removeHealthPool(attacker.heart_steel[0])
+    lbl_0:
+    attacker.addHealthPool(Health.ARMOR, attacker.heart_steel[1], false, false)
+    attacker.heart_steel[0] = getLastCreatedHealthPool()
+    wait(0.16)
+
+
+rule "[Doomfist] remove The Best Defense armor":
+    @Event eachPlayer
+    @Hero doomfist
+    @Condition eventPlayer.heart_steel[1] != 0
+    @Condition eventPlayer.heart_steel[0] != 0
+    
+    wait(3, Wait.ABORT_WHEN_FALSE)
+    removeHealthPool(eventPlayer.heart_steel[0])
+    eventPlayer.heart_steel[1] = 0
+    eventPlayer.heart_steel[0] = 0
+    wait(0.16)
+    if ruleCondition:
+        loop()
+
+
+rule "[Doomfist]: Meteor Strike":
+    @Event eachPlayer
+    @Hero doomfist
+    @Condition eventPlayer.isUsingUltimate() == true
+    
+    eventPlayer.setDamageDealt(175 if eventPlayer.getTeam() == Team.1 else 150)
+    waitUntil(not eventPlayer.isUsingUltimate(), 10)
+    eventPlayer.setDamageDealt(100)
+
+
+rule "[Hazard]: Violent Leap kiil reset cooldown":
+    @Event playerEarnedElimination
+    @Hero hazard
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) > 0
+    
+    eventPlayer.setAbilityCooldown(Button.ABILITY_1, 0)
+
+
+rule "[Hazard]: Violent Leap HP":
+    @Event eachPlayer
+    @Hero hazard
+    @Condition eventPlayer.isHoldingButton(Button.ABILITY_1) == true
+    @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) > 3
+    
+    if eventPlayer.hazard_hp_id == null:
+        goto lbl_0
+    removeHealthPool(eventPlayer.hazard_hp_id)
+    lbl_0:
+    eventPlayer.addHealthPool(Health.NORMAL, 125, false, false)
+    eventPlayer.hazard_hp_id = getLastCreatedHealthPool()
+    wait(3, Wait.RESTART_WHEN_TRUE)
+    removeHealthPool(eventPlayer.hazard_hp_id)
+    eventPlayer.hazard_hp_id = null
+
+
+rule "[Hazard]: Spike Guard cd":
+    @Event playerDealtDamage
+    @Hero hazard
+    @Condition attacker.getHero() == Hero.HAZARD
+    @Condition eventAbility == Button.SECONDARY_FIRE
+    @Condition HazardBuff[0] != 0
+    
+    damage(victim, attacker, HazardBuff[0] * eventDamage - eventDamage)
+
+
+rule "[Hazard]: stun Downpour":
+    @Event playerTookDamage
+    @Condition HazardBuff[10] == true
+    @Condition eventAbility == Button.ULTIMATE
+    @Condition attacker.getHero() == Hero.HAZARD
+    @Condition attacker.getUltCharge() < HazardBuff[11] * 6
+    @Disabled
+    
+    if attacker.getUltCharge() > HazardBuff[11] * 6:
+        goto lbl_0
+    attacker.setUltCharge(attacker.getUltCharge() + HazardBuff[11])
+    lbl_0:
+
+
+rule "[Hazard]: Spike Guard get Ultimate and heal":
+    @Event playerTookDamage
+    @Hero hazard
+    @Condition eventPlayer.hazard_using_ability_sec == true
+    
+    eventPlayer.setUltCharge(eventPlayer.getUltCharge() + (HazardBuff[1] if eventPlayer.getTeam() == Team.2 else HazardBuff[1] * 1.15))
+    heal(eventPlayer, eventPlayer, eventDamage / 0.35 * (HazardBuff[2] if eventPlayer.getTeam() == Team.2 else 0.5))
+    wait(max(0.5, getAverageServerLoad() / 100))
+
+
+rule "[Hazard]: Spike Guard using tracking":
+    @Event eachPlayer
+    @Hero hazard
+    @Condition eventPlayer.isHoldingButton(Button.SECONDARY_FIRE) == true
+    
+    eventPlayer.hazard_using_ability_sec = true
+    waitUntil(not eventPlayer.isHoldingButton(Button.SECONDARY_FIRE), 12)
+    eventPlayer.hazard_using_ability_sec = false
+
+
+rule "[Orisa]: stun when ult":
+    @Event playerDealtKnockback
+    @Hero orisa
+    @Condition eventAbility == Button.ULTIMATE
+    @Condition victim.unaffected != true
+    
+    victim.setStatusEffect(attacker, Status.STUNNED, 1.25)
+
+
+rule "[Orisa]: stun when ult":
+    @Event playerDealtKnockback
+    @Hero orisa
+    @Condition eventAbility == Button.SECONDARY_FIRE
+    @Condition victim.isAlive() == true
+    @Condition victim.unaffected != true
+    
+    wait(0.3, Wait.ABORT_WHEN_FALSE)
+    if victim.zarya_buff[1] != null:
+        goto lbl_0
+    victim.orisa_buff = true
+    lbl_0:
+    victim.mov_speed_penalty += Orisa_Fortify[2]
+
+
+rule "[Orisa]: fly":
+    @Event eachPlayer
+    @Hero orisa
+    @Condition eventPlayer.isUsingAbility2() == true
+    @Condition eventPlayer.isHoldingButton(Button.JUMP) == true
+    
+    eventPlayer.applyImpulse(eventPlayer.getFacingDirection(), 10, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
+    wait()
+    if ruleCondition:
+        loop()
+
+
+rule "[Orisa]: speed":
+    @Event eachPlayer
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.unaffected != true
+    @Condition eventPlayer.orisa_buff == true
+    
+    eventPlayer.setMoveSpeed(100 - eventPlayer.mov_speed_penalty + eventPlayer.mov_speed_buff)
+    waitUntil(not eventPlayer.orisa_buff or eventPlayer.unaffected or eventPlayer.hasStatus(Status.INVINCIBLE) or eventPlayer.hasStatus(Status.PHASED_OUT), 2)
+    eventPlayer.mov_speed_penalty = 0
+    eventPlayer.setMoveSpeed(100)
+    eventPlayer.orisa_buff = false
+
+
+rule "[Ramattra]: block":
+    @Event playerTookDamage
+    @Hero ramattra
+    @Condition (eventPlayer.isUsingAbility1() or eventPlayer.isUsingUltimate()) == true
+    @Condition eventPlayer.isFiringSecondaryFire() == true
+    @Condition eventPlayer.ram_block_damage <= Ram_Annihilation[0]
+    @Condition eventPlayer.getHealthOfType(Health.NORMAL) <= eventPlayer.custom_hp_pvar[0] + 50
+    
+    eventPlayer.ram_block_damage += eventDamage
+    eventPlayer.hudText = "{0}/{1}".format(floor(eventPlayer.ram_block_damage), Ram_Annihilation[0])
+
+
+rule "[Ramattra]: block HP":
+    @Event eachPlayer
+    @Hero ramattra
+    @Condition Ram_Annihilation[0] != 0
+    @Condition eventPlayer.ram_block_damage != 0
+    @Condition eventPlayer.ram_block_damage >= Ram_Annihilation[0]
+    
+    eventPlayer.addHealthPool(Health.NORMAL, Ram_Annihilation[0] if eventPlayer.ram_block_damage >= Ram_Annihilation[0] else eventPlayer.ram_block_damage, false, false)
+    eventPlayer.ram_block_damage = 0
+    eventPlayer.hudText = ""
+    #if eventPlayer.getTeam() == Team.2:
+    #        goto lbl_0
+    #eventPlayer.startHealingOverTime(eventPlayer, 5, eventPlayer.getMaxHealth() * 0.25)
+    lbl_0:
+
+
+rule "[Ramattra]: block HUD":
+    @Event eachPlayer
+    @Team 2
+    @Hero ramattra
+    @Condition eventPlayer.isInSpawnRoom() != true
+    @Condition (eventPlayer.isUsingAbility1() or eventPlayer.isUsingUltimate()) == true
+    @Condition eventPlayer.reset_pvar[0] == false
+    @Condition eventPlayer.ram_block_damage > 0
+    
+    #hudText(eventPlayer, null, "\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r", "{0}/{1}".format(floor(eventPlayer.ram_block_damage), Ram_Annihilation[0]), HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
+    #eventPlayer.ram_block_damage_hud = getLastCreatedText()
+    waitUntil(eventPlayer.ram_block_damage == 0 or eventPlayer.reset_pvar[0] or eventPlayer.isInSpawnRoom(), 999999986991104)
+    eventPlayer.hudText = ""
+    #destroyHudText(eventPlayer.ram_block_damage_hud)
+
+
+rule "[Ramattra]: Annihilation dmg reduc":
+    @Event eachPlayer
+    @Condition eventPlayer.reset_pvar[5].isUsingUltimate() == true
+    @Condition distance(eventPlayer, eventPlayer.reset_pvar[5].getPosition()) > 13
+    
+    startDamageModification(eventPlayer.reset_pvar[5], eventPlayer, 25)
+    eventPlayer.ram_dmg_reduc = getLastDamageModification()
+    waitUntil(not eventPlayer.reset_pvar[5].isUsingUltimate() or distance(eventPlayer, eventPlayer.reset_pvar[5].getPosition()) <= 13, 120)
+    stopDamageModification(eventPlayer.ram_dmg_reduc)
+    eventPlayer.ram_dmg_reduc = null
+
+
+rule "[Mauga]: Berserker Soul status active":
+    @Event playerTookDamage
+    @Hero mauga
+    #@Condition eventDamage > eventPlayer.getHealth() + 25
+    @Condition eventPlayer.mauga_berserker_soul != true
+    @Condition eventPlayer.getHealth() <= 75
+    
+    eventPlayer.mauga_berserker_soul = true
+    bigMessage(eventPlayer, "狂战士之魂！")
+    waitUntil(eventPlayer.isDead(), 99999)
+    eventPlayer.mauga_berserker_soul = false
+
+
+rule "[Mauga]: Berserker Soul reset":
+    @Event eachPlayer
+    @Hero mauga
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.isInSpawnRoom() == true
+    
+    eventPlayer.mauga_berserker_soul = false
+
+
+rule "[Mauga]: Berserker Soul Ability":
+    @Event eachPlayer
+    @Hero mauga
+    @Condition eventPlayer.mauga_berserker_soul == true
+    
+    eventPlayer.dmg_amplification = MaugaBuff[2]
+    eventPlayer.dmg_reduction = eventPlayer.dmg_reduction if eventPlayer.dmg_reduction > MaugaBuff[1] else MaugaBuff[1]
+    playEffect(eventPlayer, DynamicEffect.GOOD_PICKUP_EFFECT, Color.WHITE, eventPlayer, 200)
+    eventPlayer.setStatusEffect(null, Status.UNKILLABLE, 6)
+    eventPlayer.setStatusEffect(null, Status.INVINCIBLE, 1.2)
+    eventPlayer.setStatusEffect(null, Status.PHASED_OUT, 0.2)
+    eventPlayer.setDamageDealt(100 + eventPlayer.dmg_amplification)
+    eventPlayer.setDamageReceived(100 - eventPlayer.dmg_reduction)
+    eventPlayer.setHealingDealt(0)
+    eventPlayer.setHealingReceived(0)
+    eventPlayer.setKnockbackReceived(100 - MaugaBuff[5])
+    eventPlayer.addHealthPool(Health.NORMAL, eventPlayer.getMaxHealth() * MaugaBuff[0], true, false)
+    eventPlayer.mauga_berserker_soul_id[0] = getLastCreatedHealthPool()
+    wait(0.16)
+    eventPlayer.setHealth(eventPlayer.getMaxHealth())
+    wait(0.16)
+    eventPlayer.startDamageOverTime(null, 9999, eventPlayer.getMaxHealth() * MaugaBuff[6])
+    eventPlayer.mauga_berserker_soul_id[1] = getLastDamageOverTimeId()
+    waitUntil(not eventPlayer.mauga_berserker_soul or eventPlayer.isDead(), 9999)
+    eventPlayer.dmg_amplification = 0
+    eventPlayer.dmg_reduction = 0
+    stopDamageOverTime(eventPlayer.mauga_berserker_soul_id[1])
+    removeHealthPool(eventPlayer.mauga_berserker_soul_id[0])
+    eventPlayer.setHealingDealt(100)
+    eventPlayer.setHealingReceived(100)
+    eventPlayer.setDamageDealt(100)
+    eventPlayer.setDamageReceived(100)
+    eventPlayer.setKnockbackReceived(100)
+    eventPlayer.mauga_berserker_soul_id = null
+    #eventPlayer.mauga_berserker_soul = false
+
+
+rule "[Mauga]: Berserker Soul kill to heal":
+    @Event playerEarnedElimination
+    @Hero mauga
+    @Condition eventPlayer.mauga_berserker_soul == true
+    
+    eventPlayer.setHealth(eventPlayer.getMaxHealth() * MaugaBuff[7] + eventPlayer.getHealth())
+    wait(0.5)
+
+
+rule "[Mauga]: Berserker Soul cd":
+    @Event eachPlayer
+    @Hero mauga
+    @Condition eventPlayer.mauga_berserker_soul == true
+    #@Condition any([eventPlayer.getAbilityCooldown(i) >= 2 for i in [eventPlayer.getAbilityCooldown(Button.ABILITY_1), eventPlayer.getAbilityCooldown(Button.ABILITY_2)]]) == true
+    @Condition (eventPlayer.getAbilityCooldown(Button.ABILITY_1) > 2 or eventPlayer.getAbilityCooldown(Button.ABILITY_2) > 2) == true
+    
+    if eventPlayer.getAbilityCooldown(Button.ABILITY_1) > 2:
+        eventPlayer.setAbilityCooldown(Button.ABILITY_1, 2)
+    else:
+        eventPlayer.setAbilityCooldown(Button.ABILITY_2, 2)
+    wait(1.96)
+    if ruleCondition:
+        loop()
+
+
+rule "[Reaper]: Wraith Form to fly":
+    @Event eachPlayer
+    @Hero reaper
+    @Condition (eventPlayer.isUsingAbility1() or eventPlayer.isUsingUltimate()) == true
+    @Condition eventPlayer.isHoldingButton(Button.JUMP) == true
+    
+    eventPlayer.applyImpulse(Vector.UP, 5, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
+    wait(0.1, Wait.ABORT_WHEN_FALSE)
+    loop()
+
+
+rule "[Reaper]: Wraith Form to fly":
+    @Event eachPlayer
+    @Hero reaper
+    @Condition (eventPlayer.isUsingAbility1() or eventPlayer.isUsingUltimate()) == true
+    @Condition eventPlayer.isHoldingButton(Button.CROUCH) == true
+    
+    eventPlayer.applyImpulse(Vector.DOWN, 5, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
+    wait(0.1, Wait.ABORT_WHEN_FALSE)
+    loop()
+
+
+rule "[Reaper]: kill to gain soul buff":
+    @Event playerEarnedElimination
+    @Hero reaper
+    #@Condition eventPlayer.reaper_buff[0] < 50
+    @Condition ReaperBuff[0] != 0
+    
+    eventPlayer.reaper_buff[0] += ReaperBuff[0] + 1 if eventPlayer.getTeam() == Team.1 else ReaperBuff[0]
+
+
+rule "[Reaper]: kill to gain soul buff":
+    @Event playerDealtFinalBlow
+    @Hero reaper
+    #@Condition eventPlayer.reaper_buff[0] < 50
+    
+    eventPlayer.reaper_buff[0] += ReaperBuff[0] + 1 if eventPlayer.getTeam() == Team.1 else ReaperBuff[0]
+
+
+rule "[Reaper]: Ability 1 Wraith Form cd":
+    @Event eachPlayer
+    @Hero reaper
+    @Condition eventPlayer.isUsingAbility1() == true
+    
+    waitUntil(not eventPlayer.isUsingAbility1(), 3.016)
+    eventPlayer.setAbilityCooldown(Button.ABILITY_1, eventPlayer.getAbilityCooldown(Button.ABILITY_1) - (50 * ReaperBuff[1] if eventPlayer.reaper_buff[0] > 50 else eventPlayer.reaper_buff[0] * ReaperBuff[1]))
+    eventPlayer.dmg_amplification += 150 if ReaperBuff[2] + eventPlayer.reaper_buff[0] * ReaperBuff[3] >= 150 else ReaperBuff[2] + eventPlayer.reaper_buff[0] * ReaperBuff[3]
+    wait(3)
+    #chaseOverTime(eventPlayer.dmg_amplification, 0, 3, ChaseTimeReeval.NONE)
+    eventPlayer.dmg_amplification = 0
+
+
+rule "[Reaper]: Ability 2 Shadow Step cd":
+    @Event eachPlayer
+    @Hero reaper
+    @Condition eventPlayer.isUsingAbility2() == true
+    
+    waitUntil(not eventPlayer.isUsingAbility2(), 3.016)
+    eventPlayer.setAbilityCooldown(Button.ABILITY_2, eventPlayer.getAbilityCooldown(Button.ABILITY_2) - (50 * ReaperBuff[1] if eventPlayer.reaper_buff[0] > 50 else eventPlayer.reaper_buff[0] * ReaperBuff[1]))
+    eventPlayer.dmg_reduction += 60 if ReaperBuff[4] + eventPlayer.reaper_buff[0] * ReaperBuff[5] >= 60 else ReaperBuff[4] + eventPlayer.reaper_buff[0] * ReaperBuff[5]
+
+
+rule "[Reaper]: Ability 1 Wraith Form dmg increase setup":
+    @Event eachPlayer
+    @Hero reaper
+    @Condition eventPlayer.dmg_amplification != 0
+    
+    eventPlayer.setDamageDealt(100 + eventPlayer.dmg_amplification)
+    wait(0.5)
+    eventPlayer.dmg_amplification -= eventPlayer.dmg_amplification * 0.3
+    if ruleCondition:
+        loop()
+    eventPlayer.setDamageDealt(100)
+
+
+rule "[Reaper]: Ability 1 Wraith Form dmg increase set & hud":
+    @Event eachPlayer
+    @Hero reaper
+    @Condition eventPlayer.dmg_amplification != 0
+    
+    destroyHudText(eventPlayer.reaper_buff[1])
+    hudText(eventPlayer, null, " \r\n", "伤害增幅：{0}%".format(ceil(eventPlayer.dmg_amplification)), HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
+    eventPlayer.reaper_buff[1] = getLastCreatedText()
+    waitUntil(eventPlayer.dmg_amplification == 0 and eventPlayer.isDead(), 3.5)
+    destroyHudText(eventPlayer.reaper_buff[1])
+    eventPlayer.reaper_buff[1] = 0
+
+
+rule "[Reaper]: Ability 2 Shadow Step dmg reduction setup":
+    @Event eachPlayer
+    @Hero reaper
+    @Condition eventPlayer.isUsingAbility2() != true
+    @Condition eventPlayer.dmg_reduction != 0
+    
+    destroyHudText(eventPlayer.reaper_buff[1])
+    hudText(eventPlayer, null, " \r\n", "受到伤害减免：{0}%".format(ceil(eventPlayer.dmg_reduction)), HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
+    eventPlayer.reaper_buff[1] = getLastCreatedText()
+    eventPlayer.setDamageReceived(100 - eventPlayer.dmg_reduction)
+    wait(5)
+    eventPlayer.dmg_reduction = 0
+    eventPlayer.setDamageReceived(100)
+    destroyHudText(eventPlayer.reaper_buff[1])
+    eventPlayer.reaper_buff[1] = 0
+
+
+rule "[Reaper]: Ability Dire Triggers":
+    @Event eachPlayer
+    @Hero reaper
+    #@Condition eventPlayer.getAbilityCooldown(Button.SECONDARY_FIRE) > 1.5
+    @Condition eventPlayer.isFiringSecondaryFire() == true
+    
+    waitUntil(not eventPlayer.isFiringSecondaryFire(), 0.6)
+    eventPlayer.setAmmo(0, eventPlayer.getAmmo() + 1)
+    eventPlayer.setAbilityCooldown(Button.SECONDARY_FIRE, ReaperBuff[6])
+
+
+rule "[Reaper]: Ability Dire Triggers dot":
+    @Event playerDealtDamage
+    @Hero reaper
+    @Condition eventAbility == Button.SECONDARY_FIRE
+    
+    #wait(0.16)
+    victim.startDamageOverTime(attacker, 1, eventPlayer.reaper_buff[0] * ReaperBuff[7])
+    #victim.reaper_buff = getLastDamageOverTimeId()
+    #wait(1)
+    #victim.reaper_buff = 0
+
+
+rule "[Reaper]: ultimate Death Blossom":
+    @Event eachPlayer
+    @Hero reaper
+    @Condition eventPlayer.isUsingUltimate() == true
+    
+    eventPlayer.setDamageDealt(100 + eventPlayer.reaper_buff[0] * ReaperBuff[8])
+    eventPlayer.setAbilityCooldown(Button.ABILITY_1, 0)
+    eventPlayer.setStatusEffect(eventPlayer, Status.UNKILLABLE, 2.5 if eventPlayer.reaper_buff[0] * 0.05 >= 2.5 else eventPlayer.reaper_buff[0] * 0.05)
+    waitUntil(not eventPlayer.isUsingUltimate(), 3.016)
+    eventPlayer.setDamageDealt(100)
+
+
+rule "[Reaper]: HUD & Reset":
+    @Event eachPlayer
+    @Hero reaper
+    @Condition eventPlayer.isInSpawnRoom() != true
+    @Condition eventPlayer.reset_pvar[0] == false
+    @Condition eventPlayer.reaper_buff[0] > 0
+    
+    if eventPlayer.reaper_buff[2] != 0:
+        goto lbl_0
+    hudText(eventPlayer, null, " \r\n\r\n\n", "已收割灵魂： {0}".format(eventPlayer.reaper_buff[0]), HudPosition.LEFT, 3, null, null, rgb(255, 255, 255, 200), HudReeval.STRING)
+    eventPlayer.reaper_buff[2] = getLastCreatedText()
+    lbl_0:
+    waitUntil(eventPlayer.reaper_buff[0] == 0 or eventPlayer.reset_pvar[0], 999999986991104)
+    destroyHudText(eventPlayer.reaper_buff[2])
+    eventPlayer.reaper_buff[2] = 0
+
+
+rule "[Echo]: Focusing Beam Damage":
+    @Event eachPlayer
+    @Hero echo
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.isUsingAbility2() == true
+    
+    wait(1, Wait.ABORT_WHEN_FALSE)
+    eventPlayer.setDamageDealt(150)
+    waitUntil(not eventPlayer.isUsingAbility2(), 2)
+    eventPlayer.setDamageDealt(100)
+
+
+rule "[Moira]: Fade disable on Coalescence":
+    @Event eachPlayer
+    @Hero moira
+    @Condition eventPlayer.isUsingUltimate() == true
+    
+    eventPlayer.setAbility1Enabled(false)
+    eventPlayer.disallowButton(Button.ABILITY_1)
+    waitUntil(not eventPlayer.isUsingUltimate(), 9)
+    eventPlayer.allowButton(Button.ABILITY_1)
+    eventPlayer.setAbility1Enabled(true)
+
+
+rule "[Moira]: Abilities to heal self":
+    @Event eachPlayer
+    @Hero moira
+    @Condition any([eventPlayer.isUsingAbility1(), eventPlayer.getAbilityCooldown(Button.ABILITY_2) >= 7.5, eventPlayer.isUsingUltimate()]) == true
+    @Condition eventPlayer.getNormalizedHealth() < 1
+    
+    eventPlayer.startHealingOverTime(eventPlayer, 0.6, 0.75 * (eventPlayer.getMaxHealth() - eventPlayer.getHealth()))
+    wait(0.16)
+
+
+rule "[Zarya]: will to win":
+    @Event eachPlayer
+    @Hero zarya
+    @Condition eventPlayer.reset_pvar[0] == false
+    @Condition eventPlayer.isInSpawnRoom() != true
+    @Condition eventPlayer.getHero() == Hero.ZARYA
+    @Condition ZaryaBuff[2] == true
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.zarya_buff[0] == true
+    @Condition eventPlayer.getHealth() <= eventPlayer.getMaxHealth() * 0.3
+    
+    bigMessage(eventPlayer, "胜利意志！")
+    eventPlayer.setStatusEffect(null, Status.INVINCIBLE, 1)
+    eventPlayer.setStatusEffect(null, Status.PHASED_OUT, 1)
+    eventPlayer.setAbilityCooldown(Button.ABILITY_1, 0)
+    eventPlayer.setAbilityCooldown(Button.ABILITY_2, 0)
+    eventPlayer.startHealingOverTime(eventPlayer, ZaryaBuff[3], ZaryaBuff[4])
+    eventPlayer.zarya_buff[1] = getLastHealingOverTimeId()
+    waitUntil(eventPlayer.isDead(), ZaryaBuff[3])
+    stopHealingOverTime(eventPlayer.zarya_buff[1])
+    eventPlayer.zarya_buff[0] = false
+    eventPlayer.zarya_buff[1] = null
+
+
+rule "[Reaper]: Death Blossom remove Mov. speed penalty":
+    @Event eachPlayer
+    @Hero reaper
+    @Condition eventPlayer.isUsingUltimate() == true
+    
+    eventPlayer.mov_speed_buff += 100
+    eventPlayer.setMoveSpeed(100 + eventPlayer.mov_speed_buff)
+    waitUntil(not eventPlayer.isUsingUltimate(), 3.5)
+    eventPlayer.mov_speed_buff = 0
+    eventPlayer.setMoveSpeed(100)
+
+
+rule "[Juno]: Hyper Ring Max. range":
+    @Event eachPlayer
+    @Hero juno
+    @Condition eventPlayer.isUsingAbility2() == true
+    
+    eventPlayer.setProjectileSpeed(117.7)
+    waitUntil(not eventPlayer.isUsingAbility2(), 5)
+    eventPlayer.setProjectileSpeed(100)
+
+
+rule "[Junkrat]: arsonist":
+    @Event playerDealtDamage
+    @Hero junkrat
+    #@Condition victim.hasStatus(Status.BURNING) == false
+    @Condition eventAbility != Button.MELEE
+    
+    victim.setStatusEffect(attacker, Status.BURNING, 3)
+    if victim.hasStatus(Status.BURNING) != true:
+        goto lbl_0
+    damage(victim, attacker, victim.getHealth() * 0.05)
+    lbl_0:
+    wait(1)
+
+
+rule "[Juno] Track Orbital Ray Position":
+    @Event eachPlayer
+    @Hero juno
+    @Condition eventPlayer.isUsingUltimate() == true
+    @Condition eventPlayer.isAlive() == true
+    
+    wait(0.5, Wait.ABORT_WHEN_FALSE)
+    getPlayersInRadius(eventPlayer, 12.5, eventPlayer.getTeam()).juno_buff[0] = true
+    wait(10)
+    getPlayers(eventPlayer.getTeam()).juno_buff[0] = false
+
+
+rule "[Juno]: Orbial Ray Damage":
+    @Event eachPlayer
+    @Condition eventPlayer.juno_buff[0] == true
+    
+    smallMessage(eventPlayer, "   {0} 轨道射线： 伤害减免 {1}%".format(abilityIconString(Hero.JUNO, Button.ULTIMATE), 100 - JunoBuff))
+    eventPlayer.setDamageReceived(100 - JunoBuff)
+    waitUntil(not eventPlayer.juno_buff[0], 10)
+    eventPlayer.setDamageReceived(100)
+    smallMessage(eventPlayer, "   {0} 轨道射线： 伤害减免已结束".format(abilityIconString(Hero.JUNO, Button.ULTIMATE)))
+
+
+rule "[Juno]: Pulsar Torpedoes Healing":
+    @Event playerReceivedHealing
+    @Condition healer.getHero() == Hero.JUNO
+    @Condition eventAbility == Button.SECONDARY_FIRE
+    @Condition eventPlayer.mauga_berserker_soul != true
+    
+    eventPlayer.healing_increase += 50
+    eventPlayer.setHealingReceived(100 - eventPlayer.healing_decrease + eventPlayer.healing_increase)
+    waitUntil(eventPlayer.isDead(), 4)
+    eventPlayer.setHealingReceived(100)
+    eventPlayer.healing_increase = 0
+    wait(2.6)
+
+
+rule "[Freja]: Revdraw Crossbow Stack":
+    @Event playerDealtDamage
+    @Hero freja
+    @Condition eventAbility == Button.PRIMARY_FIRE
+    @Condition eventPlayer.hasStatus(Status.INVINCIBLE) != true
+    
+    victim.freja_buff[0]++
+
+
+rule "[Freja]: Revdraw Crossbow Stack":
+    @Event playerDealtKnockback
+    @Hero freja
+    @Condition eventAbility == Button.ULTIMATE
+    @Condition eventPlayer.hasStatus(Status.INVINCIBLE) != true
+    
+    victim.freja_buff[0] += 15
+    wait(5)
+
+
+rule "[Freja]: Take Aim Damage":
+    @Event playerDealtDamage
+    @Hero freja
+    @Condition eventAbility == Button.SECONDARY_FIRE
+    @Condition (victim.hasStatus(Status.INVINCIBLE) or victim.hasStatus(Status.UNKILLABLE) or victim.hasStatus(Status.PHASED_OUT)) == false
+    @Condition victim.has_nano != true
+    @Condition victim.freja_buff[0] > 0
+    
+    wait(0.5, Wait.ABORT_WHEN_FALSE)
+    playEffect(getAllPlayers(), DynamicEffect.BAD_EXPLOSION, Color.BLUE, victim, 0.8)
+    playEffect(getAllPlayers(), DynamicEffect.EXPLOSION_SOUND, Color.BLUE, victim, 10)
+    damage(victim, attacker, FrejaBuff[0] * victim.freja_buff[0])
+    victim.freja_buff[0] = 0
+    victim.freja_buff[1] = 0
+
+
+rule "[Freja]: HUD & Reset":
+    @Event eachPlayer
+    @Condition eventPlayer.freja_buff[0] > 0
+    
+    if eventPlayer.freja_buff[3] != 0:
+        goto lbl_0
+    hudText(eventPlayer.reset_pvar[11], null, " \r\n\r\n\n", "  {0} 狩猎印记： {1}".format(heroIcon(eventPlayer.getHero()), eventPlayer.freja_buff[0]), HudPosition.LEFT, 1, null, null, rgb(255, 255, 255, 200), HudReeval.STRING)
+    eventPlayer.freja_buff[3] = getLastCreatedText()
+    lbl_0:
+    if eventPlayer.freja_buff[4] != 0:
+        goto lbl_1
+    hudText(eventPlayer, null, " \r\n\r\n\n", " {0} 印记： {1}".format(heroIcon(Hero.FREJA), eventPlayer.freja_buff[0]), HudPosition.LEFT, 2, null, null, rgb(255, 255, 255, 200), HudReeval.STRING)
+    eventPlayer.freja_buff[4] = getLastCreatedText()
+    lbl_1:
+    eventPlayer.freja_buff[1] = eventPlayer.freja_buff[0]
+    wait(5)
+    if eventPlayer.freja_buff[0] > eventPlayer.freja_buff[1]:
+        loop()
+    eventPlayer.freja_buff[0] = 0
+    eventPlayer.freja_buff[1] = 0
+    destroyHudText(eventPlayer.freja_buff[3])
+    destroyHudText(eventPlayer.freja_buff[4])
+    eventPlayer.freja_buff[3] = 0
+    eventPlayer.freja_buff[4] = 0
+
+
+rule "[Freja]: Ex":
+    @Event playerDealtKnockback
+    @Hero freja
+    @Condition eventAbility == null
+    @Condition (victim.hasStatus(Status.INVINCIBLE) or victim.hasStatus(Status.UNKILLABLE) or victim.hasStatus(Status.PHASED_OUT) or not victim.has_nano) == false
+    #@Condition victim.freja_buff[0] > 0
+    
+    if not victim.isAlive() or victim.getHealth() > victim.getMaxHealth() * FrejaBuff[2]:
+        goto lbl_0
+    damage(victim, attacker, 44444)
+    smallMessage(eventPlayer, "  斩杀： {0} ".format(heroIcon(victim.getHero())))
+    wait(1, Wait.ABORT_WHEN_FALSE)
+    lbl_0:
+
+
+rule "[Freja]: Ammo":
+    @Event playerEarnedElimination
+    @Hero freja
+    @Disabled
+    
+    eventPlayer.setAmmo(0, eventPlayer.getAmmo() + 1)
+
+
+rule "[Freja]: Dmg. reduction":
+    @Event eachPlayer
+    @Hero freja
+    @Condition eventPlayer.isUsingAbility2() == true
+    #@Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) != 0
+    @Condition eventPlayer.isInAir() == true
+    
+    if eventPlayer.getTeam() == Team.2:
+        goto lbl_0
+    eventPlayer.startHealingOverTime(null, 10, 30)
+    eventPlayer.freja_buff[5] = getLastHealingOverTimeId()
+    lbl_0:
+    eventPlayer.setDamageReceived(75)
+    hudText(eventPlayer, null, " \r\n", "受到伤害减免：{0}%".format(25), HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
+    #eventPlayer.hudText = "受到伤害减免：{0}%".format(25)
+    eventPlayer.freja_buff[2] = getLastCreatedText()
+    waitUntil(not eventPlayer.isInAir() and eventPlayer.isOnGround(), 99999)
+    eventPlayer.hudText = ""
+    destroyHudText(eventPlayer.freja_buff[2])
+    eventPlayer.freja_buff[2] = 0
+    eventPlayer.setDamageReceived(100)
+    if eventPlayer.getTeam() == Team.2:
+        goto lbl_1
+    stopHealingOverTime(eventPlayer.freja_buff[5])
+    eventPlayer.freja_buff[5] = null
+    lbl_1:
+
+
+rule "[Freja]: set Projectile speed":
+    @Event eachPlayer
+    @Hero freja
+    @Condition eventPlayer.isUsingUltimate() == true
+    
+    eventPlayer.setProjectileSpeed(100)
+    waitUntil(not eventPlayer.isUsingUltimate(), 99999)
+    eventPlayer.setProjectileSpeed(500)
+
+
+rule "[Lucio]: Soundwave Healing":
+    @Event eachPlayer
+    @Hero lucio
+    @Condition eventPlayer.isFiringSecondaryFire() == true
+    @Condition eventPlayer.getAbilityCooldown(Button.SECONDARY_FIRE) != 0
+    @Condition (len([player for player in getLivingPlayers(eventPlayer.getTeam()) if isInLoS(eventPlayer, player, BarrierLos.BLOCKED_BY_ENEMY_BARRIERS) == true and distance(eventPlayer, player) <= 12.5 and player.getNormalizedHealth() < 1])) > 0
+    
+    heal([player for player in getLivingPlayers(eventPlayer.getTeam()) if isInLoS(eventPlayer, player, BarrierLos.BLOCKED_BY_ENEMY_BARRIERS) == true and distance(eventPlayer, player) <= 12.5 and player.getNormalizedHealth() < 1], eventPlayer, 60)
+    #([player for player in getLivingPlayers(eventPlayer.getTeam()) if isInLoS(eventPlayer, player, BarrierLos.BLOCKED_BY_ENEMY_BARRIERS) == true and distance(eventPlayer, player) <= 12.5 and player.getNormalizedHealth() < 1]).startHealingOverTime(eventPlayer, 1, 60)
+    wait(2)
+
+
+rule "[Roadhog]: Breather":
+    @Event eachPlayer
+    @Team 1
+    @Hero roadhog
+    @Condition eventPlayer.isFiringSecondaryFire() == true
+    
+    heal(getLivingPlayers(eventPlayer.getTeam()), eventPlayer, 70)
+    wait(1)
+    if ruleCondition:
+        loop()
+
+
+rule "[Roadhog]: Breather":
+    @Event eachPlayer
+    @Team 1
+    @Hero roadhog
+    @Condition eventPlayer.isFiringSecondaryFire() != true
+    @Condition eventPlayer.getAbilityResource(Button.SECONDARY_FIRE) <= 50
+    
+    wait(0.54)
+    eventPlayer.setAbilityResource(Button.SECONDARY_FIRE, 50)
+    wait(1.25)
+
+
+rule "[Wrecking Ball]: ctrl 0cd":
+    @Event playerDealtKnockback
+    @Hero wreckingBall
+    @Condition eventAbility == Button.CROUCH
+    
+    victim.setStatusEffect(eventPlayer, Status.STUNNED, 0.3)
+
+
+rule "[JunkerQueen]: Commanding Shout taunt enemies":
+    @Event eachPlayer
+    @Hero junkerQueen
+    @Condition eventPlayer.isUsingAbility1() == true
+    @Condition (len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) and distance(eventPlayer, player) <= 15])) > 0
+    
+    if eventPlayer.junker_queen_buff == null:
+        goto lbl_0
+    removeHealthPool(eventPlayer.junker_queen_buff)
+    lbl_0:
+    ([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) and distance(eventPlayer, player) <= 15 and player.unaffected != true]).taunt = true
+    wait(0.096)
+    eventPlayer.addHealthPool(Health.NORMAL, 500 * (len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if player.taunt == true])), false, false)
+    eventPlayer.junker_queen_buff = getLastCreatedHealthPool()
+    wait(6)
+    removeHealthPool(eventPlayer.junker_queen_buff)
+
+
+rule "[JunkerQueen]: Taunt enemies":
+    @Event eachPlayer
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.unaffected != true
+    @Condition eventPlayer.taunt == true
+    @Condition (eventPlayer.getHero() == Hero.ORISA and (eventPlayer.isUsingAbility1() or eventPlayer.isUsingUltimate())) == false
+    @Condition (eventPlayer.getHero() == Hero.MAUGA and eventPlayer.isUsingAbility1()) == false
+    
+    bigMessage(eventPlayer, "嘲讽")
+    eventPlayer.startFacing(directionTowards(eventPlayer.getEyePosition(), getPlayersOnHero(Hero.JUNKER_QUEEN, getOppositeTeam(eventPlayer.getTeam()))[0].getEyePosition()), 270)
+    eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
+    disableAllAbilities()
+    waitUntil(eventPlayer.isDead() or not eventPlayer.taunt or eventPlayer.hasStatus(Status.PHASED_OUT), 2)
+    eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
+    enableAllAbilities()
+    eventPlayer.stopFacing()
+    eventPlayer.taunt = false
+
+
+rule "[Wuyang]: mov_speed_penalty":
+    @Event playerDealtKnockback
+    @Hero wuyang
+    #@Condition eventAbility == null
+    
+    if victim.mov_speed_penalty > 0 and victim.isAlive():
+        victim.setHealth(victim.getHealth() - 50)
+        damage(victim, attacker, 25)
+    else:
+        victim.mov_speed_penalty = WuyangBuff[0]
+        victim.setMoveSpeed(100 - victim.mov_speed_penalty + victim.mov_speed_buff)
+        waitUntil(victim.mov_speed_penalty == 0 or victim.unaffected or victim.hasStatus(Status.INVINCIBLE), 1.25)
+        victim.setMoveSpeed(100)
+        victim.mov_speed_penalty = 0
+    wait(0.32)
+
+
+rule "[Wuyang]: xuanwu cd":
+    @Event playerDealtKnockback
+    @Hero wuyang
+    @Condition eventAbility == null
+    @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) > 0
+    
+    eventPlayer.setAbilityCooldown(Button.ABILITY_2, eventPlayer.getAbilityCooldown(Button.ABILITY_2) - 1)
+    wait(0.5)
+
+
+rule "[Wuyang]: Restorative shield Target":
+    @Event playerReceivedHealing
+    @Condition healer.getHero() == Hero.WUYANG
+    @Condition eventAbility == null
+    @Condition eventHealing <= 8
+    @Condition healee.wuyang_buff[0] != true
+    
+    healee.wuyang_buff[0] = true
+    wait(5)
+    removeHealthPool(eventPlayer.wuyang_buff[1])
+    eventPlayer.wuyang_buff[0] = false
+
+
+rule "[Wuyang]: Restorative shield":
+    @Event eachPlayer
+    @Condition eventPlayer.wuyang_buff[0] == true
+    @Condition eventPlayer.getHero() != Hero.WUYANG
+    
+    #eventPlayer.wuyang_buff[0] = false
+    if eventPlayer.wuyang_buff[1] == null:
+        goto lbl_0
+    removeHealthPool(eventPlayer.wuyang_buff[1])
+    lbl_0:
+    eventPlayer.addHealthPool(Health.SHIELDS, WuyangBuff[1], true, false)
+    eventPlayer.wuyang_buff[1] = getLastCreatedHealthPool()
+
+
+rule "[Wuyang]: Rushing Torrent":
+    @Event eachPlayer
+    @Hero wuyang
+    @Condition eventPlayer.isUsingAbility1() == true
+    
+    if eventPlayer.getNormalizedHealth() == 1:
+        goto lbl_0
+    eventPlayer.startHealingOverTime(eventPlayer, 4.5, WuyangBuff[2])
+    eventPlayer.wuyang_buff[0] = getLastHealingOverTimeId()
+    lbl_0:
+    eventPlayer.dmg_reduction = WuyangBuff[3]
+    eventPlayer.setDamageReceived(100 - eventPlayer.dmg_reduction)
+    waitUntil(not eventPlayer.isUsingAbility1(), 4.5)
+    eventPlayer.dmg_reduction = 0
+    stopHealingOverTime(eventPlayer.wuyang_buff[0])
+    eventPlayer.setDamageReceived(100)
+
+
+rule "[Wuyang]: Rushing Torrent jump":
+    @Event eachPlayer
+    @Hero wuyang
+    @Condition eventPlayer.isUsingAbility1() == true
+    @Condition eventPlayer.isHoldingButton(Button.JUMP) == true
+    #@Condition eventPlayer.isInAir() != true
+    
+    eventPlayer.applyImpulse(Vector.UP, 12, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
+    wait(0.16)
+    waitUntil(eventPlayer.isOnGround(), 3)
+
+
+rule "[Wuyang]: Ebb and Flow lost control":
+    @Event playerReceivedKnockback
+    @Condition eventAbility == Button.ABILITY_2
+    @Condition attacker.getHero() == Hero.WUYANG
+    
+    victim.startForcingThrottle(0, 0, 0, 0, 0, 0)
+    #victim.applyImpulse(Vector.UP, 1, Relativity.TO_PLAYER)
+    #victim.setGravity(0)
+    waitUntil(victim.hasStatus(Status.INVINCIBLE), 0.75)
+    victim.stopForcingThrottle()
+    #victim.setGravity(100)
+
+
+rule "[Wuyang]: Ebb and Flow set":
+    @Event playerReceivedKnockback
+    #@Condition eventPlayer.isUsingAbility2() == true
+    @Condition eventAbility == Button.ABILITY_2
+    @Condition attacker.getHero() == Hero.WUYANG
+    
+    victim.wuyang_buff[2]++
+    #eventPlayer.setAbilityCooldown(Button.ABILITY_2, eventPlayer.getAbilityCooldown(Button.ABILITY_2) - 1)
+    wait(0.16)
+
+
+rule "[Wuyang]: Ebb and Flow Ability":
+    @Event eachPlayer
+    @Condition eventPlayer.wuyang_buff[2] >= 2
+    
+    eventPlayer.setStatusEffect(eventPlayer.reset_pvar[14], Status.FROZEN, 2.5)
+    waitUntil(eventPlayer.unaffected or eventPlayer.hasStatus(Status.INVINCIBLE) or eventPlayer.hasStatus(Status.PHASED_OUT), 5)
+    eventPlayer.wuyang_buff[2] *= 0
+
+
+rule "[Wuyang]: Ebb and Flow countdown":
+    @Event eachPlayer
+    @Condition eventPlayer.wuyang_buff[2] > 0
+    
+    wait(2.5, Wait.ABORT_WHEN_FALSE)
+    eventPlayer.wuyang_buff[2]--
+    if ruleCondition:
+        loop()
+    #wait(0.25, Wait.RESTART_WHEN_TRUE)
+
+
+rule "[Wuyang]: Tidal Blast mov_speed_penalty":
+    @Event playerDealtKnockback
+    @Hero wuyang
+    @Condition eventAbility == Button.ULTIMATE
+    
+    victim.mov_speed_penalty += WuyangBuff[4]
+    victim.setMoveSpeed(100 + victim.mov_speed_buff - victim.mov_speed_penalty)
+    waitUntil(victim.mov_speed_penalty == 0 or victim.unaffected or victim.hasStatus(Status.INVINCIBLE), 3)
+    victim.setMoveSpeed(100)
+    victim.mov_speed_penalty -= WuyangBuff[4]
+
+
+rule "[Wuyang]: Tidal Blast Allies Target":
+    @Event playerDealtHealing
+    @Hero wuyang
+    @Condition eventAbility == Button.ULTIMATE
+    
+    eventPlayer.startHealingOverTime(healee, 1.25, eventPlayer.getMaxHealth() * 0.5 / 1.25)
+
+
+rule "[Wuyang]: Tidal Blast Allies Healing":
+    @Event eachPlayer
+    @Condition eventPlayer.wuyang_buff == true
+    @Disabled
+    
+    eventPlayer.startHealingOverTime(eventPlayer.reset_pvar[13], 3, eventPlayer.getMaxHealth() * WuyangBuff[5])
+    wait(3)
+    eventPlayer.wuyang_buff = false
+
+
+rule "[Vendetta]: Palatine Fang":
+    @Event playerDealtKnockback
+    @Hero vendetta
+    @Condition eventAbility == Button.PRIMARY_FIRE
+    #@Condition victim.getHealthOfType(Health.ARMOR) > 0
+    
+    if eventPlayer.getAbilityCooldown(Button.ABILITY_1) == 0:
+        goto lbl_0
+    eventPlayer.setAbilityCooldown(Button.ABILITY_1, eventPlayer.getAbilityCooldown(Button.ABILITY_1) - 1)
+    lbl_0:
+    if eventPlayer.getAbilityCooldown(Button.ABILITY_2) == 0:
+        goto lbl_1
+    eventPlayer.setAbilityCooldown(Button.ABILITY_2, eventPlayer.getAbilityCooldown(Button.ABILITY_2) - 1)
+    lbl_1:
+    damage(victim, attacker, victim.getMaxHealth() * VendettaBuff[0] if victim.getHealthOfType(Health.ARMOR) == 0 else victim.getMaxHealth() * VendettaBuff[1])
+    wait()
+    eventPlayer.startHealingOverTime(eventPlayer, eventPlayer.getMaxHealth() * VendettaBuff[6] / 1.5, 1.5)
+    wait(0.032)
+
+
+rule "[Vendetta]: Whirlwind Dash":
+    @Event playerReceivedKnockback
+    @Condition attacker.getHero() == Hero.VENDETTA
+    @Condition eventAbility == Button.ABILITY_1
+    
+    damage(eventPlayer, attacker, VendettaBuff[3])
+    heal(eventPlayer, eventPlayer, (eventPlayer.getMaxHealth() - eventPlayer.getHealth()) * VendettaBuff[2])
+    wait(1)
+
+
+rule "[Vendetta]: Soaring Slice":
+    @Event eachPlayer
+    @Hero vendetta
+    @Condition eventPlayer.isUsingAbility2() == true
+    
+    eventPlayer.setStatusEffect(null, Status.PHASED_OUT, 2.5)
+    eventPlayer.unaffected = true
+    waitUntil(not true, eventPlayer.isUsingAbility2())
+    wait(0.8)
+    eventPlayer.unaffected = false
+    eventPlayer.clearStatusEffect(Status.PHASED_OUT)
+
+
+rule "[Vendetta]: Soaring Slice hack":
+    @Event playerDealtKnockback
+    @Hero vendetta
+    @Condition eventAbility == Button.ABILITY_2
+    #@Condition eventPlayer.mov_speed_buff == true
+    
+    victim.vendetta_hud = true
+    stopChasingVariable(victim.hack_timer)
+    victim.setStatusEffect(attacker, Status.HACKED, 1)
+    victim.hack_timer = 1
+    chaseAtRate(victim.hack_timer, 0, 1, ChaseRateReeval.NONE)
+    wait(2)
+    victim.vendetta_hud = false
+
+
+rule "[Vendetta]: Sundering Blade":
+    @Event playerReceivedKnockback
+    @Condition attacker.getHero() == Hero.VENDETTA
+    @Condition eventAbility == Button.ULTIMATE
+    #@Condition eventAbility != Button.PRIMARY_FIRE
+    #@Condition eventAbility != Button.ABILITY_1
+    
+    eventPlayer.setStatusEffect(attacker, Status.KNOCKED_DOWN, VendettaBuff[4])
+    #waitUntil(victim.hasStatus(Status.KNOCKED_DOWN), 0.5)
+    waitUntil(victim.getHealth() <= victim.getMaxHealth() * VendettaBuff[5], VendettaBuff[4])
+    if victim.getHealth() <= victim.getMaxHealth() * VendettaBuff[5]:
+        damage(victim, attacker, 44444)
+    wait(1)
+
+
+rule "Initialize Heroes":
+    @Disabled
+    @Delimiter
+    
+
+
+rule "[reaper/init.opy]: Detect switch to Reaper":
+    @Event eachPlayer
+    @Hero reaper
+    
+    eventPlayer.reset_pvar[0] = true
+
+
+rule "[reaper/init.opy]: Initialize Reaper":
+    @Event eachPlayer
+    @Hero reaper
+    @Condition eventPlayer.reset_pvar[0] != false
+    
+    resetHero()
+    eventPlayer.custom_hp_pvar[0] = 275
+    eventPlayer.custom_hp_pvar[1] = 0
+    eventPlayer.custom_hp_pvar[2] = 0
+    #applyCustomHp()
+    if eventPlayer.getTeam() != Team.1:
+        goto lbl_0
+    eventPlayer.startForcingName(random.choice(["滚筒洗衣机", "转圈摩西", "龙卷风摩西", "哈哈摩西", "菜就多练"]))
+    lbl_0:
+    eventPlayer.reset_pvar[0] = false
+
+
+rule "[tracer/init.opy]: Detect switch to Tracer":
+    @Event eachPlayer
+    @Hero tracer
+    
+    eventPlayer.reset_pvar[0] = true
+
+
+rule "[tracer/init.opy]: Initialize Tracer":
+    @Event eachPlayer
+    @Hero tracer
+    @Condition eventPlayer.reset_pvar[0] != false
+    
+    resetHero()
+    eventPlayer.setAbilityCooldown(Button.ABILITY_2, 8)
+    eventPlayer.custom_hp_pvar[0] = 125
+    eventPlayer.custom_hp_pvar[1] = 0
+    eventPlayer.custom_hp_pvar[2] = 50
+    applyCustomHp()
+    if eventPlayer.getTeam() != Team.1:
+        goto lbl_0
+    eventPlayer.startForcingName(random.choice(["跳跳熊", "FLETA", "EVAEL", "炸弹摩西", "瞬移摩西"]))
+    lbl_0:
+    eventPlayer.reset_pvar[0] = false
+
+
+rule "[mercy/init.opy]: Detect switch to Mercy":
+    @Event eachPlayer
+    @Hero mercy
+    
+    eventPlayer.reset_pvar[0] = true
+
+
+rule "[mercy/init.opy]: Initialize Mercy":
+    @Event eachPlayer
+    @Hero mercy
+    @Condition eventPlayer.reset_pvar[0] != false
+    
+    resetHero()
+    eventPlayer.custom_hp_pvar[0] = 250
+    eventPlayer.custom_hp_pvar[1] = 0
+    eventPlayer.custom_hp_pvar[2] = 0
+    #applyCustomHp()
+    eventPlayer.setMaxAmmo(0, 20)
+    eventPlayer.setAmmo(0, eventPlayer.getMaxAmmo())
+    if eventPlayer.getTeam() != Team.1:
+        goto lbl_0
+    eventPlayer.startForcingName(random.choice(["摩西", "拉使", "国服摩西请战", "我 有 恋 尸 癖", "慈 悲 十 三 摩", "食 尸 鬼"]))
+    lbl_0:
+    eventPlayer.reset_pvar[6].reset_pvar[9] = eventPlayer
+    eventPlayer.reset_pvar[0] = false
+
+
+rule "[hanzo/init.opy]: Detect switch to Hanzo":
+    @Event eachPlayer
+    @Hero hanzo
+    
+    eventPlayer.reset_pvar[0] = true
+
+
+rule "[hanzo/init.opy]: Initialize Hanzo":
+    @Event eachPlayer
+    @Hero hanzo
+    @Condition eventPlayer.reset_pvar[0] != false
+    
+    resetHero()
+    eventPlayer.custom_hp_pvar[0] = 200
+    eventPlayer.custom_hp_pvar[1] = 0
+    eventPlayer.custom_hp_pvar[2] = 0
+    #applyCustomHp()
+    if eventPlayer.getTeam() != Team.1:
+        goto lbl_0
+    eventPlayer.startForcingName(random.choice(["ANS", "吃矢不忘拉矢人", "拉矢摩西", "贩箭摩西"]))
+    lbl_0:
+    eventPlayer.reset_pvar[0] = false
+
+
+rule "[Freja/init.opy]: Detect switch to Freja":
+    @Event eachPlayer
+    @Hero freja
+    
+    eventPlayer.reset_pvar[0] = true
+
+
+rule "[Freja/init.opy]: Initialize Freja":
+    @Event eachPlayer
+    @Hero freja
+    @Condition eventPlayer.reset_pvar[0] != false
+    
+    resetHero()
+    eventPlayer.custom_hp_pvar[0] = 225
+    eventPlayer.custom_hp_pvar[1] = 0
+    eventPlayer.custom_hp_pvar[2] = 0
+    #applyCustomHp()
+    eventPlayer.setProjectileSpeed(500)
+    if eventPlayer.getTeam() != Team.1:
+        goto lbl_0
+    eventPlayer.startForcingName(random.choice(["ANS", "射 爆", "拉矢摩西"]))
+    lbl_0:
+    getPlayers(getOppositeTeam(eventPlayer.getTeam())).reset_pvar[11] = eventPlayer
+    eventPlayer.reset_pvar[0] = false
+
+
+rule "[torbjorn/init.opy]: Detect switch to Torbjorn":
+    @Event eachPlayer
+    @Hero torbjorn
+    
+    eventPlayer.reset_pvar[0] = true
+
+
+rule "[torbjorn/init.opy]: Initialize Torbjorn":
+    @Event eachPlayer
+    @Hero torbjorn
+    @Condition eventPlayer.reset_pvar[0] != false
+    
+    resetHero()
+    eventPlayer.custom_hp_pvar[0] = 200
+    eventPlayer.custom_hp_pvar[1] = 50
+    eventPlayer.custom_hp_pvar[2] = 0
+    #applyCustomHp()
+    if eventPlayer.getTeam() != Team.1:
+        goto lbl_0
+    eventPlayer.startForcingName(random.choice(["你强任你强", "史", "十年老兵", "炮台摩西"]))
+    lbl_0:
+    eventPlayer.reset_pvar[0] = false
+
+
+rule "[venture/init.opy]: Detect switch to venture":
+    @Event eachPlayer
+    @Hero venture
+    
+    eventPlayer.reset_pvar[0] = true
+
+
+rule "[venture/init.opy]: Initialize venture":
+    @Event eachPlayer
+    @Hero venture
+    @Condition eventPlayer.reset_pvar[0] != false
+    
+    resetHero()
+    eventPlayer.custom_hp_pvar[0] = 250
+    eventPlayer.custom_hp_pvar[1] = 0
+    eventPlayer.custom_hp_pvar[2] = 0
+    #applyCustomHp()
+    if eventPlayer.getTeam() != Team.1:
+        goto lbl_0
+    eventPlayer.startForcingName(random.choice(["钻地摩西", "丁真摩西"]))
+    lbl_0:
+    eventPlayer.reset_pvar[0] = false
+
+
+rule "[Vendetta/init.opy]: Detect switch to Vendetta":
+    @Event eachPlayer
+    @Hero vendetta
+    
+    eventPlayer.reset_pvar[0] = true
+
+
+rule "[Vendetta/init.opy]: Initialize Vendetta":
+    @Event eachPlayer
+    @Hero vendetta
+    @Condition eventPlayer.reset_pvar[0] != false
+    
+    resetHero()
+    #applyCustomHp()
+    if eventPlayer.getTeam() != Team.1:
+        goto lbl_0
+    eventPlayer.startForcingName(random.choice(["大剑摩西", "一刀摩西"]))
+    lbl_0:
+    eventPlayer.reset_pvar[0] = false
+
+
+rule "[wuyang/init.opy]: Detect switch to wuyang":
+    @Event eachPlayer
+    @Hero wuyang
+    
+    eventPlayer.reset_pvar[0] = true
+
+
+rule "[wuyang/init.opy]: Initialize wuyang":
+    @Event eachPlayer
+    @Hero wuyang
+    @Condition eventPlayer.reset_pvar[0] != false
+    
+    resetHero()
+    #eventPlayer.custom_hp_pvar[0] = 0
+    #eventPlayer.custom_hp_pvar[1] = 0
+    #eventPlayer.custom_hp_pvar[2] = 0
+    #applyCustomHp()
+    if eventPlayer.getTeam() != Team.1:
+        goto lbl_0
+    eventPlayer.startForcingName(random.choice(["玩水摩西", "成都摩西"]))
+    lbl_0:
+    eventPlayer.reset_pvar[0] = false
+
+
+rule "[reinhardt/init.opy]: Detect switch to Reinhardt":
+    @Event eachPlayer
+    @Hero reinhardt
+    
+    eventPlayer.reset_pvar[0] = true
+
+
+rule "[reinhardt/init.opy]: Initialize Reinhardt":
+    @Event eachPlayer
+    @Hero reinhardt
+    @Condition eventPlayer.reset_pvar[0] != false
+    
+    resetHero()
+    eventPlayer.custom_hp_pvar[0] = 250
+    eventPlayer.custom_hp_pvar[1] = 250
+    eventPlayer.custom_hp_pvar[2] = 0
+    #applyCustomHp()
+    #eventPlayer.setKnockbackReceived(116.667)
+    if eventPlayer.getTeam() != Team.1:
+        goto lbl_0
+    eventPlayer.startForcingName(random.choice(["小米Su7 Ultra", "Hadi", "冲锋摩西", "抡锤摩西"]))
+    lbl_0:
+    eventPlayer.reset_pvar[0] = false
+
+
+rule "[Hazard/init.opy]: Detect switch to Hazard":
+    @Event eachPlayer
+    @Hero hazard
+    
+    eventPlayer.reset_pvar[0] = true
+
+
+rule "[Hazard/init.opy]: Initialize Hazard":
+    @Event eachPlayer
+    @Hero hazard
+    @Condition eventPlayer.reset_pvar[0] != false
+    
+    resetHero()
+    eventPlayer.custom_hp_pvar[0] = 200
+    eventPlayer.custom_hp_pvar[1] = 250
+    eventPlayer.custom_hp_pvar[2] = 0
+    #applyCustomHp()
+    #removeTankPassive()
+    eventPlayer.reset_pvar[0] = false
+
+
+rule "[pharah/init.opy]: Detect switch to Pharah":
+    @Event eachPlayer
+    @Hero pharah
+    
+    eventPlayer.reset_pvar[0] = true
+
+
+rule "[pharah/init.opy]: Initialize Pharah":
+    @Event eachPlayer
+    @Hero pharah
+    @Condition eventPlayer.reset_pvar[0] != false
+    
+    resetHero()
+    if eventPlayer.getTeam() != Team.1:
+        goto lbl_0
+    eventPlayer.custom_hp_pvar[0] = 100
+    eventPlayer.custom_hp_pvar[1] = 0
+    eventPlayer.custom_hp_pvar[2] = 125
+    #applyCustomHp()
+    lbl_0:
+    eventPlayer.reset_pvar[0] = false
+
+
+rule "[winston/init.opy]: Detect switch to Winston":
+    @Event eachPlayer
+    @Hero winston
+    
+    eventPlayer.reset_pvar[0] = true
+
+
+rule "[winston/init.opy]: Initialize Winston":
+    @Event eachPlayer
+    @Hero winston
+    @Condition eventPlayer.reset_pvar[0] != false
+    
+    resetHero()
+    eventPlayer.custom_hp_pvar[0] = 300
+    eventPlayer.custom_hp_pvar[1] = 200
+    eventPlayer.custom_hp_pvar[2] = 0
+    #applyCustomHp()
+    #removeTankPassive()
+    if eventPlayer.getTeam() != Team.1:
+        goto lbl_0
+    eventPlayer.startForcingName(random.choice(["电音王子吴亦凡", "雷电法王杨永信", "电击摩西", "菜就多练"]))
+    lbl_0:
+    eventPlayer.reset_pvar[0] = false
+
+
+rule "[widowmaker/init.opy]: Detect switch to Widowmaker":
+    @Event eachPlayer
+    @Hero widowmaker
+    
+    eventPlayer.reset_pvar[0] = true
+
+
+rule "[widowmaker/init.opy]: Initialize Widowmaker":
+    @Event eachPlayer
+    @Hero widowmaker
+    @Condition eventPlayer.reset_pvar[0] != false
+    
+    resetHero()
+    eventPlayer.custom_hp_pvar[0] = 175
+    eventPlayer.custom_hp_pvar[1] = 0
+    eventPlayer.custom_hp_pvar[2] = 0
+    #applyCustomHp()
+    eventPlayer.setMaxAmmo(0, 25)
+    eventPlayer.setAmmo(0, eventPlayer.getMaxAmmo())
+    if eventPlayer.getTeam() != Team.1:
+        goto lbl_0
+    eventPlayer.startForcingName(random.choice(["ANS", "亿枪一个", "KAI了就是KAI了？", "女兵摩西", "MN3"]))
+    lbl_0:
+    eventPlayer.reset_pvar[6].reset_pvar[9] = eventPlayer
+    eventPlayer.reset_pvar[0] = false
+
+
+rule "[widowmaker.opy]: Infra-Sight headshot x3":
+    @Event playerDealtDamage
+    @Hero widowmaker
+    @Condition eventWasCriticalHit == true
+    @Condition eventPlayer.isUsingUltimate() == true
+    @Condition eventPlayer.isFiringSecondaryFire() == true
+    @Condition eventPlayer.isFiringPrimaryFire() == true
+    @Condition eventAbility == Button.PRIMARY_FIRE
+    
+    damage(victim, attacker, (3 / 2.5 - 1) * eventDamage)
+
+
+rule "[widowmaker.opy]: Revert sniper damage falloff":
+    @Event playerDealtDamage
+    @Hero widowmaker
+    @Condition eventPlayer.getHero() == Hero.WIDOWMAKER == true
+    @Condition eventPlayer.isFiringSecondaryFire() == true
+    @Condition eventPlayer.isFiringPrimaryFire() == true
+    @Condition eventAbility == Button.PRIMARY_FIRE
+    
+    eventPlayer.scoped_shot_distance = distance(attacker.getEyePosition(), victim)
+    eventPlayer.ow2_scoped_damage_falloff_scalar = ((eventPlayer.scoped_shot_distance - 50) / 20) * 0.5 + (1 - ((eventPlayer.scoped_shot_distance - 50) / 20))
+    #Cap min/max scalar
+    # Max damage scalar
+    if eventPlayer.ow2_scoped_damage_falloff_scalar > 1:
+        eventPlayer.ow2_scoped_damage_falloff_scalar = 1
+        #Min damage scalar
+    elif eventPlayer.ow2_scoped_damage_falloff_scalar < 0.5:
+        eventPlayer.ow2_scoped_damage_falloff_scalar = 0.5
+    eventPlayer.scoped_damage_base = eventDamage / eventPlayer.ow2_scoped_damage_falloff_scalar
+    eventPlayer.ow1_scoped_damage_falloff_scalar = ((eventPlayer.scoped_shot_distance - 70) / 30) * 0.3 + (1 - ((eventPlayer.scoped_shot_distance - 70) / 30))
+    #Cap min/max scalar
+    # Max damage scalar
+    if eventPlayer.ow1_scoped_damage_falloff_scalar > 1:
+        eventPlayer.ow1_scoped_damage_falloff_scalar = 1
+        #Min damage scalar
+    elif eventPlayer.ow1_scoped_damage_falloff_scalar < 0.3:
+        eventPlayer.ow1_scoped_damage_falloff_scalar = 0.3
+    eventPlayer.expected_scoped_damage = eventPlayer.scoped_damage_base * eventPlayer.ow1_scoped_damage_falloff_scalar
+    damage(victim, attacker, ceil(eventPlayer.expected_scoped_damage - eventDamage))
+
+
+rule "[bastion/init.opy]: Detect switch to Bastion":
+    @Event eachPlayer
+    @Hero bastion
+    
+    eventPlayer.reset_pvar[0] = true
+
+
+rule "[bastion/init.opy]: Initialize Bastion":
+    @Event eachPlayer
+    @Hero bastion
+    @Condition eventPlayer.reset_pvar[0] != false
+    
+    resetHero()
+    eventPlayer.custom_hp_pvar[0] = 200
+    eventPlayer.custom_hp_pvar[1] = 50
+    eventPlayer.custom_hp_pvar[2] = 0
+    #applyCustomHp()
+    if eventPlayer.getTeam() != Team.1:
+        goto lbl_0
+    eventPlayer.startForcingName(random.choice(["电脑", "嘟嘟嘟嘟嘟", "大炮摩西", "无可奉告"]))
+    lbl_0:
+    eventPlayer.reset_pvar[0] = false
+
+
+rule "[symmetra/init.opy]: Detect switch to Symmetra":
+    @Event eachPlayer
+    @Hero symmetra
+    
+    eventPlayer.reset_pvar[0] = true
+
+
+rule "[symmetra/init.opy]: Initialize Symmetra":
+    @Event eachPlayer
+    @Hero symmetra
+    @Condition eventPlayer.reset_pvar[0] != false
+    
+    resetHero()
+    eventPlayer.custom_hp_pvar[0] = 125
+    eventPlayer.custom_hp_pvar[1] = 0
+    eventPlayer.custom_hp_pvar[2] = 125
+    #applyCustomHp()
+    if eventPlayer.getTeam() != Team.1:
+        goto lbl_0
+    eventPlayer.startForcingName(random.choice(["性♂感荷官在线烫头", "绿洲城首家赌场", "麻豆传媒摄影师", "烫头摩西"]))
+    lbl_0:
+    getPlayers(eventPlayer.getTeam()).reset_pvar[3] = eventPlayer
+    eventPlayer.reset_pvar[0] = false
+
+
+rule "[zenyatta]: Detect switch to zenyatta":
+    @Event eachPlayer
+    @Hero zenyatta
+    
+    eventPlayer.reset_pvar[0] = true
+
+
+rule "[zenyatta]: init":
+    @Event eachPlayer
+    @Hero zenyatta
+    @Condition eventPlayer.reset_pvar[0] != false
+    
+    resetHero()
+    eventPlayer.custom_hp_pvar[0] = 50
+    eventPlayer.custom_hp_pvar[1] = 0
+    eventPlayer.custom_hp_pvar[2] = 175
+    #applyCustomHp()
+    eventPlayer.setMaxAmmo(0, 20)
+    eventPlayer.setAmmo(0, eventPlayer.getMaxAmmo())
+    if eventPlayer.getTeam() != Team.1:
+        goto lbl_0
+    eventPlayer.startForcingName(random.choice(["武僧", "出家摩西", "机械摩西", "就这", "JJONAK"]))
+    lbl_0:
+    eventPlayer.reset_pvar[6].reset_pvar[9] = eventPlayer
+    eventPlayer.reset_pvar[0] = false
+
+
+rule "[Genji]: Detect switch to Genji":
+    @Event eachPlayer
+    @Hero genji
+    
+    eventPlayer.reset_pvar[0] = true
+
+
+rule "[Genji]: init":
+    @Event eachPlayer
+    @Hero genji
+    @Condition eventPlayer.reset_pvar[0] != false
+    
+    resetHero()
+    eventPlayer.custom_hp_pvar[0] = 225
+    eventPlayer.custom_hp_pvar[1] = 0
+    eventPlayer.custom_hp_pvar[2] = 0
+    #applyCustomHp()
+    if eventPlayer.getTeam() != Team.1:
+        goto lbl_0
+    eventPlayer.startForcingName(random.choice(["国服{0}分顶尖镖师".format(Genji[0]), "飞镖摩西", "源神", "忍者摩西", "源氏凯"]))
+    lbl_0:
+    eventPlayer.reset_pvar[0] = false
+
+
+rule "[roadhog]: Detect switch to roadhog":
+    @Event eachPlayer
+    @Hero roadhog
+    
+    eventPlayer.reset_pvar[0] = true
+
+
+rule "[roadhog]":
+    @Event eachPlayer
+    @Hero roadhog
+    @Condition eventPlayer.reset_pvar[0] != false
+    
+    resetHero()
+    eventPlayer.custom_hp_pvar[0] = 700
+    eventPlayer.custom_hp_pvar[1] = 0
+    eventPlayer.custom_hp_pvar[2] = 0
+    applyCustomHp()
+    eventPlayer.setMaxAmmo(0, 5)
+    eventPlayer.setAmmo(0, eventPlayer.getMaxAmmo())
+    eventPlayer.startForcingName(random.choice(["链钩摩西", "肥猪摩西", "小鱿摩西", "奶霸摩西"]))
+    #removeTankPassive()
+    eventPlayer.reset_pvar[0] = false
+
+
+rule "[Cassidy]: Detect switch to Cassidy":
+    @Event eachPlayer
+    @Hero cassidy
+    
+    eventPlayer.reset_pvar[0] = true
+
+
+rule "[Cassidy]: Initialize Cassidy":
+    @Event eachPlayer
+    @Hero cassidy
+    @Condition eventPlayer.reset_pvar[0] != false
+    
+    resetHero()
+    eventPlayer.custom_hp_pvar[0] = 225
+    eventPlayer.custom_hp_pvar[1] = 0
+    eventPlayer.custom_hp_pvar[2] = 0
+    #applyCustomHp()
+    if eventPlayer.getTeam() != Team.1:
+        goto lbl_0
+    eventPlayer.startForcingName(random.choice(["张三", "天王老子", "KAI了", "麦克雷", "六连摩西"]))
+    lbl_0:
+    eventPlayer.reset_pvar[0] = false
+
+
+rule "[Cassidy.opy]: Revert sniper damage falloff":
+    @Event playerDealtDamage
+    @Hero cassidy
+    @Condition eventAbility == Button.PRIMARY_FIRE
+    @Condition distance(attacker.getEyePosition(), victim) > 25
+    
+    eventPlayer.scoped_shot_distance = distance(attacker.getEyePosition(), victim)
+    #原OW2衰减计算（25-35米 70%衰减）
+    eventPlayer.ow2_scoped_damage_falloff_scalar = 1 - (((eventPlayer.scoped_shot_distance - 25) / 10) * 0.7) + (1 - ((eventPlayer.scoped_shot_distance - 25) / 10))
+    if eventPlayer.ow2_scoped_damage_falloff_scalar > 1:
+        eventPlayer.ow2_scoped_damage_falloff_scalar = 1
+        #Min damage scalar
+    elif eventPlayer.ow2_scoped_damage_falloff_scalar < 0.3:
+        eventPlayer.ow2_scoped_damage_falloff_scalar = 0.3
+    eventPlayer.scoped_damage_base = eventDamage / eventPlayer.ow2_scoped_damage_falloff_scalar
+    eventPlayer.ow1_scoped_damage_falloff_scalar = 1 - (((eventPlayer.scoped_shot_distance - 25) / 25) * 0.3)
+    #Cap min/max scalar
+    # Max damage scalar
+    if eventPlayer.ow1_scoped_damage_falloff_scalar < 0.7:
+        eventPlayer.ow1_scoped_damage_falloff_scalar = 0.7
+    if eventPlayer.scoped_shot_distance > 50:
+        eventPlayer.ow1_scoped_damage_falloff_scalar = 0.7
+    eventPlayer.expected_scoped_damage = eventPlayer.scoped_damage_base * eventPlayer.ow1_scoped_damage_falloff_scalar
+    damage(victim, attacker, ceil(eventPlayer.expected_scoped_damage - eventDamage))
+
+
+rule "[Junkrat]: Detect switch to Junkrat":
+    @Event eachPlayer
+    @Hero junkrat
+    
+    eventPlayer.reset_pvar[0] = true
+
+
+rule "[Junkrat] Initialize":
+    @Event eachPlayer
+    @Hero junkrat
+    @Condition eventPlayer.reset_pvar[0] != false
+    
+    resetHero()
+    eventPlayer.custom_hp_pvar[0] = 200
+    eventPlayer.custom_hp_pvar[1] = 0
+    eventPlayer.custom_hp_pvar[2] = 0
+    #applyCustomHp()
+    if eventPlayer.getTeam() != Team.1:
+        goto lbl_0
+    eventPlayer.startForcingName(random.choice(["拉 史 大 王", "拉 史 摩 西", "鼠鼠摩西", "鸭脖摩西", "夹子摩西"]))
+    lbl_0:
+    eventPlayer.reset_pvar[0] = false
+
+
+rule "[Zarya]: Detect switch to Zarya":
+    @Event eachPlayer
+    @Hero zarya
+    
+    eventPlayer.reset_pvar[0] = true
+
+
+rule "[Zarya] Initialize":
+    @Event eachPlayer
+    @Hero zarya
+    @Condition eventPlayer.reset_pvar[0] != false
+    
+    resetHero()
+    eventPlayer.zarya_buff[0] = true
+    eventPlayer.custom_hp_pvar[0] = 200
+    eventPlayer.custom_hp_pvar[1] = 0
+    eventPlayer.custom_hp_pvar[2] = 200
+    #applyCustomHp()
+    #removeTankPassive()
+    if eventPlayer.getTeam() != Team.1:
+        goto lbl_0
+    eventPlayer.startForcingName(random.choice(["Sinatraa", "泡泡摩西", "东北雨姐"]))
+    lbl_0:
+    eventPlayer.reset_pvar[0] = false
+
+
+rule "[Soldier: 76]: Detect switch to Soldier 76":
+    @Event eachPlayer
+    @Hero soldier
+    
+    eventPlayer.reset_pvar[0] = true
+
+
+rule "[Soldier: 76]: Initialize":
+    @Event eachPlayer
+    @Hero soldier
+    @Condition eventPlayer.reset_pvar[0] != false
+    
+    resetHero()
+    eventPlayer.custom_hp_pvar[0] = 200
+    eventPlayer.custom_hp_pvar[1] = 0
+    eventPlayer.custom_hp_pvar[2] = 0
+    #applyCustomHp()
+    if eventPlayer.getTeam() != Team.1:
+        goto lbl_0
+    eventPlayer.startForcingName(random.choice(["国服顶尖小巴蒂", "跑男摩西", "奶棒摩西", "Kai了", "飞弹摩西"]))
+    lbl_0:
+    eventPlayer.reset_pvar[0] = false
+
+
+rule "[Lucio]: Detect switch to Lucio":
+    @Event eachPlayer
+    @Hero lucio
+    
+    eventPlayer.reset_pvar[0] = true
+
+
+rule "[Lucio] Initialize":
+    @Event eachPlayer
+    @Hero lucio
+    @Condition eventPlayer.reset_pvar[0] != false
+    
+    resetHero()
+    eventPlayer.custom_hp_pvar[0] = 250
+    eventPlayer.custom_hp_pvar[1] = 0
+    eventPlayer.custom_hp_pvar[2] = 0
+    #applyCustomHp()
+    if eventPlayer.getTeam() != Team.1:
+        goto lbl_0
+    eventPlayer.startForcingName(random.choice(["巴西拳王", "喇叭摩西", "轮滑摩西"]))
+    lbl_0:
+    eventPlayer.reset_pvar[0] = false
+
+
+rule "[D.Va]: Detect switch to D.Va":
+    @Event eachPlayer
+    @Hero dva
+    @Condition eventPlayer.isInAlternateForm() == false
+    
+    eventPlayer.reset_pvar[0] = true
+
+
+rule "[D.Va] Initialize":
+    @Event eachPlayer
+    @Hero dva
+    @Condition eventPlayer.reset_pvar[0] != false
+    
+    resetHero()
+    #eventPlayer.custom_hp_pvar[0] = 100
+    #eventPlayer.custom_hp_pvar[1] = 500
+    #eventPlayer.custom_hp_pvar[2] = 0
+    #applyCustomHp()
+    #removeTankPassive()
+    eventPlayer.reset_pvar[0] = false
+
+
+rule "[Mei]: Detect switch to Mei":
+    @Event eachPlayer
+    @Hero mei
+    
+    eventPlayer.reset_pvar[0] = true
+
+
+rule "[Mei] Initialize":
+    @Event eachPlayer
+    @Hero mei
+    @Condition eventPlayer.reset_pvar[0] != false
+    
+    resetHero()
+    eventPlayer.custom_hp_pvar[0] = 275
+    eventPlayer.custom_hp_pvar[1] = 0
+    eventPlayer.custom_hp_pvar[2] = 0
+    #applyCustomHp()
+    if eventPlayer.getTeam() != Team.1:
+        goto lbl_0
+    eventPlayer.startForcingName(random.choice(["识得唔识得啊", "冰雕摩西", "麦克美", "周美玲冰雪大世界", "哈尔滨摩西"]))
+    lbl_0:
+    eventPlayer.reset_pvar[0] = false
+
+
+rule "[Sombra]: Detect switch to Sombra":
+    @Event eachPlayer
+    @Hero sombra
+    
+    eventPlayer.reset_pvar[0] = true
+
+
+rule "[Sombra] Initialize":
+    @Event eachPlayer
+    @Hero sombra
+    
+    resetHero()
+    eventPlayer.custom_hp_pvar[0] = 200
+    eventPlayer.custom_hp_pvar[1] = 0
+    eventPlayer.custom_hp_pvar[2] = 0
+    #applyCustomHp()
+    if eventPlayer.getTeam() != Team.1:
+        goto lbl_0
+    eventPlayer.startForcingName(random.choice(["全民偶像酸不辣", "多少有点LIP", "阳光开朗小女孩", "隐身摩西"]))
+    lbl_0:
+    getPlayers(eventPlayer.getTeam()).reset_pvar[4] = eventPlayer
+    getPlayers(getOppositeTeam(eventPlayer.getTeam())).reset_pvar[7] = eventPlayer
+    eventPlayer.reset_pvar[0] = false
+
+
+rule "[Ana]: Detect switch to Ana":
+    @Event eachPlayer
+    @Hero ana
+    
+    eventPlayer.reset_pvar[0] = true
+
+
+rule "[Ana] Initialize":
+    @Event eachPlayer
+    @Hero ana
+    @Condition eventPlayer.reset_pvar[0] != false
+    
+    resetHero()
+    eventPlayer.custom_hp_pvar[0] = 200
+    eventPlayer.custom_hp_pvar[1] = 0
+    eventPlayer.custom_hp_pvar[2] = 0
+    #applyCustomHp()
+    if eventPlayer.getTeam() != Team.1:
+        goto lbl_0
+    eventPlayer.startForcingName(random.choice(["老年摩西", "睡觉摩西", "末日铁娜", "独眼摩西"]))
+    eventPlayer.heroNum = BotHeroArray.index(eventPlayer.getHero())
+    lbl_0:
+    eventPlayer.reset_pvar[6].reset_pvar[9] = eventPlayer
+    eventPlayer.reset_pvar[0] = false
+
+
+rule "[Orisa]: Detect switch to Orisa":
+    @Event eachPlayer
+    @Hero orisa
+    
+    eventPlayer.reset_pvar[0] = true
+
+
+rule "[Orisa] Initialize":
+    @Event eachPlayer
+    @Hero orisa
+    @Condition eventPlayer.reset_pvar[0] != false
+    
+    resetHero()
+    eventPlayer.custom_hp_pvar[0] = 250
+    eventPlayer.custom_hp_pvar[1] = 200
+    eventPlayer.custom_hp_pvar[2] = 0
+    #applyCustomHp()
+    #removeTankPassive()
+    if eventPlayer.getTeam() != Team.1:
+        goto lbl_0
+    eventPlayer.startForcingName(random.choice(["命运羊驼", "美羊羊", "唯一真神", "标枪摩西", "小米Su7 Ultra"]))
+    lbl_0:
+    eventPlayer.reset_pvar[0] = false
+
+
+rule "[Brigitte]: Detect switch to Brigitte":
+    @Event eachPlayer
+    @Hero brigitte
+    
+    eventPlayer.reset_pvar[0] = true
+
+
+rule "[Brigitte] Initialize":
+    @Event eachPlayer
+    @Hero brigitte
+    @Condition eventPlayer.reset_pvar[0] != false
+    
+    resetHero()
+    eventPlayer.custom_hp_pvar[0] = 200
+    eventPlayer.custom_hp_pvar[1] = 75
+    eventPlayer.custom_hp_pvar[2] = 0
+    applyCustomHp()
+    #eventPlayer.setMaxHealth(41.667)
+    if eventPlayer.getTeam() != Team.1:
+        goto lbl_0
+    eventPlayer.startForcingName(random.choice(["那个女人", "炖鸡摩西", "持盾摩西", "贴膜摩西", "护 娜 十 三 锤", "泰格"]))
+    lbl_0:
+    getPlayers(eventPlayer.getTeam()).reset_pvar[1] = eventPlayer
+    eventPlayer.reset_pvar[0] = false
+
+
+rule "[Moira]: Detect switch to Moira":
+    @Event eachPlayer
+    @Hero moira
+    
+    eventPlayer.reset_pvar[0] = true
+
+
+rule "[Moira] Initialize":
+    @Event eachPlayer
+    @Hero moira
+    @Condition eventPlayer.reset_pvar[0] != false
+    
+    resetHero()
+    eventPlayer.custom_hp_pvar[0] = 300
+    eventPlayer.custom_hp_pvar[1] = 0
+    eventPlayer.custom_hp_pvar[2] = 0
+    applyCustomHp()
+    if eventPlayer.getTeam() != Team.1:
+        goto lbl_0
+    eventPlayer.startForcingName(random.choice(["五  金  上  将", "五金上将莫伊拉", "五金摩西", "生化摩西"]))
+    lbl_0:
+    eventPlayer.reset_pvar[0] = false
+
+
+rule "[Wrecking Ball]: Detect switch to Wrecking Ball":
+    @Event eachPlayer
+    @Hero wreckingBall
+    
+    eventPlayer.reset_pvar[0] = true
+
+
+rule "[Wrecking Ball] Initialize":
+    @Event eachPlayer
+    @Hero wreckingBall
+    @Condition eventPlayer.reset_pvar[0] != false
+    
+    resetHero()
+    eventPlayer.custom_hp_pvar[0] = 500
+    eventPlayer.custom_hp_pvar[1] = 100
+    eventPlayer.custom_hp_pvar[2] = 0
+    #applyCustomHp()
+    #removeTankPassive()
+    eventPlayer.reset_pvar[0] = false
+
+
+rule "[Sojourn]: Detect switch to Sojourn":
+    @Event eachPlayer
+    @Hero sojourn
+    
+    eventPlayer.reset_pvar[0] = true
+
+
+rule "[Sojourn] Initialize":
+    @Event eachPlayer
+    @Hero sojourn
+    @Condition eventPlayer.reset_pvar[0] != false
+    
+    resetHero()
+    eventPlayer.custom_hp_pvar[0] = 250
+    eventPlayer.custom_hp_pvar[1] = 0
+    eventPlayer.custom_hp_pvar[2] = 0
+    #applyCustomHp()
+    if eventPlayer.getTeam() != Team.1:
+        goto lbl_0
+    eventPlayer.startForcingName(random.choice(["跳跳熊", "我超摩西", "我超", "ANS", "MN3", "EVAEL", "没KAI"]))
+    lbl_0:
+    eventPlayer.reset_pvar[0] = false
+
+
+rule "[Ashe]: Detect switch to Ashe":
+    @Event eachPlayer
+    @Hero ashe
+    
+    eventPlayer.reset_pvar[0] = true
+
+
+rule "[Ashe] Initialize":
+    @Event eachPlayer
+    @Hero ashe
+    @Condition eventPlayer.reset_pvar[0] != false
+    
+    resetHero()
+    eventPlayer.custom_hp_pvar[0] = 200
+    eventPlayer.custom_hp_pvar[1] = 0
+    eventPlayer.custom_hp_pvar[2] = 0
+    #applyCustomHp()
+    if eventPlayer.getTeam() != Team.1:
+        goto lbl_0
+    eventPlayer.startForcingName(random.choice(["张三的绯闻女友", "KAI了", "ANS", "Bob摩西"]))
+    lbl_0:
+    eventPlayer.reset_pvar[0] = false
+
+
+rule "[Echo]: Detect switch to Echo":
+    @Event eachPlayer
+    @Hero echo
+    
+    eventPlayer.reset_pvar[0] = true
+
+
+rule "[Echo] Initialize":
+    @Event eachPlayer
+    @Hero echo
+    @Condition eventPlayer.reset_pvar[0] != false
+    
+    resetHero()
+    eventPlayer.custom_hp_pvar[0] = 200
+    eventPlayer.custom_hp_pvar[1] = 0
+    eventPlayer.custom_hp_pvar[2] = 0
+    #applyCustomHp()
+    eventPlayer.reset_pvar[0] = false
+
+
+rule "[Echo] Duplicate fast ultimate charge":
+    @Event eachPlayer
+    @Hero echo
+    @Condition eventPlayer.isDuplicatingAHero() == true
+    @Condition eventPlayer.getUltCharge() < 50 == true
+    
+    eventPlayer.setUltCharge(10)
+
+
+rule "[echo/init.opy]: Table of all heroes with custom hp":
+    @Disabled
+    
+    #tanks
+    health_pool[getAllHeroes().index(Hero.ORISA)] = [250, 200, 0]
+    health_pool[getAllHeroes().index(Hero.REINHARDT)] = [250, 250, 0]
+    health_pool[getAllHeroes().index(Hero.DOOMFIST)] = [300, 100, 0]
+    health_pool[getAllHeroes().index(Hero.ROADHOG)] = [600, 0, 0]
+    health_pool[getAllHeroes().index(Hero.SIGMA)] = [200, 0, 200]
+    health_pool[getAllHeroes().index(Hero.WINSTON)] = [300, 200, 0]
+    health_pool[getAllHeroes().index(Hero.ZARYA)] = [200, 0, 200]
+    health_pool[getAllHeroes().index(Hero.RAMATTRA)] = [275, 100, 0]
+    health_pool[getAllHeroes().index(Hero.MAUGA)] = [250, 200, 0]
+    health_pool[getAllHeroes().index(Hero.JUNKER_QUEEN)] = [400, 0, 0]
+    #dps
+    health_pool[getAllHeroes().index(Hero.ASHE)] = [200, 0, 0]
+    health_pool[getAllHeroes().index(Hero.BASTION)] = [200, 50, 0]
+    health_pool[getAllHeroes().index(Hero.CASSIDY)] = [225, 0, 0]
+    health_pool[getAllHeroes().index(Hero.GENJI)] = [200, 0, 0]
+    health_pool[getAllHeroes().index(Hero.HANZO)] = [200, 0, 0]
+    health_pool[getAllHeroes().index(Hero.JUNKRAT)] = [200, 0, 0]
+    health_pool[getAllHeroes().index(Hero.MEI)] = [250, 0, 0]
+    health_pool[getAllHeroes().index(Hero.PHARAH)] = [200, 0, 0]
+    health_pool[getAllHeroes().index(Hero.REAPER)] = [250, 0, 0]
+    health_pool[getAllHeroes().index(Hero.SOLDIER)] = [200, 0, 0]
+    health_pool[getAllHeroes().index(Hero.SOMBRA)] = [200, 0, 0]
+    health_pool[getAllHeroes().index(Hero.SYMMETRA)] = [125, 0, 100]
+    health_pool[getAllHeroes().index(Hero.TORBJORN)] = [200, 50, 0]
+    health_pool[getAllHeroes().index(Hero.TRACER)] = [125, 25, 0]
+    health_pool[getAllHeroes().index(Hero.WIDOWMAKER)] = [175, 0, 0]
+    health_pool[getAllHeroes().index(Hero.SOJOURN)] = [200, 0, 0]
+    #supports
+    health_pool[getAllHeroes().index(Hero.ANA)] = [200, 0, 0]
+    health_pool[getAllHeroes().index(Hero.BAPTISTE)] = [200, 0, 0]
+    health_pool[getAllHeroes().index(Hero.BRIGITTE)] = [200, 50, 0]
+    health_pool[getAllHeroes().index(Hero.LUCIO)] = [200, 0, 0]
+    health_pool[getAllHeroes().index(Hero.MERCY)] = [225, 0, 0]
+    health_pool[getAllHeroes().index(Hero.MOIRA)] = [225, 0, 0]
+    health_pool[getAllHeroes().index(Hero.ZENYATTA)] = [50, 0, 150]
+
+
+rule "[Baptiste]: Detect switch to Baptiste":
+    @Event eachPlayer
+    @Hero baptiste
+    
+    eventPlayer.reset_pvar[0] = true
+
+
+rule "[Baptiste] Initialize":
+    @Event eachPlayer
+    @Hero baptiste
+    @Condition eventPlayer.reset_pvar[0] != false
+    
+    resetHero()
+    eventPlayer.custom_hp_pvar[0] = 200
+    eventPlayer.custom_hp_pvar[1] = 0
+    eventPlayer.custom_hp_pvar[2] = 0
+    #applyCustomHp()
+    eventPlayer.setMaxAmmo(0, 45)
+    eventPlayer.setAmmo(0, eventPlayer.getMaxAmmo())
+    eventPlayer.setMaxAmmo(1, 25)
+    eventPlayer.setAmmo(1, eventPlayer.getMaxAmmo(1))
+    if eventPlayer.getTeam() != Team.1:
+        goto lbl_0
+    eventPlayer.startForcingName(random.choice(["大 76", "Kai了", "天使", "飞饼摩西", "锁头摩西"]))
+    lbl_0:
+    eventPlayer.reset_pvar[6].reset_pvar[9] = eventPlayer
+    eventPlayer.reset_pvar[0] = false
+
+
+rule "[Kiriko]: Detect switch to Kiriko":
+    @Event eachPlayer
+    @Hero kiriko
+    
+    eventPlayer.reset_pvar[0] = true
+
+
+rule "[Kiriko] Initialize":
+    @Event eachPlayer
+    @Hero kiriko
+    @Condition eventPlayer.reset_pvar[0] != false
+    
+    resetHero()
+    eventPlayer.custom_hp_pvar[0] = 225
+    eventPlayer.custom_hp_pvar[1] = 0
+    eventPlayer.custom_hp_pvar[2] = 0
+    #applyCustomHp()
+    if eventPlayer.getTeam() != Team.1:
+        goto lbl_0
+    eventPlayer.startForcingName(random.choice(["忍者摩西", "纸钱摩西", "破 摩 十 三 雾"]))
+    lbl_0:
+    eventPlayer.reset_pvar[0] = false
+
+
+rule "[Junker Queen]: Detect switch to Junker Queen":
+    @Event eachPlayer
+    @Hero junkerQueen
+    
+    eventPlayer.reset_pvar[0] = true
+
+
+rule "[Junker Queen] Initialize":
+    @Event eachPlayer
+    @Hero junkerQueen
+    @Condition eventPlayer.reset_pvar[0] != false
+    
+    resetHero()
+    eventPlayer.setHealingDealt(144.46 if eventPlayer.getTeam() == Team.1 else 122.23)
+    eventPlayer.custom_hp_pvar[0] = 375
+    eventPlayer.custom_hp_pvar[1] = 0
+    eventPlayer.custom_hp_pvar[2] = 0
+    #applyCustomHp()
+    #removeTankPassive()
+    if eventPlayer.getTeam() != Team.1:
+        goto lbl_0
+    eventPlayer.startForcingName(random.choice(["姐就是女王 自信放光芒", "你若爱就来 不爱莫张狂", "收起你的那些小小花花肠", "甜言或蜜语去哄小姑娘", "姐就是女王 自信放光芒", "有钱了不起 姐也很自强", "不惧风霜雪雨逆风也飞翔", "活成一束光世界都照亮"]))
+    lbl_0:
+    eventPlayer.reset_pvar[0] = false
+
+
+rule "[Sigma]: Detect switch to Sigma":
+    @Event eachPlayer
+    @Hero sigma
+    
+    eventPlayer.reset_pvar[0] = true
+
+
+rule "[Sigma] Initialize":
+    @Event eachPlayer
+    @Hero sigma
+    @Condition eventPlayer.reset_pvar[0] != false
+    
+    resetHero()
+    eventPlayer.custom_hp_pvar[0] = 200
+    eventPlayer.custom_hp_pvar[1] = 0
+    eventPlayer.custom_hp_pvar[2] = 200
+    #applyCustomHp()
+    #removeTankPassive()
+    if eventPlayer.getTeam() != Team.1:
+        goto lbl_0
+    eventPlayer.startForcingName(random.choice(["核桃摩西", "长 者", "大爷摩西"]))
+    lbl_0:
+    eventPlayer.reset_pvar[0] = false
+
+
+rule "[Ramattra]: Detect switch to Ramattra":
+    @Event eachPlayer
+    @Hero ramattra
+    
+    eventPlayer.reset_pvar[0] = true
+
+
+rule "[Ramattra] Initialize":
+    @Event eachPlayer
+    @Hero ramattra
+    @Condition eventPlayer.reset_pvar[0] != false
+    
+    resetHero()
+    eventPlayer.custom_hp_pvar[0] = 275
+    eventPlayer.custom_hp_pvar[1] = 100
+    eventPlayer.custom_hp_pvar[2] = 0
+    #removeTankPassive()
+    if eventPlayer.getTeam() != Team.1:
+        goto lbl_0
+    eventPlayer.startForcingName(random.choice(["我 扛 不 住 辣", "鲑鱼大帝", "Suffer as i have!", "抱头摩西", "痛苦摩西"]))
+    lbl_0:
+    #applyCustomHp()
+    eventPlayer.reset_pvar[0] = false
+
+
+rule "[Juno]: Detect switch to Juno":
+    @Event eachPlayer
+    @Hero juno
+    
+    eventPlayer.reset_pvar[0] = true
+
+
+rule "[Juno] Initialize":
+    @Event eachPlayer
+    @Hero juno
+    @Condition eventPlayer.reset_pvar[0] != false
+    
+    resetHero()
+    eventPlayer.custom_hp_pvar[0] = 50
+    eventPlayer.custom_hp_pvar[1] = 0
+    eventPlayer.custom_hp_pvar[2] = 175
+    if eventPlayer.getTeam() != Team.1:
+        goto lbl_0
+    eventPlayer.startForcingName(random.choice(["轨投", "香香糯糯", "火星摩西", "大头摩西"]))
+    lbl_0:
+    #applyCustomHp()
+    eventPlayer.reset_pvar[6].reset_pvar[9] = eventPlayer
+    eventPlayer.reset_pvar[0] = false
+
+
+rule "[Doomfist]: Detect switch to Doomfist":
+    @Event eachPlayer
+    @Hero doomfist
+    
+    eventPlayer.reset_pvar[0] = true
+
+
+rule "[Doomfist] Initialize":
+    @Event eachPlayer
+    @Hero doomfist
+    @Condition eventPlayer.reset_pvar[0] != false
+    
+    resetHero()
+    eventPlayer.custom_hp_pvar[0] = 300
+    eventPlayer.custom_hp_pvar[1] = 100
+    eventPlayer.custom_hp_pvar[2] = 0
+    applyCustomHp()
+    #removeTankPassive()
+    if eventPlayer.getTeam() != Team.1:
+        goto lbl_0
+    eventPlayer.startForcingName(random.choice(["男拳妈妈", "铁拳不准上桌吃饭", "吃个娜娜", "全部曹飞", "男拳摩西", "曹飞", "你这天使有用吗", "你倒是跑啊", "有人在家吗"]))
+    lbl_0:
+    getPlayers(eventPlayer.getTeam()).reset_pvar[2] = eventPlayer
+    getPlayers(getOppositeTeam(eventPlayer.getTeam())).reset_pvar[5] = eventPlayer
+    eventPlayer.reset_pvar[0] = false
+
+
+rule "[Lifeweaver]: Detect switch to Lifeweaver":
+    @Event eachPlayer
+    @Hero lifeweaver
+    
+    eventPlayer.reset_pvar[0] = true
+
+
+rule "[Lifeweaver] Initialize":
+    @Event eachPlayer
+    @Hero lifeweaver
+    @Condition eventPlayer.reset_pvar[0] != false
+    
+    resetHero()
+    eventPlayer.custom_hp_pvar[0] = 175
+    eventPlayer.custom_hp_pvar[1] = 0
+    eventPlayer.custom_hp_pvar[2] = 75
+    #applyCustomHp()
+    eventPlayer.reset_pvar[6].reset_pvar[9] = eventPlayer
+    eventPlayer.reset_pvar[0] = false
+
+
+rule "[Mauga]: Detect switch to Mauga":
+    @Event eachPlayer
+    @Hero mauga
+    
+    eventPlayer.reset_pvar[0] = true
+
+
+rule "[Mauga] Initialize":
+    @Event eachPlayer
+    @Hero mauga
+    @Condition eventPlayer.reset_pvar[0] != false
+    
+    resetHero()
+    eventPlayer.custom_hp_pvar[0] = 250
+    eventPlayer.custom_hp_pvar[1] = 200
+    eventPlayer.custom_hp_pvar[2] = 0
+    #applyCustomHp()
+    #removeTankPassive()
+    if eventPlayer.getTeam() != Team.1:
+        goto lbl_0
+    eventPlayer.startForcingName(random.choice(["黑皮体育生", "黑皮摩西", "SSVGG", "Seiseiguigeigei", "发烧摩西", "小米SU7"]))
+    lbl_0:
+    eventPlayer.reset_pvar[0] = false
+
+
+rule "[Illari]: Detect switch to Illari":
+    @Event eachPlayer
+    @Hero illari
+    
+    eventPlayer.reset_pvar[0] = true
+
+
+rule "[Illari] Initialize":
+    @Event eachPlayer
+    @Hero illari
+    @Condition eventPlayer.reset_pvar[0] != false
+    
+    resetHero()
+    eventPlayer.custom_hp_pvar[0] = 200
+    eventPlayer.custom_hp_pvar[1] = 0
+    eventPlayer.custom_hp_pvar[2] = 0
+    #applyCustomHp()
+    eventPlayer.reset_pvar[6].reset_pvar[9] = eventPlayer
+    eventPlayer.reset_pvar[0] = false
+
+
+rule "Initialize Heors End":
+    @Disabled
+    @Delimiter
+    
+
+
+rule "[Global][Debug]Auto Ultimate Gain":
+    @Event eachPlayer
+    @Condition Debug_UltimateGain != 0
+    @Condition eventPlayer.isHoldingButton(Button.INTERACT) == true
+    @Condition eventPlayer.getUltCharge() != 100
+    @Disabled
+    
+    eventPlayer.setUltCharge(100)
+
+
+rule "Changelog":
+    @Event eachPlayer
+    @Team 2
+    @Condition isGameInProgress() != true
+    @Condition eventPlayer.isInSpawnRoom() == true
+    
+    wait(0.16)
+    changelogText()
+    waitUntil(not eventPlayer.isInSpawnRoom(), 999999986991104)
+    destroyHudText(eventPlayer.ChangelogText1)
+    destroyHudText(eventPlayer.ChangelogText2)
+
+
+def changelogText():
+    @Name "Changelog Content"
+    
+    hudSubtext(eventPlayer, " \r\n\n", HudPosition.LEFT, 0, true, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
+    eventPlayer.ChangelogText1 = getLastCreatedText()
+    if eventPlayer.getHero() == Hero.DVA:
+        hudText(eventPlayer, null, Mark, "\r\n●\"{0}\"\r\n*造成伤害 +35%\r\n*受到伤害 -25%\r\n{1} 防御矩阵\r\n\u00a0持续时间提高至 4 秒\r\n 完全充能时间由 6 秒降低至 3 秒\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), abilityIconString(eventPlayer.getHero(), Button.SECONDARY_FIRE)), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
+        eventPlayer.ChangelogText2 = getLastCreatedText()
+    elif eventPlayer.getHero() == Hero.DOOMFIST:
+        hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*造成伤害 +25%\r\n*受到伤害 -45%\r\n*裂地重拳\r\n\u00a0 将敌人击飞拉近并使其失控\r\n*悍猛格挡 吸收并存储伤害\r\n*火箭重拳 附带悍猛格挡存储的全部伤害 对目标造成额外伤害\n\n※※离开重生室隐藏".format(eventPlayer.getHero()), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
+        eventPlayer.ChangelogText2 = getLastCreatedText()
+    elif eventPlayer.getHero() == Hero.JUNKER_QUEEN:
+        hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*造成伤害 +30%\r\n*受到伤害 -50%\r\n*血斩 冷却时间降低至 6 秒\r\n*锯齿利刃 冷却时间降低至 4 秒\n\n※※离开重生室隐藏".format(eventPlayer.getHero()), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
+        eventPlayer.ChangelogText2 = getLastCreatedText()
+    elif eventPlayer.getHero() == Hero.MAUGA:
+        hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*造成伤害 +25%\r\n*受到伤害 -35%\r\n*狂战士之魂（被动） 受到致命伤害触发 回复100%最大生命值并进入狂战士状态\r\n*蛮力冲撞 击倒时间提高至2秒\r\n*心脏过载 冷却时间降低至10秒 治疗量+100% 伤害减免60%\r\n*笼中斗 持续时间提高并免疫暴击\r\n".format(eventPlayer.getHero()), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
+        eventPlayer.ChangelogText2 = getLastCreatedText()
+    elif eventPlayer.getHero() == Hero.ORISA:
+        hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*受到伤害 -60%\r\n*强固防御\r\n\u00a0 冷却时间降低至 12 秒\r\n\u00a0 持续期间获得 额外临时护甲\r\n  反弹受到伤害的{1}%\r\n*标枪旋击\r\n\u00a0 冷却时间增加至 8 秒\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), Orisa_Fortify[1]), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
+        eventPlayer.ChangelogText2 = getLastCreatedText()
+    elif eventPlayer.getHero() == Hero.RAMATTRA:
+        hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*造成伤害 +20%\r\n*受到伤害 -35%\r\n*吞噬漩涡 冷却时间降低\r\n* 诛 -{1}%受到伤害 +30%移速 70%击退抵抗\r\n回复{2}%已造成伤害的生命值\n\n※离开重生室隐藏".format(eventPlayer.getHero(), Ram_Annihilation[4], Ram_Annihilation[1] * 100), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
+        eventPlayer.ChangelogText2 = getLastCreatedText()
+    elif eventPlayer.getHero() == Hero.JUNO:
+        hudText(eventPlayer, null, Mark, "\r\n{0}\r\n{1}\r\n{2}\n\n※※离开重生室隐藏".format("●{0}\r\n*造成治疗 +10%".format(eventPlayer.getHero()), "{0} 超能环域 冷却时间降低至12秒".format(abilityIconString(eventPlayer.getHero(), Button.ABILITY_1)), "{0}\r\n{1}".format("{0} 脉冲星飞雷 冷却时间降低至8秒".format(abilityIconString(eventPlayer.getHero(), Button.SECONDARY_FIRE)), "{0} 轨道射线 范围内所有友方受到伤害-{1}%（唯一特效）".format(abilityIconString(eventPlayer.getHero(), Button.ULTIMATE), JunoBuff))), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
+        eventPlayer.ChangelogText2 = getLastCreatedText()
+    elif eventPlayer.getHero() == Hero.REINHARDT:
+        hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*造成伤害 +5%\r\n*受到伤害 -25%\r\n*冲锋 根据剩余持续时间返还最多3秒cd\r\n*烈焰打击 恢复100%已造成伤害的生命值\r\n*裂地猛击 造成击杀返还100%充能\n\n※※离开重生室隐藏".format(eventPlayer.getHero()), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
+        eventPlayer.ChangelogText2 = getLastCreatedText()
+    elif eventPlayer.getHero() == Hero.ROADHOG:
+        hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*造成伤害 -10%\r\n*受到伤害 +10%\r\n{1}呼吸器\r\n  冷却时间增加至10秒\r\n{2}拴猪圈\r\n  冷却时间增加至14秒\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), abilityIconString(eventPlayer.getHero(), Button.SECONDARY_FIRE), abilityIconString(eventPlayer.getHero(), Button.ABILITY_2)), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
+        eventPlayer.ChangelogText2 = getLastCreatedText()
+    elif eventPlayer.getHero() == Hero.SIGMA:
+        hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*造成伤害 +25%\r\n*受到伤害 -25%\r\n*超能之球 每3次攻击强化下一次攻击 附带自身当前生命值{1}%伤害（不含临时生命值）\r\n*实验屏障 充能速度提高\r\n*引力乱流 最大生命值伤害增加至 75%\n\n※离开重生室隐藏".format(eventPlayer.getHero(), SigmaBuff[0] * 100), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
+        eventPlayer.ChangelogText2 = getLastCreatedText()
+    elif eventPlayer.getHero() == Hero.WINSTON:
+        hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*受到伤害 -35%\r\n*造成伤害 +10%\r\n{2} 屏障发射器\r\n  冷却时间降低至11秒\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), abilityIconString(eventPlayer.getHero(), Button.PRIMARY_FIRE), abilityIconString(eventPlayer.getHero(), Button.ABILITY_2)), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
+        eventPlayer.ChangelogText2 = getLastCreatedText()
+    elif eventPlayer.getHero() == Hero.WRECKING_BALL:
+        hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*造成伤害 +35%\r\n*受到伤害 -15%\r\n*工程抓钩\r\n  冷却时间降低至4秒\r\n  在重生室中无冷却时间\r\n*感应护盾 冷却时间降低至12秒\r\n*重力坠击 冷却时间降低至6秒\n\n※※离开重生室隐藏".format(eventPlayer.getHero()), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
+        eventPlayer.ChangelogText2 = getLastCreatedText()
+    elif eventPlayer.getHero() == Hero.ZARYA:
+        hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*造成伤害 +30%\r\n*受到伤害 -30%\r\n*粒子屏障 冷却时间降低至8秒\r\n*投射屏障 为目标提供3秒{1}点临时生命值\r\n*重力喷涌\r\n  使敌人减速\r\n  充能速度提高8%\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), ZaryaBuff[0]), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
+        eventPlayer.ChangelogText2 = getLastCreatedText()
+    elif eventPlayer.getHero() == Hero.HAZARD:
+        hudText(eventPlayer, null, Mark, "\r\n{0}\r\n{1}\r\n{2}\n\n※※离开重生室隐藏".format("●{0}\r\n*造成伤害 +20%\r\n*受到伤害 -40%".format(eventPlayer.getHero()), "*尖刺护体 受到伤害获得{0}%终极技能充能并回复HP".format(HazardBuff[1]), "{0}".format("*千针雨 不再根据伤害获得能量")), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
+        eventPlayer.ChangelogText2 = getLastCreatedText()
+    elif eventPlayer.getHero() == Hero.ASHE:
+        hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*造成伤害 +35%\r\n*毒蛇\r\n  弹药增加至 15 发\r\n  暴击倍率提高至 ×{1}\r\n  完成击杀后恢复全部子弹\r\n*延时雷管\r\n  冷却时间降低至8秒\r\n*短筒猎枪\r\n  冷却时间降低至8秒\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), HeadshotDamage[1]), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
+        eventPlayer.ChangelogText2 = getLastCreatedText()
+    elif eventPlayer.getHero() == Hero.SOMBRA:
+        hudText(eventPlayer, null, " \r\n\r\n\n 非重装 AI 伤害减免 25%\r\n 重装 AI 最高伤害减免 40%\r\n 完整更新日志 workshop.codes/3TP7F/update-log\r\n 坐牢交流群: 361913638", "\r\n●{0}\r\n*造成伤害 +35%\r\n*受到伤害 -30%\r\n*位移传动  击杀后重置CD\r\n*黑客入侵  沉默敌人5秒并 使敌方额外减疗{1}%\r\n*电磁脉冲  充能速度提高15%\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), SombraBuff[0]), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
+        eventPlayer.ChangelogText2 = getLastCreatedText()
+    elif eventPlayer.getHero() == Hero.CASSIDY:
+        hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*造成伤害 +30%\r\n*受到伤害 -6%\r\n{1}维和者\r\n  换弹速度降低至0.75秒\r\n  连射伤害提高至75点/发\r\n{2}闪光弹 击晕敌人\r\n*神射手 充能速度降低16%\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), abilityIconString(eventPlayer.getHero(), Button.PRIMARY_FIRE), abilityIconString(eventPlayer.getHero(), Button.ABILITY_2)), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
+        eventPlayer.ChangelogText2 = getLastCreatedText()
+    elif eventPlayer.getHero() == Hero.GENJI:
+        hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*造成伤害 +45%\r\n*受到伤害 -50%\r\n*造成击杀后恢复50HP\r\n*影 使下一次近身攻击100%暴击\r\n*闪 冷却时间降低至6秒 持续期间免疫伤害\r\n*龙刃 持续时间增加至8秒\r\n  造成伤害+{1}% 受到伤害 -10%\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), Genji[1]), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
+        eventPlayer.ChangelogText2 = getLastCreatedText()
+    elif eventPlayer.getHero() == Hero.HANZO:
+        hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*造成伤害 +30%\r\n*弹道速度+35%\r\n*暴击倍率提高至 ×{1}\r\n*岚 冷却时间降低至7秒\r\n*音 冷却时间降低至9秒\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), HeadshotDamage[3]), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
+        eventPlayer.ChangelogText2 = getLastCreatedText()
+    elif eventPlayer.getHero() == Hero.JUNKRAT:
+        hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*造成伤害 -5%\r\n*受到伤害 +30%\r\n*所有击退效果-50%\r\n{1} 震荡地雷\r\n  冷却时间增加至10秒\r\n{2} 炸弹轮胎\r\n  充能速度降低30%\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), abilityIconString(eventPlayer.getHero(), Button.ABILITY_1), abilityIconString(eventPlayer.getHero(), Button.ULTIMATE)), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
+        eventPlayer.ChangelogText2 = getLastCreatedText()
+    elif eventPlayer.getHero() == Hero.MEI:
+        hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*造成伤害 +30%\r\n*冰霜枪\r\n  可以冰冻敌人\r\n{1} 冰墙\r\n  冷却时间降低至8秒\r\n{2} 急冻\r\n  冷却时间降低至10秒\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), abilityIconString(eventPlayer.getHero(), Button.ABILITY_2), abilityIconString(eventPlayer.getHero(), Button.ABILITY_1)), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
+        eventPlayer.ChangelogText2 = getLastCreatedText()
+    elif eventPlayer.getHero() == Hero.VENTURE:
+        hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*造成伤害 +40%\r\n*受到伤害 -30%\r\n钻地  \r\n  持续时间 +300%\r\n  移动速度 +156%\r\n钻头突刺 冷却时间 -25%\n\n※※离开重生室隐藏".format(eventPlayer.getHero()), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
+        eventPlayer.ChangelogText2 = getLastCreatedText()
+    elif eventPlayer.getHero() == Hero.ECHO:
+        hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*造成伤害 +35%\r\n*受到伤害 -30%\r\n*人格复制 持续期间保留50%充能\n\n※※离开重生室隐藏".format(eventPlayer.getHero()), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
+        eventPlayer.ChangelogText2 = getLastCreatedText()
+    elif eventPlayer.getHero() == Hero.PHARAH:
+        hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*造成伤害 +35%\r\n*受到伤害 -15%\r\n{1} 推进背包\r\n  补充全部燃料并额外获得75%燃料\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), abilityIconString(eventPlayer.getHero(), Button.ABILITY_1)), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
+        eventPlayer.ChangelogText2 = getLastCreatedText()
+    elif eventPlayer.getHero() == Hero.REAPER:
+        hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*造成伤害 +35%\r\n*受到伤害 -35%\r\n*收割（被动）击杀获得灵魂层数\r\n灵魂层数会增强技能并缩短冷却\n\n※※离开重生室隐藏".format(eventPlayer.getHero()), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
+        eventPlayer.ChangelogText2 = getLastCreatedText()
+    elif eventPlayer.getHero() == Hero.SOJOURN:
+        hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*造成伤害 +35%\r\n*电磁炮充能速度+20%\r\n*电磁炮-充能射击 处决生命值低于{2}%的敌人\r\n *机体超频 强化充能射击：处决阈值增加至20%\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), abilityIconString(eventPlayer.getHero(), Button.ABILITY_2), SojournBuff[0] * 100), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
+        eventPlayer.ChangelogText2 = getLastCreatedText()
+    elif eventPlayer.getHero() == Hero.SOLDIER:
+        hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*造成伤害 +30%\r\n{1} 生物力场\r\n  冷却时间降低至15秒\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), abilityIconString(eventPlayer.getHero(), Button.ABILITY_1)), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
+        eventPlayer.ChangelogText2 = getLastCreatedText()
+    elif eventPlayer.getHero() == Hero.FREJA:
+        hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*造成伤害 +30%\r\n*受到伤害 -30%\r\n{1} 狩猎者 造成伤害时给敌方施加“狩猎”印记\r\n{2} 瞄准射击 爆炸造成20 × 印记层数 额外伤害\r\n  引爆后敌方生命值低于20%则将其斩杀\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), abilityIconString(eventPlayer.getHero(), Button.PRIMARY_FIRE), abilityIconString(eventPlayer.getHero(), Button.SECONDARY_FIRE)), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
+        eventPlayer.ChangelogText2 = getLastCreatedText()
+    elif eventPlayer.getHero() == Hero.SYMMETRA:
+        hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*造成伤害 -40%\r\n*受到伤害 +20%\r\n{1}\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), abilityIconString(eventPlayer.getHero(), Button.ABILITY_1)), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
+        eventPlayer.ChangelogText2 = getLastCreatedText()
+    elif eventPlayer.getHero() == Hero.TORBJORN:
+        hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*造成伤害 -20%\r\n{2} 熔火核心\r\n  充能速度降低30%\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), abilityIconString(eventPlayer.getHero(), Button.PRIMARY_FIRE), abilityIconString(eventPlayer.getHero(), Button.ULTIMATE)), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
+        eventPlayer.ChangelogText2 = getLastCreatedText()
+    elif eventPlayer.getHero() == Hero.BASTION:
+        hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*造成伤害 +25%\r\n*受到伤害 -30%\r\n{1} 强攻模式\r\n  移动速度 +200%\r\n{2} A-36战术榴弹\r\n  冷却时间降低至6秒\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), abilityIconString(eventPlayer.getHero(), Button.ABILITY_1), abilityIconString(eventPlayer.getHero(), Button.SECONDARY_FIRE)), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
+        eventPlayer.ChangelogText2 = getLastCreatedText()
+    elif eventPlayer.getHero() == Hero.TRACER:
+        hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*造成伤害 +60%\r\n*受到伤害 -65%\r\n*击杀后回复所有状态\r\n*回溯 CD降低 2秒内回复50HP\r\n*重生 阵亡后立刻重生\r\n*脉冲炸弹 充能速度 +30%\n\n※※离开重生室隐藏".format(eventPlayer.getHero()), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
+        eventPlayer.ChangelogText2 = getLastCreatedText()
+    elif eventPlayer.getHero() == Hero.WIDOWMAKER:
+        hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*造成伤害 +35%\r\n*受到伤害 +15%\r\n*移除开镜伤害衰减\n\n※※离开重生室隐藏".format(eventPlayer.getHero()), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
+        eventPlayer.ChangelogText2 = getLastCreatedText()
+    elif eventPlayer.getHero() == Hero.ANA:
+        hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*造成伤害 +15%\r\n*造成治疗 +22%\r\n*生物手雷\r\n  使敌方燃烧 每秒造成{1}%最大生命值伤害\r\n*麻醉镖\r\n  冷却时间降低至10秒\r\n*纳米激素\r\n  治疗目标全部已损失生命值\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), Ana_GrenadeDamage), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
+        eventPlayer.ChangelogText2 = getLastCreatedText()
+    elif eventPlayer.getHero() == Hero.BAPTISTE:
+        hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*造成伤害 +50%\r\n*暴击倍率提高至 ×{1}\r\n*维生力场\r\n  冷却时间降低至 12 秒\r\n*增幅矩阵\r\n  持续时间提高至 15 秒\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), HeadshotDamage[4]), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
+        eventPlayer.ChangelogText2 = getLastCreatedText()
+    elif eventPlayer.getHero() == Hero.BRIGITTE:
+        hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*造成伤害 +25%\r\n*造成治疗+10%\r\n*受到伤害 -57%\r\n*恢复包 提供永久护甲\r\n*能量盾击 可穿透屏障击晕敌人\r\n*集结号令 为自身提供额外临时护甲\n\n".format(eventPlayer.getHero()), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
+        eventPlayer.ChangelogText2 = getLastCreatedText()
+    elif eventPlayer.getHero() == Hero.ILLARI:
+        hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*造成伤害 +60%\r\n*弹道速度提高500%\r\n*治疗光塔 冷却时间降低50%\r\n*桎梏灼日\r\n  造成额外最大生命值伤害\r\n  充能速度降低10%\n\n※※离开重生室隐藏".format(eventPlayer.getHero()), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
+        eventPlayer.ChangelogText2 = getLastCreatedText()
+    elif eventPlayer.getHero() == Hero.KIRIKO:
+        hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*造成伤害 +25%\r\n{1}\r\n{2}\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), "暴击倍率提高至 ×{0}".format(HeadshotDamage[2] + 1), "{0} 瞬 最远距离提高至 105 米\r\n{1} 铃 冷却时间降低至 10 秒\r\n  无敌时间提高至 1.8 秒".format(abilityIconString(eventPlayer.getHero(), Button.ABILITY_1), abilityIconString(eventPlayer.getHero(), Button.ABILITY_2))), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
+        eventPlayer.ChangelogText2 = getLastCreatedText()
+    elif eventPlayer.getHero() == Hero.LIFEWEAVER:
+        hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n{1} 花瓣平台\r\n  冷却时间降低至 9 秒\r\n{2} 生命之握\r\n  冷却时间降低至 9 秒\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), abilityIconString(eventPlayer.getHero(), Button.ABILITY_1), abilityIconString(eventPlayer.getHero(), Button.ABILITY_2)), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
+        eventPlayer.ChangelogText2 = getLastCreatedText()
+    elif eventPlayer.getHero() == Hero.LUCIO:
+        hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*造成伤害 +20%\r\n*受到伤害 -30%\n\n※※离开重生室隐藏".format(eventPlayer.getHero()), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
+        eventPlayer.ChangelogText2 = getLastCreatedText()
+    elif eventPlayer.getHero() == Hero.MERCY:
+        hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*女武神\r\n  受到伤害 -{1}%\r\n  持续期间重生无冷却时间\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), MercyBuff[0]), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
+        eventPlayer.ChangelogText2 = getLastCreatedText()
+    elif eventPlayer.getHero() == Hero.ZENYATTA:
+        hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*造成伤害 +60%\r\n*受到伤害+5%\r\n  暴击倍率提高至 ×{1}\r\n* 蹬 将禅雅塔向相反方向击飞\r\n* 圣 治疗量提高至400/s 移速+25%\r\n  无法被命中 免疫所有控制\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), 1 + HeadshotDamage[0]), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
+        eventPlayer.ChangelogText2 = getLastCreatedText()
+    elif eventPlayer.getHero() == Hero.MOIRA:
+        hudText(eventPlayer, null, Mark, "\r\n{0}\r\n{1}\r\n{2}\n\n※※离开重生室隐藏".format("●{0}\r\n 受到伤害-10%\r\n造成治疗+15%".format(eventPlayer.getHero()), "{0} 消散 冷却时间增加至 8 秒".format(abilityIconString(eventPlayer.getHero(), Button.ABILITY_1)), ""), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
+        eventPlayer.ChangelogText2 = getLastCreatedText()
+    elif eventPlayer.getHero() == Hero.VENDETTA:
+        hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*造成伤害 +35%\r\n*受到伤害-45%\r\n{1}\r\n{2}\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), "{0} 暴击额外其{1}%最大生命值伤害，并回复{2}最大生命值".format(abilityIconString(eventPlayer.getHero(), Button.PRIMARY_FIRE), VendettaBuff[0] * 100, VendettaBuff[6] * 100), "{0}\r\n{1}\r\n{2}".format("{0} 每命中一名敌人回复{1}%已损失生命值".format(abilityIconString(eventPlayer.getHero(), Button.ABILITY_1), VendettaBuff[2] * 100), "{0} 使敌人沉默，持续期间不可阻挡".format(abilityIconString(eventPlayer.getHero(), Button.ABILITY_2)), "{0} 击倒敌人，生命值低于{1}%的敌人将被斩杀".format(abilityIconString(eventPlayer.getHero(), Button.ULTIMATE), VendettaBuff[5] * 100))), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
+        eventPlayer.ChangelogText2 = getLastCreatedText()
+
+
