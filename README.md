@@ -5,6 +5,7 @@
 ## 开发文档
 
 - [模块文档入口](./docs/modules/README.md)
+- [当前实现分析与总结（2026-03）](./docs/modules/04-current-implementation-summary.md)
 - [`src/main.opy` 代码逻辑总览](./docs/modules/01-main-opy-architecture.md)
 - [`src/main.opy` 附录索引（行号）](./docs/modules/appendix-src-file-index.md)
 

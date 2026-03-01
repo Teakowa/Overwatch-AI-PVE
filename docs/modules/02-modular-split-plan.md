@@ -1,6 +1,6 @@
 # 02. `src/main.opy` 模块化拆分方案（已落地）
 
-本文档记录本仓库从单文件到多文件编排的拆分方案与实施结果。
+本文档记录本仓库从单文件到多文件编排的拆分方案与实施结果，并作为当前编排方式的补充说明。
 
 ## 1. 目标
 
@@ -20,6 +20,8 @@
 ```text
 src/
   main.opy
+  constants/
+    player_constants.opy
   modules/
     _index.opy
     prelude/
@@ -38,7 +40,8 @@ src/
 
 1. `modules/prelude/_index.opy`（内部固定 `00-settings -> 01-global-vars -> 02-player-vars -> 03-subroutine-names`）
 2. `#!optimizeStrict`
-3. `modules/_index.opy`（内部固定 `bootstrap -> ai -> hero_rules -> hero_init -> debug`）
+3. `constants/player_constants.opy`（跨模块复用常量）
+4. `modules/_index.opy`（内部固定 `bootstrap -> ai -> hero_rules -> hero_init -> debug`）
 
 所有 `_index.opy` 使用显式 include；不使用目录通配 include。
 
@@ -65,6 +68,7 @@ src/
 - 规则总数维持 `361`
 - 变量/子程序索引协议不变
 - `@Disabled` 规则不丢失
+- `src/main.opy` 维持 `prelude -> optimizeStrict -> constants -> modules` 顺序
 - 编译可通过：`pnpm run build`
 - 发行构建可通过：`pnpm run build:release`
 

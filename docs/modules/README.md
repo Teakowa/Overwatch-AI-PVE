@@ -4,11 +4,12 @@
 
 ## 推荐阅读顺序
 
-1. [01-main-opy-architecture.md](./01-main-opy-architecture.md)
-2. [02-modular-split-plan.md](./02-modular-split-plan.md)
-3. [03-module-contracts.md](./03-module-contracts.md)
-4. [appendix-src-file-index.md](./appendix-src-file-index.md)
-5. [10-references-workshop-codes.md](./10-references-workshop-codes.md)
+1. [04-current-implementation-summary.md](./04-current-implementation-summary.md)
+2. [01-main-opy-architecture.md](./01-main-opy-architecture.md)
+3. [02-modular-split-plan.md](./02-modular-split-plan.md)
+4. [03-module-contracts.md](./03-module-contracts.md)
+5. [appendix-src-file-index.md](./appendix-src-file-index.md)
+6. [10-references-workshop-codes.md](./10-references-workshop-codes.md)
 
 ## 相关参考（同级 `docs/`）
 
