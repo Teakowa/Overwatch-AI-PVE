@@ -8,8 +8,9 @@
 2. [01-main-opy-architecture.md](./01-main-opy-architecture.md)
 3. [02-modular-split-plan.md](./02-modular-split-plan.md)
 4. [03-module-contracts.md](./03-module-contracts.md)
-5. [appendix-src-file-index.md](./appendix-src-file-index.md)
-6. [10-references-workshop-codes.md](./10-references-workshop-codes.md)
+5. [05-macro-js-macro-todo.md](./05-macro-js-macro-todo.md)
+6. [appendix-src-file-index.md](./appendix-src-file-index.md)
+7. [10-references-workshop-codes.md](./10-references-workshop-codes.md)
 
 ## 相关参考（同级 `docs/`）
 
