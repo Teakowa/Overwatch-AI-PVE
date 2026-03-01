@@ -1,6 +1,5 @@
 rule "Copyright (c) 2019-2025 他又（aka Teakowa）":
     disableInspector()
-    Heros = getAllHeroes().exclude([Hero.MERCY, Hero.JUNKRAT, Hero.TORBJORN, Hero.BASTION])
     Collaborator = ["他又", "别感冒", "步六孤", "Destiny", "smile"]
     Mark = " \r\n\n 非重装 AI 减伤 25%\r\n 重装 AI 最高减伤 40%\r\n 完整更新日志 workshop.codes/3TP7F/update-log\r\n 企鹅聊天群：361913638\r\n 中途退、挂机永久BAN，不服的现在滚"
     #Setup Anti Crash
@@ -13,12 +12,7 @@ rule "Initialize global variables":
     Debug_UltimateGain = createWorkshopSettingBool("Debug", "即时终极技能充能", false, 4)
     #随机禁用英雄池中的4名英雄（1 重装 2输出 1辅助）
     Hero_BAN = createWorkshopSettingBool("模式", "英雄BAN池", false, 11)
-    CustomAIArray = [Hero.FREJA, Hero.VENTURE, Hero.PHARAH, Hero.ILLARI, Hero.JUNO, Hero.HAZARD, Hero.VENDETTA]
     CustomAI = createWorkshopSettingEnum("模式", "自定义 AI", 0, ["弗蕾娅", "探奇", "法老之鹰", "伊拉锐", "朱诺", "骇灾", "斩仇"], 12)
-    #AI/Script Initial
-    FalloffMin = [2.5, 2.5, 50, 8, 1, 10, 14, 22, 40, 18, 30, 10, 12.5, 25, 30, 10, 2.5, 3.75, 2.5, 23, 15, 100000000, 2.5, 20, 2.5, 17.5, 5.75, 15, 30, 25, 9.6, 15, 32, 2.5, 18, 9.75, 20, 30, 30, 15, 20, 2.5, 25]
-    ProjectileSpeed = [100000000, 100000000, 100000000, 40, 100000000, 50, 70, 110, 100000000, 90, 100000000, 100000000, 100000000, 100000000, 100000000, 50, 80, 35, 100000000, 115, 75, 100000000, 100000000, 100, 80, 100000000, 100000000, 100000000, 100000000, 100000000, 48, 75, 160, 100000000, 90, 80, 100, 100000000, 100000000, 50, 100000000, 140, 625]
-    BotHeroArray = [Hero.TRACER, Hero.REAPER, Hero.WIDOWMAKER, Hero.PHARAH, Hero.REINHARDT, Hero.MERCY, Hero.TORBJORN, Hero.HANZO, Hero.WINSTON, Hero.ZENYATTA, Hero.BASTION, Hero.SYMMETRA, Hero.ZARYA, Hero.CASSIDY, Hero.SOLDIER, Hero.LUCIO, Hero.ROADHOG, Hero.JUNKRAT, Hero.DVA, Hero.MEI, Hero.GENJI, Hero.ANA, Hero.SOMBRA, Hero.ORISA, Hero.DOOMFIST, Hero.MOIRA, Hero.BRIGITTE, Hero.WRECKING_BALL, Hero.ASHE, Hero.BAPTISTE, Hero.SIGMA, Hero.ECHO, Hero.SOJOURN, Hero.JUNKER_QUEEN, Hero.KIRIKO, Hero.RAMATTRA, Hero.LIFEWEAVER, Hero.ILLARI, Hero.MAUGA, Hero.VENTURE, Hero.JUNO, Hero.HAZARD, Hero.FREJA]
 
 
 rule "Initialize Hero Ability Settings":
@@ -111,5 +105,4 @@ rule "Initialize Hero Ability Settings":
     VendettaBuff[4] = createWorkshopSettingFloat("英雄：斩仇", "斩地巨剑：击倒持续时间", 3.5, 0, 5, 154)
     VendettaBuff[5] = createWorkshopSettingInt("英雄：斩仇", "斩地巨剑：斩杀阈值 %", 20, 0, 40, 155) / 100
     VendettaBuff[6] = createWorkshopSettingInt("英雄：斩仇", "帕拉蒂尼之牙：暴击回复最大生命值 %", 40, 0, 80, 150) / 100
-
 
