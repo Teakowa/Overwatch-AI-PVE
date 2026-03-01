@@ -2130,7 +2130,7 @@
     }
     动作 {
         开始按下按钮(事件玩家, 按钮(辅助攻击模式));
-        "wait(0.192)\neventPlayer.stopForcingButton(Button.ABILITY_1)"
+        "wait(WAIT_AI_THROTTLE_MIN)\neventPlayer.stopForcingButton(Button.ABILITY_1)"
         If(正在使用技能 1(事件玩家));
             等待直到 (非(正在使用技能 1(事件玩家)), 999999986991104);
         Else;
@@ -4480,7 +4480,7 @@
     }
     动作 {
         清除状态(被攻击方, 沉睡);
-        "waitUntil(victim.hasStatus(Status.ASLEEP), 999999986991104)"
+        "waitUntil(victim.hasStatus(Status.ASLEEP), WAIT_TIMEOUT_FOREVER)"
         设置状态(被攻击方, 攻击方, 击倒, 4);
     }
 }
@@ -5487,7 +5487,7 @@
         事件技能 == 按钮(辅助攻击模式);
     }
     动作 {
-        "wait(0.16)"
+        "wait(WAIT_SHORT_FRAME)"
         开始持续伤害(被攻击方, 攻击方, 1, 乘(首个((事件玩家).reaper_buff), 数组中的值(全局.ReaperBuff, 7)));
     }
 }

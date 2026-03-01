@@ -94,7 +94,7 @@ rule "[Zenyatta]: Transcendence":
     
     eventPlayer.mov_speed_penalty = 0
     eventPlayer.mov_speed_buff += 25
-    wait(0.16)
+    wait(WAIT_SHORT_FRAME)
     eventPlayer.setStatusEffect(null, Status.PHASED_OUT, 6)
     eventPlayer.setHealingDealt(133.34)
     eventPlayer.setMoveSpeed(100 + eventPlayer.mov_speed_buff)

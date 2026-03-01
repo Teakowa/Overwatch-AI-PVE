@@ -18,7 +18,8 @@
 
 1. `modules/prelude/_index.opy`（内部顺序固定为 `00-settings -> 01-global-vars -> 02-player-vars -> 03-subroutine-names`）
 2. `#!optimizeStrict`
-3. `modules/_index.opy`（内部顺序固定为 `bootstrap -> ai -> hero_rules -> hero_init -> debug`）
+3. `constants/player_constants.opy`（集中维护跨模块复用常量）
+4. `modules/_index.opy`（内部顺序固定为 `bootstrap -> ai -> hero_rules -> hero_init -> debug`）
 
 ## 3. 关键分隔规则（保留）
 

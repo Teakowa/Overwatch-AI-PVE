@@ -4,9 +4,9 @@ rule "Changelog":
     @Condition isGameInProgress() != true
     @Condition eventPlayer.isInSpawnRoom() == true
     
-    wait(0.16)
+    wait(WAIT_SHORT_FRAME)
     changelogText()
-    waitUntil(not eventPlayer.isInSpawnRoom(), 999999986991104)
+    waitUntil(not eventPlayer.isInSpawnRoom(), WAIT_TIMEOUT_FOREVER)
     destroyHudText(eventPlayer.ChangelogText1)
     destroyHudText(eventPlayer.ChangelogText2)
 
@@ -148,5 +148,4 @@ def changelogText():
     elif eventPlayer.getHero() == Hero.VENDETTA:
         hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*造成伤害 +35%\r\n*受到伤害-45%\r\n{1}\r\n{2}\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), "{0} 暴击额外其{1}%最大生命值伤害，并回复{2}最大生命值".format(abilityIconString(eventPlayer.getHero(), Button.PRIMARY_FIRE), VendettaBuff[0] * 100, VendettaBuff[6] * 100), "{0}\r\n{1}\r\n{2}".format("{0} 每命中一名敌人回复{1}%已损失生命值".format(abilityIconString(eventPlayer.getHero(), Button.ABILITY_1), VendettaBuff[2] * 100), "{0} 使敌人沉默，持续期间不可阻挡".format(abilityIconString(eventPlayer.getHero(), Button.ABILITY_2)), "{0} 击倒敌人，生命值低于{1}%的敌人将被斩杀".format(abilityIconString(eventPlayer.getHero(), Button.ULTIMATE), VendettaBuff[5] * 100))), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
         eventPlayer.ChangelogText2 = getLastCreatedText()
-
 

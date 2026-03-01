@@ -115,7 +115,7 @@ rule "[Wuyang]: Rushing Torrent jump":
     #@Condition eventPlayer.isInAir() != true
     
     eventPlayer.applyImpulse(Vector.UP, 12, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
-    wait(0.16)
+    wait(WAIT_SHORT_FRAME)
     waitUntil(eventPlayer.isOnGround(), 3)
 
 
@@ -140,7 +140,7 @@ rule "[Wuyang]: Ebb and Flow set":
     
     victim.wuyang_buff[2]++
     #eventPlayer.setAbilityCooldown(Button.ABILITY_2, eventPlayer.getAbilityCooldown(Button.ABILITY_2) - 1)
-    wait(0.16)
+    wait(WAIT_SHORT_FRAME)
 
 
 rule "[Wuyang]: Ebb and Flow Ability":

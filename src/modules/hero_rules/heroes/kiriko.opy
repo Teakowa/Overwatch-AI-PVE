@@ -75,7 +75,7 @@ rule "[kiriko]: swift step hp":
     @Condition len(eventPlayer.kiriko_buff) < 5
     
     waitUntil(not eventPlayer.reset_pvar[3].isUsingAbility1() and len(getPlayersInRadius(eventPlayer.reset_pvar[3], 5, eventPlayer.getTeam(), LosCheck.SURFACES)) > 0 and eventPlayer.reset_pvar[3].hasStatus(Status.PHASED_OUT) == true, 0.5)
-    wait(0.16)
+    wait(WAIT_SHORT_FRAME)
     #if eventPlayer.kiriko_buff == null:
     #        goto lbl_0
     #removeHealthPool(eventPlayer.kiriko_buff[0])

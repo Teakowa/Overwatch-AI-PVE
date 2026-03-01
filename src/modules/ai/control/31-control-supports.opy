@@ -10,7 +10,7 @@ rule "[AI/control]: Ramattra Ability 1":
     @Condition (not eventPlayer.isUsingUltimate()) == true
     
     eventPlayer.startForcingButton(Button.ABILITY_1)
-    #wait(0.192)
+    #wait(WAIT_AI_THROTTLE_MIN)
     #eventPlayer.stopForcingButton(Button.ABILITY_1)
 
 
@@ -23,12 +23,12 @@ rule "[AI/control]: Ramattra Ability 2":
     @Condition any([i == true for i in [eventPlayer.isUsingAbility1(), eventPlayer.isUsingUltimate()]]) == true
     
     eventPlayer.startForcingButton(Button.SECONDARY_FIRE)
-    #wait(0.192)
+    #wait(WAIT_AI_THROTTLE_MIN)
     #eventPlayer.stopForcingButton(Button.ABILITY_1)
     if eventPlayer.isUsingAbility1() == true:
-        waitUntil(not eventPlayer.isUsingAbility1(), 999999986991104)
+        waitUntil(not eventPlayer.isUsingAbility1(), WAIT_TIMEOUT_FOREVER)
     else:
-        waitUntil(not eventPlayer.isUsingUltimate(), 999999986991104)
+        waitUntil(not eventPlayer.isUsingUltimate(), WAIT_TIMEOUT_FOREVER)
     eventPlayer.stopForcingButton(Button.SECONDARY_FIRE)
 
 
@@ -72,9 +72,9 @@ rule "[AI/control]: Freja Primary":
     eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
     waitUntil(eventPlayer.isUsingAbility1(), 1.5)
     eventPlayer.startForcingButton(Button.SECONDARY_FIRE)
-    wait(max(getServerLoad() / 1000, 0.192))
+    wait(max(getServerLoad() / 1000, WAIT_AI_THROTTLE_MIN))
     eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
-    wait(max(getServerLoad() / 1000, 0.192))
+    wait(max(getServerLoad() / 1000, WAIT_AI_THROTTLE_MIN))
     eventPlayer.stopForcingButton(Button.SECONDARY_FIRE)
     wait(max(getServerLoad() / 1000, 0.5))
     if ruleCondition:
@@ -159,7 +159,7 @@ rule "[AI/control]: Pharah Secondary":
     @Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) == true]) > 0
     
     eventPlayer.startForcingButton(Button.SECONDARY_FIRE)
-    wait(max(getServerLoad() / 1000, 0.192))
+    wait(max(getServerLoad() / 1000, WAIT_AI_THROTTLE_MIN))
     eventPlayer.stopForcingButton(Button.SECONDARY_FIRE)
     wait(4)
 
@@ -176,7 +176,7 @@ rule "[AI/control]: Pharah Ability 1":
     @Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) == true]) > 0
     
     eventPlayer.startForcingButton(Button.ABILITY_1)
-    wait(max(getServerLoad() / 1000, 0.192))
+    wait(max(getServerLoad() / 1000, WAIT_AI_THROTTLE_MIN))
     eventPlayer.stopForcingButton(Button.ABILITY_1)
 
 
@@ -192,7 +192,7 @@ rule "[AI/control]: Pharah Ability 2":
     @Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) == true]) > 0
     
     eventPlayer.startForcingButton(Button.ABILITY_2)
-    wait(max(getServerLoad() / 1000, 0.192))
+    wait(max(getServerLoad() / 1000, WAIT_AI_THROTTLE_MIN))
     eventPlayer.stopForcingButton(Button.ABILITY_2)
 
 
@@ -243,7 +243,7 @@ rule "[AI/control]: Venture Primary":
     @Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) == true]) > 0
     
     eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
-    wait(max(getServerLoad() / 1000, 0.192))
+    wait(max(getServerLoad() / 1000, WAIT_AI_THROTTLE_MIN))
     eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
     if ruleCondition:
         loop()
@@ -278,7 +278,7 @@ rule "[AI/control]: Venture Ability 1":
     eventPlayer.startForcingButton(Button.ABILITY_1)
     eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
     eventPlayer.startThrottleInDirection(directionTowards(eventPlayer.getPosition(), eventPlayer.botTarget), 1, Relativity.TO_WORLD)
-    wait(0.192)
+    wait(WAIT_AI_THROTTLE_MIN)
     eventPlayer.stopForcingButton(Button.ABILITY_1)
     wait(3.792)
     eventPlayer.startForcingButton(Button.PRIMARY_FIRE)

@@ -38,9 +38,9 @@ rule "[Mauga]: Berserker Soul Ability":
     eventPlayer.setKnockbackReceived(100 - MaugaBuff[5])
     eventPlayer.addHealthPool(Health.NORMAL, eventPlayer.getMaxHealth() * MaugaBuff[0], true, false)
     eventPlayer.mauga_berserker_soul_id[0] = getLastCreatedHealthPool()
-    wait(0.16)
+    wait(WAIT_SHORT_FRAME)
     eventPlayer.setHealth(eventPlayer.getMaxHealth())
-    wait(0.16)
+    wait(WAIT_SHORT_FRAME)
     eventPlayer.startDamageOverTime(null, 9999, eventPlayer.getMaxHealth() * MaugaBuff[6])
     eventPlayer.mauga_berserker_soul_id[1] = getLastDamageOverTimeId()
     waitUntil(not eventPlayer.mauga_berserker_soul or eventPlayer.isDead(), 9999)
@@ -203,7 +203,7 @@ rule "[Reaper]: Ability Dire Triggers dot":
     @Hero reaper
     @Condition eventAbility == Button.SECONDARY_FIRE
     
-    #wait(0.16)
+    #wait(WAIT_SHORT_FRAME)
     victim.startDamageOverTime(attacker, 1, eventPlayer.reaper_buff[0] * ReaperBuff[7])
     #victim.reaper_buff = getLastDamageOverTimeId()
     #wait(1)
@@ -234,7 +234,7 @@ rule "[Reaper]: HUD & Reset":
     hudText(eventPlayer, null, " \r\n\r\n\n", "已收割灵魂： {0}".format(eventPlayer.reaper_buff[0]), HudPosition.LEFT, 3, null, null, rgb(255, 255, 255, 200), HudReeval.STRING)
     eventPlayer.reaper_buff[2] = getLastCreatedText()
     lbl_0:
-    waitUntil(eventPlayer.reaper_buff[0] == 0 or eventPlayer.reset_pvar[0], 999999986991104)
+    waitUntil(eventPlayer.reaper_buff[0] == 0 or eventPlayer.reset_pvar[0], WAIT_TIMEOUT_FOREVER)
     destroyHudText(eventPlayer.reaper_buff[2])
     eventPlayer.reaper_buff[2] = 0
 
@@ -270,7 +270,7 @@ rule "[Moira]: Abilities to heal self":
     @Condition eventPlayer.getNormalizedHealth() < 1
     
     eventPlayer.startHealingOverTime(eventPlayer, 0.6, 0.75 * (eventPlayer.getMaxHealth() - eventPlayer.getHealth()))
-    wait(0.16)
+    wait(WAIT_SHORT_FRAME)
 
 
 rule "[Zarya]: will to win":

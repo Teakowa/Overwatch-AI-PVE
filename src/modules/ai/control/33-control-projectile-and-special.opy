@@ -57,7 +57,7 @@ rule "[AI/control]: Illari Ability 1":
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) != true
     
     eventPlayer.startForcingButton(Button.ABILITY_1)
-    wait(0.192)
+    wait(WAIT_AI_THROTTLE_MIN)
     eventPlayer.stopForcingButton(Button.ABILITY_1)
 
 
@@ -74,9 +74,9 @@ rule "[AI/control]: Illari Ability 2":
     
     eventPlayer.setProjectileSpeed(10)
     eventPlayer.setProjectileGravity(250)
-    wait(0.192)
+    wait(WAIT_AI_THROTTLE_MIN)
     eventPlayer.startForcingButton(Button.ABILITY_2)
-    wait(0.192)
+    wait(WAIT_AI_THROTTLE_MIN)
     eventPlayer.setProjectileSpeed(100)
     eventPlayer.setProjectileGravity(100)
     waitUntil(eventPlayer.getAbilityCooldown(Button.ABILITY_2), 5)
@@ -122,7 +122,7 @@ rule "[AI/control]: Juno Primary":
     lbl_0:
     wait(random.uniform(1, 4))
     eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
-    wait(max(getServerLoad() / 1000, 0.192))
+    wait(max(getServerLoad() / 1000, WAIT_AI_THROTTLE_MIN))
     if ruleCondition:
         loop()
     eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
@@ -140,7 +140,7 @@ rule "[AI/control]: Juno Ability 2":
     @Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) == true]) > 0
     
     eventPlayer.startForcingButton(Button.ABILITY_2)
-    wait(0.192)
+    wait(WAIT_AI_THROTTLE_MIN)
     eventPlayer.stopForcingButton(Button.ABILITY_2)
 
 
@@ -157,7 +157,7 @@ rule "[AI/control]: Juno Jump":
     eventPlayer.forceButtonPress(Button.JUMP)
     wait(0.5)
     eventPlayer.forceButtonPress(Button.JUMP)
-    wait(0.192)
+    wait(WAIT_AI_THROTTLE_MIN)
     if eventPlayer.getAbilityCooldown(Button.ABILITY_1) != 0:
         goto lbl_0
     eventPlayer.startForcingButton(Button.ABILITY_1)

@@ -8,14 +8,14 @@ rule "[utilities/reset]: Default respawn time":
     @Event eachPlayer
     @Team 1
     
-    eventPlayer.setRespawnTime(5)
+    eventPlayer.setRespawnTime(TEAM1_RESPAWN_TIME_DEFAULT)
 
 
 rule "[utilities/reset]: Default respawn time":
     @Event eachPlayer
     @Team 2
     
-    eventPlayer.setRespawnTime(10)
+    eventPlayer.setRespawnTime(TEAM2_RESPAWN_TIME_DEFAULT)
 
 
 rule "[utilities/reset]: reset when died":
@@ -150,7 +150,7 @@ rule "[reset.opy]: Reinitialize hero on new round":
     @Condition isMatchBetweenRounds() == true
     @Condition eventPlayer.getHero() != Hero.SOMBRA
     
-    waitUntil(not isMatchBetweenRounds(), 999999986991104)
+    waitUntil(not isMatchBetweenRounds(), WAIT_TIMEOUT_FOREVER)
     wait(1)
     resetHero()
     eventPlayer.reset_pvar[0] = true
@@ -223,7 +223,7 @@ def applyCustomHp():
     #Find minimum hp scalar value that ensures
     #the scaled health/armor/shields is less or equal to
     #the desired custom health/armor/shield value
-    eventPlayer.custom_hp_pvar[6] = min(min(eventPlayer.custom_hp_pvar[0] / eventPlayer.custom_hp_pvar[3] if eventPlayer.custom_hp_pvar[3] > 0 else 999999995904, eventPlayer.custom_hp_pvar[1] / eventPlayer.custom_hp_pvar[4] if eventPlayer.custom_hp_pvar[4] > 0 else 999999995904), eventPlayer.custom_hp_pvar[2] / eventPlayer.custom_hp_pvar[5] if eventPlayer.custom_hp_pvar[5] > 0 else 999999995904)
+    eventPlayer.custom_hp_pvar[6] = min(min(eventPlayer.custom_hp_pvar[0] / eventPlayer.custom_hp_pvar[3] if eventPlayer.custom_hp_pvar[3] > 0 else CUSTOM_HP_SCALAR_FALLBACK, eventPlayer.custom_hp_pvar[1] / eventPlayer.custom_hp_pvar[4] if eventPlayer.custom_hp_pvar[4] > 0 else CUSTOM_HP_SCALAR_FALLBACK), eventPlayer.custom_hp_pvar[2] / eventPlayer.custom_hp_pvar[5] if eventPlayer.custom_hp_pvar[5] > 0 else CUSTOM_HP_SCALAR_FALLBACK)
     eventPlayer.setMaxHealth(100 * eventPlayer.custom_hp_pvar[6])
     waitUntil(eventPlayer.getMaxHealth() != eventPlayer.custom_hp_pvar[3] + eventPlayer.custom_hp_pvar[4] + eventPlayer.custom_hp_pvar[5], 1)
     if eventPlayer.custom_hp_pvar[0] - eventPlayer.getMaxHealthOfType(Health.NORMAL) >= 1:
@@ -264,5 +264,4 @@ def removeTankPassive():
     @Disabled
     
     eventPlayer.setKnockbackReceived(166.667)
-
 

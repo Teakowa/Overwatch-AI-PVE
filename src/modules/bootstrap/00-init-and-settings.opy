@@ -3,9 +3,9 @@ rule "Copyright (c) 2019-2025 他又（aka Teakowa）":
     Collaborator = ["他又", "别感冒", "步六孤", "Destiny", "smile"]
     Mark = " \r\n\n 非重装 AI 减伤 25%\r\n 重装 AI 最高减伤 40%\r\n 完整更新日志 workshop.codes/3TP7F/update-log\r\n 企鹅聊天群：361913638\r\n 中途退、挂机永久BAN，不服的现在滚"
     #Setup Anti Crash
-    ANTI_CRASH_ACTIVATE_PERCENT = createWorkshopSettingInt("Anti Crash", "激活阈值", 230, 0, 250)
-    ANTI_CRASH_HOLD_TIME = createWorkshopSettingFloat("Anti Crash", "激活持续时间", 8, 0, 20, 1)
-    ANTI_CRASH_DEACTIVATE_PERCENT = createWorkshopSettingInt("Anti Crash", "停用阈值", 180, 0, 250, 2)
+    ANTI_CRASH_ACTIVATE_PERCENT = createWorkshopSettingInt("Anti Crash", "激活阈值", ANTI_CRASH_ACTIVATE_DEFAULT, ANTI_CRASH_ACTIVATE_MIN, ANTI_CRASH_ACTIVATE_MAX)
+    ANTI_CRASH_HOLD_TIME = createWorkshopSettingFloat("Anti Crash", "激活持续时间", ANTI_CRASH_HOLD_DEFAULT, ANTI_CRASH_HOLD_MIN, ANTI_CRASH_HOLD_MAX, ANTI_CRASH_HOLD_ORDER)
+    ANTI_CRASH_DEACTIVATE_PERCENT = createWorkshopSettingInt("Anti Crash", "停用阈值", ANTI_CRASH_DEACTIVATE_DEFAULT, ANTI_CRASH_DEACTIVATE_MIN, ANTI_CRASH_DEACTIVATE_MAX, ANTI_CRASH_DEACTIVATE_ORDER)
 
 
 rule "Initialize global variables":
@@ -105,4 +105,3 @@ rule "Initialize Hero Ability Settings":
     VendettaBuff[4] = createWorkshopSettingFloat("英雄：斩仇", "斩地巨剑：击倒持续时间", 3.5, 0, 5, 154)
     VendettaBuff[5] = createWorkshopSettingInt("英雄：斩仇", "斩地巨剑：斩杀阈值 %", 20, 0, 40, 155) / 100
     VendettaBuff[6] = createWorkshopSettingInt("英雄：斩仇", "帕拉蒂尼之牙：暴击回复最大生命值 %", 40, 0, 80, 150) / 100
-

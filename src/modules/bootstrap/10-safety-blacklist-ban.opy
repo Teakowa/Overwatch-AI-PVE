@@ -3,10 +3,10 @@ rule "[Anti Crash]: Activate anti crash":
     
     wait(ANTI_CRASH_HOLD_TIME, Wait.ABORT_WHEN_FALSE)
     smallMessage(getAllPlayers(), "  服务器过载  ")
-    setSlowMotion(1)
-    wait(0.5)
-    waitUntil(getServerLoad() < ANTI_CRASH_DEACTIVATE_PERCENT, 999999986991104)
-    setSlowMotion(100)
+    setSlowMotion(ANTI_CRASH_SLOW_MOTION_ON)
+    wait(ANTI_CRASH_RECOVERY_WAIT)
+    waitUntil(getServerLoad() < ANTI_CRASH_DEACTIVATE_PERCENT, WAIT_TIMEOUT_FOREVER)
+    setSlowMotion(ANTI_CRASH_SLOW_MOTION_OFF)
 
 
 rule "[Global]Setup Blacklist":
@@ -62,21 +62,21 @@ rule "[Player]Remove Player from Blacklist":
 rule "[Player]Hero BAN":
     @Condition Hero_BAN == true
     
-    if not getCurrentMap() in [Map.ILIOS, Map.NEPAL, Map.LIJIANG_TOWER, Map.BUSAN, Map.OASIS, Map.PARIS, Map.ROUTE66]:
+    if not getCurrentMap() in HERO_BAN_NO_ROADHOG_MAPS:
         goto lbl_0
     Heros.remove(Hero.ROADHOG)
     lbl_0:
-    if getCurrentMap() in [Map.ILIOS, Map.NEPAL, Map.LIJIANG_TOWER, Map.BUSAN, Map.OASIS, Map.PARIS, Map.ROUTE66]:
+    if getCurrentMap() in HERO_BAN_NO_ROADHOG_MAPS:
         goto lbl_1
     Heros.remove(random.choice(getTankHeroes()))
     lbl_1:
     Heros.remove(random.choice(getDamageHeroes()))
     Heros.remove(random.choice(getDamageHeroes()))
-    if not getCurrentMap() in [Map.ILIOS, Map.NEPAL, Map.LIJIANG_TOWER, Map.OASIS, Map.BUSAN]:
+    if not getCurrentMap() in HERO_BAN_NO_LUCIO_MAPS:
         goto lbl_2
     Heros.remove(Hero.LUCIO)
     lbl_2:
-    if getCurrentMap() in [Map.ILIOS, Map.NEPAL, Map.LIJIANG_TOWER, Map.OASIS, Map.BUSAN]:
+    if getCurrentMap() in HERO_BAN_NO_LUCIO_MAPS:
         goto lbl_3
     Heros.remove(random.choice(getSupportHeroes()))
     lbl_3:
@@ -92,17 +92,16 @@ rule "[Player]: Override allowed heroes list when player joins lobby":
         eventPlayer.setAllowedHeroes(Heros.concat([Hero.MERCY, Hero.JUNKRAT, Hero.TORBJORN]))
     else:
         eventPlayer.setAllowedHeroes(Heros)
-    wait(0.16)
+    wait(WAIT_SHORT_FRAME)
     eventPlayer.hudText = ""
 
 
 rule "[Player]: hudText init":
-    wait(1)
-    hudText(getPlayersInSlot(0, Team.2), null, "\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r", getPlayersInSlot(0, Team.2).hudText, HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
-    hudText(getPlayersInSlot(1, Team.2), null, "\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r", getPlayersInSlot(1, Team.2).hudText, HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
-    hudText(getPlayersInSlot(2, Team.2), null, "\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r", getPlayersInSlot(2, Team.2).hudText, HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
-    hudText(getPlayersInSlot(3, Team.2), null, "\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r", getPlayersInSlot(3, Team.2).hudText, HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
-    hudText(getPlayersInSlot(4, Team.2), null, "\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r", getPlayersInSlot(4, Team.2).hudText, HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
-    hudText(getPlayersInSlot(5, Team.2), null, "\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r", getPlayersInSlot(5, Team.2).hudText, HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
-
+    wait(HUD_TEXT_INIT_WAIT)
+    hudText(getPlayersInSlot(0, Team.2), null, HUD_TEXT_SPACER, getPlayersInSlot(0, Team.2).hudText, HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
+    hudText(getPlayersInSlot(1, Team.2), null, HUD_TEXT_SPACER, getPlayersInSlot(1, Team.2).hudText, HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
+    hudText(getPlayersInSlot(2, Team.2), null, HUD_TEXT_SPACER, getPlayersInSlot(2, Team.2).hudText, HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
+    hudText(getPlayersInSlot(3, Team.2), null, HUD_TEXT_SPACER, getPlayersInSlot(3, Team.2).hudText, HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
+    hudText(getPlayersInSlot(4, Team.2), null, HUD_TEXT_SPACER, getPlayersInSlot(4, Team.2).hudText, HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
+    hudText(getPlayersInSlot(5, Team.2), null, HUD_TEXT_SPACER, getPlayersInSlot(5, Team.2).hudText, HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
 

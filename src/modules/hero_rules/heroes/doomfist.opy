@@ -59,7 +59,7 @@ rule "[Doomfist]: block HUD":
     
     #hudText(eventPlayer, null, "\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r", "{0}".format(floor(eventPlayer.doom_buff)), HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
     #eventPlayer.doom_buff_hud = getLastCreatedText()
-    waitUntil(eventPlayer.doom_buff == 0 or eventPlayer.reset_pvar[0] or eventPlayer.isInSpawnRoom(), 999999986991104)
+    waitUntil(eventPlayer.doom_buff == 0 or eventPlayer.reset_pvar[0] or eventPlayer.isInSpawnRoom(), WAIT_TIMEOUT_FOREVER)
     eventPlayer.hudText = ""
     #destroyHudText(eventPlayer.doom_buff_hud)
 
@@ -76,7 +76,7 @@ rule "[Doomfist] The Best Defense get armor":
     lbl_0:
     attacker.addHealthPool(Health.ARMOR, attacker.heart_steel[1], false, false)
     attacker.heart_steel[0] = getLastCreatedHealthPool()
-    wait(0.16)
+    wait(WAIT_SHORT_FRAME)
 
 
 rule "[Doomfist] remove The Best Defense armor":
@@ -89,7 +89,7 @@ rule "[Doomfist] remove The Best Defense armor":
     removeHealthPool(eventPlayer.heart_steel[0])
     eventPlayer.heart_steel[1] = 0
     eventPlayer.heart_steel[0] = 0
-    wait(0.16)
+    wait(WAIT_SHORT_FRAME)
     if ruleCondition:
         loop()
 

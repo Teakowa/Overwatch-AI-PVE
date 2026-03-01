@@ -92,7 +92,7 @@ rule "[AI/control]: Reaper Ability 1":
     wait(0.4)
     eventPlayer.setPrimaryFireEnabled(true)
     eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
-    wait(0.192)
+    wait(WAIT_AI_THROTTLE_MIN)
     if ruleCondition:
         loop()
 
@@ -110,11 +110,11 @@ rule "[AI/control]: Reaper Ability 2":
     waitUntil(not eventPlayer.getAbilityCooldown(Button.ABILITY_2) and distance(eventPlayer.getPosition(), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) > 5, 99999)
     eventPlayer.startForcingButton(Button.ABILITY_2)
     eventPlayer.startFacing(directionTowards(eventPlayer.getEyePosition(), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)), 10000)
-    wait(0.192)
+    wait(WAIT_AI_THROTTLE_MIN)
     eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
     eventPlayer.startFacing(directionTowards(eventPlayer.getEyePosition(), eventPlayer.botTarget.getEyePosition()), 10000)
     eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
-    wait(0.192)
+    wait(WAIT_AI_THROTTLE_MIN)
     if ruleCondition:
         loop()
 
@@ -133,7 +133,7 @@ rule "[AI/control]: Reaper Ultimate":
     eventPlayer.startForcingButton(Button.ULTIMATE)
     waitUntil(not eventPlayer.isUsingUltimate(), 99999)
     eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
-    wait(0.192)
+    wait(WAIT_AI_THROTTLE_MIN)
     if ruleCondition:
         loop()
 
@@ -175,7 +175,7 @@ rule "[AI/control]: Ana Sleep Drat Counter":
         eventPlayer.setFacing(directionTowards(eventPlayer.getEyePosition(), eventPlayer.botTarget.getEyePosition()), Relativity.TO_WORLD)
     eventPlayer.forceButtonPress(Button.ABILITY_1)
     #eventPlayer.setFacing(directionTowards(eventPlayer.getEyePosition(), eventPlayer.botTarget.getEyePosition()), Relativity.TO_WORLD)
-    wait(0.192)
+    wait(WAIT_AI_THROTTLE_MIN)
     eventPlayer.stopFacing()
     eventPlayer.setProjectileSpeed(100)
     eventPlayer.botTarget = null
@@ -210,14 +210,14 @@ rule "[AI/control]: Kiriko Ability 1":
     if len(getLivingPlayers(Team.2)) < 2:
         goto lbl_0
     eventPlayer.startFacing(directionTowards(eventPlayer.getEyePosition(), (sorted(getLivingPlayers(Team.1).exclude(eventPlayer), lambda i: i.getHealth())[0].getEyePosition() + sorted(getLivingPlayers(Team.1).exclude(eventPlayer), lambda i: i.getHealth()).getPosition()) / 2), 10000)
-    wait(0.192)
+    wait(WAIT_AI_THROTTLE_MIN)
     eventPlayer.startForcingButton(Button.ABILITY_1)
     waitUntil(eventPlayer.isUsingAbility1(), 5)
     eventPlayer.startFacing(updateEveryFrame(directionTowards(eventPlayer.getEyePosition(), eventPlayer.botTarget.getEyePosition() + eventPlayer.botTarget.getVelocity() * distance(eventPlayer.getEyePosition(), eventPlayer.botTarget.getEyePosition()) / ProjectileSpeed[getAllHeroes().index(eventPlayer.getHero())])), 10000)
     lbl_0:
     eventPlayer.setProjectileSpeed(0)
     eventPlayer.setProjectileGravity(500)
-    wait(0.192)
+    wait(WAIT_AI_THROTTLE_MIN)
     eventPlayer.stopForcingButton(Button.SECONDARY_FIRE)
     eventPlayer.startForcingButton(Button.ABILITY_2)
     waitUntil(eventPlayer.getAbilityCooldown(Button.ABILITY_2), 5)

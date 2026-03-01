@@ -2,7 +2,7 @@ rule "[Tracer] Instant Respawn":
     @Event playerDied
     @Hero tracer
     
-    wait(0.16)
+    wait(WAIT_SHORT_FRAME)
     eventPlayer.respawn()
     eventPlayer.setAbilityCharge(Button.ABILITY_1, 3)
 
@@ -28,13 +28,13 @@ rule "[Ramattra] ult speed":
     eventPlayer.setDamageReceived(100 - Ram_Annihilation[4])
     eventPlayer.setMoveSpeed(100 - eventPlayer.mov_speed_penalty + eventPlayer.mov_speed_buff)
     eventPlayer.setKnockbackReceived(30)
-    waitUntil(not eventPlayer.isUsingUltimate(), 999999986991104)
+    waitUntil(not eventPlayer.isUsingUltimate(), WAIT_TIMEOUT_FOREVER)
     eventPlayer.mov_speed_buff = 0
     eventPlayer.setMoveSpeed(100)
     eventPlayer.setDamageReceived(100)
     eventPlayer.setKnockbackReceived(100)
     eventPlayer.setDamageDealt(100)
-    wait(0.16)
+    wait(WAIT_SHORT_FRAME)
     #removeTankPassive()
 
 

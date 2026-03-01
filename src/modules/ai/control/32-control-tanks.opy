@@ -22,7 +22,7 @@ rule "[AI/control]: Vendetta Primary":
     @Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) == true]) > 0
     
     eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
-    wait(max(getServerLoad() / 1000, 0.192))
+    wait(max(getServerLoad() / 1000, WAIT_AI_THROTTLE_MIN))
     eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
     if ruleCondition:
         loop()
@@ -40,7 +40,7 @@ rule "[AI/control]: Vendetta Secondary":
     @Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) == true]) > 0
     
     eventPlayer.startForcingButton(Button.SECONDARY_FIRE)
-    wait(max(getServerLoad() / 1000, 0.192))
+    wait(max(getServerLoad() / 1000, WAIT_AI_THROTTLE_MIN))
     eventPlayer.forceButtonPress(Button.PRIMARY_FIRE)
     eventPlayer.stopForcingButton(Button.SECONDARY_FIRE)
 
@@ -58,7 +58,7 @@ rule "[AI/control]: Vendetta Ability 1":
     
     waitUntil(true and distance(eventPlayer.getPosition(), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) < 6.8, random.uniform(0.65, 1.2))
     eventPlayer.startForcingButton(Button.ABILITY_1)
-    wait(max(getServerLoad() / 1000, 0.192))
+    wait(max(getServerLoad() / 1000, WAIT_AI_THROTTLE_MIN))
     eventPlayer.stopForcingButton(Button.ABILITY_1)
 
 
@@ -153,7 +153,7 @@ rule "[AI/control]: Widowmaker Fly Sky Attack Mode":
     wait(0.4)
     lbl_0:
     eventPlayer.setGravity(80)
-    waitUntil(eventPlayer.isOnGround(), 999999986991104)
+    waitUntil(eventPlayer.isOnGround(), WAIT_TIMEOUT_FOREVER)
     eventPlayer.setDamageReceived(100)
     eventPlayer.setAbility2Enabled(true)
     eventPlayer.setGravity(100)
@@ -210,7 +210,7 @@ rule "[AI/control]: Hazard Primary":
     @Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) == true]) > 0
     
     eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
-    wait(max(getServerLoad() / 1000, 0.192))
+    wait(max(getServerLoad() / 1000, WAIT_AI_THROTTLE_MIN))
     eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
     if ruleCondition:
         loop()
@@ -228,8 +228,8 @@ rule "[AI/control]: Hazard Secondary":
     @Condition eventPlayer.botTarget.isAlive() == true
     
     eventPlayer.startForcingButton(Button.SECONDARY_FIRE)
-    wait(0.192)
-    wait(0.192, Wait.RESTART_WHEN_TRUE)
+    wait(WAIT_AI_THROTTLE_MIN)
+    wait(WAIT_AI_THROTTLE_MIN, Wait.RESTART_WHEN_TRUE)
     eventPlayer.stopForcingButton(Button.SECONDARY_FIRE)
 
 
@@ -247,7 +247,7 @@ rule "[AI/control]: Hazard Ability 1":
     waitUntil(eventPlayer.getAltitude() > 0.1, 99999)
     waitUntil(eventPlayer.getAltitude() < 0.1, 99999)
     eventPlayer.startForcingButton(Button.ABILITY_1)
-    wait(0.192)
+    wait(WAIT_AI_THROTTLE_MIN)
     eventPlayer.stopForcingButton(Button.ABILITY_1)
 
 
