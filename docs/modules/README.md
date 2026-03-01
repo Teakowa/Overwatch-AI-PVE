@@ -1,6 +1,6 @@
 # `src/` 模块文档导航
 
-本目录聚焦当前仓库的真实结构：`src/main.opy` 单入口 + `src/modules/*` 显式编排。
+本目录聚焦当前仓库的真实结构：`src/main.opy` 单入口 + `src/modules/*` 分层 `_index.opy` 显式编排。
 
 ## 推荐阅读顺序
 
@@ -21,4 +21,4 @@
 
 - 新增玩法逻辑时，优先在对应模块文件中追加。
 - 涉及执行顺序、变量索引、分隔规则变更时，必须同步更新 `03-module-contracts.md` 与附录。
-- `_index.opy` 仅用于显式顺序编排，禁止为“美观”重排 include。
+- `_index.opy` 仅用于显式顺序编排（含分层 `_index`），禁止为“美观”重排 include。

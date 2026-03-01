@@ -16,16 +16,9 @@
 
 入口 `src/main.opy` 按以下顺序 include：
 
-1. `modules/prelude/00-settings.opy`
-2. `modules/prelude/01-global-vars.opy`
-3. `modules/prelude/02-player-vars.opy`
-4. `modules/prelude/03-subroutine-names.opy`
-5. `#!optimizeStrict`
-6. `modules/bootstrap/_index.opy`
-7. `modules/ai/_index.opy`
-8. `modules/hero_rules/_index.opy`
-9. `modules/hero_init/_index.opy`
-10. `modules/debug/_index.opy`
+1. `modules/prelude/_index.opy`（内部顺序固定为 `00-settings -> 01-global-vars -> 02-player-vars -> 03-subroutine-names`）
+2. `#!optimizeStrict`
+3. `modules/_index.opy`（内部顺序固定为 `bootstrap -> ai -> hero_rules -> hero_init -> debug`）
 
 ## 3. 关键分隔规则（保留）
 
@@ -67,6 +60,7 @@
 - 目标选择与朝向
 - 移动（走位、跳蹲、速度恢复）
 - 按英雄分组的控制规则（PRIMARY/SECONDARY/ABILITY/ULT）
+- 当前以 `ai/core`、`ai/movement`、`ai/control` 分层编排，便于按职责扩展。
 
 ### 4.5 英雄行为改动（hero_rules）
 

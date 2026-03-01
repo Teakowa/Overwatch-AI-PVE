@@ -21,9 +21,14 @@
 src/
   main.opy
   modules/
+    _index.opy
     prelude/
+      _index.opy
     bootstrap/
     ai/
+      core/
+      movement/
+      control/
     hero_rules/
     hero_init/
     debug/
@@ -31,18 +36,20 @@ src/
 
 ## 3. 入口编排顺序（`src/main.opy`）
 
-1. `modules/prelude/00-settings.opy`
-2. `modules/prelude/01-global-vars.opy`
-3. `modules/prelude/02-player-vars.opy`
-4. `modules/prelude/03-subroutine-names.opy`
-5. `#!optimizeStrict`
-6. `modules/bootstrap/_index.opy`
-7. `modules/ai/_index.opy`
-8. `modules/hero_rules/_index.opy`
-9. `modules/hero_init/_index.opy`
-10. `modules/debug/_index.opy`
+1. `modules/prelude/_index.opy`（内部固定 `00-settings -> 01-global-vars -> 02-player-vars -> 03-subroutine-names`）
+2. `#!optimizeStrict`
+3. `modules/_index.opy`（内部固定 `bootstrap -> ai -> hero_rules -> hero_init -> debug`）
 
 所有 `_index.opy` 使用显式 include；不使用目录通配 include。
+
+## 3.1 Bastion 风格对齐（分层聚合）
+
+对齐 `Teakowa/Bastion` 的“入口清单 + 业务分域”风格后，本仓库采用分层 `_index`：
+
+- `src/main.opy` 只保留最顶层编排
+- `src/modules/_index.opy` 聚合玩法域模块
+- `src/modules/ai/` 下进一步细分 `core` / `movement` / `control`
+- `src/modules/hero_rules/heroes/_index.opy` 聚合英雄行为改动规则
 
 ## 4. 迁移策略（顺序）
 

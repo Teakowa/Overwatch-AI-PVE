@@ -3,9 +3,11 @@
 ## 1. 入口
 
 - `src/main.opy`：模块清单入口（manifest）
+- `src/modules/_index.opy`：玩法域聚合入口
 
 ## 2. Prelude
 
+- `src/modules/prelude/_index.opy`
 - `src/modules/prelude/00-settings.opy`
 - `src/modules/prelude/01-global-vars.opy`
 - `src/modules/prelude/02-player-vars.opy`
@@ -20,17 +22,21 @@
 ## 4. AI
 
 - `src/modules/ai/00-delimiter-begin.opy`
-- `src/modules/ai/10-core-global-and-targeting.opy`
-- `src/modules/ai/20-movement.opy`
-- `src/modules/ai/30-control-tracer-reaper-genji.opy`
-- `src/modules/ai/31-control-supports.opy`
-- `src/modules/ai/32-control-tanks.opy`
-- `src/modules/ai/33-control-projectile-and-special.opy`
+- `src/modules/ai/core/_index.opy`
+- `src/modules/ai/core/10-core-global-and-targeting.opy`
+- `src/modules/ai/movement/_index.opy`
+- `src/modules/ai/movement/20-movement.opy`
+- `src/modules/ai/control/_index.opy`
+- `src/modules/ai/control/30-control-tracer-reaper-genji.opy`
+- `src/modules/ai/control/31-control-supports.opy`
+- `src/modules/ai/control/32-control-tanks.opy`
+- `src/modules/ai/control/33-control-projectile-and-special.opy`
 - `src/modules/ai/99-delimiter-end.opy`
 
 ## 5. Hero Rules
 
 - `src/modules/hero_rules/shared.opy`
+- `src/modules/hero_rules/heroes/_index.opy`
 - `src/modules/hero_rules/heroes/*.opy`
 
 说明：本区采用“连续片段拆分”以保留执行顺序，因此同一英雄可能出现在多个文件。
