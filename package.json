@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "overpy compile -i src/main.opy -o workshop.ow",
+    "build:release": "mkdir -p build && overpy compile -i src/main.opy -l en-US -o build/main.en-US.ow && cp build/main.en-US.ow build/devMain.en-US.ow && overpy compile -i src/main.opy -l zh-CN -o build/main.zh-CN.ow && cp build/main.zh-CN.ow build/devMain.zh-CN.ow"
+  },
+  "dependencies": {
+    "overpy": "^9.4.21"
+  }
+}
