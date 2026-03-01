@@ -58,6 +58,21 @@ def changelogText():
     elif eventPlayer.getHero() == Hero.HAZARD:
         hudText(eventPlayer, null, Mark, "\r\n{0}\r\n{1}\r\n{2}\n\n※※离开重生室隐藏".format("●{0}\r\n*造成伤害 +20%\r\n*受到伤害 -40%".format(eventPlayer.getHero()), "*尖刺护体 受到伤害获得{0}%终极技能充能并回复HP".format(HazardBuff[1]), "{0}".format("*千针雨 不再根据伤害获得能量")), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
         eventPlayer.ChangelogText2 = getLastCreatedText()
+    elif eventPlayer.getHero() == Hero.DOMINA:
+        hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*已接入初始化链路\r\n*生命值改写因 Health Pool Bug 暂不启用（仅保留声明）\n\n※※离开重生室隐藏".format(eventPlayer.getHero()), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
+        eventPlayer.ChangelogText2 = getLastCreatedText()
+    elif eventPlayer.getHero() == Hero.ANRAN:
+        hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*已接入初始化链路\r\n*生命值改写因 Health Pool Bug 暂不启用（仅保留声明）\n\n※※离开重生室隐藏".format(eventPlayer.getHero()), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
+        eventPlayer.ChangelogText2 = getLastCreatedText()
+    elif eventPlayer.getHero() == Hero.EMRE:
+        hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*已接入初始化链路\r\n*生命值改写因 Health Pool Bug 暂不启用（仅保留声明）\n\n※※离开重生室隐藏".format(eventPlayer.getHero()), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
+        eventPlayer.ChangelogText2 = getLastCreatedText()
+    elif eventPlayer.getHero() == Hero.MIZUKI:
+        hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*已接入初始化链路\r\n*生命值改写因 Health Pool Bug 暂不启用（仅保留声明）\n\n※※离开重生室隐藏".format(eventPlayer.getHero()), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
+        eventPlayer.ChangelogText2 = getLastCreatedText()
+    elif eventPlayer.getHero() == Hero.JETPACK_CAT:
+        hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*已接入初始化链路\r\n*生命值改写因 Health Pool Bug 暂不启用（仅保留声明）\n\n※※离开重生室隐藏".format(eventPlayer.getHero()), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
+        eventPlayer.ChangelogText2 = getLastCreatedText()
     elif eventPlayer.getHero() == Hero.ASHE:
         hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*造成伤害 +35%\r\n*毒蛇\r\n  弹药增加至 15 发\r\n  暴击倍率提高至 ×{1}\r\n  完成击杀后恢复全部子弹\r\n*延时雷管\r\n  冷却时间降低至8秒\r\n*短筒猎枪\r\n  冷却时间降低至8秒\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), HeadshotDamage[1]), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
         eventPlayer.ChangelogText2 = getLastCreatedText()
@@ -148,4 +163,3 @@ def changelogText():
     elif eventPlayer.getHero() == Hero.VENDETTA:
         hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*造成伤害 +35%\r\n*受到伤害-45%\r\n{1}\r\n{2}\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), "{0} 暴击额外其{1}%最大生命值伤害，并回复{2}最大生命值".format(abilityIconString(eventPlayer.getHero(), Button.PRIMARY_FIRE), VendettaBuff[0] * 100, VendettaBuff[6] * 100), "{0}\r\n{1}\r\n{2}".format("{0} 每命中一名敌人回复{1}%已损失生命值".format(abilityIconString(eventPlayer.getHero(), Button.ABILITY_1), VendettaBuff[2] * 100), "{0} 使敌人沉默，持续期间不可阻挡".format(abilityIconString(eventPlayer.getHero(), Button.ABILITY_2)), "{0} 击倒敌人，生命值低于{1}%的敌人将被斩杀".format(abilityIconString(eventPlayer.getHero(), Button.ULTIMATE), VendettaBuff[5] * 100))), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
         eventPlayer.ChangelogText2 = getLastCreatedText()
-

@@ -6704,6 +6704,141 @@
     }
 }
 
+规则 ("[Domina/init.opy]: Detect switch to Domina") {
+    事件 {
+        持续 - 每名玩家;
+        双方;
+        金驭;
+    }
+    动作 {
+        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
+    }
+}
+
+规则 ("[Domina/init.opy]: Initialize Domina") {
+    事件 {
+        持续 - 每名玩家;
+        双方;
+        金驭;
+    }
+    条件 {
+        首个((事件玩家).reset_pvar) != 假;
+    }
+    动作 {
+        调用子程序(resetHero);
+        "eventPlayer.custom_hp_pvar[0] = 400\neventPlayer.custom_hp_pvar[1] = 0\neventPlayer.custom_hp_pvar[2] = 100\napplyCustomHp()"
+        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
+    }
+}
+
+规则 ("[Anran/init.opy]: Detect switch to Anran") {
+    事件 {
+        持续 - 每名玩家;
+        双方;
+        安燃;
+    }
+    动作 {
+        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
+    }
+}
+
+规则 ("[Anran/init.opy]: Initialize Anran") {
+    事件 {
+        持续 - 每名玩家;
+        双方;
+        安燃;
+    }
+    条件 {
+        首个((事件玩家).reset_pvar) != 假;
+    }
+    动作 {
+        调用子程序(resetHero);
+        "eventPlayer.custom_hp_pvar[0] = 250\neventPlayer.custom_hp_pvar[1] = 0\neventPlayer.custom_hp_pvar[2] = 0\napplyCustomHp()"
+        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
+    }
+}
+
+规则 ("[Emre/init.opy]: Detect switch to Emre") {
+    事件 {
+        持续 - 每名玩家;
+        双方;
+        埃姆雷;
+    }
+    动作 {
+        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
+    }
+}
+
+规则 ("[Emre/init.opy]: Initialize Emre") {
+    事件 {
+        持续 - 每名玩家;
+        双方;
+        埃姆雷;
+    }
+    条件 {
+        首个((事件玩家).reset_pvar) != 假;
+    }
+    动作 {
+        调用子程序(resetHero);
+        "eventPlayer.custom_hp_pvar[0] = 250\neventPlayer.custom_hp_pvar[1] = 0\neventPlayer.custom_hp_pvar[2] = 0\napplyCustomHp()"
+        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
+    }
+}
+
+规则 ("[Mizuki/init.opy]: Detect switch to Mizuki") {
+    事件 {
+        持续 - 每名玩家;
+        双方;
+        瑞稀;
+    }
+    动作 {
+        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
+    }
+}
+
+规则 ("[Mizuki/init.opy]: Initialize Mizuki") {
+    事件 {
+        持续 - 每名玩家;
+        双方;
+        瑞稀;
+    }
+    条件 {
+        首个((事件玩家).reset_pvar) != 假;
+    }
+    动作 {
+        调用子程序(resetHero);
+        "eventPlayer.custom_hp_pvar[0] = 250\neventPlayer.custom_hp_pvar[1] = 0\neventPlayer.custom_hp_pvar[2] = 0\napplyCustomHp()"
+        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
+    }
+}
+
+规则 ("[JetpackCat/init.opy]: Detect switch to JetpackCat") {
+    事件 {
+        持续 - 每名玩家;
+        双方;
+        飞天猫;
+    }
+    动作 {
+        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
+    }
+}
+
+规则 ("[JetpackCat/init.opy]: Initialize JetpackCat") {
+    事件 {
+        持续 - 每名玩家;
+        双方;
+        飞天猫;
+    }
+    条件 {
+        首个((事件玩家).reset_pvar) != 假;
+    }
+    动作 {
+        调用子程序(resetHero);
+        "eventPlayer.custom_hp_pvar[0] = 225\neventPlayer.custom_hp_pvar[1] = 0\neventPlayer.custom_hp_pvar[2] = 0\napplyCustomHp()"
+        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
+    }
+}
+
 规则 ("[pharah/init.opy]: Detect switch to Pharah") {
     事件 {
         持续 - 每名玩家;
@@ -8068,6 +8203,21 @@
             设置玩家变量(事件玩家, ChangelogText2, 上一个文本ID);
         Else If(比较(所用英雄(事件玩家), ==, 英雄(骇灾)));
             创建HUD文本(事件玩家, 空, 全局.Mark, 自定义字符串("\r\n●{0}\r\n*造成伤害 +20%\r\n*受到伤害 -40%\r\n*尖刺护体 受到伤害获得{1}%终极技能充能并回复HP\r\n*千针雨 不再根据伤害获得能量\n\n※※离开重生室隐藏", 所用英雄(事件玩家), 数组中的值(全局.HazardBuff, 1)), 左边, 1, 颜色(白色), 颜色(白色), 颜色(白色), 可见和字符串, 始终不可见);
+            设置玩家变量(事件玩家, ChangelogText2, 上一个文本ID);
+        Else If(比较(所用英雄(事件玩家), ==, 英雄(金驭)));
+            创建HUD文本(事件玩家, 空, 全局.Mark, 自定义字符串("\r\n●{0}\r\n*已接入初始化链路\r\n*生命值改写因 Health Pool Bug 暂不启用（仅保留声明）\n\n※※离开重生室隐藏", 所用英雄(事件玩家)), 左边, 1, 颜色(白色), 颜色(白色), 颜色(白色), 可见和字符串, 始终不可见);
+            设置玩家变量(事件玩家, ChangelogText2, 上一个文本ID);
+        Else If(比较(所用英雄(事件玩家), ==, 英雄(安燃)));
+            创建HUD文本(事件玩家, 空, 全局.Mark, 自定义字符串("\r\n●{0}\r\n*已接入初始化链路\r\n*生命值改写因 Health Pool Bug 暂不启用（仅保留声明）\n\n※※离开重生室隐藏", 所用英雄(事件玩家)), 左边, 1, 颜色(白色), 颜色(白色), 颜色(白色), 可见和字符串, 始终不可见);
+            设置玩家变量(事件玩家, ChangelogText2, 上一个文本ID);
+        Else If(比较(所用英雄(事件玩家), ==, 英雄(埃姆雷)));
+            创建HUD文本(事件玩家, 空, 全局.Mark, 自定义字符串("\r\n●{0}\r\n*已接入初始化链路\r\n*生命值改写因 Health Pool Bug 暂不启用（仅保留声明）\n\n※※离开重生室隐藏", 所用英雄(事件玩家)), 左边, 1, 颜色(白色), 颜色(白色), 颜色(白色), 可见和字符串, 始终不可见);
+            设置玩家变量(事件玩家, ChangelogText2, 上一个文本ID);
+        Else If(比较(所用英雄(事件玩家), ==, 英雄(瑞稀)));
+            创建HUD文本(事件玩家, 空, 全局.Mark, 自定义字符串("\r\n●{0}\r\n*已接入初始化链路\r\n*生命值改写因 Health Pool Bug 暂不启用（仅保留声明）\n\n※※离开重生室隐藏", 所用英雄(事件玩家)), 左边, 1, 颜色(白色), 颜色(白色), 颜色(白色), 可见和字符串, 始终不可见);
+            设置玩家变量(事件玩家, ChangelogText2, 上一个文本ID);
+        Else If(比较(所用英雄(事件玩家), ==, 英雄(飞天猫)));
+            创建HUD文本(事件玩家, 空, 全局.Mark, 自定义字符串("\r\n●{0}\r\n*已接入初始化链路\r\n*生命值改写因 Health Pool Bug 暂不启用（仅保留声明）\n\n※※离开重生室隐藏", 所用英雄(事件玩家)), 左边, 1, 颜色(白色), 颜色(白色), 颜色(白色), 可见和字符串, 始终不可见);
             设置玩家变量(事件玩家, ChangelogText2, 上一个文本ID);
         Else If(比较(所用英雄(事件玩家), ==, 英雄(艾什)));
             创建HUD文本(事件玩家, 空, 全局.Mark, 自定义字符串("\r\n●{0}\r\n*造成伤害 +35%\r\n*毒蛇\r\n  弹药增加至 15 发\r\n  暴击倍率提高至 ×{1}\r\n  完成击杀后恢复全部子弹\r\n*延时雷管\r\n  冷却时间降低至8秒\r\n*短筒猎枪\r\n  冷却时间降低至8秒\n\n※※离开重生室隐藏", 所用英雄(事件玩家), 数组中的值(全局.HeadshotDamage, 1)), 左边, 1, 颜色(白色), 颜色(白色), 颜色(白色), 可见和字符串, 始终不可见);
