@@ -1,0 +1,26 @@
+rule "[Freja/init.opy]: Detect switch to Freja":
+    @Event eachPlayer
+    @Hero freja
+    
+    eventPlayer.reset_pvar[0] = true
+
+
+rule "[Freja/init.opy]: Initialize Freja":
+    @Event eachPlayer
+    @Hero freja
+    @Condition eventPlayer.reset_pvar[0] != false
+    
+    resetHero()
+    eventPlayer.custom_hp_pvar[0] = 225
+    eventPlayer.custom_hp_pvar[1] = 0
+    eventPlayer.custom_hp_pvar[2] = 0
+    #applyCustomHp()
+    eventPlayer.setProjectileSpeed(500)
+    if eventPlayer.getTeam() != Team.1:
+        goto lbl_0
+    eventPlayer.startForcingName(random.choice(["ANS", "射 爆", "拉矢摩西"]))
+    lbl_0:
+    getPlayers(getOppositeTeam(eventPlayer.getTeam())).reset_pvar[11] = eventPlayer
+    eventPlayer.reset_pvar[0] = false
+
+

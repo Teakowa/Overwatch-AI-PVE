@@ -1,0 +1,8 @@
+#!include "00-delimiter-begin.opy"
+#!include "10-core-global-and-targeting.opy"
+#!include "20-movement.opy"
+#!include "30-control-tracer-reaper-genji.opy"
+#!include "31-control-supports.opy"
+#!include "32-control-tanks.opy"
+#!include "33-control-projectile-and-special.opy"
+#!include "99-delimiter-end.opy"
