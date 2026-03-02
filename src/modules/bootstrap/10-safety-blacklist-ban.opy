@@ -12,7 +12,8 @@ rule "[Anti Crash]: Activate anti crash":
 rule "[Global]Setup Blacklist":
     Blacklist = []
     wait(getAverageServerLoad() / 100)
-    Blacklist.append("小哲-比奇堡悍匪-蓝海-啊哈哈哈哈-EdwardJoe-EQUA-小余天天开心-梦想成为源氏糕手".split("-"))
+    Blacklist.append("为这点事活着吗-她与春风皆过客".split("-"))
+    Blacklist.append("小哲-比奇堡悍匪-蓝海-啊哈哈哈哈-EdwardJoe-EQUA-小余天天开心-梦想成为源氏糕手-口执剑只为伊人口-折耳-必深深李雪花大姨-乌有".split("-"))
     Blacklist.append("假如给我三天雨姐-YyX-挽风-太酱樱铃-笙墨-秘泽-高大的死灵-大魔王皮平1-两毛五-Robotman-三十三岁上班族-土豆焖马铃薯-Freakybab".split("-"))
     Blacklist.append("膨胀的魔丸-坦诚的巨鹰-我可能喝了假奶-我可能喝了假白酒-陆陆好公路收费站-炉火糖粥-一曲柳暗花-王中王鱿鱼火腿肠-蒙牛牌特仑苏-魔王献捷".split("-"))
     Blacklist.append("焦糖-亭中烟-坦诚的熊-我的禅雅塔没有球-易水寒兮风萧萧-修凡-压力我没奶吃-我才13岁-玩不明白-Shadowwitch-二十五夜-晓山瑞希".split("-"))
