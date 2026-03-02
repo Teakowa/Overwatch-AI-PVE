@@ -5,7 +5,7 @@
 ## 1. 快速事实
 
 - 主入口：`src/main.opy`（manifest）
-- 规则数：`379`
+- 规则数：`385`
 - `globalvar`：`41`
 - `playervar`：`66`
 - `subroutine` 声明：`14`

@@ -226,6 +226,11 @@ settings {
                 "secondaryFireCooldown%": 67,
                 "ability2Cooldown%": 86
             },
+            "jetpackCat": {
+                "damageDealt%": 125,
+                "damageReceived%": 65,
+                "healingDealt%": 150
+            },
             "junkerQueen": {
                 "damageDealt%": 110,
                 "damageReceived%": 60,
@@ -577,6 +582,11 @@ settings {
                 "ability1Cooldown%": 72,
                 "ability1RefuelScalar": 300,
                 "ability2Cooldown%": 143
+            },
+            "jetpackCat": {
+                "damageDealt%": 135,
+                "damageReceived%": 60,
+                "healingDealt%": 150
             },
             "junkerQueen": {
                 "damageDealt%": 130,
