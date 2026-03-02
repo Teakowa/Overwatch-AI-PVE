@@ -62,7 +62,7 @@ def changelogText():
         hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*已接入初始化链路\r\n*生命值改写因 Health Pool Bug 暂不启用（仅保留声明）\n\n※※离开重生室隐藏".format(eventPlayer.getHero()), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
         eventPlayer.ChangelogText2 = getLastCreatedText()
     elif eventPlayer.getHero() == Hero.ANRAN:
-        hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*已接入初始化链路\r\n*生命值改写因 Health Pool Bug 暂不启用（仅保留声明）\n\n※※离开重生室隐藏".format(eventPlayer.getHero()), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
+        hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*队伍1（AI） 造成伤害 +25% 受到伤害 -30%\r\n*队伍2 造成伤害 +35% 受到伤害 -30%\r\n*怒炎冲 冷却时间降低至6秒\r\n*熠闪舞 冷却时间降低至6秒\r\n*烈焰 对燃烧中的敌人额外造成25%伤害\n\n※※离开重生室隐藏".format(eventPlayer.getHero()), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
         eventPlayer.ChangelogText2 = getLastCreatedText()
     elif eventPlayer.getHero() == Hero.EMRE:
         hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*已接入初始化链路\r\n*生命值改写因 Health Pool Bug 暂不启用（仅保留声明）\n\n※※离开重生室隐藏".format(eventPlayer.getHero()), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
