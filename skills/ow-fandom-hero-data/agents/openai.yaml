@@ -1,0 +1,4 @@
+interface:
+  display_name: "OW Fandom Hero Data"
+  short_description: "Fetch Overwatch heroes and detailed wiki page data"
+  default_prompt: "Get Overwatch hero names from the Heroes page and extract structured details from each hero wiki page."
