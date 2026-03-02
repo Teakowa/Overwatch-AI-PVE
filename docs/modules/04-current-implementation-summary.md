@@ -41,7 +41,7 @@
 ### 4.1 Bootstrap（启动、稳定性、准入）
 
 - 初始化协作者文案、模式开关和英雄技能设置项（`createWorkshopSetting*`）。
-- Anti Crash 通过 `getServerLoad()` 阈值触发慢动作，待负载恢复后退出。
+- Anti Crash 通过 `getAverageServerLoad()` 阈值触发慢动作，待负载恢复后退出。
 - 黑名单、Hero BAN、可选英雄覆盖和 HUD 初始化都在该阶段完成。
 
 ### 4.2 Reset 工具链（生命周期）

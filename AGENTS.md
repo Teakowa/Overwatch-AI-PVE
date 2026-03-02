@@ -79,7 +79,7 @@
 1. `eachPlayer` 与循环逻辑必须谨慎增加，优先复用现有状态变量与 helper。
 2. 大部分高频逻辑需带 `wait(...)`/`waitUntil(...)` 节流，避免无等待循环。
 3. 涉及全局遍历和字符串处理时，尽量放在初始化时机，而不是常驻帧逻辑。
-4. Anti Crash 相关规则（基于 `getServerLoad()`）是保底保护，不要弱化触发链路。
+4. Anti Crash 相关规则（基于 `getAverageServerLoad()`）是保底保护，不要弱化触发链路。
 5. 任何新增特效、HUD、dot、强控逻辑，都应评估 Team 1 AI 满员场景下的负载。
 
 ## 7. Change Checklist
