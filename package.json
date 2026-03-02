@@ -1,5 +1,6 @@
 {
   "private": true,
+  "packageManager": "pnpm@10.6.3",
   "scripts": {
     "build": "overpy compile -i src/main.opy -o workshop.ow -l zh-CN",
     "build:release": "mkdir -p build && overpy compile -i src/main.opy -l zh-CN -o build/main.ow"
