@@ -6,6 +6,7 @@ usage() {
 Usage:
   scripts/changelog_sync.sh [--hero <slug>]... [--from-diff [range]]
                             [--strict-coverage] [--strict-language]
+                            [--strict-settings-sync]
                             [--report [path]] [--list-heroes] [--help]
 
 Examples:
@@ -29,6 +30,7 @@ changelog_file="src/modules/debug/20-changelog.opy"
 
 strict_coverage=false
 strict_language=true
+strict_settings_sync=false
 use_from_diff=false
 diff_range="HEAD"
 emit_report=false
@@ -79,6 +81,9 @@ while [[ $# -gt 0 ]]; do
             ;;
         --strict-language)
             strict_language=true
+            ;;
+        --strict-settings-sync)
+            strict_settings_sync=true
             ;;
         --report)
             emit_report=true
@@ -155,6 +160,25 @@ slug_from_const() {
     esac
 }
 
+slug_to_settings_key() {
+    local slug="$1"
+    case "$slug" in
+        wrecking_ball)
+            printf 'wreckingBall\n'
+            ;;
+        junker_queen)
+            printf 'junkerQueen\n'
+            ;;
+        *)
+            if [[ "$slug" == *"_"* ]]; then
+                printf '%s\n' "$slug" | awk -F'_' '{printf $1; for (i=2; i<=NF; i++) printf toupper(substr($i,1,1)) substr($i,2); printf "\n"}'
+            else
+                printf '%s\n' "$slug"
+            fi
+            ;;
+    esac
+}
+
 const_from_slug() {
     local slug="$1"
     case "$slug" in
@@ -191,7 +215,7 @@ fi
 
 collect_changed_files() {
     local range="$1"
-    git diff --name-only "$range" -- src/modules/hero_rules src/modules/hero_init "$changelog_file" 2>/dev/null || true
+    git diff --name-only "$range" -- src/modules/hero_rules src/modules/hero_init src/modules/prelude/00-settings.opy "$changelog_file" 2>/dev/null || true
 }
 
 collect_heroes_from_diff() {
@@ -206,6 +230,13 @@ collect_heroes_from_diff() {
         fi
         if [[ "$file" =~ src/modules/hero_rules/heroes/(.+)\.opy$ ]]; then
             add_target_hero "${BASH_REMATCH[1]}"
+        fi
+        if [[ "$file" == "src/modules/prelude/00-settings.opy" ]]; then
+            while IFS= read -r hero_key; do
+                [[ -z "$hero_key" ]] && continue
+                add_target_hero "$hero_key"
+            done < <((git diff --unified=3 "$range" -- "$file" || true) \
+                | sed -n 's/^[-+][[:space:]]*"\([A-Za-z0-9_]\+\)"[[:space:]]*:[[:space:]]*{.*/\1/p')
         fi
 
         if [[ ! -f "$file" ]]; then
@@ -263,6 +294,9 @@ contains_banned_team_wording() {
         "队伍 1"
         "队伍2"
         "队伍 2"
+        "机器人队伍"
+        "玩家队伍"
+        "阵营"
     )
 
     for p in "${patterns[@]}"; do
@@ -318,6 +352,49 @@ sanitize_diff_line() {
     printf '%s\n' "$sanitized"
 }
 
+collect_settings_cooldown_clues_for_hero() {
+    local slug="$1"
+    local range="$2"
+    local hero_key
+    local settings_file="src/modules/prelude/00-settings.opy"
+
+    hero_key="$(slug_to_settings_key "$slug")"
+
+    (git diff --unified=3 "$range" -- "$settings_file" || true) | awk -v hero="$hero_key" '
+        function trim(s) {
+            sub(/^[[:space:]]+/, "", s)
+            sub(/[[:space:]]+$/, "", s)
+            return s
+        }
+        {
+            line = $0
+            if (line ~ /^[ +-][[:space:]]*"[^"]+"[[:space:]]*:[[:space:]]*{[[:space:]]*$/) {
+                section = line
+                sub(/^[ +-][[:space:]]*"/, "", section)
+                sub(/".*/, "", section)
+                current = section
+            }
+
+            if (current != hero) {
+                next
+            }
+
+            if (line ~ /^[+-][[:space:]]*"(ability1Cooldown%|ability2Cooldown%|secondaryFireCooldown%)"[[:space:]]*:/) {
+                sign = substr(line, 1, 1)
+                value = line
+                sub(/^[+-][[:space:]]*/, "", value)
+                value = trim(value)
+                sub(/,$/, "", value)
+                if (sign == "+") {
+                    print "新增线索: settings " value
+                } else if (sign == "-") {
+                    print "移除线索: settings " value
+                }
+            }
+        }
+    ' | awk '!seen[$0]++'
+}
+
 collect_diff_clues_for_hero() {
     local slug="$1"
     local range="$2"
@@ -330,6 +407,10 @@ collect_diff_clues_for_hero() {
 
     while IFS= read -r file; do
         [[ -z "$file" ]] && continue
+
+        if [[ "$file" == "src/modules/prelude/00-settings.opy" ]]; then
+            continue
+        fi
 
         local file_match=false
         if [[ "$file" == "src/modules/hero_init/heroes/${slug}.opy" || "$file" == "src/modules/hero_rules/heroes/${slug}.opy" ]]; then
@@ -384,8 +465,66 @@ collect_diff_clues_for_hero() {
 
     done < <(collect_changed_files "$range")
 
+    while IFS= read -r setting_clue; do
+        [[ -z "$setting_clue" ]] && continue
+        printf '%s\n' "$setting_clue" >> "$tmp"
+    done < <(collect_settings_cooldown_clues_for_hero "$slug" "$range")
+
     awk '!seen[$0]++' "$tmp" | head -n 10
     rm -f "$tmp"
+}
+
+check_settings_cooldown_alignment_for_hero() {
+    local slug="$1"
+    local const
+    local cooldown_clues
+    local branch_touched
+
+    cooldown_clues="$(collect_settings_cooldown_clues_for_hero "$slug" "$diff_range")"
+    if [[ -z "$cooldown_clues" ]]; then
+        return
+    fi
+
+    const="$(const_from_slug "$slug")"
+    if ! rg -n --fixed-strings "eventPlayer.getHero() == Hero.${const}" "$changelog_file" >/dev/null; then
+        if [[ "$strict_settings_sync" == true ]]; then
+            fail "settings cooldown changed for ${slug}, but changelog branch Hero.${const} not found"
+        else
+            warn "settings cooldown changed for ${slug}, but changelog branch Hero.${const} not found"
+        fi
+        return
+    fi
+
+    branch_touched="$( (git diff --unified=3 "$diff_range" -- "$changelog_file" || true) | awk -v hero_const="$const" '
+        BEGIN { in_branch = 0; touched = 0 }
+        /^[ +-][[:space:]]*elif eventPlayer\.getHero\(\) == Hero\./ {
+            if ($0 ~ ("Hero\\." hero_const)) {
+                in_branch = 1
+            } else {
+                in_branch = 0
+            }
+            next
+        }
+        in_branch == 1 && /^[+-]/ && $0 !~ /^\+\+\+/ && $0 !~ /^---/ {
+            touched = 1
+        }
+        END {
+            if (touched == 1) {
+                print "true"
+            } else {
+                print "false"
+            }
+        }
+    ')"
+    if [[ "$branch_touched" == "true" ]]; then
+        pass "settings cooldown sync OK for ${slug} (changelog branch updated in diff)"
+    else
+        if [[ "$strict_settings_sync" == true ]]; then
+            fail "settings cooldown changed for ${slug}, but changelog branch was not updated in diff"
+        else
+            warn "settings cooldown changed for ${slug}, but changelog branch was not updated in diff"
+        fi
+    fi
 }
 
 render_report() {
@@ -479,6 +618,7 @@ for hero in "${target_heroes[@]}"; do
         warn "no diff clues extracted for ${hero} from range ${diff_range}"
     fi
 
+    check_settings_cooldown_alignment_for_hero "$hero"
 done
 
 if [[ "$emit_report" == true ]]; then
