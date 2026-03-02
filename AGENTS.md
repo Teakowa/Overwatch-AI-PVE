@@ -103,3 +103,17 @@
   - 是否影响服务器负载
   - 是否调整初始化或 reset 链路
 - 如改动跨越多个分区，优先拆分为可回滚的小提交。
+
+## 9. Repo Workflows & Commands
+
+- 基础构建（本地）：`pnpm run build`
+- 发行构建（输出到 `build/main.ow`）：`pnpm run build:release`
+- 结构与协议契约校验：`skills/ow-contract-guard/scripts/check_contracts.sh`
+- 英雄改动回归流水线（按 diff 自动识别英雄）：`skills/ow-hero-change-pipeline/scripts/hero_pipeline.sh --from-diff`
+- Changelog 同步检查（按 diff）：`skills/ow-changelog-sync/scripts/changelog_sync.sh --from-diff`
+- 模块文档指标同步：`skills/ow-module-metrics-sync/scripts/metrics_sync.sh`
+
+建议门禁顺序（玩法/结构改动）：
+1. `skills/ow-hero-change-pipeline/scripts/hero_pipeline.sh --from-diff`
+2. `skills/ow-contract-guard/scripts/check_contracts.sh --build`
+3. `pnpm run build`
