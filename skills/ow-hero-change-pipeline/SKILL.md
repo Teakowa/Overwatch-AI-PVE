@@ -27,6 +27,12 @@ Run with build gate and contract guard:
 skills/ow-hero-change-pipeline/scripts/hero_pipeline.sh --from-diff --build
 ```
 
+Run strict cooldown-placement check:
+
+```bash
+skills/ow-hero-change-pipeline/scripts/hero_pipeline.sh --from-diff --strict-cooldown-placement
+```
+
 Generate review report template:
 
 ```bash
@@ -57,7 +63,15 @@ For each hero, the pipeline checks:
    - scans touched `eachPlayer` blocks
    - warns on expensive/high-frequency patterns without `wait` or `waitUntil`
    - warns/fails on loop/while blocks without throttling wait
-7. Review report template output:
+7. Cooldown placement checks:
+   - scans hero rules for direct `setAbilityCooldown(...)` usage
+   - treats relative cooldown deltas (`getAbilityCooldown(...) - X`) as trigger-dependent by default
+   - flags absolute cooldown writes and recommends moving generic cooldown tuning to `prelude/00-settings.opy`
+   - maps ability buttons to settings keys:
+     - `Button.ABILITY_1` -> `ability1Cooldown%`
+     - `Button.ABILITY_2` -> `ability2Cooldown%`
+     - `Button.SECONDARY_FIRE` -> `secondaryFireCooldown%`
+8. Review report template output:
    - emits a markdown review template with automated findings and manual checklist
    - default output path: `docs/reports/hero-pipeline-review-<timestamp>.md`
 
@@ -79,4 +93,5 @@ skills/ow-contract-guard/scripts/check_contracts.sh --build
 - Missing changelog branch is a warning by default. Use `--strict-changelog` to make it blocking.
 - Missing hero_rules touchpoint is a warning by default. Use `--strict-rules` to make it blocking.
 - Throttle risks are warnings by default. Use `--strict-throttle` to make them blocking.
+- Cooldown placement findings are warnings by default. Use `--strict-cooldown-placement` to make them blocking.
 - Use `--report-template [path]` to generate a reusable review report template.

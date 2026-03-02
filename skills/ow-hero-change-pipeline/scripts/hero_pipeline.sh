@@ -6,6 +6,7 @@ usage() {
 Usage:
   scripts/hero_pipeline.sh [--hero <slug>]... [--from-diff [range]] [--build]
                            [--strict-changelog] [--strict-rules] [--strict-init-gate] [--strict-throttle]
+                           [--strict-cooldown-placement]
                            [--report-template [path]]
                            [--list-heroes] [--help]
 
@@ -35,6 +36,7 @@ strict_changelog=false
 strict_rules=false
 strict_init_gate=false
 strict_throttle=false
+strict_cooldown_placement=false
 list_heroes=false
 report_template=false
 report_path=""
@@ -72,6 +74,9 @@ while [[ $# -gt 0 ]]; do
             ;;
         --strict-throttle)
             strict_throttle=true
+            ;;
+        --strict-cooldown-placement)
+            strict_cooldown_placement=true
             ;;
         --report-template)
             report_template=true
@@ -197,6 +202,95 @@ expected_team_for_slot() {
             printf '\n'
             ;;
     esac
+}
+
+hero_settings_key_present_for_both_teams() {
+    local hero_key="$1"
+    local key="$2"
+    local settings_file="src/modules/prelude/00-settings.opy"
+    local count=0
+    local line
+
+    while IFS= read -r line; do
+        [[ -z "$line" ]] && continue
+        local line_no
+        line_no="${line%%:*}"
+        if sed -n "${line_no},$((line_no + 24))p" "$settings_file" | rg -q "\"${key}\""; then
+            count=$((count + 1))
+        fi
+    done < <(rg -n "\"${hero_key}\"[[:space:]]*:[[:space:]]*\\{" "$settings_file" || true)
+
+    [[ "$count" -ge 2 ]]
+}
+
+audit_cooldown_placement() {
+    local slug="$1"
+    local hero_key="$2"
+    shift 2 || true
+    local files=("$@")
+    local checked=0
+    local flagged=0
+
+    if [[ "${#files[@]}" -eq 0 ]]; then
+        warn "[cooldown] no hero_rules files found for ${slug}, skip cooldown placement audit"
+        return
+    fi
+
+    for file in "${files[@]}"; do
+        [[ -f "$file" ]] || continue
+
+        while IFS= read -r raw; do
+            [[ -z "$raw" ]] && continue
+
+            local line_part line_no line_text button expected_key
+            line_part="${raw#*:}"
+            line_no="${line_part%%:*}"
+            line_text="${line_part#*:}"
+            checked=$((checked + 1))
+
+            # Relative cooldown deltas are typically trigger-based effects.
+            if [[ "$line_text" == *"getAbilityCooldown("* ]]; then
+                continue
+            fi
+
+            flagged=$((flagged + 1))
+            button="$(printf '%s\n' "$line_text" | sed -E 's/.*setAbilityCooldown\(Button\.([A-Z_0-9]+),.*/\1/')"
+            expected_key=""
+            case "$button" in
+                ABILITY_1) expected_key="ability1Cooldown%" ;;
+                ABILITY_2) expected_key="ability2Cooldown%" ;;
+                SECONDARY_FIRE) expected_key="secondaryFireCooldown%" ;;
+            esac
+
+            if [[ -n "$expected_key" ]]; then
+                if hero_settings_key_present_for_both_teams "$hero_key" "$expected_key"; then
+                    if [[ "$strict_cooldown_placement" == true ]]; then
+                        fail "[cooldown] ${file}:${line_no} uses absolute setAbilityCooldown(${button}); keep generic cooldown in settings and keep only trigger-dependent cooldown logic in rules"
+                    else
+                        warn "[cooldown] ${file}:${line_no} uses absolute setAbilityCooldown(${button}); prefer settings key ${expected_key} for generic cooldown tuning"
+                    fi
+                else
+                    if [[ "$strict_cooldown_placement" == true ]]; then
+                        fail "[cooldown] ${file}:${line_no} uses absolute setAbilityCooldown(${button}) but missing ${expected_key} under team1/team2 settings for hero ${hero_key}"
+                    else
+                        warn "[cooldown] ${file}:${line_no} uses absolute setAbilityCooldown(${button}) and settings key ${expected_key} is missing for hero ${hero_key}"
+                    fi
+                fi
+            else
+                if [[ "$strict_cooldown_placement" == true ]]; then
+                    fail "[cooldown] ${file}:${line_no} uses absolute setAbilityCooldown(${button}); verify this is trigger-dependent and not generic cooldown tuning"
+                else
+                    warn "[cooldown] ${file}:${line_no} uses absolute setAbilityCooldown(${button}); verify this is trigger-dependent"
+                fi
+            fi
+        done < <(rg -n -H 'setAbilityCooldown\(Button\.(ABILITY_1|ABILITY_2|SECONDARY_FIRE|ULTIMATE),' "$file" || true)
+    done
+
+    if [[ "$checked" -eq 0 ]]; then
+        pass "[cooldown] no setAbilityCooldown usage detected in hero_rules for ${slug}"
+    elif [[ "$flagged" -eq 0 ]]; then
+        pass "[cooldown] cooldown placement check passed for ${slug} (${checked} setAbilityCooldown calls reviewed)"
+    fi
 }
 
 audit_throttle_risks() {
@@ -545,6 +639,7 @@ audit_hero() {
             printf '%s\n' "$rules_tag_hits"
             printf '%s\n' "$rules_const_hits"
         } | sed '/^$/d' | cut -d: -f1 | sort -u)
+        audit_cooldown_placement "$slug" "$hero_tag" "${touched_rule_files[@]}"
         audit_throttle_risks "$slug" "${touched_rule_files[@]}"
     else
         if [[ "$strict_rules" == true ]]; then

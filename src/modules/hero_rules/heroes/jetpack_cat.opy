@@ -6,19 +6,14 @@ rule "[JetpackCat]: Frenetic Flight damage reduction":
     eventPlayer.setDamageReceived(65)
     waitUntil(not eventPlayer.isUsingAbility1(), 3)
     eventPlayer.setDamageReceived(100)
-    if eventPlayer.getAbilityCooldown(Button.ABILITY_1) < 1:
-        eventPlayer.setAbilityCooldown(Button.ABILITY_1, 1)
 
 
-rule "[JetpackCat]: Purr cleanses and enforces cooldown":
+rule "[JetpackCat]: Purr cleanses negative statuses":
     @Event eachPlayer
     @Hero jetpackCat
     @Condition eventPlayer.isUsingAbility2() == true
 
     resetStatuses()
-    waitUntil(not eventPlayer.isUsingAbility2(), 6)
-    if eventPlayer.getAbilityCooldown(Button.ABILITY_2) < 6:
-        eventPlayer.setAbilityCooldown(Button.ABILITY_2, 6)
 
 
 rule "[JetpackCat]: Catnapper damage reduction":

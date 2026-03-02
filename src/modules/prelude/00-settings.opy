@@ -229,7 +229,9 @@ settings {
             "jetpackCat": {
                 "damageDealt%": 125,
                 "damageReceived%": 65,
-                "healingDealt%": 150
+                "healingDealt%": 150,
+                "ability1Cooldown%": 50,
+                "ability2Cooldown%": 50
             },
             "junkerQueen": {
                 "damageDealt%": 110,
@@ -586,7 +588,9 @@ settings {
             "jetpackCat": {
                 "damageDealt%": 135,
                 "damageReceived%": 60,
-                "healingDealt%": 150
+                "healingDealt%": 150,
+                "ability1Cooldown%": 50,
+                "ability2Cooldown%": 50
             },
             "junkerQueen": {
                 "damageDealt%": 130,

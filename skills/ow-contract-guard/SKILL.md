@@ -52,6 +52,18 @@ The checker validates these invariants:
 - Treat `[WARN]` as technical debt to schedule or clean up.
 - Keep checks green before commit when touching structure, reset chain, or hero init.
 
+## Related Policy Gate
+
+For hero gameplay edits, enforce cooldown placement policy together with this guard:
+
+- Generic cooldown tuning belongs in `src/modules/prelude/00-settings.opy`.
+- `hero_rules` should only modify cooldowns when effects are trigger-dependent (for example hit-confirm refund, elimination refund, conditional lockout).
+- Run:
+
+```bash
+skills/ow-hero-change-pipeline/scripts/hero_pipeline.sh --from-diff --strict-cooldown-placement
+```
+
 ## Updating Index Baseline
 
 Only update `references/protocol-indexes.tsv` when intentionally adding new declarations or intentionally changing protocol mappings.
