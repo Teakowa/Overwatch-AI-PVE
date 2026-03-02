@@ -147,7 +147,9 @@ settings {
             },
             "emre": {
                 "damageDealt%": 125,
-                "damageReceived%": 90
+                "damageReceived%": 90,
+                "ability1Cooldown%": 80,
+                "ability2Cooldown%": 75
             },
             "vendetta": {
                 "damageDealt%": 135,
@@ -493,7 +495,9 @@ settings {
             },
             "emre": {
                 "damageDealt%": 135,
-                "damageReceived%": 90
+                "damageReceived%": 90,
+                "ability1Cooldown%": 80,
+                "ability2Cooldown%": 75
             },
             "vendetta": {
                 "damageDealt%": 135,
@@ -742,4 +746,3 @@ settings {
         "诛 （终极技能）额外造成伤害 %": 0
     }
 }
-

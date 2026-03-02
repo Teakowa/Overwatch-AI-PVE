@@ -7,7 +7,7 @@
 - 入口文件：`src/main.opy`
 - 常量层：`src/constants/player_constants.opy`
 - 业务模块：`src/modules/*`（按 `_index.opy` 显式编排）
-- `rule` 总数：`375`
+- `rule` 总数：`373`
 - `globalvar`：`41`
 - `playervar`：`64`
 - `subroutine` 声明：`14`
@@ -32,7 +32,7 @@
 
 - `bootstrap`：`17` 条规则 + `10` 个 `def`
 - `ai`：`68` 条规则 + `1` 个 `def`（`botAim2Target()`）
-- `hero_rules`：`181` 条规则 + `1` 个 `def`（`Knockback()`）
+- `hero_rules`：`179` 条规则 + `1` 个 `def`（`Knockback()`）
 - `hero_init`：`107` 条规则（`heroes/* + extras/* + delimiters`）
 - `debug`：`2` 条规则 + `1` 个 `def`（`changelogText()`）
 

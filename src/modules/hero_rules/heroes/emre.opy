@@ -1,21 +1,3 @@
-rule "[Emre]: Cyber Grenade Cooldown":
-    @Event eachPlayer
-    @Hero emre
-    @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) > 6
-    
-    eventPlayer.setAbilityCooldown(Button.ABILITY_1, 6)
-    wait(0.25)
-
-
-rule "[Emre]: Siphon Impact Gun Cooldown":
-    @Event eachPlayer
-    @Hero emre
-    @Condition eventPlayer.getAbilityCooldown(Button.SECONDARY_FIRE) > 8
-    
-    eventPlayer.setAbilityCooldown(Button.SECONDARY_FIRE, 8)
-    wait(0.25)
-
-
 rule "[Emre]: Cyber Grenade Control + Burn":
     @Event playerDealtDamage
     @Hero emre
