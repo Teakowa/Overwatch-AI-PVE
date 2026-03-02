@@ -3,7 +3,6 @@ rule "[Anran]: burning target damage amp":
     @Hero anran
     @Condition victim.hasStatus(Status.BURNING) == true
     @Condition eventDamage > 0
-    @Condition eventAbility in [Button.PRIMARY_FIRE, Button.SECONDARY_FIRE, Button.ABILITY_1, Button.ABILITY_2, Button.MELEE, Button.ULTIMATE]
 
     if eventPlayer.anran_burn_dmg_mod == null:
         eventPlayer.anran_burn_dmg_mod = []
