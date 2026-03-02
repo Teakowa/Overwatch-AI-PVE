@@ -1,0 +1,4 @@
+interface:
+  display_name: "OW Changelog Sync"
+  short_description: "Sync hero changes with player-facing changelog"
+  default_prompt: "Detect impacted heroes from gameplay diffs, validate changelog hero coverage, and generate player-facing changelog todo items without Team 1/Team 2 wording."
