@@ -68,7 +68,7 @@ def changelogText():
         hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*已接入初始化链路\r\n*生命值改写因 Health Pool Bug 暂不启用（仅保留声明）\n\n※※离开重生室隐藏".format(eventPlayer.getHero()), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
         eventPlayer.ChangelogText2 = getLastCreatedText()
     elif eventPlayer.getHero() == Hero.MIZUKI:
-        hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*已接入初始化链路\r\n*生命值改写因 Health Pool Bug 暂不启用（仅保留声明）\n\n※※离开重生室隐藏".format(eventPlayer.getHero()), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
+        hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*队伍1：造成伤害 +25%，受到伤害 -20%\r\n*队伍2：造成伤害 +35%，受到伤害 -20%\r\n{1} 疗魂斗笠：冷却 5 秒\r\n  命中队友额外治疗其25%最大生命值，并返还0.5秒冷却\r\n{2} 替魂纸人：冷却 8 秒，清除自身负面状态\r\n{3} 缚魂锁链：冷却 6 秒\r\n  使命中的敌人虚弱2秒：造成伤害 -50%，移速 -40%\r\n{4} 护魂结界：充能需求降低至 2400\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), abilityIconString(eventPlayer.getHero(), Button.SECONDARY_FIRE), abilityIconString(eventPlayer.getHero(), Button.ABILITY_1), abilityIconString(eventPlayer.getHero(), Button.ABILITY_2), abilityIconString(eventPlayer.getHero(), Button.ULTIMATE)), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
         eventPlayer.ChangelogText2 = getLastCreatedText()
     elif eventPlayer.getHero() == Hero.JETPACK_CAT:
         hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*已接入初始化链路\r\n*生命值改写因 Health Pool Bug 暂不启用（仅保留声明）\n\n※※离开重生室隐藏".format(eventPlayer.getHero()), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)

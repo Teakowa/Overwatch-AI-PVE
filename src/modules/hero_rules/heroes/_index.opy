@@ -14,3 +14,4 @@
 #!include "freja.opy"
 #!include "wuyang.opy"
 #!include "vendetta.opy"
+#!include "mizuki.opy"

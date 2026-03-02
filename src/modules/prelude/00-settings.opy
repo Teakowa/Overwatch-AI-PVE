@@ -330,6 +330,14 @@ settings {
                 "ability2Cooldown%": 53,
                 "ultGen%": 185
             },
+            "mizuki": {
+                "damageDealt%": 125,
+                "damageReceived%": 80,
+                "ability1Cooldown%": 80,
+                "ability2Cooldown%": 60,
+                "secondaryFireCooldown%": 50,
+                "ultGen%": 129
+            },
             "hazard": {
                 "damageDealt%": 115,
                 "damageReceived%": 50,
@@ -660,6 +668,14 @@ settings {
                 "ability2Cooldown%": 57,
                 "ultGen%": 135
             },
+            "mizuki": {
+                "damageDealt%": 135,
+                "damageReceived%": 80,
+                "ability1Cooldown%": 80,
+                "ability2Cooldown%": 60,
+                "secondaryFireCooldown%": 50,
+                "ultGen%": 129
+            },
             "hazard": {
                 "damageDealt%": 125,
                 "damageReceived%": 55,
@@ -722,4 +738,3 @@ settings {
         "诛 （终极技能）额外造成伤害 %": 0
     }
 }
-
