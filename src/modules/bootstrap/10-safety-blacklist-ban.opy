@@ -1,11 +1,11 @@
 rule "[Anti Crash]: Activate anti crash":
-    @Condition getServerLoad() > ANTI_CRASH_ACTIVATE_PERCENT
+    @Condition getAverageServerLoad() > ANTI_CRASH_ACTIVATE_PERCENT
     
     wait(ANTI_CRASH_HOLD_TIME, Wait.ABORT_WHEN_FALSE)
     smallMessage(getAllPlayers(), "  服务器过载  ")
     setSlowMotion(ANTI_CRASH_SLOW_MOTION_ON)
     wait(ANTI_CRASH_RECOVERY_WAIT)
-    waitUntil(getServerLoad() < ANTI_CRASH_DEACTIVATE_PERCENT, WAIT_TIMEOUT_FOREVER)
+    waitUntil(getAverageServerLoad() < ANTI_CRASH_DEACTIVATE_PERCENT, WAIT_TIMEOUT_FOREVER)
     setSlowMotion(ANTI_CRASH_SLOW_MOTION_OFF)
 
 

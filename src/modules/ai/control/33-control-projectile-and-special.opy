@@ -122,7 +122,7 @@ rule "[AI/control]: Juno Primary":
     lbl_0:
     wait(random.uniform(1, 4))
     eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
-    wait(max(getServerLoad() / 1000, WAIT_AI_THROTTLE_MIN))
+    wait(max(getAverageServerLoad() / 1000, WAIT_AI_THROTTLE_MIN))
     if ruleCondition:
         loop()
     eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)

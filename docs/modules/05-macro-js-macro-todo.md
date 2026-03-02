@@ -23,7 +23,7 @@
 - [ ] 修复 Hero Init 协议漂移项（如 Sombra 初始化条件缺失）。
 - [ ] 扩展 Hero Init 宏化到全量英雄（保留特殊英雄例外逻辑）。
 - [ ] 抽取 AI 控制层共通条件宏（`hasSpawned/isAlive/isDummy/botTarget/LoS`）。
-- [ ] 抽取 AI 节流等待宏（统一 `wait(max(getServerLoad()/1000, ...))`）。
+- [ ] 抽取 AI 节流等待宏（统一 `wait(max(getAverageServerLoad()/1000, ...))`）。
 - [ ] 抽取通用公式宏（如 falloff/clamp 计算，减少重复数学表达式）。
 - [ ] 引入第一个 JS macro（建议先做黑名单数据生成，低玩法风险）。
 - [ ] 评估 Changelog 是否进入 JS macro（复杂度高，放第二阶段，可延期）。
