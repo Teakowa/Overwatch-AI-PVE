@@ -145,6 +145,12 @@ settings {
                 "ability1Duration%": 300,
                 "secondaryFireCooldown%": 63
             },
+            "emre": {
+                "damageDealt%": 125,
+                "damageReceived%": 90,
+                "ability1Cooldown%": 80,
+                "ability2Cooldown%": 75
+            },
             "vendetta": {
                 "damageDealt%": 135,
                 "damageReceived%": 45,
@@ -487,6 +493,12 @@ settings {
                 "secondaryFireCooldown%": 75,
                 "ultGen%": 127
             },
+            "emre": {
+                "damageDealt%": 135,
+                "damageReceived%": 90,
+                "ability1Cooldown%": 80,
+                "ability2Cooldown%": 75
+            },
             "vendetta": {
                 "damageDealt%": 135,
                 "damageReceived%": 55,
@@ -734,4 +746,3 @@ settings {
         "诛 （终极技能）额外造成伤害 %": 0
     }
 }
-

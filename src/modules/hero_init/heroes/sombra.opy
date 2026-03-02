@@ -8,6 +8,7 @@ rule "[Sombra]: Detect switch to Sombra":
 rule "[Sombra] Initialize":
     @Event eachPlayer
     @Hero sombra
+    @Condition eventPlayer.reset_pvar[0] != false
     
     resetHero()
     eventPlayer.custom_hp_pvar[0] = 200
@@ -21,5 +22,3 @@ rule "[Sombra] Initialize":
     getPlayers(eventPlayer.getTeam()).reset_pvar[4] = eventPlayer
     getPlayers(getOppositeTeam(eventPlayer.getTeam())).reset_pvar[7] = eventPlayer
     eventPlayer.reset_pvar[0] = false
-
-
