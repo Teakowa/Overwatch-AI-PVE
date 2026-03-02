@@ -136,6 +136,36 @@ normalize_const_from_tag() {
     esac
 }
 
+expected_owner_for_slot() {
+    local slot="$1"
+    case "$slot" in
+        1) printf 'brigitte\n' ;;
+        3) printf 'kiriko\n' ;;
+        4) printf 'sombra\n' ;;
+        5) printf 'ramattra\n' ;;
+        7) printf 'ana\n' ;;
+        11) printf 'freja\n' ;;
+        *)
+            printf '\n'
+            ;;
+    esac
+}
+
+expected_team_for_slot() {
+    local slot="$1"
+    case "$slot" in
+        1|3|4|2)
+            printf 'ally\n'
+            ;;
+        5|7|11)
+            printf 'enemy\n'
+            ;;
+        *)
+            printf '\n'
+            ;;
+    esac
+}
+
 list_all_heroes() {
     rg --files src/modules/hero_init/heroes \
         | sed -E 's#^.*/##' \
@@ -253,30 +283,6 @@ audit_hero() {
         fi
     fi
 
-    reset_line="$(first_line_fixed_match 'resetHero()' "$init_file")"
-    false_line="$(first_line_fixed_match 'eventPlayer.reset_pvar[0] = false' "$init_file")"
-    if [[ -n "$reset_line" && -n "$false_line" ]]; then
-        if [[ "$false_line" -gt "$reset_line" ]]; then
-            pass "init clear happens after resetHero()"
-        else
-            fail "reset_pvar[0] = false appears before resetHero()"
-        fi
-    fi
-
-    # Sanity-check reset_pvar slot writes inside init file
-    mapfile -t written_slots < <((rg -n 'reset_pvar\[[0-9]+\]\s*=' "$init_file" || true) \
-        | sed -E 's/.*reset_pvar\[([0-9]+)\].*/\1/' \
-        | sort -n -u)
-
-    allowed_slots="0 1 3 4 5 6 7 8 9 11 12 13 14 15 16"
-    for slot in "${written_slots[@]}"; do
-        if [[ " $allowed_slots " == *" ${slot} "* ]]; then
-            pass "reset_pvar write uses approved slot: [$slot]"
-        else
-            warn "reset_pvar write uses non-whitelisted slot: [$slot]"
-        fi
-    done
-
     local hero_tag_line
     hero_tag_line="$(rg -m 1 '^[[:space:]]*@Hero[[:space:]]+' "$init_file" || true)"
     hero_tag="$(printf '%s\n' "$hero_tag_line" | sed -E 's/.*@Hero[[:space:]]+([^[:space:]]+).*/\1/')"
@@ -288,6 +294,79 @@ audit_hero() {
     fi
 
     hero_const="$(normalize_const_from_tag "$hero_tag")"
+
+    reset_line="$(first_line_fixed_match 'resetHero()' "$init_file")"
+    false_line="$(first_line_fixed_match 'eventPlayer.reset_pvar[0] = false' "$init_file")"
+    if [[ -n "$reset_line" && -n "$false_line" ]]; then
+        if [[ "$false_line" -gt "$reset_line" ]]; then
+            pass "init clear happens after resetHero()"
+        else
+            fail "reset_pvar[0] = false appears before resetHero()"
+        fi
+    fi
+
+    # Semantics checks for reset_pvar writes inside init file
+    mapfile -t slot_write_lines < <(rg -n -H 'reset_pvar\[[0-9]+\]\s*=' "$init_file" || true)
+    known_slots="0 1 2 3 4 5 6 7 8 9 11 12 13 14 15 16"
+
+    for raw in "${slot_write_lines[@]}"; do
+        line_part="${raw#*:}"
+        line_no="${line_part%%:*}"
+        line_text="${line_part#*:}"
+
+        if [[ "$line_text" =~ reset_pvar\[[0-9]+\]\.reset_pvar\[[0-9]+\][[:space:]]*= ]]; then
+            first_slot="$(printf '%s\n' "$line_text" | sed -E 's/.*reset_pvar\[([0-9]+)\]\.reset_pvar\[[0-9]+\].*/\1/')"
+            second_slot="$(printf '%s\n' "$line_text" | sed -E 's/.*reset_pvar\[[0-9]+\]\.reset_pvar\[([0-9]+)\].*/\1/')"
+
+            if [[ "$first_slot" == "6" && "$second_slot" == "9" ]]; then
+                pass "reset_pvar nested semantics OK at ${slug}.opy:${line_no} (6 -> 9 chain)"
+            else
+                warn "reset_pvar nested semantics unusual at ${slug}.opy:${line_no} (found ${first_slot} -> ${second_slot}, expected 6 -> 9)"
+            fi
+            continue
+        fi
+
+        slot="$(printf '%s\n' "$line_text" | sed -E 's/.*reset_pvar\[([0-9]+)\].*/\1/')"
+        expr="$(printf '%s\n' "$line_text" | sed -E 's/.*=[[:space:]]*//; s/^[[:space:]]+//; s/[[:space:]]+$//')"
+
+        if [[ " $known_slots " == *" ${slot} "* ]]; then
+            pass "reset_pvar write uses known slot at ${slug}.opy:${line_no} -> [$slot]"
+        else
+            warn "reset_pvar write uses unknown slot at ${slug}.opy:${line_no} -> [$slot]"
+        fi
+
+        if [[ "$slot" == "0" ]]; then
+            if [[ "$expr" == "true" || "$expr" == "false" ]]; then
+                pass "slot[0] boolean semantics OK at ${slug}.opy:${line_no}"
+            else
+                fail "slot[0] expects boolean value at ${slug}.opy:${line_no}, found: $expr"
+            fi
+            continue
+        fi
+
+        expected_owner="$(expected_owner_for_slot "$slot")"
+        expected_team="$(expected_team_for_slot "$slot")"
+
+        if [[ -n "$expected_owner" && "$hero_tag" != "$expected_owner" ]]; then
+            warn "slot[$slot] semantic owner mismatch at ${slug}.opy:${line_no}: hero @Hero $hero_tag writes slot expected for $expected_owner"
+        fi
+
+        if [[ "$expected_team" == "ally" ]]; then
+            if [[ "$line_text" == *"getPlayers(getOppositeTeam(eventPlayer.getTeam())).reset_pvar[$slot]"* ]]; then
+                warn "slot[$slot] expects ally mapping at ${slug}.opy:${line_no}, but writes to opposite team"
+            fi
+            if [[ "$line_text" == *"getPlayers(eventPlayer.getTeam()).reset_pvar[$slot]"* ]]; then
+                pass "slot[$slot] ally direction semantics OK at ${slug}.opy:${line_no}"
+            fi
+        elif [[ "$expected_team" == "enemy" ]]; then
+            if [[ "$line_text" == *"getPlayers(eventPlayer.getTeam()).reset_pvar[$slot]"* ]]; then
+                warn "slot[$slot] expects enemy mapping at ${slug}.opy:${line_no}, but writes to ally team"
+            fi
+            if [[ "$line_text" == *"getPlayers(getOppositeTeam(eventPlayer.getTeam())).reset_pvar[$slot]"* ]]; then
+                pass "slot[$slot] enemy direction semantics OK at ${slug}.opy:${line_no}"
+            fi
+        fi
+    done
 
     rules_tag_hits="$(rg -n "@Hero[[:space:]]+${hero_tag}(\s|$)" "$rules_dir" || true)"
     rules_const_hits="$(rg -n "Hero\.${hero_const}(\b|[^A-Z_0-9])" "$rules_dir" || true)"

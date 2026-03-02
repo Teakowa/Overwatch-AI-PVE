@@ -41,8 +41,12 @@ For each hero, the pipeline checks:
    - checks whether hero appears in `hero_rules` annotations/usages
 4. Changelog touchpoint:
    - checks whether `debug/20-changelog.opy` has `eventPlayer.getHero() == Hero.<X>` branch
-5. `reset_pvar` write slot sanity inside hero init:
-   - warns for non-whitelisted slot writes
+5. `reset_pvar` semantic checks inside hero init:
+   - validates known slot set
+   - enforces `reset_pvar[0]` boolean semantics (`true` / `false`)
+   - checks slot owner expectations for key slots (for example `1 -> brigitte`, `11 -> freja`)
+   - checks team direction expectations (ally/enemy slot mapping)
+   - validates nested chain pattern (`reset_pvar[6].reset_pvar[9]`)
 
 ## Workflow
 

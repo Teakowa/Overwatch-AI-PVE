@@ -32,7 +32,7 @@
 - [x] 与 `ow-contract-guard` 串联（作为最终门禁）
 
 3. `后续增强`
-- [ ] 支持对 `reset_pvar` 槽位写入做更细粒度语义审查
+- [x] 支持对 `reset_pvar` 槽位写入做更细粒度语义审查
 - [ ] 支持检测 hero_rules 中高频规则节流风险（wait/waitUntil）
 - [ ] 支持生成“本次英雄改动复核报告”模板
 
