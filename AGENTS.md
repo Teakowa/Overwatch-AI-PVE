@@ -58,6 +58,9 @@
    - `Initialize Heors End`（保持现有拼写，避免兼容风险）
 4. 不要随意移除 `@Disabled` 规则。它们可能是灰度/调试开关。
 5. 规则命名保持现有风格（`[module]: action`，中英混合可接受）。
+6. 英雄通用数值调整优先放在 `settings`：
+   - 伤害调整、减伤、治疗、受到治疗、技能冷却、终极技能充能等通用调整，不应单独创建 `rule`
+   - 仅当效果依赖前置条件时使用 `rule`（例如“造成伤害降低技能冷却”“造成治疗时额外 XXX”“使用终极技能时 XXX”）
 
 ## 5. Hero Init Pattern (follow existing convention)
 
