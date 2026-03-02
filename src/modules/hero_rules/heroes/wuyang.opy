@@ -40,15 +40,22 @@ rule "[Wuyang]: mov_speed_penalty":
     @Hero wuyang
     #@Condition eventAbility == null
     
-    if victim.mov_speed_penalty > 0 and victim.isAlive():
+    if victim.mov_speed_buff < 0 and victim.isAlive():
         victim.setHealth(victim.getHealth() - 50)
         damage(victim, attacker, 25)
     else:
-        victim.mov_speed_penalty = WuyangBuff[0]
-        victim.setMoveSpeed(100 - victim.mov_speed_penalty + victim.mov_speed_buff)
-        waitUntil(victim.mov_speed_penalty == 0 or victim.unaffected or victim.hasStatus(Status.INVINCIBLE), 1.25)
-        victim.setMoveSpeed(100)
-        victim.mov_speed_penalty = 0
+        if victim.wuyang_buff[3] == true:
+            goto lbl_0
+        victim.wuyang_buff[3] = true
+        victim.mov_speed_buff -= WuyangBuff[0]
+        victim.setMoveSpeed(min(max(100 + victim.mov_speed_buff, 20), 200))
+        wait(1.25)
+        if victim.wuyang_buff[3] != true:
+            goto lbl_0
+        victim.mov_speed_buff += WuyangBuff[0]
+        victim.setMoveSpeed(min(max(100 + victim.mov_speed_buff, 20), 200))
+        victim.wuyang_buff[3] = false
+        lbl_0:
     wait(0.32)
 
 
@@ -168,11 +175,18 @@ rule "[Wuyang]: Tidal Blast mov_speed_penalty":
     @Hero wuyang
     @Condition eventAbility == Button.ULTIMATE
     
-    victim.mov_speed_penalty += WuyangBuff[4]
-    victim.setMoveSpeed(100 + victim.mov_speed_buff - victim.mov_speed_penalty)
-    waitUntil(victim.mov_speed_penalty == 0 or victim.unaffected or victim.hasStatus(Status.INVINCIBLE), 3)
-    victim.setMoveSpeed(100)
-    victim.mov_speed_penalty -= WuyangBuff[4]
+    if victim.wuyang_buff[4] == true:
+        goto lbl_0
+    victim.wuyang_buff[4] = true
+    victim.mov_speed_buff -= WuyangBuff[4]
+    victim.setMoveSpeed(min(max(100 + victim.mov_speed_buff, 20), 200))
+    wait(3)
+    if victim.wuyang_buff[4] != true:
+        goto lbl_0
+    victim.mov_speed_buff += WuyangBuff[4]
+    victim.setMoveSpeed(min(max(100 + victim.mov_speed_buff, 20), 200))
+    victim.wuyang_buff[4] = false
+    lbl_0:
 
 
 rule "[Wuyang]: Tidal Blast Allies Target":
@@ -181,5 +195,3 @@ rule "[Wuyang]: Tidal Blast Allies Target":
     @Condition eventAbility == Button.ULTIMATE
     
     eventPlayer.startHealingOverTime(healee, 1.25, eventPlayer.getMaxHealth() * 0.5 / 1.25)
-
-

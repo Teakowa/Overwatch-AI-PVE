@@ -68,8 +68,7 @@ rule "[Orisa]: Fortify provides 100 temporary armor":
     
     eventPlayer.unaffected = true
     wait(0.096, Wait.ABORT_WHEN_FALSE)
-    eventPlayer.brigitte_buff[0] = false
-    eventPlayer.orisa_buff = false
+    clearMoveSpeedDebuffs()
     eventPlayer.addHealthPool(Health.ARMOR, Orisa_Fortify[0], true, false)
     eventPlayer.orisa_fortify_armor_id = getLastCreatedHealthPool()
     if eventPlayer.isUsingAbility1() == true:
@@ -111,5 +110,4 @@ rule "【天使】女武神刷新复活冷却时间":
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) != 0
     
     eventPlayer.setAbilityCooldown(Button.ABILITY_2, 0)
-
 

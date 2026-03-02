@@ -79,22 +79,18 @@ rule "【布丽吉塔】盾击伤害调整":
     victim.setStatusEffect(attacker, Status.STUNNED, 1.2)
     if victim.zarya_buff[1] != null:
         goto lbl_0
+    if victim.brigitte_buff[0] == true:
+        goto lbl_0
     victim.brigitte_buff[0] = true
+    victim.mov_speed_buff -= Brigitte[3]
+    victim.setMoveSpeed(min(max(100 + victim.mov_speed_buff, 20), 200))
+    wait(1.5)
+    if victim.brigitte_buff[0] != true:
+        goto lbl_0
+    victim.mov_speed_buff += Brigitte[3]
+    victim.setMoveSpeed(min(max(100 + victim.mov_speed_buff, 20), 200))
+    victim.brigitte_buff[0] = false
     lbl_0:
-    victim.mov_speed_penalty += Brigitte[3]
-
-
-rule "[Brigitte]: speed":
-    @Event eachPlayer
-    @Condition eventPlayer.isAlive() == true
-    @Condition eventPlayer.unaffected != true
-    @Condition eventPlayer.brigitte_buff[0] == true
-    
-    eventPlayer.setMoveSpeed(100 - eventPlayer.mov_speed_penalty + eventPlayer.mov_speed_buff)
-    waitUntil(not eventPlayer.brigitte_buff[0] or eventPlayer.mov_speed_penalty == 0 or eventPlayer.unaffected or eventPlayer.hasStatus(Status.INVINCIBLE), 1.5)
-    eventPlayer.setMoveSpeed(100)
-    eventPlayer.brigitte_buff[0] = false
-    eventPlayer.mov_speed_penalty = 0
 
 
 rule "【布丽吉塔】恢复包选中目标":
@@ -121,5 +117,3 @@ rule "【布丽吉塔】恢复包提供护甲":
     eventPlayer.addHealthPool(Health.ARMOR, Brigitte[1], false, false)
     smallMessage(eventPlayer, "  {0} 获得来自 {1} 的护甲".format(abilityIconString(Hero.BRIGITTE, Button.ABILITY_2), eventPlayer.reset_pvar[1].getHero()))
     eventPlayer.brig_repair_pack_id = getLastCreatedHealthPool()
-
-

@@ -23,7 +23,10 @@ rule "[Mizuki]: Soul Chain weakens target":
     @Condition victim.getTeam() != attacker.getTeam()
 
     victim.setDamageDealt(50)
-    victim.setMoveSpeed(60)
+    victim.mov_speed_buff -= 40
+    victim.setMoveSpeed(min(max(100 + victim.mov_speed_buff, 20), 200))
     wait(2)
+    if victim.isDead() != true:
+        victim.mov_speed_buff += 40
+        victim.setMoveSpeed(min(max(100 + victim.mov_speed_buff, 20), 200))
     victim.setDamageDealt(100)
-    victim.setMoveSpeed(100)

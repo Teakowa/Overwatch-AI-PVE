@@ -3,11 +3,14 @@ rule "[Venture] Burrow speed and healing":
     @Hero venture
     @Condition eventPlayer.isUsingAbility1() == true
     
-    eventPlayer.mov_speed_buff = 56
-    eventPlayer.setMoveSpeed(100 + eventPlayer.mov_speed_buff)
-    waitUntil(not eventPlayer.isUsingAbility1(), 99999)
-    eventPlayer.mov_speed_buff = 0
-    eventPlayer.setMoveSpeed(100)
+    eventPlayer.mov_speed_buff += 56
+    eventPlayer.setMoveSpeed(min(max(100 + eventPlayer.mov_speed_buff, 20), 200))
+    waitUntil(not eventPlayer.isUsingAbility1() or eventPlayer.isDead(), 99999)
+    if eventPlayer.isDead():
+        goto lbl_0
+    eventPlayer.mov_speed_buff -= 56
+    eventPlayer.setMoveSpeed(min(max(100 + eventPlayer.mov_speed_buff, 20), 200))
+    lbl_0:
 
 
 rule "[Cassdy] Flashbang stun":
@@ -82,5 +85,3 @@ rule "[Ash] ammo add by Coach Gun":
     
     waitUntil(not eventPlayer.isUsingAbility1(), 0.55)
     eventPlayer.setAmmo(0, eventPlayer.getMaxAmmo() if eventPlayer.getAmmo() + 5 > eventPlayer.getMaxAmmo() else eventPlayer.getAmmo() + 5)
-
-

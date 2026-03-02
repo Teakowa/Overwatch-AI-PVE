@@ -303,9 +303,10 @@ rule "[Reaper]: Death Blossom remove Mov. speed penalty":
     @Condition eventPlayer.isUsingUltimate() == true
     
     eventPlayer.mov_speed_buff += 100
-    eventPlayer.setMoveSpeed(100 + eventPlayer.mov_speed_buff)
-    waitUntil(not eventPlayer.isUsingUltimate(), 3.5)
-    eventPlayer.mov_speed_buff = 0
-    eventPlayer.setMoveSpeed(100)
-
-
+    eventPlayer.setMoveSpeed(min(max(100 + eventPlayer.mov_speed_buff, 20), 200))
+    waitUntil(not eventPlayer.isUsingUltimate() or eventPlayer.isDead(), 3.5)
+    if eventPlayer.isDead():
+        goto lbl_0
+    eventPlayer.mov_speed_buff -= 100
+    eventPlayer.setMoveSpeed(min(max(100 + eventPlayer.mov_speed_buff, 20), 200))
+    lbl_0:

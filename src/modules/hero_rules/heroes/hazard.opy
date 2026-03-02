@@ -87,9 +87,18 @@ rule "[Orisa]: stun when ult":
     wait(0.3, Wait.ABORT_WHEN_FALSE)
     if victim.zarya_buff[1] != null:
         goto lbl_0
+    if victim.orisa_buff == true:
+        goto lbl_0
     victim.orisa_buff = true
+    victim.mov_speed_buff -= Orisa_Fortify[2]
+    victim.setMoveSpeed(min(max(100 + victim.mov_speed_buff, 20), 200))
+    wait(2)
+    if victim.orisa_buff != true:
+        goto lbl_0
+    victim.mov_speed_buff += Orisa_Fortify[2]
+    victim.setMoveSpeed(min(max(100 + victim.mov_speed_buff, 20), 200))
+    victim.orisa_buff = false
     lbl_0:
-    victim.mov_speed_penalty += Orisa_Fortify[2]
 
 
 rule "[Orisa]: fly":
@@ -102,19 +111,6 @@ rule "[Orisa]: fly":
     wait()
     if ruleCondition:
         loop()
-
-
-rule "[Orisa]: speed":
-    @Event eachPlayer
-    @Condition eventPlayer.isAlive() == true
-    @Condition eventPlayer.unaffected != true
-    @Condition eventPlayer.orisa_buff == true
-    
-    eventPlayer.setMoveSpeed(100 - eventPlayer.mov_speed_penalty + eventPlayer.mov_speed_buff)
-    waitUntil(not eventPlayer.orisa_buff or eventPlayer.unaffected or eventPlayer.hasStatus(Status.INVINCIBLE) or eventPlayer.hasStatus(Status.PHASED_OUT), 2)
-    eventPlayer.mov_speed_penalty = 0
-    eventPlayer.setMoveSpeed(100)
-    eventPlayer.orisa_buff = false
 
 
 rule "[Ramattra]: block":
@@ -171,5 +167,3 @@ rule "[Ramattra]: Annihilation dmg reduc":
     waitUntil(not eventPlayer.reset_pvar[5].isUsingUltimate() or distance(eventPlayer, eventPlayer.reset_pvar[5].getPosition()) <= 13, 120)
     stopDamageModification(eventPlayer.ram_dmg_reduc)
     eventPlayer.ram_dmg_reduc = null
-
-

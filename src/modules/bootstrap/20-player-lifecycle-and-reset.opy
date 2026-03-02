@@ -88,6 +88,31 @@ def disableAllAbilities():
     #eventPlayer.setReloadEnabled(false)
 
 
+def applySignedMoveSpeed():
+    @Name "[utilities/move_speed.opy]: applySignedMoveSpeed()"
+    
+    eventPlayer.setMoveSpeed(min(max(100 + eventPlayer.mov_speed_buff, 20), 200))
+
+
+def clearMoveSpeedDebuffs():
+    @Name "[utilities/move_speed.opy]: clearMoveSpeedDebuffs()"
+    
+    if eventPlayer.brigitte_buff[0] == true:
+        eventPlayer.mov_speed_buff += Brigitte[3]
+    if eventPlayer.orisa_buff == true:
+        eventPlayer.mov_speed_buff += Orisa_Fortify[2]
+    if eventPlayer.wuyang_buff[3] == true:
+        eventPlayer.mov_speed_buff += WuyangBuff[0]
+    if eventPlayer.wuyang_buff[4] == true:
+        eventPlayer.mov_speed_buff += WuyangBuff[4]
+    eventPlayer.brigitte_buff[0] = false
+    eventPlayer.orisa_buff = false
+    eventPlayer.wuyang_buff[3] = false
+    eventPlayer.wuyang_buff[4] = false
+    eventPlayer.mov_speed_penalty = 0
+    applySignedMoveSpeed()
+
+
 def resetStats():
     @Name "[utilities/reset.opy]: resetStats()"
     
@@ -110,10 +135,7 @@ def resetStatuses():
     eventPlayer.stopForcingThrottle()
     eventPlayer.freja_buff[0] = 0
     eventPlayer.freja_buff[1] = 0
-    eventPlayer.brigitte_buff[0] = false
-    eventPlayer.orisa_buff = false
-    eventPlayer.mov_speed_penalty = 0
-    eventPlayer.mov_speed_buff = 0
+    clearMoveSpeedDebuffs()
     eventPlayer.taunt = false
     eventPlayer.clearStatusEffect(Status.ASLEEP)
     eventPlayer.clearStatusEffect(Status.BURNING)
@@ -264,4 +286,3 @@ def removeTankPassive():
     @Disabled
     
     eventPlayer.setKnockbackReceived(166.667)
-

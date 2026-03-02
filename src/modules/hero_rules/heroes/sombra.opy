@@ -92,15 +92,13 @@ rule "[Zenyatta]: Transcendence":
     @Hero zenyatta
     @Condition eventPlayer.isUsingUltimate() == true
     
-    eventPlayer.mov_speed_penalty = 0
     eventPlayer.mov_speed_buff += 25
     wait(WAIT_SHORT_FRAME)
     eventPlayer.setStatusEffect(null, Status.PHASED_OUT, 6)
     eventPlayer.setHealingDealt(133.34)
-    eventPlayer.setMoveSpeed(100 + eventPlayer.mov_speed_buff)
-    waitUntil(not eventPlayer.isUsingUltimate(), 6)
-    eventPlayer.mov_speed_buff = 0
+    eventPlayer.setMoveSpeed(min(max(100 + eventPlayer.mov_speed_buff, 20), 200))
+    waitUntil(not eventPlayer.isUsingUltimate() or eventPlayer.isDead(), 6)
+    if eventPlayer.isDead() != true:
+        eventPlayer.mov_speed_buff -= 25
+        eventPlayer.setMoveSpeed(min(max(100 + eventPlayer.mov_speed_buff, 20), 200))
     eventPlayer.setHealingDealt(100)
-    eventPlayer.setMoveSpeed(100)
-
-

@@ -5,10 +5,13 @@ rule "[brigitte/rally.opy]: Rally 30% speed boost":
     
     #30% movement speed buff during ralley
     eventPlayer.mov_speed_buff += 13.043
-    eventPlayer.setMoveSpeed(100 + eventPlayer.mov_speed_buff)
-    waitUntil(not eventPlayer.isUsingUltimate(), 10)
-    eventPlayer.mov_speed_buff = 0
-    eventPlayer.setMoveSpeed(100)
+    eventPlayer.setMoveSpeed(min(max(100 + eventPlayer.mov_speed_buff, 20), 200))
+    waitUntil(not eventPlayer.isUsingUltimate() or eventPlayer.isDead(), 10)
+    if eventPlayer.isDead():
+        goto lbl_0
+    eventPlayer.mov_speed_buff -= 13.043
+    eventPlayer.setMoveSpeed(min(max(100 + eventPlayer.mov_speed_buff, 20), 200))
+    lbl_0:
 
 
 rule "[Bot] PTP1":
@@ -108,5 +111,3 @@ rule "[Lifeweaver]: Life Grip Clear Effect":
     @Condition eventPlayer.mauga_berserker_soul != true
     
     resetStatuses()
-
-

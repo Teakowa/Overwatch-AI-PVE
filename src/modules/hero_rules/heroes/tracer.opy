@@ -26,11 +26,14 @@ rule "[Ramattra] ult speed":
     eventPlayer.mov_speed_buff += Ram_Annihilation[3]
     eventPlayer.setDamageDealt(100 + Ram_Annihilation[5])
     eventPlayer.setDamageReceived(100 - Ram_Annihilation[4])
-    eventPlayer.setMoveSpeed(100 - eventPlayer.mov_speed_penalty + eventPlayer.mov_speed_buff)
+    eventPlayer.setMoveSpeed(min(max(100 + eventPlayer.mov_speed_buff, 20), 200))
     eventPlayer.setKnockbackReceived(30)
-    waitUntil(not eventPlayer.isUsingUltimate(), WAIT_TIMEOUT_FOREVER)
-    eventPlayer.mov_speed_buff = 0
-    eventPlayer.setMoveSpeed(100)
+    waitUntil(not eventPlayer.isUsingUltimate() or eventPlayer.isDead(), WAIT_TIMEOUT_FOREVER)
+    if eventPlayer.isDead():
+        goto lbl_0
+    eventPlayer.mov_speed_buff -= Ram_Annihilation[3]
+    eventPlayer.setMoveSpeed(min(max(100 + eventPlayer.mov_speed_buff, 20), 200))
+    lbl_0:
     eventPlayer.setDamageReceived(100)
     eventPlayer.setKnockbackReceived(100)
     eventPlayer.setDamageDealt(100)
@@ -176,5 +179,3 @@ rule "[Tracer]: kiil reset cooldown":
     
     eventPlayer.setAbilityCharge(Button.ABILITY_1, 3)
     eventPlayer.setAbilityCooldown(Button.ABILITY_2, 0)
-
-
