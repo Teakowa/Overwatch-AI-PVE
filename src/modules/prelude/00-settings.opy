@@ -145,6 +145,10 @@ settings {
                 "ability1Duration%": 300,
                 "secondaryFireCooldown%": 63
             },
+            "emre": {
+                "damageDealt%": 125,
+                "damageReceived%": 90
+            },
             "vendetta": {
                 "damageDealt%": 135,
                 "damageReceived%": 45,
@@ -486,6 +490,10 @@ settings {
                 "ability1Duration%": 250,
                 "secondaryFireCooldown%": 75,
                 "ultGen%": 127
+            },
+            "emre": {
+                "damageDealt%": 135,
+                "damageReceived%": 90
             },
             "vendetta": {
                 "damageDealt%": 135,

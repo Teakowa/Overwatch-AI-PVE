@@ -65,7 +65,7 @@ def changelogText():
         hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*队伍2 造成伤害 +35% 受到伤害 -30%\r\n*怒炎冲 冷却时间降低至6秒\r\n*熠闪舞 冷却时间降低至6秒\r\n*烈焰 对所有燃烧中的敌人伤害提高25%（开始伤害调整）\n\n※※离开重生室隐藏".format(eventPlayer.getHero()), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
         eventPlayer.ChangelogText2 = getLastCreatedText()
     elif eventPlayer.getHero() == Hero.EMRE:
-        hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*已接入初始化链路\r\n*生命值改写因 Health Pool Bug 暂不启用（仅保留声明）\n\n※※离开重生室隐藏".format(eventPlayer.getHero()), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
+        hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*AI阵营：造成伤害 +25% 受到伤害 -10%\r\n*玩家阵营：造成伤害 +35% 受到伤害 -10%\r\n{1} 赛博手雷 冷却时间降低至6秒\r\n{2} 虹吸冲击枪 冷却时间降低至8秒\r\n*赛博手雷：击倒命中的敌人0.8秒，并使其燃烧\r\n  2秒内造成75+25%最大生命值伤害\r\n*覆盖协议：使命中的敌人燃烧\r\n  并造成100+35%最大生命值伤害\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), abilityIconString(eventPlayer.getHero(), Button.ABILITY_1), abilityIconString(eventPlayer.getHero(), Button.SECONDARY_FIRE)), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
         eventPlayer.ChangelogText2 = getLastCreatedText()
     elif eventPlayer.getHero() == Hero.MIZUKI:
         hudText(eventPlayer, null, Mark, "\r\n●{0}\r\n*已接入初始化链路\r\n*生命值改写因 Health Pool Bug 暂不启用（仅保留声明）\n\n※※离开重生室隐藏".format(eventPlayer.getHero()), HudPosition.LEFT, 1, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING, SpecVisibility.NEVER)
