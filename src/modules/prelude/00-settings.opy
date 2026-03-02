@@ -336,7 +336,6 @@ settings {
             "roadhog": {
                 "damageReceived%": 30,
                 "secondaryFireRechargeRate%": 150,
-                "ability2Cooldown%": 50,
                 "enableInfiniteAmmo": true,
                 "healingDealt%": 150,
                 "movementSpeed%": 105
@@ -702,7 +701,6 @@ settings {
                 "damageDealt%": 90,
                 "damageReceived%": 110,
                 "secondaryFireCooldown%": 480,
-                "ability2Cooldown%": 117,
                 "ability1Cooldown%": 167
             },
             "kiriko": {
