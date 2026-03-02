@@ -1,0 +1,4 @@
+interface:
+  display_name: "OW Module Metrics Sync"
+  short_description: "Sync docs/modules metrics with source"
+  default_prompt: "Count current Workshop module metrics from src and sync managed statistics lines in docs/modules files; support check-only validation and optional report output."

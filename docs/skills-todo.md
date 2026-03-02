@@ -15,7 +15,7 @@
 | `ow-contract-guard` | done | 守护编排与协议不变量 | 可检查 include 顺序、分隔规则、索引协议、hero init 基础安全项 |
 | `ow-hero-change-pipeline` | done | 标准化英雄改动流水线，降低漏改风险 | 可按 hero 审核 init 模式、索引 include、hero_rules 触达、changelog 覆盖，并输出复核报告模板 |
 | `ow-changelog-sync` | done | 降低英雄平衡改动与 changelog 漂移 | 可从规则差异生成待更新条目，校验 hero 覆盖，并检查玩家文案不使用队伍编号表达 |
-| `ow-module-metrics-sync` | todo | 保持文档统计与源码一致 | 可自动统计 rule/vars/subroutine 并更新 docs/modules/*.md |
+| `ow-module-metrics-sync` | done | 保持文档统计与源码一致 | 可自动统计 rule/vars/subroutine/def/@Disabled 并同步更新 docs/modules 受管统计位点 |
 
 ## `ow-hero-change-pipeline` 实施拆解
 
