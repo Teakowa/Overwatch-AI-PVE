@@ -13,7 +13,7 @@
 | Skill | Status | 目标 | 最小验收标准 |
 |---|---|---|---|
 | `ow-contract-guard` | done | 守护编排与协议不变量 | 可检查 include 顺序、分隔规则、索引协议、hero init 基础安全项 |
-| `ow-hero-change-pipeline` | in_progress | 标准化英雄改动流水线，降低漏改风险 | 可按 hero 审核 init 模式、索引 include、hero_rules 触达、changelog 覆盖 |
+| `ow-hero-change-pipeline` | done | 标准化英雄改动流水线，降低漏改风险 | 可按 hero 审核 init 模式、索引 include、hero_rules 触达、changelog 覆盖，并输出复核报告模板 |
 | `ow-changelog-sync` | todo | 降低英雄平衡改动与 changelog 漂移 | 可从规则差异生成待更新条目，并校验 hero 覆盖 |
 | `ow-module-metrics-sync` | todo | 保持文档统计与源码一致 | 可自动统计 rule/vars/subroutine 并更新 docs/modules/*.md |
 
@@ -33,8 +33,8 @@
 
 3. `后续增强`
 - [x] 支持对 `reset_pvar` 槽位写入做更细粒度语义审查
-- [ ] 支持检测 hero_rules 中高频规则节流风险（wait/waitUntil）
-- [ ] 支持生成“本次英雄改动复核报告”模板
+- [x] 支持检测 hero_rules 中高频规则节流风险（wait/waitUntil）
+- [x] 支持生成“本次英雄改动复核报告”模板
 
 ## 使用建议
 

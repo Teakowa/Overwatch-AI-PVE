@@ -27,6 +27,12 @@ Run with build gate and contract guard:
 skills/ow-hero-change-pipeline/scripts/hero_pipeline.sh --from-diff --build
 ```
 
+Generate review report template:
+
+```bash
+skills/ow-hero-change-pipeline/scripts/hero_pipeline.sh --from-diff --report-template
+```
+
 ## What It Checks
 
 For each hero, the pipeline checks:
@@ -47,6 +53,13 @@ For each hero, the pipeline checks:
    - checks slot owner expectations for key slots (for example `1 -> brigitte`, `11 -> freja`)
    - checks team direction expectations (ally/enemy slot mapping)
    - validates nested chain pattern (`reset_pvar[6].reset_pvar[9]`)
+6. `hero_rules` throttle risk checks:
+   - scans touched `eachPlayer` blocks
+   - warns on expensive/high-frequency patterns without `wait` or `waitUntil`
+   - warns/fails on loop/while blocks without throttling wait
+7. Review report template output:
+   - emits a markdown review template with automated findings and manual checklist
+   - default output path: `docs/reports/hero-pipeline-review-<timestamp>.md`
 
 ## Workflow
 
@@ -65,3 +78,5 @@ skills/ow-contract-guard/scripts/check_contracts.sh --build
 
 - Missing changelog branch is a warning by default. Use `--strict-changelog` to make it blocking.
 - Missing hero_rules touchpoint is a warning by default. Use `--strict-rules` to make it blocking.
+- Throttle risks are warnings by default. Use `--strict-throttle` to make them blocking.
+- Use `--report-template [path]` to generate a reusable review report template.

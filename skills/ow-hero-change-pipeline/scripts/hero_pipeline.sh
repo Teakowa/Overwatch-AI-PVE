@@ -5,20 +5,22 @@ usage() {
     cat <<'USAGE'
 Usage:
   scripts/hero_pipeline.sh [--hero <slug>]... [--from-diff [range]] [--build]
-                           [--strict-changelog] [--strict-rules] [--strict-init-gate]
+                           [--strict-changelog] [--strict-rules] [--strict-init-gate] [--strict-throttle]
+                           [--report-template [path]]
                            [--list-heroes] [--help]
 
 Examples:
   scripts/hero_pipeline.sh --hero freja
   scripts/hero_pipeline.sh --from-diff
   scripts/hero_pipeline.sh --from-diff HEAD~1 --build
+  scripts/hero_pipeline.sh --hero freja --report-template
 USAGE
 }
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd)"
 cd "$ROOT_DIR"
 
-for cmd in rg awk sed sort uniq git basename dirname; do
+for cmd in rg awk sed sort uniq git basename dirname mktemp date mkdir; do
     if ! command -v "$cmd" >/dev/null 2>&1; then
         echo "Missing required command: $cmd" >&2
         exit 2
@@ -32,7 +34,12 @@ run_build=false
 strict_changelog=false
 strict_rules=false
 strict_init_gate=false
+strict_throttle=false
 list_heroes=false
+report_template=false
+report_path=""
+report_file=""
+current_hero="global"
 
 while [[ $# -gt 0 ]]; do
     case "$1" in
@@ -63,6 +70,16 @@ while [[ $# -gt 0 ]]; do
         --strict-init-gate)
             strict_init_gate=true
             ;;
+        --strict-throttle)
+            strict_throttle=true
+            ;;
+        --report-template)
+            report_template=true
+            if [[ $# -gt 1 && "$2" != --* ]]; then
+                report_path="$2"
+                shift
+            fi
+            ;;
         --list-heroes)
             list_heroes=true
             ;;
@@ -83,19 +100,35 @@ passes=0
 warnings=0
 failures=0
 
+if [[ "$report_template" == true ]]; then
+    report_file="$(mktemp)"
+    trap 'rm -f "$report_file"' EXIT
+fi
+
+record_report_line() {
+    local level="$1"
+    local message="$2"
+    if [[ -n "$report_file" ]]; then
+        printf '%s\t%s\t%s\n' "$current_hero" "$level" "$message" >> "$report_file"
+    fi
+}
+
 pass() {
     passes=$((passes + 1))
     printf '[PASS] %s\n' "$1"
+    record_report_line "PASS" "$1"
 }
 
 warn() {
     warnings=$((warnings + 1))
     printf '[WARN] %s\n' "$1"
+    record_report_line "WARN" "$1"
 }
 
 fail() {
     failures=$((failures + 1))
     printf '[FAIL] %s\n' "$1"
+    record_report_line "FAIL" "$1"
 }
 
 count_fixed_matches() {
@@ -166,6 +199,135 @@ expected_team_for_slot() {
     esac
 }
 
+audit_throttle_risks() {
+    local slug="$1"
+    shift || true
+    local files=("$@")
+    local checked=0
+    local risky=0
+
+    if [[ "${#files[@]}" -eq 0 ]]; then
+        warn "[throttle] no hero_rules files found for ${slug}, skip throttle audit"
+        return
+    fi
+
+    for file in "${files[@]}"; do
+        [[ -f "$file" ]] || continue
+
+        local block_rule=""
+        local block_line=0
+        local block_each_player=false
+        local block_has_wait=false
+        local block_has_loop=false
+        local block_has_expensive=false
+
+        evaluate_block() {
+            if [[ -z "$block_rule" || "$block_each_player" != true ]]; then
+                return
+            fi
+
+            checked=$((checked + 1))
+            if [[ "$block_has_loop" == true && "$block_has_wait" != true ]]; then
+                risky=$((risky + 1))
+                if [[ "$strict_throttle" == true ]]; then
+                    fail "[throttle] ${file}:${block_line} '${block_rule}' has loop/while without wait/waitUntil"
+                else
+                    warn "[throttle] ${file}:${block_line} '${block_rule}' has loop/while without wait/waitUntil"
+                fi
+            elif [[ "$block_has_expensive" == true && "$block_has_wait" != true ]]; then
+                risky=$((risky + 1))
+                if [[ "$strict_throttle" == true ]]; then
+                    fail "[throttle] ${file}:${block_line} '${block_rule}' has expensive actions without wait/waitUntil"
+                else
+                    warn "[throttle] ${file}:${block_line} '${block_rule}' has expensive actions without wait/waitUntil"
+                fi
+            fi
+        }
+
+        while IFS= read -r raw; do
+            local line_no line_text rule_name rest
+            rest="${raw#*:}"
+            line_no="${rest%%:*}"
+            line_text="${rest#*:}"
+
+            if [[ "$line_text" =~ ^rule[[:space:]]+\" ]]; then
+                evaluate_block
+                rule_name="$(printf '%s\n' "$line_text" | sed -E 's/^rule "([^"]+)".*/\1/')"
+                block_rule="$rule_name"
+                block_line="$line_no"
+                block_each_player=false
+                block_has_wait=false
+                block_has_loop=false
+                block_has_expensive=false
+                continue
+            fi
+
+            if [[ "$line_text" == *"@Event eachPlayer"* ]]; then
+                block_each_player=true
+            fi
+            if [[ "$line_text" == *"wait("* || "$line_text" == *"waitUntil("* ]]; then
+                block_has_wait=true
+            fi
+            if [[ "$line_text" == *"loop()"* || "$line_text" =~ ^[[:space:]]*while[[:space:]] ]]; then
+                block_has_loop=true
+            fi
+            if [[ "$line_text" == *"getPlayersInRadius("* || "$line_text" == *"distance("* || "$line_text" == *"isInLoS("* || "$line_text" == *"getClosestPlayer("* || "$line_text" == *"getPlayerClosestToReticle("* || "$line_text" == *"len(["* || "$line_text" == *"hudText("* || "$line_text" == *"playEffect("* || "$line_text" == *"startDamageModification("* || "$line_text" == *"sort("* || "$line_text" == *"nearestWalkablePosition("* ]]; then
+                block_has_expensive=true
+            fi
+        done < <(rg -n -H '^rule "|@Event eachPlayer|wait\(|waitUntil\(|loop\(\)|^[[:space:]]*while[[:space:]]|getPlayersInRadius\(|distance\(|isInLoS\(|getClosestPlayer\(|getPlayerClosestToReticle\(|len\(\[|hudText\(|playEffect\(|startDamageModification\(|sort\(|nearestWalkablePosition\(' "$file" || true)
+
+        evaluate_block
+    done
+
+    if [[ "$checked" -eq 0 ]]; then
+        warn "[throttle] no eachPlayer hero_rules blocks scanned for ${slug}"
+    elif [[ "$risky" -eq 0 ]]; then
+        pass "[throttle] no high-frequency throttle risks detected for ${slug} (${checked} eachPlayer blocks checked)"
+    fi
+}
+
+generate_review_report_template() {
+    local path="$1"
+    local generated_at
+    generated_at="$(date '+%Y-%m-%d %H:%M:%S %z')"
+
+    mkdir -p "$(dirname "$path")"
+    {
+        echo "# Hero Change Review Report Template"
+        echo
+        echo "- Generated At: ${generated_at}"
+        echo "- Branch: $(git branch --show-current)"
+        echo "- Target Heroes: ${heroes[*]}"
+        echo "- Automated Summary: ${passes} passed / ${warnings} warnings / ${failures} failures"
+        echo
+        echo "## Blocking Findings (FAIL)"
+        if ! awk -F $'\t' '$2 == "FAIL" {printf "- [%s] %s\n", $1, $3; found=1} END{exit found?0:1}' "$report_file"; then
+            echo "- None"
+        fi
+        echo
+        echo "## Warnings (WARN)"
+        if ! awk -F $'\t' '$2 == "WARN" {printf "- [%s] %s\n", $1, $3; found=1} END{exit found?0:1}' "$report_file"; then
+            echo "- None"
+        fi
+        echo
+        echo "## Manual Review Checklist"
+        for hero in "${heroes[@]}"; do
+            echo "### ${hero}"
+            echo "- [ ] hero_init Detect/Initialize 逻辑和 reset 链路符合预期"
+            echo "- [ ] hero_rules 行为改动符合设计并已评估负载风险"
+            echo "- [ ] changelog 文案已覆盖本次改动"
+            echo "- [ ] Team 1/Team 2 职责边界未被破坏"
+            echo
+        done
+        echo "## Release Notes Draft"
+        echo "- 影响英雄/系统："
+        echo "- 服务器负载影响："
+        echo "- 初始化或 reset 链路调整："
+    } > "$path"
+
+    pass "review report template generated: $path"
+}
+
 list_all_heroes() {
     rg --files src/modules/hero_init/heroes \
         | sed -E 's#^.*/##' \
@@ -221,6 +383,7 @@ audit_hero() {
     local init_index="src/modules/hero_init/_index.opy"
     local rules_dir="src/modules/hero_rules/heroes"
     local changelog="src/modules/debug/20-changelog.opy"
+    current_hero="$slug"
 
     echo
     echo "=== Hero: ${slug} ==="
@@ -377,6 +540,12 @@ audit_hero() {
 
     if [[ "$rules_hit_count" -gt 0 ]]; then
         pass "hero_rules touchpoint detected for ${slug}"
+        local -a touched_rule_files
+        mapfile -t touched_rule_files < <({
+            printf '%s\n' "$rules_tag_hits"
+            printf '%s\n' "$rules_const_hits"
+        } | sed '/^$/d' | cut -d: -f1 | sort -u)
+        audit_throttle_risks "$slug" "${touched_rule_files[@]}"
     else
         if [[ "$strict_rules" == true ]]; then
             fail "no hero_rules touchpoint detected for ${slug}"
@@ -414,6 +583,14 @@ if [[ "$run_build" == true ]]; then
     else
         fail "contract guard or build failed"
     fi
+fi
+
+if [[ "$report_template" == true ]]; then
+    if [[ -z "$report_path" ]]; then
+        report_path="docs/reports/hero-pipeline-review-$(date '+%Y%m%d-%H%M%S').md"
+    fi
+    current_hero="global"
+    generate_review_report_template "$report_path"
 fi
 
 echo
