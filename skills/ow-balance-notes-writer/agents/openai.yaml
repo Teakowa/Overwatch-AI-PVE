@@ -1,0 +1,4 @@
+interface:
+  display_name: "OW Balance Notes Writer"
+  short_description: "Generate formatted hero balance patch notes"
+  default_prompt: "Use $ow-balance-notes-writer to transform hero gameplay changes into Chinese patch notes with [update {...}] blocks and grouped buff/nerf/adjust summaries."
