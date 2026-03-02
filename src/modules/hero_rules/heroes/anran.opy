@@ -1,18 +1,23 @@
 rule "[Anran]: burning target damage amp":
-    @Event playerDealtDamage
+    @Event eachPlayer
     @Hero anran
-    @Condition victim.hasStatus(Status.BURNING) == true
-    @Condition eventDamage > 0
+    @Condition eventPlayer.isDead() != true
 
-    if eventPlayer.anran_burn_dmg_mod == null:
-        eventPlayer.anran_burn_dmg_mod = []
-    if len([entry for entry in eventPlayer.anran_burn_dmg_mod if entry[0] == victim]) != 0:
-        goto lbl_0
-    startDamageModification(victim, attacker, 125, DamageReeval.RECEIVERS_AND_DAMAGERS)
-    eventPlayer.anran_burn_dmg_mod.append([victim, getLastDamageModification()])
-    waitUntil(victim.isDead() or not victim.hasStatus(Status.BURNING) or eventPlayer.isDead() or eventPlayer.getHero() != Hero.ANRAN, WAIT_TIMEOUT_FOREVER)
-    if len([entry for entry in eventPlayer.anran_burn_dmg_mod if entry[0] == victim]) != 0:
-        stopDamageModification(([entry for entry in eventPlayer.anran_burn_dmg_mod if entry[0] == victim])[0][1])
-        eventPlayer.anran_burn_dmg_mod.remove(([entry for entry in eventPlayer.anran_burn_dmg_mod if entry[0] == victim])[0])
-    lbl_0:
-	wait()
+    if eventPlayer.anran_burn_dmg_mod != null:
+        stopDamageModification(eventPlayer.anran_burn_dmg_mod)
+        eventPlayer.anran_burn_dmg_mod = null
+
+    if len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if player.hasStatus(Status.BURNING) == true]) > 0:
+        startDamageModification([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if player.hasStatus(Status.BURNING) == true], eventPlayer, 125, DamageReeval.RECEIVERS_AND_DAMAGERS)
+        eventPlayer.anran_burn_dmg_mod = getLastDamageModification()
+
+    wait(0.250)
+
+
+rule "[Anran]: burning target damage amp cleanup":
+    @Event eachPlayer
+    @Condition eventPlayer.anran_burn_dmg_mod != null
+    @Condition eventPlayer.isDead() == true or eventPlayer.getHero() != Hero.ANRAN
+
+    stopDamageModification(eventPlayer.anran_burn_dmg_mod)
+    eventPlayer.anran_burn_dmg_mod = null
