@@ -55,7 +55,6 @@
 
 ## 8. 关键不变量检查点
 
-- `rule` 总数应保持 `385`
 - 分隔规则名应保持不变：
   - `Initialize AI Scripts`
   - `Initialize AI Scripts End`

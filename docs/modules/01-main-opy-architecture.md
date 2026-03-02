@@ -5,12 +5,7 @@
 ## 1. 快速事实
 
 - 主入口：`src/main.opy`（manifest）
-- 规则数：`385`
-- `globalvar`：`41`
-- `playervar`：`66`
-- `subroutine` 声明：`14`
-- `def` 子程序实现：`13`
-- `@Disabled` 规则：`15`
+- 文档不再维护静态数量统计（`rule/globalvar/playervar/subroutine/def/@Disabled`），避免与源码漂移
 
 ## 2. 顶层结构顺序（硬约束）
 

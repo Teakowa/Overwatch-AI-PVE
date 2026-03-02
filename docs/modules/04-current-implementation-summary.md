@@ -7,12 +7,7 @@
 - 入口文件：`src/main.opy`
 - 常量层：`src/constants/player_constants.opy`
 - 业务模块：`src/modules/*`（按 `_index.opy` 显式编排）
-- `rule` 总数：`385`
-- `globalvar`：`41`
-- `playervar`：`66`
-- `subroutine` 声明：`14`
-- `def` 子程序实现：`13`
-- `@Disabled`：`15`
+- 文档不再维护静态数量统计（`rule/globalvar/playervar/subroutine/def/@Disabled`），避免与源码漂移
 
 ## 2. 编排顺序（真实执行入口）
 
@@ -30,11 +25,11 @@
 
 ## 3. 模块职责与体量
 
-- `bootstrap`：`17` 条规则 + `10` 个 `def`
-- `ai`：`68` 条规则 + `1` 个 `def`（`botAim2Target()`）
-- `hero_rules`：`191` 条规则 + `1` 个 `def`（`Knockback()`）
-- `hero_init`：`107` 条规则（`heroes/* + extras/* + delimiters`）
-- `debug`：`2` 条规则 + `1` 个 `def`（`changelogText()`）
+- `bootstrap`：启动、稳定性与准入层
+- `ai`：目标选择、移动与技能控制层
+- `hero_rules`：英雄行为增强与玩法改动主层
+- `hero_init`：英雄 Detect/Initialize 与附加初始化逻辑
+- `debug`：调试规则与 changelog 展示
 
 ## 4. 核心执行链路
 
