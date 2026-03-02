@@ -151,6 +151,12 @@ settings {
                 "healingReceived%": 165,
                 "ultGen%": 126
             },
+            "anran": {
+                "damageDealt%": 125,
+                "damageReceived%": 70,
+                "ability1Cooldown%": 75,
+                "ability2Cooldown%": 75
+            },
             "wuyang": {
                 "passiveHealthRegen": false,
                 "secondaryFireRechargeRate%": 80,
@@ -486,6 +492,12 @@ settings {
                 "damageReceived%": 55,
                 "ability1Cooldown%": 80,
                 "ultGen%": 126
+            },
+            "anran": {
+                "damageDealt%": 135,
+                "damageReceived%": 70,
+                "ability1Cooldown%": 75,
+                "ability2Cooldown%": 75
             },
             "illari": {
                 "passiveHealthRegen": false,
