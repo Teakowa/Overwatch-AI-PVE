@@ -1,0 +1,4 @@
+interface:
+  display_name: "OW Hero Pipeline"
+  short_description: "Audit hero changes and pipeline coverage"
+  default_prompt: "Run the hero change pipeline for impacted heroes, report blocking failures first, then warnings and suggested fixes."
