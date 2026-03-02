@@ -10,6 +10,7 @@
 #!include "reinhardt.opy"
 #!include "doomfist.opy"
 #!include "hazard.opy"
+#!include "domina.opy"
 #!include "reaper.opy"
 #!include "freja.opy"
 #!include "wuyang.opy"

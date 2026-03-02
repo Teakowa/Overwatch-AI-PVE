@@ -338,6 +338,13 @@ settings {
                 "combatUltGen%": 0,
                 "passiveUltGen%": 0
             },
+            "domina": {
+                "damageDealt%": 125,
+                "damageReceived%": 65,
+                "ability1Cooldown%": 100,
+                "ability2Cooldown%": 67,
+                "secondaryFireCooldown%": 150
+            },
             "sombra": {
                 "damageDealt%": 110,
                 "damageReceived%": 70,
@@ -666,6 +673,13 @@ settings {
                 "secondaryFireCost%": 75,
                 "combatUltGen%": 0,
                 "passiveUltGen%": 0
+            },
+            "domina": {
+                "damageDealt%": 125,
+                "damageReceived%": 70,
+                "ability1Cooldown%": 100,
+                "ability2Cooldown%": 67,
+                "secondaryFireCooldown%": 150
             },
             "sombra": {
                 "damageDealt%": 135,
