@@ -1,4 +1,4 @@
 interface:
   display_name: "OW Balance Notes Writer"
   short_description: "Generate formatted hero balance patch notes"
-  default_prompt: "Use $ow-balance-notes-writer to transform hero gameplay changes into Chinese patch notes with [update {...}] blocks, split Player and AI changes into separate blocks (AI title must use 英雄名（AI）), and keep cooldown changes out of General by placing them under ability keys."
+  default_prompt: "Use $ow-balance-notes-writer to transform hero gameplay changes into Chinese patch notes with [update {...}] blocks, split Player and AI changes into separate blocks (AI title must use 英雄名（AI）), keep cooldown changes out of General, express cooldown only as 冷却时间由 xx 秒... (not coefficients), and avoid repeating Player/AI in abilities when title already indicates scope."

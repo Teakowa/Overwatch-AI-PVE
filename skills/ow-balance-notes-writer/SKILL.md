@@ -23,6 +23,7 @@ Generate consistent player-facing balance notes using the project style.
      - Player block title: `英雄名`
      - AI block title: `英雄名（AI）`
    - Put cooldown changes under concrete ability keys (e.g. `"怒炎冲"`, `"技能1"`), never in `"General"`
+   - Cooldown wording must use time directly (e.g. `冷却时间由 8 秒降低至 6 秒`), not coefficient wording like `冷却系数`
 4. Follow the exact formatting contract in [references/format-spec.md](references/format-spec.md).
 
 ## Output Rules
@@ -40,10 +41,12 @@ Generate consistent player-facing balance notes using the project style.
 5. Split AI and Player adjustments when both exist:
    - Do not merge AI and Player numbers into one `[update {...}]` block.
    - Generate one Player block and one AI block for the same hero when values differ.
+   - Once split by title, do not repeat scope words like `Player` / `AI` inside `abilities` lines.
 6. Cooldown placement rule:
    - Cooldown changes must be written under specific ability keys.
    - `"General"` can include only non-ability-specific changes (e.g. damage/healing/received damage/health/ult economy/global mechanics).
    - Do not place cooldown text in `"General"`.
+   - Describe cooldown by time change only (`冷却时间由 xx 秒 ...`), do not use coefficient expressions (`冷却系数 xx%`).
 7. Keep values explicit:
    - Prefer `旧值->新值` numeric expressions for percentages, cooldowns, health, or charge points.
 8. Keep changelog language player-facing:
@@ -76,8 +79,10 @@ Before finalizing output, verify:
    - `icons` only when ability icon override is needed
 3. If a hero has both AI and Player tuning, output contains separate Player/AI blocks and the AI block title ends with `（AI）`.
 4. No cooldown line appears in `"General"`; cooldown lines are placed under concrete ability keys.
-5. Markdown structure remains valid and readable.
-6. Optional sections (`AI 改进`, `错误修复`, `已知问题`) are omitted when no items exist.
+5. Cooldown lines use time wording only (`冷却时间由 xx 秒 ...`), with no coefficient wording.
+6. When title split is used (`英雄名` / `英雄名（AI）`), `abilities` lines do not repeat `Player` / `AI`.
+7. Markdown structure remains valid and readable.
+8. Optional sections (`AI 改进`, `错误修复`, `已知问题`) are omitted when no items exist.
 
 ## Reference
 

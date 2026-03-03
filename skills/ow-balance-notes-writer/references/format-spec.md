@@ -67,6 +67,7 @@ Rules:
 - Use double quotes for keys and strings.
 - `"General"` is only for non-ability-specific changes (damage/healing/health/ult economy/global effects).
 - Cooldown changes must be placed under explicit ability keys, not under `"General"`.
+- Cooldown text must use time wording (`冷却时间由 xx 秒 ...`), not coefficient wording (`冷却系数 xx%`).
 
 ### 3.1 Scope Split (Player / AI)
 
@@ -78,7 +79,7 @@ When a hero has different Player and AI values, split into two blocks:
   title: "英雄名",
   abilities: {
     "General": [
-      "Player 造成伤害由 100% **增强↗** 至 135%"
+      "造成伤害由 100% **增强↗** 至 135%"
     ],
     "技能名": [
       "冷却时间由 8 秒 **降低↘** 至 6 秒"
@@ -91,7 +92,7 @@ When a hero has different Player and AI values, split into two blocks:
   title: "英雄名（AI）",
   abilities: {
     "General": [
-      "AI 造成伤害由 100% **增强↗** 至 125%"
+      "造成伤害由 100% **增强↗** 至 125%"
     ],
     "技能名": [
       "冷却时间由 8 秒 **降低↘** 至 6 秒"
@@ -103,6 +104,7 @@ When a hero has different Player and AI values, split into two blocks:
 Rules:
 - Do not merge Player and AI values into one block when values differ.
 - AI block title must end with `（AI）`.
+- Once title is split (`英雄名` / `英雄名（AI）`), do not repeat scope words (`Player` / `AI`) in `abilities` lines.
 
 ## 4) Wording Conventions
 
@@ -143,5 +145,7 @@ Before returning output:
 2. Ensure AI-only blocks are clearly marked (`title: "X（AI）"` or equivalent clear labeling).
 3. Ensure Player/AI split is applied when values differ (two blocks for the same hero).
 4. Ensure no cooldown text appears in `"General"` (cooldowns must live under ability keys).
-5. Ensure no contradiction between summary bucket and detailed numbers.
-6. Ensure markdown renders cleanly with blank lines between major sections.
+5. Ensure cooldown wording is time-based (`冷却时间由 xx 秒 ...`) and does not use coefficient expressions.
+6. Ensure abilities lines do not repeat `Player` / `AI` when title already carries scope.
+7. Ensure no contradiction between summary bucket and detailed numbers.
+8. Ensure markdown renders cleanly with blank lines between major sections.
