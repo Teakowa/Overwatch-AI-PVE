@@ -33,6 +33,10 @@
 5. `#!optimizeStrict`
 6. 规则主体（按分区顺序）
 
+主入口 include 顺序契约：
+- `constants/player_constants.opy` -> `modules/prelude/_index.opy` -> `#!optimizeStrict` -> `modules/_index.opy`
+- `settings` 若使用 constants 计算表达式，必须保证 constants 先于 prelude 被 include
+
 规则主体建议保持以下分区边界和先后关系：
 1. 引导与全局初始化（版权、全局设置、英雄能力设置）
 2. 稳定性与管控（Anti Crash、Blacklist、英雄池 BAN）
