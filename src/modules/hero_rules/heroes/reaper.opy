@@ -134,9 +134,13 @@ rule "[Reaper]: Death Blossom remove Mov. speed penalty":
     @Hero reaper
     @Condition eventPlayer.isUsingUltimate() == true
     
-    applyMoveSpeedOverride(100)
+    if abs(eventPlayer.mov_speed_buff) < abs(100):
+        eventPlayer.mov_speed_buff = 100
+        applySignedMoveSpeed()
     waitUntil(not eventPlayer.isUsingUltimate() or eventPlayer.isDead(), 3.5)
     if eventPlayer.isDead():
         goto lbl_0
-    clearMoveSpeedOverride(100)
+    if eventPlayer.mov_speed_buff == 100:
+        eventPlayer.mov_speed_buff = 0
+        applySignedMoveSpeed()
     lbl_0:

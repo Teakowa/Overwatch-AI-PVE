@@ -36,9 +36,13 @@ rule "[brigitte/rally.opy]: Rally 30% speed boost":
     @Condition eventPlayer.isUsingUltimate() == true
     
     #30% movement speed buff during ralley
-    applyMoveSpeedOverride(13.043)
+    if abs(eventPlayer.mov_speed_buff) < abs(13.043):
+        eventPlayer.mov_speed_buff = 13.043
+        applySignedMoveSpeed()
     waitUntil(not eventPlayer.isUsingUltimate() or eventPlayer.isDead(), 10)
     if eventPlayer.isDead():
         goto lbl_0
-    clearMoveSpeedOverride(13.043)
+    if eventPlayer.mov_speed_buff == 13.043:
+        eventPlayer.mov_speed_buff = 0
+        applySignedMoveSpeed()
     lbl_0:

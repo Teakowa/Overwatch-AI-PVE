@@ -93,25 +93,6 @@ def applySignedMoveSpeed():
     
     eventPlayer.setMoveSpeed(min(max(100 + eventPlayer.mov_speed_buff, 20), 200))
 
-
-def applyMoveSpeedOverride(value):
-    @Name "[utilities/move_speed.opy]: applyMoveSpeedOverride()"
-    
-    if abs(eventPlayer.mov_speed_buff) >= abs(value):
-        return
-    eventPlayer.mov_speed_buff = value
-    applySignedMoveSpeed()
-
-
-def clearMoveSpeedOverride(expectedValue):
-    @Name "[utilities/move_speed.opy]: clearMoveSpeedOverride()"
-    
-    if eventPlayer.mov_speed_buff != expectedValue:
-        return
-    eventPlayer.mov_speed_buff = 0
-    applySignedMoveSpeed()
-
-
 def clearMoveSpeedDebuffs():
     @Name "[utilities/move_speed.opy]: clearMoveSpeedDebuffs()"
     

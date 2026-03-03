@@ -12,14 +12,18 @@ rule "[Ramattra] ult speed":
     @Hero ramattra
     @Condition eventPlayer.isUsingUltimate() == true
     
-    applyMoveSpeedOverride(Ram_Annihilation[3])
+    if abs(eventPlayer.mov_speed_buff) < abs(Ram_Annihilation[3]):
+        eventPlayer.mov_speed_buff = Ram_Annihilation[3]
+        applySignedMoveSpeed()
     eventPlayer.setDamageDealt(100 + Ram_Annihilation[5])
     eventPlayer.setDamageReceived(100 - Ram_Annihilation[4])
     eventPlayer.setKnockbackReceived(30)
     waitUntil(not eventPlayer.isUsingUltimate() or eventPlayer.isDead(), WAIT_TIMEOUT_FOREVER)
     if eventPlayer.isDead():
         goto lbl_0
-    clearMoveSpeedOverride(Ram_Annihilation[3])
+    if eventPlayer.mov_speed_buff == Ram_Annihilation[3]:
+        eventPlayer.mov_speed_buff = 0
+        applySignedMoveSpeed()
     lbl_0:
     eventPlayer.setDamageReceived(100)
     eventPlayer.setKnockbackReceived(100)
