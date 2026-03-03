@@ -1,21 +1,19 @@
 rule "[Anran]: burning target damage amp":
     @Event eachPlayer
-    @Hero anran
-    @Condition eventPlayer.isDead() != true
+    @Condition eventPlayer.hasStatus(Status.BURNING) == true
+    @Condition eventPlayer.anran_burn_dmg_mod == null
+    @Condition len(getPlayersOnHero(Hero.ANRAN, getOppositeTeam(eventPlayer.getTeam()))) > 0
 
+    startDamageModification(eventPlayer, getPlayersOnHero(Hero.ANRAN, getOppositeTeam(eventPlayer.getTeam())), 125, DamageReeval.RECEIVERS_AND_DAMAGERS)
+    eventPlayer.anran_burn_dmg_mod = getLastDamageModification()
+    waitUntil(not eventPlayer.hasStatus(Status.BURNING) or eventPlayer.isDead(), WAIT_TIMEOUT_FOREVER)
     if eventPlayer.anran_burn_dmg_mod != null:
         stopDamageModification(eventPlayer.anran_burn_dmg_mod)
         eventPlayer.anran_burn_dmg_mod = null
-
-    if len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if player.hasStatus(Status.BURNING) == true]) > 0:
-        startDamageModification([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if player.hasStatus(Status.BURNING) == true], eventPlayer, 125, DamageReeval.RECEIVERS_AND_DAMAGERS)
-        eventPlayer.anran_burn_dmg_mod = getLastDamageModification()
-
-    wait(0.250)
 rule "[Anran]: burning target damage amp cleanup":
     @Event eachPlayer
     @Condition eventPlayer.anran_burn_dmg_mod != null
-    @Condition eventPlayer.isDead() == true or eventPlayer.getHero() != Hero.ANRAN
+    @Condition eventPlayer.isDead() == true or len(getPlayersOnHero(Hero.ANRAN, getOppositeTeam(eventPlayer.getTeam()))) == 0
 
     stopDamageModification(eventPlayer.anran_burn_dmg_mod)
     eventPlayer.anran_burn_dmg_mod = null
