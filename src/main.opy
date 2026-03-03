@@ -5,4 +5,5 @@
 #!postCompileHook "post-compile-hook.js"
 
 #!include "constants/player_constants.opy"
+#!include "constants/ow2_hero_defaults.opy"
 #!include "modules/_index.opy"
