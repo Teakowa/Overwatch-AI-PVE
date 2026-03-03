@@ -65,6 +65,44 @@ Rules:
 - `title` is optional but recommended for Chinese readability.
 - `icons` is optional; include it when skill names are custom, translated, or remapped.
 - Use double quotes for keys and strings.
+- `"General"` is only for non-ability-specific changes (damage/healing/health/ult economy/global effects).
+- Cooldown changes must be placed under explicit ability keys, not under `"General"`.
+
+### 3.1 Scope Split (Player / AI)
+
+When a hero has different Player and AI values, split into two blocks:
+
+```text
+[update {
+  hero: "HeroName",
+  title: "英雄名",
+  abilities: {
+    "General": [
+      "Player 造成伤害由 100% **增强↗** 至 135%"
+    ],
+    "技能名": [
+      "冷却时间由 8 秒 **降低↘** 至 6 秒"
+    ]
+  }
+}]
+
+[update {
+  hero: "HeroName",
+  title: "英雄名（AI）",
+  abilities: {
+    "General": [
+      "AI 造成伤害由 100% **增强↗** 至 125%"
+    ],
+    "技能名": [
+      "冷却时间由 8 秒 **降低↘** 至 6 秒"
+    ]
+  }
+}]
+```
+
+Rules:
+- Do not merge Player and AI values into one block when values differ.
+- AI block title must end with `（AI）`.
 
 ## 4) Wording Conventions
 
@@ -103,5 +141,7 @@ Before returning output:
 
 1. Ensure every hero in the summary table has a matching `[update {...}]` block.
 2. Ensure AI-only blocks are clearly marked (`title: "X（AI）"` or equivalent clear labeling).
-3. Ensure no contradiction between summary bucket and detailed numbers.
-4. Ensure markdown renders cleanly with blank lines between major sections.
+3. Ensure Player/AI split is applied when values differ (two blocks for the same hero).
+4. Ensure no cooldown text appears in `"General"` (cooldowns must live under ability keys).
+5. Ensure no contradiction between summary bucket and detailed numbers.
+6. Ensure markdown renders cleanly with blank lines between major sections.
