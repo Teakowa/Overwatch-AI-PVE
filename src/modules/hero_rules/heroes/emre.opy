@@ -8,8 +8,6 @@ rule "[Emre]: Cyber Grenade Control + Burn":
     victim.setStatusEffect(attacker, Status.BURNING, 2)
     damage(victim, attacker, 75 + victim.getMaxHealth() * 0.25)
 	wait()
-
-
 rule "[Emre]: Override Protocol Burn":
     @Event playerDealtDamage
     @Hero emre

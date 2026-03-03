@@ -1,39 +1,3 @@
-rule "[Juno]: Hyper Ring Max. range":
-    @Event eachPlayer
-    @Hero juno
-    @Condition eventPlayer.isUsingAbility2() == true
-    
-    eventPlayer.setProjectileSpeed(117.7)
-    waitUntil(not eventPlayer.isUsingAbility2(), 5)
-    eventPlayer.setProjectileSpeed(100)
-
-
-rule "[Junkrat]: arsonist":
-    @Event playerDealtDamage
-    @Hero junkrat
-    #@Condition victim.hasStatus(Status.BURNING) == false
-    @Condition eventAbility != Button.MELEE
-    
-    victim.setStatusEffect(attacker, Status.BURNING, 3)
-    if victim.hasStatus(Status.BURNING) != true:
-        goto lbl_0
-    damage(victim, attacker, victim.getHealth() * 0.05)
-    lbl_0:
-    wait(1)
-
-
-rule "[Juno] Track Orbital Ray Position":
-    @Event eachPlayer
-    @Hero juno
-    @Condition eventPlayer.isUsingUltimate() == true
-    @Condition eventPlayer.isAlive() == true
-    
-    wait(0.5, Wait.ABORT_WHEN_FALSE)
-    getPlayersInRadius(eventPlayer, 12.5, eventPlayer.getTeam()).juno_buff[0] = true
-    wait(10)
-    getPlayers(eventPlayer.getTeam()).juno_buff[0] = false
-
-
 rule "[Juno]: Orbial Ray Damage":
     @Event eachPlayer
     @Condition eventPlayer.juno_buff[0] == true
@@ -43,8 +7,6 @@ rule "[Juno]: Orbial Ray Damage":
     waitUntil(not eventPlayer.juno_buff[0], 10)
     eventPlayer.setDamageReceived(100)
     smallMessage(eventPlayer, "   {0} 轨道射线： 伤害减免已结束".format(abilityIconString(Hero.JUNO, Button.ULTIMATE)))
-
-
 rule "[Juno]: Pulsar Torpedoes Healing":
     @Event playerReceivedHealing
     @Condition healer.getHero() == Hero.JUNO
@@ -57,8 +19,6 @@ rule "[Juno]: Pulsar Torpedoes Healing":
     eventPlayer.setHealingReceived(100)
     eventPlayer.healing_increase = 0
     wait(2.6)
-
-
 rule "[Freja]: Revdraw Crossbow Stack":
     @Event playerDealtDamage
     @Hero freja
@@ -66,8 +26,6 @@ rule "[Freja]: Revdraw Crossbow Stack":
     @Condition eventPlayer.hasStatus(Status.INVINCIBLE) != true
     
     victim.freja_buff[0]++
-
-
 rule "[Freja]: Revdraw Crossbow Stack":
     @Event playerDealtKnockback
     @Hero freja
@@ -76,8 +34,6 @@ rule "[Freja]: Revdraw Crossbow Stack":
     
     victim.freja_buff[0] += 15
     wait(5)
-
-
 rule "[Freja]: Take Aim Damage":
     @Event playerDealtDamage
     @Hero freja
@@ -92,8 +48,6 @@ rule "[Freja]: Take Aim Damage":
     damage(victim, attacker, FrejaBuff[0] * victim.freja_buff[0])
     victim.freja_buff[0] = 0
     victim.freja_buff[1] = 0
-
-
 rule "[Freja]: HUD & Reset":
     @Event eachPlayer
     @Condition eventPlayer.freja_buff[0] > 0
@@ -118,8 +72,6 @@ rule "[Freja]: HUD & Reset":
     destroyHudText(eventPlayer.freja_buff[4])
     eventPlayer.freja_buff[3] = 0
     eventPlayer.freja_buff[4] = 0
-
-
 rule "[Freja]: Ex":
     @Event playerDealtKnockback
     @Hero freja
@@ -133,16 +85,12 @@ rule "[Freja]: Ex":
     smallMessage(eventPlayer, "  斩杀： {0} ".format(heroIcon(victim.getHero())))
     wait(1, Wait.ABORT_WHEN_FALSE)
     lbl_0:
-
-
 rule "[Freja]: Ammo":
     @Event playerEarnedElimination
     @Hero freja
     @Disabled
     
     eventPlayer.setAmmo(0, eventPlayer.getAmmo() + 1)
-
-
 rule "[Freja]: Dmg. reduction":
     @Event eachPlayer
     @Hero freja
@@ -169,8 +117,6 @@ rule "[Freja]: Dmg. reduction":
     stopHealingOverTime(eventPlayer.freja_buff[5])
     eventPlayer.freja_buff[5] = null
     lbl_1:
-
-
 rule "[Freja]: set Projectile speed":
     @Event eachPlayer
     @Hero freja
@@ -179,49 +125,3 @@ rule "[Freja]: set Projectile speed":
     eventPlayer.setProjectileSpeed(100)
     waitUntil(not eventPlayer.isUsingUltimate(), 99999)
     eventPlayer.setProjectileSpeed(500)
-
-
-rule "[Lucio]: Soundwave Healing":
-    @Event eachPlayer
-    @Hero lucio
-    @Condition eventPlayer.isFiringSecondaryFire() == true
-    @Condition eventPlayer.getAbilityCooldown(Button.SECONDARY_FIRE) != 0
-    @Condition (len([player for player in getLivingPlayers(eventPlayer.getTeam()) if isInLoS(eventPlayer, player, BarrierLos.BLOCKED_BY_ENEMY_BARRIERS) == true and distance(eventPlayer, player) <= 12.5 and player.getNormalizedHealth() < 1])) > 0
-    
-    heal([player for player in getLivingPlayers(eventPlayer.getTeam()) if isInLoS(eventPlayer, player, BarrierLos.BLOCKED_BY_ENEMY_BARRIERS) == true and distance(eventPlayer, player) <= 12.5 and player.getNormalizedHealth() < 1], eventPlayer, 60)
-    #([player for player in getLivingPlayers(eventPlayer.getTeam()) if isInLoS(eventPlayer, player, BarrierLos.BLOCKED_BY_ENEMY_BARRIERS) == true and distance(eventPlayer, player) <= 12.5 and player.getNormalizedHealth() < 1]).startHealingOverTime(eventPlayer, 1, 60)
-    wait(2)
-
-
-rule "[Roadhog]: Breather":
-    @Event eachPlayer
-    @Team 1
-    @Hero roadhog
-    @Condition eventPlayer.isFiringSecondaryFire() == true
-    
-    heal(getLivingPlayers(eventPlayer.getTeam()), eventPlayer, 70)
-    wait(1)
-    if ruleCondition:
-        loop()
-
-
-rule "[Roadhog]: Breather":
-    @Event eachPlayer
-    @Team 1
-    @Hero roadhog
-    @Condition eventPlayer.isFiringSecondaryFire() != true
-    @Condition eventPlayer.getAbilityResource(Button.SECONDARY_FIRE) <= 50
-    
-    wait(0.54)
-    eventPlayer.setAbilityResource(Button.SECONDARY_FIRE, 50)
-    wait(1.25)
-
-
-rule "[Wrecking Ball]: ctrl 0cd":
-    @Event playerDealtKnockback
-    @Hero wreckingBall
-    @Condition eventAbility == Button.CROUCH
-    
-    victim.setStatusEffect(eventPlayer, Status.STUNNED, 0.3)
-
-

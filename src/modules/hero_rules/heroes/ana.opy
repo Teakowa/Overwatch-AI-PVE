@@ -1,11 +1,3 @@
-rule "[Mercy]: Flash Heal cd":
-    @Event eachPlayer
-    @Hero mercy
-    @Condition eventPlayer.getAbilityCooldown(Button.RELOAD) != 0
-    
-    eventPlayer.setAbilityCooldown(Button.RELOAD, 2)
-
-
 rule "[Ana]: Headhunter":
     @Event playerDealtDamage
     @Team 2
@@ -18,8 +10,6 @@ rule "[Ana]: Headhunter":
     else:
         ([player for player in getLivingPlayers(eventPlayer.getTeam()) if isInLoS(eventPlayer, player, BarrierLos.BLOCKED_BY_ENEMY_BARRIERS) == true and player != eventPlayer]).startHealingOverTime(eventPlayer, 0.625, ceil(eventDamage * 31.25 * Ana_GrenadeDamage[1]) / (len([player for player in getLivingPlayers(eventPlayer.getTeam()) if isInLoS(eventPlayer, player, BarrierLos.BLOCKED_BY_ENEMY_BARRIERS) == true and player != eventPlayer])))
     wait(0.625)
-
-
 rule "[Ana] Biotic Grenade Hit":
     @Event playerTookDamage
     @Condition eventAbility == Button.ABILITY_2
@@ -33,8 +23,6 @@ rule "[Ana] Biotic Grenade Hit":
     eventPlayer.startDamageOverTime(attacker, 3, ceil(Ana_GrenadeDamage[0] / 100 * victim.getMaxHealth()))
     wait(3)
     lbl_0:
-
-
 rule "[Ana]: Damage Full Health Allies So Nano Can Heal":
     @Event eachPlayer
     @Hero ana
@@ -46,8 +34,6 @@ rule "[Ana]: Damage Full Health Allies So Nano Can Heal":
     wait(0.216)
     heal(eventPlayer.nano_full_health, null, 0.05)
     eventPlayer.nano_full_health = null
-
-
 rule "Has Nano":
     @Event playerReceivedHealing
     #This checks that the ability used to deal the healing is the ultimate.
@@ -58,8 +44,6 @@ rule "Has Nano":
     eventPlayer.has_nano = true
     waitUntil(eventPlayer.isDead(), 8)
     eventPlayer.has_nano = false
-
-
 rule "[Ana] Nano Boost Healing":
     @Event playerDealtHealing
     @Hero ana
@@ -67,42 +51,6 @@ rule "[Ana] Nano Boost Healing":
     @Condition healer.getHero() == Hero.ANA == true
     
     heal(healee, healer, 99999)
-
-
-rule "【布丽吉塔】盾击伤害调整":
-    @Event playerDealtDamage
-    @Hero brigitte
-    @Condition eventAbility == Button.PRIMARY_FIRE
-    @Condition attacker.isFiringSecondaryFire() == true
-    @Condition attacker.isUsingUltimate() != true
-    
-    victim.setStatusEffect(attacker, Status.STUNNED, 1.2)
-    if victim.zarya_buff[1] != null:
-        goto lbl_0
-    if victim.brigitte_buff[0] == true:
-        goto lbl_0
-    victim.brigitte_buff[0] = true
-    victim.mov_speed_buff -= Brigitte[3]
-    victim.setMoveSpeed(min(max(100 + victim.mov_speed_buff, 20), 200))
-    wait(1.5)
-    if victim.brigitte_buff[0] != true:
-        goto lbl_0
-    victim.mov_speed_buff += Brigitte[3]
-    victim.setMoveSpeed(min(max(100 + victim.mov_speed_buff, 20), 200))
-    victim.brigitte_buff[0] = false
-    lbl_0:
-
-
-rule "【布丽吉塔】恢复包选中目标":
-    @Event eachPlayer
-    @Hero brigitte
-    @Condition Brigitte[1] != 0
-    @Condition eventPlayer.isUsingAbility2() == true
-    @Condition distance(eventPlayer, eventPlayer.getPlayerClosestToReticle(eventPlayer.getTeam())) <= 27.25
-    
-    sorted(getLivingPlayers(eventPlayer.getTeam()), lambda player: angleBetweenVectors(eventPlayer.getFacingDirection(), directionTowards(eventPlayer.getPosition(), player.getPosition())))[0].brig_repair_pack = true
-
-
 rule "【布丽吉塔】恢复包提供护甲":
     @Event eachPlayer
     @Condition Brigitte[1] != 0
@@ -117,3 +65,12 @@ rule "【布丽吉塔】恢复包提供护甲":
     eventPlayer.addHealthPool(Health.ARMOR, Brigitte[1], false, false)
     smallMessage(eventPlayer, "  {0} 获得来自 {1} 的护甲".format(abilityIconString(Hero.BRIGITTE, Button.ABILITY_2), eventPlayer.reset_pvar[1].getHero()))
     eventPlayer.brig_repair_pack_id = getLastCreatedHealthPool()
+rule "[Ana]: Sleep tanks for longer duration":
+    @Event playerDealtDamage
+    @Hero ana
+    @Condition eventAbility == Button.ABILITY_1
+    @Condition victim.unaffected == false
+    
+    victim.clearStatusEffect(Status.ASLEEP)
+    #waitUntil(victim.hasStatus(Status.ASLEEP), WAIT_TIMEOUT_FOREVER)
+    victim.setStatusEffect(attacker, Status.KNOCKED_DOWN, 4)

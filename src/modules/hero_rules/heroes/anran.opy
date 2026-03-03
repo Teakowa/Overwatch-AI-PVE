@@ -12,8 +12,6 @@ rule "[Anran]: burning target damage amp":
         eventPlayer.anran_burn_dmg_mod = getLastDamageModification()
 
     wait(0.250)
-
-
 rule "[Anran]: burning target damage amp cleanup":
     @Event eachPlayer
     @Condition eventPlayer.anran_burn_dmg_mod != null

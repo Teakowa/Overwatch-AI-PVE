@@ -17,8 +17,6 @@ rule "[Sombra] TP to Support":
     waitUntil(not eventPlayer.reset_pvar[4].reset_pvar[9][0].isAlive(), 2)
     eventPlayer.stopFacing()
     wait(3)
-
-
 rule "[Sombra]: AI Auto use Translocator":
     @Event eachPlayer
     @Team 1
@@ -29,8 +27,6 @@ rule "[Sombra]: AI Auto use Translocator":
     @Condition distance(getClosestPlayer(eventPlayer, eventPlayer.getTeam()), eventPlayer.reset_pvar[9][0]) <= 30
     
     eventPlayer.forceButtonPress(Button.ABILITY_2)
-
-
 rule "[Zenyatta] Snap Kick (enemy)":
     @Event playerTookDamage
     @Condition eventAbility == Button.MELEE
@@ -49,21 +45,6 @@ def Knockback():
     wait()
     eventPlayer.applyImpulse(eventPlayer.KnockbackDirection, Zen_KnockupStrength, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
     eventPlayer.applyImpulse(Vector.UP, Zen_KnockupStrength * 0.3, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
-
-
-rule "[Zenyatta] Snap Kick (Self Ground)":
-    @Event eachPlayer
-    @Hero zenyatta
-    @Condition eventPlayer.hasSpawned() == true
-    @Condition eventPlayer.isAlive() == true
-    @Condition eventPlayer.isMeleeing() == Button.MELEE
-    @Condition eventPlayer.getVerticalFacingAngle() >= 45
-    
-    if distance(raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 2.51, getAllPlayers(), eventPlayer, true).getHitPosition(), eventPlayer.getEyePosition()) <= 2.5:
-        eventPlayer.KnockbackDirection = eventPlayer.getFacingDirection() * -1
-        Knockback()
-
-
 rule "[Zenyatta] stop knocked":
     @Event eachPlayer
     @Condition eventPlayer.isKnocked == true
@@ -71,34 +52,11 @@ rule "[Zenyatta] stop knocked":
     wait(0.016, Wait.ABORT_WHEN_FALSE)
     eventPlayer.stopForcingThrottle()
     eventPlayer.isKnocked = false
-
-
-rule "[Zenyatta] Snap Kick (Self Wall)":
-    @Event eachPlayer
-    @Hero zenyatta
+rule "[Sombra]: kiil reset cooldown":
+    @Event playerEarnedElimination
+    @Hero sombra
     @Condition eventPlayer.isAlive() == true
-    @Condition eventPlayer.hasSpawned() == true
-    @Condition eventPlayer.isMeleeing() == Button.MELEE
-    @Condition eventPlayer.getVerticalFacingAngle() < 45
+    @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) > 0
     
-    if distance(raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 2.51, getAllPlayers(), eventPlayer, true).getHitPosition(), eventPlayer.getEyePosition()) <= 2.5:
-        if raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 5, getAllPlayers(), eventPlayer, true).getPlayerHit() == null:
-            eventPlayer.KnockbackDirection = eventPlayer.getFacingDirection() * -1
-            Knockback()
-
-
-rule "[Zenyatta]: Transcendence":
-    @Event eachPlayer
-    @Hero zenyatta
-    @Condition eventPlayer.isUsingUltimate() == true
-    
-    eventPlayer.mov_speed_buff += 25
-    wait(WAIT_SHORT_FRAME)
-    eventPlayer.setStatusEffect(null, Status.PHASED_OUT, 6)
-    eventPlayer.setHealingDealt(133.34)
-    eventPlayer.setMoveSpeed(min(max(100 + eventPlayer.mov_speed_buff, 20), 200))
-    waitUntil(not eventPlayer.isUsingUltimate() or eventPlayer.isDead(), 6)
-    if eventPlayer.isDead() != true:
-        eventPlayer.mov_speed_buff -= 25
-        eventPlayer.setMoveSpeed(min(max(100 + eventPlayer.mov_speed_buff, 20), 200))
-    eventPlayer.setHealingDealt(100)
+    eventPlayer.setAbilityCooldown(Button.ABILITY_2, 0)
+    wait(0.5)

@@ -5,8 +5,6 @@ rule "[Sigma]: shield cd":
     
     eventPlayer.setAbilityCooldown(Button.SECONDARY_FIRE, 0.5)
     wait(0.5)
-
-
 rule "[Sigma]: ult damage":
     @Event playerDealtDamage
     @Hero sigma
@@ -14,8 +12,6 @@ rule "[Sigma]: ult damage":
     @Condition eventDamage > 75
     
     damage(victim, attacker, eventDamage / 2)
-
-
 rule "[Sigma]: Accretion knockdown":
     @Event playerDealtDamage
     @Hero sigma
@@ -23,8 +19,6 @@ rule "[Sigma]: Accretion knockdown":
     @Condition victim.hasStatus(Status.KNOCKED_DOWN) == true
     
     victim.setStatusEffect(attacker, Status.KNOCKED_DOWN, 1.8)
-
-
 rule "[Sigma]: Hyperspheres Layer Damage":
     @Event playerDealtDamage
     @Hero sigma
@@ -35,8 +29,6 @@ rule "[Sigma]: Hyperspheres Layer Damage":
     eventPlayer.sigma_hyperspheres++
     eventPlayer.hudText = "{0}|{1}".format(eventPlayer.sigma_hyperspheres, 3)
     wait(0.6)
-
-
 rule "[Sigma]: Hyperspheres Layer Damage":
     @Event playerDealtDamage
     @Hero sigma
@@ -48,8 +40,6 @@ rule "[Sigma]: Hyperspheres Layer Damage":
     eventPlayer.hudText = "{0}|{1}".format(eventPlayer.sigma_hyperspheres, 3)
     damage(victim, attacker, (attacker.custom_hp_pvar[0] + attacker.custom_hp_pvar[2]) * SigmaBuff[0])
     wait(4)
-
-
 rule "[Sigma]: Hyperspheres HUD":
     @Event eachPlayer
     @Team 2
@@ -65,33 +55,3 @@ rule "[Sigma]: Hyperspheres HUD":
     waitUntil(eventPlayer.reset_pvar[0] or eventPlayer.isInSpawnRoom(), WAIT_TIMEOUT_FOREVER)
     eventPlayer.hudText = ""
     #destroyHudText(eventPlayer.sigma_hyperspheres_hud)
-
-
-rule "[Genji] Dragonblade Healing":
-    @Event playerDealtDamage
-    @Hero genji
-    @Condition eventAbility == Button.ULTIMATE
-    
-    heal(eventPlayer, eventPlayer, eventDamage)
-
-
-rule "[Genji] Dragonblade Damage Fix":
-    @Event eachPlayer
-    @Hero genji
-    @Condition eventPlayer.isUsingUltimate() == true
-    
-    eventPlayer.setDamageDealt(100 + Genji[1])
-    eventPlayer.setDamageReceived(90)
-    waitUntil(not eventPlayer.isUsingUltimate(), 8)
-    eventPlayer.setDamageDealt(100)
-    eventPlayer.setDamageReceived(100)
-
-
-rule "[Tracer] Recall Healing":
-    @Event eachPlayer
-    @Hero tracer
-    @Condition eventPlayer.isUsingAbility2() == true
-    
-    eventPlayer.startHealingOverTime(null, 2, 25)
-
-

@@ -1,19 +1,3 @@
-rule "[brigitte/rally.opy]: Rally 30% speed boost":
-    @Event eachPlayer
-    @Hero brigitte
-    @Condition eventPlayer.isUsingUltimate() == true
-    
-    #30% movement speed buff during ralley
-    eventPlayer.mov_speed_buff += 13.043
-    eventPlayer.setMoveSpeed(min(max(100 + eventPlayer.mov_speed_buff, 20), 200))
-    waitUntil(not eventPlayer.isUsingUltimate() or eventPlayer.isDead(), 10)
-    if eventPlayer.isDead():
-        goto lbl_0
-    eventPlayer.mov_speed_buff -= 13.043
-    eventPlayer.setMoveSpeed(min(max(100 + eventPlayer.mov_speed_buff, 20), 200))
-    lbl_0:
-
-
 rule "[Bot] PTP1":
     @Event eachPlayer
     @Team 1
@@ -27,8 +11,6 @@ rule "[Bot] PTP1":
     
     wait(2, Wait.ABORT_WHEN_FALSE)
     eventPlayer.teleport(getPayloadPosition() + vect(random.uniform(0, 1.5), 1.5, random.uniform(0, 1.5)))
-
-
 rule "[Bot] ACC":
     @Event eachPlayer
     @Team 1
@@ -41,8 +23,6 @@ rule "[Bot] ACC":
     if ruleCondition:
         loop()
     eventPlayer.stopAcceleration()
-
-
 rule "[Kiriko]: Protection Suzu Clear Effect":
     @Event playerDealtHealing
     @Hero kiriko
@@ -59,8 +39,6 @@ rule "[Kiriko]: Protection Suzu Clear Effect":
     healee.setStatusEffect(healer, Status.PHASED_OUT, 1.8)
     wait(1.8)
     healee.unaffected = false
-
-
 rule "[Kiriko]: Swift Step":
     @Event eachPlayer
     @Hero kiriko
@@ -69,8 +47,6 @@ rule "[Kiriko]: Swift Step":
     resetStatuses()
     eventPlayer.setStatusEffect(eventPlayer, Status.INVINCIBLE, 1.5)
     eventPlayer.setStatusEffect(eventPlayer, Status.PHASED_OUT, 1.5)
-
-
 rule "[kiriko]: swift step hp":
     @Event eachPlayer
     @Condition getPlayersOnHero(Hero.KIRIKO, eventPlayer.getTeam())[0].isHoldingButton(Button.ABILITY_1) == true
@@ -89,8 +65,6 @@ rule "[kiriko]: swift step hp":
     #eventPlayer.kiriko_buff = getLastCreatedHealthPool()
     lbl_1:
     eventPlayer.kiriko_buff.append(getLastCreatedHealthPool())
-
-
 rule "[kiriko]: remove swift step hp":
     @Event eachPlayer
     @Condition eventPlayer.isAlive() == true
@@ -102,8 +76,6 @@ rule "[kiriko]: remove swift step hp":
     if len(eventPlayer.kiriko_buff) != 0:
         loop()
     eventPlayer.kiriko_buff = []
-
-
 rule "[Lifeweaver]: Life Grip Clear Effect":
     @Event playerReceivedHealing
     @Condition eventAbility == Button.ABILITY_2
@@ -111,3 +83,11 @@ rule "[Lifeweaver]: Life Grip Clear Effect":
     @Condition eventPlayer.mauga_berserker_soul != true
     
     resetStatuses()
+rule "[Kiriko]: headshot damage":
+    @Event playerDealtDamage
+    @Hero kiriko
+    @Condition HeadshotDamage[2] > 2
+    @Condition eventWasCriticalHit == true
+    @Condition eventAbility == Button.PRIMARY_FIRE
+    
+    damage(victim, attacker, ceil((eventDamage * (HeadshotDamage[2] - 2)) / 2))

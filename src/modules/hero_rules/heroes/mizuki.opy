@@ -6,16 +6,12 @@ rule "[Mizuki]: Soul Hat bonus heal and cooldown refund":
 
     heal(healee, healer, healee.getMaxHealth() * 0.25)
     healer.setAbilityCooldown(Button.SECONDARY_FIRE, max(0, healer.getAbilityCooldown(Button.SECONDARY_FIRE) - 0.5))
-
-
 rule "[Mizuki]: Substitute Doll clears negative statuses":
     @Event eachPlayer
     @Hero mizuki
     @Condition eventPlayer.isUsingAbility1() == true
 
     resetStatuses()
-
-
 rule "[Mizuki]: Soul Chain weakens target":
     @Event playerDealtDamage
     @Hero mizuki

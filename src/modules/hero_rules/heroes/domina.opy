@@ -15,8 +15,6 @@ rule "[Domina]: Sonic Repulsion Field Debuff":
     victim.mov_speed_buff += 70
     victim.setMoveSpeed(min(max(100 + victim.mov_speed_buff, 20), 200))
     lbl_0:
-
-
 rule "[Domina]: Energy Crystal Slow":
     @Event playerDealtDamage
     @Hero domina

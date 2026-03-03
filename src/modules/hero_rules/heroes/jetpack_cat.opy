@@ -6,16 +6,12 @@ rule "[JetpackCat]: Frenetic Flight damage reduction":
     eventPlayer.setDamageReceived(65)
     waitUntil(not eventPlayer.isUsingAbility1(), 3)
     eventPlayer.setDamageReceived(100)
-
-
 rule "[JetpackCat]: Purr cleanses negative statuses":
     @Event eachPlayer
     @Hero jetpackCat
     @Condition eventPlayer.isUsingAbility2() == true
 
     resetStatuses()
-
-
 rule "[JetpackCat]: Catnapper damage reduction":
     @Event eachPlayer
     @Hero jetpackCat
@@ -24,8 +20,6 @@ rule "[JetpackCat]: Catnapper damage reduction":
     eventPlayer.setDamageReceived(25)
     waitUntil(not eventPlayer.isUsingUltimate(), 6)
     eventPlayer.setDamageReceived(100)
-
-
 rule "[JetpackCat]: Catnapper bonus max health damage":
     @Event playerDealtKnockback
     @Hero jetpackCat
@@ -34,8 +28,6 @@ rule "[JetpackCat]: Catnapper bonus max health damage":
     @Condition (victim.hasStatus(Status.INVINCIBLE) or victim.hasStatus(Status.UNKILLABLE) or victim.hasStatus(Status.PHASED_OUT)) == false
 
     damage(victim, attacker, victim.getMaxHealth() * 0.5)
-
-
 rule "[JetpackCat]: Frenetic Flight fuel regeneration":
     @Event eachPlayer
     @Hero jetpackCat
@@ -46,8 +38,6 @@ rule "[JetpackCat]: Frenetic Flight fuel regeneration":
     eventPlayer.setAbilityResource(Button.SECONDARY_FIRE, min(100, eventPlayer.getAbilityResource(Button.SECONDARY_FIRE) + 7.5))
     if ruleCondition:
         loop()
-
-
 rule "[JetpackCat]: Claws Out melee stun":
     @Event playerDealtDamage
     @Hero jetpackCat

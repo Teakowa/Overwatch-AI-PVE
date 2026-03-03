@@ -1,15 +1,3 @@
-rule "[Soldier: 76]: Helix Rockets lose control":
-    @Event playerDealtDamage
-    @Hero soldier
-    #@Condition attacker.getHero() == Hero.SOLDIER
-    @Condition eventAbility == Button.SECONDARY_FIRE
-    @Condition attacker != victim
-    
-    #victim.applyImpulse(Vector.BACKWARD, 7, Relativity.TO_PLAYER)
-    victim.setStatusEffect(attacker, Status.BURNING, S76Buff[0])
-    victim.startDamageOverTime(attacker, S76Buff[0], S76Buff[1])
-
-
 rule "[Reinhardt] firestrike healing":
     @Event playerDealtDamage
     @Hero reinhardt
@@ -21,8 +9,6 @@ rule "[Reinhardt] firestrike healing":
     lbl_0:
     victim.setStatusEffect(attacker, Status.BURNING, 2)
     victim.startDamageOverTime(attacker, 2, 20)
-
-
 rule "[Reinhardt]: Earthshatter":
     @Event playerDealtFinalBlow
     @Hero reinhardt
@@ -30,8 +16,6 @@ rule "[Reinhardt]: Earthshatter":
     @Condition eventAbility == Button.ULTIMATE
     
     eventPlayer.setUltCharge(100)
-
-
 rule "[Reinhardt]: Crusaders stand":
     @Event eachPlayer
     @Hero reinhardt
@@ -40,8 +24,6 @@ rule "[Reinhardt]: Crusaders stand":
     @Condition eventPlayer.getHealthOfType(Health.ARMOR) <= 0
     
     eventPlayer.reinhardt_buff[0] = true
-
-
 rule "[Reinhardt]: Crusaders stand":
     @Event eachPlayer
     @Hero reinhardt
@@ -56,8 +38,6 @@ rule "[Reinhardt]: Crusaders stand":
     wait(30)
     eventPlayer.reinhardt_buff[0] = false
     smallMessage(eventPlayer, "  {0} 十字军坚定 已就绪".format(abilityIconString(eventPlayer.getHero(), Button.SECONDARY_FIRE)))
-
-
 rule "[Reinhardt]: Charge cd":
     @Event eachPlayer
     @Hero reinhardt
@@ -71,8 +51,6 @@ rule "[Reinhardt]: Charge cd":
         goto lbl_0
     eventPlayer.setAbilityCooldown(Button.ABILITY_1, eventPlayer.getAbilityCooldown(Button.ABILITY_1) - eventPlayer.reinhardt_charge_cd)
     lbl_0:
-
-
 rule "[Reinhardt]: Shield Slam knockback":
     @Event eachPlayer
     @Team 2
@@ -82,16 +60,12 @@ rule "[Reinhardt]: Shield Slam knockback":
     eventPlayer.setKnockbackDealt(50)
     waitUntil(not eventPlayer.isFiringSecondaryFire(), 99999)
     eventPlayer.setKnockbackDealt(100)
-
-
 rule "[Reinhardt]: Shield Slam stun":
     @Event playerDealtKnockback
     @Hero reinhardt
     @Condition eventAbility == Button.SECONDARY_FIRE
     
     victim.setStatusEffect(attacker, Status.STUNNED, 1.2)
-
-
 rule "[Reinhardt]: Charge dmg fix":
     @Event playerReceivedKnockback
     @Condition attacker.getHero() == Hero.REINHARDT
@@ -103,8 +77,6 @@ rule "[Reinhardt]: Charge dmg fix":
     eventPlayer.rein_charge_fix = getLastDamageModification()
     waitUntil(eventPlayer.getAbilityCooldown(Button.ABILITY_1) > 0, 3.12)
     stopDamageModification(eventPlayer.rein_charge_fix)
-
-
 rule "[Reinhardt]: Attack to get overhealth":
     @Event playerDealtKnockback
     @Hero reinhardt
@@ -117,8 +89,6 @@ rule "[Reinhardt]: Attack to get overhealth":
     wait(0.5)
     #if ruleCondition:
     #        loop()
-
-
 rule "[Reinhardt]: Attack to get overhealth removal":
     @Event eachPlayer
     @Hero reinhardt
@@ -131,29 +101,3 @@ rule "[Reinhardt]: Attack to get overhealth removal":
     if ruleCondition:
         loop()
     eventPlayer.rein_health_id = []
-
-
-rule "[Mauga]: Cardiac Overdrive Dmg. reduction":
-    @Event eachPlayer
-    @Hero mauga
-    @Condition evalOnce(MaugaBuff[4]) != 0
-    @Condition eventPlayer.mauga_berserker_soul != true
-    @Condition eventPlayer.isUsingAbility2() == true
-    @Condition eventPlayer.dmg_reduction >= 0
-    
-    eventPlayer.dmg_reduction = eventPlayer.dmg_reduction if eventPlayer.dmg_reduction > MaugaBuff[4] else MaugaBuff[4]
-    eventPlayer.setDamageReceived(100 - eventPlayer.dmg_reduction)
-    waitUntil(not eventPlayer.isUsingAbility2(), 3)
-    eventPlayer.dmg_reduction -= MaugaBuff[4]
-    eventPlayer.setDamageReceived(100)
-
-
-rule "[Mauga]: Cage Fight ignore headshot":
-    @Event eachPlayer
-    @Team 1
-    @Hero mauga
-    @Condition eventPlayer.isUsingUltimate() == true
-    
-    eventPlayer.startHealingOverTime(eventPlayer, 50, 15)
-
-

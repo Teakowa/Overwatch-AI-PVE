@@ -1,21 +1,3 @@
-rule "[JunkerQueen]: Commanding Shout taunt enemies":
-    @Event eachPlayer
-    @Hero junkerQueen
-    @Condition eventPlayer.isUsingAbility1() == true
-    @Condition (len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) and distance(eventPlayer, player) <= 15])) > 0
-    
-    if eventPlayer.junker_queen_buff == null:
-        goto lbl_0
-    removeHealthPool(eventPlayer.junker_queen_buff)
-    lbl_0:
-    ([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) and distance(eventPlayer, player) <= 15 and player.unaffected != true]).taunt = true
-    wait(0.096)
-    eventPlayer.addHealthPool(Health.NORMAL, 500 * (len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if player.taunt == true])), false, false)
-    eventPlayer.junker_queen_buff = getLastCreatedHealthPool()
-    wait(6)
-    removeHealthPool(eventPlayer.junker_queen_buff)
-
-
 rule "[JunkerQueen]: Taunt enemies":
     @Event eachPlayer
     @Condition eventPlayer.isAlive() == true
@@ -33,8 +15,6 @@ rule "[JunkerQueen]: Taunt enemies":
     enableAllAbilities()
     eventPlayer.stopFacing()
     eventPlayer.taunt = false
-
-
 rule "[Wuyang]: mov_speed_penalty":
     @Event playerDealtKnockback
     @Hero wuyang
@@ -57,8 +37,6 @@ rule "[Wuyang]: mov_speed_penalty":
         victim.wuyang_buff[3] = false
         lbl_0:
     wait(0.32)
-
-
 rule "[Wuyang]: xuanwu cd":
     @Event playerDealtKnockback
     @Hero wuyang
@@ -67,8 +45,6 @@ rule "[Wuyang]: xuanwu cd":
     
     eventPlayer.setAbilityCooldown(Button.ABILITY_2, eventPlayer.getAbilityCooldown(Button.ABILITY_2) - 1)
     wait(0.5)
-
-
 rule "[Wuyang]: Restorative shield Target":
     @Event playerReceivedHealing
     @Condition healer.getHero() == Hero.WUYANG
@@ -80,8 +56,6 @@ rule "[Wuyang]: Restorative shield Target":
     wait(5)
     removeHealthPool(eventPlayer.wuyang_buff[1])
     eventPlayer.wuyang_buff[0] = false
-
-
 rule "[Wuyang]: Restorative shield":
     @Event eachPlayer
     @Condition eventPlayer.wuyang_buff[0] == true
@@ -94,8 +68,6 @@ rule "[Wuyang]: Restorative shield":
     lbl_0:
     eventPlayer.addHealthPool(Health.SHIELDS, WuyangBuff[1], true, false)
     eventPlayer.wuyang_buff[1] = getLastCreatedHealthPool()
-
-
 rule "[Wuyang]: Rushing Torrent":
     @Event eachPlayer
     @Hero wuyang
@@ -112,8 +84,6 @@ rule "[Wuyang]: Rushing Torrent":
     eventPlayer.dmg_reduction = 0
     stopHealingOverTime(eventPlayer.wuyang_buff[0])
     eventPlayer.setDamageReceived(100)
-
-
 rule "[Wuyang]: Rushing Torrent jump":
     @Event eachPlayer
     @Hero wuyang
@@ -124,8 +94,6 @@ rule "[Wuyang]: Rushing Torrent jump":
     eventPlayer.applyImpulse(Vector.UP, 12, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
     wait(WAIT_SHORT_FRAME)
     waitUntil(eventPlayer.isOnGround(), 3)
-
-
 rule "[Wuyang]: Ebb and Flow lost control":
     @Event playerReceivedKnockback
     @Condition eventAbility == Button.ABILITY_2
@@ -137,8 +105,6 @@ rule "[Wuyang]: Ebb and Flow lost control":
     waitUntil(victim.hasStatus(Status.INVINCIBLE), 0.75)
     victim.stopForcingThrottle()
     #victim.setGravity(100)
-
-
 rule "[Wuyang]: Ebb and Flow set":
     @Event playerReceivedKnockback
     #@Condition eventPlayer.isUsingAbility2() == true
@@ -148,8 +114,6 @@ rule "[Wuyang]: Ebb and Flow set":
     victim.wuyang_buff[2]++
     #eventPlayer.setAbilityCooldown(Button.ABILITY_2, eventPlayer.getAbilityCooldown(Button.ABILITY_2) - 1)
     wait(WAIT_SHORT_FRAME)
-
-
 rule "[Wuyang]: Ebb and Flow Ability":
     @Event eachPlayer
     @Condition eventPlayer.wuyang_buff[2] >= 2
@@ -157,8 +121,6 @@ rule "[Wuyang]: Ebb and Flow Ability":
     eventPlayer.setStatusEffect(eventPlayer.reset_pvar[14], Status.FROZEN, 2.5)
     waitUntil(eventPlayer.unaffected or eventPlayer.hasStatus(Status.INVINCIBLE) or eventPlayer.hasStatus(Status.PHASED_OUT), 5)
     eventPlayer.wuyang_buff[2] *= 0
-
-
 rule "[Wuyang]: Ebb and Flow countdown":
     @Event eachPlayer
     @Condition eventPlayer.wuyang_buff[2] > 0
@@ -168,8 +130,6 @@ rule "[Wuyang]: Ebb and Flow countdown":
     if ruleCondition:
         loop()
     #wait(0.25, Wait.RESTART_WHEN_TRUE)
-
-
 rule "[Wuyang]: Tidal Blast mov_speed_penalty":
     @Event playerDealtKnockback
     @Hero wuyang
@@ -187,8 +147,6 @@ rule "[Wuyang]: Tidal Blast mov_speed_penalty":
     victim.setMoveSpeed(min(max(100 + victim.mov_speed_buff, 20), 200))
     victim.wuyang_buff[4] = false
     lbl_0:
-
-
 rule "[Wuyang]: Tidal Blast Allies Target":
     @Event playerDealtHealing
     @Hero wuyang

@@ -1,3 +1,9 @@
+rule "[Tracer] Recall Healing":
+    @Event eachPlayer
+    @Hero tracer
+    @Condition eventPlayer.isUsingAbility2() == true
+    
+    eventPlayer.startHealingOverTime(null, 2, 25)
 rule "[Tracer] Instant Respawn":
     @Event playerDied
     @Hero tracer
@@ -5,115 +11,6 @@ rule "[Tracer] Instant Respawn":
     wait(WAIT_SHORT_FRAME)
     eventPlayer.respawn()
     eventPlayer.setAbilityCharge(Button.ABILITY_1, 3)
-
-
-rule "[Ramattra]: Pummel Knockback":
-    @Event playerDealtDamage
-    @Hero ramattra
-    @Condition eventAbility == Button.ABILITY_1
-    
-    victim.applyImpulse(directionFromAngles(horizontalAngleOfDirection(victim.getPosition() - attacker.getPosition()), -20), 5, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
-    victim.applyImpulse(Vector.UP, 2.5, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
-    victim.setEnvironmentalKillCreditor(attacker)
-    wait(0.5)
-
-
-rule "[Ramattra] ult speed":
-    @Event eachPlayer
-    @Hero ramattra
-    @Condition eventPlayer.isUsingUltimate() == true
-    
-    eventPlayer.mov_speed_buff += Ram_Annihilation[3]
-    eventPlayer.setDamageDealt(100 + Ram_Annihilation[5])
-    eventPlayer.setDamageReceived(100 - Ram_Annihilation[4])
-    eventPlayer.setMoveSpeed(min(max(100 + eventPlayer.mov_speed_buff, 20), 200))
-    eventPlayer.setKnockbackReceived(30)
-    waitUntil(not eventPlayer.isUsingUltimate() or eventPlayer.isDead(), WAIT_TIMEOUT_FOREVER)
-    if eventPlayer.isDead():
-        goto lbl_0
-    eventPlayer.mov_speed_buff -= Ram_Annihilation[3]
-    eventPlayer.setMoveSpeed(min(max(100 + eventPlayer.mov_speed_buff, 20), 200))
-    lbl_0:
-    eventPlayer.setDamageReceived(100)
-    eventPlayer.setKnockbackReceived(100)
-    eventPlayer.setDamageDealt(100)
-    wait(WAIT_SHORT_FRAME)
-    #removeTankPassive()
-
-
-rule "[Ramattra] ult start":
-    @Event eachPlayer
-    @Hero ramattra
-    @Condition eventPlayer.isUsingUltimate() == true
-    @Condition eventPlayer.getHealthOfType(Health.NORMAL) <= eventPlayer.custom_hp_pvar[0] + 50
-    
-    eventPlayer.ram_block_damage += 50
-    eventPlayer.hudText = "{0}/{1}".format(floor(eventPlayer.ram_block_damage), Ram_Annihilation[0])
-    wait(1.16)
-    if ruleCondition:
-        loop()
-
-
-rule "[Ramattra] ult healing":
-    @Event playerDealtDamage
-    @Hero ramattra
-    #@Condition attacker.getHero() == Hero.RAMATTRA == true
-    @Condition attacker.isUsingUltimate() == true
-    @Condition attacker.getHealth() < attacker.getMaxHealth()
-    #@Condition eventAbility == Button.PRIMARY_FIRE == true
-    
-    #heal(eventPlayer, eventPlayer, Ram_Annihilation[2] * 15 * len(getPlayersInRadius(eventPlayer, 13, getOppositeTeam(eventPlayer.getTeam()), LosCheck.SURFACES_AND_ENEMY_BARRIERS)))
-    #wait(0.5)
-    #playEffect(eventPlayer, DynamicEffect.GOOD_PICKUP_EFFECT, Color.YELLOW, eventPlayer, 200)
-    heal(attacker, attacker, eventDamage * Ram_Annihilation[1])
-    wait(0.0016)
-
-
-rule "[Ramattra]: Pummel healing":
-    @Event playerDealtDamage
-    @Team 1
-    @Hero ramattra
-    @Condition eventPlayer.isUsingAbility1() == true
-    @Condition eventAbility == Button.ABILITY_1
-    @Condition eventPlayer.getHealthOfType(Health.NORMAL) <= eventPlayer.custom_hp_pvar[0] + 50
-    
-    eventPlayer.ram_block_damage += eventDamage * 2.5
-    wait(0.3)
-
-
-rule "[Ramattra]: Pummel healing":
-    @Event playerDealtDamage
-    @Team 2
-    @Hero ramattra
-    @Condition eventPlayer.isUsingAbility1() == true
-    @Condition eventAbility == Button.ABILITY_1
-    @Condition eventPlayer.getHealthOfType(Health.NORMAL) <= eventPlayer.custom_hp_pvar[0] + 50
-    
-    eventPlayer.ram_block_damage += eventDamage * 1.5
-    eventPlayer.hudText = "{0}/{1}".format(floor(eventPlayer.ram_block_damage), Ram_Annihilation[0])
-    wait(0.3)
-
-
-rule "[Ramattra]: Pain endures":
-    @Event playerDealtFinalBlow
-    @Hero ramattra
-    @Condition eventPlayer.getUltCharge() != 100
-    @Condition eventPlayer.isUsingUltimate() == true
-    @Condition (eventAbility == Button.ULTIMATE or eventAbility == Button.ABILITY_1) == true
-    
-    eventPlayer.setUltCharge(eventPlayer.getUltCharge() + 25)
-    wait(0.3)
-
-
-rule "[Wrecking Ball] Grappling Claw cd reset":
-    @Event eachPlayer
-    @Hero wreckingBall
-    @Condition eventPlayer.isInSpawnRoom() == true
-    @Condition eventPlayer.getAbilityCooldown(Button.SECONDARY_FIRE) != 0
-    
-    eventPlayer.setAbilityCooldown(Button.SECONDARY_FIRE, 0)
-
-
 rule "[Tracer] Pulse Bomb Damage":
     @Event playerDealtDamage
     @Hero tracer
@@ -122,8 +19,6 @@ rule "[Tracer] Pulse Bomb Damage":
     @Condition eventDamage > 10
     
     damage(victim, attacker, ceil(eventDamage))
-
-
 rule "[Sombra]: Apply OW1 hack on top of OW2 hack":
     @Event eachPlayer
     @Condition eventPlayer.hasStatus(Status.HACKED) == true
@@ -133,8 +28,6 @@ rule "[Sombra]: Apply OW1 hack on top of OW2 hack":
     eventPlayer.setStatusEffect(eventPlayer.reset_pvar[6], Status.HACKED, 4 if eventPlayer.getTeam() == Team.1 else 6)
     eventPlayer.hack_timer = 4 if eventPlayer.getTeam() == Team.1 else 6
     chaseAtRate(eventPlayer.hack_timer, 0, 1, ChaseRateReeval.NONE)
-
-
 rule "[Sombra]: hack healing received":
     @Event eachPlayer
     @Condition eventPlayer.hasStatus(Status.HACKED) == true
@@ -148,18 +41,6 @@ rule "[Sombra]: hack healing received":
     #destroyEffect(eventPlayer.sombra_buff)
     #eventPlayer.sombra_buff = null
     eventPlayer.healing_decrease = 0
-
-
-rule "[Sombra]: kiil reset cooldown":
-    @Event playerEarnedElimination
-    @Hero sombra
-    @Condition eventPlayer.isAlive() == true
-    @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) > 0
-    
-    eventPlayer.setAbilityCooldown(Button.ABILITY_2, 0)
-    wait(0.5)
-
-
 rule "[Tracer] Kill Heal":
     @Event playerEarnedElimination
     @Hero tracer
@@ -168,8 +49,6 @@ rule "[Tracer] Kill Heal":
     @Condition eventPlayer.getHealth() < eventPlayer.getMaxHealth() == true
     
     heal(eventPlayer, null, 99999)
-
-
 rule "[Tracer]: kiil reset cooldown":
     @Event playerEarnedElimination
     @Hero tracer
@@ -179,3 +58,25 @@ rule "[Tracer]: kiil reset cooldown":
     
     eventPlayer.setAbilityCharge(Button.ABILITY_1, 3)
     eventPlayer.setAbilityCooldown(Button.ABILITY_2, 0)
+rule "[Tracer]: Recall follow Sombra":
+    @Event eachPlayer
+    @Team 1
+    @Hero tracer
+    @Condition eventPlayer.reset_pvar[4] != null
+    @Condition eventPlayer.reset_pvar[4].reset_pvar[9] != null
+    @Condition eventPlayer.isUsingAbility1() == false
+    @Condition eventPlayer.isFiringSecondaryFire() == false
+    @Condition eventPlayer.isFiringPrimaryFire() == false
+    @Condition eventPlayer.reset_pvar[4].isAlive() == true
+    @Condition eventPlayer.reset_pvar[4].reset_pvar[9][0].isAlive() == true
+    @Condition (not eventPlayer.isOnObjective() or not eventPlayer.isInSpawnRoom()) == true
+    @Condition distance(eventPlayer.reset_pvar[4], eventPlayer.reset_pvar[4].reset_pvar[9][0]) <= 5.5
+    @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) == 0
+    
+    wait(0.8, Wait.ABORT_WHEN_FALSE)
+    eventPlayer.startForcingButton(Button.ABILITY_2)
+    waitUntil(not eventPlayer.isUsingAbility2(), 0.91)
+    eventPlayer.teleport(nearestWalkablePosition(eventPlayer.reset_pvar[4][0] - worldVector(vect(0, 0, -5), eventPlayer, Transform.ROTATION)))
+    eventPlayer.startFacing(vectorTowards(updateEveryFrame(eventPlayer.getEyePosition()), ((sorted([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer.getEyePosition(), player.getEyePosition()) == true], lambda i: distance(eventPlayer.getEyePosition(), i.getEyePosition())))[0]).getEyePosition()), 10000)
+    waitUntil(not eventPlayer.reset_pvar[4].reset_pvar[9][0].isAlive(), 3)
+    eventPlayer.stopFacing()

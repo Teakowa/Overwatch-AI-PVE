@@ -5,8 +5,6 @@ rule "[Hazard]: Violent Leap kiil reset cooldown":
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) > 0
     
     eventPlayer.setAbilityCooldown(Button.ABILITY_1, 0)
-
-
 rule "[Hazard]: Violent Leap HP":
     @Event eachPlayer
     @Hero hazard
@@ -22,8 +20,6 @@ rule "[Hazard]: Violent Leap HP":
     wait(3, Wait.RESTART_WHEN_TRUE)
     removeHealthPool(eventPlayer.hazard_hp_id)
     eventPlayer.hazard_hp_id = null
-
-
 rule "[Hazard]: Spike Guard cd":
     @Event playerDealtDamage
     @Hero hazard
@@ -32,8 +28,6 @@ rule "[Hazard]: Spike Guard cd":
     @Condition HazardBuff[0] != 0
     
     damage(victim, attacker, HazardBuff[0] * eventDamage - eventDamage)
-
-
 rule "[Hazard]: stun Downpour":
     @Event playerTookDamage
     @Condition HazardBuff[10] == true
@@ -46,8 +40,6 @@ rule "[Hazard]: stun Downpour":
         goto lbl_0
     attacker.setUltCharge(attacker.getUltCharge() + HazardBuff[11])
     lbl_0:
-
-
 rule "[Hazard]: Spike Guard get Ultimate and heal":
     @Event playerTookDamage
     @Hero hazard
@@ -56,8 +48,6 @@ rule "[Hazard]: Spike Guard get Ultimate and heal":
     eventPlayer.setUltCharge(eventPlayer.getUltCharge() + (HazardBuff[1] if eventPlayer.getTeam() == Team.2 else HazardBuff[1] * 1.15))
     heal(eventPlayer, eventPlayer, eventDamage / 0.35 * (HazardBuff[2] if eventPlayer.getTeam() == Team.2 else 0.5))
     wait(max(0.5, getAverageServerLoad() / 100))
-
-
 rule "[Hazard]: Spike Guard using tracking":
     @Event eachPlayer
     @Hero hazard
@@ -66,97 +56,6 @@ rule "[Hazard]: Spike Guard using tracking":
     eventPlayer.hazard_using_ability_sec = true
     waitUntil(not eventPlayer.isHoldingButton(Button.SECONDARY_FIRE), 12)
     eventPlayer.hazard_using_ability_sec = false
-
-
-rule "[Orisa]: stun when ult":
-    @Event playerDealtKnockback
-    @Hero orisa
-    @Condition eventAbility == Button.ULTIMATE
-    @Condition victim.unaffected != true
-    
-    victim.setStatusEffect(attacker, Status.STUNNED, 1.25)
-
-
-rule "[Orisa]: stun when ult":
-    @Event playerDealtKnockback
-    @Hero orisa
-    @Condition eventAbility == Button.SECONDARY_FIRE
-    @Condition victim.isAlive() == true
-    @Condition victim.unaffected != true
-    
-    wait(0.3, Wait.ABORT_WHEN_FALSE)
-    if victim.zarya_buff[1] != null:
-        goto lbl_0
-    if victim.orisa_buff == true:
-        goto lbl_0
-    victim.orisa_buff = true
-    victim.mov_speed_buff -= Orisa_Fortify[2]
-    victim.setMoveSpeed(min(max(100 + victim.mov_speed_buff, 20), 200))
-    wait(2)
-    if victim.orisa_buff != true:
-        goto lbl_0
-    victim.mov_speed_buff += Orisa_Fortify[2]
-    victim.setMoveSpeed(min(max(100 + victim.mov_speed_buff, 20), 200))
-    victim.orisa_buff = false
-    lbl_0:
-
-
-rule "[Orisa]: fly":
-    @Event eachPlayer
-    @Hero orisa
-    @Condition eventPlayer.isUsingAbility2() == true
-    @Condition eventPlayer.isHoldingButton(Button.JUMP) == true
-    
-    eventPlayer.applyImpulse(eventPlayer.getFacingDirection(), 10, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
-    wait()
-    if ruleCondition:
-        loop()
-
-
-rule "[Ramattra]: block":
-    @Event playerTookDamage
-    @Hero ramattra
-    @Condition (eventPlayer.isUsingAbility1() or eventPlayer.isUsingUltimate()) == true
-    @Condition eventPlayer.isFiringSecondaryFire() == true
-    @Condition eventPlayer.ram_block_damage <= Ram_Annihilation[0]
-    @Condition eventPlayer.getHealthOfType(Health.NORMAL) <= eventPlayer.custom_hp_pvar[0] + 50
-    
-    eventPlayer.ram_block_damage += eventDamage
-    eventPlayer.hudText = "{0}/{1}".format(floor(eventPlayer.ram_block_damage), Ram_Annihilation[0])
-
-
-rule "[Ramattra]: block HP":
-    @Event eachPlayer
-    @Hero ramattra
-    @Condition Ram_Annihilation[0] != 0
-    @Condition eventPlayer.ram_block_damage != 0
-    @Condition eventPlayer.ram_block_damage >= Ram_Annihilation[0]
-    
-    eventPlayer.addHealthPool(Health.NORMAL, Ram_Annihilation[0] if eventPlayer.ram_block_damage >= Ram_Annihilation[0] else eventPlayer.ram_block_damage, false, false)
-    eventPlayer.ram_block_damage = 0
-    eventPlayer.hudText = ""
-    #if eventPlayer.getTeam() == Team.2:
-    #        goto lbl_0
-    #eventPlayer.startHealingOverTime(eventPlayer, 5, eventPlayer.getMaxHealth() * 0.25)
-    lbl_0:
-
-
-rule "[Ramattra]: block HUD":
-    @Event eachPlayer
-    @Team 2
-    @Hero ramattra
-    @Condition eventPlayer.isInSpawnRoom() != true
-    @Condition (eventPlayer.isUsingAbility1() or eventPlayer.isUsingUltimate()) == true
-    @Condition eventPlayer.reset_pvar[0] == false
-    @Condition eventPlayer.ram_block_damage > 0
-    
-    #hudText(eventPlayer, null, "\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r", "{0}/{1}".format(floor(eventPlayer.ram_block_damage), Ram_Annihilation[0]), HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
-    #eventPlayer.ram_block_damage_hud = getLastCreatedText()
-    waitUntil(eventPlayer.ram_block_damage == 0 or eventPlayer.reset_pvar[0] or eventPlayer.isInSpawnRoom(), WAIT_TIMEOUT_FOREVER)
-    eventPlayer.hudText = ""
-    #destroyHudText(eventPlayer.ram_block_damage_hud)
-
-
 rule "[Ramattra]: Annihilation dmg reduc":
     @Event eachPlayer
     @Condition eventPlayer.reset_pvar[5].isUsingUltimate() == true

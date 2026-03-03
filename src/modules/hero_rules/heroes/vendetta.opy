@@ -6,8 +6,6 @@ rule "[Wuyang]: Tidal Blast Allies Healing":
     eventPlayer.startHealingOverTime(eventPlayer.reset_pvar[13], 3, eventPlayer.getMaxHealth() * WuyangBuff[5])
     wait(3)
     eventPlayer.wuyang_buff = false
-
-
 rule "[Vendetta]: Palatine Fang":
     @Event playerDealtKnockback
     @Hero vendetta
@@ -26,8 +24,6 @@ rule "[Vendetta]: Palatine Fang":
     wait()
     eventPlayer.startHealingOverTime(eventPlayer, eventPlayer.getMaxHealth() * VendettaBuff[6] / 1.5, 1.5)
     wait(0.032)
-
-
 rule "[Vendetta]: Whirlwind Dash":
     @Event playerReceivedKnockback
     @Condition attacker.getHero() == Hero.VENDETTA
@@ -36,8 +32,6 @@ rule "[Vendetta]: Whirlwind Dash":
     damage(eventPlayer, attacker, VendettaBuff[3])
     heal(eventPlayer, eventPlayer, (eventPlayer.getMaxHealth() - eventPlayer.getHealth()) * VendettaBuff[2])
     wait(1)
-
-
 rule "[Vendetta]: Soaring Slice":
     @Event eachPlayer
     @Hero vendetta
@@ -49,8 +43,6 @@ rule "[Vendetta]: Soaring Slice":
     wait(0.8)
     eventPlayer.unaffected = false
     eventPlayer.clearStatusEffect(Status.PHASED_OUT)
-
-
 rule "[Vendetta]: Soaring Slice hack":
     @Event playerDealtKnockback
     @Hero vendetta
@@ -64,8 +56,6 @@ rule "[Vendetta]: Soaring Slice hack":
     chaseAtRate(victim.hack_timer, 0, 1, ChaseRateReeval.NONE)
     wait(2)
     victim.vendetta_hud = false
-
-
 rule "[Vendetta]: Sundering Blade":
     @Event playerReceivedKnockback
     @Condition attacker.getHero() == Hero.VENDETTA
@@ -79,5 +69,3 @@ rule "[Vendetta]: Sundering Blade":
     if victim.getHealth() <= victim.getMaxHealth() * VendettaBuff[5]:
         damage(victim, attacker, 44444)
     wait(1)
-
-
