@@ -94,22 +94,33 @@ def applySignedMoveSpeed():
     eventPlayer.setMoveSpeed(min(max(100 + eventPlayer.mov_speed_buff, 20), 200))
 
 
+def applyMoveSpeedOverride(value):
+    @Name "[utilities/move_speed.opy]: applyMoveSpeedOverride()"
+    
+    if abs(eventPlayer.mov_speed_buff) >= abs(value):
+        return
+    eventPlayer.mov_speed_buff = value
+    applySignedMoveSpeed()
+
+
+def clearMoveSpeedOverride(expectedValue):
+    @Name "[utilities/move_speed.opy]: clearMoveSpeedOverride()"
+    
+    if eventPlayer.mov_speed_buff != expectedValue:
+        return
+    eventPlayer.mov_speed_buff = 0
+    applySignedMoveSpeed()
+
+
 def clearMoveSpeedDebuffs():
     @Name "[utilities/move_speed.opy]: clearMoveSpeedDebuffs()"
     
-    if eventPlayer.brigitte_buff[0] == true:
-        eventPlayer.mov_speed_buff += Brigitte[3]
-    if eventPlayer.orisa_buff == true:
-        eventPlayer.mov_speed_buff += Orisa_Fortify[2]
-    if eventPlayer.wuyang_buff[3] == true:
-        eventPlayer.mov_speed_buff += WuyangBuff[0]
-    if eventPlayer.wuyang_buff[4] == true:
-        eventPlayer.mov_speed_buff += WuyangBuff[4]
     eventPlayer.brigitte_buff[0] = false
     eventPlayer.orisa_buff = false
     eventPlayer.wuyang_buff[3] = false
     eventPlayer.wuyang_buff[4] = false
     eventPlayer.mov_speed_penalty = 0
+    eventPlayer.mov_speed_buff = 0
     applySignedMoveSpeed()
 
 

@@ -3,11 +3,9 @@ rule "[Venture] Burrow speed and healing":
     @Hero venture
     @Condition eventPlayer.isUsingAbility1() == true
     
-    eventPlayer.mov_speed_buff += 56
-    eventPlayer.setMoveSpeed(min(max(100 + eventPlayer.mov_speed_buff, 20), 200))
+    applyMoveSpeedOverride(56)
     waitUntil(not eventPlayer.isUsingAbility1() or eventPlayer.isDead(), 99999)
     if eventPlayer.isDead():
         goto lbl_0
-    eventPlayer.mov_speed_buff -= 56
-    eventPlayer.setMoveSpeed(min(max(100 + eventPlayer.mov_speed_buff, 20), 200))
+    clearMoveSpeedOverride(56)
     lbl_0:

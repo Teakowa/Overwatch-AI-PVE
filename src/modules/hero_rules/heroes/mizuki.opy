@@ -25,10 +25,12 @@ rule "[Mizuki]: Soul Chain weakens target":
 
 	victim.setStatusEffect(attacker, Status.ROOTED, 2)
     victim.setDamageDealt(50)
-    victim.mov_speed_buff -= 60
-    victim.setMoveSpeed(min(max(100 + victim.mov_speed_buff, 20), 200))
+    if abs(victim.mov_speed_buff) < 60:
+        victim.mov_speed_buff = -60
+        victim.setMoveSpeed(min(max(100 + victim.mov_speed_buff, 20), 200))
     wait(4)
     if victim.isDead() != true:
-        victim.mov_speed_buff += 60
-        victim.setMoveSpeed(min(max(100 + victim.mov_speed_buff, 20), 200))
+        if victim.mov_speed_buff == -60:
+            victim.mov_speed_buff = 0
+            victim.setMoveSpeed(min(max(100 + victim.mov_speed_buff, 20), 200))
     victim.setDamageDealt(100)

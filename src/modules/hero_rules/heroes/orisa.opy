@@ -25,13 +25,15 @@ rule "[Orisa]: stun when ult":
     if victim.orisa_buff == true:
         goto lbl_0
     victim.orisa_buff = true
-    victim.mov_speed_buff -= Orisa_Fortify[2]
-    victim.setMoveSpeed(min(max(100 + victim.mov_speed_buff, 20), 200))
+    if abs(victim.mov_speed_buff) < Orisa_Fortify[2]:
+        victim.mov_speed_buff = -Orisa_Fortify[2]
+        victim.setMoveSpeed(min(max(100 + victim.mov_speed_buff, 20), 200))
     wait(2)
     if victim.orisa_buff != true:
         goto lbl_0
-    victim.mov_speed_buff += Orisa_Fortify[2]
-    victim.setMoveSpeed(min(max(100 + victim.mov_speed_buff, 20), 200))
+    if victim.mov_speed_buff == -Orisa_Fortify[2]:
+        victim.mov_speed_buff = 0
+        victim.setMoveSpeed(min(max(100 + victim.mov_speed_buff, 20), 200))
     victim.orisa_buff = false
     lbl_0:
 rule "[Orisa]: fly":

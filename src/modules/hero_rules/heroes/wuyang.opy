@@ -27,13 +27,15 @@ rule "[Wuyang]: mov_speed_penalty":
         if victim.wuyang_buff[3] == true:
             goto lbl_0
         victim.wuyang_buff[3] = true
-        victim.mov_speed_buff -= WuyangBuff[0]
-        victim.setMoveSpeed(min(max(100 + victim.mov_speed_buff, 20), 200))
+        if abs(victim.mov_speed_buff) < WuyangBuff[0]:
+            victim.mov_speed_buff = -WuyangBuff[0]
+            victim.setMoveSpeed(min(max(100 + victim.mov_speed_buff, 20), 200))
         wait(1.25)
         if victim.wuyang_buff[3] != true:
             goto lbl_0
-        victim.mov_speed_buff += WuyangBuff[0]
-        victim.setMoveSpeed(min(max(100 + victim.mov_speed_buff, 20), 200))
+        if victim.mov_speed_buff == -WuyangBuff[0]:
+            victim.mov_speed_buff = 0
+            victim.setMoveSpeed(min(max(100 + victim.mov_speed_buff, 20), 200))
         victim.wuyang_buff[3] = false
         lbl_0:
     wait(0.32)
@@ -138,13 +140,15 @@ rule "[Wuyang]: Tidal Blast mov_speed_penalty":
     if victim.wuyang_buff[4] == true:
         goto lbl_0
     victim.wuyang_buff[4] = true
-    victim.mov_speed_buff -= WuyangBuff[4]
-    victim.setMoveSpeed(min(max(100 + victim.mov_speed_buff, 20), 200))
+    if abs(victim.mov_speed_buff) < WuyangBuff[4]:
+        victim.mov_speed_buff = -WuyangBuff[4]
+        victim.setMoveSpeed(min(max(100 + victim.mov_speed_buff, 20), 200))
     wait(3)
     if victim.wuyang_buff[4] != true:
         goto lbl_0
-    victim.mov_speed_buff += WuyangBuff[4]
-    victim.setMoveSpeed(min(max(100 + victim.mov_speed_buff, 20), 200))
+    if victim.mov_speed_buff == -WuyangBuff[4]:
+        victim.mov_speed_buff = 0
+        victim.setMoveSpeed(min(max(100 + victim.mov_speed_buff, 20), 200))
     victim.wuyang_buff[4] = false
     lbl_0:
 rule "[Wuyang]: Tidal Blast Allies Target":
