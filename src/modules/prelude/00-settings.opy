@@ -701,7 +701,7 @@ settings {
                 "damageDealt%": 90,
                 "damageReceived%": 110,
                 "secondaryFireCooldown%": 480,
-                "ability1Cooldown%": 167
+                "ability1Cooldown%": ratioPercent(SET_PLAYER_ROADHOG_ABILITY1_COOLDOWN_TARGET, ROADHOG_HOOK_COOLDOWN_TIME)
             },
             "kiriko": {
                 "passiveHealthRegen": false,
