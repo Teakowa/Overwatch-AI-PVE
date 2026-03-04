@@ -400,7 +400,7 @@ settings {
                 "damageReceived%": 65,
                 "ability1Cooldown%": 100,
                 "ability2Cooldown%": 67,
-                "secondaryFireCooldown%": 150
+                "secondaryFireCooldown%": 42.8
             },
             "sombra": {
                 "damageDealt%": 110,
@@ -795,7 +795,7 @@ settings {
                 "damageReceived%": 70,
                 "ability1Cooldown%": 100,
                 "ability2Cooldown%": 67,
-                "secondaryFireCooldown%": 150
+                "secondaryFireCooldown%": 42.8
             },
             "sombra": {
                 "damageDealt%": 135,
