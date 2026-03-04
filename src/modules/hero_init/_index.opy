@@ -42,7 +42,6 @@
 #!include "heroes/ashe.opy"
 #!include "heroes/echo.opy"
 #!include "extras/echo-duplicate.opy"
-#!include "extras/disabled-health-table.opy"
 #!include "heroes/baptiste.opy"
 #!include "heroes/kiriko.opy"
 #!include "heroes/junker_queen.opy"

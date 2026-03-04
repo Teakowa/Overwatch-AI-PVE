@@ -2,7 +2,6 @@
 # Runtime Wait / Sentinel
 # =========================
 #!define WAIT_TIMEOUT_FOREVER 999999986991104
-#!define CUSTOM_HP_SCALAR_FALLBACK 999999995904
 
 #!define WAIT_SHORT_FRAME 0.16
 #!define WAIT_AI_THROTTLE_MIN 0.192
