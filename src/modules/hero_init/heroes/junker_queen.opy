@@ -12,10 +12,6 @@ rule "[Junker Queen] Initialize":
     
     resetHero()
     eventPlayer.setHealingDealt(144.46 if eventPlayer.getTeam() == Team.1 else 122.23)
-    eventPlayer.custom_hp_pvar[0] = 375
-    eventPlayer.custom_hp_pvar[1] = 0
-    eventPlayer.custom_hp_pvar[2] = 0
-    #applyCustomHp()
     #removeTankPassive()
     if eventPlayer.getTeam() != Team.1:
         goto lbl_0

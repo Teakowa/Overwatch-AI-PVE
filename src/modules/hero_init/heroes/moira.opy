@@ -11,9 +11,6 @@ rule "[Moira] Initialize":
     @Condition eventPlayer.reset_pvar[0] != false
     
     resetHero()
-    eventPlayer.custom_hp_pvar[0] = 300
-    eventPlayer.custom_hp_pvar[1] = 0
-    eventPlayer.custom_hp_pvar[2] = 0
     if eventPlayer.getTeam() != Team.1:
         goto lbl_0
     eventPlayer.startForcingName(random.choice(["五  金  上  将", "五金上将莫伊拉", "五金摩西", "生化摩西"]))

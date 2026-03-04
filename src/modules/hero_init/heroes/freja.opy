@@ -11,10 +11,6 @@ rule "[Freja/init.opy]: Initialize Freja":
     @Condition eventPlayer.reset_pvar[0] != false
     
     resetHero()
-    eventPlayer.custom_hp_pvar[0] = 225
-    eventPlayer.custom_hp_pvar[1] = 0
-    eventPlayer.custom_hp_pvar[2] = 0
-    #applyCustomHp()
     eventPlayer.setProjectileSpeed(500)
     if eventPlayer.getTeam() != Team.1:
         goto lbl_0

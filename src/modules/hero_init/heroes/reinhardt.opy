@@ -11,10 +11,6 @@ rule "[reinhardt/init.opy]: Initialize Reinhardt":
     @Condition eventPlayer.reset_pvar[0] != false
     
     resetHero()
-    eventPlayer.custom_hp_pvar[0] = 250
-    eventPlayer.custom_hp_pvar[1] = 250
-    eventPlayer.custom_hp_pvar[2] = 0
-    #applyCustomHp()
     #eventPlayer.setKnockbackReceived(116.667)
     if eventPlayer.getTeam() != Team.1:
         goto lbl_0

@@ -11,10 +11,6 @@ rule "[Sigma] Initialize":
     @Condition eventPlayer.reset_pvar[0] != false
     
     resetHero()
-    eventPlayer.custom_hp_pvar[0] = 200
-    eventPlayer.custom_hp_pvar[1] = 0
-    eventPlayer.custom_hp_pvar[2] = 200
-    #applyCustomHp()
     #removeTankPassive()
     if eventPlayer.getTeam() != Team.1:
         goto lbl_0

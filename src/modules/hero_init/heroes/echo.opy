@@ -11,10 +11,6 @@ rule "[Echo] Initialize":
     @Condition eventPlayer.reset_pvar[0] != false
     
     resetHero()
-    eventPlayer.custom_hp_pvar[0] = 200
-    eventPlayer.custom_hp_pvar[1] = 0
-    eventPlayer.custom_hp_pvar[2] = 0
-    #applyCustomHp()
     eventPlayer.reset_pvar[0] = false
 
 

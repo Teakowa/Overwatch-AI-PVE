@@ -11,9 +11,6 @@ rule "[Doomfist] Initialize":
     @Condition eventPlayer.reset_pvar[0] != false
     
     resetHero()
-    eventPlayer.custom_hp_pvar[0] = 300
-    eventPlayer.custom_hp_pvar[1] = 100
-    eventPlayer.custom_hp_pvar[2] = 0
     #removeTankPassive()
     if eventPlayer.getTeam() != Team.1:
         goto lbl_0

@@ -11,10 +11,6 @@ rule "[mercy/init.opy]: Initialize Mercy":
     @Condition eventPlayer.reset_pvar[0] != false
     
     resetHero()
-    eventPlayer.custom_hp_pvar[0] = 250
-    eventPlayer.custom_hp_pvar[1] = 0
-    eventPlayer.custom_hp_pvar[2] = 0
-    #applyCustomHp()
     eventPlayer.setMaxAmmo(0, 20)
     eventPlayer.setAmmo(0, eventPlayer.getMaxAmmo())
     if eventPlayer.getTeam() != Team.1:

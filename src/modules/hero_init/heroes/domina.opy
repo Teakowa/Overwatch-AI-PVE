@@ -11,8 +11,4 @@ rule "[Domina/init.opy]: Initialize Domina":
     @Condition eventPlayer.reset_pvar[0] != false
     
     resetHero()
-    # eventPlayer.custom_hp_pvar[0] = 400
-    # eventPlayer.custom_hp_pvar[1] = 0
-    # eventPlayer.custom_hp_pvar[2] = 100
-    # applyCustomHp()
     eventPlayer.reset_pvar[0] = false

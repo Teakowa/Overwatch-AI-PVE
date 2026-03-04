@@ -12,10 +12,6 @@ rule "[D.Va] Initialize":
     @Condition eventPlayer.reset_pvar[0] != false
     
     resetHero()
-    #eventPlayer.custom_hp_pvar[0] = 100
-    #eventPlayer.custom_hp_pvar[1] = 500
-    #eventPlayer.custom_hp_pvar[2] = 0
-    #applyCustomHp()
     #removeTankPassive()
     eventPlayer.reset_pvar[0] = false
 

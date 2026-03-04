@@ -11,10 +11,6 @@ rule "[zenyatta]: init":
     @Condition eventPlayer.reset_pvar[0] != false
     
     resetHero()
-    eventPlayer.custom_hp_pvar[0] = 50
-    eventPlayer.custom_hp_pvar[1] = 0
-    eventPlayer.custom_hp_pvar[2] = 175
-    #applyCustomHp()
     eventPlayer.setMaxAmmo(0, 20)
     eventPlayer.setAmmo(0, eventPlayer.getMaxAmmo())
     if eventPlayer.getTeam() != Team.1:

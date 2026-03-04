@@ -11,10 +11,6 @@ rule "[widowmaker/init.opy]: Initialize Widowmaker":
     @Condition eventPlayer.reset_pvar[0] != false
     
     resetHero()
-    eventPlayer.custom_hp_pvar[0] = 175
-    eventPlayer.custom_hp_pvar[1] = 0
-    eventPlayer.custom_hp_pvar[2] = 0
-    #applyCustomHp()
     eventPlayer.setMaxAmmo(0, 25)
     eventPlayer.setAmmo(0, eventPlayer.getMaxAmmo())
     if eventPlayer.getTeam() != Team.1:
