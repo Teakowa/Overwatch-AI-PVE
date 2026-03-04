@@ -125,10 +125,10 @@ else
 fi
 
 if [[ "${prelude_count}" == "1" && "${optimize_count}" == "1" && "${constants_count}" == "1" && "${modules_count}" == "1" ]]; then
-    if [[ "$prelude_line" -lt "$optimize_line" && "$optimize_line" -lt "$constants_line" && "$constants_line" -lt "$modules_line" ]]; then
+    if [[ "$constants_line" -lt "$prelude_line" && "$prelude_line" -lt "$optimize_line" && "$optimize_line" -lt "$modules_line" ]]; then
         pass "main include order contract preserved"
     else
-        fail "main include order broken (expected prelude -> optimizeStrict -> constants -> modules)"
+        fail "main include order broken (expected constants -> prelude -> optimizeStrict -> modules)"
     fi
 fi
 

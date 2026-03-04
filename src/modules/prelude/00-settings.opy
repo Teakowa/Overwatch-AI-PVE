@@ -33,12 +33,12 @@ settings {
                 "damageDealt%": 110,
                 "projectileSpeed%": 135,
                 "projectileGravity%": 0,
-                "ultGen%": 149
+                "ultGen%": ultGenPercent(HANZO_ULT_COST, SET_AI_HANZO_ULT_COST_TARGET)
             },
             "cassidy": {
                 "damageDealt%": 110,
                 "damageReceived%": 70,
-                "ability2Cooldown%": 67
+                "ability2Cooldown%": ratioPercent(SET_AI_CASSIDY_ABILITY2_COOLDOWN_TARGET, MCCREE_FLASHBANG_COOLDOWN)
             },
             "lucio": {
                 "damageDealt%": 105,
@@ -47,12 +47,13 @@ settings {
                 "ability2Cooldown%": 65,
                 "enableInfiniteAmmo": true,
                 "healingDealt%": 233,
-                "ultGen%": 153
+                "ultGen%": ultGenPercent(LUCIO_ULT_COST, SET_AI_LUCIO_ULT_COST_TARGET)
             },
             "soldier": {
                 "damageDealt%": 115,
                 "enableInfiniteAmmo": true,
-                "ability2Cooldown%": 56,
+                "ability2Cooldown%": ratioPercent(SET_AI_SOLDIER_ABILITY2_COOLDOWN_TARGET, SOLDIER_BIOTIC_FIELD_COOLDOWN),
+
                 "ultDuration%": 134,
                 "secondaryFireCooldown%": 67,
                 "secondaryFireKb%": 120
@@ -69,29 +70,32 @@ settings {
             "orisa": {
                 "damageReceived%": 60,
                 "projectileSpeed%": 130,
-                "ability1Cooldown%": 73,
+                "ability1Cooldown%": ratioPercent(SET_AI_ORISA_ABILITY1_COOLDOWN_TARGET, ORISA_FORTIFY_COOLDOWN),
+
                 "secondaryFireCooldown%": 117,
                 "projectileGravity%": 0,
                 "enableInfiniteAmmo": true,
                 "ability2Cooldown%": 75,
                 "health%": 100,
                 "movementSpeed%": 105,
-                "ultGen%": 135
+                "ultGen%": ultGenPercent(ORISA_ULT_COST, SET_AI_ORISA_ULT_COST_TARGET)
             },
             "ana": {
                 "enableInfiniteAmmo": true,
                 "healingDealt%": 190,
-                "ultGen%": 163,
+                "ultGen%": ultGenPercent(ANA_ULT_COST, SET_AI_ANA_ULT_COST_TARGET),
+
                 "enableSpawningWithUlt": true,
-                "ability1Cooldown%": 57
+                "ability1Cooldown%": ratioPercent(SET_AI_ANA_ABILITY1_COOLDOWN_TARGET, ANA_SLEEP_DART_COOLDOWN_TIME)
             },
             "baptiste": {
                 "damageDealt%": 125,
-                "ability1Cooldown%": 53,
+                "ability1Cooldown%": ratioPercent(SET_AI_BAPTISTE_ABILITY1_COOLDOWN_TARGET, BAPTISTE_REGEN_BURST_COOLDOWN),
+
                 "enableInfiniteAmmo": true,
                 "healingDealt%": 175,
                 "ultDuration%": 200,
-                "ability2Cooldown%": 48
+                "ability2Cooldown%": ratioPercent(SET_AI_BAPTISTE_ABILITY2_COOLDOWN_TARGET, BAPTISTE_LAMP_COOLDOWN_TIME)
             },
             "brigitte": {
                 "damageDealt%": 115,
@@ -102,8 +106,9 @@ settings {
                 "secondaryFireCooldown%": 100,
                 "healingDealt%": 165,
                 "health%": 100,
-                "ultGen%": 135,
-                "shieldBashKb%": 25
+                "ultGen%": ultGenPercent(BRIGITTE_ULT_COST, SET_AI_BRIGITTE_ULT_COST_TARGET),
+
+                "shieldBashKb%": ratioPercent(SET_AI_BRIGITTE_SHIELD_BASH_KB_TARGET, BRIGITTE_SHIELD_BASH_KNOCKBACK)
             },
             "freja": {
                 "damageDealt%": 120,
@@ -123,7 +128,8 @@ settings {
                 "ability2Duration%": 150,
                 "ability1Cooldown%": 0,
                 "combatUltGen%": 148,
-                "ultGen%": 148,
+                "ultGen%": ultGenPercent(TORBJORN_ULT_COST, SET_AI_TORBJORN_ULT_COST_TARGET),
+
                 "ultDuration%": 150,
                 "passiveUltGen%": 148,
                 "enableInfiniteAmmo": true
@@ -131,17 +137,21 @@ settings {
             "ramattra": {
                 "damageDealt%": 105,
                 "damageReceived%": 65,
-                "ability2Cooldown%": 67,
-                "ability1Cooldown%": 86,
+                "ability2Cooldown%": ratioPercent(SET_AI_RAMATTRA_ABILITY2_COOLDOWN_TARGET, RAMATTRA_VORTEX_COOLDOWN),
+
+                "ability1Cooldown%": ratioPercent(SET_AI_RAMATTRA_ABILITY1_COOLDOWN_TARGET, RAMATTRA_NEMESIS_COOLDOWN),
+
                 "enableInfiniteAmmo": true,
-                "ultGen%": 145,
+                "ultGen%": ultGenPercent(RAMATTRA_ULT_COST, SET_AI_RAMATTRA_ULT_COST_TARGET),
+
                 "ultDuration%": 500,
-                "secondaryFireCooldown%": 62
+                "secondaryFireCooldown%": ratioPercent(SET_AI_RAMATTRA_SECONDARY_FIRE_COOLDOWN_TARGET, RAMATTRA_VOID_BARRIER_COOLDOWN)
             },
             "venture": {
                 "damageDealt%": 125,
                 "damageReceived%": 55,
-                "ultGen%": 127,
+                "ultGen%": ultGenPercent(VENTURE_ULT_COST, SET_AI_VENTURE_ULT_COST_TARGET),
+
                 "ability1Duration%": 300,
                 "secondaryFireCooldown%": 63
             },
@@ -176,21 +186,24 @@ settings {
                 "damageReceived%": 70,
                 "solarEnergyRecharge%": 200,
                 "projectileSpeed%": 200,
-                "ability2Cooldown%": 25,
+                "ability2Cooldown%": ratioPercent(SET_AI_ILLARI_ABILITY2_COOLDOWN_TARGET, ILLARI_PYLON_COOLDOWN),
+
                 "enableInfiniteAmmo": true
             },
             "juno": {
                 "healingDealt%": 145,
                 "damageDealt%": 125,
                 "damageReceived%": 60,
-                "ultGen%": 165,
+                "ultGen%": ultGenPercent(JUNO_ULT_COST, SET_AI_JUNO_ULT_COST_TARGET),
+
                 "secondaryFireCooldown%": 80,
                 "ability2Cooldown%": 86
             },
             "doomfist": {
                 "damageDealt%": 120,
                 "damageReceived%": 40,
-                "ammoRegenerationTime%": 80,
+                "ammoRegenerationTime%": ratioPercent(SET_AI_DOOMFIST_AMMO_REGENERATION_TIME_TARGET, DOOMFIST_AMMO_REGEN),
+
                 "enableInfiniteAmmo": true
             },
             "zarya": {
@@ -199,7 +212,7 @@ settings {
                 "ability2Cooldown%": 67,
                 "enableInfiniteAmmo": true,
                 "ability1Cooldown%": 55,
-                "ultGen%": 147
+                "ultGen%": ultGenPercent(ZARYA_ULT_COST, SET_AI_ZARYA_ULT_COST_TARGET)
             },
             "reaper": {
                 "damageDealt%": 110,
@@ -221,10 +234,11 @@ settings {
                 "damageDealt%": 125,
                 "damageReceived%": 75,
                 "passiveExtraFuel%": 200,
-                "ability1Cooldown%": 57,
+                "ability1Cooldown%": ratioPercent(SET_AI_PHARAH_ABILITY1_COOLDOWN_TARGET, PHARAH_JUMP_JET_COOLDOWN),
+
                 "ability1RefuelScalar": 300,
                 "secondaryFireCooldown%": 67,
-                "ability2Cooldown%": 86
+                "ability2Cooldown%": ratioPercent(SET_AI_PHARAH_ABILITY2_COOLDOWN_TARGET, PHARAH_CONCUSSIVE_BLAST_COOLDOWN)
             },
             "jetpackCat": {
                 "damageDealt%": 125,
@@ -243,8 +257,10 @@ settings {
             "winston": {
                 "damageDealt%": 150,
                 "damageReceived%": 20,
-                "ability1Cooldown%": 50,
-                "ability2Cooldown%": 40,
+                "ability1Cooldown%": ratioPercent(SET_AI_WINSTON_ABILITY1_COOLDOWN_TARGET, WINSTON_JUMP_PACK_COOLDOWN_TIME),
+
+                "ability2Cooldown%": ratioPercent(SET_AI_WINSTON_ABILITY2_COOLDOWN_TARGET, WINSTON_BARRIER_COOLDOWN),
+
                 "enableInfiniteAmmo": true
             },
             "genji": {
@@ -253,26 +269,29 @@ settings {
                 "healingReceived%": 150,
                 "enableInfiniteAmmo": true,
                 "ultDuration%": 134,
-                "ultGen%": 180
+                "ultGen%": ultGenPercent(GENJI_ULT_COST, SET_AI_GENJI_ULT_COST_TARGET)
             },
             "junkrat": {
                 "damageDealt%": 125,
                 "ability2Cooldown%": 50,
                 "enableInfiniteAmmo": true,
-                "ability1Cooldown%": 63
+                "ability1Cooldown%": ratioPercent(SET_AI_JUNKRAT_ABILITY1_COOLDOWN_TARGET, JUNKRAT_CONCUSSION_MINE_COOLDOWN)
             },
             "tracer": {
                 "damageDealt%": 115,
                 "damageReceived%": 50,
                 "projectileSpeed%": 120,
-                "ultGen%": 195,
-                "ability2Cooldown%": 62,
+                "ultGen%": ultGenPercent(TRACER_ULT_COST, SET_AI_TRACER_ULT_COST_TARGET),
+
+                "ability2Cooldown%": ratioPercent(SET_AI_TRACER_ABILITY2_COOLDOWN_TARGET, TRACER_RECALL_COOLDOWN),
+
                 "ability1Cooldown%": 60
             },
             "zenyatta": {
                 "damageDealt%": 110,
                 "healingReceived%": 150,
-                "ultGen%": 194,
+                "ultGen%": ultGenPercent(ZENYATTA_ULT_COST, SET_AI_ZENYATTA_ULT_COST_TARGET),
+
                 "projectileSpeed%": 150,
                 "enableInfiniteAmmo": true,
                 "healingDealt%": 200
@@ -317,20 +336,23 @@ settings {
                 "ability2Cooldown%": 75,
                 "ability2MaxHealing%": 500,
                 "primaryFireRechargeRate%": 500,
-                "ultGen%": 211
+                "ultGen%": ultGenPercent(MOIRA_ULT_COST, SET_AI_MOIRA_ULT_COST_TARGET)
             },
             "reinhardt": {
-                "ability1Cooldown%": 79,
+                "ability1Cooldown%": ratioPercent(SET_AI_REINHARDT_ABILITY1_COOLDOWN_TARGET, REINHARDT_CHARGE_COOLDOWN_TIME),
+
                 "damageReceived%": 60,
-                "secondaryFireRechargeRate%": 170,
+                "secondaryFireRechargeRate%": ratioPercent(SET_AI_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET, REINHARDT_BARRIER_REGEN),
+
                 "combatUltGen%": 165,
-                "health%": 140
+                "health%": ratioPercent(SET_AI_REINHARDT_HEALTH_TARGET, REINHARDT_BARRIER_HEALTH)
             },
             "sigma": {
                 "ability1Cooldown%": 67,
                 "damageReceived%": 60,
                 "secondaryFireRechargeRate%": 350,
-                "health%": 100,
+                "health%": ratioPercent(SET_AI_SIGMA_HEALTH_TARGET, SIGMA_BARRIER_HEALTH),
+
                 "ability2Cooldown%": 80
             },
             "roadhog": {
@@ -345,8 +367,9 @@ settings {
                 "damageDealt%": 120,
                 "projectileSpeed%": 115,
                 "healingDealt%": 180,
-                "ability2Cooldown%": 53,
-                "ultGen%": 185
+                "ability2Cooldown%": ratioPercent(SET_AI_KIRIKO_ABILITY2_COOLDOWN_TARGET, KIRIKO_SUZU_COOLDOWN),
+
+                "ultGen%": ultGenPercent(KIRIKO_ULT_COST, SET_AI_KIRIKO_ULT_COST_TARGET)
             },
             "mizuki": {
                 "damageDealt%": 125,
@@ -377,7 +400,8 @@ settings {
                 "healingReceived%": 125,
                 "enableInfiniteAmmo": false,
                 "passiveUltGen%": 149,
-                "secondaryFireCooldown%": 100,
+                "secondaryFireCooldown%": ratioPercent(SET_AI_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET, SOMBRA_HACK_COOLDOWN_TIME),
+
                 "ammoClipSize%": 125
             },
             "widowmaker": {
@@ -385,7 +409,7 @@ settings {
                 "damageReceived%": 70,
                 "enableInfiniteAmmo": true,
                 "movementSpeed%": 102,
-                "ultGen%": 200
+                "ultGen%": ultGenPercent(WIDOWMAKER_ULT_COST, SET_AI_WIDOWMAKER_ULT_COST_TARGET)
             },
             "general": {
                 "damageReceived%": 80,
@@ -396,16 +420,19 @@ settings {
         "team2": {
             "hanzo": {
                 "damageDealt%": 125,
-                "ability2Cooldown%": 88,
-                "ultGen%": 132,
+                "ability2Cooldown%": ratioPercent(SET_PLAYER_HANZO_ABILITY2_COOLDOWN_TARGET, HANZO_STORM_COOLDOWN),
+
+                "ultGen%": ultGenPercent(HANZO_ULT_COST, SET_PLAYER_HANZO_ULT_COST_TARGET),
+
                 "projectileSpeed%": 135,
                 "ability1Cooldown%": 75
             },
             "cassidy": {
                 "damageDealt%": 125,
                 "damageReceived%": 92,
-                "ultGen%": 84,
-                "ability2Cooldown%": 67
+                "ultGen%": ultGenPercent(MCCREE_ULT_COST, SET_PLAYER_CASSIDY_ULT_COST_TARGET),
+
+                "ability2Cooldown%": ratioPercent(SET_PLAYER_CASSIDY_ABILITY2_COOLDOWN_TARGET, MCCREE_FLASHBANG_COOLDOWN)
             },
             "lucio": {
                 "passiveHealthRegen": false,
@@ -424,12 +451,14 @@ settings {
             "bastion": {
                 "secondaryFireCooldown%": 75,
                 "damageDealt%": 125,
-                "ability1Cooldown%": 50,
+                "ability1Cooldown%": ratioPercent(SET_PLAYER_BASTION_ABILITY1_COOLDOWN_TARGET, BASTION_RECONFIGURE_COOLDOWN),
+
                 "damageReceived%": 70
             },
             "soldier": {
                 "damageDealt%": 130,
-                "ability2Cooldown%": 83,
+                "ability2Cooldown%": ratioPercent(SET_PLAYER_SOLDIER_ABILITY2_COOLDOWN_TARGET, SOLDIER_BIOTIC_FIELD_COOLDOWN),
+
                 "ultDuration%": 134,
                 "secondaryFireKb%": 100
             },
@@ -444,29 +473,33 @@ settings {
             "orisa": {
                 "damageReceived%": 55,
                 "projectileSpeed%": 130,
-                "ability1Cooldown%": 73,
+                "ability1Cooldown%": ratioPercent(SET_PLAYER_ORISA_ABILITY1_COOLDOWN_TARGET, ORISA_FORTIFY_COOLDOWN),
+
                 "secondaryFireCooldown%": 117,
                 "enableInfiniteAmmo": true,
                 "health%": 100,
                 "movementSpeed%": 100,
-                "ultGen%": 105
+                "ultGen%": ultGenPercent(ORISA_ULT_COST, SET_PLAYER_ORISA_ULT_COST_TARGET)
             },
             "ana": {
                 "passiveHealthRegen": false,
                 "damageDealt%": 115,
                 "healingDealt%": 150,
-                "ability2Cooldown%": 100,
-                "ultGen%": 115,
-                "ability1Cooldown%": 71
+                "ability2Cooldown%": ratioPercent(SET_PLAYER_ANA_ABILITY2_COOLDOWN_TARGET, ANA_BIOTIC_GRENADE_COOLDOWN),
+
+                "ultGen%": ultGenPercent(ANA_ULT_COST, SET_PLAYER_ANA_ULT_COST_TARGET),
+
+                "ability1Cooldown%": ratioPercent(SET_PLAYER_ANA_ABILITY1_COOLDOWN_TARGET, ANA_SLEEP_DART_COOLDOWN_TIME)
             },
             "baptiste": {
                 "passiveHealthRegen": false,
                 "damageDealt%": 150,
                 "ammoClipSize%": 100,
-                "ability1Cooldown%": 53,
+                "ability1Cooldown%": ratioPercent(SET_PLAYER_BAPTISTE_ABILITY1_COOLDOWN_TARGET, BAPTISTE_REGEN_BURST_COOLDOWN),
+
                 "healingDealt%": 150,
                 "ultDuration%": 150,
-                "ability2Cooldown%": 48
+                "ability2Cooldown%": ratioPercent(SET_PLAYER_BAPTISTE_ABILITY2_COOLDOWN_TARGET, BAPTISTE_LAMP_COOLDOWN_TIME)
             },
             "brigitte": {
                 "passiveHealthRegen": false,
@@ -475,12 +508,15 @@ settings {
                 "ability1Kb%": 125,
                 "secondaryFireRechargeRate%": 118,
                 "secondaryFireCooldown%": 100,
-                "ability2Cooldown%": 91,
+                "ability2Cooldown%": ratioPercent(SET_PLAYER_BRIGITTE_ABILITY2_COOLDOWN_TARGET, BRIGITTE_REPAIR_PACK_COOLDOWN),
+
                 "health%": 100,
                 "healingDealt%": 145,
-                "ultGen%": 117,
-                "shieldBashCooldown%": 100,
-                "shieldBashKb%": 25
+                "ultGen%": ultGenPercent(BRIGITTE_ULT_COST, SET_PLAYER_BRIGITTE_ULT_COST_TARGET),
+
+                "shieldBashCooldown%": ratioPercent(SET_PLAYER_BRIGITTE_SHIELD_BASH_COOLDOWN_TARGET, BRIGITTE_SHIELD_BASH_COOLDOWN),
+
+                "shieldBashKb%": ratioPercent(SET_PLAYER_BRIGITTE_SHIELD_BASH_KB_TARGET, BRIGITTE_SHIELD_BASH_KNOCKBACK)
             },
             "freja": {
                 "damageDealt%": 110,
@@ -494,25 +530,29 @@ settings {
                 "damageDealt%": 105,
                 "ammoClipSize%": 100,
                 "combatUltGen%": 92,
-                "ultGen%": 92,
+                "ultGen%": ultGenPercent(TORBJORN_ULT_COST, SET_PLAYER_TORBJORN_ULT_COST_TARGET),
+
                 "ultDuration%": 100,
                 "passiveUltGen%": 92
             },
             "ramattra": {
                 "damageDealt%": 115,
                 "damageReceived%": 65,
-                "ability2Cooldown%": 67,
-                "ability1Cooldown%": 86,
-                "ultGen%": 110,
+                "ability2Cooldown%": ratioPercent(SET_PLAYER_RAMATTRA_ABILITY2_COOLDOWN_TARGET, RAMATTRA_VORTEX_COOLDOWN),
+
+                "ability1Cooldown%": ratioPercent(SET_PLAYER_RAMATTRA_ABILITY1_COOLDOWN_TARGET, RAMATTRA_NEMESIS_COOLDOWN),
+
+                "ultGen%": ultGenPercent(RAMATTRA_ULT_COST, SET_PLAYER_RAMATTRA_ULT_COST_TARGET),
+
                 "ultDuration%": 320,
-                "secondaryFireCooldown%": 62
+                "secondaryFireCooldown%": ratioPercent(SET_PLAYER_RAMATTRA_SECONDARY_FIRE_COOLDOWN_TARGET, RAMATTRA_VOID_BARRIER_COOLDOWN)
             },
             "venture": {
                 "damageDealt%": 140,
                 "damageReceived%": 70,
                 "ability1Duration%": 250,
                 "secondaryFireCooldown%": 75,
-                "ultGen%": 127
+                "ultGen%": ultGenPercent(VENTURE_ULT_COST, SET_PLAYER_VENTURE_ULT_COST_TARGET)
             },
             "emre": {
                 "damageDealt%": 135,
@@ -538,22 +578,25 @@ settings {
                 "damageReceived%": 105,
                 "solarEnergyRecharge%": 125,
                 "projectileSpeed%": 100,
-                "ability2Cooldown%": 50
+                "ability2Cooldown%": ratioPercent(SET_PLAYER_ILLARI_ABILITY2_COOLDOWN_TARGET, ILLARI_PYLON_COOLDOWN)
             },
             "juno": {
                 "passiveHealthRegen": false,
                 "healingDealt%": 145,
-                "ultGen%": 165,
+                "ultGen%": ultGenPercent(JUNO_ULT_COST, SET_PLAYER_JUNO_ULT_COST_TARGET),
+
                 "secondaryFireCooldown%": 80,
                 "ability2Cooldown%": 86
             },
             "doomfist": {
                 "damageDealt%": 115,
                 "damageReceived%": 65,
-                "ammoRegenerationTime%": 80,
-                "ability1Cooldown%": 100,
+                "ammoRegenerationTime%": ratioPercent(SET_PLAYER_DOOMFIST_AMMO_REGENERATION_TIME_TARGET, DOOMFIST_AMMO_REGEN),
+
+                "ability1Cooldown%": ratioPercent(SET_PLAYER_DOOMFIST_ABILITY1_COOLDOWN_TARGET, DOOMFIST_POWER_BLOCK_COOLDOWN),
+
                 "secondaryFireCooldown%": 100,
-                "ability2Cooldown%": 84
+                "ability2Cooldown%": ratioPercent(SET_PLAYER_DOOMFIST_ABILITY2_COOLDOWN_TARGET, DOOMFIST_SEISMIC_SLAM_COOLDOWN)
             },
             "zarya": {
                 "damageDealt%": 135,
@@ -561,7 +604,7 @@ settings {
                 "ammoClipSize%": 100,
                 "ability2Cooldown%": 70,
                 "ability1Cooldown%": 89,
-                "ultGen%": 108
+                "ultGen%": ultGenPercent(ZARYA_ULT_COST, SET_PLAYER_ZARYA_ULT_COST_TARGET)
             },
             "reaper": {
                 "damageDealt%": 135,
@@ -580,9 +623,10 @@ settings {
                 "damageDealt%": 135,
                 "damageReceived%": 85,
                 "passiveExtraFuel%": 125,
-                "ability1Cooldown%": 72,
+                "ability1Cooldown%": ratioPercent(SET_PLAYER_PHARAH_ABILITY1_COOLDOWN_TARGET, PHARAH_JUMP_JET_COOLDOWN),
+
                 "ability1RefuelScalar": 300,
-                "ability2Cooldown%": 143
+                "ability2Cooldown%": ratioPercent(SET_PLAYER_PHARAH_ABILITY2_COOLDOWN_TARGET, PHARAH_CONCUSSIVE_BLAST_COOLDOWN)
             },
             "jetpackCat": {
                 "damageDealt%": 135,
@@ -602,7 +646,7 @@ settings {
             "winston": {
                 "damageDealt%": 110,
                 "damageReceived%": 65,
-                "ability2Cooldown%": 92
+                "ability2Cooldown%": ratioPercent(SET_PLAYER_WINSTON_ABILITY2_COOLDOWN_TARGET, WINSTON_BARRIER_COOLDOWN)
             },
             "genji": {
                 "damageDealt%": 145,
@@ -610,8 +654,9 @@ settings {
                 "ability1Cooldown%": 75,
                 "enableInfiniteAmmo": true,
                 "ultDuration%": 134,
-                "ultGen%": 140,
-                "ability2Cooldown%": 75
+                "ultGen%": ultGenPercent(GENJI_ULT_COST, SET_PLAYER_GENJI_ULT_COST_TARGET),
+
+                "ability2Cooldown%": ratioPercent(SET_PLAYER_GENJI_ABILITY2_COOLDOWN_TARGET, GENJI_DEFLECT_COOLDOWN)
             },
             "junkrat": {
                 "damageDealt%": 95,
@@ -619,7 +664,8 @@ settings {
                 "combatUltGen%": 70,
                 "primaryFireKb%": 50,
                 "ability2Cooldown%": 100,
-                "ultGen%": 70,
+                "ultGen%": ultGenPercent(JUNKRAT_ULT_COST, SET_PLAYER_JUNKRAT_ULT_COST_TARGET),
+
                 "ultDuration%": 40,
                 "passiveUltGen%": 70,
                 "ability1Kb%": 50
@@ -627,15 +673,18 @@ settings {
             "tracer": {
                 "damageDealt%": 160,
                 "damageReceived%": 35,
-                "ultGen%": 160,
-                "ability2Cooldown%": 62,
+                "ultGen%": ultGenPercent(TRACER_ULT_COST, SET_PLAYER_TRACER_ULT_COST_TARGET),
+
+                "ability2Cooldown%": ratioPercent(SET_PLAYER_TRACER_ABILITY2_COOLDOWN_TARGET, TRACER_RECALL_COOLDOWN),
+
                 "ability1Cooldown%": 60
             },
             "zenyatta": {
                 "passiveHealthRegen": false,
                 "damageDealt%": 160,
                 "damageReceived%": 100,
-                "ultGen%": 144,
+                "ultGen%": ultGenPercent(ZENYATTA_ULT_COST, SET_PLAYER_ZENYATTA_ULT_COST_TARGET),
+
                 "projectileSpeed%": 125
             },
             "symmetra": {
@@ -676,16 +725,20 @@ settings {
                 "ability2Cooldown%": 100,
                 "ability2MaxHealing%": 100,
                 "primaryFireMaximumTime%": 100,
-                "ultGen%": 181
+                "ultGen%": ultGenPercent(MOIRA_ULT_COST, SET_PLAYER_MOIRA_ULT_COST_TARGET)
             },
             "reinhardt": {
                 "damageDealt%": 105,
-                "ability1Cooldown%": 115,
+                "ability1Cooldown%": ratioPercent(SET_PLAYER_REINHARDT_ABILITY1_COOLDOWN_TARGET, REINHARDT_CHARGE_COOLDOWN_TIME),
+
                 "damageReceived%": 75,
-                "secondaryFireRechargeRate%": 130,
+                "secondaryFireRechargeRate%": ratioPercent(SET_PLAYER_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET, REINHARDT_BARRIER_REGEN),
+
                 "combatUltGen%": 135,
-                "health%": 140,
-                "ultGen%": 115,
+                "health%": ratioPercent(SET_PLAYER_REINHARDT_HEALTH_TARGET, REINHARDT_BARRIER_HEALTH),
+
+                "ultGen%": ultGenPercent(REINHARDT_ULT_COST, SET_PLAYER_REINHARDT_ULT_COST_TARGET),
+
                 "passiveUltGen%": 115
             },
             "sigma": {
@@ -693,8 +746,10 @@ settings {
                 "ability1Cooldown%": 67,
                 "damageReceived%": 75,
                 "secondaryFireRechargeRate%": 300,
-                "health%": 100,
-                "ultGen%": 115,
+                "health%": ratioPercent(SET_PLAYER_SIGMA_HEALTH_TARGET, SIGMA_BARRIER_HEALTH),
+
+                "ultGen%": ultGenPercent(SIGMA_ULT_COST, SET_PLAYER_SIGMA_ULT_COST_TARGET),
+
                 "ability2Cooldown%": 80
             },
             "roadhog": {
@@ -708,8 +763,9 @@ settings {
                 "ability1Distance%": 243,
                 "damageDealt%": 135,
                 "healingDealt%": 135,
-                "ability2Cooldown%": 57,
-                "ultGen%": 135
+                "ability2Cooldown%": ratioPercent(SET_PLAYER_KIRIKO_ABILITY2_COOLDOWN_TARGET, KIRIKO_SUZU_COOLDOWN),
+
+                "ultGen%": ultGenPercent(KIRIKO_ULT_COST, SET_PLAYER_KIRIKO_ULT_COST_TARGET)
             },
             "mizuki": {
                 "damageDealt%": 135,
@@ -738,13 +794,13 @@ settings {
                 "ability2Cooldown%": 100,
                 "damageReceived%": 78,
                 "passiveUltGen%": 107,
-                "secondaryFireCooldown%": 134
+                "secondaryFireCooldown%": ratioPercent(SET_PLAYER_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET, SOMBRA_HACK_COOLDOWN_TIME)
             },
             "widowmaker": {
                 "damageDealt%": 135,
                 "damageReceived%": 115,
                 "ammoClipSize%": 86,
-                "ultGen%": 130
+                "ultGen%": ultGenPercent(WIDOWMAKER_ULT_COST, SET_PLAYER_WIDOWMAKER_ULT_COST_TARGET)
             },
             "general": {
                 "ultGen%": 115,
@@ -755,10 +811,12 @@ settings {
             "dva": {
                 "damageDealt%": 135,
                 "damageReceived%": 75,
-                "ability1Cooldown%": 85,
-                "ability2Cooldown%": 86,
+                "ability1Cooldown%": ratioPercent(DVA_BOOSTER_COOLDOWN_TIME, DVA_BOOSTER_COOLDOWN_TIME_RAW),
+
+                "ability2Cooldown%": ratioPercent(DVA_MICRO_MISSILES_COOLDOWN_TIME, DVA_MICRO_MISSILES_COOLDOWN_TIME_RAW),
+
                 "secondaryFireRechargeRate%": 200,
-                "secondaryFireMaximumTime%": 134
+                "secondaryFireMaximumTime%": ratioPercent(DVA_MATRIX_DURATION, DVA_MATRIX_DURATION_RAW)
             },
             "lifeweaver": {
                 "healingDealt%": 160,
