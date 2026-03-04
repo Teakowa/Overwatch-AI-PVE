@@ -2,7 +2,7 @@
 
 settings {
     "main": {
-        "description": "语音频道：kook.vip/EEC9UH\n\n企鹅聊天群：361913638\n\n更新日志：workshop.codes/77QS1 | v25.1123.1\n\n中途退永久BAN  |  玻璃心别玩  |  育碧平衡",
+        "description": "语音频道：kook.vip/EEC9UH\n\n企鹅聊天群：361913638\n\n更新日志：workshop.codes/77QS1 | v26.0304.1\n\n中途退永久BAN  |  玻璃心别玩  |  育碧平衡",
         "modeName": "真·困难人机 6v6 竞技 PVE"
     },
     "lobby": {
@@ -10,15 +10,21 @@ settings {
         "swapTeamsAfterMatch": false,
         "team1Slots": 5,
         "team2Slots": 6,
-        "spectatorSlots": 6,
+        "spectatorSlots": 2,
         "returnToLobby": "never"
     },
     "gamemodes": {
+        "assault": {
+            "disabledMaps": [
+                "hanamuraWinter"
+            ],
+        },
         "skirmish": {
             "disabledMaps": [
                 "hanamuraWinter"
             ]
         },
+        
         "general": {
             "gamemodeStartTrigger": "manual",
             "enableCompetitiveRules": true,
@@ -158,8 +164,10 @@ settings {
             "emre": {
                 "damageDealt%": 125,
                 "damageReceived%": 90,
-                "ability1Cooldown%": 80,
-                "ability2Cooldown%": 75
+                "ability1Cooldown%": 73,
+                "ability1Duration%": 160,
+                "ability1Heat%": 200,
+                "ability2Cooldown%": 60
             },
             "vendetta": {
                 "damageDealt%": 135,
@@ -839,10 +847,24 @@ settings {
         }
     },
     "workshop": {
-        "Ash暴击倍率": 2750,
-        "Hanzo暴击倍率": 2750,
-        "Baptiste暴击倍率": 2500,
-        "Zenyatta暴击倍率": 2500,
-        "诛 （终极技能）额外造成伤害 %": 0
+        "诛 （终极技能）额外造成伤害 %": 0,
+        "半藏：暴击倍率": 275.000,
+		"巴蒂斯特：暴击倍率": 250.000,
+		"帕拉蒂尼之牙：暴击对护甲造成额外最大生命值伤害 %": 20,
+		"帕拉蒂尼之牙：暴击造成额外最大生命值伤害 %": 10,
+		"心脏过载：额外伤害减免": 25.000,
+		"恐怖扳机：冷却时间": 1.500,
+		"恐怖扳机：基于灵魂层数造成流血伤害": 1.000,
+		"悍猛格挡：伤害吸收倍率": 4.000,
+		"收割：每层灵魂减少技能冷却": 0.100,
+		"斩地巨剑：击倒持续时间": 3.500,
+		"无影脚击退距离": 15.500,
+		"桎梏灼日 额外伤害增幅 %": 5.000,
+		"激活持续时间": 8.000,
+		"灾厄馈赠（被动）：基于受到伤害获得终极技能充能 %": 4.000,
+		"禅雅塔：暴击倍率（以下实际数值将被除以100）": 250.000,
+		"自定义 AI": [3],
+		"艾什：暴击倍率": 275.000,
+		"雾子：暴击倍率": 250.000
     }
 }
