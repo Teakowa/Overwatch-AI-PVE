@@ -15,11 +15,9 @@ rule "[tracer/init.opy]: Initialize Tracer":
     eventPlayer.custom_hp_pvar[0] = 125
     eventPlayer.custom_hp_pvar[1] = 0
     eventPlayer.custom_hp_pvar[2] = 50
-    applyCustomHp()
     if eventPlayer.getTeam() != Team.1:
         goto lbl_0
     eventPlayer.startForcingName(random.choice(["跳跳熊", "FLETA", "EVAEL", "炸弹摩西", "瞬移摩西"]))
     lbl_0:
     eventPlayer.reset_pvar[0] = false
-
 
