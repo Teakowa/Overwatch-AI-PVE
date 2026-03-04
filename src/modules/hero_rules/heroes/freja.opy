@@ -102,11 +102,11 @@ rule "[Freja]: Dmg. reduction":
         goto lbl_0
     eventPlayer.startHealingOverTime(null, 10, 30)
     eventPlayer.freja_buff[5] = getLastHealingOverTimeId()
-    lbl_0:
     eventPlayer.setDamageReceived(75)
     hudText(eventPlayer, null, " \r\n", "受到伤害减免：{0}%".format(25), HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
     #eventPlayer.hudText = "受到伤害减免：{0}%".format(25)
     eventPlayer.freja_buff[2] = getLastCreatedText()
+    lbl_0:
     waitUntil(not eventPlayer.isInAir() and eventPlayer.isOnGround(), 99999)
     eventPlayer.hudText = ""
     destroyHudText(eventPlayer.freja_buff[2])

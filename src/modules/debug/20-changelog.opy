@@ -6,7 +6,7 @@ rule "Changelog":
     
     wait(WAIT_SHORT_FRAME)
     changelogText()
-    waitUntil(not eventPlayer.isInSpawnRoom(), WAIT_TIMEOUT_FOREVER)
+    waitUntil(not eventPlayer.isInSpawnRoom(), Math.INFINITY)
     destroyHudText(eventPlayer.ChangelogText1)
     destroyHudText(eventPlayer.ChangelogText2)
 

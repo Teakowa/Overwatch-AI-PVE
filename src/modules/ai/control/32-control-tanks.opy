@@ -153,7 +153,7 @@ rule "[AI/control]: Widowmaker Fly Sky Attack Mode":
     wait(0.4)
     lbl_0:
     eventPlayer.setGravity(80)
-    waitUntil(eventPlayer.isOnGround(), WAIT_TIMEOUT_FOREVER)
+    waitUntil(eventPlayer.isOnGround(), Math.INFINITY)
     eventPlayer.setDamageReceived(100)
     eventPlayer.setAbility2Enabled(true)
     eventPlayer.setGravity(100)

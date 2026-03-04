@@ -18,7 +18,7 @@ rule "[Ramattra] ult speed":
     eventPlayer.setDamageDealt(100 + Ram_Annihilation[5])
     eventPlayer.setDamageReceived(100 - Ram_Annihilation[4])
     eventPlayer.setKnockbackReceived(30)
-    waitUntil(not eventPlayer.isUsingUltimate() or eventPlayer.isDead(), WAIT_TIMEOUT_FOREVER)
+    waitUntil(not eventPlayer.isUsingUltimate() or eventPlayer.isDead(), Math.INFINITY)
     if eventPlayer.isDead():
         goto lbl_0
     if eventPlayer.mov_speed_buff == Ram_Annihilation[3]:
@@ -119,6 +119,6 @@ rule "[Ramattra]: block HUD":
     
     #hudText(eventPlayer, null, "\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r", "{0}/{1}".format(floor(eventPlayer.ram_block_damage), Ram_Annihilation[0]), HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
     #eventPlayer.ram_block_damage_hud = getLastCreatedText()
-    waitUntil(eventPlayer.ram_block_damage == 0 or eventPlayer.reset_pvar[0] or eventPlayer.isInSpawnRoom(), WAIT_TIMEOUT_FOREVER)
+    waitUntil(eventPlayer.ram_block_damage == 0 or eventPlayer.reset_pvar[0] or eventPlayer.isInSpawnRoom(), Math.INFINITY)
     eventPlayer.hudText = ""
     #destroyHudText(eventPlayer.ram_block_damage_hud)

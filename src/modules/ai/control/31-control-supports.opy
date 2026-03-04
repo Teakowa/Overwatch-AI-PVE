@@ -26,9 +26,9 @@ rule "[AI/control]: Ramattra Ability 2":
     #wait(WAIT_AI_THROTTLE_MIN)
     #eventPlayer.stopForcingButton(Button.ABILITY_1)
     if eventPlayer.isUsingAbility1() == true:
-        waitUntil(not eventPlayer.isUsingAbility1(), WAIT_TIMEOUT_FOREVER)
+        waitUntil(not eventPlayer.isUsingAbility1(), Math.INFINITY)
     else:
-        waitUntil(not eventPlayer.isUsingUltimate(), WAIT_TIMEOUT_FOREVER)
+        waitUntil(not eventPlayer.isUsingUltimate(), Math.INFINITY)
     eventPlayer.stopForcingButton(Button.SECONDARY_FIRE)
 
 

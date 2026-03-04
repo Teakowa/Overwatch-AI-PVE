@@ -72,5 +72,5 @@ rule "[Ana]: Sleep tanks for longer duration":
     @Condition victim.unaffected == false
     
     victim.clearStatusEffect(Status.ASLEEP)
-    #waitUntil(victim.hasStatus(Status.ASLEEP), WAIT_TIMEOUT_FOREVER)
+    #waitUntil(victim.hasStatus(Status.ASLEEP), Math.INFINITY)
     victim.setStatusEffect(attacker, Status.KNOCKED_DOWN, 4)

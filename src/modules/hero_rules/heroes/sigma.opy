@@ -52,6 +52,6 @@ rule "[Sigma]: Hyperspheres HUD":
     eventPlayer.hudText = "{0}|{1}".format(eventPlayer.sigma_hyperspheres, 3)
     #hudText(eventPlayer, null, "\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r", "{0}|{1}".format(eventPlayer.sigma_hyperspheres, 3), HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
     #eventPlayer.sigma_hyperspheres_hud = getLastCreatedText()
-    waitUntil(eventPlayer.reset_pvar[0] or eventPlayer.isInSpawnRoom(), WAIT_TIMEOUT_FOREVER)
+    waitUntil(eventPlayer.reset_pvar[0] or eventPlayer.isInSpawnRoom(), Math.INFINITY)
     eventPlayer.hudText = ""
     #destroyHudText(eventPlayer.sigma_hyperspheres_hud)

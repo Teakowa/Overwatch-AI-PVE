@@ -6,10 +6,11 @@ rule "[Anran]: burning target damage amp":
 
     startDamageModification(eventPlayer, getPlayersOnHero(Hero.ANRAN, getOppositeTeam(eventPlayer.getTeam())), 125, DamageReeval.RECEIVERS_AND_DAMAGERS)
     eventPlayer.anran_burn_dmg_mod = getLastDamageModification()
-    waitUntil(not eventPlayer.hasStatus(Status.BURNING) or eventPlayer.isDead(), WAIT_TIMEOUT_FOREVER)
+    waitUntil(not eventPlayer.hasStatus(Status.BURNING) or eventPlayer.isDead() or isMatchBetweenRounds(), Math.INFINITY)
     if eventPlayer.anran_burn_dmg_mod != null:
         stopDamageModification(eventPlayer.anran_burn_dmg_mod)
         eventPlayer.anran_burn_dmg_mod = null
+
 rule "[Anran]: burning target damage amp cleanup":
     @Event eachPlayer
     @Condition eventPlayer.anran_burn_dmg_mod != null
