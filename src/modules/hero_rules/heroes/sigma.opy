@@ -38,7 +38,7 @@ rule "[Sigma]: Hyperspheres Layer Damage":
     
     eventPlayer.sigma_hyperspheres = 0
     eventPlayer.hudText = "{0}|{1}".format(eventPlayer.sigma_hyperspheres, 3)
-    damage(victim, attacker, (attacker.custom_hp_pvar[0] + attacker.custom_hp_pvar[2]) * SigmaBuff[0])
+    damage(victim, attacker, (attacker.getMaxHealthOfType(Health.NORMAL) + attacker.getMaxHealthOfType(Health.ARMOR) + attacker.getMaxHealthOfType(Health.SHIELDS)) * SigmaBuff[0])
     wait(4)
 rule "[Sigma]: Hyperspheres HUD":
     @Event eachPlayer

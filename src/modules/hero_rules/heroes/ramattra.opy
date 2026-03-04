@@ -34,7 +34,7 @@ rule "[Ramattra] ult start":
     @Event eachPlayer
     @Hero ramattra
     @Condition eventPlayer.isUsingUltimate() == true
-    @Condition eventPlayer.getHealthOfType(Health.NORMAL) <= eventPlayer.custom_hp_pvar[0] + 50
+    @Condition eventPlayer.getHealthOfType(Health.NORMAL) <= 325
     
     eventPlayer.ram_block_damage += 50
     eventPlayer.hudText = "{0}/{1}".format(floor(eventPlayer.ram_block_damage), Ram_Annihilation[0])
@@ -60,7 +60,7 @@ rule "[Ramattra]: Pummel healing":
     @Hero ramattra
     @Condition eventPlayer.isUsingAbility1() == true
     @Condition eventAbility == Button.ABILITY_1
-    @Condition eventPlayer.getHealthOfType(Health.NORMAL) <= eventPlayer.custom_hp_pvar[0] + 50
+    @Condition eventPlayer.getHealthOfType(Health.NORMAL) <= 325
     
     eventPlayer.ram_block_damage += eventDamage * 2.5
     wait(0.3)
@@ -70,7 +70,7 @@ rule "[Ramattra]: Pummel healing":
     @Hero ramattra
     @Condition eventPlayer.isUsingAbility1() == true
     @Condition eventAbility == Button.ABILITY_1
-    @Condition eventPlayer.getHealthOfType(Health.NORMAL) <= eventPlayer.custom_hp_pvar[0] + 50
+    @Condition eventPlayer.getHealthOfType(Health.NORMAL) <= 325
     
     eventPlayer.ram_block_damage += eventDamage * 1.5
     eventPlayer.hudText = "{0}/{1}".format(floor(eventPlayer.ram_block_damage), Ram_Annihilation[0])
@@ -90,7 +90,7 @@ rule "[Ramattra]: block":
     @Condition (eventPlayer.isUsingAbility1() or eventPlayer.isUsingUltimate()) == true
     @Condition eventPlayer.isFiringSecondaryFire() == true
     @Condition eventPlayer.ram_block_damage <= Ram_Annihilation[0]
-    @Condition eventPlayer.getHealthOfType(Health.NORMAL) <= eventPlayer.custom_hp_pvar[0] + 50
+    @Condition eventPlayer.getHealthOfType(Health.NORMAL) <= 325
     
     eventPlayer.ram_block_damage += eventDamage
     eventPlayer.hudText = "{0}/{1}".format(floor(eventPlayer.ram_block_damage), Ram_Annihilation[0])
