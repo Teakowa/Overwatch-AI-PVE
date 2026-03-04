@@ -1,8 +1,3 @@
-def botAim2Target():
-    @Name "[AI/global]: botAim2Target"
-    
-    eventPlayer.startFacing(directionTowards(eventPlayer + Vector.UP * distance(eventPlayer, eventPlayer.getEyePosition()) + worldVector(vect(0, 0, 0), eventPlayer, Transform.ROTATION), eventPlayer.botTarget.getEyePosition()), 10000)
-
 
 rule "[AI/global]: Generated at the beginning":
     @Condition any([isWaitingForPlayers(), isInSetup(), isGameInProgress()]) == true

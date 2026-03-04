@@ -226,7 +226,7 @@ if [[ -f "$protocol_file" ]]; then
 fi
 
 # 5) reset_pvar stable slot map in resetFrenemies
-reset_file="src/modules/bootstrap/20-player-lifecycle-and-reset.opy"
+reset_file="src/utilities/reset_frenemies.opy"
 stable_slots=(1 3 4 5 6 7 9 11 12 13 14 15 16)
 
 for slot in "${stable_slots[@]}"; do
