@@ -2,7 +2,9 @@ rule "[D.Va]: Detect switch to D.Va":
     @Event eachPlayer
     @Hero dva
     @Condition eventPlayer.isInAlternateForm() == false
-    
+    @Condition eventPlayer.reset_pvar[10] != eventPlayer.getHero()
+
+    eventPlayer.reset_pvar[10] = eventPlayer.getHero()
     eventPlayer.reset_pvar[0] = true
 
 

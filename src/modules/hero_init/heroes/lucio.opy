@@ -1,7 +1,9 @@
 rule "[Lucio]: Detect switch to Lucio":
     @Event eachPlayer
     @Hero lucio
-    
+    @Condition eventPlayer.reset_pvar[10] != eventPlayer.getHero()
+
+    eventPlayer.reset_pvar[10] = eventPlayer.getHero()
     eventPlayer.reset_pvar[0] = true
 
 

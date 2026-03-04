@@ -1,7 +1,9 @@
 rule "[Orisa]: Detect switch to Orisa":
     @Event eachPlayer
     @Hero orisa
-    
+    @Condition eventPlayer.reset_pvar[10] != eventPlayer.getHero()
+
+    eventPlayer.reset_pvar[10] = eventPlayer.getHero()
     eventPlayer.reset_pvar[0] = true
 
 

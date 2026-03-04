@@ -1,7 +1,9 @@
 rule "[JetpackCat/init.opy]: Detect switch to JetpackCat":
     @Event eachPlayer
     @Hero jetpackCat
-    
+    @Condition eventPlayer.reset_pvar[10] != eventPlayer.getHero()
+
+    eventPlayer.reset_pvar[10] = eventPlayer.getHero()
     eventPlayer.reset_pvar[0] = true
 
 

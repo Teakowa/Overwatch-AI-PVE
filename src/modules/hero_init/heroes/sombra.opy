@@ -1,7 +1,9 @@
 rule "[Sombra]: Detect switch to Sombra":
     @Event eachPlayer
     @Hero sombra
-    
+    @Condition eventPlayer.reset_pvar[10] != eventPlayer.getHero()
+
+    eventPlayer.reset_pvar[10] = eventPlayer.getHero()
     eventPlayer.reset_pvar[0] = true
 
 

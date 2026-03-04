@@ -1,7 +1,9 @@
 rule "[tracer/init.opy]: Detect switch to Tracer":
     @Event eachPlayer
     @Hero tracer
-    
+    @Condition eventPlayer.reset_pvar[10] != eventPlayer.getHero()
+
+    eventPlayer.reset_pvar[10] = eventPlayer.getHero()
     eventPlayer.reset_pvar[0] = true
 
 

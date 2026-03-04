@@ -1,7 +1,9 @@
 rule "[hanzo/init.opy]: Detect switch to Hanzo":
     @Event eachPlayer
     @Hero hanzo
-    
+    @Condition eventPlayer.reset_pvar[10] != eventPlayer.getHero()
+
+    eventPlayer.reset_pvar[10] = eventPlayer.getHero()
     eventPlayer.reset_pvar[0] = true
 
 

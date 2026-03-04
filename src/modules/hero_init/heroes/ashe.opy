@@ -1,7 +1,9 @@
 rule "[Ashe]: Detect switch to Ashe":
     @Event eachPlayer
     @Hero ashe
-    
+    @Condition eventPlayer.reset_pvar[10] != eventPlayer.getHero()
+
+    eventPlayer.reset_pvar[10] = eventPlayer.getHero()
     eventPlayer.reset_pvar[0] = true
 
 

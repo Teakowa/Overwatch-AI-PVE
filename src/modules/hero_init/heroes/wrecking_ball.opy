@@ -1,7 +1,9 @@
 rule "[Wrecking Ball]: Detect switch to Wrecking Ball":
     @Event eachPlayer
     @Hero wreckingBall
-    
+    @Condition eventPlayer.reset_pvar[10] != eventPlayer.getHero()
+
+    eventPlayer.reset_pvar[10] = eventPlayer.getHero()
     eventPlayer.reset_pvar[0] = true
 
 

@@ -1,7 +1,9 @@
 rule "[Mauga]: Detect switch to Mauga":
     @Event eachPlayer
     @Hero mauga
-    
+    @Condition eventPlayer.reset_pvar[10] != eventPlayer.getHero()
+
+    eventPlayer.reset_pvar[10] = eventPlayer.getHero()
     eventPlayer.reset_pvar[0] = true
 
 

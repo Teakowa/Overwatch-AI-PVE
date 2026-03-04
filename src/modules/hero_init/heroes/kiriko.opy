@@ -1,7 +1,9 @@
 rule "[Kiriko]: Detect switch to Kiriko":
     @Event eachPlayer
     @Hero kiriko
-    
+    @Condition eventPlayer.reset_pvar[10] != eventPlayer.getHero()
+
+    eventPlayer.reset_pvar[10] = eventPlayer.getHero()
     eventPlayer.reset_pvar[0] = true
 
 

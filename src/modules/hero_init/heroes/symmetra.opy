@@ -1,7 +1,9 @@
 rule "[symmetra/init.opy]: Detect switch to Symmetra":
     @Event eachPlayer
     @Hero symmetra
-    
+    @Condition eventPlayer.reset_pvar[10] != eventPlayer.getHero()
+
+    eventPlayer.reset_pvar[10] = eventPlayer.getHero()
     eventPlayer.reset_pvar[0] = true
 
 

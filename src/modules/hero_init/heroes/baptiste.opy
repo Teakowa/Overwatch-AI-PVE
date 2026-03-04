@@ -1,7 +1,9 @@
 rule "[Baptiste]: Detect switch to Baptiste":
     @Event eachPlayer
     @Hero baptiste
-    
+    @Condition eventPlayer.reset_pvar[10] != eventPlayer.getHero()
+
+    eventPlayer.reset_pvar[10] = eventPlayer.getHero()
     eventPlayer.reset_pvar[0] = true
 
 

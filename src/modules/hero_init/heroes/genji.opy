@@ -1,7 +1,9 @@
 rule "[Genji]: Detect switch to Genji":
     @Event eachPlayer
     @Hero genji
-    
+    @Condition eventPlayer.reset_pvar[10] != eventPlayer.getHero()
+
+    eventPlayer.reset_pvar[10] = eventPlayer.getHero()
     eventPlayer.reset_pvar[0] = true
 
 

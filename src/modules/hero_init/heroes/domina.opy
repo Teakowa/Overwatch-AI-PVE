@@ -1,7 +1,9 @@
 rule "[Domina/init.opy]: Detect switch to Domina":
     @Event eachPlayer
     @Hero domina
-    
+    @Condition eventPlayer.reset_pvar[10] != eventPlayer.getHero()
+
+    eventPlayer.reset_pvar[10] = eventPlayer.getHero()
     eventPlayer.reset_pvar[0] = true
 
 

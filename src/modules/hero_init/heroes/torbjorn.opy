@@ -1,7 +1,9 @@
 rule "[torbjorn/init.opy]: Detect switch to Torbjorn":
     @Event eachPlayer
     @Hero torbjorn
-    
+    @Condition eventPlayer.reset_pvar[10] != eventPlayer.getHero()
+
+    eventPlayer.reset_pvar[10] = eventPlayer.getHero()
     eventPlayer.reset_pvar[0] = true
 
 

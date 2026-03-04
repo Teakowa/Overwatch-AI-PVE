@@ -1,7 +1,9 @@
 rule "[wuyang/init.opy]: Detect switch to wuyang":
     @Event eachPlayer
     @Hero wuyang
-    
+    @Condition eventPlayer.reset_pvar[10] != eventPlayer.getHero()
+
+    eventPlayer.reset_pvar[10] = eventPlayer.getHero()
     eventPlayer.reset_pvar[0] = true
 
 

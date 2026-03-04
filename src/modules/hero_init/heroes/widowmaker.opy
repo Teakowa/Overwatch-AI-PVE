@@ -1,7 +1,9 @@
 rule "[widowmaker/init.opy]: Detect switch to Widowmaker":
     @Event eachPlayer
     @Hero widowmaker
-    
+    @Condition eventPlayer.reset_pvar[10] != eventPlayer.getHero()
+
+    eventPlayer.reset_pvar[10] = eventPlayer.getHero()
     eventPlayer.reset_pvar[0] = true
 
 

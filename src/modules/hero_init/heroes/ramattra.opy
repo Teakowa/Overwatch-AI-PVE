@@ -1,7 +1,9 @@
 rule "[Ramattra]: Detect switch to Ramattra":
     @Event eachPlayer
     @Hero ramattra
-    
+    @Condition eventPlayer.reset_pvar[10] != eventPlayer.getHero()
+
+    eventPlayer.reset_pvar[10] = eventPlayer.getHero()
     eventPlayer.reset_pvar[0] = true
 
 

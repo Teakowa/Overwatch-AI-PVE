@@ -1,7 +1,9 @@
 rule "[Mei]: Detect switch to Mei":
     @Event eachPlayer
     @Hero mei
-    
+    @Condition eventPlayer.reset_pvar[10] != eventPlayer.getHero()
+
+    eventPlayer.reset_pvar[10] = eventPlayer.getHero()
     eventPlayer.reset_pvar[0] = true
 
 

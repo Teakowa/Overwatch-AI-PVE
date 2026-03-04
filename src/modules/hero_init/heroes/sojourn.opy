@@ -1,7 +1,9 @@
 rule "[Sojourn]: Detect switch to Sojourn":
     @Event eachPlayer
     @Hero sojourn
-    
+    @Condition eventPlayer.reset_pvar[10] != eventPlayer.getHero()
+
+    eventPlayer.reset_pvar[10] = eventPlayer.getHero()
     eventPlayer.reset_pvar[0] = true
 
 

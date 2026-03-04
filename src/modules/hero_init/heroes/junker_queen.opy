@@ -1,7 +1,9 @@
 rule "[Junker Queen]: Detect switch to Junker Queen":
     @Event eachPlayer
     @Hero junkerQueen
-    
+    @Condition eventPlayer.reset_pvar[10] != eventPlayer.getHero()
+
+    eventPlayer.reset_pvar[10] = eventPlayer.getHero()
     eventPlayer.reset_pvar[0] = true
 
 

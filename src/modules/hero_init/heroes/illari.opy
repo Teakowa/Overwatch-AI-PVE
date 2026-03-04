@@ -1,7 +1,9 @@
 rule "[Illari]: Detect switch to Illari":
     @Event eachPlayer
     @Hero illari
-    
+    @Condition eventPlayer.reset_pvar[10] != eventPlayer.getHero()
+
+    eventPlayer.reset_pvar[10] = eventPlayer.getHero()
     eventPlayer.reset_pvar[0] = true
 
 

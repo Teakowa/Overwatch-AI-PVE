@@ -1,7 +1,9 @@
 rule "[Soldier: 76]: Detect switch to Soldier 76":
     @Event eachPlayer
     @Hero soldier
-    
+    @Condition eventPlayer.reset_pvar[10] != eventPlayer.getHero()
+
+    eventPlayer.reset_pvar[10] = eventPlayer.getHero()
     eventPlayer.reset_pvar[0] = true
 
 

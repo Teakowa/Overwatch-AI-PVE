@@ -1,7 +1,9 @@
 rule "[venture/init.opy]: Detect switch to venture":
     @Event eachPlayer
     @Hero venture
-    
+    @Condition eventPlayer.reset_pvar[10] != eventPlayer.getHero()
+
+    eventPlayer.reset_pvar[10] = eventPlayer.getHero()
     eventPlayer.reset_pvar[0] = true
 
 

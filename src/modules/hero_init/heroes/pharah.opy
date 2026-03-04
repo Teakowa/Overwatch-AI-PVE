@@ -1,7 +1,9 @@
 rule "[pharah/init.opy]: Detect switch to Pharah":
     @Event eachPlayer
     @Hero pharah
-    
+    @Condition eventPlayer.reset_pvar[10] != eventPlayer.getHero()
+
+    eventPlayer.reset_pvar[10] = eventPlayer.getHero()
     eventPlayer.reset_pvar[0] = true
 
 

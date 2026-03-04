@@ -1,7 +1,9 @@
 rule "[Echo]: Detect switch to Echo":
     @Event eachPlayer
     @Hero echo
-    
+    @Condition eventPlayer.reset_pvar[10] != eventPlayer.getHero()
+
+    eventPlayer.reset_pvar[10] = eventPlayer.getHero()
     eventPlayer.reset_pvar[0] = true
 
 

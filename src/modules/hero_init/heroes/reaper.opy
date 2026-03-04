@@ -1,7 +1,9 @@
 rule "[reaper/init.opy]: Detect switch to Reaper":
     @Event eachPlayer
     @Hero reaper
-    
+    @Condition eventPlayer.reset_pvar[10] != eventPlayer.getHero()
+
+    eventPlayer.reset_pvar[10] = eventPlayer.getHero()
     eventPlayer.reset_pvar[0] = true
 
 

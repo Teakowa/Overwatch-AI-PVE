@@ -1,7 +1,9 @@
 rule "[Freja/init.opy]: Detect switch to Freja":
     @Event eachPlayer
     @Hero freja
-    
+    @Condition eventPlayer.reset_pvar[10] != eventPlayer.getHero()
+
+    eventPlayer.reset_pvar[10] = eventPlayer.getHero()
     eventPlayer.reset_pvar[0] = true
 
 

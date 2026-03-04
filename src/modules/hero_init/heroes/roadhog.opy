@@ -1,7 +1,9 @@
 rule "[roadhog]: Detect switch to roadhog":
     @Event eachPlayer
     @Hero roadhog
-    
+    @Condition eventPlayer.reset_pvar[10] != eventPlayer.getHero()
+
+    eventPlayer.reset_pvar[10] = eventPlayer.getHero()
     eventPlayer.reset_pvar[0] = true
 
 

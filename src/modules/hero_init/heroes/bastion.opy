@@ -1,7 +1,9 @@
 rule "[bastion/init.opy]: Detect switch to Bastion":
     @Event eachPlayer
     @Hero bastion
-    
+    @Condition eventPlayer.reset_pvar[10] != eventPlayer.getHero()
+
+    eventPlayer.reset_pvar[10] = eventPlayer.getHero()
     eventPlayer.reset_pvar[0] = true
 
 

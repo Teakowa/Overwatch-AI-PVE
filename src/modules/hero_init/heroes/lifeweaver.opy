@@ -1,7 +1,9 @@
 rule "[Lifeweaver]: Detect switch to Lifeweaver":
     @Event eachPlayer
     @Hero lifeweaver
-    
+    @Condition eventPlayer.reset_pvar[10] != eventPlayer.getHero()
+
+    eventPlayer.reset_pvar[10] = eventPlayer.getHero()
     eventPlayer.reset_pvar[0] = true
 
 

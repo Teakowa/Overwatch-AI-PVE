@@ -1,7 +1,9 @@
 rule "[Hazard/init.opy]: Detect switch to Hazard":
     @Event eachPlayer
     @Hero hazard
-    
+    @Condition eventPlayer.reset_pvar[10] != eventPlayer.getHero()
+
+    eventPlayer.reset_pvar[10] = eventPlayer.getHero()
     eventPlayer.reset_pvar[0] = true
 
 

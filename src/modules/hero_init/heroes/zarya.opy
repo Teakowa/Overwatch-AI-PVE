@@ -1,7 +1,9 @@
 rule "[Zarya]: Detect switch to Zarya":
     @Event eachPlayer
     @Hero zarya
-    
+    @Condition eventPlayer.reset_pvar[10] != eventPlayer.getHero()
+
+    eventPlayer.reset_pvar[10] = eventPlayer.getHero()
     eventPlayer.reset_pvar[0] = true
 
 

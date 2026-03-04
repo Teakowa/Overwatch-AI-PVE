@@ -1,7 +1,9 @@
 rule "[Mizuki/init.opy]: Detect switch to Mizuki":
     @Event eachPlayer
     @Hero mizuki
-    
+    @Condition eventPlayer.reset_pvar[10] != eventPlayer.getHero()
+
+    eventPlayer.reset_pvar[10] = eventPlayer.getHero()
     eventPlayer.reset_pvar[0] = true
 
 
