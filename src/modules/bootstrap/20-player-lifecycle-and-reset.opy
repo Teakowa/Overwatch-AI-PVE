@@ -93,7 +93,7 @@ rule "[utilities/overhealth]: Decay Overhealth":
         #If not full HP, replace current OH with current OH - 1
         if eventPlayer.getHealth() < eventPlayer.getMaxHealth():
             eventPlayer.storedOverhealth[1] = eventPlayer.getHealth() - eventPlayer.storedOverhealth[0]
-            while eventPlayer.getHealth() > eventPlayer.storedOverhealth[1]:
+            if eventPlayer.getHealth() > eventPlayer.storedOverhealth[1]:
                 eventPlayer.setHealth(eventPlayer.storedOverhealth[1])
             eventPlayer.storedOverhealth[0]--
             if eventPlayer.storedOverhealth[0] < 1:
@@ -104,5 +104,4 @@ rule "[utilities/overhealth]: Decay Overhealth":
             eventPlayer.setHealth(eventPlayer.getHealth() - 1)
             storeOverhealth()
         wait(0.12)
-
 

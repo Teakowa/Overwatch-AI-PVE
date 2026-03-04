@@ -34,17 +34,17 @@ rule "[AI/control]: Illari Secondary":
     @Condition evalOnce(eventPlayer.isDummy()) != false
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.isAlive() == true
-    @Condition ((sorted([player for player in getLivingPlayers(eventPlayer.getTeam()) if player != eventPlayer and distance(eventPlayer, player) <= 20 and player.getNormalizedHealth() < 0.5], lambda i: i.getHealth() * distance(eventPlayer, i)))[0]) != null
+    @Condition len([player for player in getLivingPlayers(eventPlayer.getTeam()) if player != eventPlayer and distance(eventPlayer, player) <= 20 and player.getNormalizedHealth() < 0.5]) > 0
     @Condition eventPlayer.getAbilityResource(Button.SECONDARY_FIRE) <= 80
     
     eventPlayer.startFacing(directionTowards(eventPlayer + Vector.UP * distance(eventPlayer, eventPlayer.getEyePosition()) + worldVector(vect(0, 0, 0), eventPlayer, Transform.ROTATION), ((sorted([player for player in getLivingPlayers(eventPlayer.getTeam()) if player != eventPlayer and distance(eventPlayer, player) <= 20 and player.getNormalizedHealth() < 1], lambda i: i.getHealth() * distance(eventPlayer, i)))[0]).getEyePosition()), 10000)
     eventPlayer.startForcingButton(Button.SECONDARY_FIRE)
     waitUntil(eventPlayer.getAbilityResource(Button.SECONDARY_FIRE) >= 45, 1.5)
-    if ruleCondition:
-        loop()
     eventPlayer.stopFacing()
     eventPlayer.stopForcingButton(Button.SECONDARY_FIRE)
     wait(random.uniform(2.256, 5.5))
+    if ruleCondition:
+        loop()
 
 
 rule "[AI/control]: Illari Ability 1":
@@ -177,5 +177,3 @@ rule "[AI/control]: Juno Ultimate":
     
     waitUntil(true and (((len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) and distance(eventPlayer, player) <= 10])) + (len([player for player in getLivingPlayers(eventPlayer.getTeam()) if isInLoS(eventPlayer, player) and distance(eventPlayer, player) <= 15]))) >= 3), 99999)
     eventPlayer.forceButtonPress(Button.ULTIMATE)
-
-
