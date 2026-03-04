@@ -34,8 +34,8 @@ rule "[AI/control]: Illari Secondary":
     @Condition evalOnce(eventPlayer.isDummy()) != false
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.isAlive() == true
-    @Condition len([player for player in getLivingPlayers(eventPlayer.getTeam()) if player != eventPlayer and distance(eventPlayer, player) <= 20 and player.getNormalizedHealth() < 0.5]) > 0
     @Condition eventPlayer.getAbilityResource(Button.SECONDARY_FIRE) <= 80
+    @Condition len([player for player in getLivingPlayers(eventPlayer.getTeam()) if player != eventPlayer and distance(eventPlayer, player) <= 20 and player.getNormalizedHealth() < 0.5]) > 0
     
     eventPlayer.startFacing(directionTowards(eventPlayer + Vector.UP * distance(eventPlayer, eventPlayer.getEyePosition()) + worldVector(vect(0, 0, 0), eventPlayer, Transform.ROTATION), ((sorted([player for player in getLivingPlayers(eventPlayer.getTeam()) if player != eventPlayer and distance(eventPlayer, player) <= 20 and player.getNormalizedHealth() < 1], lambda i: i.getHealth() * distance(eventPlayer, i)))[0]).getEyePosition()), 10000)
     eventPlayer.startForcingButton(Button.SECONDARY_FIRE)

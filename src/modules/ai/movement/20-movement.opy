@@ -5,7 +5,7 @@ rule "[AI/Movement]: Movement":
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.isAlive() == true
     
-    if len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) == true]) == 0 or eventPlayer.botTarget == null:
+    if eventPlayer.botTarget == null or len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) == true]) == 0:
         eventPlayer.startThrottleInDirection(directionTowards(eventPlayer, eventPlayer.reset_pvar[15]), 1, Relativity.TO_WORLD)
     else:
         eventPlayer.startThrottleInDirection(directionFromAngles(horizontalAngleOfDirection(directionTowards(eventPlayer, eventPlayer.botTarget)) + eventPlayer.Strafe, 0), 1, Relativity.TO_WORLD)
@@ -92,4 +92,3 @@ rule "[AI/Movement]: reset speed":
     eventPlayer.setProjectileSpeed(50)
     waitUntil(not eventPlayer.isUsingUltimate(), 15)
     eventPlayer.setProjectileSpeed(100)
-
