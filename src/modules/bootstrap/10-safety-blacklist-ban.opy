@@ -1,5 +1,6 @@
 rule "[Anti Crash]: Activate anti crash":
     @Condition getAverageServerLoad() > ANTI_CRASH_ACTIVATE_PERCENT
+    @Disabled
     
     wait(ANTI_CRASH_HOLD_TIME, Wait.ABORT_WHEN_FALSE)
     smallMessage(getAllPlayers(), "  服务器过载  ")
@@ -12,11 +13,12 @@ rule "[Anti Crash]: Activate anti crash":
 rule "[Global]Setup Blacklist":
     Blacklist = []
     wait(getAverageServerLoad() / 100)
-    Blacklist.append("为这点事活着吗-她与春风皆过客-Eliake-李幽州-LETSGODUDE-嗣音-河神与樵夫的交易".split("-"))
+    Blacklist.append("蜡笔小新眼子-Patrick".split("-"))
+    Blacklist.append("为这点事活着吗-她与春风皆过客-Eliake-李幽州-LETSGODUDE-嗣音-河神与樵夫的交易-qing-Gastby-暴躁的快速玩家-Azuki9527-李慕下".split("-"))
     Blacklist.append("小哲-比奇堡悍匪-蓝海-啊哈哈哈哈-EdwardJoe-EQUA-小余天天开心-梦想成为源氏糕手-口执剑只为伊人口-折耳-必深深李雪花大姨-乌有".split("-"))
     Blacklist.append("假如给我三天雨姐-YyX-挽风-太酱樱铃-笙墨-秘泽-高大的死灵-大魔王皮平1-两毛五-Robotman-三十三岁上班族-土豆焖马铃薯-Freakybab".split("-"))
     Blacklist.append("膨胀的魔丸-坦诚的巨鹰-我可能喝了假奶-我可能喝了假白酒-陆陆好公路收费站-炉火糖粥-一曲柳暗花-王中王鱿鱼火腿肠-蒙牛牌特仑苏-魔王献捷".split("-"))
-    Blacklist.append("焦糖-亭中烟-坦诚的熊-我的禅雅塔没有球-易水寒兮风萧萧-修凡-压力我没奶吃-我才13岁-玩不明白-Shadowwitch-二十五夜-晓山瑞希".split("-"))
+    Blacklist.append("焦糖-亭中烟-坦诚的熊-我的禅雅塔没有球-易水寒兮风萧萧-修凡-压力我没奶吃-我才13岁-玩不明白-Shadowwitch-二十五夜-晓山瑞希-FRXZ".split("-"))
     Blacklist.append("拉扯美如画-Anderson-Arrow-REM-王源发根烟-白银之鹰-卡卡-REMEMBER-徐凤年-Daylight-长时间的战场-间谍川建国-傅里叶变换-小冰冰".split("-"))
     Blacklist.append("龙晓浩-信仰之跃-夏鸭-邻家的豺狼人-格兰蒂娅-eggyellow-柚子-远坂凛不厨我厨-掂掂热狗-曾许人间第一流-溺水的鱼-时卡-Slow-月球猫猫".split("-"))
     Blacklist.append("长时间的战场-性感天使在线牵人-Zhenj8NB-户晨风-二妹-丶苏四-可乐交响曲-去幻想乡当秘书-超菜小妖-嘎嘎嘎-明日方舟高手-小冰冰-REfrian".split("-"))
@@ -48,17 +50,6 @@ rule "[Player]Remove Player from Blacklist":
     @Condition "{0}".format(eventPlayer) in Blacklist == true
     
     eventPlayer.removeFromGame()
-
-
-rule "[Player]Remove Player from Blacklist":
-    @Event playerLeft
-    @Team 2
-    @Condition isGameInProgress() == true
-    
-    smallMessage(hostPlayer, "  {0}".format(eventPlayer))
-    smallMessage(hostPlayer, "  {0}".format(eventPlayer))
-    smallMessage(hostPlayer, "  {0}".format(eventPlayer))
-
 
 rule "[Player]Hero BAN":
     @Condition Hero_BAN == true
