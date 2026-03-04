@@ -6,6 +6,7 @@ rule "[Mizuki]: Soul Hat bonus heal and cooldown refund":
 
     heal(healee, healer, healee.getMaxHealth() * 0.10)
     healer.setAbilityCooldown(Button.SECONDARY_FIRE, max(0, healer.getAbilityCooldown(Button.SECONDARY_FIRE) - 0.5))
+    wait(0.5)
 
 rule "[Mizuki]: Substitute Doll clears negative statuses":
     @Event eachPlayer
