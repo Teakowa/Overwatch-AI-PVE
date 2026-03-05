@@ -2,10 +2,6 @@ rule "Copyright (c) 2019-2025 他又（aka Teakowa）":
     disableInspector()
     Collaborator = ["他又", "别感冒", "步六孤", "Destiny", "smile"]
     Mark = " \r\n\n 非重装 AI 减伤 25%\r\n 重装 AI 最高减伤 40%\r\n 完整更新日志 workshop.codes/3TP7F/update-log\r\n 企鹅聊天群：361913638\r\n 中途退、挂机永久BAN，不服的现在滚"
-    #Setup Anti Crash
-    ANTI_CRASH_ACTIVATE_PERCENT = createWorkshopSettingInt("Anti Crash", "激活阈值", ANTI_CRASH_ACTIVATE_DEFAULT, ANTI_CRASH_ACTIVATE_MIN, ANTI_CRASH_ACTIVATE_MAX)
-    ANTI_CRASH_HOLD_TIME = createWorkshopSettingFloat("Anti Crash", "激活持续时间", ANTI_CRASH_HOLD_DEFAULT, ANTI_CRASH_HOLD_MIN, ANTI_CRASH_HOLD_MAX, ANTI_CRASH_HOLD_ORDER)
-    ANTI_CRASH_DEACTIVATE_PERCENT = createWorkshopSettingInt("Anti Crash", "停用阈值", ANTI_CRASH_DEACTIVATE_DEFAULT, ANTI_CRASH_DEACTIVATE_MIN, ANTI_CRASH_DEACTIVATE_MAX, ANTI_CRASH_DEACTIVATE_ORDER)
 
 
 rule "Initialize global variables":

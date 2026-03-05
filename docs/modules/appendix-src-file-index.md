@@ -16,6 +16,7 @@
 ## 3. Bootstrap
 
 - `src/modules/bootstrap/00-init-and-settings.opy`
+- `src/modules/bootstrap/09-anti-crash.opy`
 - `src/modules/bootstrap/10-safety-blacklist-ban.opy`
 - `src/modules/bootstrap/20-player-lifecycle-and-reset.opy`
 

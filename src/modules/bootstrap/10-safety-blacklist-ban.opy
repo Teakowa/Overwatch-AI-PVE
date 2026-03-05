@@ -1,15 +1,3 @@
-rule "[Anti Crash]: Activate anti crash":
-    @Condition getAverageServerLoad() > ANTI_CRASH_ACTIVATE_PERCENT
-    @Disabled
-    
-    wait(ANTI_CRASH_HOLD_TIME, Wait.ABORT_WHEN_FALSE)
-    smallMessage(getAllPlayers(), "  服务器过载  ")
-    setSlowMotion(ANTI_CRASH_SLOW_MOTION_ON)
-    wait(ANTI_CRASH_RECOVERY_WAIT)
-    waitUntil(getAverageServerLoad() < ANTI_CRASH_DEACTIVATE_PERCENT, Math.INFINITY)
-    setSlowMotion(ANTI_CRASH_SLOW_MOTION_OFF)
-
-
 rule "[Global]Setup Blacklist":
     Blacklist = []
     wait(getAverageServerLoad() / 100)
@@ -96,4 +84,3 @@ rule "[Player]: hudText init":
     hudText(getPlayersInSlot(3, Team.2), null, HUD_TEXT_SPACER, getPlayersInSlot(3, Team.2).hudText, HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
     hudText(getPlayersInSlot(4, Team.2), null, HUD_TEXT_SPACER, getPlayersInSlot(4, Team.2).hudText, HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
     hudText(getPlayersInSlot(5, Team.2), null, HUD_TEXT_SPACER, getPlayersInSlot(5, Team.2).hudText, HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
-
