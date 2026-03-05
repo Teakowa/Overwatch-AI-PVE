@@ -43,6 +43,7 @@ globalvar FalloffMin 56
 globalvar ProjectileSpeed 57
 globalvar CustomAI 58
 globalvar CustomAIArray 59
+globalvar BotHeroArray 60 = [Hero.TRACER, Hero.REAPER, Hero.WIDOWMAKER, Hero.PHARAH, Hero.REINHARDT, Hero.MERCY, Hero.TORBJORN, Hero.HANZO, Hero.WINSTON, Hero.ZENYATTA, Hero.BASTION, Hero.SYMMETRA, Hero.ZARYA, Hero.CASSIDY, Hero.SOLDIER, Hero.LUCIO, Hero.ROADHOG, Hero.JUNKRAT, Hero.DVA, Hero.MEI, Hero.GENJI, Hero.ANA, Hero.SOMBRA, Hero.ORISA, Hero.DOOMFIST, Hero.MOIRA, Hero.BRIGITTE, Hero.WRECKING_BALL, Hero.ASHE, Hero.BAPTISTE, Hero.SIGMA, Hero.ECHO, Hero.SOJOURN, Hero.JUNKER_QUEEN, Hero.KIRIKO, Hero.RAMATTRA, Hero.LIFEWEAVER, Hero.ILLARI, Hero.MAUGA, Hero.VENTURE, Hero.JUNO, Hero.HAZARD, Hero.FREJA]
 
 
 #Player variables

@@ -271,24 +271,7 @@ rule "[utilities/hero_setup.opy]: Reset and initialize hero on hero switch":
     destroyHudText(eventPlayer.ChangelogText2)
     resetHero()
 
-def clearCustomHp():
-    @Name "[custom_hp.opy]: clearCustomHp()"
-    
-    eventPlayer.removeAllHealthPools()
-    wait()
-    eventPlayer.setMaxHealth(100)
-    wait()
-    eventPlayer.custom_hp_pvar[0] = 0
-    eventPlayer.custom_hp_pvar[1] = 0
-    eventPlayer.custom_hp_pvar[2] = 0
-    eventPlayer.custom_hp_pvar[3] = eventPlayer.getMaxHealthOfType(Health.NORMAL)
-    eventPlayer.custom_hp_pvar[4] = eventPlayer.getMaxHealthOfType(Health.ARMOR)
-    eventPlayer.custom_hp_pvar[5] = eventPlayer.getMaxHealthOfType(Health.SHIELDS)
-    eventPlayer.custom_hp_pvar[6] = 1
 
-def applyCustomHp():
-    @Name "[custom_hp.opy]: applyCustomHp()"
-    @Delimiter
 
 #!include "modules/ai/core/10-core-global-and-targeting.opy"
 #!include "modules/ai/movement/20-movement.opy"
@@ -991,7 +974,7 @@ rule "[Ramattra] ult start":
     @Event eachPlayer
     @Hero ramattra
     @Condition eventPlayer.isUsingUltimate() == true
-    @Condition eventPlayer.getHealthOfType(Health.NORMAL) <= eventPlayer.custom_hp_pvar[0] + 50
+    @Condition eventPlayer.getHealthOfType(Health.NORMAL) <= eventPlayer.getMaxHealthOfType(Health.NORMAL) + 50
     
     eventPlayer.ram_block_damage += 50
     eventPlayer.hudText = "{0}/{1}".format(floor(eventPlayer.ram_block_damage), Ram_Annihilation[0])
@@ -1016,7 +999,7 @@ rule "[Ramattra]: Pummel healing":
     @Hero ramattra
     @Condition eventPlayer.isUsingAbility1() == true
     @Condition eventAbility == Button.ABILITY_1
-    @Condition eventPlayer.getHealthOfType(Health.NORMAL) <= eventPlayer.custom_hp_pvar[0] + 50
+    @Condition eventPlayer.getHealthOfType(Health.NORMAL) <= eventPlayer.getMaxHealthOfType(Health.NORMAL) + 50
     
     eventPlayer.ram_block_damage += eventDamage * 2.5
     eventPlayer.hudText = "{0}/{1}".format(floor(eventPlayer.ram_block_damage), Ram_Annihilation[0])
@@ -1028,7 +1011,7 @@ rule "[Ramattra]: Pummel healing":
     @Hero ramattra
     @Condition eventPlayer.isUsingAbility1() == true
     @Condition eventAbility == Button.ABILITY_1
-    @Condition eventPlayer.getHealthOfType(Health.NORMAL) <= eventPlayer.custom_hp_pvar[0] + 50
+    @Condition eventPlayer.getHealthOfType(Health.NORMAL) <= eventPlayer.getMaxHealthOfType(Health.NORMAL) + 50
     
     eventPlayer.ram_block_damage += eventDamage * 1.5
     wait(0.3)
@@ -1499,7 +1482,7 @@ rule "[Ramattra]: block":
     @Condition (eventPlayer.isUsingAbility1() or eventPlayer.isUsingUltimate()) == true
     @Condition eventPlayer.isFiringSecondaryFire() == true
     @Condition eventPlayer.ram_block_damage <= Ram_Annihilation[0]
-    @Condition eventPlayer.getHealthOfType(Health.NORMAL) <= eventPlayer.custom_hp_pvar[0] + 50
+    @Condition eventPlayer.getHealthOfType(Health.NORMAL) <= eventPlayer.getMaxHealthOfType(Health.NORMAL) + 50
     
     eventPlayer.ram_block_damage += eventDamage
     eventPlayer.hudText = "{0}/{1}".format(floor(eventPlayer.ram_block_damage), Ram_Annihilation[0])
@@ -2078,249 +2061,56 @@ rule "Initialize Heors":
     @Disabled
     @Delimiter
 
-#!include "heroes/reaper/init-detect.opy"
-
-rule "[reaper/init.opy]: Initialize Reaper":
-    @Event eachPlayer
-    @Hero reaper
-    @Condition eventPlayer.reset_pvar[0] != false
-    
-    resetHero()
-    eventPlayer.custom_hp_pvar[0] = 500
-    eventPlayer.custom_hp_pvar[1] = 0
-    eventPlayer.custom_hp_pvar[2] = 0
-    applyCustomHp()
-    if eventPlayer.getTeam() != Team.1:
-        goto lbl_0
-    eventPlayer.N = ["滚筒洗衣机", "转圈摩西", "龙卷风摩西", "哈哈摩西", "菜就多练"]
-    eventPlayer.startForcingName(random.choice(eventPlayer.N))
-    lbl_0:
-    eventPlayer.reset_pvar[0] = false
-
-#!include "heroes/tracer/init-detect.opy"
-
-rule "[tracer/init.opy]: Initialize Tracer":
-    @Event eachPlayer
-    @Hero tracer
-    @Condition eventPlayer.reset_pvar[0] != false
-    
-    resetHero()
-    eventPlayer.setAbilityCooldown(Button.ABILITY_2, 8)
-    eventPlayer.custom_hp_pvar[0] = 150
-    eventPlayer.custom_hp_pvar[1] = 0
-    eventPlayer.custom_hp_pvar[2] = 350
-    applyCustomHp()
-    if eventPlayer.getTeam() != Team.1:
-        goto lbl_0
-    eventPlayer.N = ["跳跳熊", "FLETA", "EVAEL", "炸弹摩西", "瞬移摩西"]
-    eventPlayer.startForcingName(random.choice(eventPlayer.N))
-    lbl_0:
-    eventPlayer.reset_pvar[0] = false
-
-#!include "heroes/mercy/init-detect.opy"
-
-rule "[mercy/init.opy]: Initialize Mercy":
-    @Event eachPlayer
-    @Hero mercy
-    @Condition eventPlayer.reset_pvar[0] != false
-    
-    resetHero()
-    eventPlayer.custom_hp_pvar[0] = 250
-    eventPlayer.custom_hp_pvar[1] = 50
-    eventPlayer.custom_hp_pvar[2] = 200
-    applyCustomHp()
-    if eventPlayer.getTeam() != Team.1:
-        goto lbl_0
-    eventPlayer.N = ["摩西", "拉使", "打我自动下载原神", "慈悲十三摩"]
-    eventPlayer.startForcingName(random.choice(eventPlayer.N))
-    lbl_0:
-    eventPlayer.reset_pvar[6].reset_pvar[9] = eventPlayer
-    eventPlayer.reset_pvar[0] = false
-
-#!include "heroes/hanzo/init-detect.opy"
-
-rule "[hanzo/init.opy]: Initialize Hanzo":
-    @Event eachPlayer
-    @Hero hanzo
-    @Condition eventPlayer.reset_pvar[0] != false
-    
-    resetHero()
-    eventPlayer.custom_hp_pvar[0] = 450
-    eventPlayer.custom_hp_pvar[1] = 0
-    eventPlayer.custom_hp_pvar[2] = 0
-    applyCustomHp()
-    if eventPlayer.getTeam() != Team.1:
-        goto lbl_0
-    eventPlayer.N = ["ANS", "吃矢不忘拉矢人", "拉矢摩西", "贩箭摩西"]
-    eventPlayer.startForcingName(random.choice(eventPlayer.N))
-    lbl_0:
-    eventPlayer.reset_pvar[0] = false
-
-#!include "heroes/freja/init-detect.opy"
-
-rule "[Freja/init.opy]: Initialize Freja":
-    @Event eachPlayer
-    @Hero freja
-    @Condition eventPlayer.reset_pvar[0] != false
-    
-    resetHero()
-    eventPlayer.custom_hp_pvar[0] = 450
-    eventPlayer.custom_hp_pvar[1] = 0
-    eventPlayer.custom_hp_pvar[2] = 0
-    eventPlayer.setProjectileSpeed(500)
-    if eventPlayer.getTeam() != Team.1:
-        goto lbl_0
-    eventPlayer.startForcingName(random.choice(["ANS", "射 爆", "拉矢摩西"]))
-    lbl_0:
-    getPlayers(getOppositeTeam(eventPlayer.getTeam())).reset_pvar[11] = eventPlayer
-    applyCustomHp()
-    eventPlayer.reset_pvar[0] = false
-
-#!include "heroes/torbjorn/init-detect.opy"
-
-rule "[torbjorn/init.opy]: Initialize Torbjorn":
-    @Event eachPlayer
-    @Hero torbjorn
-    @Condition eventPlayer.reset_pvar[0] != false
-    
-    resetHero()
-    eventPlayer.setHealingDealt(667)
-    eventPlayer.custom_hp_pvar[0] = 300
-    eventPlayer.custom_hp_pvar[1] = 400
-    eventPlayer.custom_hp_pvar[2] = 0
-    applyCustomHp()
-    eventPlayer.reset_pvar[0] = false
-
-rule "[venture/init.opy]: Detect switch to venture":
-    @Event eachPlayer
-    @Hero venture
-    
-    eventPlayer.reset_pvar[0] = true
-
-rule "[venture/init.opy]: Initialize venture":
-    @Event eachPlayer
-    @Hero venture
-    @Condition eventPlayer.reset_pvar[0] != false
-    
-    resetHero()
-    eventPlayer.custom_hp_pvar[0] = 350
-    eventPlayer.custom_hp_pvar[1] = 0
-    eventPlayer.custom_hp_pvar[2] = 50
-    applyCustomHp()
-    if eventPlayer.getTeam() != Team.1:
-        goto lbl_0
-    eventPlayer.startForcingName(random.choice(["钻地摩西", "丁真摩西"]))
-    lbl_0:
-    eventPlayer.reset_pvar[0] = false
-
-rule "[reinhardt/init.opy]: Detect switch to Reinhardt":
-    @Event eachPlayer
-    @Hero reinhardt
-    
-    eventPlayer.reset_pvar[0] = true
-
-rule "[reinhardt/init.opy]: Initialize Reinhardt":
-    @Event eachPlayer
-    @Hero reinhardt
-    @Condition eventPlayer.reset_pvar[0] != false
-    
-    resetHero()
-    eventPlayer.custom_hp_pvar[0] = 200
-    eventPlayer.custom_hp_pvar[1] = 800
-    eventPlayer.custom_hp_pvar[2] = 0
-    applyCustomHp()
-    #eventPlayer.setKnockbackReceived(116.667)
-    if eventPlayer.getTeam() != Team.1:
-        goto lbl_0
-    eventPlayer.N = ["小米Su7", "Hadi", "冲锋摩西", "抡锤摩西"]
-    eventPlayer.startForcingName(random.choice(eventPlayer.N))
-    lbl_0:
-    eventPlayer.reset_pvar[0] = false
-
-rule "[Hazard/init.opy]: Detect switch to Hazard":
-    @Event eachPlayer
-    @Hero hazard
-    
-    eventPlayer.reset_pvar[0] = true
-
-rule "[Hazard/init.opy]: Initialize Hazard":
-    @Event eachPlayer
-    @Hero hazard
-    @Condition eventPlayer.reset_pvar[0] != false
-    
-    resetHero()
-    eventPlayer.custom_hp_pvar[0] = 550
-    eventPlayer.custom_hp_pvar[1] = 250
-    eventPlayer.custom_hp_pvar[2] = 0
-    applyCustomHp()
-    removeTankPassive()
-    eventPlayer.reset_pvar[0] = false
-
-rule "[pharah/init.opy]: Detect switch to Pharah":
-    @Event eachPlayer
-    @Hero pharah
-    
-    eventPlayer.reset_pvar[0] = true
-
-rule "[pharah/init.opy]: Initialize Pharah":
-    @Event eachPlayer
-    @Hero pharah
-    @Condition eventPlayer.reset_pvar[0] != false
-    
-    resetHero()
-    eventPlayer.custom_hp_pvar[0] = 300
-    eventPlayer.custom_hp_pvar[1] = 0
-    eventPlayer.custom_hp_pvar[2] = 150
-    applyCustomHp()
-    eventPlayer.reset_pvar[0] = false
-
-rule "[winston/init.opy]: Detect switch to Winston":
-    @Event eachPlayer
-    @Hero winston
-    
-    eventPlayer.reset_pvar[0] = true
-
-rule "[winston/init.opy]: Initialize Winston":
-    @Event eachPlayer
-    @Hero winston
-    @Condition eventPlayer.reset_pvar[0] != false
-    
-    resetHero()
-    eventPlayer.custom_hp_pvar[0] = 300
-    eventPlayer.custom_hp_pvar[1] = 500
-    eventPlayer.custom_hp_pvar[2] = 0
-    applyCustomHp()
-    removeTankPassive()
-    eventPlayer.reset_pvar[0] = false
-    if eventPlayer.getTeam() != Team.1:
-        goto lbl_0
-    eventPlayer.N = ["电音王子吴亦凡", "雷电法王杨永信", "电击摩西", "菜就多练"]
-    eventPlayer.startForcingName(random.choice(eventPlayer.N))
-    lbl_0:
-
-rule "[widowmaker/init.opy]: Detect switch to Widowmaker":
-    @Event eachPlayer
-    @Hero widowmaker
-    
-    eventPlayer.reset_pvar[0] = true
-
-rule "[widowmaker/init.opy]: Initialize Widowmaker":
-    @Event eachPlayer
-    @Hero widowmaker
-    @Condition eventPlayer.reset_pvar[0] != false
-    
-    resetHero()
-    eventPlayer.custom_hp_pvar[0] = 350
-    eventPlayer.custom_hp_pvar[1] = 0
-    eventPlayer.custom_hp_pvar[2] = 0
-    applyCustomHp()
-    if eventPlayer.getTeam() != Team.1:
-        goto lbl_0
-    eventPlayer.N = ["ANS", "亿枪一个", "KAI了就是KAI了？", "女兵摩西", "MN3"]
-    eventPlayer.startForcingName(random.choice(eventPlayer.N))
-    lbl_0:
-    eventPlayer.reset_pvar[6].reset_pvar[9] = eventPlayer
-    eventPlayer.reset_pvar[0] = false
+#!include "heroes/reaper/init.opy"
+#!include "heroes/tracer/init.opy"
+#!include "heroes/mercy/init.opy"
+#!include "heroes/hanzo/init.opy"
+#!include "heroes/freja/init.opy"
+#!include "heroes/torbjorn/init.opy"
+#!include "heroes/venture/init.opy"
+#!include "heroes/vendetta/init.opy"
+#!include "heroes/wuyang/init.opy"
+#!include "heroes/reinhardt/init.opy"
+#!include "heroes/hazard/init.opy"
+#!include "heroes/domina/init.opy"
+#!include "heroes/anran/init.opy"
+#!include "heroes/emre/init.opy"
+#!include "heroes/mizuki/init.opy"
+#!include "heroes/jetpack_cat/init.opy"
+#!include "heroes/pharah/init.opy"
+#!include "heroes/winston/init.opy"
+#!include "heroes/widowmaker/init.opy"
+#!include "heroes/bastion/init.opy"
+#!include "heroes/symmetra/init.opy"
+#!include "heroes/zenyatta/init.opy"
+#!include "heroes/genji/init.opy"
+#!include "heroes/roadhog/init.opy"
+#!include "heroes/cassidy/init.opy"
+#!include "heroes/junkrat/init.opy"
+#!include "heroes/zarya/init.opy"
+#!include "heroes/soldier76/init.opy"
+#!include "heroes/lucio/init.opy"
+#!include "heroes/dva/init.opy"
+#!include "heroes/mei/init.opy"
+#!include "heroes/sombra/init.opy"
+#!include "heroes/ana/init.opy"
+#!include "heroes/orisa/init.opy"
+#!include "heroes/brigitte/init.opy"
+#!include "heroes/moira/init.opy"
+#!include "heroes/wrecking_ball/init.opy"
+#!include "heroes/sojourn/init.opy"
+#!include "heroes/ashe/init.opy"
+#!include "heroes/echo/init.opy"
+#!include "heroes/baptiste/init.opy"
+#!include "heroes/kiriko/init.opy"
+#!include "heroes/junker_queen/init.opy"
+#!include "heroes/sigma/init.opy"
+#!include "heroes/ramattra/init.opy"
+#!include "heroes/juno/init.opy"
+#!include "heroes/doomfist/init.opy"
+#!include "heroes/lifeweaver/init.opy"
+#!include "heroes/mauga/init.opy"
+#!include "heroes/illari/init.opy"
 
 rule "[widowmaker.opy]: Infra-Sight headshot":
     @Event playerDealtDamage
@@ -2336,137 +2126,6 @@ rule "[widowmaker.opy]: Infra-Sight headshot":
     lbl_0:
 
 #!include "aram_overrides_segments/hero_init_widowmaker_falloff_and_bastion_detect.opy"
-
-rule "[bastion/init.opy]: Initialize Bastion":
-    @Event eachPlayer
-    @Hero bastion
-    @Condition eventPlayer.reset_pvar[0] != false
-    
-    resetHero()
-    eventPlayer.custom_hp_pvar[0] = 200
-    eventPlayer.custom_hp_pvar[1] = 350
-    eventPlayer.custom_hp_pvar[2] = 0
-    applyCustomHp()
-    if eventPlayer.getTeam() != Team.1:
-        goto lbl_0
-    eventPlayer.N = ["电脑", "嘟嘟嘟嘟嘟", "大炮摩西", "无可奉告", "豪华超跑"]
-    eventPlayer.startForcingName(random.choice(eventPlayer.N))
-    lbl_0:
-    eventPlayer.reset_pvar[0] = false
-
-rule "[symmetra/init.opy]: Detect switch to Symmetra":
-    @Event eachPlayer
-    @Hero symmetra
-    
-    eventPlayer.reset_pvar[0] = true
-
-rule "[symmetra/init.opy]: Initialize Symmetra":
-    @Event eachPlayer
-    @Hero symmetra
-    @Condition eventPlayer.reset_pvar[0] != false
-    
-    resetHero()
-    eventPlayer.custom_hp_pvar[0] = 250
-    eventPlayer.custom_hp_pvar[1] = 0
-    eventPlayer.custom_hp_pvar[2] = 250
-    getPlayers(eventPlayer.getTeam()).reset_pvar[3] = eventPlayer
-    applyCustomHp()
-    if eventPlayer.getTeam() != Team.1:
-        goto lbl_0
-    eventPlayer.N = ["性♂感荷官在线烫头", "绿洲城首家赌场", "麻豆传媒摄影师", "烫头摩西"]
-    eventPlayer.startForcingName(random.choice(eventPlayer.N))
-    lbl_0:
-    eventPlayer.reset_pvar[0] = false
-
-rule "[zenyatta]: Detect switch to zenyatta":
-    @Event eachPlayer
-    @Hero zenyatta
-    
-    eventPlayer.reset_pvar[0] = true
-
-rule "[zenyatta]: init":
-    @Event eachPlayer
-    @Hero zenyatta
-    @Condition eventPlayer.reset_pvar[0] != false
-    
-    resetHero()
-    eventPlayer.custom_hp_pvar[0] = 25
-    eventPlayer.custom_hp_pvar[1] = 0
-    eventPlayer.custom_hp_pvar[2] = 475
-    applyCustomHp()
-    if eventPlayer.getTeam() != Team.1:
-        goto lbl_0
-    eventPlayer.N = ["武僧", "出家摩西", "机械摩西", "就这", "JJONAK"]
-    eventPlayer.startForcingName(random.choice(eventPlayer.N))
-    lbl_0:
-    eventPlayer.reset_pvar[6].reset_pvar[9] = eventPlayer
-    eventPlayer.reset_pvar[0] = false
-
-rule "[Genji]: Detect switch to Genji":
-    @Event eachPlayer
-    @Hero genji
-    
-    eventPlayer.reset_pvar[0] = true
-
-rule "[Genji]":
-    @Event eachPlayer
-    @Hero genji
-    @Condition eventPlayer.reset_pvar[0] != false
-    
-    resetHero()
-    eventPlayer.custom_hp_pvar[0] = 475
-    eventPlayer.custom_hp_pvar[1] = 0
-    eventPlayer.custom_hp_pvar[2] = 25
-    applyCustomHp()
-    if eventPlayer.getTeam() != Team.1:
-        goto lbl_0
-    eventPlayer.N = ["国服{0}分顶尖镖师".format(Genji[0]), "飞镖摩西", "源神", "忍者摩西", "源氏凯"]
-    eventPlayer.startForcingName(random.choice(eventPlayer.N))
-    lbl_0:
-    eventPlayer.reset_pvar[0] = false
-
-rule "[roadhog]: Detect switch to roadhog":
-    @Event eachPlayer
-    @Hero roadhog
-    
-    eventPlayer.reset_pvar[0] = true
-
-rule "[roadhog]":
-    @Event eachPlayer
-    @Hero roadhog
-    @Condition eventPlayer.reset_pvar[0] != false
-    
-    resetHero()
-    startHealingModification(getPlayers(eventPlayer.getTeam()), eventPlayer, 200, HealingReeval.RECEIVERS_AND_HEALERS)
-    eventPlayer.custom_hp_pvar[0] = 400
-    eventPlayer.custom_hp_pvar[1] = 800
-    eventPlayer.custom_hp_pvar[2] = 0
-    applyCustomHp()
-    removeTankPassive()
-    eventPlayer.reset_pvar[0] = false
-
-rule "[Cassidy]: Detect switch to Cassidy":
-    @Event eachPlayer
-    @Hero cassidy
-    
-    eventPlayer.reset_pvar[0] = true
-
-rule "[Cassidy]: Initialize Cassidy":
-    @Event eachPlayer
-    @Hero cassidy
-    @Condition eventPlayer.reset_pvar[0] != false
-    
-    resetHero()
-    eventPlayer.custom_hp_pvar[0] = 450
-    eventPlayer.custom_hp_pvar[1] = 0
-    eventPlayer.custom_hp_pvar[2] = 0
-    applyCustomHp()
-    if eventPlayer.getTeam() != Team.1:
-        goto lbl_0
-    eventPlayer.N = ["张三", "天王老子", "KAI了", "麦克雷", "六连摩西", "菜就多练"]
-    eventPlayer.startForcingName(random.choice(eventPlayer.N))
-    lbl_0:
-    eventPlayer.reset_pvar[0] = false
 
 rule "[Cassidy.opy]: Revert sniper damage falloff":
     @Event playerDealtDamage
@@ -2493,81 +2152,6 @@ rule "[Cassidy.opy]: Revert sniper damage falloff":
     eventPlayer.expected_scoped_damage = eventPlayer.scoped_damage_base * eventPlayer.ow1_scoped_damage_falloff_scalar
     damage(victim, attacker, ceil(eventPlayer.expected_scoped_damage - eventDamage))
 
-rule "[Junkrat]: Detect switch to Junkrat":
-    @Event eachPlayer
-    @Hero junkrat
-    
-    eventPlayer.reset_pvar[0] = true
-
-rule "[Junkrat] Initialize":
-    @Event eachPlayer
-    @Hero junkrat
-    @Condition eventPlayer.reset_pvar[0] != false
-    
-    resetHero()
-    eventPlayer.custom_hp_pvar[0] = 450
-    eventPlayer.custom_hp_pvar[1] = 0
-    eventPlayer.custom_hp_pvar[2] = 0
-    applyCustomHp()
-    if eventPlayer.getTeam() != Team.1:
-        goto lbl_0
-    eventPlayer.N = ["拉 史 大 王", "拉 史 摩 西", "鼠鼠摩西", "鸭脖摩西", "夹子摩西"]
-    eventPlayer.startForcingName(random.choice(eventPlayer.N))
-    lbl_0:
-    eventPlayer.reset_pvar[0] = false
-
-rule "[Zarya]: Detect switch to Zarya":
-    @Event eachPlayer
-    @Hero zarya
-    
-    eventPlayer.reset_pvar[0] = true
-
-rule "[Zarya] Initialize":
-    @Event eachPlayer
-    @Hero zarya
-    @Condition eventPlayer.reset_pvar[0] != false
-    
-    resetHero()
-    eventPlayer.zarya_buff[0] = true
-    eventPlayer.custom_hp_pvar[0] = 450
-    eventPlayer.custom_hp_pvar[1] = 0
-    eventPlayer.custom_hp_pvar[2] = 450
-    applyCustomHp()
-    removeTankPassive()
-    if eventPlayer.getTeam() != Team.1:
-        goto lbl_0
-    eventPlayer.N = ["Sinatraa", "泡泡摩西", "东北雨姐"]
-    eventPlayer.startForcingName(random.choice(eventPlayer.N))
-    lbl_0:
-    eventPlayer.reset_pvar[0] = false
-
-rule "[Soldier: 76]: Detect switch to Soldier 76":
-    @Event eachPlayer
-    @Hero soldier
-    
-    eventPlayer.reset_pvar[0] = true
-
-rule "[Soldier: 76]: Initialize":
-    @Event eachPlayer
-    @Hero soldier
-    @Condition eventPlayer.reset_pvar[0] != false
-    
-    resetHero()
-    eventPlayer.heart_steel[1] = 0
-    eventPlayer.custom_hp_pvar[0] = 200
-    eventPlayer.custom_hp_pvar[1] = 0
-    eventPlayer.custom_hp_pvar[2] = 0
-    applyCustomHp()
-    #This creates the ring effect (4.5m)
-    createEffect(getPlayers(eventPlayer.getTeam()), Effect.RING, rgb(254, 180, 21), eventPlayer, S76Buff[4], EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
-    eventPlayer.heart_steel[4] = getLastCreatedEntity()
-    if eventPlayer.getTeam() != Team.1:
-        goto lbl_0
-    eventPlayer.N = ["国服顶尖小巴蒂", "跑酷摩西", "奶棒摩西", "Kai了", "飞弹摩西"]
-    eventPlayer.startForcingName(random.choice(eventPlayer.N))
-    lbl_0:
-    eventPlayer.reset_pvar[0] = false
-
 rule "[Soldier: 76]: Third Person":
     @Event eachPlayer
     @Team 2
@@ -2578,517 +2162,6 @@ rule "[Soldier: 76]: Third Person":
     wait(1, Wait.ABORT_WHEN_FALSE)
     eventPlayer.third_person = false if eventPlayer.third_person == true else true
     setThirdPerson()
-
-rule "[Lucio]: Detect switch to Lucio":
-    @Event eachPlayer
-    @Hero lucio
-    
-    eventPlayer.reset_pvar[0] = true
-
-rule "[Lucio] Initialize":
-    @Event eachPlayer
-    @Hero lucio
-    @Condition eventPlayer.reset_pvar[0] != false
-    
-    resetHero()
-    eventPlayer.custom_hp_pvar[0] = 200
-    eventPlayer.custom_hp_pvar[1] = 0
-    eventPlayer.custom_hp_pvar[2] = 250
-    applyCustomHp()
-    if eventPlayer.getTeam() != Team.1:
-        goto lbl_0
-    eventPlayer.N = ["巴西拳王", "喇叭摩西", "轮滑摩西"]
-    eventPlayer.startForcingName(random.choice(eventPlayer.N))
-    lbl_0:
-    eventPlayer.reset_pvar[0] = false
-
-rule "[D.Va]: Fix hp":
-    @Event eachPlayer
-    @Hero dva
-    @Condition eventPlayer.isInAlternateForm() == true
-    
-    wait(0.16)
-    eventPlayer.custom_hp_pvar[0] = 150
-    eventPlayer.custom_hp_pvar[1] = 0
-    eventPlayer.custom_hp_pvar[2] = 0
-    applyCustomHp()
-
-rule "[D.Va]: Detect switch to D.Va":
-    @Event eachPlayer
-    @Hero dva
-    @Condition eventPlayer.isInAlternateForm() == false
-    
-    eventPlayer.reset_pvar[0] = true
-
-rule "[D.Va] Initialize":
-    @Event eachPlayer
-    @Hero dva
-    @Condition eventPlayer.reset_pvar[0] != false
-    
-    resetHero()
-    eventPlayer.custom_hp_pvar[0] = 200
-    eventPlayer.custom_hp_pvar[1] = 850
-    eventPlayer.custom_hp_pvar[2] = 0
-    applyCustomHp()
-    removeTankPassive()
-    eventPlayer.reset_pvar[0] = false
-
-rule "[Mei]: Detect switch to Mei":
-    @Event eachPlayer
-    @Hero mei
-    
-    eventPlayer.reset_pvar[0] = true
-
-rule "[Mei] Initialize":
-    @Event eachPlayer
-    @Hero mei
-    @Condition eventPlayer.reset_pvar[0] != false
-    
-    resetHero()
-    eventPlayer.custom_hp_pvar[0] = 250
-    eventPlayer.custom_hp_pvar[1] = 0
-    eventPlayer.custom_hp_pvar[2] = 200
-    applyCustomHp()
-    if eventPlayer.getTeam() != Team.1:
-        goto lbl_0
-    eventPlayer.N = ["识得唔识得啊", "冰雕摩西", "麦克美", "周美玲冰雪大世界", "哈尔滨摩西"]
-    eventPlayer.startForcingName(random.choice(eventPlayer.N))
-    lbl_0:
-    eventPlayer.reset_pvar[0] = false
-
-rule "[Sombra]: Detect switch to Sombra":
-    @Event eachPlayer
-    @Hero sombra
-    
-    eventPlayer.reset_pvar[0] = true
-
-rule "[Sombra] Initialize":
-    @Event eachPlayer
-    @Hero sombra
-    
-    resetHero()
-    eventPlayer.custom_hp_pvar[0] = 450
-    eventPlayer.custom_hp_pvar[1] = 0
-    eventPlayer.custom_hp_pvar[2] = 0
-    applyCustomHp()
-    if eventPlayer.getTeam() != Team.1:
-        goto lbl_0
-    eventPlayer.N = ["全民偶像酸不辣", "多少有点LIP", "就这", "菜就多练", "离谱摩西", "隐身摩西"]
-    eventPlayer.startForcingName(random.choice(eventPlayer.N))
-    lbl_0:
-    getPlayers(eventPlayer.getTeam()).reset_pvar[4] = eventPlayer
-    getPlayers(getOppositeTeam(eventPlayer.getTeam())).reset_pvar[7] = eventPlayer
-    eventPlayer.reset_pvar[0] = false
-
-rule "[Ana]: Detect switch to Ana":
-    @Event eachPlayer
-    @Hero ana
-    
-    eventPlayer.reset_pvar[0] = true
-
-rule "[Ana] Initialize":
-    @Event eachPlayer
-    @Hero ana
-    @Condition eventPlayer.reset_pvar[0] != false
-    
-    resetHero()
-    eventPlayer.custom_hp_pvar[0] = 300
-    eventPlayer.custom_hp_pvar[1] = 0
-    eventPlayer.custom_hp_pvar[2] = 0
-    applyCustomHp()
-    eventPlayer.heart_steel[2] = true
-    if eventPlayer.getTeam() != Team.1:
-        goto lbl_0
-    eventPlayer.N = ["老年摩西", "发烧摩西", "睡觉摩西", "末日铁娜", "独眼摩西"]
-    eventPlayer.startForcingName(random.choice(eventPlayer.N))
-    lbl_0:
-    eventPlayer.reset_pvar[6].reset_pvar[9] = eventPlayer
-    eventPlayer.reset_pvar[0] = false
-
-rule "[Orisa]: Detect switch to Orisa":
-    @Event eachPlayer
-    @Hero orisa
-    
-    eventPlayer.reset_pvar[0] = true
-
-rule "[Orisa] Initialize":
-    @Event eachPlayer
-    @Hero orisa
-    @Condition eventPlayer.reset_pvar[0] != false
-    
-    resetHero()
-    eventPlayer.custom_hp_pvar[0] = 1000
-    eventPlayer.custom_hp_pvar[1] = 3500
-    eventPlayer.custom_hp_pvar[2] = 0
-    applyCustomHp()
-    removeTankPassive()
-    if eventPlayer.getTeam() != Team.1:
-        goto lbl_0
-    eventPlayer.N = ["命运羊驼", "堡垒", "美羊羊", "唯一真神", "标枪摩西", "小米Su7"]
-    eventPlayer.startForcingName(random.choice(eventPlayer.N))
-    lbl_0:
-    eventPlayer.reset_pvar[0] = false
-
-rule "[Brigitte]: Detect switch to Brigitte":
-    @Event eachPlayer
-    @Hero brigitte
-    
-    eventPlayer.reset_pvar[0] = true
-
-rule "[Brigitte] Initialize":
-    @Event eachPlayer
-    @Hero brigitte
-    @Condition eventPlayer.reset_pvar[0] != false
-    
-    resetHero()
-    eventPlayer.custom_hp_pvar[0] = 200
-    eventPlayer.custom_hp_pvar[1] = 650
-    eventPlayer.custom_hp_pvar[2] = 0
-    getPlayers(eventPlayer.getTeam()).reset_pvar[1] = eventPlayer
-    applyCustomHp()
-    #eventPlayer.setMaxHealth(41.667)
-    if eventPlayer.getTeam() != Team.1:
-        goto lbl_0
-    eventPlayer.N = ["那个女人", "RUA里吐米", "炖鸡高手", "炖鸡摩西", "持盾摩西", "贴膜摩西", "这是什么", "泰格"]
-    eventPlayer.startForcingName(random.choice(eventPlayer.N))
-    lbl_0:
-    eventPlayer.reset_pvar[0] = false
-
-rule "[Moira]: Detect switch to Moira":
-    @Event eachPlayer
-    @Hero moira
-    
-    eventPlayer.reset_pvar[0] = true
-
-rule "[Moira] Initialize":
-    @Event eachPlayer
-    @Hero moira
-    @Condition eventPlayer.reset_pvar[0] != false
-    
-    resetHero()
-    eventPlayer.custom_hp_pvar[0] = 250
-    eventPlayer.custom_hp_pvar[1] = 0
-    eventPlayer.custom_hp_pvar[2] = 200
-    applyCustomHp()
-    if eventPlayer.getTeam() != Team.1:
-        goto lbl_0
-    eventPlayer.N = ["五  金  上  将", "五金上将莫伊拉", "五金摩西", "菜就多练"]
-    eventPlayer.startForcingName(random.choice(eventPlayer.N))
-    lbl_0:
-    eventPlayer.reset_pvar[0] = false
-
-rule "[Wrecking Ball]: Detect switch to Wrecking Ball":
-    @Event eachPlayer
-    @Hero wreckingBall
-    
-    eventPlayer.reset_pvar[0] = true
-
-rule "[Wrecking Ball] Initialize":
-    @Event eachPlayer
-    @Hero wreckingBall
-    @Condition eventPlayer.reset_pvar[0] != false
-    
-    resetHero()
-    eventPlayer.custom_hp_pvar[0] = 500
-    eventPlayer.custom_hp_pvar[1] = 200
-    eventPlayer.custom_hp_pvar[2] = 200
-    applyCustomHp()
-    removeTankPassive()
-    eventPlayer.reset_pvar[0] = false
-
-rule "[Sojourn]: Detect switch to Sojourn":
-    @Event eachPlayer
-    @Hero sojourn
-    
-    eventPlayer.reset_pvar[0] = true
-
-rule "[Sojourn] Initialize":
-    @Event eachPlayer
-    @Hero sojourn
-    @Condition eventPlayer.reset_pvar[0] != false
-    
-    resetHero()
-    eventPlayer.custom_hp_pvar[0] = 450
-    eventPlayer.custom_hp_pvar[1] = 0
-    eventPlayer.custom_hp_pvar[2] = 0
-    applyCustomHp()
-    if eventPlayer.getTeam() != Team.1:
-        goto lbl_0
-    eventPlayer.N = ["跳跳熊", "我超摩西", "我超", "ANS", "MN3", "EVAEL", "没KAI"]
-    eventPlayer.startForcingName(random.choice(eventPlayer.N))
-    lbl_0:
-    eventPlayer.reset_pvar[0] = false
-
-rule "[Ashe]: Detect switch to Ashe":
-    @Event eachPlayer
-    @Hero ashe
-    
-    eventPlayer.reset_pvar[0] = true
-
-rule "[Ashe] Initialize":
-    @Event eachPlayer
-    @Hero ashe
-    @Condition eventPlayer.reset_pvar[0] != false
-    
-    resetHero()
-    eventPlayer.custom_hp_pvar[0] = 450
-    eventPlayer.custom_hp_pvar[1] = 0
-    eventPlayer.custom_hp_pvar[2] = 0
-    applyCustomHp()
-    if eventPlayer.getTeam() != Team.1:
-        goto lbl_0
-    eventPlayer.N = ["张三的绯闻女友", "KAI了", "ANS", "Bob摩西", "菜就多练"]
-    eventPlayer.startForcingName(random.choice(eventPlayer.N))
-    lbl_0:
-    eventPlayer.reset_pvar[0] = false
-
-rule "[Echo]: Detect switch to Echo":
-    @Event eachPlayer
-    @Hero echo
-    
-    eventPlayer.reset_pvar[0] = true
-
-rule "[Echo] Initialize":
-    @Event eachPlayer
-    @Hero echo
-    @Condition eventPlayer.reset_pvar[0] != false
-    
-    resetHero()
-    eventPlayer.custom_hp_pvar[0] = 400
-    eventPlayer.custom_hp_pvar[1] = 0
-    eventPlayer.custom_hp_pvar[2] = 50
-    applyCustomHp()
-    eventPlayer.reset_pvar[0] = false
-
-rule "[Baptiste]: Detect switch to Baptiste":
-    @Event eachPlayer
-    @Hero baptiste
-    
-    eventPlayer.reset_pvar[0] = true
-
-rule "[Baptiste] Initialize":
-    @Event eachPlayer
-    @Hero baptiste
-    @Condition eventPlayer.reset_pvar[0] != false
-    
-    resetHero()
-    eventPlayer.custom_hp_pvar[0] = 450
-    eventPlayer.custom_hp_pvar[1] = 0
-    eventPlayer.custom_hp_pvar[2] = 0
-    applyCustomHp()
-    if eventPlayer.getTeam() != Team.1:
-        goto lbl_0
-    eventPlayer.N = ["大 76", "Kai了", "天使", "锁血摩西", "锁头摩西"]
-    eventPlayer.startForcingName(random.choice(eventPlayer.N))
-    lbl_0:
-    eventPlayer.reset_pvar[6].reset_pvar[9] = eventPlayer
-    eventPlayer.reset_pvar[0] = false
-
-rule "[Kiriko]: Detect switch to Kiriko":
-    @Event eachPlayer
-    @Hero kiriko
-    
-    eventPlayer.reset_pvar[0] = true
-
-rule "[Kiriko] Initialize":
-    @Event eachPlayer
-    @Hero kiriko
-    @Condition eventPlayer.reset_pvar[0] != false
-    
-    resetHero()
-    eventPlayer.custom_hp_pvar[0] = 450
-    eventPlayer.custom_hp_pvar[1] = 0
-    eventPlayer.custom_hp_pvar[2] = 0
-    applyCustomHp()
-    if eventPlayer.getTeam() != Team.1:
-        goto lbl_0
-    eventPlayer.N = ["忍者摩西", "画符摩西"]
-    eventPlayer.startForcingName(random.choice(eventPlayer.N))
-    lbl_0:
-    eventPlayer.reset_pvar[0] = false
-
-rule "[Junker Queen]: Detect switch to Junker Queen":
-    @Event eachPlayer
-    @Hero junkerQueen
-    
-    eventPlayer.reset_pvar[0] = true
-
-rule "[Junker Queen] Initialize":
-    @Event eachPlayer
-    @Hero junkerQueen
-    @Condition eventPlayer.reset_pvar[0] != false
-    
-    resetHero()
-    eventPlayer.setHealingDealt(122.23)
-    eventPlayer.custom_hp_pvar[0] = 850
-    eventPlayer.custom_hp_pvar[1] = 0
-    eventPlayer.custom_hp_pvar[2] = 0
-    applyCustomHp()
-    removeTankPassive()
-    if eventPlayer.getTeam() != Team.1:
-        goto lbl_0
-    eventPlayer.N = ["姐就是女王", "自信放光芒", "你若爱就来", "不爱莫张狂", "收起你的那些小小花花肠", "甜言或蜜语去哄小姑娘", "姐就是女王", "自信放光芒", "有钱了不起", "姐也很自强", "不惧风霜雪雨逆风也飞翔", "活成一束光世界都照亮"]
-    eventPlayer.startForcingName(random.choice(eventPlayer.N))
-    lbl_0:
-    eventPlayer.reset_pvar[0] = false
-
-rule "[Sigma]: Detect switch to Sigma":
-    @Event eachPlayer
-    @Hero sigma
-    
-    eventPlayer.reset_pvar[0] = true
-
-rule "[Sigma] Initialize":
-    @Event eachPlayer
-    @Hero sigma
-    @Condition eventPlayer.reset_pvar[0] != false
-    
-    eventPlayer.setMaxHealth(50)
-    resetHero()
-    eventPlayer.custom_hp_pvar[0] = 400
-    eventPlayer.custom_hp_pvar[1] = 0
-    eventPlayer.custom_hp_pvar[2] = 450
-    applyCustomHp()
-    removeTankPassive()
-    if eventPlayer.getTeam() != Team.1:
-        goto lbl_0
-    eventPlayer.N = ["老年跳高运动员", "长 者", "放盾摩西", "大爷摩西", "菜就多练"]
-    eventPlayer.startForcingName(random.choice(eventPlayer.N))
-    lbl_0:
-    eventPlayer.reset_pvar[0] = false
-
-rule "[Ramattra]: Detect switch to Ramattra":
-    @Event eachPlayer
-    @Hero ramattra
-    
-    eventPlayer.reset_pvar[0] = true
-
-rule "[Ramattra] Initialize":
-    @Event eachPlayer
-    @Hero ramattra
-    @Condition eventPlayer.reset_pvar[0] != false
-    
-    resetHero()
-    eventPlayer.custom_hp_pvar[0] = 500
-    eventPlayer.custom_hp_pvar[1] = 700
-    eventPlayer.custom_hp_pvar[2] = 0
-    applyCustomHp()
-    removeTankPassive()
-    if eventPlayer.getTeam() != Team.1:
-        goto lbl_0
-    eventPlayer.N = ["依托答辩", "鲑鱼大帝", "Suffer as i have!", "鲑鱼摩西", "痛苦摩西", "抱头摩西"]
-    eventPlayer.startForcingName(random.choice(eventPlayer.N))
-    lbl_0:
-    eventPlayer.reset_pvar[0] = false
-
-rule "[Juno]: Detect switch to Juno":
-    @Event eachPlayer
-    @Hero juno
-    
-    eventPlayer.reset_pvar[0] = true
-
-rule "[Juno] Initialize":
-    @Event eachPlayer
-    @Hero juno
-    @Condition eventPlayer.reset_pvar[0] != false
-    
-    resetHero()
-    eventPlayer.custom_hp_pvar[0] = 50
-    eventPlayer.custom_hp_pvar[1] = 0
-    eventPlayer.custom_hp_pvar[2] = 375
-    applyCustomHp()
-    eventPlayer.reset_pvar[6].reset_pvar[9] = eventPlayer
-    eventPlayer.reset_pvar[0] = false
-
-rule "[Doomfist]: Detect switch to Doomfist":
-    @Event eachPlayer
-    @Hero doomfist
-    
-    eventPlayer.reset_pvar[0] = true
-
-rule "[Doomfist] Initialize":
-    @Event eachPlayer
-    @Hero doomfist
-    @Condition eventPlayer.reset_pvar[0] != false
-    
-    resetHero()
-    eventPlayer.custom_hp_pvar[0] = 300
-    eventPlayer.custom_hp_pvar[1] = 500
-    eventPlayer.custom_hp_pvar[2] = 0
-    applyCustomHp()
-    if eventPlayer.getTeam() != Team.1:
-        goto lbl_0
-    eventPlayer.N = ["男拳妈妈", "铁拳不准上桌吃饭", "吃个娜娜", "全部曹飞", "男拳摩西", "曹飞", "你这天使有用吗", "你倒是跑啊"]
-    eventPlayer.startForcingName(random.choice(eventPlayer.N))
-    lbl_0:
-    getPlayers(eventPlayer.getTeam()).reset_pvar[2] = eventPlayer
-    getPlayers(getOppositeTeam(eventPlayer.getTeam())).reset_pvar[5] = eventPlayer
-    removeTankPassive()
-    eventPlayer.reset_pvar[0] = false
-
-rule "[Lifeweaver]: Detect switch to Lifeweaver":
-    @Event eachPlayer
-    @Hero lifeweaver
-    
-    eventPlayer.reset_pvar[0] = true
-
-rule "[Lifeweaver] Initialize":
-    @Event eachPlayer
-    @Hero lifeweaver
-    @Condition eventPlayer.reset_pvar[0] != false
-    
-    resetHero()
-    eventPlayer.custom_hp_pvar[0] = 175
-    eventPlayer.custom_hp_pvar[1] = 0
-    eventPlayer.custom_hp_pvar[2] = 350
-    applyCustomHp()
-    eventPlayer.reset_pvar[6].reset_pvar[9] = eventPlayer
-    eventPlayer.reset_pvar[0] = false
-    eventPlayer.setMaxAmmo(0, 9999)
-    eventPlayer.setAmmo(0, eventPlayer.getMaxAmmo())
-
-rule "[Mauga]: Detect switch to Mauga":
-    @Event eachPlayer
-    @Hero mauga
-    
-    eventPlayer.reset_pvar[0] = true
-
-rule "[Mauga] Initialize":
-    @Event eachPlayer
-    @Hero mauga
-    @Condition eventPlayer.reset_pvar[0] != false
-    
-    resetHero()
-    eventPlayer.custom_hp_pvar[0] = 250
-    eventPlayer.custom_hp_pvar[1] = 700
-    eventPlayer.custom_hp_pvar[2] = 0
-    applyCustomHp()
-    removeTankPassive()
-    if eventPlayer.getTeam() != Team.1:
-        goto lbl_0
-    eventPlayer.N = ["黑皮体育生", "黑皮摩西", "战斗爽", "Seiseiguigeigei", "发烧摩西", "小米SU7"]
-    eventPlayer.startForcingName(random.choice(eventPlayer.N))
-    lbl_0:
-    eventPlayer.reset_pvar[0] = false
-
-rule "[Illari]: Detect switch to Illari":
-    @Event eachPlayer
-    @Hero illari
-    
-    eventPlayer.reset_pvar[0] = true
-
-rule "[Illari] Initialize":
-    @Event eachPlayer
-    @Hero illari
-    @Condition eventPlayer.reset_pvar[0] != false
-    
-    resetHero()
-    eventPlayer.custom_hp_pvar[0] = 400
-    eventPlayer.custom_hp_pvar[1] = 0
-    eventPlayer.custom_hp_pvar[2] = 0
-    applyCustomHp()
-    eventPlayer.reset_pvar[6].reset_pvar[9] = eventPlayer
-    eventPlayer.reset_pvar[0] = false
 
 rule "Changelog":
     @Event eachPlayer

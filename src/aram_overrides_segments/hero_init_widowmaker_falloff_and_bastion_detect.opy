@@ -27,9 +27,3 @@ rule "[widowmaker.opy]: Revert sniper damage falloff":
     eventPlayer.expected_scoped_damage = eventPlayer.scoped_damage_base * eventPlayer.ow1_scoped_damage_falloff_scalar
     damage(victim, attacker, ceil(eventPlayer.expected_scoped_damage - eventDamage))
 
-rule "[bastion/init.opy]: Detect switch to Bastion":
-    @Event eachPlayer
-    @Hero bastion
-    
-    eventPlayer.reset_pvar[0] = true
-

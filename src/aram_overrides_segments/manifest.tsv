@@ -14,4 +14,4 @@ segment_id	include_path	start_line	end_line	rule_count	first_rule	last_rule	sour
 13	aram_overrides_segments/hero_rules_reaper_wraith_shadowstep_cooldown_and_buffs.opy	2943	3003	5	[Reaper]: Ability 1 Wraith Form cd	[Reaper]: Ability 2 Shadow Step dmg reduction setup	heroes/reaper/rules.opy
 14	aram_overrides_segments/hero_rules_wuyang_ebb_and_flow_ability_countdown.opy	3516	3533	2	[Wuyang]: Ebb and Flow Ability	[Wuyang]: Ebb and Flow countdown	heroes/wuyang/rules.opy
 15	aram_overrides_segments/hero_rules_wuyang_tidal_blast_allies_target_healing.opy	3545	3560	2	[Wuyang]: Tidal Blast Allies Target	[Wuyang]: Tidal Blast Allies Healing	heroes/wuyang/rules.opy
-16	aram_overrides_segments/hero_init_widowmaker_falloff_and_bastion_detect.opy	3854	3888	2	[widowmaker.opy]: Revert sniper damage falloff	[bastion/init.opy]: Detect switch to Bastion	heroes/widowmaker/falloff.opy,heroes/bastion/init.opy
+16	aram_overrides_segments/hero_init_widowmaker_falloff_and_bastion_detect.opy	3854	3888	1	[widowmaker.opy]: Revert sniper damage falloff	[widowmaker.opy]: Revert sniper damage falloff	heroes/widowmaker/falloff.opy

@@ -89,9 +89,29 @@
 ## Iteration Log
 
 - 2026-03-06: 完成 H4 Wave-1（6 英雄 Detect 先行）。门禁全绿，行为保持“仅抽取、不改逻辑”。后续进入 H4 下一波，继续收敛 Initialize same-name-diff 与 overlay 归位。
+- 2026-03-06: 完成 H4 Wave-2（全量 Initialize 向 Main 收敛 + custom_hp helper 下线）。ARAM hero_init 改为统一 include `src/heroes/*/init.opy`，`aram_overrides` 不再承载 Detect/Initialize 规则体与 custom_hp 依赖。
+
+## Current Iteration (H4 Wave-2: Full Initialize Convergence)
+
+- 变更动作：
+  - `src/aram_overrides.opy` 的 hero_init 段改为 Main 顺序 `#!include "heroes/<hero>/init.opy"`（每英雄一次）。
+  - 删除 ARAM 内联 Detect/Initialize 规则体；删除 `def clearCustomHp()/def applyCustomHp()` 覆盖实现。
+  - Ramattra 4 条原 `custom_hp_pvar[0] + 50` 条件改为 `getMaxHealthOfType(Health.NORMAL) + 50` 推导。
+  - `src/aramMain.opy` 增加 `utilities/apply_custom_hp.opy` 与 `utilities/clear_custom_hp.opy` include，复用主线 utilities。
+  - `src/aram_protocol.opy` 追加 `BotHeroArray` 声明以兼容 Main `ana/init.opy` 依赖。
+  - 白名单删除全部 `source_module=src/heroes/*/init.opy` 旧项。
+- 指标结果：
+  - `total: 164`
+  - `exact: 11`
+  - `diff: 106`
+  - `unique: 47`
+  - `unwhitelisted exact/diff: 0/0`
+  - `candidates: 0`
+- 验证报告：
+  - `docs/reports/aram-shared-wave-h4-init-full-convergence-2026-03-06.md`
 
 ## Next Steps
 
 1. H4：继续按英雄把 `aram_overrides` 差异迁入 `src/heroes/<hero>/aram.opy`（迁移即白名单收口）。
-2. H4：在不改玩法前提下，优先处理 remaining hero_init same-name-diff（先 small-batch，再扩面）。
+2. H4：推进 hero_rules same-name-diff 收敛（优先高重复英雄，采用 shared leaf + mode overlay）。
 3. H5：当 `aram_overrides` 仅剩跨英雄模式逻辑后，退役 `aram_overrides_segments`。

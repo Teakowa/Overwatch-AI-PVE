@@ -16,6 +16,8 @@
 #!include "modules/ai/99-delimiter-end.opy"
 #!include "heroes/init.aram.opy"
 #!include "utilities/bot_aim2target.opy"
+#!include "utilities/apply_custom_hp.opy"
+#!include "utilities/clear_custom_hp.opy"
 #!include "utilities/enable_all_abilities.opy"
 #!include "utilities/reset_frenemies.opy"
 #!include "utilities/disable_all_abilities.opy"
