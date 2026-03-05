@@ -1736,13 +1736,7 @@ rule "[Juno]: Pulsar Torpedoes Healing":
     eventPlayer.healing_increase = 0
     wait(2.6)
 
-rule "[Freja]: Revdraw Crossbow Stack":
-    @Event playerDealtDamage
-    @Hero freja
-    @Condition eventAbility == Button.PRIMARY_FIRE
-    @Condition eventPlayer.hasStatus(Status.INVINCIBLE) != true
-    
-    victim.freja_buff[0]++
+#!include "modules/hero_rules/shared/freja/10-revdraw-crossbow-stack-primary-fire.opy"
 
 rule "[Freja]: Revdraw Crossbow Stack":
     @Event playerReceivedKnockback
@@ -1818,14 +1812,7 @@ rule "[Freja]: Dmg. reduction":
     eventPlayer.freja_buff[2] = 0
     eventPlayer.setDamageReceived(100)
 
-rule "[Freja]: set Projectile speed":
-    @Event eachPlayer
-    @Hero freja
-    @Condition eventPlayer.isUsingUltimate() == true
-    
-    eventPlayer.setProjectileSpeed(100)
-    waitUntil(not eventPlayer.isUsingUltimate(), 99999)
-    eventPlayer.setProjectileSpeed(500)
+#!include "modules/hero_rules/shared/freja/90-set-projectile-speed.opy"
 
 rule "[Torbjörn]: Forge Hammer":
     @Event eachPlayer

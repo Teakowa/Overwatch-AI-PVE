@@ -9,8 +9,6 @@ rule_exact_duplicate	[Doomfist]: Detect switch to Doomfist	src/modules/hero_init
 rule_exact_duplicate	[Doomfist]: Power Block Damage	src/modules/hero_rules/heroes/doomfist.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
 rule_exact_duplicate	[Echo]: Detect switch to Echo	src/modules/hero_init/heroes/echo.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
 rule_exact_duplicate	[Freja/init.opy]: Detect switch to Freja	src/modules/hero_init/heroes/freja.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Freja]: Revdraw Crossbow Stack	src/modules/hero_rules/heroes/freja.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Freja]: set Projectile speed	src/modules/hero_rules/heroes/freja.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
 rule_exact_duplicate	[Genji]: Detect switch to Genji	src/modules/hero_init/heroes/genji.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
 rule_exact_duplicate	[Hazard/init.opy]: Detect switch to Hazard	src/modules/hero_init/heroes/hazard.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
 rule_exact_duplicate	[Hazard]: Spike Guard using tracking	src/modules/hero_rules/heroes/hazard.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor

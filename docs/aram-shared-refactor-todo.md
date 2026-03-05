@@ -106,6 +106,27 @@
 - 本轮门禁与指标见：
   - `docs/reports/aram-shared-wave-cassidy-pilot-2026-03-06.md`
 
+## Current Iteration (T7 Wave-3 Freja Pilot)
+
+- 试点目标：仅迁移 non-hero_init 的 Freja exact duplicate（2 条），不触碰 hero_init 契约。
+- 新增共享叶子文件（main/aram 复用）：
+  - `src/modules/hero_rules/shared/freja/10-revdraw-crossbow-stack-primary-fire.opy`
+  - `src/modules/hero_rules/shared/freja/90-set-projectile-speed.opy`
+- 主线替换：
+  - `src/modules/hero_rules/heroes/freja.opy` 使用上述共享叶子 include
+  - 保留第二条 `[Freja]: Revdraw Crossbow Stack` 差异逻辑不变
+- ARAM 覆盖层替换：
+  - `src/aram_overrides.opy` 对应两条 exact 规则改为 include 共享叶子
+  - 相邻 Torbjörn/Wuyang 规则顺序不变
+- 白名单收口：
+  - `skills/ow-contract-guard/references/aram-delta-whitelist.tsv` 删除 2 条 Freja exact 记录
+- 指标变化：
+  - `exact duplicate: 55 -> 53`
+  - `same-name-diff: 148 -> 148`（不变）
+  - `unwhitelisted exact/diff: 0/0`
+- 本轮门禁与指标见：
+  - `docs/reports/aram-shared-wave-freja-pilot-2026-03-06.md`
+
 ## Iteration Log
 
 - 2026-03-05: 完成 T2（3/3 utilities 提取），并通过 `build/build:aram/contract-guard` 验证。
@@ -113,6 +134,7 @@
 - 2026-03-06: 完成 T10（入口+覆盖层 include 扁平化），并消除 ARAM 重复导入的 AI 分隔符告警来源。
 - 2026-03-06: 完成 T11（Main-only 模式宏承载迁移）；启动 T12（ARAM 差异白名单基线与门禁接入）。
 - 2026-03-06: T7 Wave-2 Cassidy 试点完成（non-hero_init exact -2），门禁全绿。
+- 2026-03-06: T7 Wave-3 Freja 试点完成（non-hero_init exact -2），门禁全绿。
 
 ## Verification Checklist
 
