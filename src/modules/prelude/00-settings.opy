@@ -396,11 +396,11 @@ settings {
                 "passiveUltGen%": 0
             },
             "domina": {
-                "damageDealt%": SET_DOMINA_DAMAGE_DEALT_PERCENT,
-                "damageReceived%": SET_AI_DOMINA_DAMAGE_RECEIVED_PERCENT,
-                "ability1Cooldown%": ratioPercent(SET_AI_DOMINA_ABILITY1_COOLDOWN_TARGET, DOMINA_CRYSTAL_CHARGE_COOLDOWN),
-                "ability2Cooldown%": ratioPercent(SET_AI_DOMINA_ABILITY2_COOLDOWN_TARGET, DOMINA_BARRIER_ARRAY_COOLDOWN),
-                "secondaryFireCooldown%": ratioPercent(SET_AI_DOMINA_SECONDARY_FIRE_COOLDOWN_TARGET, DOMINA_SONIC_REPULSORS_COOLDOWN)
+                "damageDealt%": DOMINA_DAMAGE_DEALT_PERCENT,
+                "damageReceived%": DOMINA_AI_DAMAGE_RECEIVED_PERCENT,
+                "ability1Cooldown%": ratioPercent(DOMINA_CRYSTAL_CHARGE_COOLDOWN, DOMINA_CRYSTAL_CHARGE_COOLDOWN_RAW),
+                "ability2Cooldown%": ratioPercent(DOMINA_BARRIER_ARRAY_COOLDOWN, DOMINA_BARRIER_ARRAY_COOLDOWN_RAW),
+                "secondaryFireCooldown%": ratioPercent(DOMINA_SONIC_REPULSORS_COOLDOWN, DOMINA_SONIC_REPULSORS_COOLDOWN_RAW)
             },
             "sombra": {
                 "damageDealt%": 110,
@@ -791,11 +791,11 @@ settings {
                 "passiveUltGen%": 0
             },
             "domina": {
-                "damageDealt%": SET_DOMINA_DAMAGE_DEALT_PERCENT,
-                "damageReceived%": SET_PLAYER_DOMINA_DAMAGE_RECEIVED_PERCENT,
-                "ability1Cooldown%": ratioPercent(SET_PLAYER_DOMINA_ABILITY1_COOLDOWN_TARGET, DOMINA_CRYSTAL_CHARGE_COOLDOWN),
-                "ability2Cooldown%": ratioPercent(SET_PLAYER_DOMINA_ABILITY2_COOLDOWN_TARGET, DOMINA_BARRIER_ARRAY_COOLDOWN),
-                "secondaryFireCooldown%": ratioPercent(SET_PLAYER_DOMINA_SECONDARY_FIRE_COOLDOWN_TARGET, DOMINA_SONIC_REPULSORS_COOLDOWN)
+                "damageDealt%": DOMINA_DAMAGE_DEALT_PERCENT,
+                "damageReceived%": DOMINA_PLAYER_DAMAGE_RECEIVED_PERCENT,
+                "ability1Cooldown%": ratioPercent(DOMINA_CRYSTAL_CHARGE_COOLDOWN, DOMINA_CRYSTAL_CHARGE_COOLDOWN_RAW),
+                "ability2Cooldown%": ratioPercent(DOMINA_BARRIER_ARRAY_COOLDOWN, DOMINA_BARRIER_ARRAY_COOLDOWN_RAW),
+                "secondaryFireCooldown%": ratioPercent(DOMINA_SONIC_REPULSORS_COOLDOWN, DOMINA_SONIC_REPULSORS_COOLDOWN_RAW)
             },
             "sombra": {
                 "damageDealt%": 135,
