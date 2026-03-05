@@ -1,2 +1,2 @@
-#!include "shared.opy"
+#!include "player_shared.opy"
 #!include "heroes/_index.opy"

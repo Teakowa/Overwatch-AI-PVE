@@ -82,7 +82,7 @@
 - `src/modules/hero_init/heroes/*.opy`
 - `src/modules/hero_init/extras/*.opy`
 - `src/modules/hero_rules/heroes/*.opy`
-- `src/modules/hero_rules/shared.opy`
+- `src/modules/hero_rules/player_shared.opy`
 
 注：本节用于补足第 1-3 节仅基于 `settings` 的盲区。实际强度 = `settings` 基础数值 + `hero_init` 初始化覆盖 + `hero_rules` 事件规则叠加。
 
@@ -140,12 +140,12 @@
 
 ### 4.3 规则层特殊效果（按英雄）
 
-- `通用`：`shared.opy` 中存在“状态重置”规则，会周期性清理 `INVINCIBLE/PHASED_OUT/unaffected`（`mauga_berserker_soul` 例外），会影响多英雄效果持续时间。
+- `通用`：`player_shared.opy` 中存在“状态重置”规则，会周期性清理 `INVINCIBLE/PHASED_OUT/unaffected`（`mauga_berserker_soul` 例外），会影响多英雄效果持续时间。
 - `ana`：生物手雷可附加燃烧+最大生命值比例 DOT；Nano 使用了“满血队友先微伤再治疗”逻辑，确保吃到抬血；睡眠命中坦克改为更长倒地控制。
 - `ashe`：存在额外爆头伤害规则；Team2 击杀回满弹，Coach Gun 可加弹。
 - `baptiste`：不朽领域期间会给受保目标短暂 `PHASED_OUT` + 持续治疗；存在额外爆头伤害规则。
 - `bastion`：未发现独立规则层特效（主要由 settings 与 init 决定）。
-- `brigitte`：盾击附带眩晕与减速链路；维修包可转化为护甲池；Rally 期间含加速与叠层护甲/减伤（含 shared 链路）。
+- `brigitte`：盾击附带眩晕与减速链路；维修包可转化为护甲池；Rally 期间含加速与叠层护甲/减伤。
 - `cassidy`：闪光弹眩晕；副射期间伤害上调并带自动回弹；Team1 击杀补弹；额外文件恢复远距离伤害衰减曲线（OW1 风格）。
 - `doomfist`：Power Block 累计增伤值并由副武器一次性结算；“最佳防守”提供临时护甲池；大招期间伤害倍率单独覆盖。
 - `dva`：未发现独立规则层特效（且 init 未覆盖生命池）。

@@ -46,6 +46,51 @@ rule "[brigitte/rally.opy]: Rally 30% speed boost":
         eventPlayer.mov_speed_buff = 0
         applySignedMoveSpeed()
     lbl_0:
+rule "[Brigitte]: remove Rally provides permanent armor":
+    @Event eachPlayer
+    @Condition Brigitte[2] != 0
+    @Condition getPlayersOnHero(Hero.BRIGITTE, eventPlayer.getTeam())[0].isUsingUltimate() == true
+    
+    waitUntil(not eventPlayer.reset_pvar[1].isUsingUltimate() and eventPlayer.brig_rally_armor_id != [], 60)
+    wait(2)
+    removeHealthPool(eventPlayer.brig_rally_armor_id[0])
+    eventPlayer.brig_rally_armor_id.remove(eventPlayer.brig_rally_armor_id[0])
+    if len(eventPlayer.brig_rally_armor_id) != 0:
+        loop()
+    eventPlayer.brig_rally_armor_id = []
+    eventPlayer.dmg_reduction = 0
+    eventPlayer.hudText = ""
+    eventPlayer.setDamageReceived(100)
+rule "[Brigitte]Rally provides permanent armor to self":
+    @Event eachPlayer
+    @Hero brigitte
+    @Condition Brigitte[2] != 0
+    @Condition eventPlayer.isUsingUltimate() == true
+    @Condition len(eventPlayer.brig_rally_armor_id) < 9
+    @Condition getAverageServerLoad() < ANTI_CRASH_DEACTIVATE_PERCENT
+    
+    eventPlayer.dmg_reduction += 1.5
+    eventPlayer.setDamageReceived(100 - eventPlayer.dmg_reduction)
+    eventPlayer.hudText = "受到伤害减免：{0}%".format(eventPlayer.dmg_reduction)
+    eventPlayer.addHealthPool(Health.ARMOR, Brigitte[2], false, false)
+    eventPlayer.brig_rally_armor_id.append(getLastCreatedHealthPool())
+    wait(0.5)
+    if ruleCondition:
+        loop()
+rule "[Brigitte]Rally provides permanent armor to allies":
+    @Event eachPlayer
+    @Team 2
+    @Condition getPlayersOnHero(Hero.BRIGITTE, eventPlayer.getTeam()).isUsingUltimate() == true
+    @Condition distance(eventPlayer, getPlayersOnHero(Hero.BRIGITTE, eventPlayer.getTeam())) <= 8.5
+    @Condition eventPlayer.getHero() != Hero.BRIGITTE
+    @Condition len(eventPlayer.brig_rally_armor_id) < 9
+    @Condition getAverageServerLoad() < ANTI_CRASH_DEACTIVATE_PERCENT
+    
+    eventPlayer.addHealthPool(Health.ARMOR, Brigitte[2], false, false)
+    eventPlayer.brig_rally_armor_id.append(getLastCreatedHealthPool())
+    wait(0.5)
+    if ruleCondition:
+        loop()
 rule "【布丽吉塔】恢复包提供护甲":
     @Event eachPlayer
     @Condition Brigitte[1] != 0

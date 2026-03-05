@@ -5,6 +5,24 @@ rule "[Orisa]Fortify ricochet damage":
     @Condition eventPlayer.hasStatus(Status.HACKED) != true
     
     damage(attacker, eventPlayer, Orisa_Fortify[1] / 100 * eventDamage)
+rule "[Orisa]: Fortify provides 100 temporary armor":
+    @Event eachPlayer
+    @Hero orisa
+    @Condition Orisa_Fortify[0] != 0
+    #@Condition (eventPlayer.isUsingAbility1() or eventPlayer.isUsingUltimate()) == true
+    @Condition any([i == true for i in [eventPlayer.isUsingAbility1(), eventPlayer.isUsingUltimate()]]) == true
+    
+    eventPlayer.unaffected = true
+    wait(0.096, Wait.ABORT_WHEN_FALSE)
+    clearMoveSpeedDebuffs()
+    eventPlayer.addHealthPool(Health.ARMOR, Orisa_Fortify[0], true, false)
+    eventPlayer.orisa_fortify_armor_id = getLastCreatedHealthPool()
+    if eventPlayer.isUsingAbility1() == true:
+        waitUntil(not eventPlayer.isUsingAbility1(), Math.INFINITY)
+    else:
+        waitUntil(not eventPlayer.isUsingUltimate(), Math.INFINITY)
+    removeHealthPool(eventPlayer.orisa_fortify_armor_id)
+    eventPlayer.unaffected = false
 rule "[Orisa]: stun when ult":
     @Event playerDealtKnockback
     @Hero orisa

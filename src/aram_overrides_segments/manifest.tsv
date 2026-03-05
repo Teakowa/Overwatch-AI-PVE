@@ -4,8 +4,8 @@ segment_id	include_path	start_line	end_line	rule_count	first_rule	last_rule	sour
 03	aram_overrides_segments/ai_control_freja_ultimate_and_ammo.opy	774	798	2	[AI/control]: Freja Ultimate	[AI/control]: Freja Ammo	modules/ai/control/31-control-supports.opy
 04	aram_overrides_segments/ai_control_genji_ability2_and_ultimate.opy	1108	1141	2	[AI/control]: Genji Ability 2	[AI/control]: Genji Ultimate	modules/ai/control/32-control-tanks.opy
 05	aram_overrides_segments/ai_control_hazard_ability2_to_illari_primary.opy	1191	1231	3	[AI/control]: Hazard Ability 2	[AI/control]: Illari Primary	modules/ai/control/32-control-tanks.opy,modules/ai/control/33-control-projectile-and-special.opy
-06	aram_overrides_segments/ai_control_juno_ultimate_and_player_status_reset.opy	1364	1384	2	[AI/control]: Juno Ultimate	[Player]: status reset	modules/ai/control/33-control-projectile-and-special.opy,modules/hero_rules/shared.opy
-07	aram_overrides_segments/hero_rules_mercy_valkyrie_refresh_rez.opy	1478	1498	2	[Mercy]: Valkyrie	【天使】女武神刷新复活冷却时间	modules/hero_rules/shared.opy
+06	aram_overrides_segments/ai_control_juno_ultimate_and_player_status_reset.opy	1364	1384	2	[AI/control]: Juno Ultimate	[Player]: status reset	modules/ai/control/33-control-projectile-and-special.opy,modules/hero_rules/player_shared.opy
+07	aram_overrides_segments/hero_rules_mercy_valkyrie_refresh_rez.opy	1478	1498	2	[Mercy]: Valkyrie	【天使】女武神刷新复活冷却时间	modules/hero_rules/heroes/mercy.opy
 08	aram_overrides_segments/hero_rules_ana_biotic_and_full_health_nano_prep.opy	1512	1537	2	[Ana] Biotic Grenade Hit	[Ana]: Damage Full Health Allies So Nano Can Heal	modules/hero_rules/heroes/ana.opy
 09	aram_overrides_segments/hero_rules_brigitte_repair_pack_target_and_armor.opy	1619	1642	2	【布丽吉塔】恢复包选中目标	【布丽吉塔】恢复包提供护甲	modules/hero_rules/heroes/brigitte.opy
 10	aram_overrides_segments/hero_rules_kiriko_bot_ptp1_and_acc.opy	1655	1681	2	[Bot] PTP1	[Bot] ACC	modules/hero_rules/heroes/kiriko.opy

@@ -12,6 +12,14 @@ rule "[Mauga] Overrun knockdown duration":
     damage(victim, attacker, ceil(victim.getMaxHealth() * MaugaBuff[3]))
     lbl_0:
     lbl_1:
+rule "[Mauga]: Fortify provides 100 temporary armor":
+    @Event eachPlayer
+    @Hero mauga
+    @Condition eventPlayer.isUsingAbility1() == true
+    
+    eventPlayer.unaffected = true
+    waitUntil(not eventPlayer.isUsingAbility1(), 3)
+    eventPlayer.unaffected = false
 rule "[Mauga]: Cardiac Overdrive Dmg. reduction":
     @Event eachPlayer
     @Hero mauga

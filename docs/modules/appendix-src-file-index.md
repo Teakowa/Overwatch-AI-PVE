@@ -36,7 +36,7 @@
 
 ## 5. Hero Rules
 
-- `src/modules/hero_rules/shared.opy`
+- `src/modules/hero_rules/player_shared.opy`
 - `src/modules/hero_rules/heroes/_index.opy`
 - `src/modules/hero_rules/heroes/*.opy`
 

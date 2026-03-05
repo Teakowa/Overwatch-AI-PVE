@@ -62,7 +62,7 @@
 
 ### 4.4 Hero Rules（玩法增强）
 
-- `hero_rules/shared.opy` 放置跨英雄共享规则（如 Brigitte/Orisa/Mercy 等共通效果）。
+- `hero_rules/player_shared.opy` 放置玩家通用规则（如 `status reset`）。
 - `hero_rules/heroes/*.opy` 放置英雄片段规则。
 - 该层是玩法变化最密集区域，也是回归风险最高区域。
 
