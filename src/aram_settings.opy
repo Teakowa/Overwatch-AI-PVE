@@ -231,7 +231,6 @@ settings {
             "roadhog": {
                 "damageReceived%": 70,
                 "secondaryFireRechargeRate%": 150,
-                "ability2Cooldown%": 50,
                 "enableInfiniteAmmo": true,
                 "healingDealt%": 150,
                 "movementSpeed%": 105
