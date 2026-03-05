@@ -29,7 +29,9 @@
 | T5 | AI 常量收敛（不改行为） | 未开始 | 首批完成 | todo | 统一等待/阈值常量，降低 body 差异 |
 | T6 | hero_init 共用扩展 | 仅分隔符与少量文件共享 | 扩大共享项 | in_progress | 新增共享项并通过 strict hero init 契约 |
 | T7 | hero_rules 共用扩展 | 当前共享 5 个英雄规则文件 | 逐英雄扩展 | in_progress | 每次扩展都通过等价验证 |
-| T8 | ARAM 共用化门禁脚本 | 部分已有 | 完成 | todo | 一键输出“候选共享项 + 风险” |
+| T8 | ARAM 共用化门禁脚本 | 部分已有 | 完成 | in_progress | 一键输出“候选共享项 + 风险” |
+| T11 | 模式宏承载解耦（Main/ARAM） | Main 默认宏在共享 bootstrap | Main-only profile 文件 | done | shared utility 不再依赖重复宏定义路径 |
+| T12 | ARAM 差异白名单基线 | 无正式白名单 | 差异白名单 + 门禁校验 | in_progress | `check_aram_overrides_duplicates --check` 对白名单增量敏感 |
 | T9 | 文档收口 | 未开始 | 完成 | todo | 报告/TODO/模块文档一致 |
 
 ## Current Iteration (T2/T3)
@@ -64,11 +66,31 @@
   - `src/aram_shared_index.opy`
   - `src/aram_shared_utilities.opy`
 
+## Current Iteration (T11/T12)
+
+- 新增 Main-only 模式宏文件：
+  - `src/main_mode_profile.opy`
+- `src/modules/bootstrap/20-player-lifecycle-and-reset.opy` 移除 Main 默认 `RESET_*` 宏定义；
+  共享 utilities 继续消费同名宏，避免与 `aram_protocol.opy` 重复定义冲突。
+- `src/main.opy` 入口顺序回归契约：
+  - `constants -> prelude -> #!optimizeStrict -> modules`
+- `src/modules/_index.opy` 新增 `../main_mode_profile.opy`，用于扁平 include 契约校验。
+- `src/aram_overrides_segments/manifest.tsv` 已同步当前 `aram_overrides.opy` 实际 include 集合，移除已删除 AI segment 的陈旧记录。
+- `check_aram_overrides_duplicates.sh` 扩展：
+  - 新增 `--whitelist`
+  - 新增 `--emit-candidates`
+  - 在 `--check` 模式下校验未白名单化 exact/diff 规则
+- 新增白名单基线文件：
+  - `skills/ow-contract-guard/references/aram-delta-whitelist.tsv`
+- 本轮门禁与指标见：
+  - `docs/reports/aram-shared-wave-2026-03-06-baseline.md`
+
 ## Iteration Log
 
 - 2026-03-05: 完成 T2（3/3 utilities 提取），并通过 `build/build:aram/contract-guard` 验证。
 - 2026-03-05: 完成 T3（5/5 reset 工具链参数化），并通过 `build/build:aram/contract-guard` 验证。
 - 2026-03-06: 完成 T10（入口+覆盖层 include 扁平化），并消除 ARAM 重复导入的 AI 分隔符告警来源。
+- 2026-03-06: 完成 T11（Main-only 模式宏承载迁移）；启动 T12（ARAM 差异白名单基线与门禁接入）。
 
 ## Verification Checklist
 

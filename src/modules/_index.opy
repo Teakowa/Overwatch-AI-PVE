@@ -1,4 +1,5 @@
 #!include "bootstrap/_index.opy"
+#!include "../main_mode_profile.opy"
 #!include "../utilities/_index.opy"
 #!include "ai/_index.opy"
 #!include "hero_rules/_index.opy"

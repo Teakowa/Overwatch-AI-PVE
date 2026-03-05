@@ -51,30 +51,6 @@ def clearMoveSpeedDebuffs():
     eventPlayer.mov_speed_buff = 0
     applySignedMoveSpeed()
 
-
-# Reset Utility Behavior Profile (Main)
-
-macro RESET_DISABLE_ALL_ABILITIES_EXTRA():
-    pass
-
-macro RESET_STATS_EXTRA():
-    pass
-
-macro RESET_STATUSES_EXTRA():
-    clearMoveSpeedDebuffs()
-    eventPlayer.taunt = false
-
-macro RESET_HERO_EXTRA_BEFORE_CLEAR():
-    pass
-
-macro RESET_HERO_WAIT():
-    wait()
-
-macro RESET_REMOVE_TANK_PASSIVE_ENABLED():
-    false
-
-
-
 rule "[reset.opy]: Reinitialize hero on new round":
     @Event eachPlayer
     @Condition isMatchBetweenRounds() == true

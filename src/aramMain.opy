@@ -1,3 +1,6 @@
+#
+# Mode config: constants + ARAM settings/protocol
+#
 #!include "constants/player_constants.opy"
 #!include "aram_settings.opy"
 #!include "aram_protocol.opy"
@@ -6,6 +9,9 @@
 #!optimizeStrict
 #!postCompileHook "post-compile-hook.js"
 
+#
+# Shared leaves reused from mainline modules
+#
 #!include "modules/ai/00-delimiter-begin.opy"
 #!include "modules/ai/99-delimiter-end.opy"
 #!include "modules/hero_init/99-delimiter-end.opy"
@@ -24,4 +30,8 @@
 #!include "utilities/reset_hero.opy"
 #!include "utilities/remove_tank_passive.opy"
 #!include "modules/bootstrap/11-blacklist.opy"
+
+#
+# ARAM-specific overrides (target: thin layer only)
+#
 #!include "aram_overrides.opy"
