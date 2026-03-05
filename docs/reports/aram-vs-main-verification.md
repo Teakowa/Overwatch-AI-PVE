@@ -91,3 +91,28 @@ Validation:
 - `pnpm run build:aram`: passed (warnings only).
 - `skills/ow-contract-guard/scripts/check_contracts.sh --build`: passed.
 - `skills/ow-contract-guard/scripts/check_contracts.sh --strict-hero-init`: passed.
+
+## Follow-up (2026-03-05): T3 Reset Toolchain Parameterization
+
+Implemented shared skeleton + ARAM profile parameterization for reset utility chain:
+- Added reset behavior profile macros in `src/aram_protocol.opy` (ARAM profile).
+- Added mainline profile macro defaults in `src/modules/bootstrap/20-player-lifecycle-and-reset.opy` (after `clearMoveSpeedDebuffs()`).
+- Refactored shared utilities to consume profile macros:
+  - `utilities/disable_all_abilities.opy`
+  - `utilities/reset_stats.opy`
+  - `utilities/reset_statuses.opy`
+  - `utilities/reset_hero.opy`
+  - `utilities/remove_tank_passive.opy`
+- Expanded `src/aram_shared_utilities.opy` include list with the 5 reset-related utilities above.
+- Removed duplicated ARAM defs from `src/aram_overrides.opy`:
+  - `disableAllAbilities`
+  - `resetStats`
+  - `resetStatuses`
+  - `resetHero`
+  - `removeTankPassive`
+
+Validation:
+- `pnpm run build`: passed (warnings only).
+- `pnpm run build:aram`: passed (warnings only).
+- `skills/ow-contract-guard/scripts/check_contracts.sh --build`: passed.
+- `skills/ow-contract-guard/scripts/check_contracts.sh --strict-hero-init`: passed.

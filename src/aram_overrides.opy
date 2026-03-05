@@ -293,66 +293,6 @@ rule "[utilities/reset]: reset when died":
     resetStatuses()
     resetFrenemies()
 
-def disableAllAbilities():
-    @Name "[utilities/reset.opy]: disableAllAbilities()"
-    
-    eventPlayer.disallowButton(Button.PRIMARY_FIRE)
-    eventPlayer.disallowButton(Button.SECONDARY_FIRE)
-    eventPlayer.disallowButton(Button.ABILITY_1)
-    eventPlayer.disallowButton(Button.ABILITY_2)
-    eventPlayer.disallowButton(Button.ULTIMATE)
-    eventPlayer.disallowButton(Button.MELEE)
-    eventPlayer.disallowButton(Button.JUMP)
-    eventPlayer.disallowButton(Button.CROUCH)
-    eventPlayer.disallowButton(Button.RELOAD)
-    eventPlayer.disallowButton(Button.INTERACT)
-    eventPlayer.setPrimaryFireEnabled(false)
-    eventPlayer.setSecondaryFireEnabled(false)
-    eventPlayer.setAbility1Enabled(false)
-    eventPlayer.setAbility2Enabled(false)
-    eventPlayer.setUltEnabled(false)
-    eventPlayer.setMeleeEnabled(false)
-    eventPlayer.setJumpEnabled(false)
-    eventPlayer.setCrouchEnabled(false)
-    eventPlayer.setReloadEnabled(false)
-
-def resetStats():
-    @Name "[utilities/reset.opy]: resetStats()"
-    
-    eventPlayer.mov_speed_penalty = 0
-    eventPlayer.mov_speed_buff = 0
-    eventPlayer.setDamageDealt(100)
-    eventPlayer.setDamageReceived(100)
-    eventPlayer.setProjectileSpeed(100)
-    eventPlayer.setProjectileGravity(100)
-    eventPlayer.setHealingDealt(100)
-    eventPlayer.setHealingReceived(100)
-    eventPlayer.setKnockbackReceived(100)
-    eventPlayer.setKnockbackDealt(100)
-    eventPlayer.setGravity(100)
-    eventPlayer.setMoveSpeed(100)
-
-def resetStatuses():
-    @Name "[utilities/reset.opy]: resetStatuses()"
-    
-    eventPlayer.stopAllDamageOverTime()
-    eventPlayer.stopForcingThrottle()
-    eventPlayer.freja_buff[0] = 0
-    eventPlayer.freja_buff[1] = 0
-    eventPlayer.brigitte_buff[0] = false
-    eventPlayer.orisa_buff = false
-    eventPlayer.zarya_graviton_buff[0] = false
-    eventPlayer.clearStatusEffect(Status.ASLEEP)
-    eventPlayer.clearStatusEffect(Status.BURNING)
-    eventPlayer.clearStatusEffect(Status.FROZEN)
-    eventPlayer.clearStatusEffect(Status.HACKED)
-    eventPlayer.clearStatusEffect(Status.INVINCIBLE)
-    eventPlayer.clearStatusEffect(Status.KNOCKED_DOWN)
-    eventPlayer.clearStatusEffect(Status.PHASED_OUT)
-    eventPlayer.clearStatusEffect(Status.ROOTED)
-    eventPlayer.clearStatusEffect(Status.STUNNED)
-    eventPlayer.clearStatusEffect(Status.UNKILLABLE)
-
 rule "[reset.opy]: Reinitialize hero on new round":
     @Event eachPlayer
     @Condition isMatchBetweenRounds() == true
@@ -394,38 +334,6 @@ def clearCustomHp():
 def applyCustomHp():
     @Name "[custom_hp.opy]: applyCustomHp()"
     @Delimiter
-
-def resetHero():
-    @Name "[utilities/reset.opy]: resetHero()"
-    
-    destroyHudText(eventPlayer.ram_block_damage_hud)
-    destroyHudText(eventPlayer.sigma_hyperspheres_hud)
-    destroyHudText(eventPlayer.doom_buff_hud)
-    destroyHudText(eventPlayer.reaper_buff[2])
-    eventPlayer.reaper_buff[2] = 0
-    eventPlayer.hudText = ""
-    eventPlayer.ram_block_damage = 0
-    eventPlayer.sigma_hyperspheres = 0
-    eventPlayer.doom_buff = 0
-    eventPlayer.reaper_buff[1] = 0
-    eventPlayer.dmg_reduction = 0
-    eventPlayer.dmg_amplification = 0
-    eventPlayer.has_nano = false
-    destroyEffect(eventPlayer.heart_steel[4])
-    eventPlayer.third_person = false
-    eventPlayer.stopCamera()
-    clearCustomHp()
-    resetStats()
-    resetStatuses()
-    resetFrenemies()
-    enableAllAbilities()
-    #wait at least 1 tick
-    wait(0.16)
-
-def removeTankPassive():
-    @Name "[passives/tank/knockback.opy]: removeTankPassive()"
-    
-    eventPlayer.setKnockbackReceived(166.667)
 
 rule "[AI/global]: Generated at the beginning":
     @Condition any([isWaitingForPlayers(), isInSetup(), isGameInProgress()]) == true

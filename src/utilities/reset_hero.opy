@@ -14,11 +14,11 @@ def resetHero():
     eventPlayer.dmg_reduction = 0
     eventPlayer.dmg_amplification = 0
     eventPlayer.has_nano = false
+    RESET_HERO_EXTRA_BEFORE_CLEAR()
     clearCustomHp()
     resetStats()
     resetStatuses()
     resetFrenemies()
     enableAllAbilities()
     #wait at least 1 tick
-    wait()
-
+    RESET_HERO_WAIT()

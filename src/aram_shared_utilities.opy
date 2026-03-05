@@ -1,3 +1,8 @@
 #!include "utilities/bot_aim2target.opy"
 #!include "utilities/enable_all_abilities.opy"
 #!include "utilities/reset_frenemies.opy"
+#!include "utilities/disable_all_abilities.opy"
+#!include "utilities/reset_stats.opy"
+#!include "utilities/reset_statuses.opy"
+#!include "utilities/reset_hero.opy"
+#!include "utilities/remove_tank_passive.opy"

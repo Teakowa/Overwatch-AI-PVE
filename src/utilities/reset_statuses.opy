@@ -5,8 +5,7 @@ def resetStatuses():
     eventPlayer.stopForcingThrottle()
     eventPlayer.freja_buff[0] = 0
     eventPlayer.freja_buff[1] = 0
-    clearMoveSpeedDebuffs()
-    eventPlayer.taunt = false
+    RESET_STATUSES_EXTRA()
     eventPlayer.clearStatusEffect(Status.ASLEEP)
     eventPlayer.clearStatusEffect(Status.BURNING)
     eventPlayer.clearStatusEffect(Status.FROZEN)
@@ -17,4 +16,3 @@ def resetStatuses():
     eventPlayer.clearStatusEffect(Status.ROOTED)
     eventPlayer.clearStatusEffect(Status.STUNNED)
     eventPlayer.clearStatusEffect(Status.UNKILLABLE)
-

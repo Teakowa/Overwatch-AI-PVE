@@ -1,5 +1,5 @@
 def removeTankPassive():
     @Name "[passives/tank/knockback.opy]: removeTankPassive()"
-    @Disabled
-    
-    eventPlayer.setKnockbackReceived(166.667)
+
+    if RESET_REMOVE_TANK_PASSIVE_ENABLED():
+        eventPlayer.setKnockbackReceived(166.667)
