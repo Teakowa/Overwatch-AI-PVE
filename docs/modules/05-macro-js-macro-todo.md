@@ -13,22 +13,20 @@
 
 ## 1. 实施清单
 
-- [ ] 建立改造基线并记录构建结果。
+- [ ] 建立改造基线并记录构建结果。（status: todo）
   - `pnpm run build`
   - `pnpm run build:release`
-- [ ] 新建宏入口文件（建议：`src/constants/macros.opy`），集中维护 `macro`。
-- [ ] 将 `#!define` 中可安全迁移项逐步替换为 `macro`（优先常量表达式）。
-- [ ] 先做 Hero Init 模板化试点（5 个英雄：Tracer / Reaper / Ana / Widowmaker / Baptiste）。
-- [ ] 抽取 Hero Init 通用片段宏（Detect/Initialize骨架中的重复动作）。
-- [ ] 修复 Hero Init 协议漂移项（如 Sombra 初始化条件缺失）。
-- [ ] 扩展 Hero Init 宏化到全量英雄（保留特殊英雄例外逻辑）。
-- [ ] 抽取 AI 控制层共通条件宏（`hasSpawned/isAlive/isDummy/botTarget/LoS`）。
-- [ ] 抽取 AI 节流等待宏（统一 `wait(max(getAverageServerLoad()/1000, ...))`）。
-- [ ] 抽取通用公式宏（如 falloff/clamp 计算，减少重复数学表达式）。
-- [ ] 引入第一个 JS macro（建议先做黑名单数据生成，低玩法风险）。
-- [ ] 评估 Changelog 是否进入 JS macro（复杂度高，放第二阶段，可延期）。
-- [ ] 增加契约自检脚本（分隔规则名、索引、Hero Init 协议、`@Disabled`）。
-- [ ] 同步更新文档（`03-module-contracts.md`、`04-current-implementation-summary.md`）。
+- [ ] 新建宏入口文件（建议：`src/constants/macros.opy`），集中维护 `macro`。（status: in_progress）
+- [ ] 将 `#!define` 中可安全迁移项逐步替换为 `macro`（优先常量表达式）。（status: in_progress）
+- [ ] 先做 Hero Init 模板化试点（5 个英雄：Tracer / Reaper / Ana / Widowmaker / Baptiste）。（status: todo）
+- [ ] 抽取 Hero Init 通用片段宏（Detect/Initialize骨架中的重复动作）。（status: todo）
+- [ ] 扩展 Hero Init 宏化到全量英雄（保留特殊英雄例外逻辑）。（status: todo）
+- [ ] 抽取 AI 控制层共通条件宏（`hasSpawned/isAlive/isDummy/botTarget/LoS`）。（status: todo）
+- [ ] 抽取 AI 节流等待宏（统一 `wait(max(getAverageServerLoad()/1000, ...))`）。（status: todo）
+- [ ] 抽取通用公式宏（如 falloff/clamp 计算，减少重复数学表达式）。（status: in_progress）
+- [ ] 引入第一个 JS macro（建议先做黑名单数据生成，低玩法风险）。（status: todo）
+- [ ] 评估 Changelog 是否进入 JS macro（复杂度高，放第二阶段，可延期）。（status: todo）
+- [ ] 同步更新文档（`03-module-contracts.md`、`04-current-implementation-summary.md`）。（status: todo）
 
 ## 2. 推荐执行顺序
 

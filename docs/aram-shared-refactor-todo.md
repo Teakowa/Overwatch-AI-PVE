@@ -25,14 +25,10 @@
 
 | ID | Task | Baseline | Target | Status | Exit Criteria |
 |---|---|---|---|---|---|
-| T0 | 基线冻结与报告对齐 | 已有 `aram-vs-main-verification` | 增加最新增量记录 | done | 行数、共享清单、验收结果可追溯 |
-| T1 | 维护已共享白名单 | `aram_shared_index` 共 9 项 | 持续维护 | done | 共享 include 与报告一致 |
-| T2 | 抽取 3 个完全一致 utilities | 0/3 | 3/3 | done | 使用主线 utility include，ARAM 不再重复定义 |
-| T3 | reset 工具链参数化 | 0/5 | 5/5 | done | `reset*` 差异改为参数/开关，不再双份复制 |
 | T4 | bootstrap 数据/逻辑分离 | 未开始 | 完成 | todo | 黑名单/模式配置与规则骨架分离 |
 | T5 | AI 常量收敛（不改行为） | 未开始 | 首批完成 | todo | 统一等待/阈值常量，降低 body 差异 |
-| T6 | hero_init 共用扩展 | 仅分隔符与少量文件共享 | 扩大共享项 | todo | 新增共享项并通过 strict hero init 契约 |
-| T7 | hero_rules 共用扩展 | 当前共享 5 个英雄规则文件 | 逐英雄扩展 | todo | 每次扩展都通过等价验证 |
+| T6 | hero_init 共用扩展 | 仅分隔符与少量文件共享 | 扩大共享项 | in_progress | 新增共享项并通过 strict hero init 契约 |
+| T7 | hero_rules 共用扩展 | 当前共享 5 个英雄规则文件 | 逐英雄扩展 | in_progress | 每次扩展都通过等价验证 |
 | T8 | ARAM 共用化门禁脚本 | 部分已有 | 完成 | todo | 一键输出“候选共享项 + 风险” |
 | T9 | 文档收口 | 未开始 | 完成 | todo | 报告/TODO/模块文档一致 |
 

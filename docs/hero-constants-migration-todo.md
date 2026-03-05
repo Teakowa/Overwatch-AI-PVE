@@ -180,7 +180,7 @@
 | wuyang | P0 | both | 0 | - | todo | 规则分支多，先做低风险时长/百分比常量 |
 | freja | P0 | both | 0 | - | todo | 先抽取执行阈值与持续时长 |
 | mauga | P0 | both | 0 | - | todo | 避免触碰 `MaugaBuff` 运行时配置链 |
-| ramattra | P0 | both | 0 | - | todo | 避免触碰 `Ram_Annihilation` 运行时配置链 |
+| ramattra | P0 | both | 0 | - | in_progress | 避免触碰 `Ram_Annihilation` 运行时配置链 |
 
 ## 8. 测试场景与验收标准
 
