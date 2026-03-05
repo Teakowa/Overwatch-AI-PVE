@@ -8,6 +8,23 @@ rule "[Zenyatta]: headshot damage":
     @Condition eventAbility != Button.ULTIMATE
     
     damage(victim, attacker, ceil((eventDamage * (HeadshotDamage[0] - 2)) / 2))
+rule "[Zenyatta] Snap Kick (enemy)":
+    @Event playerTookDamage
+    @Condition eventAbility == Button.MELEE
+    @Condition attacker.getHero() == Hero.ZENYATTA == true
+    
+    eventPlayer.KnockbackDirection = directionFromAngles(attacker.getHorizontalFacingAngle(), -10)
+    eventPlayer.startForcingThrottle(0, 0, 0, 0, 0, 0.5)
+    Knockback()
+    damage(eventPlayer, attacker, eventDamage * 0.5)
+    eventPlayer.isKnocked = true
+rule "[Zenyatta] stop knocked":
+    @Event eachPlayer
+    @Condition eventPlayer.isKnocked == true
+    
+    wait(0.016, Wait.ABORT_WHEN_FALSE)
+    eventPlayer.stopForcingThrottle()
+    eventPlayer.isKnocked = false
 rule "[Zenyatta] Snap Kick (Self Ground)":
     @Event eachPlayer
     @Hero zenyatta

@@ -1,20 +1,3 @@
-rule "[JunkerQueen]: Taunt enemies":
-    @Event eachPlayer
-    @Condition eventPlayer.isAlive() == true
-    @Condition eventPlayer.unaffected != true
-    @Condition eventPlayer.taunt == true
-    @Condition (eventPlayer.getHero() == Hero.ORISA and (eventPlayer.isUsingAbility1() or eventPlayer.isUsingUltimate())) == false
-    @Condition (eventPlayer.getHero() == Hero.MAUGA and eventPlayer.isUsingAbility1()) == false
-    
-    bigMessage(eventPlayer, "嘲讽")
-    eventPlayer.startFacing(directionTowards(eventPlayer.getEyePosition(), getPlayersOnHero(Hero.JUNKER_QUEEN, getOppositeTeam(eventPlayer.getTeam()))[0].getEyePosition()), 270)
-    eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
-    disableAllAbilities()
-    waitUntil(eventPlayer.isDead() or not eventPlayer.taunt or eventPlayer.hasStatus(Status.PHASED_OUT), 2)
-    eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
-    enableAllAbilities()
-    eventPlayer.stopFacing()
-    eventPlayer.taunt = false
 rule "[Wuyang]: mov_speed_penalty":
     @Event playerDealtKnockback
     @Hero wuyang
@@ -157,3 +140,11 @@ rule "[Wuyang]: Tidal Blast Allies Target":
     @Condition eventAbility == Button.ULTIMATE
     
     eventPlayer.startHealingOverTime(healee, 1.25, eventPlayer.getMaxHealth() * 0.5 / 1.25)
+rule "[Wuyang]: Tidal Blast Allies Healing":
+    @Event eachPlayer
+    @Condition eventPlayer.wuyang_buff == true
+    @Disabled
+    
+    eventPlayer.startHealingOverTime(eventPlayer.reset_pvar[13], 3, eventPlayer.getMaxHealth() * WuyangBuff[5])
+    wait(3)
+    eventPlayer.wuyang_buff = false

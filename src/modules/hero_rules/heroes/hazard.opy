@@ -56,13 +56,3 @@ rule "[Hazard]: Spike Guard using tracking":
     eventPlayer.hazard_using_ability_sec = true
     waitUntil(not eventPlayer.isHoldingButton(Button.SECONDARY_FIRE), 12)
     eventPlayer.hazard_using_ability_sec = false
-rule "[Ramattra]: Annihilation dmg reduc":
-    @Event eachPlayer
-    @Condition eventPlayer.reset_pvar[5].isUsingUltimate() == true
-    @Condition distance(eventPlayer, eventPlayer.reset_pvar[5].getPosition()) > 13
-    
-    startDamageModification(eventPlayer.reset_pvar[5], eventPlayer, 25)
-    eventPlayer.ram_dmg_reduc = getLastDamageModification()
-    waitUntil(not eventPlayer.reset_pvar[5].isUsingUltimate() or distance(eventPlayer, eventPlayer.reset_pvar[5].getPosition()) <= 13, 120)
-    stopDamageModification(eventPlayer.ram_dmg_reduc)
-    eventPlayer.ram_dmg_reduc = null

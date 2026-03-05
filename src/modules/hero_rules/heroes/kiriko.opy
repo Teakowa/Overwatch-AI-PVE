@@ -76,13 +76,6 @@ rule "[kiriko]: remove swift step hp":
     if len(eventPlayer.kiriko_buff) != 0:
         loop()
     eventPlayer.kiriko_buff = []
-rule "[Lifeweaver]: Life Grip Clear Effect":
-    @Event playerReceivedHealing
-    @Condition eventAbility == Button.ABILITY_2
-    @Condition healer.getHero() == Hero.LIFEWEAVER == true
-    @Condition eventPlayer.mauga_berserker_soul != true
-    
-    resetStatuses()
 rule "[Kiriko]: headshot damage":
     @Event playerDealtDamage
     @Hero kiriko

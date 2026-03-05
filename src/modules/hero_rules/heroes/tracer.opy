@@ -19,28 +19,6 @@ rule "[Tracer] Pulse Bomb Damage":
     @Condition eventDamage > 10
     
     damage(victim, attacker, ceil(eventDamage))
-rule "[Sombra]: Apply OW1 hack on top of OW2 hack":
-    @Event eachPlayer
-    @Condition eventPlayer.hasStatus(Status.HACKED) == true
-    @Condition eventPlayer.vendetta_hud != true
-    
-    stopChasingVariable(eventPlayer.hack_timer)
-    eventPlayer.setStatusEffect(eventPlayer.reset_pvar[6], Status.HACKED, 4 if eventPlayer.getTeam() == Team.1 else 6)
-    eventPlayer.hack_timer = 4 if eventPlayer.getTeam() == Team.1 else 6
-    chaseAtRate(eventPlayer.hack_timer, 0, 1, ChaseRateReeval.NONE)
-rule "[Sombra]: hack healing received":
-    @Event eachPlayer
-    @Condition eventPlayer.hasStatus(Status.HACKED) == true
-    @Condition eventPlayer.mauga_berserker_soul != true
-    
-    eventPlayer.healing_decrease += SombraBuff[0]
-    eventPlayer.setHealingReceived(100 - eventPlayer.healing_decrease + eventPlayer.healing_increase)
-    #eventPlayer.sombra_buff = getLastCreatedEntity()
-    waitUntil(not eventPlayer.hasStatus(Status.HACKED), 4 if eventPlayer.getTeam() == Team.1 else 6)
-    eventPlayer.setHealingReceived(100)
-    #destroyEffect(eventPlayer.sombra_buff)
-    #eventPlayer.sombra_buff = null
-    eventPlayer.healing_decrease = 0
 rule "[Tracer] Kill Heal":
     @Event playerEarnedElimination
     @Hero tracer

@@ -27,25 +27,28 @@ rule "[Sombra]: AI Auto use Translocator":
     @Condition distance(getClosestPlayer(eventPlayer, eventPlayer.getTeam()), eventPlayer.reset_pvar[9][0]) <= 30
     
     eventPlayer.forceButtonPress(Button.ABILITY_2)
-rule "[Zenyatta] Snap Kick (enemy)":
-    @Event playerTookDamage
-    @Condition eventAbility == Button.MELEE
-    @Condition attacker.getHero() == Hero.ZENYATTA == true
-    
-    eventPlayer.KnockbackDirection = directionFromAngles(attacker.getHorizontalFacingAngle(), -10)
-    eventPlayer.startForcingThrottle(0, 0, 0, 0, 0, 0.5)
-    Knockback()
-    damage(eventPlayer, attacker, eventDamage * 0.5)
-    eventPlayer.isKnocked = true
-
-
-rule "[Zenyatta] stop knocked":
+rule "[Sombra]: Apply OW1 hack on top of OW2 hack":
     @Event eachPlayer
-    @Condition eventPlayer.isKnocked == true
+    @Condition eventPlayer.hasStatus(Status.HACKED) == true
+    @Condition eventPlayer.vendetta_hud != true
     
-    wait(0.016, Wait.ABORT_WHEN_FALSE)
-    eventPlayer.stopForcingThrottle()
-    eventPlayer.isKnocked = false
+    stopChasingVariable(eventPlayer.hack_timer)
+    eventPlayer.setStatusEffect(eventPlayer.reset_pvar[6], Status.HACKED, 4 if eventPlayer.getTeam() == Team.1 else 6)
+    eventPlayer.hack_timer = 4 if eventPlayer.getTeam() == Team.1 else 6
+    chaseAtRate(eventPlayer.hack_timer, 0, 1, ChaseRateReeval.NONE)
+rule "[Sombra]: hack healing received":
+    @Event eachPlayer
+    @Condition eventPlayer.hasStatus(Status.HACKED) == true
+    @Condition eventPlayer.mauga_berserker_soul != true
+    
+    eventPlayer.healing_decrease += SombraBuff[0]
+    eventPlayer.setHealingReceived(100 - eventPlayer.healing_decrease + eventPlayer.healing_increase)
+    #eventPlayer.sombra_buff = getLastCreatedEntity()
+    waitUntil(not eventPlayer.hasStatus(Status.HACKED), 4 if eventPlayer.getTeam() == Team.1 else 6)
+    eventPlayer.setHealingReceived(100)
+    #destroyEffect(eventPlayer.sombra_buff)
+    #eventPlayer.sombra_buff = null
+    eventPlayer.healing_decrease = 0
 rule "[Sombra]: kiil reset cooldown":
     @Event playerEarnedElimination
     @Hero sombra
