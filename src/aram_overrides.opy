@@ -145,7 +145,7 @@ rule "[Player]: Override allowed heroes list when player joins lobby":
     wait(0.16)
     eventPlayer.hudText = ""
 
-rule "[Player]: hudText init":
+rule "[Player]: hudText init (ARAM)":
     wait(1)
     hudText(getPlayersInSlot(0, Team.2), null, "\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r", getPlayersInSlot(0, Team.2).hudText, HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
     hudText(getPlayersInSlot(1, Team.2), null, "\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r", getPlayersInSlot(1, Team.2).hudText, HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
