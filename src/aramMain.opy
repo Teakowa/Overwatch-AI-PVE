@@ -8,4 +8,5 @@
 
 #!include "aram_shared_index.opy"
 #!include "aram_shared_utilities.opy"
+#!include "modules/bootstrap/11-blacklist.opy"
 #!include "aram_overrides.opy"

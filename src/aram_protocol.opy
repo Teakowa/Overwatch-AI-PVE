@@ -38,6 +38,7 @@ globalvar Counter_Bot 47
 globalvar random_size 50
 globalvar size_pool 51
 globalvar Ram_Annihilation 52
+globalvar Blacklist 55
 globalvar FalloffMin 56
 globalvar ProjectileSpeed 57
 globalvar CustomAI 58

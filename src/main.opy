@@ -5,4 +5,5 @@
 #!optimizeStrict
 #!postCompileHook "post-compile-hook.js"
 
+#Blacklist module is loaded via modules/bootstrap/11-blacklist.opy in modules/_index.opy.
 #!include "modules/_index.opy"
