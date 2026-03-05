@@ -73,8 +73,11 @@
 常用命令：
 - `pnpm run build`
 - `pnpm run build:release`
+- `pnpm run build:aram`
 - `skills/ow-contract-guard/scripts/check_contracts.sh`
 - `skills/ow-contract-guard/scripts/check_contracts.sh --strict-hero-init`
+- `skills/ow-contract-guard/scripts/check_aram_overrides_duplicates.sh`
+- `skills/ow-contract-guard/scripts/check_aram_overrides_duplicates.sh --check --emit-candidates build/reports/aram-delta-whitelist-candidates.tsv`
 - `skills/ow-hero-change-pipeline/scripts/hero_pipeline.sh --from-diff`
 - `skills/ow-hero-change-pipeline/scripts/hero_pipeline.sh --from-diff --build`
 - `skills/ow-changelog-sync/scripts/changelog_sync.sh --from-diff`
