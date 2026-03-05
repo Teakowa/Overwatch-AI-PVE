@@ -14,6 +14,44 @@ Use this skill to collect Overwatch hero data from Overwatch Fandom in a repeata
 3. Fetch all hero pages in batch.
 4. Save JSON outputs for downstream processing.
 
+## Sync One Hero Into This Repo (Constants + Settings + Rules)
+
+Use this flow when the task is not only data collection, but also landing hero values
+into `Overwatch-AI-PVE` source files.
+
+1. Fetch one hero page from Fandom (prefer `scraplingserver` in Codex for quick extraction).
+2. Extract gameplay numbers needed by the repo:
+   - Health
+   - Passive/burning damage + duration
+   - Weapon damage/ammo/speed/range
+   - Ability cooldown/damage/charges
+   - Ultimate damage/cost
+3. Update `src/constants/ow2_hero_defaults.opy`:
+   - add `OW2_<HERO>_*` constants in hero alphabetical block.
+4. Copy/sync values into `src/constants/player_constants.opy`:
+   - add `<HERO>_*` baseline constants (no `OW2_` prefix).
+   - add settings target constants if required by task convention.
+   - add rule effect constants for any magic numbers used in `hero_rules`.
+5. Reverse settings values from current `%` config when required:
+   - if task requests `percent(...)` expressions, use:
+     - `percent((TARGET_VALUE) / (BASE_COOLDOWN))`
+   - if task forbids `SET_*_TARGET`, use hero-specific non-`SET_` target constant names.
+6. Update `src/modules/prelude/00-settings.opy` hero entries:
+   - replace hard-coded percentages with constant-driven `percent(...)` expressions.
+7. Update `src/modules/hero_rules/heroes/<hero>.opy`:
+   - replace hard-coded effect values with constants from `player_constants.opy`.
+
+## Codex Extraction Pattern (Fandom)
+
+For one hero page, this pattern is usually enough:
+
+1. `mcp__scraplingserver__fetch` with markdown extraction:
+   - URL: `https://overwatch.fandom.com/wiki/<HeroName>`
+2. `mcp__scraplingserver__get` with targeted selectors for structure:
+   - `span.mw-headline` for section anchors.
+   - ability-oriented selectors (`[class*='ability']`) for numeric fields.
+3. Normalize extracted values before writing constants.
+
 ## Run Core Commands
 
 Fetch hero list from `https://overwatch.fandom.com/wiki/Heroes`:
@@ -88,6 +126,24 @@ Primary output keys:
 - Hero list script: `source`, `count`, `heroes`
 - Single hero script: `hero`, `title`, `summary`, `infobox`, `infobox_fields`, `url`
 - Batch script: `source`, `count`, `failed_count`, `heroes`, `failures`
+
+## Validation Gate For Repo Landing
+
+After updating constants/settings/rules for a hero, run:
+
+```bash
+skills/ow-hero-change-pipeline/scripts/hero_pipeline.sh --from-diff
+skills/ow-contract-guard/scripts/check_contracts.sh --build
+pnpm run build
+```
+
+Recommended semantic checks (example for `Anran`):
+
+```bash
+rg -n "SET_.*ANRAN" src/constants/player_constants.opy
+rg -n "\"anran\": \\{" src/modules/prelude/00-settings.opy
+rg -n "ANRAN_BURN_TARGET_DAMAGE_AMP_PERCENT|startDamageModification" src/modules/hero_rules/heroes/anran.opy
+```
 
 ## Resources
 
