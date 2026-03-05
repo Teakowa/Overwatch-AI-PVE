@@ -13,7 +13,7 @@
 ## 1. 约束与不变量
 
 - 不能破坏现有主入口与 include 顺序：
-  - `src/main.opy` 保持 `constants/player_constants.opy -> modules/prelude/_index.opy -> #!optimizeStrict -> modules/_index.opy`。
+  - `src/main.opy` 保持 `constants/player_constants.opy -> prelude 四文件 -> #!optimizeStrict -> bootstrap/utilities/ai/hero_rules/hero_init/debug 扁平 include`。
 - 不能改动变量协议索引：
   - `globalvar/playervar/subroutine` 索引号不重排。
 - 不能改动关键分隔规则名：

@@ -31,7 +31,12 @@ skills/ow-contract-guard/scripts/check_contracts.sh --strict-hero-init
 
 The checker validates these invariants:
 
-1. `src/main.opy` include order: `prelude -> optimizeStrict -> constants -> modules`.
+1. `src/main.opy` 扁平 include 顺序：
+   - `constants/player_constants.opy`
+   - `modules/prelude/00-settings.opy -> 01-global-vars.opy -> 02-player-vars.opy -> 03-subroutine-names.opy`
+   - `#!optimizeStrict`
+   - `modules/bootstrap/* -> utilities/* -> modules/ai/* -> modules/hero_rules/* -> modules/hero_init/* -> modules/debug/*`
+   - `src/main.opy` 不直接 include `*_index.opy`。
 2. Delimiter include boundaries in `ai/_index.opy` and `hero_init/_index.opy`.
 3. Required delimiter rule names exist exactly once:
    - `Initialize AI Scripts`

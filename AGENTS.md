@@ -34,7 +34,8 @@
 6. 规则主体（按分区顺序）
 
 主入口 include 顺序契约：
-- `constants/player_constants.opy` -> `modules/prelude/_index.opy` -> `#!optimizeStrict` -> `modules/_index.opy`
+- `constants/player_constants.opy` -> `modules/prelude/00-settings.opy` -> `modules/prelude/01-global-vars.opy` -> `modules/prelude/02-player-vars.opy` -> `modules/prelude/03-subroutine-names.opy` -> `#!optimizeStrict` -> `modules/bootstrap/*` -> `utilities/*` -> `modules/ai/*` -> `modules/hero_rules/*` -> `modules/hero_init/*` -> `modules/debug/*`
+- `src/main.opy` 不直接 include `*_index.opy`；`_index.opy` 仅作为顺序源用于契约校验与模块维护
 - `settings` 若使用 constants 计算表达式，必须保证 constants 先于 prelude 被 include
 
 规则主体建议保持以下分区边界和先后关系：

@@ -11,10 +11,21 @@
 
 入口 `src/main.opy` 按以下顺序 include：
 
-1. `modules/prelude/_index.opy`（内部顺序固定为 `00-settings -> 01-global-vars -> 02-player-vars -> 03-subroutine-names`）
-2. `#!optimizeStrict`
-3. `constants/player_constants.opy`（集中维护跨模块复用常量）
-4. `modules/_index.opy`（内部顺序固定为 `bootstrap -> ai -> hero_rules -> hero_init -> debug`）
+1. `constants/player_constants.opy`（集中维护跨模块复用常量）
+2. `modules/prelude/00-settings.opy`
+3. `modules/prelude/01-global-vars.opy`
+4. `modules/prelude/02-player-vars.opy`
+5. `modules/prelude/03-subroutine-names.opy`
+6. `#!optimizeStrict`
+7. `#!postCompileHook "post-compile-hook.js"`
+8. `modules/bootstrap/*`
+9. `utilities/*`
+10. `modules/ai/*`
+11. `modules/hero_rules/*`
+12. `modules/hero_init/*`
+13. `modules/debug/*`
+
+说明：`src/main.opy` 不直接 include `*_index.opy`，但模块目录中的 `_index.opy` 仍作为顺序源用于契约校验。
 
 ## 3. 关键分隔规则（保留）
 

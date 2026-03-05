@@ -13,15 +13,24 @@
 
 `src/main.opy` 当前顺序为：
 
-1. `#!include "modules/prelude/_index.opy"`
-2. `#!optimizeStrict`
-3. `#!include "constants/player_constants.opy"`
-4. `#!include "modules/_index.opy"`
+1. `#!include "constants/player_constants.opy"`
+2. `#!include "modules/prelude/00-settings.opy"`
+3. `#!include "modules/prelude/01-global-vars.opy"`
+4. `#!include "modules/prelude/02-player-vars.opy"`
+5. `#!include "modules/prelude/03-subroutine-names.opy"`
+6. `#!optimizeStrict`
+7. `#!postCompileHook "post-compile-hook.js"`
+8. `modules/bootstrap/*.opy`（在 `main.opy` 中显式逐条列举）
+9. `utilities/*.opy`（在 `main.opy` 中显式逐条列举）
+10. `modules/ai/*.opy`（在 `main.opy` 中显式逐条列举）
+11. `modules/hero_rules/*.opy`（在 `main.opy` 中显式逐条列举）
+12. `modules/hero_init/*.opy`（在 `main.opy` 中显式逐条列举）
+13. `modules/debug/*.opy`（在 `main.opy` 中显式逐条列举）
 
 其中：
 
-- `prelude/_index.opy` 固定为：`00-settings -> 01-global-vars -> 02-player-vars -> 03-subroutine-names`
-- `modules/_index.opy` 固定为：`bootstrap -> ai -> hero_rules -> hero_init -> debug`
+- `src/main.opy` 不直接 include `*_index.opy`
+- `_index.opy` 仍作为模块顺序源，用于契约脚本校验扁平入口顺序
 
 ## 3. 模块职责与体量
 

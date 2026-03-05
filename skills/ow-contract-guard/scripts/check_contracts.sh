@@ -84,25 +84,88 @@ line_of_fixed_match() {
 
 echo "Running ow-contract-guard checks from: $ROOT_DIR"
 
-# 1) Top-level include order contract
+# 1) Top-level flattened main include order contract
 main_file="src/main.opy"
-main_prelude='#!include "modules/prelude/_index.opy"'
 main_optimize='#!optimizeStrict'
-main_constants='#!include "constants/player_constants.opy"'
-main_modules='#!include "modules/_index.opy"'
 
-prelude_count="$(count_fixed_matches "$main_file" "$main_prelude")"
-optimize_count="$(count_fixed_matches "$main_file" "$main_optimize")"
-constants_count="$(count_fixed_matches "$main_file" "$main_constants")"
-modules_count="$(count_fixed_matches "$main_file" "$main_modules")"
+flatten_index_includes() {
+    local file="$1"
+    local base include target rel
+    base="$(cd "$(dirname "$file")" && pwd)"
 
-if [[ "$prelude_count" == "1" ]]; then
-    prelude_line="$(line_of_fixed_match "$main_file" "$main_prelude")"
-    pass "main include: modules/prelude/_index.opy at line $prelude_line"
+    while IFS= read -r include; do
+        [[ -z "$include" ]] && continue
+
+        target="$(cd "$base" && cd "$(dirname "$include")" && printf '%s/%s' "$PWD" "$(basename "$include")")"
+        rel="${target#${ROOT_DIR}/src/}"
+
+        if [[ "$(basename "$target")" == "_index.opy" ]]; then
+            flatten_index_includes "$target"
+        else
+            printf '%s\n' "$rel"
+        fi
+    done < <(awk '/^[[:space:]]*#!include[[:space:]]+"[^"]+"/ {
+        line = $0
+        sub(/^[[:space:]]*#!include[[:space:]]+"/, "", line)
+        sub(/".*$/, "", line)
+        print line
+    }' "$file")
+}
+
+compare_array_by_name() {
+    local label="$1"
+    local actual_name="$2"
+    local expected_name="$3"
+    local actual_len expected_len i actual_item expected_item
+
+    eval "actual_len=\${#${actual_name}[@]}"
+    eval "expected_len=\${#${expected_name}[@]}"
+
+    if [[ "$actual_len" -ne "$expected_len" ]]; then
+        fail "$label include count mismatch (actual=$actual_len expected=$expected_len)"
+        return
+    fi
+
+    for ((i = 0; i < expected_len; i++)); do
+        eval "actual_item=\${${actual_name}[$i]}"
+        eval "expected_item=\${${expected_name}[$i]}"
+
+        if [[ "$actual_item" != "$expected_item" ]]; then
+            fail "$label include mismatch at position $((i + 1)): actual=$actual_item expected=$expected_item"
+            return
+        fi
+    done
+
+    pass "$label include order contract preserved"
+}
+
+main_includes=()
+main_include_lines=()
+while IFS=$'\t' read -r line path; do
+    [[ -z "${line}" ]] && continue
+    main_include_lines+=("$line")
+    main_includes+=("$path")
+done < <(awk '/^[[:space:]]*#!include[[:space:]]+"[^"]+"/ {
+    line = $0
+    sub(/^[[:space:]]*#!include[[:space:]]+"/, "", line)
+    sub(/".*$/, "", line)
+    printf "%d\t%s\n", NR, line
+}' "$main_file")
+
+index_ref_count=0
+for path in "${main_includes[@]}"; do
+    if [[ "$path" == */_index.opy ]]; then
+        index_ref_count=$((index_ref_count + 1))
+    fi
+done
+
+if [[ "$index_ref_count" == "0" ]]; then
+    pass "main includes are flattened (no *_index.opy references)"
 else
-    fail "main include missing/duplicated: modules/prelude/_index.opy (count=$prelude_count)"
+    fail "main still references *_index.opy includes (count=$index_ref_count)"
 fi
 
+optimize_count="$(count_fixed_matches "$main_file" "$main_optimize")"
 if [[ "$optimize_count" == "1" ]]; then
     optimize_line="$(line_of_fixed_match "$main_file" "$main_optimize")"
     pass "main directive: #!optimizeStrict at line $optimize_line"
@@ -110,26 +173,37 @@ else
     fail "main directive missing/duplicated: #!optimizeStrict (count=$optimize_count)"
 fi
 
-if [[ "$constants_count" == "1" ]]; then
-    constants_line="$(line_of_fixed_match "$main_file" "$main_constants")"
-    pass "main include: constants/player_constants.opy at line $constants_line"
-else
-    fail "main include missing/duplicated: constants/player_constants.opy (count=$constants_count)"
-fi
+if [[ "$optimize_count" == "1" ]]; then
+    expected_before_optimize=("constants/player_constants.opy")
+    while IFS= read -r include; do
+        [[ -z "$include" ]] && continue
+        expected_before_optimize+=("$include")
+    done < <(flatten_index_includes "${ROOT_DIR}/src/modules/prelude/_index.opy")
 
-if [[ "$modules_count" == "1" ]]; then
-    modules_line="$(line_of_fixed_match "$main_file" "$main_modules")"
-    pass "main include: modules/_index.opy at line $modules_line"
-else
-    fail "main include missing/duplicated: modules/_index.opy (count=$modules_count)"
-fi
+    expected_after_optimize=()
+    while IFS= read -r include; do
+        [[ -z "$include" ]] && continue
+        expected_after_optimize+=("$include")
+    done < <(flatten_index_includes "${ROOT_DIR}/src/modules/_index.opy")
 
-if [[ "${prelude_count}" == "1" && "${optimize_count}" == "1" && "${constants_count}" == "1" && "${modules_count}" == "1" ]]; then
-    if [[ "$constants_line" -lt "$prelude_line" && "$prelude_line" -lt "$optimize_line" && "$optimize_line" -lt "$modules_line" ]]; then
-        pass "main include order contract preserved"
-    else
-        fail "main include order broken (expected constants -> prelude -> optimizeStrict -> modules)"
-    fi
+    actual_before_optimize=()
+    actual_after_optimize=()
+    while IFS=$'\t' read -r line path; do
+        [[ -z "${line}" ]] && continue
+        if [[ "$line" -lt "$optimize_line" ]]; then
+            actual_before_optimize+=("$path")
+        elif [[ "$line" -gt "$optimize_line" ]]; then
+            actual_after_optimize+=("$path")
+        fi
+    done < <(awk '/^[[:space:]]*#!include[[:space:]]+"[^"]+"/ {
+        line = $0
+        sub(/^[[:space:]]*#!include[[:space:]]+"/, "", line)
+        sub(/".*$/, "", line)
+        printf "%d\t%s\n", NR, line
+    }' "$main_file")
+
+    compare_array_by_name "main before optimizeStrict" actual_before_optimize expected_before_optimize
+    compare_array_by_name "main after optimizeStrict" actual_after_optimize expected_after_optimize
 fi
 
 # 2) Delimiter include boundaries
