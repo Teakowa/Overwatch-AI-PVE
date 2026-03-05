@@ -178,8 +178,8 @@ settings {
             "anran": {
                 "damageDealt%": 125,
                 "damageReceived%": 70,
-                "ability1Cooldown%": 75,
-                "ability2Cooldown%": 75
+                "ability1Cooldown%": percent((ANRAN_AI_ABILITY1_COOLDOWN_TARGET) / (ANRAN_INFERNO_RUSH_COOLDOWN)),
+                "ability2Cooldown%": percent((ANRAN_AI_ABILITY2_COOLDOWN_TARGET) / (ANRAN_DANCING_BLAZE_COOLDOWN))
             },
             "wuyang": {
                 "passiveHealthRegen": false,
@@ -577,8 +577,8 @@ settings {
             "anran": {
                 "damageDealt%": 135,
                 "damageReceived%": 70,
-                "ability1Cooldown%": 75,
-                "ability2Cooldown%": 75
+                "ability1Cooldown%": percent((ANRAN_PLAYER_ABILITY1_COOLDOWN_TARGET) / (ANRAN_INFERNO_RUSH_COOLDOWN)),
+                "ability2Cooldown%": percent((ANRAN_PLAYER_ABILITY2_COOLDOWN_TARGET) / (ANRAN_DANCING_BLAZE_COOLDOWN))
             },
             "illari": {
                 "passiveHealthRegen": false,
