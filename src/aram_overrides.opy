@@ -290,7 +290,12 @@ def applyCustomHp():
     @Name "[custom_hp.opy]: applyCustomHp()"
     @Delimiter
 
-#!include "modules/ai/_index.opy"
+#!include "modules/ai/core/10-core-global-and-targeting.opy"
+#!include "modules/ai/movement/20-movement.opy"
+#!include "modules/ai/control/30-control-tracer-reaper-genji.opy"
+#!include "modules/ai/control/31-control-supports.opy"
+#!include "modules/ai/control/32-control-tanks.opy"
+#!include "modules/ai/control/33-control-projectile-and-special.opy"
 
 rule "[Brigitte]: remove Rally provides permanent armor":
     @Event eachPlayer

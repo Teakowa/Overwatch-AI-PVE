@@ -5,7 +5,7 @@
 ## Scope & Invariants
 
 - 目标：等价重构，不主动调整玩法数值和平衡。
-- 保持 `aramMain` 编排顺序：`settings -> protocol -> optimize/postHook -> shared -> overrides`。
+- 保持 `aramMain` 编排顺序：`settings -> protocol -> optimize/postHook -> shared leaves -> overrides`。
 - 不改动 `globalvar/playervar/subroutine` 现有索引协议。
 - 不在 `src/modules/*` 新建 ARAM 专用模块文件。
 
@@ -48,10 +48,27 @@
   - Main 默认宏定义放在 `src/modules/bootstrap/20-player-lifecycle-and-reset.opy`
   - `aram_overrides` 删除 5 个重复 reset 相关 `def`，改用主线 utilities include
 
+## Current Iteration (T10)
+
+- `src/aramMain.opy` 由聚合 include 改为叶子 include 扁平入口：
+  - 移除 `aram_shared_index.opy` / `aram_shared_utilities.opy` 依赖
+  - 直接 include 共享 hero_rules、hero_init、utilities、blacklist 与 `aram_overrides.opy`
+- `src/aram_overrides.opy` 将 `modules/ai/_index.opy` 改为显式 AI 叶子 include：
+  - `modules/ai/core/10-core-global-and-targeting.opy`
+  - `modules/ai/movement/20-movement.opy`
+  - `modules/ai/control/30-control-tracer-reaper-genji.opy`
+  - `modules/ai/control/31-control-supports.opy`
+  - `modules/ai/control/32-control-tanks.opy`
+  - `modules/ai/control/33-control-projectile-and-special.opy`
+- 删除不再使用的聚合文件：
+  - `src/aram_shared_index.opy`
+  - `src/aram_shared_utilities.opy`
+
 ## Iteration Log
 
 - 2026-03-05: 完成 T2（3/3 utilities 提取），并通过 `build/build:aram/contract-guard` 验证。
 - 2026-03-05: 完成 T3（5/5 reset 工具链参数化），并通过 `build/build:aram/contract-guard` 验证。
+- 2026-03-06: 完成 T10（入口+覆盖层 include 扁平化），并消除 ARAM 重复导入的 AI 分隔符告警来源。
 
 ## Verification Checklist
 
