@@ -7,4 +7,5 @@
 #!postCompileHook "post-compile-hook.js"
 
 #!include "aram_shared_index.opy"
+#!include "aram_shared_utilities.opy"
 #!include "aram_overrides.opy"

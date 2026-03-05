@@ -71,3 +71,23 @@ Conclusion:
 - `skills/ow-contract-guard/scripts/check_contracts.sh`: passed for mainline contracts.
 - `pnpm run build`: passed (warnings only), output `workshop.ow`.
 - `pnpm run build:aram`: passed (warnings only), output `build/aram.ow`.
+
+## Follow-up (2026-03-05): P0 Shared Utilities Extraction
+
+Implemented low-risk extraction for fully identical utility defs:
+- Added `src/aram_shared_utilities.opy` and included:
+  - `utilities/bot_aim2target.opy`
+  - `utilities/enable_all_abilities.opy`
+  - `utilities/reset_frenemies.opy`
+- Updated `src/aramMain.opy` include flow:
+  - `... -> aram_shared_index -> aram_shared_utilities -> aram_overrides`
+- Removed duplicate defs from `src/aram_overrides.opy`:
+  - `botAim2Target`
+  - `enableAllAbilities`
+  - `resetFrenemies`
+
+Validation:
+- `pnpm run build`: passed (warnings only).
+- `pnpm run build:aram`: passed (warnings only).
+- `skills/ow-contract-guard/scripts/check_contracts.sh --build`: passed.
+- `skills/ow-contract-guard/scripts/check_contracts.sh --strict-hero-init`: passed.

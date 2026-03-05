@@ -293,29 +293,6 @@ rule "[utilities/reset]: reset when died":
     resetStatuses()
     resetFrenemies()
 
-def enableAllAbilities():
-    @Name "[utilities/reset.opy]: enableAllAbilities()"
-    
-    eventPlayer.allowButton(Button.PRIMARY_FIRE)
-    eventPlayer.allowButton(Button.SECONDARY_FIRE)
-    eventPlayer.allowButton(Button.ABILITY_1)
-    eventPlayer.allowButton(Button.ABILITY_2)
-    eventPlayer.allowButton(Button.ULTIMATE)
-    eventPlayer.allowButton(Button.MELEE)
-    eventPlayer.allowButton(Button.JUMP)
-    eventPlayer.allowButton(Button.CROUCH)
-    eventPlayer.allowButton(Button.RELOAD)
-    eventPlayer.allowButton(Button.INTERACT)
-    eventPlayer.setPrimaryFireEnabled(true)
-    eventPlayer.setSecondaryFireEnabled(true)
-    eventPlayer.setAbility1Enabled(true)
-    eventPlayer.setAbility2Enabled(true)
-    eventPlayer.setUltEnabled(true)
-    eventPlayer.setMeleeEnabled(true)
-    eventPlayer.setJumpEnabled(true)
-    eventPlayer.setCrouchEnabled(true)
-    eventPlayer.setReloadEnabled(true)
-
 def disableAllAbilities():
     @Name "[utilities/reset.opy]: disableAllAbilities()"
     
@@ -375,23 +352,6 @@ def resetStatuses():
     eventPlayer.clearStatusEffect(Status.ROOTED)
     eventPlayer.clearStatusEffect(Status.STUNNED)
     eventPlayer.clearStatusEffect(Status.UNKILLABLE)
-
-def resetFrenemies():
-    @Name "[utilities/reset.opy]: resetFrenemies()"
-    
-    eventPlayer.reset_pvar[1] = getPlayersOnHero(Hero.BRIGITTE, eventPlayer.getTeam())[0]
-    eventPlayer.reset_pvar[3] = getPlayersOnHero(Hero.KIRIKO, eventPlayer.getTeam())[0]
-    eventPlayer.reset_pvar[4] = getPlayersOnHero(Hero.SOMBRA, eventPlayer.getTeam())[0]
-    eventPlayer.reset_pvar[5] = getPlayersOnHero(Hero.RAMATTRA, getOppositeTeam(eventPlayer.getTeam()))[0]
-    eventPlayer.reset_pvar[6] = getPlayersOnHero(Hero.SOMBRA, getOppositeTeam(eventPlayer.getTeam()))[0]
-    eventPlayer.reset_pvar[7] = getPlayersOnHero(Hero.ANA, getOppositeTeam(eventPlayer.getTeam()))[0]
-    eventPlayer.reset_pvar[9] = getPlayersOnHero(Hero.HANZO, getOppositeTeam(eventPlayer.getTeam()))[0]
-    eventPlayer.reset_pvar[11] = getPlayersOnHero(Hero.FREJA, getOppositeTeam(eventPlayer.getTeam()))[0]
-    eventPlayer.reset_pvar[12] = getPlayersOnHero(Hero.BAPTISTE, eventPlayer.getTeam())[0]
-    eventPlayer.reset_pvar[13] = getPlayersOnHero(Hero.WUYANG, eventPlayer.getTeam())[0]
-    eventPlayer.reset_pvar[14] = getPlayersOnHero(Hero.WUYANG, getOppositeTeam(eventPlayer.getTeam()))[0]
-    eventPlayer.reset_pvar[15] = getPlayersInSlot(0, eventPlayer.getTeam())
-    eventPlayer.reset_pvar[16] = getPlayersInSlot(5, eventPlayer.getTeam())
 
 rule "[reset.opy]: Reinitialize hero on new round":
     @Event eachPlayer
@@ -466,11 +426,6 @@ def removeTankPassive():
     @Name "[passives/tank/knockback.opy]: removeTankPassive()"
     
     eventPlayer.setKnockbackReceived(166.667)
-
-def botAim2Target():
-    @Name "[AI/global]: botAim2Target"
-    
-    eventPlayer.startFacing(directionTowards(eventPlayer + Vector.UP * distance(eventPlayer, eventPlayer.getEyePosition()) + worldVector(vect(0, 0, 0), eventPlayer, Transform.ROTATION), eventPlayer.botTarget.getEyePosition()), 10000)
 
 rule "[AI/global]: Generated at the beginning":
     @Condition any([isWaitingForPlayers(), isInSetup(), isGameInProgress()]) == true
