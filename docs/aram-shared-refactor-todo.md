@@ -28,10 +28,10 @@
 
 | ID | Task | Status | Exit Criteria |
 |---|---|---|---|
-| H1 | heroes 单入口切换 | in_progress | `main/aramMain` 均通过 `heroes/init.<mode>.opy` 装配英雄段 |
-| H2 | 工具链路径迁移 | in_progress | `check_contracts`/`hero_pipeline`/`changelog_sync` 识别 `src/heroes/**` |
-| H3 | 白名单/重复检查迁移 | in_progress | `aram-delta-whitelist.tsv` 与 duplicates 输出路径切到 `src/heroes/**` |
-| H4 | ARAM overlay 按英雄迁移 | todo | `aram_overrides` 差异逐英雄落到 `src/heroes/<hero>/aram.opy` 或同级叶子 |
+| H1 | heroes 单入口切换 | done | `main/aramMain` 均通过 `heroes/init.<mode>.opy` 装配英雄段 |
+| H2 | 工具链路径迁移 | done | `check_contracts`/`hero_pipeline`/`changelog_sync` 识别 `src/heroes/**` |
+| H3 | 白名单/重复检查迁移 | done | `aram-delta-whitelist.tsv` 与 duplicates 输出路径切到 `src/heroes/**` |
+| H4 | ARAM overlay 按英雄迁移 | in_progress | `aram_overrides` 差异逐英雄落到 `src/heroes/<hero>/aram.opy` 或同级叶子 |
 | H5 | `aram_overrides` 薄层化与分段机制退役 | todo | `aram_overrides_segments` 不再参与编译，剩余项均为跨英雄模式差异 |
 
 ## Current Iteration (H1/H2/H3 Cutover)
@@ -67,8 +67,31 @@
   5. `skills/ow-hero-change-pipeline/scripts/hero_pipeline.sh --from-diff --build`
   6. `skills/ow-contract-guard/scripts/check_aram_overrides_duplicates.sh --check --emit-candidates build/reports/aram-delta-whitelist-candidates.tsv`
 
+## Current Iteration (H4 Wave-1: hero_init Detect Pilot)
+
+- 波次范围：6 英雄 Detect exact 清理（`reaper/tracer/mercy/hanzo/freja/torbjorn`）。
+- 变更动作：
+  - 每个试点英雄新增 `src/heroes/<hero>/init-detect.opy`，仅承载 Detect 规则。
+  - `src/heroes/<hero>/init.opy` 改为 include `init-detect.opy`，Initialize 本体不变。
+  - `src/aram_overrides.opy` 原位替换 6 条 Detect exact 为 `#!include "heroes/<hero>/init-detect.opy"`，保持顺序不变。
+  - 白名单删除 6 条 Detect `rule_exact_duplicate`。
+- 工具链兼容：
+  - `check_contracts.sh` 与 `hero_pipeline.sh` 支持 `init.opy + init-detect.opy` 组合判定 detect/initialize 契约。
+  - `check_aram_overrides_duplicates.sh` 增加 6 英雄 `src/heroes/<hero>/aram*.opy` pilot overlay 门禁通道。
+- 指标结果：
+  - `exact: 53 -> 47`
+  - `diff: 148 -> 148`
+  - `unwhitelisted exact/diff: 0/0`
+  - `candidates: 0`
+- 验证报告：
+  - `docs/reports/aram-shared-wave-h4-init-detect-pilot-2026-03-06.md`
+
+## Iteration Log
+
+- 2026-03-06: 完成 H4 Wave-1（6 英雄 Detect 先行）。门禁全绿，行为保持“仅抽取、不改逻辑”。后续进入 H4 下一波，继续收敛 Initialize same-name-diff 与 overlay 归位。
+
 ## Next Steps
 
-1. H4：按英雄把 `aram_overrides` 差异迁入 `src/heroes/<hero>/aram.opy`（迁移即白名单收口）。
-2. H4：把 `src/heroes/init.opy` 从薄层扩展为稳定共享基线（不改变玩法语义）。
+1. H4：继续按英雄把 `aram_overrides` 差异迁入 `src/heroes/<hero>/aram.opy`（迁移即白名单收口）。
+2. H4：在不改玩法前提下，优先处理 remaining hero_init same-name-diff（先 small-batch，再扩面）。
 3. H5：当 `aram_overrides` 仅剩跨英雄模式逻辑后，退役 `aram_overrides_segments`。

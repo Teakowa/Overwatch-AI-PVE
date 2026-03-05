@@ -2078,11 +2078,7 @@ rule "Initialize Heors":
     @Disabled
     @Delimiter
 
-rule "[reaper/init.opy]: Detect switch to Reaper":
-    @Event eachPlayer
-    @Hero reaper
-    
-    eventPlayer.reset_pvar[0] = true
+#!include "heroes/reaper/init-detect.opy"
 
 rule "[reaper/init.opy]: Initialize Reaper":
     @Event eachPlayer
@@ -2101,11 +2097,7 @@ rule "[reaper/init.opy]: Initialize Reaper":
     lbl_0:
     eventPlayer.reset_pvar[0] = false
 
-rule "[tracer/init.opy]: Detect switch to Tracer":
-    @Event eachPlayer
-    @Hero tracer
-    
-    eventPlayer.reset_pvar[0] = true
+#!include "heroes/tracer/init-detect.opy"
 
 rule "[tracer/init.opy]: Initialize Tracer":
     @Event eachPlayer
@@ -2125,11 +2117,7 @@ rule "[tracer/init.opy]: Initialize Tracer":
     lbl_0:
     eventPlayer.reset_pvar[0] = false
 
-rule "[mercy/init.opy]: Detect switch to Mercy":
-    @Event eachPlayer
-    @Hero mercy
-    
-    eventPlayer.reset_pvar[0] = true
+#!include "heroes/mercy/init-detect.opy"
 
 rule "[mercy/init.opy]: Initialize Mercy":
     @Event eachPlayer
@@ -2149,11 +2137,7 @@ rule "[mercy/init.opy]: Initialize Mercy":
     eventPlayer.reset_pvar[6].reset_pvar[9] = eventPlayer
     eventPlayer.reset_pvar[0] = false
 
-rule "[hanzo/init.opy]: Detect switch to Hanzo":
-    @Event eachPlayer
-    @Hero hanzo
-    
-    eventPlayer.reset_pvar[0] = true
+#!include "heroes/hanzo/init-detect.opy"
 
 rule "[hanzo/init.opy]: Initialize Hanzo":
     @Event eachPlayer
@@ -2172,11 +2156,7 @@ rule "[hanzo/init.opy]: Initialize Hanzo":
     lbl_0:
     eventPlayer.reset_pvar[0] = false
 
-rule "[Freja/init.opy]: Detect switch to Freja":
-    @Event eachPlayer
-    @Hero freja
-    
-    eventPlayer.reset_pvar[0] = true
+#!include "heroes/freja/init-detect.opy"
 
 rule "[Freja/init.opy]: Initialize Freja":
     @Event eachPlayer
@@ -2196,11 +2176,7 @@ rule "[Freja/init.opy]: Initialize Freja":
     applyCustomHp()
     eventPlayer.reset_pvar[0] = false
 
-rule "[torbjorn/init.opy]: Detect switch to Torbjorn":
-    @Event eachPlayer
-    @Hero torbjorn
-    
-    eventPlayer.reset_pvar[0] = true
+#!include "heroes/torbjorn/init-detect.opy"
 
 rule "[torbjorn/init.opy]: Initialize Torbjorn":
     @Event eachPlayer

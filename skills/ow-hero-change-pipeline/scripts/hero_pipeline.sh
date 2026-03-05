@@ -467,6 +467,7 @@ mapfile -t heroes < <(printf '%s\n' "${request_heroes[@]}" | sed '/^$/d' | sort 
 audit_hero() {
     local slug="$1"
     local init_file="src/heroes/${slug}/init.opy"
+    local detect_file="src/heroes/${slug}/init-detect.opy"
     local heroes_main="src/heroes/main.opy"
     local hero_dir="src/heroes/${slug}"
     local changelog="src/modules/debug/20-changelog.opy"
@@ -498,20 +499,38 @@ audit_hero() {
         fail "hero init include missing/duplicated in src/heroes/main.opy (count=$init_include_count)"
     fi
 
-    rule_count="$(count_regex_matches '^rule "' "$init_file")"
+    local detect_include_count
+    local rule_count true_count false_count reset_hero_count cond_count
+    local source_file
+    local -a source_files=("$init_file")
+    if [[ -f "$detect_file" ]]; then
+        detect_include_count="$(count_fixed_matches '#!include "init-detect.opy"' "$init_file")"
+        if [[ "$detect_include_count" == "1" ]]; then
+            pass "hero init includes init-detect.opy"
+        else
+            fail "hero init should include init-detect.opy exactly once (count=$detect_include_count)"
+        fi
+        source_files+=("$detect_file")
+    fi
+
+    rule_count=0
+    true_count=0
+    false_count=0
+    reset_hero_count=0
+    cond_count=0
+    for source_file in "${source_files[@]}"; do
+        rule_count=$((rule_count + $(count_regex_matches '^rule "' "$source_file")))
+        true_count=$((true_count + $(count_fixed_matches 'eventPlayer.reset_pvar[0] = true' "$source_file")))
+        false_count=$((false_count + $(count_fixed_matches 'eventPlayer.reset_pvar[0] = false' "$source_file")))
+        reset_hero_count=$((reset_hero_count + $(count_fixed_matches 'resetHero()' "$source_file")))
+        cond_count=$((cond_count + $(count_fixed_matches '@Condition eventPlayer.reset_pvar[0] != false' "$source_file") + $(count_fixed_matches '@Condition eventPlayer.reset_pvar[0] == true' "$source_file")))
+    done
+
     if [[ "$rule_count" -ge 2 ]]; then
         pass "detect/initialize pair likely present (rule count=$rule_count)"
     else
         fail "expected at least 2 rules in hero_init file (got $rule_count)"
     fi
-
-    true_count="$(count_fixed_matches 'eventPlayer.reset_pvar[0] = true' "$init_file")"
-    false_count="$(count_fixed_matches 'eventPlayer.reset_pvar[0] = false' "$init_file")"
-    reset_hero_count="$(count_fixed_matches 'resetHero()' "$init_file")"
-    cond_count="$((
-        $(count_fixed_matches '@Condition eventPlayer.reset_pvar[0] != false' "$init_file") +
-        $(count_fixed_matches '@Condition eventPlayer.reset_pvar[0] == true' "$init_file")
-    ))"
 
     if [[ "$true_count" -ge 1 ]]; then
         pass "init detect trigger exists: reset_pvar[0] = true"

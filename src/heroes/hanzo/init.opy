@@ -1,9 +1,4 @@
-rule "[hanzo/init.opy]: Detect switch to Hanzo":
-    @Event eachPlayer
-    @Hero hanzo
-    
-    eventPlayer.reset_pvar[0] = true
-
+#!include "init-detect.opy"
 
 rule "[hanzo/init.opy]: Initialize Hanzo":
     @Event eachPlayer

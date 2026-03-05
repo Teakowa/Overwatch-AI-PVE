@@ -1,9 +1,4 @@
-rule "[reaper/init.opy]: Detect switch to Reaper":
-    @Event eachPlayer
-    @Hero reaper
-    
-    eventPlayer.reset_pvar[0] = true
-
+#!include "init-detect.opy"
 
 rule "[reaper/init.opy]: Initialize Reaper":
     @Event eachPlayer

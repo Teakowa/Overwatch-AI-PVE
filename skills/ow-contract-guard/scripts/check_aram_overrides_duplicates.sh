@@ -94,6 +94,7 @@ src = root / "src"
 aram_file = src / "aram_overrides.opy"
 segments_dir = src / "aram_overrides_segments"
 manifest_file = segments_dir / "manifest.tsv"
+pilot_overlay_heroes = ("reaper", "tracer", "mercy", "hanzo", "freja", "torbjorn")
 
 rule_re = re.compile(r'^rule\s+"([^"]+)":\s*$')
 include_seg_re = re.compile(
@@ -152,6 +153,17 @@ def parse_manifest(path: Path):
         for row in reader:
             rows.append(row)
     return rows
+
+
+def is_mode_overlay(path: Path) -> bool:
+    try:
+        rel = path.relative_to(src)
+    except ValueError:
+        return False
+    parts = rel.parts
+    if len(parts) != 3:
+        return False
+    return parts[0] == "heroes" and parts[2].startswith("aram") and parts[2].endswith(".opy")
 
 
 def classify_rules(rules, other_by_name):
@@ -257,11 +269,28 @@ for line_no, decision in whitelist_bad_rows:
 
 whitelist_keyset = whitelist_keys(whitelist_rows)
 
+pilot_overlay_paths: list[Path] = []
+pilot_overlay_rules: list[dict] = []
+pilot_overlay_by_file: dict[str, list[dict]] = {}
+for hero in pilot_overlay_heroes:
+    hero_dir = src / "heroes" / hero
+    files = sorted(hero_dir.glob("aram*.opy")) if hero_dir.exists() else []
+    if not files:
+        failures.append(f"pilot overlay missing: src/heroes/{hero}/aram*.opy")
+        continue
+    for path in files:
+        pilot_overlay_paths.append(path)
+        parsed = parse_rules(path)
+        pilot_overlay_rules.extend(parsed)
+        pilot_overlay_by_file[rel_path(path)] = parsed
+
 other_by_name = defaultdict(list)
 for p in src.rglob("*.opy"):
     if p == aram_file:
         continue
     if p.is_relative_to(segments_dir):
+        continue
+    if is_mode_overlay(p):
         continue
     for r in parse_rules(p):
         other_by_name[r["name"]].append((r["norm"], p, r["line"]))
@@ -291,6 +320,40 @@ if unwhitelisted_exact:
 if unwhitelisted_diff:
     failures.append(
         f"Found {len(unwhitelisted_diff)} unwhitelisted same-name-diff rule(s) in src/aram_overrides.opy"
+    )
+
+pilot_overlay_exact, pilot_overlay_diff, pilot_overlay_unique = classify_rules(
+    pilot_overlay_rules, other_by_name
+)
+for r in pilot_overlay_exact:
+    r["source_module"] = pick_source_module(r, other_by_name, exact_only=True)
+for r in pilot_overlay_diff:
+    r["source_module"] = pick_source_module(r, other_by_name, exact_only=False)
+
+unwhitelisted_overlay_exact = [
+    r
+    for r in pilot_overlay_exact
+    if not is_whitelisted(whitelist_keyset, "rule_exact_duplicate", r["name"], r["source_module"])
+]
+unwhitelisted_overlay_diff = [
+    r
+    for r in pilot_overlay_diff
+    if not is_whitelisted(whitelist_keyset, "rule_same_name_diff", r["name"], r["source_module"])
+]
+
+if unwhitelisted_overlay_exact:
+    failures.append(
+        "Found {0} unwhitelisted exact duplicate rule(s) in pilot overlays ({1})".format(
+            len(unwhitelisted_overlay_exact),
+            ", ".join(sorted({rel_path(r["path"]) for r in unwhitelisted_overlay_exact})),
+        )
+    )
+if unwhitelisted_overlay_diff:
+    failures.append(
+        "Found {0} unwhitelisted same-name-diff rule(s) in pilot overlays ({1})".format(
+            len(unwhitelisted_overlay_diff),
+            ", ".join(sorted({rel_path(r["path"]) for r in unwhitelisted_overlay_diff})),
+        )
     )
 
 aram_exact_by_line = {r["line"] for r in aram_exact}
@@ -401,6 +464,28 @@ for rule in unwhitelisted_diff:
             "owner": "TODO",
         }
     )
+for rule in unwhitelisted_overlay_exact:
+    candidate_rows.append(
+        {
+            "kind": "rule_exact_duplicate",
+            "rule_or_macro": rule["name"],
+            "source_module": rule["source_module"] or "*",
+            "reason": "TODO",
+            "decision": "keep_aram_only",
+            "owner": "TODO",
+        }
+    )
+for rule in unwhitelisted_overlay_diff:
+    candidate_rows.append(
+        {
+            "kind": "rule_same_name_diff",
+            "rule_or_macro": rule["name"],
+            "source_module": rule["source_module"] or "*",
+            "reason": "TODO",
+            "decision": "parameterize_shared",
+            "owner": "TODO",
+        }
+    )
 
 if emit_candidates_path:
     emit_candidates_path.parent.mkdir(parents=True, exist_ok=True)
@@ -422,6 +507,8 @@ with report_path.open("w", encoding="utf-8") as f:
     f.write(f"- Exact (same name + same body) against non-aram files: **{len(aram_exact)}**\n")
     f.write(f"- Same-name but different body: **{len(aram_diff)}**\n")
     f.write(f"- Name-unique: **{len(aram_unique)}**\n")
+    f.write(f"- Pilot overlays (`src/heroes/<hero>/aram*.opy`) total rules: **{len(pilot_overlay_rules)}**\n")
+    f.write(f"- Pilot overlay exact/same-name-diff/unique: **{len(pilot_overlay_exact)}/{len(pilot_overlay_diff)}/{len(pilot_overlay_unique)}**\n")
     f.write(f"- Segment files from manifest: **{len(manifest_rows)}**\n")
     f.write(f"- Total rules in segment files: **{segment_rule_total}**\n")
     f.write(f"- Residual contiguous exact runs in aram_overrides: **{len(residual_runs)}**\n")
@@ -430,9 +517,20 @@ with report_path.open("w", encoding="utf-8") as f:
     f.write(f"- Whitelist rows: **{len(whitelist_rows)}**\n")
     f.write(f"- Whitelisted exact duplicates: **{whitelisted_exact}/{len(aram_exact)}**\n")
     f.write(f"- Whitelisted same-name-diff: **{whitelisted_diff}/{len(aram_diff)}**\n")
+    f.write(f"- Unwhitelisted pilot overlay exact/diff: **{len(unwhitelisted_overlay_exact)}/{len(unwhitelisted_overlay_diff)}**\n")
     if emit_candidates_path:
         f.write(f"- Candidate output: `{emit_candidates_path}` ({len(candidate_rows)} rows)\n")
     f.write(f"- Check mode: **{'ON' if check_mode else 'OFF'}**\n\n")
+
+    f.write("## Pilot Overlay Coverage (H4 Wave-1)\n\n")
+    for hero in pilot_overlay_heroes:
+        hero_matches = [p for p in pilot_overlay_by_file.keys() if f"/{hero}/" in p]
+        if not hero_matches:
+            f.write(f"- `{hero}`: missing `aram*.opy`\n")
+            continue
+        for rel in sorted(hero_matches):
+            f.write(f"- `{rel}`: {len(pilot_overlay_by_file[rel])} rules\n")
+    f.write("\n")
 
     f.write("## Manifest Segments\n\n")
     if manifest_rows:
@@ -501,16 +599,22 @@ with report_path.open("w", encoding="utf-8") as f:
 
 print(f"Report written: {report_path}")
 print(
-    "Counts => total: {0}, exact: {1}, diff: {2}, unique: {3}, manifest segments: {4}, residual exact runs >= {5}: {6}, unwhitelisted exact: {7}, unwhitelisted diff: {8}".format(
+    "Counts => total: {0}, exact: {1}, diff: {2}, unique: {3}, pilot overlays: {4} (exact/diff/unique: {5}/{6}/{7}), manifest segments: {8}, residual exact runs >= {9}: {10}, unwhitelisted exact: {11}, unwhitelisted diff: {12}, unwhitelisted pilot overlay exact/diff: {13}/{14}".format(
         len(aram_rules),
         len(aram_exact),
         len(aram_diff),
         len(aram_unique),
+        len(pilot_overlay_rules),
+        len(pilot_overlay_exact),
+        len(pilot_overlay_diff),
+        len(pilot_overlay_unique),
         len(manifest_rows),
         segment_min,
         len(violating_runs),
         len(unwhitelisted_exact),
         len(unwhitelisted_diff),
+        len(unwhitelisted_overlay_exact),
+        len(unwhitelisted_overlay_diff),
     )
 )
 

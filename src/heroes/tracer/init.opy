@@ -1,9 +1,4 @@
-rule "[tracer/init.opy]: Detect switch to Tracer":
-    @Event eachPlayer
-    @Hero tracer
-    
-    eventPlayer.reset_pvar[0] = true
-
+#!include "init-detect.opy"
 
 rule "[tracer/init.opy]: Initialize Tracer":
     @Event eachPlayer

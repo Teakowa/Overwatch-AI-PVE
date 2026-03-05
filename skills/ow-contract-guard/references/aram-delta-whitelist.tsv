@@ -8,7 +8,6 @@ rule_exact_duplicate	[D.Va]: Detect switch to D.Va	src/heroes/dva/init.opy	basel
 rule_exact_duplicate	[Doomfist]: Detect switch to Doomfist	src/heroes/doomfist/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
 rule_exact_duplicate	[Doomfist]: Power Block Damage	src/heroes/doomfist/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
 rule_exact_duplicate	[Echo]: Detect switch to Echo	src/heroes/echo/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Freja/init.opy]: Detect switch to Freja	src/heroes/freja/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
 rule_exact_duplicate	[Genji]: Detect switch to Genji	src/heroes/genji/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
 rule_exact_duplicate	[Hazard/init.opy]: Detect switch to Hazard	src/heroes/hazard/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
 rule_exact_duplicate	[Hazard]: Spike Guard using tracking	src/heroes/hazard/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
@@ -37,16 +36,11 @@ rule_exact_duplicate	[Wuyang]: Ebb and Flow lost control	src/heroes/wuyang/rules
 rule_exact_duplicate	[Wuyang]: Rushing Torrent	src/heroes/wuyang/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
 rule_exact_duplicate	[Wuyang]: xuanwu cd	src/heroes/wuyang/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
 rule_exact_duplicate	[Zarya]: Detect switch to Zarya	src/heroes/zarya/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[hanzo/init.opy]: Detect switch to Hanzo	src/heroes/hanzo/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
 rule_exact_duplicate	[kiriko]: remove swift step hp	src/heroes/kiriko/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[mercy/init.opy]: Detect switch to Mercy	src/heroes/mercy/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
 rule_exact_duplicate	[pharah/init.opy]: Detect switch to Pharah	src/heroes/pharah/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[reaper/init.opy]: Detect switch to Reaper	src/heroes/reaper/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
 rule_exact_duplicate	[reinhardt/init.opy]: Detect switch to Reinhardt	src/heroes/reinhardt/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
 rule_exact_duplicate	[roadhog]: Detect switch to roadhog	src/heroes/roadhog/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
 rule_exact_duplicate	[symmetra/init.opy]: Detect switch to Symmetra	src/heroes/symmetra/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[torbjorn/init.opy]: Detect switch to Torbjorn	src/heroes/torbjorn/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[tracer/init.opy]: Detect switch to Tracer	src/heroes/tracer/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
 rule_exact_duplicate	[utilities/reset]: setup var when player joins lobby	src/modules/bootstrap/20-player-lifecycle-and-reset.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
 rule_exact_duplicate	[venture/init.opy]: Detect switch to venture	src/heroes/venture/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
 rule_exact_duplicate	[widowmaker/init.opy]: Detect switch to Widowmaker	src/heroes/widowmaker/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor

@@ -1,9 +1,4 @@
-rule "[torbjorn/init.opy]: Detect switch to Torbjorn":
-    @Event eachPlayer
-    @Hero torbjorn
-    
-    eventPlayer.reset_pvar[0] = true
-
+#!include "init-detect.opy"
 
 rule "[torbjorn/init.opy]: Initialize Torbjorn":
     @Event eachPlayer

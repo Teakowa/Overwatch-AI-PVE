@@ -324,14 +324,34 @@ done
 # 6) Hero init detect/initialize safety checks
 for hero_file in src/heroes/*/init.opy; do
     hero_name="$(basename "$(dirname "$hero_file")")"
+    hero_dir="$(dirname "$hero_file")"
+    detect_file="${hero_dir}/init-detect.opy"
+    source_files=("$hero_file")
 
-    rule_count="$(rg -n '^rule "' "$hero_file" | wc -l | tr -d ' ')"
-    true_count="$(count_fixed_matches "$hero_file" 'eventPlayer.reset_pvar[0] = true')"
-    false_count="$(count_fixed_matches "$hero_file" 'eventPlayer.reset_pvar[0] = false')"
-    reset_hero_count="$(count_fixed_matches "$hero_file" 'resetHero()')"
+    if [[ -f "$detect_file" ]]; then
+        detect_include_count="$(count_fixed_matches "$hero_file" '#!include "init-detect.opy"')"
+        if [[ "$detect_include_count" == "1" ]]; then
+            pass "${hero_name}.init includes init-detect.opy exactly once"
+        else
+            fail "${hero_name}.init should include init-detect.opy exactly once (count=$detect_include_count)"
+        fi
+        source_files+=("$detect_file")
+    fi
 
-    cond_a="$(count_fixed_matches "$hero_file" '@Condition eventPlayer.reset_pvar[0] != false')"
-    cond_b="$(count_fixed_matches "$hero_file" '@Condition eventPlayer.reset_pvar[0] == true')"
+    rule_count=0
+    true_count=0
+    false_count=0
+    reset_hero_count=0
+    cond_a=0
+    cond_b=0
+    for source_file in "${source_files[@]}"; do
+        rule_count=$((rule_count + $(rg -n '^rule "' "$source_file" | wc -l | tr -d ' ')))
+        true_count=$((true_count + $(count_fixed_matches "$source_file" 'eventPlayer.reset_pvar[0] = true')))
+        false_count=$((false_count + $(count_fixed_matches "$source_file" 'eventPlayer.reset_pvar[0] = false')))
+        reset_hero_count=$((reset_hero_count + $(count_fixed_matches "$source_file" 'resetHero()')))
+        cond_a=$((cond_a + $(count_fixed_matches "$source_file" '@Condition eventPlayer.reset_pvar[0] != false')))
+        cond_b=$((cond_b + $(count_fixed_matches "$source_file" '@Condition eventPlayer.reset_pvar[0] == true')))
+    done
     cond_count=$((cond_a + cond_b))
 
     if [[ "$rule_count" -ge 2 ]]; then
