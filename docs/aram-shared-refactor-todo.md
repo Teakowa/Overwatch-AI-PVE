@@ -85,12 +85,34 @@
 - 本轮门禁与指标见：
   - `docs/reports/aram-shared-wave-2026-03-06-baseline.md`
 
+## Current Iteration (T7 Wave-2 Cassidy Pilot)
+
+- 试点目标：仅迁移 non-hero_init 的 Cassidy exact duplicate（2 条），不触碰 hero_init 契约。
+- 新增共享叶子文件（main/aram 复用）：
+  - `src/modules/hero_rules/shared/cassidy/10-flashbang-stun.opy`
+  - `src/modules/hero_rules/shared/cassidy/30-alt-fire-reload.opy`
+- 主线替换：
+  - `src/modules/hero_rules/heroes/cassidy.opy` 使用上述共享叶子 include
+  - 保留 `[Cassdy] Peacekeeper Alt Fire` 差异逻辑不变
+- ARAM 覆盖层替换：
+  - `src/aram_overrides.opy` 对应两条规则改为 include 共享叶子
+  - 相邻 Venture/Sojourn 规则顺序不变
+- 白名单收口：
+  - `skills/ow-contract-guard/references/aram-delta-whitelist.tsv` 删除 2 条 Cassidy exact 记录
+- 指标变化：
+  - `exact duplicate: 57 -> 55`
+  - `same-name-diff: 148 -> 148`（不变）
+  - `unwhitelisted exact/diff: 0/0`
+- 本轮门禁与指标见：
+  - `docs/reports/aram-shared-wave-cassidy-pilot-2026-03-06.md`
+
 ## Iteration Log
 
 - 2026-03-05: 完成 T2（3/3 utilities 提取），并通过 `build/build:aram/contract-guard` 验证。
 - 2026-03-05: 完成 T3（5/5 reset 工具链参数化），并通过 `build/build:aram/contract-guard` 验证。
 - 2026-03-06: 完成 T10（入口+覆盖层 include 扁平化），并消除 ARAM 重复导入的 AI 分隔符告警来源。
 - 2026-03-06: 完成 T11（Main-only 模式宏承载迁移）；启动 T12（ARAM 差异白名单基线与门禁接入）。
+- 2026-03-06: T7 Wave-2 Cassidy 试点完成（non-hero_init exact -2），门禁全绿。
 
 ## Verification Checklist
 

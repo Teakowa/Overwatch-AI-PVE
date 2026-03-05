@@ -1,9 +1,4 @@
-rule "[Cassdy] Flashbang stun":
-    @Event playerDealtDamage
-    @Hero cassidy
-    @Condition eventAbility == Button.ABILITY_2
-    
-    victim.setStatusEffect(attacker, Status.STUNNED, 0.8)
+#!include "../shared/cassidy/10-flashbang-stun.opy"
 rule "[Cassdy] Peacekeeper Alt Fire":
     @Event eachPlayer
     @Hero cassidy
@@ -12,13 +7,7 @@ rule "[Cassdy] Peacekeeper Alt Fire":
     eventPlayer.setDamageDealt(135)
     waitUntil(not eventPlayer.isFiringSecondaryFire(), 0.75)
     eventPlayer.setDamageDealt(100)
-rule "[Cassdy] Peacekeeper Alt Fire Reload":
-    @Event eachPlayer
-    @Hero cassidy
-    @Condition eventPlayer.getAmmo() == 0
-    
-    wait(0.75, Wait.ABORT_WHEN_FALSE)
-    eventPlayer.setAmmo(0, eventPlayer.getMaxAmmo())
+#!include "../shared/cassidy/30-alt-fire-reload.opy"
 rule "[Cassdy] ammo restored by kills":
     @Event playerDealtFinalBlow
     @Team 1

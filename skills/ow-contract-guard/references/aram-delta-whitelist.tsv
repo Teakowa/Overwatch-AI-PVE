@@ -3,8 +3,6 @@ rule_exact_duplicate	[Ana]: Detect switch to Ana	src/modules/hero_init/heroes/an
 rule_exact_duplicate	[Ashe]: Detect switch to Ashe	src/modules/hero_init/heroes/ashe.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
 rule_exact_duplicate	[Baptiste]: Detect switch to Baptiste	src/modules/hero_init/heroes/baptiste.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
 rule_exact_duplicate	[Brigitte]: Detect switch to Brigitte	src/modules/hero_init/heroes/brigitte.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Cassdy] Flashbang stun	src/modules/hero_rules/heroes/cassidy.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Cassdy] Peacekeeper Alt Fire Reload	src/modules/hero_rules/heroes/cassidy.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
 rule_exact_duplicate	[Cassidy]: Detect switch to Cassidy	src/modules/hero_init/heroes/cassidy.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
 rule_exact_duplicate	[D.Va]: Detect switch to D.Va	src/modules/hero_init/heroes/dva.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
 rule_exact_duplicate	[Doomfist]: Detect switch to Doomfist	src/modules/hero_init/heroes/doomfist.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
