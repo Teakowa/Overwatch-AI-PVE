@@ -1,14 +1,15 @@
 # Useful constants and macros
 #!include "constants/player_constants.opy"
 
+# Only remove the following directive if the gamemode does not use tricks such as A+0, A*0, "am" == "**", etc which would otherwise be optimized out.
+#!optimizeStrict
+
 # Prelude: settings and protocol declarations
 #!include "modules/prelude/00-settings.opy"
 #!include "modules/prelude/01-global-vars.opy"
 #!include "modules/prelude/02-player-vars.opy"
 #!include "modules/prelude/03-subroutine-names.opy"
 
-# Only remove the following directive if the gamemode does not use tricks such as A+0, A*0, "am" == "**", etc which would otherwise be optimized out.
-#!optimizeStrict
 #!postCompileHook "post-compile-hook.js"
 
 # Bootstrap: init, anti-crash, blacklist, lifecycle
