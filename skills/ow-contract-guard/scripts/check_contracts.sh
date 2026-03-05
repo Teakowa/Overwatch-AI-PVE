@@ -208,7 +208,7 @@ fi
 
 # 2) Delimiter include boundaries
 ai_index_file="src/modules/ai/_index.opy"
-hero_init_index_file="src/modules/hero_init/_index.opy"
+heroes_main_file="src/heroes/main.opy"
 
 ai_first="$(sed -n '1p' "$ai_index_file")"
 ai_last="$(tail -n 1 "$ai_index_file")"
@@ -218,12 +218,21 @@ else
     fail "AI delimiter include boundaries are broken in ai/_index.opy"
 fi
 
-hero_init_first="$(sed -n '1p' "$hero_init_index_file")"
-hero_init_last="$(tail -n 1 "$hero_init_index_file")"
-if [[ "$hero_init_first" == '#!include "00-delimiter-begin.opy"' && "$hero_init_last" == '#!include "99-delimiter-end.opy"' ]]; then
-    pass "Hero init delimiter includes are at the beginning/end of hero_init/_index.opy"
+hero_init_begin='#!include "../modules/hero_init/00-delimiter-begin.opy"'
+hero_init_end='#!include "../modules/hero_init/99-delimiter-end.opy"'
+hero_init_begin_count="$(count_fixed_matches "$heroes_main_file" "$hero_init_begin")"
+hero_init_end_count="$(count_fixed_matches "$heroes_main_file" "$hero_init_end")"
+hero_init_begin_line="$(line_of_fixed_match "$heroes_main_file" "$hero_init_begin")"
+hero_init_end_line="$(line_of_fixed_match "$heroes_main_file" "$hero_init_end")"
+
+if [[ "$hero_init_begin_count" == "1" && "$hero_init_end_count" == "1" ]]; then
+    if [[ "$hero_init_begin_line" -lt "$hero_init_end_line" ]]; then
+        pass "Hero init delimiter includes are ordered in src/heroes/main.opy"
+    else
+        fail "Hero init delimiter include boundaries are broken in src/heroes/main.opy"
+    fi
 else
-    fail "Hero init delimiter include boundaries are broken in hero_init/_index.opy"
+    fail "Hero init delimiter include boundaries are broken in src/heroes/main.opy"
 fi
 
 # 3) Required delimiter rule names must exist exactly once
@@ -235,7 +244,7 @@ required_delimiters=(
 )
 
 for name in "${required_delimiters[@]}"; do
-    matches="$(rg -n "^rule \"${name}\":$" src/modules || true)"
+    matches="$(rg -n "^rule \"${name}\":$" src || true)"
     count="$(printf '%s\n' "$matches" | sed '/^$/d' | wc -l | tr -d ' ')"
     if [[ "$count" == "1" ]]; then
         pass "delimiter rule exists exactly once: $name"
@@ -313,8 +322,8 @@ for slot in "${stable_slots[@]}"; do
 done
 
 # 6) Hero init detect/initialize safety checks
-for hero_file in src/modules/hero_init/heroes/*.opy; do
-    hero_name="$(basename "$hero_file")"
+for hero_file in src/heroes/*/init.opy; do
+    hero_name="$(basename "$(dirname "$hero_file")")"
 
     rule_count="$(rg -n '^rule "' "$hero_file" | wc -l | tr -d ' ')"
     true_count="$(count_fixed_matches "$hero_file" 'eventPlayer.reset_pvar[0] = true')"
@@ -326,36 +335,36 @@ for hero_file in src/modules/hero_init/heroes/*.opy; do
     cond_count=$((cond_a + cond_b))
 
     if [[ "$rule_count" -ge 2 ]]; then
-        pass "$hero_name has at least two rules"
+        pass "${hero_name}.init has at least two rules"
     else
-        fail "$hero_name should include Detect + Initialize rules (rule count=$rule_count)"
+        fail "${hero_name}.init should include Detect + Initialize rules (rule count=$rule_count)"
     fi
 
     if [[ "$true_count" -ge 1 ]]; then
-        pass "$hero_name sets reset_pvar[0] = true"
+        pass "${hero_name}.init sets reset_pvar[0] = true"
     else
-        fail "$hero_name missing reset_pvar[0] = true trigger"
+        fail "${hero_name}.init missing reset_pvar[0] = true trigger"
     fi
 
     if [[ "$false_count" -ge 1 ]]; then
-        pass "$hero_name resets reset_pvar[0] = false"
+        pass "${hero_name}.init resets reset_pvar[0] = false"
     else
-        fail "$hero_name missing reset_pvar[0] = false reset"
+        fail "${hero_name}.init missing reset_pvar[0] = false reset"
     fi
 
     if [[ "$reset_hero_count" -ge 1 ]]; then
-        pass "$hero_name calls resetHero() in initialization"
+        pass "${hero_name}.init calls resetHero() in initialization"
     else
-        fail "$hero_name missing resetHero() call"
+        fail "${hero_name}.init missing resetHero() call"
     fi
 
     if [[ "$cond_count" -ge 1 ]]; then
-        pass "$hero_name gates initialize rule with reset_pvar[0] condition"
+        pass "${hero_name}.init gates initialize rule with reset_pvar[0] condition"
     else
         if [[ "$strict_hero_init" == true ]]; then
-            fail "$hero_name missing initialize gating condition on reset_pvar[0]"
+            fail "${hero_name}.init missing initialize gating condition on reset_pvar[0]"
         else
-            warn "$hero_name missing initialize gating condition on reset_pvar[0]"
+            warn "${hero_name}.init missing initialize gating condition on reset_pvar[0]"
         fi
     fi
 

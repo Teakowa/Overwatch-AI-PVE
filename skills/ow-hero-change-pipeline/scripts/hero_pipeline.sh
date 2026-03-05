@@ -423,35 +423,28 @@ generate_review_report_template() {
 }
 
 list_all_heroes() {
-    rg --files src/modules/hero_init/heroes \
-        | sed -E 's#^.*/##' \
-        | sed -E 's#\.opy$##' \
+    rg --files src/heroes \
+        | sed -n -E 's#^src/heroes/([^/]+)/init\.opy$#\1#p' \
         | sort
 }
 
 if [[ "$list_heroes" == true ]]; then
-    echo "Available heroes (from hero_init/heroes):"
+    echo "Available heroes (from src/heroes/*/init.opy):"
     list_all_heroes
     exit 0
 fi
 
 collect_heroes_from_diff() {
     local range="$1"
-    {
-        git diff --name-only "$range" -- src/modules/hero_init/heroes/*.opy 2>/dev/null \
-            | sed -E 's#^.*/##' \
-            | sed -E 's#\.opy$##'
-
-        git diff --name-only "$range" -- src/modules/hero_rules/heroes/*.opy 2>/dev/null \
-            | sed -E 's#^.*/##' \
-            | sed -E 's#\.opy$##' \
-            | while IFS= read -r slug; do
-                [[ -z "$slug" ]] && continue
-                if [[ -f "src/modules/hero_init/heroes/${slug}.opy" ]]; then
-                    printf '%s\n' "$slug"
-                fi
-              done
-    } | sed '/^$/d' | sort -u
+    git diff --name-only "$range" -- src/heroes 2>/dev/null \
+        | sed -n -E 's#^src/heroes/([^/]+)/.+\.opy$#\1#p' \
+        | while IFS= read -r slug; do
+            [[ -z "$slug" ]] && continue
+            if [[ -f "src/heroes/${slug}/init.opy" ]]; then
+                printf '%s\n' "$slug"
+            fi
+          done \
+        | sed '/^$/d' | sort -u
 }
 
 if [[ "$use_from_diff" == true ]]; then
@@ -473,9 +466,9 @@ mapfile -t heroes < <(printf '%s\n' "${request_heroes[@]}" | sed '/^$/d' | sort 
 
 audit_hero() {
     local slug="$1"
-    local init_file="src/modules/hero_init/heroes/${slug}.opy"
-    local init_index="src/modules/hero_init/_index.opy"
-    local rules_dir="src/modules/hero_rules/heroes"
+    local init_file="src/heroes/${slug}/init.opy"
+    local heroes_main="src/heroes/main.opy"
+    local hero_dir="src/heroes/${slug}"
     local changelog="src/modules/debug/20-changelog.opy"
     current_hero="$slug"
 
@@ -489,12 +482,20 @@ audit_hero() {
         return
     fi
 
-    include_line="#!include \"heroes/${slug}.opy\""
-    include_count="$(count_fixed_matches "$include_line" "$init_index")"
-    if [[ "$include_count" == "1" ]]; then
-        pass "hero_init include exists in _index.opy"
+    rules_include_line="#!include \"${slug}/rules.opy\""
+    rules_include_count="$(count_fixed_matches "$rules_include_line" "$heroes_main")"
+    if [[ "$rules_include_count" == "1" ]]; then
+        pass "hero rules include exists in src/heroes/main.opy"
     else
-        fail "hero_init include missing/duplicated in _index.opy (count=$include_count)"
+        fail "hero rules include missing/duplicated in src/heroes/main.opy (count=$rules_include_count)"
+    fi
+
+    init_include_line="#!include \"${slug}/init.opy\""
+    init_include_count="$(count_fixed_matches "$init_include_line" "$heroes_main")"
+    if [[ "$init_include_count" == "1" ]]; then
+        pass "hero init include exists in src/heroes/main.opy"
+    else
+        fail "hero init include missing/duplicated in src/heroes/main.opy (count=$init_include_count)"
     fi
 
     rule_count="$(count_regex_matches '^rule "' "$init_file")"
@@ -625,8 +626,8 @@ audit_hero() {
         fi
     done
 
-    rules_tag_hits="$(rg -n "@Hero[[:space:]]+${hero_tag}(\s|$)" "$rules_dir" || true)"
-    rules_const_hits="$(rg -n "Hero\.${hero_const}(\b|[^A-Z_0-9])" "$rules_dir" || true)"
+    rules_tag_hits="$(rg -n "@Hero[[:space:]]+${hero_tag}(\s|$)" "$hero_dir" -g '*.opy' -g '!init.opy' -g '!main.opy' -g '!aram.opy' || true)"
+    rules_const_hits="$(rg -n "Hero\.${hero_const}(\b|[^A-Z_0-9])" "$hero_dir" -g '*.opy' -g '!init.opy' -g '!main.opy' -g '!aram.opy' || true)"
     rules_hit_count="$((
         $(printf '%s\n' "$rules_tag_hits" | sed '/^$/d' | wc -l | tr -d ' ') +
         $(printf '%s\n' "$rules_const_hits" | sed '/^$/d' | wc -l | tr -d ' ')

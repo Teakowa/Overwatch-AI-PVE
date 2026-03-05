@@ -1,0 +1,7 @@
+#!include "../modules/hero_init/99-delimiter-end.opy"
+#!include "echo/duplicate.opy"
+#!include "echo/rules.opy"
+#!include "hanzo/rules.opy"
+#!include "lucio/rules.opy"
+#!include "mercy/rules.opy"
+#!include "vendetta/rules.opy"

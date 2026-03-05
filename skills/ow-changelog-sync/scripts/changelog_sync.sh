@@ -109,15 +109,14 @@ while [[ $# -gt 0 ]]; do
 done
 
 list_all_heroes() {
-    rg --files src/modules/hero_init/heroes \
-        | sed -E 's#^.*/##' \
-        | sed -E 's#\.opy$##' \
+    rg --files src/heroes \
+        | sed -n -E 's#^src/heroes/([^/]+)/init\.opy$#\1#p' \
         | sort
 }
 
 is_known_hero() {
     local slug="$1"
-    [[ -f "src/modules/hero_init/heroes/${slug}.opy" ]]
+    [[ -f "src/heroes/${slug}/init.opy" ]]
 }
 
 normalize_tag_to_slug() {
@@ -208,14 +207,14 @@ add_target_hero() {
 }
 
 if [[ "$list_heroes" == true ]]; then
-    echo "Available heroes (from hero_init/heroes):"
+    echo "Available heroes (from src/heroes/*/init.opy):"
     list_all_heroes
     exit 0
 fi
 
 collect_changed_files() {
     local range="$1"
-    git diff --name-only "$range" -- src/modules/hero_rules src/modules/hero_init src/modules/prelude/00-settings.opy "$changelog_file" 2>/dev/null || true
+    git diff --name-only "$range" -- src/heroes src/modules/prelude/00-settings.opy "$changelog_file" 2>/dev/null || true
 }
 
 collect_heroes_from_diff() {
@@ -225,10 +224,7 @@ collect_heroes_from_diff() {
     while IFS= read -r file; do
         [[ -z "$file" ]] && continue
 
-        if [[ "$file" =~ src/modules/hero_init/heroes/(.+)\.opy$ ]]; then
-            add_target_hero "${BASH_REMATCH[1]}"
-        fi
-        if [[ "$file" =~ src/modules/hero_rules/heroes/(.+)\.opy$ ]]; then
+        if [[ "$file" =~ ^src/heroes/([^/]+)/.+\.opy$ ]]; then
             add_target_hero "${BASH_REMATCH[1]}"
         fi
         if [[ "$file" == "src/modules/prelude/00-settings.opy" ]]; then
@@ -413,7 +409,7 @@ collect_diff_clues_for_hero() {
         fi
 
         local file_match=false
-        if [[ "$file" == "src/modules/hero_init/heroes/${slug}.opy" || "$file" == "src/modules/hero_rules/heroes/${slug}.opy" ]]; then
+        if [[ "$file" =~ ^src/heroes/${slug}/.+\.opy$ ]]; then
             file_match=true
         fi
 

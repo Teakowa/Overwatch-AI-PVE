@@ -1,4 +1,4 @@
-#!include "../shared/freja/10-revdraw-crossbow-stack-primary-fire.opy"
+#!include "shared/10-revdraw-crossbow-stack-primary-fire.opy"
 rule "[Freja]: Revdraw Crossbow Stack":
     @Event playerDealtKnockback
     @Hero freja
@@ -90,4 +90,4 @@ rule "[Freja]: Dmg. reduction":
     stopHealingOverTime(eventPlayer.freja_buff[5])
     eventPlayer.freja_buff[5] = null
     lbl_1:
-#!include "../shared/freja/90-set-projectile-speed.opy"
+#!include "shared/90-set-projectile-speed.opy"

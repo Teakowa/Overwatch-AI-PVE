@@ -1,202 +1,202 @@
 kind	rule_or_macro	source_module	reason	decision	owner
-rule_exact_duplicate	[Ana]: Detect switch to Ana	src/modules/hero_init/heroes/ana.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Ashe]: Detect switch to Ashe	src/modules/hero_init/heroes/ashe.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Baptiste]: Detect switch to Baptiste	src/modules/hero_init/heroes/baptiste.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Brigitte]: Detect switch to Brigitte	src/modules/hero_init/heroes/brigitte.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Cassidy]: Detect switch to Cassidy	src/modules/hero_init/heroes/cassidy.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[D.Va]: Detect switch to D.Va	src/modules/hero_init/heroes/dva.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Doomfist]: Detect switch to Doomfist	src/modules/hero_init/heroes/doomfist.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Doomfist]: Power Block Damage	src/modules/hero_rules/heroes/doomfist.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Echo]: Detect switch to Echo	src/modules/hero_init/heroes/echo.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Freja/init.opy]: Detect switch to Freja	src/modules/hero_init/heroes/freja.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Genji]: Detect switch to Genji	src/modules/hero_init/heroes/genji.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Hazard/init.opy]: Detect switch to Hazard	src/modules/hero_init/heroes/hazard.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Hazard]: Spike Guard using tracking	src/modules/hero_rules/heroes/hazard.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Illari]: Detect switch to Illari	src/modules/hero_init/heroes/illari.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Junker Queen]: Detect switch to Junker Queen	src/modules/hero_init/heroes/junker_queen.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Junkrat]: Detect switch to Junkrat	src/modules/hero_init/heroes/junkrat.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Juno] Track Orbital Ray Position	src/modules/hero_rules/heroes/juno.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Juno]: Detect switch to Juno	src/modules/hero_init/heroes/juno.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Kiriko]: Detect switch to Kiriko	src/modules/hero_init/heroes/kiriko.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Lifeweaver]: Detect switch to Lifeweaver	src/modules/hero_init/heroes/lifeweaver.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Lucio]: Detect switch to Lucio	src/modules/hero_init/heroes/lucio.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Mauga]: Berserker Soul reset	src/modules/hero_rules/heroes/mauga.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Mauga]: Detect switch to Mauga	src/modules/hero_init/heroes/mauga.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Mei]: Detect switch to Mei	src/modules/hero_init/heroes/mei.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Moira]: Detect switch to Moira	src/modules/hero_init/heroes/moira.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Orisa]: Detect switch to Orisa	src/modules/hero_init/heroes/orisa.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Orisa]Fortify ricochet damage	src/modules/hero_rules/heroes/orisa.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Ramattra]: Detect switch to Ramattra	src/modules/hero_init/heroes/ramattra.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Sigma]: Detect switch to Sigma	src/modules/hero_init/heroes/sigma.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Sigma]: ult damage	src/modules/hero_rules/heroes/sigma.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Sojourn]: Detect switch to Sojourn	src/modules/hero_init/heroes/sojourn.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Soldier: 76]: Detect switch to Soldier 76	src/modules/hero_init/heroes/soldier76.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Sombra]: Detect switch to Sombra	src/modules/hero_init/heroes/sombra.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Wrecking Ball]: Detect switch to Wrecking Ball	src/modules/hero_init/heroes/wrecking_ball.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Wuyang]: Ebb and Flow lost control	src/modules/hero_rules/heroes/wuyang.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Wuyang]: Rushing Torrent	src/modules/hero_rules/heroes/wuyang.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Wuyang]: xuanwu cd	src/modules/hero_rules/heroes/wuyang.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Zarya]: Detect switch to Zarya	src/modules/hero_init/heroes/zarya.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[hanzo/init.opy]: Detect switch to Hanzo	src/modules/hero_init/heroes/hanzo.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[kiriko]: remove swift step hp	src/modules/hero_rules/heroes/kiriko.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[mercy/init.opy]: Detect switch to Mercy	src/modules/hero_init/heroes/mercy.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[pharah/init.opy]: Detect switch to Pharah	src/modules/hero_init/heroes/pharah.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[reaper/init.opy]: Detect switch to Reaper	src/modules/hero_init/heroes/reaper.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[reinhardt/init.opy]: Detect switch to Reinhardt	src/modules/hero_init/heroes/reinhardt.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[roadhog]: Detect switch to roadhog	src/modules/hero_init/heroes/roadhog.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[symmetra/init.opy]: Detect switch to Symmetra	src/modules/hero_init/heroes/symmetra.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[torbjorn/init.opy]: Detect switch to Torbjorn	src/modules/hero_init/heroes/torbjorn.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[tracer/init.opy]: Detect switch to Tracer	src/modules/hero_init/heroes/tracer.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
+rule_exact_duplicate	[Ana]: Detect switch to Ana	src/heroes/ana/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
+rule_exact_duplicate	[Ashe]: Detect switch to Ashe	src/heroes/ashe/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
+rule_exact_duplicate	[Baptiste]: Detect switch to Baptiste	src/heroes/baptiste/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
+rule_exact_duplicate	[Brigitte]: Detect switch to Brigitte	src/heroes/brigitte/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
+rule_exact_duplicate	[Cassidy]: Detect switch to Cassidy	src/heroes/cassidy/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
+rule_exact_duplicate	[D.Va]: Detect switch to D.Va	src/heroes/dva/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
+rule_exact_duplicate	[Doomfist]: Detect switch to Doomfist	src/heroes/doomfist/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
+rule_exact_duplicate	[Doomfist]: Power Block Damage	src/heroes/doomfist/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
+rule_exact_duplicate	[Echo]: Detect switch to Echo	src/heroes/echo/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
+rule_exact_duplicate	[Freja/init.opy]: Detect switch to Freja	src/heroes/freja/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
+rule_exact_duplicate	[Genji]: Detect switch to Genji	src/heroes/genji/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
+rule_exact_duplicate	[Hazard/init.opy]: Detect switch to Hazard	src/heroes/hazard/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
+rule_exact_duplicate	[Hazard]: Spike Guard using tracking	src/heroes/hazard/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
+rule_exact_duplicate	[Illari]: Detect switch to Illari	src/heroes/illari/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
+rule_exact_duplicate	[Junker Queen]: Detect switch to Junker Queen	src/heroes/junker_queen/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
+rule_exact_duplicate	[Junkrat]: Detect switch to Junkrat	src/heroes/junkrat/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
+rule_exact_duplicate	[Juno] Track Orbital Ray Position	src/heroes/juno/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
+rule_exact_duplicate	[Juno]: Detect switch to Juno	src/heroes/juno/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
+rule_exact_duplicate	[Kiriko]: Detect switch to Kiriko	src/heroes/kiriko/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
+rule_exact_duplicate	[Lifeweaver]: Detect switch to Lifeweaver	src/heroes/lifeweaver/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
+rule_exact_duplicate	[Lucio]: Detect switch to Lucio	src/heroes/lucio/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
+rule_exact_duplicate	[Mauga]: Berserker Soul reset	src/heroes/mauga/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
+rule_exact_duplicate	[Mauga]: Detect switch to Mauga	src/heroes/mauga/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
+rule_exact_duplicate	[Mei]: Detect switch to Mei	src/heroes/mei/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
+rule_exact_duplicate	[Moira]: Detect switch to Moira	src/heroes/moira/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
+rule_exact_duplicate	[Orisa]: Detect switch to Orisa	src/heroes/orisa/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
+rule_exact_duplicate	[Orisa]Fortify ricochet damage	src/heroes/orisa/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
+rule_exact_duplicate	[Ramattra]: Detect switch to Ramattra	src/heroes/ramattra/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
+rule_exact_duplicate	[Sigma]: Detect switch to Sigma	src/heroes/sigma/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
+rule_exact_duplicate	[Sigma]: ult damage	src/heroes/sigma/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
+rule_exact_duplicate	[Sojourn]: Detect switch to Sojourn	src/heroes/sojourn/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
+rule_exact_duplicate	[Soldier: 76]: Detect switch to Soldier 76	src/heroes/soldier76/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
+rule_exact_duplicate	[Sombra]: Detect switch to Sombra	src/heroes/sombra/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
+rule_exact_duplicate	[Wrecking Ball]: Detect switch to Wrecking Ball	src/heroes/wrecking_ball/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
+rule_exact_duplicate	[Wuyang]: Ebb and Flow lost control	src/heroes/wuyang/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
+rule_exact_duplicate	[Wuyang]: Rushing Torrent	src/heroes/wuyang/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
+rule_exact_duplicate	[Wuyang]: xuanwu cd	src/heroes/wuyang/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
+rule_exact_duplicate	[Zarya]: Detect switch to Zarya	src/heroes/zarya/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
+rule_exact_duplicate	[hanzo/init.opy]: Detect switch to Hanzo	src/heroes/hanzo/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
+rule_exact_duplicate	[kiriko]: remove swift step hp	src/heroes/kiriko/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
+rule_exact_duplicate	[mercy/init.opy]: Detect switch to Mercy	src/heroes/mercy/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
+rule_exact_duplicate	[pharah/init.opy]: Detect switch to Pharah	src/heroes/pharah/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
+rule_exact_duplicate	[reaper/init.opy]: Detect switch to Reaper	src/heroes/reaper/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
+rule_exact_duplicate	[reinhardt/init.opy]: Detect switch to Reinhardt	src/heroes/reinhardt/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
+rule_exact_duplicate	[roadhog]: Detect switch to roadhog	src/heroes/roadhog/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
+rule_exact_duplicate	[symmetra/init.opy]: Detect switch to Symmetra	src/heroes/symmetra/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
+rule_exact_duplicate	[torbjorn/init.opy]: Detect switch to Torbjorn	src/heroes/torbjorn/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
+rule_exact_duplicate	[tracer/init.opy]: Detect switch to Tracer	src/heroes/tracer/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
 rule_exact_duplicate	[utilities/reset]: setup var when player joins lobby	src/modules/bootstrap/20-player-lifecycle-and-reset.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[venture/init.opy]: Detect switch to venture	src/modules/hero_init/heroes/venture.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[widowmaker/init.opy]: Detect switch to Widowmaker	src/modules/hero_init/heroes/widowmaker.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[winston/init.opy]: Detect switch to Winston	src/modules/hero_init/heroes/winston.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[zenyatta]: Detect switch to zenyatta	src/modules/hero_init/heroes/zenyatta.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
+rule_exact_duplicate	[venture/init.opy]: Detect switch to venture	src/heroes/venture/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
+rule_exact_duplicate	[widowmaker/init.opy]: Detect switch to Widowmaker	src/heroes/widowmaker/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
+rule_exact_duplicate	[winston/init.opy]: Detect switch to Winston	src/heroes/winston/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
+rule_exact_duplicate	[zenyatta]: Detect switch to zenyatta	src/heroes/zenyatta/init.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
 rule_same_name_diff	Changelog	src/modules/debug/20-changelog.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
 rule_same_name_diff	Copyright (c) 2019-2025 他又（aka Teakowa）	src/modules/bootstrap/00-init-and-settings.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	Has Nano	src/modules/hero_rules/heroes/ana.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	Has Nano	src/heroes/ana/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
 rule_same_name_diff	Initialize Hero Ability Settings	src/modules/bootstrap/00-init-and-settings.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
 rule_same_name_diff	Initialize global variables	src/modules/bootstrap/00-init-and-settings.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Ana] Initialize	src/modules/hero_init/heroes/ana.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Ana] Nano Boost Healing	src/modules/hero_rules/heroes/ana.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Ana]: Headhunter	src/modules/hero_rules/heroes/ana.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Ana]: Sleep tanks for longer duration	src/modules/hero_rules/heroes/ana.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Ana]: Sleep tanks for longer duration	src/modules/hero_rules/heroes/ana.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Ana] Initialize	src/heroes/ana/init.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Ana] Nano Boost Healing	src/heroes/ana/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Ana]: Headhunter	src/heroes/ana/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Ana]: Sleep tanks for longer duration	src/heroes/ana/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Ana]: Sleep tanks for longer duration	src/heroes/ana/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
 rule_same_name_diff	[Anti Crash]: Activate anti crash	src/modules/bootstrap/09-anti-crash.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Ashe] Initialize	src/modules/hero_init/heroes/ashe.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Ashe]: headshot damage	src/modules/hero_rules/heroes/ashe.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Baptiste] Initialize	src/modules/hero_init/heroes/baptiste.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Baptiste]: Immortality Field	src/modules/hero_rules/heroes/baptiste.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Baptiste]: headshot damage	src/modules/hero_rules/heroes/baptiste.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Brigitte] Initialize	src/modules/hero_init/heroes/brigitte.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Brigitte]: remove Rally provides permanent armor	src/modules/hero_rules/heroes/brigitte.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Brigitte]Rally provides permanent armor to allies	src/modules/hero_rules/heroes/brigitte.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Brigitte]Rally provides permanent armor to self	src/modules/hero_rules/heroes/brigitte.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Cassdy] Peacekeeper Alt Fire	src/modules/hero_rules/heroes/cassidy.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Cassidy.opy]: Revert sniper damage falloff	src/modules/hero_init/extras/cassidy-falloff.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Cassidy]: Initialize Cassidy	src/modules/hero_init/heroes/cassidy.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[D.Va] Initialize	src/modules/hero_init/heroes/dva.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Doomfist] Initialize	src/modules/hero_init/heroes/doomfist.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Doomfist] Seismic Slam upper	src/modules/hero_rules/heroes/doomfist.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Doomfist] Seismic Slam upper	src/modules/hero_rules/heroes/doomfist.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Doomfist] Seismic Slam upper	src/modules/hero_rules/heroes/doomfist.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Doomfist] Seismic Slam upper	src/modules/hero_rules/heroes/doomfist.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Doomfist]: Meteor Strike	src/modules/hero_rules/heroes/doomfist.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Doomfist]: Power Block	src/modules/hero_rules/heroes/doomfist.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Doomfist]: block HUD	src/modules/hero_rules/heroes/doomfist.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Echo] Initialize	src/modules/hero_init/heroes/echo.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Freja/init.opy]: Initialize Freja	src/modules/hero_init/heroes/freja.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Freja]: Dmg. reduction	src/modules/hero_rules/heroes/freja.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Freja]: Ex	src/modules/hero_rules/heroes/freja.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Freja]: HUD & Reset	src/modules/hero_rules/heroes/freja.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Freja]: Revdraw Crossbow Stack	src/modules/hero_rules/heroes/freja.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Freja]: Take Aim Damage	src/modules/hero_rules/heroes/freja.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Genji] Dragonblade Healing	src/modules/hero_rules/heroes/genji.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Hazard/init.opy]: Initialize Hazard	src/modules/hero_init/heroes/hazard.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Hazard]: Spike Guard cd	src/modules/hero_rules/heroes/hazard.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Hazard]: Spike Guard get Ultimate and heal	src/modules/hero_rules/heroes/hazard.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Illari] Captive Sun	src/modules/hero_rules/heroes/illari.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Illari] Initialize	src/modules/hero_init/heroes/illari.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Illari]: Captive Sun HUD	src/modules/hero_rules/heroes/illari.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Junker Queen] Initialize	src/modules/hero_init/heroes/junker_queen.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Junkrat] Initialize	src/modules/hero_init/heroes/junkrat.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Junkrat]: arsonist	src/modules/hero_rules/heroes/junkrat.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Juno] Initialize	src/modules/hero_init/heroes/juno.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Juno]: Orbial Ray Damage	src/modules/hero_rules/heroes/juno.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Juno]: Pulsar Torpedoes Healing	src/modules/hero_rules/heroes/juno.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Kiriko] Initialize	src/modules/hero_init/heroes/kiriko.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Kiriko]: Protection Suzu Clear Effect	src/modules/hero_rules/heroes/kiriko.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Kiriko]: Swift Step	src/modules/hero_rules/heroes/kiriko.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Kiriko]: headshot damage	src/modules/hero_rules/heroes/kiriko.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Lifeweaver] Initialize	src/modules/hero_init/heroes/lifeweaver.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Lucio] Initialize	src/modules/hero_init/heroes/lucio.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Mauga] Initialize	src/modules/hero_init/heroes/mauga.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Mauga] Overrun knockdown duration	src/modules/hero_rules/heroes/mauga.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Mauga] Overrun knockdown duration	src/modules/hero_rules/heroes/mauga.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Mauga]: Berserker Soul Ability	src/modules/hero_rules/heroes/mauga.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Mauga]: Berserker Soul cd	src/modules/hero_rules/heroes/mauga.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Mauga]: Berserker Soul kill to heal	src/modules/hero_rules/heroes/mauga.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Mauga]: Berserker Soul status active	src/modules/hero_rules/heroes/mauga.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Mauga]: Fortify provides 100 temporary armor	src/modules/hero_rules/heroes/mauga.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Mei] Initialize	src/modules/hero_init/heroes/mei.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Moira] Initialize	src/modules/hero_init/heroes/moira.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Moira]: Fade disable on Coalescence	src/modules/hero_rules/heroes/moira.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Orisa] Initialize	src/modules/hero_init/heroes/orisa.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Orisa]: Fortify provides 100 temporary armor	src/modules/hero_rules/heroes/orisa.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Orisa]: fly	src/modules/hero_rules/heroes/orisa.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Orisa]: stun when ult	src/modules/hero_rules/heroes/orisa.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Ashe] Initialize	src/heroes/ashe/init.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Ashe]: headshot damage	src/heroes/ashe/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Baptiste] Initialize	src/heroes/baptiste/init.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Baptiste]: Immortality Field	src/heroes/baptiste/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Baptiste]: headshot damage	src/heroes/baptiste/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Brigitte] Initialize	src/heroes/brigitte/init.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Brigitte]: remove Rally provides permanent armor	src/heroes/brigitte/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Brigitte]Rally provides permanent armor to allies	src/heroes/brigitte/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Brigitte]Rally provides permanent armor to self	src/heroes/brigitte/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Cassdy] Peacekeeper Alt Fire	src/heroes/cassidy/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Cassidy.opy]: Revert sniper damage falloff	src/heroes/cassidy/falloff.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Cassidy]: Initialize Cassidy	src/heroes/cassidy/init.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[D.Va] Initialize	src/heroes/dva/init.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Doomfist] Initialize	src/heroes/doomfist/init.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Doomfist] Seismic Slam upper	src/heroes/doomfist/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Doomfist] Seismic Slam upper	src/heroes/doomfist/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Doomfist] Seismic Slam upper	src/heroes/doomfist/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Doomfist] Seismic Slam upper	src/heroes/doomfist/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Doomfist]: Meteor Strike	src/heroes/doomfist/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Doomfist]: Power Block	src/heroes/doomfist/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Doomfist]: block HUD	src/heroes/doomfist/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Echo] Initialize	src/heroes/echo/init.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Freja/init.opy]: Initialize Freja	src/heroes/freja/init.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Freja]: Dmg. reduction	src/heroes/freja/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Freja]: Ex	src/heroes/freja/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Freja]: HUD & Reset	src/heroes/freja/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Freja]: Revdraw Crossbow Stack	src/heroes/freja/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Freja]: Take Aim Damage	src/heroes/freja/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Genji] Dragonblade Healing	src/heroes/genji/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Hazard/init.opy]: Initialize Hazard	src/heroes/hazard/init.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Hazard]: Spike Guard cd	src/heroes/hazard/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Hazard]: Spike Guard get Ultimate and heal	src/heroes/hazard/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Illari] Captive Sun	src/heroes/illari/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Illari] Initialize	src/heroes/illari/init.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Illari]: Captive Sun HUD	src/heroes/illari/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Junker Queen] Initialize	src/heroes/junker_queen/init.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Junkrat] Initialize	src/heroes/junkrat/init.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Junkrat]: arsonist	src/heroes/junkrat/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Juno] Initialize	src/heroes/juno/init.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Juno]: Orbial Ray Damage	src/heroes/juno/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Juno]: Pulsar Torpedoes Healing	src/heroes/juno/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Kiriko] Initialize	src/heroes/kiriko/init.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Kiriko]: Protection Suzu Clear Effect	src/heroes/kiriko/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Kiriko]: Swift Step	src/heroes/kiriko/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Kiriko]: headshot damage	src/heroes/kiriko/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Lifeweaver] Initialize	src/heroes/lifeweaver/init.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Lucio] Initialize	src/heroes/lucio/init.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Mauga] Initialize	src/heroes/mauga/init.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Mauga] Overrun knockdown duration	src/heroes/mauga/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Mauga] Overrun knockdown duration	src/heroes/mauga/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Mauga]: Berserker Soul Ability	src/heroes/mauga/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Mauga]: Berserker Soul cd	src/heroes/mauga/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Mauga]: Berserker Soul kill to heal	src/heroes/mauga/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Mauga]: Berserker Soul status active	src/heroes/mauga/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Mauga]: Fortify provides 100 temporary armor	src/heroes/mauga/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Mei] Initialize	src/heroes/mei/init.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Moira] Initialize	src/heroes/moira/init.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Moira]: Fade disable on Coalescence	src/heroes/moira/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Orisa] Initialize	src/heroes/orisa/init.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Orisa]: Fortify provides 100 temporary armor	src/heroes/orisa/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Orisa]: fly	src/heroes/orisa/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Orisa]: stun when ult	src/heroes/orisa/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
 rule_same_name_diff	[Player]: Override allowed heroes list when player joins lobby	src/modules/bootstrap/10-safety-blacklist-ban.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Ramattra] Initialize	src/modules/hero_init/heroes/ramattra.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Ramattra] ult healing	src/modules/hero_rules/heroes/ramattra.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Ramattra] ult speed	src/modules/hero_rules/heroes/ramattra.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Ramattra] ult start	src/modules/hero_rules/heroes/ramattra.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Ramattra]: Annihilation dmg reduc	src/modules/hero_rules/heroes/ramattra.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Ramattra]: Pummel healing	src/modules/hero_rules/heroes/ramattra.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Ramattra]: Pummel healing	src/modules/hero_rules/heroes/ramattra.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Ramattra]: block	src/modules/hero_rules/heroes/ramattra.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Ramattra]: block	src/modules/hero_rules/heroes/ramattra.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Ramattra]: block HUD	src/modules/hero_rules/heroes/ramattra.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Reaper]: Ability Dire Triggers	src/modules/hero_rules/heroes/reaper.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Reaper]: Ability Dire Triggers dot	src/modules/hero_rules/heroes/reaper.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Reaper]: Death Blossom remove Mov. speed penalty	src/modules/hero_rules/heroes/reaper.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Reaper]: HUD & Reset	src/modules/hero_rules/heroes/reaper.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Reaper]: kill to gain soul buff	src/modules/hero_rules/heroes/reaper.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Reaper]: ultimate Death Blossom	src/modules/hero_rules/heroes/reaper.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Reinhardt] firestrike healing	src/modules/hero_rules/heroes/reinhardt.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Reinhardt]: Crusaders stand	src/modules/hero_rules/heroes/reinhardt.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Reinhardt]: Crusaders stand	src/modules/hero_rules/heroes/reinhardt.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Reinhardt]: Earthshatter	src/modules/hero_rules/heroes/reinhardt.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Reinhardt]: Earthshatter	src/modules/hero_rules/heroes/reinhardt.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Roadhog]: Breather	src/modules/hero_rules/heroes/roadhog.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Roadhog]: Breather	src/modules/hero_rules/heroes/roadhog.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Roadhog]: Breather	src/modules/hero_rules/heroes/roadhog.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Sigma] Initialize	src/modules/hero_init/heroes/sigma.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Sigma]: Hyperspheres HUD	src/modules/hero_rules/heroes/sigma.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Sigma]: Hyperspheres Layer Damage	src/modules/hero_rules/heroes/sigma.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Sigma]: Hyperspheres Layer Damage	src/modules/hero_rules/heroes/sigma.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Sojourn] Execution players less 10% HP expectancy	src/modules/hero_rules/heroes/sojourn.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Sojourn] Initialize	src/modules/hero_init/heroes/sojourn.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Sojourn] Overclock Buff	src/modules/hero_rules/heroes/sojourn.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Soldier: 76]: Initialize	src/modules/hero_init/heroes/soldier76.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Sombra] Initialize	src/modules/hero_init/heroes/sombra.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Sombra]: Apply OW1 hack on top of OW2 hack	src/modules/hero_rules/heroes/sombra.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Sombra]: hack healing received	src/modules/hero_rules/heroes/sombra.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Tracer] Instant Respawn	src/modules/hero_rules/heroes/tracer.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Tracer] Pulse Bomb Damage	src/modules/hero_rules/heroes/tracer.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Venture] Burrow speed and healing	src/modules/hero_rules/heroes/venture.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Wrecking Ball] Initialize	src/modules/hero_init/heroes/wrecking_ball.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Wrecking Ball]: ctrl 0cd	src/modules/hero_rules/heroes/wrecking_ball.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Wuyang]: Ebb and Flow set	src/modules/hero_rules/heroes/wuyang.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Wuyang]: Restorative shield	src/modules/hero_rules/heroes/wuyang.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Wuyang]: Restorative shield Target	src/modules/hero_rules/heroes/wuyang.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Wuyang]: Rushing Torrent jump	src/modules/hero_rules/heroes/wuyang.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Wuyang]: Tidal Blast mov_speed_penalty	src/modules/hero_rules/heroes/wuyang.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Wuyang]: mov_speed_penalty	src/modules/hero_rules/heroes/wuyang.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Zarya] Initialize	src/modules/hero_init/heroes/zarya.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Zarya]: Projected Barrier Shields	src/modules/hero_rules/heroes/zarya-late.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Zarya]: will to win	src/modules/hero_rules/heroes/zarya.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Zenyatta] Snap Kick (enemy)	src/modules/hero_rules/heroes/zenyatta.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Zenyatta]: Transcendence	src/modules/hero_rules/heroes/zenyatta.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Zenyatta]: headshot damage	src/modules/hero_rules/heroes/zenyatta.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[bastion/init.opy]: Initialize Bastion	src/modules/hero_init/heroes/bastion.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[brigitte/rally.opy]: Rally 30% speed boost	src/modules/hero_rules/heroes/brigitte.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[hanzo/init.opy]: Initialize Hanzo	src/modules/hero_init/heroes/hanzo.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[kiriko]: swift step hp	src/modules/hero_rules/heroes/kiriko.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[mercy/init.opy]: Initialize Mercy	src/modules/hero_init/heroes/mercy.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[pharah/init.opy]: Initialize Pharah	src/modules/hero_init/heroes/pharah.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[reaper/init.opy]: Initialize Reaper	src/modules/hero_init/heroes/reaper.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[reinhardt/init.opy]: Initialize Reinhardt	src/modules/hero_init/heroes/reinhardt.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Ramattra] Initialize	src/heroes/ramattra/init.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Ramattra] ult healing	src/heroes/ramattra/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Ramattra] ult speed	src/heroes/ramattra/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Ramattra] ult start	src/heroes/ramattra/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Ramattra]: Annihilation dmg reduc	src/heroes/ramattra/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Ramattra]: Pummel healing	src/heroes/ramattra/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Ramattra]: Pummel healing	src/heroes/ramattra/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Ramattra]: block	src/heroes/ramattra/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Ramattra]: block	src/heroes/ramattra/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Ramattra]: block HUD	src/heroes/ramattra/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Reaper]: Ability Dire Triggers	src/heroes/reaper/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Reaper]: Ability Dire Triggers dot	src/heroes/reaper/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Reaper]: Death Blossom remove Mov. speed penalty	src/heroes/reaper/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Reaper]: HUD & Reset	src/heroes/reaper/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Reaper]: kill to gain soul buff	src/heroes/reaper/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Reaper]: ultimate Death Blossom	src/heroes/reaper/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Reinhardt] firestrike healing	src/heroes/reinhardt/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Reinhardt]: Crusaders stand	src/heroes/reinhardt/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Reinhardt]: Crusaders stand	src/heroes/reinhardt/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Reinhardt]: Earthshatter	src/heroes/reinhardt/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Reinhardt]: Earthshatter	src/heroes/reinhardt/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Roadhog]: Breather	src/heroes/roadhog/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Roadhog]: Breather	src/heroes/roadhog/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Roadhog]: Breather	src/heroes/roadhog/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Sigma] Initialize	src/heroes/sigma/init.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Sigma]: Hyperspheres HUD	src/heroes/sigma/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Sigma]: Hyperspheres Layer Damage	src/heroes/sigma/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Sigma]: Hyperspheres Layer Damage	src/heroes/sigma/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Sojourn] Execution players less 10% HP expectancy	src/heroes/sojourn/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Sojourn] Initialize	src/heroes/sojourn/init.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Sojourn] Overclock Buff	src/heroes/sojourn/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Soldier: 76]: Initialize	src/heroes/soldier76/init.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Sombra] Initialize	src/heroes/sombra/init.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Sombra]: Apply OW1 hack on top of OW2 hack	src/heroes/sombra/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Sombra]: hack healing received	src/heroes/sombra/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Tracer] Instant Respawn	src/heroes/tracer/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Tracer] Pulse Bomb Damage	src/heroes/tracer/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Venture] Burrow speed and healing	src/heroes/venture/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Wrecking Ball] Initialize	src/heroes/wrecking_ball/init.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Wrecking Ball]: ctrl 0cd	src/heroes/wrecking_ball/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Wuyang]: Ebb and Flow set	src/heroes/wuyang/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Wuyang]: Restorative shield	src/heroes/wuyang/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Wuyang]: Restorative shield Target	src/heroes/wuyang/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Wuyang]: Rushing Torrent jump	src/heroes/wuyang/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Wuyang]: Tidal Blast mov_speed_penalty	src/heroes/wuyang/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Wuyang]: mov_speed_penalty	src/heroes/wuyang/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Zarya] Initialize	src/heroes/zarya/init.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Zarya]: Projected Barrier Shields	src/heroes/zarya/rules-late.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Zarya]: will to win	src/heroes/zarya/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Zenyatta] Snap Kick (enemy)	src/heroes/zenyatta/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Zenyatta]: Transcendence	src/heroes/zenyatta/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Zenyatta]: headshot damage	src/heroes/zenyatta/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[bastion/init.opy]: Initialize Bastion	src/heroes/bastion/init.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[brigitte/rally.opy]: Rally 30% speed boost	src/heroes/brigitte/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[hanzo/init.opy]: Initialize Hanzo	src/heroes/hanzo/init.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[kiriko]: swift step hp	src/heroes/kiriko/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[mercy/init.opy]: Initialize Mercy	src/heroes/mercy/init.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[pharah/init.opy]: Initialize Pharah	src/heroes/pharah/init.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[reaper/init.opy]: Initialize Reaper	src/heroes/reaper/init.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[reinhardt/init.opy]: Initialize Reinhardt	src/heroes/reinhardt/init.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
 rule_same_name_diff	[reset.opy]: Reinitialize hero on new round	src/modules/bootstrap/20-player-lifecycle-and-reset.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[roadhog]	src/modules/hero_init/heroes/roadhog.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[symmetra/init.opy]: Initialize Symmetra	src/modules/hero_init/heroes/symmetra.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[torbjorn/init.opy]: Initialize Torbjorn	src/modules/hero_init/heroes/torbjorn.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[tracer/init.opy]: Initialize Tracer	src/modules/hero_init/heroes/tracer.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[roadhog]	src/heroes/roadhog/init.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[symmetra/init.opy]: Initialize Symmetra	src/heroes/symmetra/init.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[torbjorn/init.opy]: Initialize Torbjorn	src/heroes/torbjorn/init.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[tracer/init.opy]: Initialize Tracer	src/heroes/tracer/init.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
 rule_same_name_diff	[utilities/hero_setup.opy]: Reset and initialize hero on hero switch	src/modules/bootstrap/20-player-lifecycle-and-reset.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
 rule_same_name_diff	[utilities/reset]: Default respawn time	src/modules/bootstrap/20-player-lifecycle-and-reset.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
 rule_same_name_diff	[utilities/reset]: Default respawn time	src/modules/bootstrap/20-player-lifecycle-and-reset.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
 rule_same_name_diff	[utilities/reset]: reset when died	src/modules/bootstrap/20-player-lifecycle-and-reset.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[venture/init.opy]: Initialize venture	src/modules/hero_init/heroes/venture.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[widowmaker/init.opy]: Initialize Widowmaker	src/modules/hero_init/heroes/widowmaker.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[winston/init.opy]: Initialize Winston	src/modules/hero_init/heroes/winston.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[zenyatta]: init	src/modules/hero_init/heroes/zenyatta.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	【布丽吉塔】盾击伤害调整	src/modules/hero_rules/heroes/brigitte.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[venture/init.opy]: Initialize venture	src/heroes/venture/init.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[widowmaker/init.opy]: Initialize Widowmaker	src/heroes/widowmaker/init.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[winston/init.opy]: Initialize Winston	src/heroes/winston/init.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[zenyatta]: init	src/heroes/zenyatta/init.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	【布丽吉塔】盾击伤害调整	src/heroes/brigitte/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor

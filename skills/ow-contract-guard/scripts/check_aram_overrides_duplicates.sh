@@ -368,7 +368,7 @@ for idx, row in enumerate(manifest_rows, 1):
         cands = other_by_name.get(rule["name"], [])
         if not cands:
             failures.append(
-                f"{seg_rel}:{rule['line']}: rule '{rule['name']}' has no same-name candidate in src/modules or other non-aram files"
+                f"{seg_rel}:{rule['line']}: rule '{rule['name']}' has no same-name candidate in src/heroes or other non-aram files"
             )
             continue
         exact_hits = [(p, ln) for cn, p, ln in cands if cn == rule["norm"]]

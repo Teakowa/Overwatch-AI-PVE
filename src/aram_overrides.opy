@@ -670,7 +670,7 @@ rule "[Venture] Burrow speed and healing":
     eventPlayer.mov_speed_buff = 0
     eventPlayer.setMoveSpeed(100)
 
-#!include "modules/hero_rules/shared/cassidy/10-flashbang-stun.opy"
+#!include "heroes/cassidy/shared/10-flashbang-stun.opy"
 
 rule "[Cassdy] Peacekeeper Alt Fire":
     @Event eachPlayer
@@ -681,7 +681,7 @@ rule "[Cassdy] Peacekeeper Alt Fire":
     waitUntil(not eventPlayer.isFiringSecondaryFire(), 0.75)
     eventPlayer.setDamageDealt(100)
 
-#!include "modules/hero_rules/shared/cassidy/30-alt-fire-reload.opy"
+#!include "heroes/cassidy/shared/30-alt-fire-reload.opy"
 
 rule "[Sojourn] Overclock Buff":
     @Event eachPlayer
@@ -1736,7 +1736,7 @@ rule "[Juno]: Pulsar Torpedoes Healing":
     eventPlayer.healing_increase = 0
     wait(2.6)
 
-#!include "modules/hero_rules/shared/freja/10-revdraw-crossbow-stack-primary-fire.opy"
+#!include "heroes/freja/shared/10-revdraw-crossbow-stack-primary-fire.opy"
 
 rule "[Freja]: Revdraw Crossbow Stack":
     @Event playerReceivedKnockback
@@ -1812,7 +1812,7 @@ rule "[Freja]: Dmg. reduction":
     eventPlayer.freja_buff[2] = 0
     eventPlayer.setDamageReceived(100)
 
-#!include "modules/hero_rules/shared/freja/90-set-projectile-speed.opy"
+#!include "heroes/freja/shared/90-set-projectile-speed.opy"
 
 rule "[Torbjörn]: Forge Hammer":
     @Event eachPlayer
