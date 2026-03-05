@@ -2,8 +2,9 @@
   "private": true,
   "packageManager": "pnpm@10.6.3",
   "scripts": {
-    "build": "overpy compile -i src/main.opy -o workshop.ow -l zh-CN",
-    "build:release": "mkdir -p build && overpy compile -i src/main.opy -l zh-CN -o build/main.ow"
+    "build": "overpy compile -i src/main.opy --root src -o workshop.ow -l zh-CN",
+    "build:release": "mkdir -p build && overpy compile -i src/main.opy --root src -l zh-CN -o build/main.ow",
+    "build:aram": "mkdir -p build && overpy compile -i src/aramMain.opy --root src -l zh-CN -o build/aram.ow"
   },
   "dependencies": {
     "overpy": "^9.4.21"
