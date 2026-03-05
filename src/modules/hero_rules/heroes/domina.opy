@@ -6,14 +6,14 @@ rule "[Domina]: Sonic Repulsion Field Debuff":
     @Condition victim.unaffected != true
     @Condition (victim.hasStatus(Status.INVINCIBLE) or victim.hasStatus(Status.UNKILLABLE) or victim.hasStatus(Status.PHASED_OUT)) == false
 
-    if abs(victim.mov_speed_buff) < 70:
-        victim.mov_speed_buff = -70
+    if abs(victim.mov_speed_buff) < DOMINA_SLOW_PERCENT:
+        victim.mov_speed_buff = -DOMINA_SLOW_PERCENT
         victim.setMoveSpeed(min(max(100 + victim.mov_speed_buff, 20), 200))
-    victim.setStatusEffect(attacker, Status.STUNNED, 0.8)
-    wait(2)
+    victim.setStatusEffect(attacker, Status.STUNNED, DOMINA_SONIC_STUN_DURATION)
+    wait(DOMINA_SLOW_DURATION)
     if victim.isDead():
         goto lbl_0
-    if victim.mov_speed_buff == -70:
+    if victim.mov_speed_buff == -DOMINA_SLOW_PERCENT:
         victim.mov_speed_buff = 0
         victim.setMoveSpeed(min(max(100 + victim.mov_speed_buff, 20), 200))
     lbl_0:
@@ -25,13 +25,13 @@ rule "[Domina]: Energy Crystal Slow":
     @Condition victim.unaffected != true
     @Condition (victim.hasStatus(Status.INVINCIBLE) or victim.hasStatus(Status.UNKILLABLE) or victim.hasStatus(Status.PHASED_OUT)) == false
 
-    if abs(victim.mov_speed_buff) < 70:
-        victim.mov_speed_buff = -70
+    if abs(victim.mov_speed_buff) < DOMINA_SLOW_PERCENT:
+        victim.mov_speed_buff = -DOMINA_SLOW_PERCENT
         victim.setMoveSpeed(min(max(100 + victim.mov_speed_buff, 20), 200))
-    wait(2)
+    wait(DOMINA_SLOW_DURATION)
     if victim.isDead():
         goto lbl_0
-    if victim.mov_speed_buff == -70:
+    if victim.mov_speed_buff == -DOMINA_SLOW_PERCENT:
         victim.mov_speed_buff = 0
         victim.setMoveSpeed(min(max(100 + victim.mov_speed_buff, 20), 200))
     lbl_0:
