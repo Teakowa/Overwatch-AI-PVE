@@ -35,6 +35,7 @@
 | H4 | ARAM overlay 按英雄迁移 | done | 单英雄 ARAM 差异已归位到 `src/heroes/<hero>/aram.opy` 或同级拆分文件，`exact=0` |
 | H5 | `aram_overrides` 薄层化与分段机制退役 | done | `aram_overrides_segments` 不再参与编译，`src/aram_overrides.opy` 不再承载 exact/same-name-diff，活跃差异已下沉到 hero/module overlays |
 | H6 | `aram_overrides.opy` 纯装配化 | done | `src/aram_overrides.opy` 不再出现 `rule/def`，active duplicate debt 仅存在于 `src/**/aram*.opy` |
+| H7 | active overlay debt phase-2 | in_progress | 明确保留 `mode-only` / `exact-overlay` 边界，并为剩余 `src/**/aram*.opy` active diff 建立新的收敛批次 |
 
 ## Current Gate Baseline
 
@@ -88,6 +89,9 @@
 
 ## Archived Reports
 
+- 已删除两份早期、且已被后续波次完全覆盖的归档：
+  - `docs/reports/aram-shared-wave-2026-03-06-baseline.md`
+  - `docs/reports/aram-shared-wave-h5-next4-selective-leftovers-2026-03-06.md`
 - Hero-First cutover and H4 migration details are archived in:
   - `docs/reports/aram-shared-wave-hero-first-cutover-2026-03-06.md`
   - `docs/reports/aram-shared-wave-h4-init-detect-pilot-2026-03-06.md`
@@ -123,7 +127,7 @@
 
 ## Next Steps
 
-1. 后续若继续推进，应新开下一阶段，专门处理 `src/**/aram*.opy` 中仍保留的 active overlay diff，而不是再把它们归入 H6。
-2. `hazard/kiriko` 这两组 retained overlays 可以视作当前已确认的保留边界；若未来要继续拆分，应连同 whitelist 策略一起设计，不建议在 H6 范围内继续尝试。
-3. `src/modules/**/aram-*.opy` 当前维持 module-owned mode-only 设计，后续只在明确需要跨模块再归档或再分层时再动。
-4. overlay 结构已基本稳定，下一步更适合统一清理 `docs/reports/` 的历史归档密度与 TODO 文案，或开启新阶段的 overlay debt reduction 计划。
+1. H7 Wave-A：先做 `src/heroes/**/aram*.opy` retained overlay inventory，把 `hazard/kiriko` 之外仍存在 `exact-overlay` 风险的条目逐个标注成 `保留` / `候选`。
+2. H7 Wave-B：按模块拆看 `src/modules/**/aram-*.opy`，确认是否存在可以继续下沉到 hero-owned leaves 的跨模块残留；若没有，就把 module-owned mode-only 设计固化成文档结论。
+3. H7 Wave-C：在不放宽 whitelist 的前提下，再挑一小批高价值 active diff 做结构收敛，避免重新进入“大面积拆文件但不降债”的循环。
+4. 文档层已经完成一轮减噪；后续只保留仍被主 TODO 引用、或对回溯关键决策仍有价值的 wave 报告。
