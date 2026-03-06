@@ -278,27 +278,7 @@ rule "[utilities/hero_setup.opy]: Reset and initialize hero on hero switch":
 #!include "modules/ai/control/33-control-projectile-and-special.opy"
 
 
-rule "[Orisa]: Fortify provides 100 temporary armor":
-    @Event eachPlayer
-    @Hero orisa
-    @Condition Orisa_Fortify[0] != 0
-    @Condition any([i == true for i in [eventPlayer.isUsingAbility1(), eventPlayer.isUsingUltimate()]]) == true
-    
-    wait(0.16)
-    eventPlayer.unaffected = true
-    eventPlayer.hazard_buff[0] = false
-    eventPlayer.zarya_graviton_buff[0] = false
-    eventPlayer.brigitte_buff[0] = false
-    eventPlayer.orisa_buff = false
-    eventPlayer.addHealthPool(Health.ARMOR, Orisa_Fortify[0], true, false)
-    eventPlayer.orisa_fortify_armor_id = getLastCreatedHealthPool()
-    eventPlayer.startHealingOverTime(eventPlayer, eventPlayer.getMaxHealth() * 0.1, 4)
-    if eventPlayer.isUsingAbility1() == true:
-        waitUntil(not eventPlayer.isUsingAbility1(), 999999986991104)
-    else:
-        waitUntil(not eventPlayer.isUsingUltimate(), 999999986991104)
-    removeHealthPool(eventPlayer.orisa_fortify_armor_id)
-    eventPlayer.unaffected = false
+#!include "heroes/orisa/aram-05-fortify-armor.opy"
 
 #!include "heroes/mauga/aram-05-fortify.opy"
 
@@ -372,43 +352,7 @@ rule "[Mercy]: Life Grip Clear Effect":
 
 #!include "heroes/sigma/aram.opy"
 
-rule "[Sigma]: Hyperspheres Layer Damage":
-    @Event playerDealtDamage
-    @Hero sigma
-    @Condition SigmaBuff[0] != 0
-    @Condition eventPlayer.sigma_hyperspheres < SigmaBuff[1] + 1
-    @Condition eventAbility == Button.PRIMARY_FIRE
-    
-    eventPlayer.sigma_hyperspheres++
-    eventPlayer.hudText = "{0}|{1}".format(eventPlayer.sigma_hyperspheres, 3)
-    wait(0.6)
-
-rule "[Sigma]: Hyperspheres Layer Damage":
-    @Event playerDealtDamage
-    @Hero sigma
-    @Condition SigmaBuff[0] != 0
-    @Condition eventPlayer.sigma_hyperspheres == SigmaBuff[1] + 1
-    @Condition eventAbility == Button.PRIMARY_FIRE
-    
-    eventPlayer.sigma_hyperspheres = 0
-    eventPlayer.hudText = "{0}|{1}".format(eventPlayer.sigma_hyperspheres, 3)
-    damage(victim, attacker, attacker.getHealth() * SigmaBuff[0])
-    wait(4)
-
-rule "[Sigma]: Hyperspheres HUD":
-    @Event eachPlayer
-    @Team 2
-    @Hero sigma
-    @Condition SigmaBuff[0] != 0
-    @Condition eventPlayer.isInSpawnRoom() != true
-    @Condition eventPlayer.reset_pvar[0] == false
-    @Disabled
-    
-    hudText(eventPlayer, null, "\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r", "{0}|{1}".format(eventPlayer.sigma_hyperspheres, SigmaBuff[1]), HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
-    eventPlayer.sigma_hyperspheres_hud = getLastCreatedText()
-    waitUntil(eventPlayer.reset_pvar[0] or eventPlayer.isInSpawnRoom(), 999999986991104)
-    destroyHudText(eventPlayer.sigma_hyperspheres_hud)
-    destroyInWorldText(eventPlayer.sigma_hyperspheres_hud)
+#!include "heroes/sigma/aram-05-hyperspheres-suite.opy"
 
 rule "[Venture] Dragonblade Healing":
     @Event playerDealtDamage
@@ -802,65 +746,11 @@ rule "[Soldier: 76]: 替代射击":
 #!include "heroes/doomfist/aram.opy"
 
 
-rule "[Hazard]: Spike Guard cd":
-    @Event playerDealtDamage
-    @Hero hazard
-    @Condition eventAbility == Button.ABILITY_1
-    @Condition HazardBuff[0] != 0
-    @Condition victim.hasStatus(Status.INVINCIBLE) != true
-    @Condition victim.zarya_buff[1] == null
-    
-    damage(victim, attacker, victim.getMaxHealth() * HazardBuff[0])
-    wait(0.032)
-
-rule "[Hazard]: Spike Guard get Ultimate and heal":
-    @Event playerTookDamage
-    @Hero hazard
-    @Condition eventPlayer.hazard_using_ability_sec == true
-    
-    eventPlayer.setUltCharge(eventPlayer.getUltCharge() + (HazardBuff[1] if eventPlayer.getTeam() == Team.2 else HazardBuff[1] * 2.5))
-    heal(eventPlayer, eventPlayer, eventDamage / 0.35 * HazardBuff[2])
-    wait(min(0.16, getAverageServerLoad() / 100))
+#!include "heroes/hazard/aram-05-spike-guard-suite.opy"
 
 #!include "heroes/hazard/aram.opy"
 
-rule "[Orisa]: stun when ult":
-    @Event playerDealtKnockback
-    @Hero orisa
-    @Condition eventAbility == Button.SECONDARY_FIRE
-    @Condition victim.isAlive() == true
-    @Condition victim.unaffected != true
-    
-    wait(0.3, Wait.ABORT_WHEN_FALSE)
-    if victim.zarya_buff[1] != null:
-        goto lbl_0
-    victim.orisa_buff = true
-    lbl_0:
-    victim.mov_speed_penalty += Orisa_Fortify[2]
-
-rule "[Orisa]: speed":
-    @Event eachPlayer
-    @Condition eventPlayer.isAlive() == true
-    @Condition eventPlayer.unaffected != true
-    @Condition eventPlayer.orisa_buff == true
-    
-    eventPlayer.setMoveSpeed(100 + eventPlayer.mov_speed_buff - eventPlayer.mov_speed_penalty)
-    waitUntil(not eventPlayer.orisa_buff or eventPlayer.unaffected or eventPlayer.hasStatus(Status.INVINCIBLE) or eventPlayer.hasStatus(Status.PHASED_OUT), 2)
-    eventPlayer.mov_speed_penalty = 0
-    eventPlayer.setMoveSpeed(100)
-    eventPlayer.orisa_buff = false
-
-rule "[Orisa]: fly":
-    @Event eachPlayer
-    @Hero orisa
-    @Condition (eventPlayer.isUsingAbility2() or eventPlayer.isUsingUltimate()) == true
-    #@Condition eventPlayer.isUsingAbility2() == true
-    @Condition eventPlayer.isHoldingButton(Button.JUMP) == true
-    
-    eventPlayer.applyImpulse(eventPlayer.getFacingDirection(), 10, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
-    wait()
-    if ruleCondition:
-        loop()
+#!include "heroes/orisa/aram-10-control-suite.opy"
 
 rule "[Rein]: fly":
     @Event eachPlayer
@@ -960,28 +850,7 @@ rule "[Junkrat]: arsonist":
 
 #!include "heroes/juno/aram.opy"
 
-rule "[Juno]: Orbial Ray Damage":
-    @Event eachPlayer
-    @Condition eventPlayer.juno_buff[0] == true
-    
-    smallMessage(eventPlayer, "   {0} 轨道射线： 伤害减免 {1}%".format(abilityIconString(Hero.JUNO, Button.ULTIMATE), JunoBuff))
-    eventPlayer.setDamageReceived(100 - JunoBuff)
-    waitUntil(not eventPlayer.juno_buff[0], 10)
-    eventPlayer.setDamageReceived(100)
-    smallMessage(eventPlayer, "   {0} 轨道射线： 伤害减免已结束".format(abilityIconString(Hero.JUNO, Button.ULTIMATE)))
-
-rule "[Juno]: Pulsar Torpedoes Healing":
-    @Event playerReceivedHealing
-    @Condition healer.getHero() == Hero.JUNO
-    @Condition eventAbility == Button.SECONDARY_FIRE
-    
-    eventPlayer.healing_increase += 50
-    eventPlayer.setHealingReceived(100 - eventPlayer.healing_decrease + eventPlayer.healing_increase)
-    healee.startHealingOverTime(healer, 2.5, ceil(healee.getMaxHealth() * 0.25 / 2.5))
-    waitUntil(eventPlayer.isDead(), 4)
-    eventPlayer.setHealingReceived(100)
-    eventPlayer.healing_increase = 0
-    wait(2.6)
+#!include "heroes/juno/aram-05-orbital-and-pulsar-heal.opy"
 
 #!include "heroes/freja/shared/10-revdraw-crossbow-stack-primary-fire.opy"
 

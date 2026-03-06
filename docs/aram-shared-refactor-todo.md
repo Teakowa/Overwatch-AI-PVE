@@ -34,32 +34,17 @@
 | H4 | ARAM overlay 按英雄迁移 | done | 单英雄 ARAM 差异已归位到 `src/heroes/<hero>/aram.opy` 或同级叶子，`exact=0` |
 | H5 | `aram_overrides` 薄层化与分段机制退役 | in_progress | `aram_overrides_segments` 不再参与编译，剩余项以 hero-local mode diff 为主，`aram_overrides.opy` 继续薄层化 |
 
-## Current Iteration (H1/H2/H3 Cutover)
+## Current Gate Baseline
 
-- 目录迁移：
-  - `src/modules/hero_rules/heroes/*.opy` -> `src/heroes/<hero>/rules.opy`
-  - `src/modules/hero_init/heroes/*.opy` -> `src/heroes/<hero>/init.opy`
-  - 相关 extras/shared 叶子同步迁移到对应英雄目录
-- 入口改造：
-  - `src/main.opy` -> `#!include "heroes/init.main.opy"`
-  - `src/aramMain.opy` -> `#!include "heroes/init.aram.opy"`
-- 工具链迁移：
-  - `skills/ow-contract-guard/scripts/check_contracts.sh`
-  - `skills/ow-hero-change-pipeline/scripts/hero_pipeline.sh`
-  - `skills/ow-changelog-sync/scripts/changelog_sync.sh`
-  - 已改为以 `src/heroes/*/init.opy` 与 `src/heroes/<hero>/*.opy` 为识别源
-- 白名单与元数据迁移：
-  - `skills/ow-contract-guard/references/aram-delta-whitelist.tsv` 的 `source_module` 已迁到 `src/heroes/**`
-  - `src/aram_overrides_segments/manifest.tsv` 的 `source_modules` 已迁到 `heroes/**`
-- 验证报告：
-  - `docs/reports/aram-shared-wave-hero-first-cutover-2026-03-06.md`
-
-## Baseline Gate Target (Structure Wave)
-
-- 结构切换波要求保持：
-  - duplicate baseline 稳定（当前目标：`exact=53`, `diff=148`）
-  - `unwhitelisted exact/diff = 0/0`
-- 本波门禁：
+- 当前 duplicate 基线：
+  - `src/aram_overrides.opy exact/diff/unique = 0/30/45`
+  - `src/heroes/*/aram*.opy exact/diff/unique = 28/79/2`
+  - `unwhitelisted aram/overlay exact-diff = 0/0, 0/0`
+- H5 当前关注点：
+  - `src/aram_overrides.opy` 继续薄层化
+  - 剩余债务以 hero-local `same_name_diff` 为主
+  - `soldier76` 当前不在剩余 `same_name_diff` 高密度批次中，已从下一波候选移除
+- 常用门禁：
   1. `pnpm run build`
   2. `pnpm run build:aram`
   3. `skills/ow-contract-guard/scripts/check_contracts.sh --build`
@@ -67,27 +52,9 @@
   5. `skills/ow-hero-change-pipeline/scripts/hero_pipeline.sh --from-diff --build`
   6. `skills/ow-contract-guard/scripts/check_aram_overrides_duplicates.sh --check --emit-candidates build/reports/aram-delta-whitelist-candidates.tsv`
 
-## Current Iteration (H4 Wave-1: hero_init Detect Pilot)
-
-- 波次范围：6 英雄 Detect exact 清理（`reaper/tracer/mercy/hanzo/freja/torbjorn`）。
-- 变更动作：
-  - 每个试点英雄新增 `src/heroes/<hero>/init-detect.opy`，仅承载 Detect 规则。
-  - `src/heroes/<hero>/init.opy` 改为 include `init-detect.opy`，Initialize 本体不变。
-  - `src/aram_overrides.opy` 原位替换 6 条 Detect exact 为 `#!include "heroes/<hero>/init-detect.opy"`，保持顺序不变。
-  - 白名单删除 6 条 Detect `rule_exact_duplicate`。
-- 工具链兼容：
-  - `check_contracts.sh` 与 `hero_pipeline.sh` 支持 `init.opy + init-detect.opy` 组合判定 detect/initialize 契约。
-  - `check_aram_overrides_duplicates.sh` 增加 6 英雄 `src/heroes/<hero>/aram*.opy` pilot overlay 门禁通道。
-- 指标结果：
-  - `exact: 53 -> 47`
-  - `diff: 148 -> 148`
-  - `unwhitelisted exact/diff: 0/0`
-  - `candidates: 0`
-- 验证报告：
-  - `docs/reports/aram-shared-wave-h4-init-detect-pilot-2026-03-06.md`
-
 ## Iteration Log
 
+- 2026-03-06: 完成 H5 Wave-N+4（hazard/juno/orisa/sigma diff localization）。4 组高密度 hero-local ARAM diff 从 `src/aram_overrides.opy` 回收到 `src/heroes/<hero>/aram*.opy`，`src/aram_overrides.opy diff: 40 -> 30`。
 - 2026-03-06: 完成 H5 Wave-N+3（next-5 same_name_diff localization）。`ana/brigitte/freja/kiriko/reinhardt` 共 24 条 ARAM diff 从 `src/aram_overrides.opy` 内联规则体回收到 `src/heroes/<hero>/aram*.opy`。
 - 2026-03-06: 完成 H5 Wave-N+2（next-4 same_name_diff localization）。`doomfist/mauga/reaper/wuyang` 共 26 条 ARAM diff 从 `src/aram_overrides.opy` 内联规则体回收到 `src/heroes/<hero>/aram*.opy`。
 - 2026-03-06: 完成 H5 Wave-N+1（top-5 same_name_diff localization）。`ramattra/sombra/tracer/zarya/wrecking_ball` 共 16 条 ARAM diff 从 `src/aram_overrides.opy` 内联规则体回收到 `src/heroes/<hero>/aram*.opy`。
@@ -97,142 +64,40 @@
 - 2026-03-06: 完成 H4 Wave-2（全量 Initialize 向 Main 收敛 + custom_hp helper 下线）。ARAM hero_init 改为统一 include `src/heroes/*/init.opy`，`aram_overrides` 不再承载 Detect/Initialize 规则体与 custom_hp 依赖。
 - 2026-03-06: 完成 H4 Wave-3（Hero Overlay First 清理 10 条 hero exact）。规则源统一迁入 `src/heroes/<hero>/shared/*.opy`，ARAM 通过 `src/heroes/<hero>/aram.opy` 复用；duplicates 门禁 overlay 扫描扩展到 `src/heroes/*/aram*.opy` 全量。
 
-## Current Iteration (H5 Prep: Segment Compile Dependency Retirement)
+## Archived Reports
 
-- 波次范围：
-  - 清理最后 1 条 bootstrap `rule_exact_duplicate`
-  - 回收 12 个 single-hero segment 到 `src/heroes/<hero>/aram.opy`
-  - 将 4 组 multi-hero 残留差异收束到 `src/aram_cross_hero_overrides.opy`
-- 变更动作：
-  - 新增 `src/modules/bootstrap/shared/10-setup-var-when-player-joins-lobby.opy`，Main/ARAM 共享 lobby reset 初始化规则。
-  - `src/aram_overrides.opy` 不再 include `aram_overrides_segments/*`；single-hero 段切到 `heroes/<hero>/aram.opy`，cross-hero 段切到 `aram_cross_hero_overrides.opy`。
-  - `src/heroes/{mercy,ana,brigitte,kiriko,zenyatta,reinhardt,hazard,reaper,wuyang,widowmaker}/aram.opy` 从空壳或薄层扩展为该英雄 ARAM 差异归属层。
-  - `skills/ow-contract-guard/scripts/check_aram_overrides_duplicates.sh` 改为检查 `src/heroes/*/aram*.opy` 与 `src/aram_cross_hero_overrides.opy`，`manifest.tsv` 仅保留历史记录语义。
-  - 白名单删除最后 1 条 bootstrap `rule_exact_duplicate`。
-- 指标目标：
-  - `exact: 1 -> 0`
-  - `unwhitelisted exact/diff: 0/0`
-  - `rg '#!include "aram_overrides_segments/' src` 返回空
-- 验证报告：
+- Hero-First cutover and H4 migration details are archived in:
+  - `docs/reports/aram-shared-wave-hero-first-cutover-2026-03-06.md`
+  - `docs/reports/aram-shared-wave-h4-init-detect-pilot-2026-03-06.md`
+  - `docs/reports/aram-shared-wave-h4-init-full-convergence-2026-03-06.md`
+  - `docs/reports/aram-shared-wave-h4-hero-exact-overlay-2026-03-06.md`
+- H5 completed wave reports are archived in:
   - `docs/reports/aram-shared-wave-h5-segment-retirement-prep-2026-03-06.md`
-
-## Current Iteration (H5 Wave-N: Cross-Hero Exact Cleanup + Legacy Directory Retirement)
-
-- 波次范围：
-  - 清理 `src/aram_cross_hero_overrides.opy` 中 4 组 cross-hero exact（10 条规则）
-  - 退役 `src/aram_overrides_segments/` 历史目录
-- 变更动作：
-  - 为 `genji/tracer/ramattra/wrecking_ball/sombra/zarya` 新增 `shared/*.opy` 叶子，作为 cross-hero exact 的事实来源。
-  - Main 侧 `rules*.opy` 改为 include 对应 shared 叶子，保持主线规则顺序不变。
-  - `src/aram_overrides.opy` 在原 cross-hero include 位置改为逐条 include hero-owned shared 叶子，保持 ARAM 规则顺序不变。
-  - 删除 `src/aram_cross_hero_overrides.opy`。
-  - 删除 `src/aram_overrides_segments/` 目录及 `manifest.tsv`。
-  - `check_aram_overrides_duplicates.sh` 不再读取 cross-hero transitional file 或 manifest，改为仅检查活跃装配面与退休引用残留。
-  - 白名单删除 10 条原 cross-hero exact `rule_exact_duplicate`。
-- 指标目标：
-  - `src/aram_overrides.opy exact = 0`
-  - `unwhitelisted exact/diff = 0/0`
-  - `rg 'aram_cross_hero_overrides|aram_overrides_segments' src` 返回空
-- 验证报告：
   - `docs/reports/aram-shared-wave-h5-cross-hero-retirement-2026-03-06.md`
-
-## Current Iteration (H5 Wave-N+1: Top-5 Same-Name Diff Localization)
-
-- 波次范围：
-  - 将 `ramattra/sombra/tracer/zarya/wrecking_ball` 的 16 条 `same_name_diff` 从 `src/aram_overrides.opy` 回收到英雄本地 overlay
-- 变更动作：
-  - `src/heroes/ramattra/aram-10-ult-suite.opy` 与 `aram-20-block-suite.opy` 承接 9 条 Ramattra ARAM diff，保持两段原位装配。
-  - `src/heroes/tracer/aram-10-instant-respawn.opy` 与 `aram-20-pulse-bomb-damage.opy` 承接 2 条 Tracer ARAM diff。
-  - `src/heroes/sombra/aram.opy` 承接 2 条 Sombra ARAM diff。
-  - `src/heroes/zarya/aram-10-projected-barrier-shields.opy` 与 `aram-20-will-to-win.opy` 承接 2 条 Zarya ARAM diff。
-  - `src/heroes/wrecking_ball/aram.opy` 承接 1 条 Wrecking Ball ARAM diff。
-  - `src/aram_overrides.opy` 对这 16 条规则改为原位 `#!include "heroes/<hero>/aram*.opy"`，不改变顺序，不做 diff 消项。
-- 指标目标：
-  - `src/aram_overrides.opy diff: 106 -> 90`
-  - `src/heroes/*/aram*.opy diff: 2 -> 18`
-  - `exact = 0`
-  - `unwhitelisted exact/diff = 0/0`
-- 验证报告：
   - `docs/reports/aram-shared-wave-h5-top5-diff-localization-2026-03-06.md`
-
-## Current Iteration (H5 Wave-N+2: Next-4 Same-Name Diff Localization)
-
-- 波次范围：
-  - 将 `doomfist/mauga/reaper/wuyang` 的 26 条 `same_name_diff` 从 `src/aram_overrides.opy` 回收到英雄本地 overlay
-- 变更动作：
-  - `src/heroes/doomfist/aram-10-combat-suite.opy` 承接 6 条 Doomfist diff，`src/heroes/doomfist/aram.opy` 承接剩余 HUD diff。
-  - `src/heroes/mauga/aram-10-frontline-suite.opy` 承接 4 条 Mauga 前段 diff，`src/heroes/mauga/aram.opy` 承接 3 条 Berserker Soul 后段 diff。
-  - `src/heroes/reaper/aram.opy` 扩展承接剩余 6 条 Reaper diff。
-  - `src/heroes/wuyang/aram.opy` 扩展承接剩余 6 条 Wuyang diff。
-  - `src/aram_overrides.opy` 对这 26 条规则改为原位 `#!include "heroes/<hero>/aram*.opy"`，不改变顺序，不做 diff 消项。
-- 指标目标：
-  - `src/aram_overrides.opy diff: 90 -> 64`
-  - `src/heroes/*/aram*.opy diff: 18 -> 45`
-  - `exact = 0`
-  - `unwhitelisted exact/diff = 0/0`
-- 验证报告：
   - `docs/reports/aram-shared-wave-h5-next4-diff-localization-2026-03-06.md`
-
-## Current Iteration (H5 Wave-N+3: Next-5 Same-Name Diff Localization)
-
-- 波次范围：
-  - 将 `ana/brigitte/freja/kiriko/reinhardt` 的 24 条 `same_name_diff` 从 `src/aram_overrides.opy` 回收到英雄本地 overlay
-- 变更动作：
-  - `src/heroes/ana/aram-05-headhunter.opy` 与 `aram-10-sleep-tanks.opy` 承接 4 条 Ana diff，`src/heroes/ana/aram.opy` 承接 `Has Nano` 与 `[Ana] Nano Boost Healing`。
-  - `src/heroes/brigitte/aram-05-rally-and-slam.opy` 承接 2 条 Brigitte diff，`src/heroes/brigitte/aram.opy` 承接 Rally 速度增益。
-  - `src/heroes/freja/aram.opy` 从空壳扩展为 5 条 Freja diff 的本地 overlay 归属层。
-  - `src/heroes/kiriko/aram-05-support-suite.opy` 与 `aram-10-headshot-damage.opy` 承接 5 条 Kiriko diff。
-  - `src/heroes/reinhardt/aram-05-combat-suite.opy` 与 `src/heroes/reinhardt/aram.opy` 承接 6 条 Reinhardt diff。
-  - `src/aram_overrides.opy` 对这 24 条规则改为原位 `#!include "heroes/<hero>/aram*.opy"`，保留现有装配顺序；`[Ana] Biotic Grenade Hit for allies` 与两条 `[Ana] Nano Boost` ARAM-only 规则继续内联保留。
-- 指标目标：
-  - `src/aram_overrides.opy diff: 64 -> 40`
-  - `src/heroes/*/aram*.opy diff: 45 -> 69`
-  - `exact = 0`
-  - `unwhitelisted exact/diff = 0/0`
-- 验证报告：
   - `docs/reports/aram-shared-wave-h5-next5-diff-localization-2026-03-06.md`
 
-## Current Iteration (H4 Wave-2: Full Initialize Convergence)
+## Latest Completed Iteration (H5 Wave-N+4: Hazard/Juno/Orisa/Sigma Diff Localization)
 
+- 波次范围：
+  - 将 `hazard/juno/orisa/sigma` 的剩余高密度 hero-local `same_name_diff` 从 `src/aram_overrides.opy` 回收到英雄本地 overlay
 - 变更动作：
-  - `src/aram_overrides.opy` 的 hero_init 段改为 Main 顺序 `#!include "heroes/<hero>/init.opy"`（每英雄一次）。
-  - 删除 ARAM 内联 Detect/Initialize 规则体；删除 `def clearCustomHp()/def applyCustomHp()` 覆盖实现。
-  - Ramattra 4 条原 `custom_hp_pvar[0] + 50` 条件改为 `getMaxHealthOfType(Health.NORMAL) + 50` 推导。
-  - `src/aramMain.opy` 增加 `utilities/apply_custom_hp.opy` 与 `utilities/clear_custom_hp.opy` include，复用主线 utilities。
-  - `src/aram_protocol.opy` 追加 `BotHeroArray` 声明以兼容 Main `ana/init.opy` 依赖。
-  - 白名单删除全部 `source_module=src/heroes/*/init.opy` 旧项。
+  - `src/heroes/hazard/aram-05-spike-guard-suite.opy` 承接 2 条 Hazard Spike Guard diff。
+  - `src/heroes/juno/aram-05-orbital-and-pulsar-heal.opy` 承接 2 条 Juno diff。
+  - `src/heroes/orisa/aram-05-fortify-armor.opy` 与 `aram-10-control-suite.opy` 承接 Orisa 早段与中段 diff。
+  - `src/heroes/sigma/aram-05-hyperspheres-suite.opy` 承接 3 条 Sigma diff。
+  - `src/aram_overrides.opy` 对本波目标规则全部改为原位 `#!include "heroes/<hero>/aram*.opy"`；`[Juno]: Pulsar Torpedoes` 继续内联保留，因为它不是当前 `same_name_diff` 归位目标。
 - 指标结果：
-  - `total: 164`
-  - `exact: 11`
-  - `diff: 106`
-  - `unique: 47`
-  - `unwhitelisted exact/diff: 0/0`
-  - `candidates: 0`
+  - `src/aram_overrides.opy diff: 40 -> 30`
+  - `src/heroes/*/aram*.opy diff: 69 -> 79`
+  - `exact = 0`
+  - `unwhitelisted exact/diff = 0/0`
 - 验证报告：
-  - `docs/reports/aram-shared-wave-h4-init-full-convergence-2026-03-06.md`
-
-## Current Iteration (H4 Wave-3: Hero Overlay First Exact Cleanup)
-
-- 波次范围：清理 10 条 hero `rule_exact_duplicate`（`doomfist/hazard/juno/mauga/orisa/sigma/kiriko/wuyang`）。
-- 变更动作：
-  - 新增 10 个共享叶子：`src/heroes/<hero>/shared/*.opy`，承载本波 exact 规则本体。
-  - `src/heroes/<hero>/rules.opy` 原位改为 include shared 叶子，保持 Main 顺序不变。
-  - `src/heroes/<hero>/aram.opy` 从空壳切换为 include 对应 shared 叶子。
-  - `src/aram_overrides.opy` 用 `#!include "heroes/<hero>/aram.opy"` 替换 7 条单英雄 exact；Wuyang 采用单点 include 并删除 3 条内联 exact。
-  - 白名单删除 10 条已迁移 `rule_exact_duplicate`，仅保留 bootstrap exact（`[utilities/reset]: setup var when player joins lobby`）。
-  - `check_aram_overrides_duplicates.sh` 将 overlay 门禁范围从 6 英雄 pilot 扩展到 `src/heroes/*/aram*.opy` 全量。
-- 指标结果：
-  - `total: 154`
-  - `exact: 1`
-  - `diff: 106`
-  - `unique: 47`
-  - `unwhitelisted exact/diff: 0/0`
-  - `candidates: 0`
-- 验证报告：
-  - `docs/reports/aram-shared-wave-h4-hero-exact-overlay-2026-03-06.md`
+  - `docs/reports/aram-shared-wave-h5-next4-hjos-diff-localization-2026-03-06.md`
 
 ## Next Steps
 
-1. H5：继续处理 `hazard/juno/orisa/sigma/soldier_76` 等剩余高密度 hero-local `same_name_diff`，优先把 `src/aram_overrides.opy` 的内联规则体迁回英雄 overlay。
-2. H5：在 hero-local diff 继续归位后，再评估 `ana` 残留 ARAM-only 规则与少量共享机会，避免过早做 diff 消项。
-3. H6：在 `src/aram_overrides.opy` 基本完成薄层化后，再推进剩余 `same_name_diff` 的结构收敛。
+1. H5：继续处理 `ashe/baptiste/illari/junkrat/moira/roadhog/sojourn` 等剩余低到中密度 hero-local `same_name_diff`，优先把 `src/aram_overrides.opy` 的内联规则体迁回英雄 overlay。
+2. H5：单英雄 diff 基本归位后，再评估 `ana` 残留 ARAM-only 规则、`juno` 的非 diff ARAM-only 规则和少量共享机会，避免过早做 diff 消项。
+3. H6：在 `src/aram_overrides.opy` 基本完成薄层化后，再推进剩余系统级 `same_name_diff` 的结构收敛。
