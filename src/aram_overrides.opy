@@ -417,37 +417,9 @@ rule "[Cassdy] Peacekeeper Alt Fire":
 
 #!include "heroes/cassidy/shared/30-alt-fire-reload.opy"
 
-rule "[Sojourn] Overclock Buff":
-    @Event eachPlayer
-    @Hero sojourn
-    @Condition eventPlayer.isUsingUltimate() == true
-    
-    SojournBuff[0] += 0.05
-    waitUntil(not eventPlayer.isUsingUltimate(), 10)
-    SojournBuff[0] -= 0.05
+#!include "heroes/sojourn/aram.opy"
 
-rule "[Sojourn] Execution players less 10% HP expectancy":
-    @Event playerDealtDamage
-    @Hero sojourn
-    @Condition SojournBuff[0] != 0
-    @Condition (eventAbility == Button.SECONDARY_FIRE or eventAbility == Button.ULTIMATE) == true
-    @Condition victim.zarya_buff[1] == null
-    @Condition (victim.hasStatus(Status.INVINCIBLE) or victim.hasStatus(Status.UNKILLABLE) or victim.hasStatus(Status.PHASED_OUT)) == false
-    @Condition victim.has_nano != true
-    @Condition victim.getHealth() <= SojournBuff[0] * victim.getMaxHealth()
-    
-    damage(victim, attacker, SojournBuff[1])
-
-rule "[Ashe]: headshot damage":
-    @Event playerDealtDamage
-    @Hero ashe
-    @Condition HeadshotDamage[1] > 1
-    @Condition eventWasCriticalHit == true
-    @Condition eventAbility != Button.ABILITY_1
-    @Condition eventAbility != Button.ABILITY_2
-    @Condition eventAbility != Button.ULTIMATE
-    
-    damage(victim, attacker, ceil((eventDamage * (HeadshotDamage[1] - 2)) / 2))
+#!include "heroes/ashe/aram.opy"
 
 rule "[Zenyatta]: headshot damage":
     @Event playerDealtDamage
@@ -460,25 +432,9 @@ rule "[Zenyatta]: headshot damage":
     
     damage(victim, attacker, ceil((eventDamage * (HeadshotDamage[0] - 2)) / 2))
 
-rule "[Baptiste]: headshot damage":
-    @Event playerDealtDamage
-    @Hero baptiste
-    @Condition HeadshotDamage[4] > 1
-    @Condition eventWasCriticalHit == true
-    @Condition eventAbility == Button.PRIMARY_FIRE
-    
-    damage(victim, attacker, ceil((eventDamage * (HeadshotDamage[4] - 2)) / 2))
+#!include "heroes/baptiste/aram.opy"
 
 #!include "heroes/kiriko/aram-10-headshot-damage.opy"
-
-rule "[Baptiste]: Immortality Field":
-    @Event eachPlayer
-    @Condition eventPlayer.hasStatus(Status.UNKILLABLE) == true
-    @Condition eventPlayer.reset_pvar[12].getAbilityCooldown(Button.ABILITY_2) > 0
-    
-    #heal(eventPlayer, eventPlayer.reset_pvar[12], 50)
-    eventPlayer.startHealingOverTime(eventPlayer.reset_pvar[12], 5, 50 if eventPlayer.getTeam() == Team.1 else 25)
-    wait(8)
 
 rule "[Mauga]: Cage Fight heal":
     @Event eachPlayer
@@ -498,29 +454,7 @@ rule "[Mauga]: Cage Fight heal":
 
 #!include "heroes/orisa/aram.opy"
 
-rule "[Illari]: Captive Sun HUD":
-    @Event eachPlayer
-    @Hero illari
-    @Condition eventPlayer.isUsingUltimate() == true
-    
-    eventPlayer.hudText = "最大生命值伤害：{0}%".format(((len([player for player in getLivingPlayers(eventPlayer.getTeam()) if isInLoS(eventPlayer, player) and distance(eventPlayer, player) <= 10 and player != eventPlayer])) * IllariBuff) * 100)
-    #hudText(eventPlayer, null, "\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r", "最大生命值伤害：{0}%".format((len([player for player in getLivingPlayers(eventPlayer.getTeam()) if isInLoS(eventPlayer, player) and distance(eventPlayer, player) <= 10 and player != eventPlayer])) * IllariBuff), HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
-    #eventPlayer.heart_steel[4] = getLastCreatedText()
-    waitUntil(not eventPlayer.isUsingUltimate(), 8)
-    wait(0.98)
-    destroyEffect(eventPlayer.heart_steel[3])
-    #destroyHudText(eventPlayer.heart_steel[4])
-    eventPlayer.hudText = ""
-    eventPlayer.heart_steel[3] = 0
-    eventPlayer.heart_steel[4] = 0
-
-rule "[Illari] Captive Sun":
-    @Event playerDealtDamage
-    @Hero illari
-    @Condition eventAbility == Button.ULTIMATE
-    @Condition eventDamage > 5
-    
-    damage(victim, attacker, IllariBuff / 100 * len(getPlayersInRadius(eventPlayer, 10, eventPlayer.getTeam(), LosCheck.SURFACES)) * victim.getMaxHealth())
+#!include "heroes/illari/aram.opy"
 
 rule "[Zenyatta] remove Snap Kick hp":
     @Event eachPlayer
@@ -778,17 +712,7 @@ rule "[Mauga]: fly":
 
 #!include "heroes/reaper/aram.opy"
 
-rule "[Moira]: Fade disable on Coalescence":
-    @Event eachPlayer
-    @Hero moira
-    @Condition eventPlayer.isUsingUltimate() == true
-    @Disabled
-    
-    eventPlayer.setAbility1Enabled(false)
-    eventPlayer.disallowButton(Button.ABILITY_1)
-    waitUntil(not eventPlayer.isUsingUltimate(), 9)
-    eventPlayer.allowButton(Button.ABILITY_1)
-    eventPlayer.setAbility1Enabled(true)
+#!include "heroes/moira/aram.opy"
 
 rule "[Moira]: kill enemy":
     @Event playerEarnedElimination
@@ -835,18 +759,7 @@ rule "[Junkrat]: Steel Trap bleed":
     stopDamageOverTime(eventPlayer.junkrat_buff)
     eventPlayer.junkrat_buff = null
 
-rule "[Junkrat]: arsonist":
-    @Event playerDealtDamage
-    @Hero junkrat
-    #@Condition victim.hasStatus(Status.BURNING) == false
-    @Condition eventAbility != Button.MELEE
-    
-    victim.setStatusEffect(attacker, Status.BURNING, 3)
-    if victim.hasStatus(Status.BURNING) != true:
-        goto lbl_0
-    damage(victim, attacker, victim.getHealth() * 0.1)
-    lbl_0:
-    wait(1)
+#!include "heroes/junkrat/aram.opy"
 
 #!include "heroes/juno/aram.opy"
 
@@ -902,37 +815,7 @@ rule "[Roadhog]: Hogdrogen Exposure":
     heal(healee, healer, 50)
     wait(0.5)
 
-rule "[Roadhog]: Breather":
-    @Event eachPlayer
-    @Team 1
-    @Hero roadhog
-    @Condition eventPlayer.isFiringSecondaryFire() == true
-    
-    heal(getLivingPlayers(eventPlayer.getTeam()), eventPlayer, 70)
-    wait(0.65)
-    if ruleCondition:
-        loop()
-
-rule "[Roadhog]: Breather":
-    @Event eachPlayer
-    @Hero roadhog
-    @Condition eventPlayer.isFiringSecondaryFire() != true
-    @Condition eventPlayer.getAbilityResource(Button.SECONDARY_FIRE) <= 50
-    
-    wait(0.54)
-    eventPlayer.setAbilityResource(Button.SECONDARY_FIRE, 50)
-    wait(1.25)
-
-rule "[Roadhog]: Breather":
-    @Event eachPlayer
-    @Hero roadhog
-    @Condition eventPlayer.isFiringSecondaryFire() == true
-    
-    eventPlayer.mov_speed_buff += 75
-    eventPlayer.setMoveSpeed(100 + eventPlayer.mov_speed_buff - eventPlayer.mov_speed_penalty)
-    waitUntil(not eventPlayer.isFiringSecondaryFire(), 15)
-    eventPlayer.setMoveSpeed(100)
-    eventPlayer.mov_speed_buff = 0
+#!include "heroes/roadhog/aram.opy"
 
 rule "[Roadhog]: Chain Hook return cd":
     @Event playerDealtDamage

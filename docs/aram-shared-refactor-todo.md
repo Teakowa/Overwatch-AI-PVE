@@ -37,8 +37,8 @@
 ## Current Gate Baseline
 
 - 当前 duplicate 基线：
-  - `src/aram_overrides.opy exact/diff/unique = 0/30/45`
-  - `src/heroes/*/aram*.opy exact/diff/unique = 28/79/2`
+  - `src/aram_overrides.opy exact/diff/unique = 0/18/45`
+  - `src/heroes/*/aram*.opy exact/diff/unique = 28/91/2`
   - `unwhitelisted aram/overlay exact-diff = 0/0, 0/0`
 - H5 当前关注点：
   - `src/aram_overrides.opy` 继续薄层化
@@ -54,6 +54,7 @@
 
 ## Iteration Log
 
+- 2026-03-06: 完成 H5 Wave-N+5（remaining mid-density hero-local diff localization）。`ashe/baptiste/illari/junkrat/moira/roadhog/sojourn` 共 12 条 ARAM diff 从 `src/aram_overrides.opy` 回收到 `src/heroes/<hero>/aram.opy`。
 - 2026-03-06: 完成 H5 Wave-N+4（hazard/juno/orisa/sigma diff localization）。4 组高密度 hero-local ARAM diff 从 `src/aram_overrides.opy` 回收到 `src/heroes/<hero>/aram*.opy`，`src/aram_overrides.opy diff: 40 -> 30`。
 - 2026-03-06: 完成 H5 Wave-N+3（next-5 same_name_diff localization）。`ana/brigitte/freja/kiriko/reinhardt` 共 24 条 ARAM diff 从 `src/aram_overrides.opy` 内联规则体回收到 `src/heroes/<hero>/aram*.opy`。
 - 2026-03-06: 完成 H5 Wave-N+2（next-4 same_name_diff localization）。`doomfist/mauga/reaper/wuyang` 共 26 条 ARAM diff 从 `src/aram_overrides.opy` 内联规则体回收到 `src/heroes/<hero>/aram*.opy`。
@@ -77,27 +78,31 @@
   - `docs/reports/aram-shared-wave-h5-top5-diff-localization-2026-03-06.md`
   - `docs/reports/aram-shared-wave-h5-next4-diff-localization-2026-03-06.md`
   - `docs/reports/aram-shared-wave-h5-next5-diff-localization-2026-03-06.md`
+  - `docs/reports/aram-shared-wave-h5-next4-hjos-diff-localization-2026-03-06.md`
 
-## Latest Completed Iteration (H5 Wave-N+4: Hazard/Juno/Orisa/Sigma Diff Localization)
+## Latest Completed Iteration (H5 Wave-N+5: Remaining Mid-Density Hero-Local Diff Localization)
 
 - 波次范围：
-  - 将 `hazard/juno/orisa/sigma` 的剩余高密度 hero-local `same_name_diff` 从 `src/aram_overrides.opy` 回收到英雄本地 overlay
+  - 将 `ashe/baptiste/illari/junkrat/moira/roadhog/sojourn` 的剩余中密度 hero-local `same_name_diff` 从 `src/aram_overrides.opy` 回收到英雄本地 overlay
 - 变更动作：
-  - `src/heroes/hazard/aram-05-spike-guard-suite.opy` 承接 2 条 Hazard Spike Guard diff。
-  - `src/heroes/juno/aram-05-orbital-and-pulsar-heal.opy` 承接 2 条 Juno diff。
-  - `src/heroes/orisa/aram-05-fortify-armor.opy` 与 `aram-10-control-suite.opy` 承接 Orisa 早段与中段 diff。
-  - `src/heroes/sigma/aram-05-hyperspheres-suite.opy` 承接 3 条 Sigma diff。
-  - `src/aram_overrides.opy` 对本波目标规则全部改为原位 `#!include "heroes/<hero>/aram*.opy"`；`[Juno]: Pulsar Torpedoes` 继续内联保留，因为它不是当前 `same_name_diff` 归位目标。
+  - `src/heroes/sojourn/aram.opy` 承接 2 条 Sojourn diff。
+  - `src/heroes/ashe/aram.opy` 承接 1 条 Ashe diff。
+  - `src/heroes/baptiste/aram.opy` 承接 2 条 Baptiste diff。
+  - `src/heroes/illari/aram.opy` 承接 2 条 Illari diff。
+  - `src/heroes/junkrat/aram.opy` 承接 1 条 Junkrat diff。
+  - `src/heroes/moira/aram.opy` 承接 1 条 Moira diff。
+  - `src/heroes/roadhog/aram.opy` 承接 3 条 Roadhog diff。
+  - `src/aram_overrides.opy` 对本波目标规则全部改为原位 `#!include "heroes/<hero>/aram.opy"`；其他非 diff ARAM-only 规则继续内联保留。
 - 指标结果：
-  - `src/aram_overrides.opy diff: 40 -> 30`
-  - `src/heroes/*/aram*.opy diff: 69 -> 79`
+  - `src/aram_overrides.opy diff: 30 -> 18`
+  - `src/heroes/*/aram*.opy diff: 79 -> 91`
   - `exact = 0`
   - `unwhitelisted exact/diff = 0/0`
 - 验证报告：
-  - `docs/reports/aram-shared-wave-h5-next4-hjos-diff-localization-2026-03-06.md`
+  - `docs/reports/aram-shared-wave-h5-next7-mid-density-diff-localization-2026-03-06.md`
 
 ## Next Steps
 
-1. H5：继续处理 `ashe/baptiste/illari/junkrat/moira/roadhog/sojourn` 等剩余低到中密度 hero-local `same_name_diff`，优先把 `src/aram_overrides.opy` 的内联规则体迁回英雄 overlay。
-2. H5：单英雄 diff 基本归位后，再评估 `ana` 残留 ARAM-only 规则、`juno` 的非 diff ARAM-only 规则和少量共享机会，避免过早做 diff 消项。
-3. H6：在 `src/aram_overrides.opy` 基本完成薄层化后，再推进剩余系统级 `same_name_diff` 的结构收敛。
+1. H5：继续处理剩余零散 hero-local `same_name_diff` 与少量 bootstrap/system diff，优先把 `src/aram_overrides.opy` 中仍可安全归位的内联规则体迁回英雄 overlay。
+2. H5：在 hero-local diff 基本归位后，再评估 `ana`、`juno` 以及其他少量 ARAM-only 规则是否值得进一步共享叶子化，而不是直接做 diff 消项。
+3. H6：在 `src/aram_overrides.opy` 继续收缩到稳定薄层后，再推进系统级 `same_name_diff` 的结构收敛。
