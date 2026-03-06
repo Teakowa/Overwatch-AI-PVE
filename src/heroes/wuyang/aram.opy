@@ -1,7 +1,7 @@
 # wuyang aram-mode overlay
-#!include "20-xuanwu-cd.opy"
-#!include "50-rushing-torrent.opy"
-#!include "70-ebb-and-flow-lost-control.opy"
+#!include "xuanwu-cd.opy"
+#!include "rushing-torrent.opy"
+#!include "ebb-and-flow-lost-control.opy"
 rule "[Wuyang]: Ebb and Flow Ability":
     @Event eachPlayer
     @Condition eventPlayer.wuyang_buff[2] >= 2

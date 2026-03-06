@@ -1,5 +1,5 @@
-#!include "10-grappling-claw-cd-reset.opy"
-#!include "20-disable-adaptive-shield-for-allies.opy"
+#!include "grappling-claw-cd-reset.opy"
+#!include "disable-adaptive-shield-for-allies.opy"
 rule "[Wrecking Ball]: ctrl 0cd":
     @Event playerDealtKnockback
     @Hero wreckingBall

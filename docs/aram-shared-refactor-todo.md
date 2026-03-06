@@ -56,6 +56,7 @@
 
 ## Iteration Log
 
+- 2026-03-06: 完成 H6 Wave-10（remaining hero leaf naming cleanup, no extra reports）。收掉剩余 `wrecking_ball/sombra/kiriko/widowmaker/wuyang` 数字前缀叶子；至此 `src/heroes/**` 中历史遗留、但不承担排序职责的数字前缀 hero 叶子已全部改为语义命名。
 - 2026-03-06: 完成 H6 Wave-9（hazard/doomfist/mercy naming cleanup, no extra reports）。继续把 `hazard/doomfist/mercy` 的 ARAM 拆分文件改成纯语义命名，并将这 3 个英雄仍由 Main/ARAM 复用的技能文件一并去掉数字前缀；仅对齐 include 引用，不改规则体。
 - 2026-03-06: 完成 H6 Wave-8（aram-only offense naming cleanup, no extra reports）。继续把 `ashe/junkrat/moira/roadhog/soldier76` 的 ARAM-only 拆分文件改成纯语义命名；本波仅改 `src/aram_overrides.opy` 的装配引用，不触碰 Main 侧规则。
 - 2026-03-06: 完成 H6 Wave-7（control/support naming cleanup, no extra reports）。继续把 `orisa/sigma/zarya/zenyatta` 的 ARAM 拆分文件改成纯语义命名，并将这 4 个英雄仍由 Main/ARAM 共用的技能文件一并去掉数字前缀；仅对齐 include 引用，不改装配顺序。
@@ -95,16 +96,16 @@
   - `docs/reports/aram-shared-wave-h5-next4-hjos-diff-localization-2026-03-06.md`
   - `docs/reports/aram-shared-wave-h5-next7-mid-density-diff-localization-2026-03-06.md`
 
-## Latest Completed Iteration (H6 Wave-9: Hazard/Doomfist/Mercy Naming Cleanup)
+## Latest Completed Iteration (H6 Wave-10: Remaining Hero Leaf Naming Cleanup)
 
 - 波次范围：
-  - 将 `hazard/doomfist/mercy` 的 ARAM 拆分文件改为纯语义命名
-  - 将这 3 个英雄仍由 Main/ARAM 复用的技能文件也改为纯语义命名
+  - 将 `wrecking_ball/sombra/kiriko/widowmaker/wuyang` 的剩余数字前缀 hero 叶子全部改为纯语义命名
+  - 同步收掉这些英雄在 Main/ARAM 侧的共享技能叶子旧命名引用
   - 保持 include 顺序不变，只清理命名
   - 本波不新增 report，仅更新主 TODO
 - 变更动作：
-  - `src/aram_overrides.opy` 改为引用新的 `hazard/doomfist/mercy` 语义文件名。
-  - `hazard/rules.opy`、`hazard/aram.opy`、`doomfist/rules.opy`、`doomfist/aram.opy`、`mercy/rules.opy` 同步对齐新的语义文件名。
+  - `src/aram_overrides.opy` 改为引用新的 `wrecking_ball/sombra` 语义文件名。
+  - `wrecking_ball/rules.opy`、`sombra/rules.opy`、`kiriko/rules.opy`、`kiriko/aram.opy`、`widowmaker/aram.opy`、`widowmaker/falloff.opy`、`wuyang/rules.opy`、`wuyang/aram.opy` 同步对齐新的语义文件名。
   - 不改规则体，不改 ARAM 装配顺序，也不改 whitelist 决策。
 - 指标结果：
   - `src/aram_overrides.opy exact/diff/unique` 维持 `0/0/0`
@@ -118,5 +119,5 @@
 
 1. H6：针对 `src/heroes/**/aram*.opy` 与 `src/modules/**/aram*.opy` 中的 active overlay diff，继续评估哪些值得抽到英雄自有同级技能/特效拆分文件，哪些保留为 mode-only 行为更合适。
 2. H6：逐步收缩 overlay debt，同时保持 `src/aram_overrides.opy` 作为纯 assembly 文件，不再回流规则体或本地 helper。
-3. H6：继续把历史上带数字前缀、实则不承担排序职责的 ARAM 拆分文件改成语义命名；命名调整仅在触达相关文件时分批进行。
+3. H6：既然 hero 叶子命名已基本收口，后续重心转向 active overlay diff 的归属评估与必要的同级技能叶子抽取。
 4. H6：在 overlay 结构稳定后，再统一清理 `docs/reports/` 的历史归档密度与 TODO 文案。
