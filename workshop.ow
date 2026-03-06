@@ -1010,8 +1010,6 @@
         55: dmg_amplification
         56: dmg_decrease
         57: dmg_reduction
-        58: overhealth_decay
-        59: storedOverhealth
         60: hazard_using_ability_sec
         61: rein_health_id
         62: vendetta_hud
@@ -1036,7 +1034,6 @@
     9: changelogText
     10: resetHero
     11: removeTankPassive
-    12: storeOverhealth
     13: botAim2Target
     14: applySignedMoveSpeed
     15: clearMoveSpeedDebuffs
@@ -1433,40 +1430,6 @@
     }
 }
 
-禁用 规则 ("[utilities/overhealth]: Decay Overhealth") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        全部;
-    }
-    条件 {
-        (事件玩家).overhealth_decay == 真;
-        减(减(减(最大生命值(事件玩家), 类型的最大生命值(事件玩家, 生命值)), 类型的最大生命值(事件玩家, 护甲)), 类型的最大生命值(事件玩家, 护盾)) > 0;
-    }
-    动作 {
-        等待(5, 当为“真”时重新开始);
-        调用子程序(storeOverhealth);
-        "While has OH"
-        While(比较(减(减(减(最大生命值(事件玩家), 类型的最大生命值(事件玩家, 生命值)), 类型的最大生命值(事件玩家, 护甲)), 类型的最大生命值(事件玩家, 护盾)), >, 0));
-            根据条件循环(比较(减(减(减(最大生命值(事件玩家), 类型的最大生命值(事件玩家, 生命值)), 类型的最大生命值(事件玩家, 护甲)), 类型的最大生命值(事件玩家, 护盾)), >, 首个((事件玩家).storedOverhealth)));
-            "If not full HP, replace current OH with current OH - 1"
-            If(比较(生命值(事件玩家), <, 最大生命值(事件玩家)));
-                在索引处设置玩家变量(事件玩家, storedOverhealth, 1, 减(生命值(事件玩家), 首个((事件玩家).storedOverhealth)));
-                If(比较(生命值(事件玩家), >, 数组中的值((事件玩家).storedOverhealth, 1)));
-                    设置玩家生命值(事件玩家, 数组中的值((事件玩家).storedOverhealth, 1));
-                End;
-                在索引处修改玩家变量(事件玩家, storedOverhealth, 0, 减, 1);
-                根据条件中止(比较(首个((事件玩家).storedOverhealth), <, 1));
-                为玩家添加生命池(事件玩家, 生命值, 首个((事件玩家).storedOverhealth), 假, 假);
-            Else;
-                设置玩家生命值(事件玩家, 减(生命值(事件玩家), 1));
-                调用子程序(storeOverhealth);
-            End;
-            等待(0.12, 无视条件);
-        End;
-    }
-}
-
 规则 ("[Zenyatta] Sub Knockback") {
     事件 {
         子程序;
@@ -1783,16 +1746,6 @@
         调用子程序(enableAllAbilities);
         "wait at least 1 tick"
         等待(0.016, 无视条件);
-    }
-}
-
-规则 ("[utilities/overhealth]: Store Overhealth") {
-    事件 {
-        子程序;
-        storeOverhealth;
-    }
-    动作 {
-        在索引处设置玩家变量(事件玩家, storedOverhealth, 0, 减(减(减(最大生命值(事件玩家), 类型的最大生命值(事件玩家, 生命值)), 类型的最大生命值(事件玩家, 护甲)), 类型的最大生命值(事件玩家, 护盾)));
     }
 }
 

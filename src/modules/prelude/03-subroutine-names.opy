@@ -12,7 +12,6 @@ subroutine disableAllAbilities 8
 subroutine changelogText 9
 subroutine resetHero 10
 subroutine removeTankPassive 11
-subroutine storeOverhealth 12
 subroutine botAim2Target 13
-
-
+subroutine applySignedMoveSpeed 14
+subroutine clearMoveSpeedDebuffs 15

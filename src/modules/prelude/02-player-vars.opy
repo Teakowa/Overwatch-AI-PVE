@@ -54,8 +54,6 @@ playervar healing_decrease 54
 playervar dmg_amplification 55
 playervar dmg_decrease 56
 playervar dmg_reduction 57
-playervar overhealth_decay 58
-playervar storedOverhealth 59
 playervar hazard_using_ability_sec 60
 playervar rein_health_id 61
 playervar vendetta_hud 62

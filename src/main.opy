@@ -33,7 +33,6 @@
 #!include "utilities/changelog_text.opy"
 #!include "utilities/reset_hero.opy"
 #!include "utilities/remove_tank_passive.opy"
-#!include "utilities/store_overhealth.opy"
 #!include "utilities/bot_aim2target.opy"
 
 # AI core logic

@@ -10,5 +10,4 @@
 #!include "changelog_text.opy"
 #!include "reset_hero.opy"
 #!include "remove_tank_passive.opy"
-#!include "store_overhealth.opy"
 #!include "bot_aim2target.opy"

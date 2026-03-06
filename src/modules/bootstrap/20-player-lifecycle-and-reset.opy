@@ -70,32 +70,3 @@ rule "[utilities/hero_setup.opy]: Reset and initialize hero on hero switch":
     destroyHudText(eventPlayer.ChangelogText2)
     resetHero()
     logToInspector("called reset hero")
-
-
-rule "[utilities/overhealth]: Decay Overhealth":
-    @Event eachPlayer
-    @Condition eventPlayer.overhealth_decay == true
-    @Condition eventPlayer.getMaxHealth() - eventPlayer.getMaxHealthOfType(Health.NORMAL) - eventPlayer.getMaxHealthOfType(Health.ARMOR) - eventPlayer.getMaxHealthOfType(Health.SHIELDS) > 0
-    @Disabled
-    
-    wait(5, Wait.RESTART_WHEN_TRUE)
-    storeOverhealth()
-    #While has OH
-    while eventPlayer.getMaxHealth() - eventPlayer.getMaxHealthOfType(Health.NORMAL) - eventPlayer.getMaxHealthOfType(Health.ARMOR) - eventPlayer.getMaxHealthOfType(Health.SHIELDS) > 0:
-        #If OH gained, delay again
-        if eventPlayer.getMaxHealth() - eventPlayer.getMaxHealthOfType(Health.NORMAL) - eventPlayer.getMaxHealthOfType(Health.ARMOR) - eventPlayer.getMaxHealthOfType(Health.SHIELDS) > eventPlayer.storedOverhealth[0]:
-            loop()
-        #If not full HP, replace current OH with current OH - 1
-        if eventPlayer.getHealth() < eventPlayer.getMaxHealth():
-            eventPlayer.storedOverhealth[1] = eventPlayer.getHealth() - eventPlayer.storedOverhealth[0]
-            if eventPlayer.getHealth() > eventPlayer.storedOverhealth[1]:
-                eventPlayer.setHealth(eventPlayer.storedOverhealth[1])
-            eventPlayer.storedOverhealth[0]--
-            if eventPlayer.storedOverhealth[0] < 1:
-                return
-            eventPlayer.addHealthPool(Health.NORMAL, eventPlayer.storedOverhealth[0], false, false)
-            #Else just subtract 1 from health
-        else:
-            eventPlayer.setHealth(eventPlayer.getHealth() - 1)
-            storeOverhealth()
-        wait(0.12)
