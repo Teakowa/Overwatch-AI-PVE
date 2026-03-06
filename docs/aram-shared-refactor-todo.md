@@ -34,7 +34,7 @@
 | H3 | 白名单/重复检查迁移 | done | `aram-delta-whitelist.tsv` 与 duplicates 输出路径切到 `src/heroes/**` |
 | H4 | ARAM overlay 按英雄迁移 | done | 单英雄 ARAM 差异已归位到 `src/heroes/<hero>/aram.opy` 或同级拆分文件，`exact=0` |
 | H5 | `aram_overrides` 薄层化与分段机制退役 | done | `aram_overrides_segments` 不再参与编译，`src/aram_overrides.opy` 不再承载 exact/same-name-diff，活跃差异已下沉到 hero/module overlays |
-| H6 | `aram_overrides.opy` 纯装配化 | in_progress | `src/aram_overrides.opy` 不再出现 `rule/def`，active duplicate debt 仅存在于 `src/**/aram*.opy` |
+| H6 | `aram_overrides.opy` 纯装配化 | done | `src/aram_overrides.opy` 不再出现 `rule/def`，active duplicate debt 仅存在于 `src/**/aram*.opy` |
 
 ## Current Gate Baseline
 
@@ -56,6 +56,7 @@
 
 ## Iteration Log
 
+- 2026-03-06: 完成 H6 Wave-F（closure review for retained overlays, no extra reports）。复核 `hazard/kiriko` 的 hero-local 保留项与 `src/modules/**/aram-*.opy` 的 active overlay 边界；结论是剩余规则均属于明确的 mode-only 或 exact-overlay 保留项，H6 退出条件满足，正式标记完成。
 - 2026-03-06: 完成 H6 Wave-E（mode-only residual assembly cleanup, no extra reports）。继续处理 `genji/junkrat/moira/sombra/vendetta/venture/widowmaker/wrecking_ball`，把仍停留在 `aram.opy` 的 mode-only 规则下沉到同级语义叶子；`kiriko` 的 payload bot 规则尝试拆分后会新增 hero overlay exact duplicate，因此和 `hazard` 一样保留在 `aram.opy` 原位。
 - 2026-03-06: 完成 H6 Wave-D（residual hero overlay cleanup, no extra reports）。继续处理 `ashe/baptiste/bastion/illari/lifeweaver/mei/sojourn/torbjorn/winston` 的低密度 residual `aram.opy`，将其收成纯 assembly 并补齐语义叶子；`hazard` 的 `Violent Leap` 套件在尝试拆分后会新增 hero overlay exact duplicate，因此按评估结果保留原位、不强拆。
 - 2026-03-06: 完成 H6 Wave-C（tank/fighter suite consolidation, no extra reports）。处理 `mauga/doomfist` 的剩余 `aram.opy` 内联套件，并复核 `ramattra` 当前 suite 边界；`ramattra` 因 `pain-endures/ult/block` 在 assembly 中并非连续段，暂维持现状并标记为已评估保留。
@@ -101,18 +102,17 @@
   - `docs/reports/aram-shared-wave-h5-next4-hjos-diff-localization-2026-03-06.md`
   - `docs/reports/aram-shared-wave-h5-next7-mid-density-diff-localization-2026-03-06.md`
 
-## Latest Completed Iteration (H6 Wave-E: Mode-Only Residual Assembly Cleanup)
+## Latest Completed Iteration (H6 Wave-F: Closure Review For Retained Overlays)
 
 - 波次范围：
-  - 处理 `genji/junkrat/moira/sombra/vendetta/venture/widowmaker/wrecking_ball` 的 residual `aram.opy`
-  - 复核 `kiriko` 的 payload bot 规则是否适合拆成同级语义叶子
-  - 保持 include 顺序不变，不改规则体
+  - 复核 `hazard/kiriko` 的 hero-local retained overlays
+  - 复核 `src/modules/bootstrap/*.opy` 与 `src/modules/debug/aram-20-changelog.opy` 的 active overlay 边界
+  - 确认 H6 exit criteria 是否已经满足
   - 本波不新增 report，仅更新主 TODO
 - 变更动作：
-  - `genji/junkrat/moira/sombra/vendetta/venture/widowmaker/wrecking_ball` 的残留 mode-only 规则从 `aram.opy` 内联体拆到同级语义叶子，原 `aram.opy` 回收为纯 include 装配。
-  - `kiriko` 评估后维持 `[Bot] PTP1/[Bot] ACC` 留在 `aram.opy`；原因是该组与 `rules.opy` 存在 exact overlay 关系，强拆会新增未白名单 duplicate debt。
-  - 前一波已确认的 `hazard` 保留策略继续成立，本波未改其结构。
-  - 不改规则体，不改 ARAM 装配顺序，也不改 whitelist 决策。
+  - 确认 `hazard` 的 `Violent Leap` 与 `kiriko` 的 payload bot 规则继续保留在 `aram.opy` 原位；原因都是与 `rules.opy` 存在 exact overlay 关系，继续强拆只会制造新的 whitelist debt。
+  - 确认 `src/modules/bootstrap/aram-00/10/15/20` 与 `src/modules/debug/aram-20-changelog.opy` 承担的是模式入口、玩家池、生命周期与 changelog 这类 module-owned mode-only 行为，不属于继续 hero-local 细拆的目标。
+  - 依据当前基线与 retained-overlay 评估结果，将 H6 从 `in_progress` 收口为 `done`。
 - 指标结果：
   - `src/aram_overrides.opy exact/diff/unique` 维持 `0/0/0`
   - active overlay 基线维持 `18/109/53`
@@ -123,7 +123,7 @@
 
 ## Next Steps
 
-1. H6：针对 `src/heroes/**/aram*.opy` 与 `src/modules/**/aram*.opy` 中的 active overlay diff，继续评估哪些值得抽到英雄自有同级技能/特效拆分文件，哪些保留为 mode-only 行为更合适。
-2. H6：逐步收缩 overlay debt，同时保持 `src/aram_overrides.opy` 作为纯 assembly 文件，不再回流规则体或本地 helper。
-3. H6：既然 hero 叶子命名已基本收口，后续重心转向 active overlay diff 的归属评估与必要的同级技能叶子抽取。
-4. H6：在 overlay 结构稳定后，再统一清理 `docs/reports/` 的历史归档密度与 TODO 文案。
+1. 后续若继续推进，应新开下一阶段，专门处理 `src/**/aram*.opy` 中仍保留的 active overlay diff，而不是再把它们归入 H6。
+2. `hazard/kiriko` 这两组 retained overlays 可以视作当前已确认的保留边界；若未来要继续拆分，应连同 whitelist 策略一起设计，不建议在 H6 范围内继续尝试。
+3. `src/modules/**/aram-*.opy` 当前维持 module-owned mode-only 设计，后续只在明确需要跨模块再归档或再分层时再动。
+4. overlay 结构已基本稳定，下一步更适合统一清理 `docs/reports/` 的历史归档密度与 TODO 文案，或开启新阶段的 overlay debt reduction 计划。
