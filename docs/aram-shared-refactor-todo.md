@@ -22,7 +22,8 @@
   - `src/aramMain.opy` 仅引入 `#!include "heroes/init.aram.opy"`（共享英雄段）。
 - 英雄目录规范：`src/heroes/<hero>/`
   - 必备：`init.opy`、`rules.opy`、`main.opy`、`aram.opy`
-  - 可选叶子：同级技能/特效文件（示例：`10-*.opy`、`falloff.opy`）；不再使用 `shared/` 目录承载可复用规则
+  - 可选拆分文件：同级技能/特效文件（示例：`falloff.opy`、`aram-headhunter.opy`）；不再使用 `shared/` 目录承载可复用规则
+  - 文件名只表达语义，不表达加载顺序；实际顺序只由 include 位置决定
 
 ## Tracking Board
 
@@ -31,7 +32,7 @@
 | H1 | heroes 单入口切换 | done | `main/aramMain` 均通过 `heroes/init.<mode>.opy` 装配英雄段 |
 | H2 | 工具链路径迁移 | done | `check_contracts`/`hero_pipeline`/`changelog_sync` 识别 `src/heroes/**` |
 | H3 | 白名单/重复检查迁移 | done | `aram-delta-whitelist.tsv` 与 duplicates 输出路径切到 `src/heroes/**` |
-| H4 | ARAM overlay 按英雄迁移 | done | 单英雄 ARAM 差异已归位到 `src/heroes/<hero>/aram.opy` 或同级叶子，`exact=0` |
+| H4 | ARAM overlay 按英雄迁移 | done | 单英雄 ARAM 差异已归位到 `src/heroes/<hero>/aram.opy` 或同级拆分文件，`exact=0` |
 | H5 | `aram_overrides` 薄层化与分段机制退役 | done | `aram_overrides_segments` 不再参与编译，`src/aram_overrides.opy` 不再承载 exact/same-name-diff，活跃差异已下沉到 hero/module overlays |
 | H6 | `aram_overrides.opy` 纯装配化 | in_progress | `src/aram_overrides.opy` 不再出现 `rule/def`，active duplicate debt 仅存在于 `src/**/aram*.opy` |
 
@@ -42,7 +43,7 @@
   - `src/**/aram*.opy active overlays exact/diff/unique = 18/109/46`
   - `unwhitelisted aram/overlay exact-diff = 0/0, 0/0`
 - H5 收口结果：
-  - `src/aram_overrides.opy` 已清空 duplicate debt，只保留 ARAM-only 规则与装配入口
+  - `src/aram_overrides.opy` 已清空 duplicate debt，当前只保留装配入口
   - 活跃 duplicate debt 已全部下沉到 `src/heroes/**/aram*.opy` 与 `src/modules/**/aram*.opy`
   - 后续工作转入 H6，重点是把 `src/aram_overrides.opy` 收成纯装配层，并继续评估 overlay 层共享化与归档
 - 常用门禁：
@@ -55,7 +56,8 @@
 
 ## Iteration Log
 
-- 2026-03-06: 完成 H6 Wave-2（hero-owned exact cleanup without hero `shared/` dirs, no extra reports）。将 `src/heroes/**/shared/*.opy` 全部回卷到英雄根目录的同级技能/特效叶子，并完成 `mercy/zenyatta/reinhardt/widowmaker` 10 条 hero-local exact overlay 的双侧复用与 whitelist 收缩。
+- 2026-03-06: 完成 H6 Wave-2（hero-owned exact cleanup without hero `shared/` dirs, no extra reports）。将 `src/heroes/**/shared/*.opy` 全部回卷到英雄根目录的同级技能/特效拆分文件，并完成 `mercy/zenyatta/reinhardt/widowmaker` 10 条 hero-local exact overlay 的双侧复用与 whitelist 收缩。
+- 2026-03-06: 完成 H6 Wave-3（naming cleanup start, no extra reports）。开始把 ARAM 拆分文件改成纯语义命名，避免用数字前缀表达加载顺序；本波先处理 `ana` 的 3 个 ARAM 拆分文件与 `freja` 的 `Revdraw Crossbow Stack` 文件，并同步修正文档用语。
 - 2026-03-06: 完成 H6 Wave-1（pure assembly cutover, no extra reports）。将 `src/aram_overrides.opy` 中剩余 bootstrap/player helper、hero-local ARAM-only 规则、hero init delimiter 与本地 `def` 全部迁回 `src/modules/**/aram-*.opy`、`src/heroes/**/aram-*.opy`、`src/utilities/*.opy`，并把 `src/aram_overrides.opy` 清成纯 `#!include` 装配层；本波不新增 report。
 - 2026-03-06: 完成 H5 Wave-N+8（system/bootstrap overlay extraction, no extra reports）。将 `init/settings`、`player ban/allowed heroes`、`player lifecycle/reset` 与 `changelog` 的 ARAM mode diff 从 `src/aram_overrides.opy` 抽到 `src/modules/**/aram-*.opy`，并扩展 duplicates 门禁扫描到活跃模块 overlays。H5 达成收口。
 - 2026-03-06: 完成 H5 Wave-N+7（thin-layer cleanup without extra reports）。修复 `Genji`/`Venture` 的原位装配残留，并将 `mei/bastion/juno/torbjorn/roadhog/winston/ashe/vendetta/widowmaker/soldier76` 的一批 ARAM-only hero-local 规则回收到 `src/heroes/<hero>/aram*.opy`；本波仅更新主 TODO，不新增 report。
@@ -87,20 +89,20 @@
   - `docs/reports/aram-shared-wave-h5-next4-hjos-diff-localization-2026-03-06.md`
   - `docs/reports/aram-shared-wave-h5-next7-mid-density-diff-localization-2026-03-06.md`
 
-## Latest Completed Iteration (H6 Wave-2: Hero-Owned Exact Cleanup Without Hero `shared/` Dirs)
+## Latest Completed Iteration (H6 Wave-3: Naming Cleanup Start)
 
 - 波次范围：
-  - 将 `src/heroes/**/shared/*.opy` 全部迁回英雄根目录的同级技能/特效叶子
-  - 将 `mercy/zenyatta/reinhardt/widowmaker` 的 10 条 hero-local exact overlay 改为 Main/ARAM 双侧复用同级叶子
-  - 同步缩减 whitelist 历史保留项
+  - 将 `ana` 的 `aram-05/10/20-*` 文件改为 `aram-*.opy` 纯语义命名
+  - 将 `freja/10-revdraw-crossbow-stack-primary-fire.opy` 改为 `freja/revdraw-crossbow-stack-primary-fire.opy`
+  - 统一 TODO 文案，移除旧术语，并明确文件名不承担顺序语义
   - 本波不新增 report，仅更新主 TODO
 - 变更动作：
-  - 原 `src/heroes/**/shared/*.opy` 文件整体回卷到 `src/heroes/<hero>/` 同级叶子，避免目录层级表达“共享”语义。
-  - `mercy/zenyatta/reinhardt/widowmaker` 的 `rules.opy` / `falloff.opy` 与 `aram.opy` 统一改为 include 同级技能/特效叶子。
-  - 删除 10 条已不再需要的 `rule_exact_duplicate` whitelist 记录。
+  - `src/aram_overrides.opy` 改为引用新的 `ana` / `freja` 语义文件名。
+  - `aram-delta-whitelist.tsv` 同步对齐 `freja` 的源文件路径。
+  - 文档规范改为“同级拆分文件”，并写明 include 位置才是加载顺序来源。
 - 指标结果：
   - `src/aram_overrides.opy exact/diff/unique` 维持 `0/0/0`
-  - `src/**/aram*.opy active overlays exact/diff/unique: 28/109/46 -> 18/109/46`
+  - active overlay duplicate 基线保持不变；本波只调整命名与文档，不改规则归属
   - `exact = 0`
   - `unwhitelisted exact/diff = 0/0`
 - 验证报告：
@@ -108,6 +110,7 @@
 
 ## Next Steps
 
-1. H6：针对 `src/heroes/**/aram*.opy` 与 `src/modules/**/aram*.opy` 中的 active overlay diff，继续评估哪些值得抽到英雄自有同级技能/特效叶子，哪些保留为 mode-only 行为更合适。
+1. H6：针对 `src/heroes/**/aram*.opy` 与 `src/modules/**/aram*.opy` 中的 active overlay diff，继续评估哪些值得抽到英雄自有同级技能/特效拆分文件，哪些保留为 mode-only 行为更合适。
 2. H6：逐步收缩 overlay debt，同时保持 `src/aram_overrides.opy` 作为纯 assembly 文件，不再回流规则体或本地 helper。
-3. H6：在 overlay 结构稳定后，再统一清理 `docs/reports/` 的历史归档密度与 TODO 文案。
+3. H6：继续把历史上带数字前缀、实则不承担排序职责的 ARAM 拆分文件改成语义命名；命名调整仅在触达相关文件时分批进行。
+4. H6：在 overlay 结构稳定后，再统一清理 `docs/reports/` 的历史归档密度与 TODO 文案。
