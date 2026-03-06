@@ -88,6 +88,7 @@
 
 ## Iteration Log
 
+- 2026-03-06: 完成 H5 Wave-N+3（next-5 same_name_diff localization）。`ana/brigitte/freja/kiriko/reinhardt` 共 24 条 ARAM diff 从 `src/aram_overrides.opy` 内联规则体回收到 `src/heroes/<hero>/aram*.opy`。
 - 2026-03-06: 完成 H5 Wave-N+2（next-4 same_name_diff localization）。`doomfist/mauga/reaper/wuyang` 共 26 条 ARAM diff 从 `src/aram_overrides.opy` 内联规则体回收到 `src/heroes/<hero>/aram*.opy`。
 - 2026-03-06: 完成 H5 Wave-N+1（top-5 same_name_diff localization）。`ramattra/sombra/tracer/zarya/wrecking_ball` 共 16 条 ARAM diff 从 `src/aram_overrides.opy` 内联规则体回收到 `src/heroes/<hero>/aram*.opy`。
 - 2026-03-06: 完成 H5 Wave-N（cross-hero exact cleanup + legacy directory retirement）。`aram_cross_hero_overrides.opy` 下线，4 组 cross-hero exact 回收到 hero-owned shared leaves；`src/aram_overrides_segments/` 整体删除。
@@ -172,6 +173,25 @@
 - 验证报告：
   - `docs/reports/aram-shared-wave-h5-next4-diff-localization-2026-03-06.md`
 
+## Current Iteration (H5 Wave-N+3: Next-5 Same-Name Diff Localization)
+
+- 波次范围：
+  - 将 `ana/brigitte/freja/kiriko/reinhardt` 的 24 条 `same_name_diff` 从 `src/aram_overrides.opy` 回收到英雄本地 overlay
+- 变更动作：
+  - `src/heroes/ana/aram-05-headhunter.opy` 与 `aram-10-sleep-tanks.opy` 承接 4 条 Ana diff，`src/heroes/ana/aram.opy` 承接 `Has Nano` 与 `[Ana] Nano Boost Healing`。
+  - `src/heroes/brigitte/aram-05-rally-and-slam.opy` 承接 2 条 Brigitte diff，`src/heroes/brigitte/aram.opy` 承接 Rally 速度增益。
+  - `src/heroes/freja/aram.opy` 从空壳扩展为 5 条 Freja diff 的本地 overlay 归属层。
+  - `src/heroes/kiriko/aram-05-support-suite.opy` 与 `aram-10-headshot-damage.opy` 承接 5 条 Kiriko diff。
+  - `src/heroes/reinhardt/aram-05-combat-suite.opy` 与 `src/heroes/reinhardt/aram.opy` 承接 6 条 Reinhardt diff。
+  - `src/aram_overrides.opy` 对这 24 条规则改为原位 `#!include "heroes/<hero>/aram*.opy"`，保留现有装配顺序；`[Ana] Biotic Grenade Hit for allies` 与两条 `[Ana] Nano Boost` ARAM-only 规则继续内联保留。
+- 指标目标：
+  - `src/aram_overrides.opy diff: 64 -> 40`
+  - `src/heroes/*/aram*.opy diff: 45 -> 69`
+  - `exact = 0`
+  - `unwhitelisted exact/diff = 0/0`
+- 验证报告：
+  - `docs/reports/aram-shared-wave-h5-next5-diff-localization-2026-03-06.md`
+
 ## Current Iteration (H4 Wave-2: Full Initialize Convergence)
 
 - 变更动作：
@@ -213,6 +233,6 @@
 
 ## Next Steps
 
-1. H5：继续处理 `ana/brigitte/freja/kiriko/reinhardt` 等剩余高密度 hero-local `same_name_diff`，优先把 `src/aram_overrides.opy` 的内联规则体迁回英雄 overlay。
-2. H5：在 hero-local diff 基本归位后，再评估哪些差异值得继续参数化或共享叶子化，而不是提前做 diff 消项。
+1. H5：继续处理 `hazard/juno/orisa/sigma/soldier_76` 等剩余高密度 hero-local `same_name_diff`，优先把 `src/aram_overrides.opy` 的内联规则体迁回英雄 overlay。
+2. H5：在 hero-local diff 继续归位后，再评估 `ana` 残留 ARAM-only 规则与少量共享机会，避免过早做 diff 消项。
 3. H6：在 `src/aram_overrides.opy` 基本完成薄层化后，再推进剩余 `same_name_diff` 的结构收敛。

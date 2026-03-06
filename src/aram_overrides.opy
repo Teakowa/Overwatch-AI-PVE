@@ -277,63 +277,6 @@ rule "[utilities/hero_setup.opy]: Reset and initialize hero on hero switch":
 #!include "modules/ai/control/32-control-tanks.opy"
 #!include "modules/ai/control/33-control-projectile-and-special.opy"
 
-rule "[Brigitte]: remove Rally provides permanent armor":
-    @Event eachPlayer
-    @Condition Brigitte[2] != 0
-    @Condition getPlayersOnHero(Hero.BRIGITTE, eventPlayer.getTeam())[0].isUsingUltimate() == true
-    
-    waitUntil(not eventPlayer.reset_pvar[1].isUsingUltimate() and eventPlayer.brig_rally_armor_id != [], 60)
-    wait(2)
-    removeHealthPool(eventPlayer.brig_rally_armor_id[0])
-    eventPlayer.brig_rally_armor_id.remove(eventPlayer.brig_rally_armor_id[0])
-    if len(eventPlayer.brig_rally_armor_id) != 0:
-        loop()
-    eventPlayer.brig_rally_armor_id = []
-    eventPlayer.dmg_reduction = 0
-    eventPlayer.hudText = ""
-    eventPlayer.setDamageReceived(100)
-    #if eventPlayer.getHero() != Hero.BRIGITTE:
-    #        goto lbl_0
-    #stopDamageModification(eventPlayer.brig_rally_dmg_redc[1])
-    #eventPlayer.brig_rally_dmg_redc[0] = 0
-    #eventPlayer.brig_rally_dmg_redc[1] = 0
-    lbl_0:
-
-rule "[Brigitte]Rally provides permanent armor to self":
-    @Event eachPlayer
-    @Hero brigitte
-    @Condition Brigitte[2] != 0
-    @Condition eventPlayer.isUsingUltimate() == true
-    @Condition len(eventPlayer.brig_rally_armor_id) < 9
-    @Condition getServerLoad() < ANTI_CRASH_DEACTIVATE_PERCENT
-    
-    #stopDamageModification(eventPlayer.brig_rally_dmg_redc[1])
-    eventPlayer.dmg_reduction += Brigitte[0]
-    eventPlayer.setDamageReceived(100 - eventPlayer.dmg_reduction)
-    eventPlayer.hudText = "受到伤害减免：{0}%".format(eventPlayer.dmg_reduction)
-    eventPlayer.addHealthPool(Health.ARMOR, Brigitte[2], false, false)
-    #eventPlayer.brig_rally_dmg_redc[0] += Brigitte[0]
-    eventPlayer.brig_rally_armor_id.append(getLastCreatedHealthPool())
-    #startDamageModification(eventPlayer, getPlayers(getOppositeTeam(eventPlayer.getTeam())), 100 - eventPlayer.brig_rally_dmg_redc[0], DamageReeval.RECEIVERS_AND_DAMAGERS)
-    #eventPlayer.brig_rally_dmg_redc[1] = getLastDamageModification()
-    wait(0.5)
-    if ruleCondition:
-        loop()
-
-rule "[Brigitte]Rally provides permanent armor to allies":
-    @Event eachPlayer
-    @Team 2
-    @Condition getPlayersOnHero(Hero.BRIGITTE, eventPlayer.getTeam()).isUsingUltimate() == true
-    @Condition distance(eventPlayer, getPlayersOnHero(Hero.BRIGITTE, eventPlayer.getTeam())) <= 8.5
-    @Condition eventPlayer.getHero() != Hero.BRIGITTE
-    @Condition len(eventPlayer.brig_rally_armor_id) < 9
-    @Condition getServerLoad() < ANTI_CRASH_DEACTIVATE_PERCENT
-    
-    eventPlayer.addHealthPool(Health.ARMOR, Brigitte[2], false, false)
-    eventPlayer.brig_rally_armor_id.append(getLastCreatedHealthPool())
-    wait(0.5)
-    if ruleCondition:
-        loop()
 
 rule "[Orisa]: Fortify provides 100 temporary armor":
     @Event eachPlayer
@@ -361,32 +304,9 @@ rule "[Orisa]: Fortify provides 100 temporary armor":
 
 #!include "heroes/mercy/aram.opy"
 
-rule "[Ana]: Headhunter":
-    @Event playerDealtDamage
-    @Team 2
-    @Hero ana
-    @Condition eventWasCriticalHit == true
-    @Disabled
-    
-    if eventPlayer.getNormalizedHealth() != 1:
-        eventPlayer.startHealingOverTime(eventPlayer, 0.625, ceil(eventDamage * 31.25 * 10))
-    else:
-        ([player for player in getLivingPlayers(eventPlayer.getTeam()) if isInLoS(eventPlayer, player, BarrierLos.BLOCKED_BY_ENEMY_BARRIERS) == true and player != eventPlayer]).startHealingOverTime(eventPlayer, 0.625, ceil(eventDamage * 31.25 * 10) / (len([player for player in getLivingPlayers(eventPlayer.getTeam()) if isInLoS(eventPlayer, player, BarrierLos.BLOCKED_BY_ENEMY_BARRIERS) == true and player != eventPlayer])))
-    wait(0.625)
+#!include "heroes/ana/aram-05-headhunter.opy"
 
 #!include "heroes/ana/aram.opy"
-
-rule "Has Nano":
-    @Event playerReceivedHealing
-    #This checks that the ability used to deal the healing is the ultimate.
-    @Condition eventAbility == Button.ULTIMATE
-    #This checks if the player who dealt the healing is Ana or an Echo duplicating an Ana.
-    @Condition healer.getHero() == Hero.ANA
-    @Condition eventPlayer.has_nano != true
-    
-    eventPlayer.has_nano = true
-    waitUntil(eventPlayer.isDead(), 8)
-    eventPlayer.has_nano = false
 
 rule "[Ana] Biotic Grenade Hit for allies":
     @Event playerDealtHealing
@@ -394,16 +314,6 @@ rule "[Ana] Biotic Grenade Hit for allies":
     @Condition eventAbility == Button.ABILITY_2
     
     healee.startHealingOverTime(healer, 3, healee.getMaxHealth() * Ana_GrenadeDamage[1])
-
-rule "[Ana] Nano Boost Healing":
-    @Event playerDealtHealing
-    @Hero ana
-    @Condition eventAbility == Button.ULTIMATE
-    @Condition healer.getHero() == Hero.ANA == true
-    @Condition eventPlayer.has_nano == true
-    
-    heal(healee, healer, 99999)
-    healee.startHealingOverTime(healer, 10, ceil(healee.getMaxHealth() * 0.2))
 
 rule "[Ana] Nano Boost ":
     @Event eachPlayer
@@ -431,91 +341,10 @@ rule "[Ana] Nano Boost ":
     eventPlayer.has_nano = false
     eventPlayer.hudText = ""
 
-rule "【布丽吉塔】盾击伤害调整":
-    @Event playerDealtDamage
-    @Hero brigitte
-    @Condition eventAbility == Button.PRIMARY_FIRE
-    @Condition attacker.isFiringSecondaryFire() == true
-    @Condition attacker.isUsingUltimate() != true
-    
-    victim.setStatusEffect(attacker, Status.STUNNED, 1.2)
-    if victim.zarya_buff[1] != null or victim.unaffected == true:
-        goto lbl_0
-    victim.brigitte_buff[0] = true
-    lbl_0:
-    victim.mov_speed_penalty += Brigitte[3]
-
-rule "[Brigitte]: speed":
-    @Event eachPlayer
-    @Condition eventPlayer.isAlive() == true
-    @Condition eventPlayer.unaffected != true
-    @Condition eventPlayer.brigitte_buff[0] == true
-    
-    eventPlayer.setMoveSpeed(100 + eventPlayer.mov_speed_buff - eventPlayer.mov_speed_penalty)
-    waitUntil(not eventPlayer.brigitte_buff[0] or eventPlayer.mov_speed_penalty == 0 or eventPlayer.unaffected or eventPlayer.hasStatus(Status.INVINCIBLE), 1.5)
-    eventPlayer.setMoveSpeed(100)
-    eventPlayer.brigitte_buff[0] = false
-    eventPlayer.mov_speed_penalty = 0
+#!include "heroes/brigitte/aram-05-rally-and-slam.opy"
 
 #!include "heroes/brigitte/aram.opy"
-
-rule "[brigitte/rally.opy]: Rally 30% speed boost":
-    @Event eachPlayer
-    @Hero brigitte
-    @Condition eventPlayer.isUsingUltimate() == true
-    
-    #30% movement speed buff during ralley
-    eventPlayer.mov_speed_buff += 13.043
-    eventPlayer.setMoveSpeed(100 + eventPlayer.mov_speed_buff)
-    waitUntil(not eventPlayer.isUsingUltimate(), 10)
-    eventPlayer.mov_speed_buff = 0
-    eventPlayer.setMoveSpeed(100)
-
-
-rule "[Kiriko]: Protection Suzu Clear Effect":
-    @Event playerDealtHealing
-    @Hero kiriko
-    @Condition eventAbility == Button.ABILITY_2
-    #@Condition healer.getHero() == Hero.KIRIKO == true
-    @Condition healee.mauga_berserker_soul != true
-    
-    if healee != healer:
-        goto lbl_0
-    resetStatuses()
-    lbl_0:
-    healee.unaffected = true
-    healee.setStatusEffect(healer, Status.INVINCIBLE, 2.5)
-    healee.setStatusEffect(healer, Status.PHASED_OUT, 2.5)
-    wait(2.5)
-    healee.unaffected = false
-
-rule "[Kiriko]: Swift Step":
-    @Event eachPlayer
-    @Hero kiriko
-    @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) > 0
-    
-    resetStatuses()
-    eventPlayer.setStatusEffect(eventPlayer, Status.INVINCIBLE, 2.5)
-    eventPlayer.setStatusEffect(eventPlayer, Status.PHASED_OUT, 2.5)
-
-rule "[kiriko]: swift step hp":
-    @Event eachPlayer
-    @Condition getPlayersOnHero(Hero.KIRIKO, eventPlayer.getTeam())[0].isHoldingButton(Button.ABILITY_1) == true
-    @Condition getPlayersOnHero(Hero.KIRIKO, eventPlayer.getTeam())[0].isUsingAbility1() == true
-    @Condition len(eventPlayer.kiriko_buff) < 5
-    
-    waitUntil(not eventPlayer.reset_pvar[3].isUsingAbility1() and len(getPlayersInRadius(eventPlayer.reset_pvar[3], 5, eventPlayer.getTeam(), LosCheck.SURFACES)) > 0 and eventPlayer.reset_pvar[3].hasStatus(Status.PHASED_OUT) == true, 0.5)
-    wait(0.16)
-    #if eventPlayer.kiriko_buff == null:
-    #        goto lbl_0
-    #removeHealthPool(eventPlayer.kiriko_buff[0])
-    lbl_0:
-    if not eventPlayer.isAlive() or distance(eventPlayer.reset_pvar[3], eventPlayer) > 5 and not isInLoS(eventPlayer.reset_pvar[3], eventPlayer):
-        goto lbl_1
-    eventPlayer.addHealthPool(Health.NORMAL, 100 + ceil(eventPlayer.getMaxHealth() * 0.15), false, false)
-    #eventPlayer.kiriko_buff = getLastCreatedHealthPool()
-    lbl_1:
-    eventPlayer.kiriko_buff.append(getLastCreatedHealthPool())
+#!include "heroes/kiriko/aram-05-support-suite.opy"
 
 #!include "heroes/kiriko/aram.opy"
 
@@ -696,14 +525,7 @@ rule "[Baptiste]: headshot damage":
     
     damage(victim, attacker, ceil((eventDamage * (HeadshotDamage[4] - 2)) / 2))
 
-rule "[Kiriko]: headshot damage":
-    @Event playerDealtDamage
-    @Hero kiriko
-    @Condition HeadshotDamage[2] > 1
-    @Condition eventWasCriticalHit == true
-    @Condition eventAbility == Button.PRIMARY_FIRE
-    
-    damage(victim, attacker, ceil((eventDamage * (HeadshotDamage[2] - 2)) / 2))
+#!include "heroes/kiriko/aram-10-headshot-damage.opy"
 
 rule "[Baptiste]: Immortality Field":
     @Event eachPlayer
@@ -841,33 +663,7 @@ rule "[Mei]: Ice move":
         loop()
 
 #!include "heroes/sombra/aram.opy"
-
-
-rule "[Ana]: Sleep tanks for longer duration":
-    @Event playerDealtDamage
-    @Hero ana
-    @Condition eventAbility == Button.ABILITY_1
-    @Condition victim.unaffected == false
-    
-    victim.clearStatusEffect(Status.ASLEEP)
-    #waitUntil(victim.hasStatus(Status.ASLEEP), 999999986991104)
-    victim.setStatusEffect(attacker, Status.KNOCKED_DOWN, 4)
-    #heart_steel_hp
-    eventPlayer.heart_steel[1] += 50 if eventPlayer.getTeam() == Team.2 else 100
-    eventPlayer.heart_steel[2] = true
-
-rule "[Ana]: Sleep tanks for longer duration":
-    @Event eachPlayer
-    @Hero ana
-    @Condition eventPlayer.isAlive() == true
-    @Condition eventPlayer.heart_steel[1] > 0
-    @Condition eventPlayer.heart_steel[2] == true
-    
-    if eventPlayer.heart_steel[0] == null:
-        goto lbl_0
-    removeHealthPool(eventPlayer.heart_steel[0])
-    lbl_0:
-    eventPlayer.addHealthPool(Health.ARMOR, eventPlayer.heart_steel[1], true, false)
+#!include "heroes/ana/aram-10-sleep-tanks.opy"
     eventPlayer.heart_steel[0] = getLastCreatedHealthPool()
     eventPlayer.heart_steel[2] = false
 
@@ -997,57 +793,7 @@ rule "[Soldier: 76]: 替代射击":
     waitUntil(not eventPlayer.isFiringSecondaryFire(), 0.496)
     eventPlayer.setAbilityCooldown(Button.SECONDARY_FIRE, 0.16)
 
-rule "[Reinhardt] firestrike healing":
-    @Event playerDealtDamage
-    @Hero reinhardt
-    @Condition (eventAbility == Button.ABILITY_2 or eventAbility == Button.ULTIMATE) == true
-    
-    if eventAbility == Button.ULTIMATE:
-        goto lbl_0
-    eventPlayer.startHealingOverTime(eventPlayer, 2, eventDamage * 2)
-    lbl_0:
-    victim.setStatusEffect(attacker, Status.BURNING, 2)
-    victim.startDamageOverTime(attacker, 2, victim.getMaxHealth() * 0.05)
-
-rule "[Reinhardt]: Earthshatter":
-    @Event playerDealtFinalBlow
-    @Hero reinhardt
-    @Condition eventAbility == Button.ABILITY_1
-    
-    eventPlayer.setAbilityCooldown(Button.ABILITY_1, 0)
-    wait(1)
-
-rule "[Reinhardt]: Earthshatter":
-    @Event playerDealtFinalBlow
-    @Hero reinhardt
-    @Condition eventAbility == Button.ULTIMATE
-    
-    eventPlayer.setUltCharge(100)
-    wait(0.5)
-
-rule "[Reinhardt]: Crusaders stand":
-    @Event eachPlayer
-    @Hero reinhardt
-    @Condition eventPlayer.isAlive() == true
-    @Condition eventPlayer.reinhardt_buff == false
-    @Condition eventPlayer.getHealthOfType(Health.ARMOR) <= 0
-    
-    eventPlayer.reinhardt_buff = true
-    wait(15)
-    eventPlayer.reinhardt_buff = false
-    smallMessage(eventPlayer, "  {0} 十字军坚定 已就绪".format(abilityIconString(eventPlayer.getHero(), Button.SECONDARY_FIRE)))
-
-rule "[Reinhardt]: Crusaders stand":
-    @Event eachPlayer
-    @Hero reinhardt
-    @Condition eventPlayer.reinhardt_buff == true
-    
-    bigMessage(eventPlayer, "  十字军坚定")
-    smallMessage(eventPlayer, "  {0} 无视击退".format(iconString(Icon.FLAG)))
-    eventPlayer.addHealthPool(Health.NORMAL, 300, false, false)
-    eventPlayer.setKnockbackReceived(0)
-    waitUntil(not eventPlayer.reinhardt_buff, 8)
-    eventPlayer.setKnockbackReceived(100)
+#!include "heroes/reinhardt/aram-05-combat-suite.opy"
 
 #!include "heroes/reinhardt/aram.opy"
 
@@ -1239,79 +985,7 @@ rule "[Juno]: Pulsar Torpedoes Healing":
 
 #!include "heroes/freja/shared/10-revdraw-crossbow-stack-primary-fire.opy"
 
-rule "[Freja]: Revdraw Crossbow Stack":
-    @Event playerReceivedKnockback
-    @Condition attacker.getHero() == Hero.FREJA
-    @Condition eventAbility == Button.ULTIMATE
-    
-    victim.freja_buff[0] += 40
-    #damage(victim, attacker, victim.getMaxHealth() * FrejaBuff[1])
-    wait(5)
-
-rule "[Freja]: Take Aim Damage":
-    @Event playerDealtDamage
-    @Hero freja
-    @Condition eventAbility == Button.SECONDARY_FIRE
-    @Condition (victim.hasStatus(Status.INVINCIBLE) or victim.hasStatus(Status.UNKILLABLE) or victim.hasStatus(Status.PHASED_OUT)) == false
-    @Condition victim.has_nano != true
-    @Condition victim.freja_buff[0] > 0
-    
-    wait(0.5, Wait.ABORT_WHEN_FALSE)
-    playEffect(getAllPlayers(), DynamicEffect.BAD_EXPLOSION, Color.BLUE, victim, 0.8)
-    playEffect(getAllPlayers(), DynamicEffect.EXPLOSION_SOUND, Color.BLUE, victim, 10)
-    damage(victim, attacker, FrejaBuff[0] * victim.freja_buff[0] + victim.getMaxHealth() * FrejaBuff[1])
-    victim.freja_buff[0] = 0
-    victim.freja_buff[1] = 0
-
-rule "[Freja]: HUD & Reset":
-    @Event eachPlayer
-    @Condition eventPlayer.freja_buff[0] > 0
-    
-    if eventPlayer.freja_buff[3] != 0:
-        goto lbl_0
-    hudText(eventPlayer.reset_pvar[11], null, " \r\n", "  {0} 狩猎印记： {1}".format(heroIcon(eventPlayer.getHero()), eventPlayer.freja_buff[0]), HudPosition.LEFT, 1, null, null, rgb(255, 255, 255, 200), HudReeval.STRING)
-    eventPlayer.freja_buff[3] = getLastCreatedText()
-    lbl_0:
-    eventPlayer.freja_buff[1] = eventPlayer.freja_buff[0]
-    wait(15)
-    if eventPlayer.freja_buff[0] > eventPlayer.freja_buff[1]:
-        loop()
-    eventPlayer.freja_buff[0] = 0
-    eventPlayer.freja_buff[1] = 0
-    destroyHudText(eventPlayer.freja_buff[3])
-    eventPlayer.freja_buff[3] = 0
-
-rule "[Freja]: Ex":
-    @Event playerDealtKnockback
-    @Hero freja
-    @Condition eventAbility == null
-    @Condition victim.hasStatus(Status.INVINCIBLE) != true
-    @Condition victim.zarya_buff[1] == null
-    @Condition (victim.hasStatus(Status.INVINCIBLE) or victim.hasStatus(Status.UNKILLABLE) or victim.hasStatus(Status.PHASED_OUT)) == false
-    @Condition victim.has_nano != true
-    #@Condition victim.freja_buff[0] > 0
-    
-    if not victim.isAlive() or victim.getHealth() > victim.getMaxHealth() * FrejaBuff[2]:
-        goto lbl_0
-    damage(victim, attacker, 44444)
-    smallMessage(eventPlayer, "  斩杀： {0} ".format(heroIcon(victim.getHero())))
-    wait(1, Wait.ABORT_WHEN_FALSE)
-    lbl_0:
-
-rule "[Freja]: Dmg. reduction":
-    @Event eachPlayer
-    @Hero freja
-    @Condition eventPlayer.isUsingAbility2() == true
-    #@Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) != 0
-    @Condition eventPlayer.isInAir() == true
-    
-    eventPlayer.setDamageReceived(75)
-    hudText(eventPlayer, null, " \r\n", "受到伤害减免：{0}%".format(25), HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
-    eventPlayer.freja_buff[2] = getLastCreatedText()
-    waitUntil(not eventPlayer.isInAir() and eventPlayer.isOnGround(), 99999)
-    destroyHudText(eventPlayer.freja_buff[2])
-    eventPlayer.freja_buff[2] = 0
-    eventPlayer.setDamageReceived(100)
+#!include "heroes/freja/aram.opy"
 
 #!include "heroes/freja/shared/90-set-projectile-speed.opy"
 
