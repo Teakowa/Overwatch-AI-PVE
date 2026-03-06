@@ -51,7 +51,7 @@ rule "[Reinhardt]: Charge cd":
         goto lbl_0
     eventPlayer.setAbilityCooldown(Button.ABILITY_1, eventPlayer.getAbilityCooldown(Button.ABILITY_1) - eventPlayer.reinhardt_charge_cd)
     lbl_0:
-#!include "10-shield-slam-and-overhealth.opy"
+#!include "shield-slam-and-overhealth.opy"
 rule "[Reinhardt]: Charge dmg fix":
     @Event playerReceivedKnockback
     @Condition attacker.getHero() == Hero.REINHARDT

@@ -75,7 +75,7 @@ rule "[Ramattra]: Pummel healing":
     eventPlayer.ram_block_damage += eventDamage * 1.5
     eventPlayer.hudText = "{0}/{1}".format(floor(eventPlayer.ram_block_damage), Ram_Annihilation[0])
     wait(0.3)
-#!include "70-pain-endures.opy"
+#!include "pain-endures.opy"
 rule "[Ramattra]: block":
     @Event playerTookDamage
     @Hero ramattra

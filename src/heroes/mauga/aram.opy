@@ -1,5 +1,5 @@
 # mauga aram-mode overlay
-#!include "60-berserker-soul-reset.opy"
+#!include "berserker-soul-reset.opy"
 rule "[Mauga]: Berserker Soul Ability":
     @Event eachPlayer
     @Hero mauga

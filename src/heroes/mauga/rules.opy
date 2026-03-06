@@ -51,7 +51,7 @@ rule "[Mauga]: Berserker Soul status active":
     bigMessage(eventPlayer, "狂战士之魂！")
     waitUntil(eventPlayer.isDead(), 99999)
     eventPlayer.mauga_berserker_soul = false
-#!include "60-berserker-soul-reset.opy"
+#!include "berserker-soul-reset.opy"
 rule "[Mauga]: Berserker Soul Ability":
     @Event eachPlayer
     @Hero mauga
