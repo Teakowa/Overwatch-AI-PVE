@@ -56,6 +56,7 @@
 
 ## Iteration Log
 
+- 2026-03-06: 完成 H6 Wave-B（mid/high-density overlay normalization, no extra reports）。处理 `freja/ana/brigitte`，把仍堆在 `aram.opy` 里的 ARAM 规则按技能/效果语义拆到同级叶子；优先复用已有套件边界，不改规则体。
 - 2026-03-06: 完成 H6 Wave-A（highest-density hero overlay split, no extra reports）。先处理 `reaper/wuyang/soldier76/roadhog`，把大块 `aram.opy` 规则按技能/套件语义拆回同级 `aram-*.opy` 叶子；本波只做结构拆分，不改规则体。
 - 2026-03-06: 完成 H6 Wave-10（remaining hero leaf naming cleanup, no extra reports）。收掉剩余 `wrecking_ball/sombra/kiriko/widowmaker/wuyang` 数字前缀叶子；至此 `src/heroes/**` 中历史遗留、但不承担排序职责的数字前缀 hero 叶子已全部改为语义命名。
 - 2026-03-06: 完成 H6 Wave-9（hazard/doomfist/mercy naming cleanup, no extra reports）。继续把 `hazard/doomfist/mercy` 的 ARAM 拆分文件改成纯语义命名，并将这 3 个英雄仍由 Main/ARAM 复用的技能文件一并去掉数字前缀；仅对齐 include 引用，不改规则体。
@@ -97,18 +98,17 @@
   - `docs/reports/aram-shared-wave-h5-next4-hjos-diff-localization-2026-03-06.md`
   - `docs/reports/aram-shared-wave-h5-next7-mid-density-diff-localization-2026-03-06.md`
 
-## Latest Completed Iteration (H6 Wave-A: Highest-Density Hero Overlay Split)
+## Latest Completed Iteration (H6 Wave-B: Mid/High-Density Overlay Normalization)
 
 - 波次范围：
-  - 处理 `reaper/wuyang/soldier76/roadhog` 这 4 个 active overlay 最重的英雄
-  - 将大块 `aram.opy` 规则按技能/套件语义拆到同级 `aram-*.opy` 叶子
+  - 处理 `freja/ana/brigitte` 这 3 个已具备 overlay 基础结构、但 `aram.opy` 仍偏聚集的英雄
+  - 将 `aram.opy` 中剩余规则按技能/效果语义拆到同级 `aram-*.opy` 叶子
   - 保持 include 顺序不变，不改规则体
   - 本波不新增 report，仅更新主 TODO
 - 变更动作：
-  - `reaper/aram.opy` 改为纯 assembly，拆出 `aram-wraith-form-suite.opy`、`aram-soul-and-dire-suite.opy`、`aram-death-blossom-suite.opy`。
-  - `wuyang/aram.opy` 补拆 `aram-control-and-shield-suite.opy`、`aram-rushing-torrent-jump.opy`、`aram-ebb-and-flow-suite.opy`、`aram-tidal-blast-suite.opy`。
-  - `soldier76/aram.opy` 补拆 `aram-third-person-toggle.opy`、`aram-heartsteel.opy`、`aram-sprint-suite.opy`、`aram-tactical-visor-suite.opy`。
-  - `roadhog/aram.opy` 补拆 `aram-breather-suite.opy`、`aram-hook-suite.opy`。
+  - `freja/aram.opy` 拆出 `aram-hunt-mark-suite.opy`、`aram-execution-and-defense.opy`。
+  - `ana/aram.opy` 拆出 `aram-grenade-burn.opy`、`aram-nano-sustain.opy`，把 `aram.opy` 收成纯 assembly。
+  - `brigitte/aram.opy` 拆出 `aram-repair-pack-armor.opy`、`aram-rally-speed.opy`。
   - 不改规则体，不改 ARAM 装配顺序，也不改 whitelist 决策。
 - 指标结果：
   - `src/aram_overrides.opy exact/diff/unique` 维持 `0/0/0`
