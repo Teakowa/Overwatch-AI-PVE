@@ -74,6 +74,7 @@
 
 - 小步提交，使用 Conventional Commits；跨分区改动优先拆分为可回滚提交。
 - 玩法改动提交说明应标注：影响英雄/系统、负载影响、是否调整 init/reset 链路。
+- Git commit message 禁止包含 `Co-authored-by: Codex <noreply@openai.com>`；若工具自动注入该行，应在提交前移除，不得保留到最终 commit 中。
 
 常用命令：
 - `pnpm run build`
