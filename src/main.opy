@@ -30,7 +30,6 @@
 #!include "utilities/execute_uppercut.opy"
 #!include "utilities/enable_all_abilities.opy"
 #!include "utilities/disable_all_abilities.opy"
-#!include "utilities/changelog_text.opy"
 #!include "utilities/reset_hero.opy"
 #!include "utilities/remove_tank_passive.opy"
 #!include "utilities/bot_aim2target.opy"
@@ -51,3 +50,4 @@
 # Debug and changelog
 #!include "modules/debug/10-debug-ultimate.opy"
 #!include "modules/debug/20-changelog.opy"
+#!include "utilities/changelog_text.opy"
