@@ -144,8 +144,11 @@ def is_mode_overlay(path: Path) -> bool:
         rel = path.relative_to(src)
     except ValueError:
         return False
-    parts = rel.parts
-    return len(parts) == 3 and parts[0] == "heroes" and parts[2].startswith("aram") and parts[2].endswith(".opy")
+    if path == aram_file:
+        return False
+    if path.name in {"aramMain.opy", "aram_settings.opy", "aram_protocol.opy"}:
+        return False
+    return path.name.startswith("aram") and path.name.endswith(".opy")
 
 
 def rel_path(path: Path) -> str:
@@ -273,11 +276,12 @@ for hero in overlay_heroes:
     files = sorted(hero_dir.glob("aram*.opy")) if hero_dir.exists() else []
     if not files:
         failures.append(f"overlay missing: src/heroes/{hero}/aram*.opy")
-        continue
-    for path in files:
-        parsed = parse_rules(path)
-        overlay_rules.extend(parsed)
-        overlay_rules_by_file[rel_path(path)] = parsed
+
+overlay_paths = sorted(path for path in src.rglob("*.opy") if is_mode_overlay(path))
+for path in overlay_paths:
+    parsed = parse_rules(path)
+    overlay_rules.extend(parsed)
+    overlay_rules_by_file[rel_path(path)] = parsed
 
 other_by_name = defaultdict(list)
 for path in src.rglob("*.opy"):
@@ -368,8 +372,8 @@ with report_path.open("w", encoding="utf-8") as f:
     f.write("## Summary\n\n")
     f.write(f"- `src/aram_overrides.opy` total rules: **{len(aram_rules)}**\n")
     f.write(f"- `src/aram_overrides.opy` exact/diff/unique: **{len(aram_exact)}/{len(aram_diff)}/{len(aram_unique)}**\n")
-    f.write(f"- Hero overlays (`src/heroes/*/aram*.opy`) total rules: **{len(overlay_rules)}**\n")
-    f.write(f"- Hero overlay exact/diff/unique: **{len(overlay_exact)}/{len(overlay_diff)}/{len(overlay_unique)}**\n")
+    f.write(f"- Active overlays (`src/**/aram*.opy`, excluding entry/settings/protocol files) total rules: **{len(overlay_rules)}**\n")
+    f.write(f"- Active overlay exact/diff/unique: **{len(overlay_exact)}/{len(overlay_diff)}/{len(overlay_unique)}**\n")
     f.write(f"- Residual contiguous exact runs in aram_overrides: **{len(residual_runs)}**\n")
     f.write(f"- Residual runs with length >= {segment_min}: **{len(violating_runs)}**\n")
     f.write(f"- Retired assembly references in `src/`: **{len(legacy_src_refs)}**\n")
@@ -381,14 +385,9 @@ with report_path.open("w", encoding="utf-8") as f:
         f.write(f"- Candidate output: `{emit_candidates_path}` ({len(candidate_rows)} rows)\n")
     f.write(f"- Check mode: **{'ON' if check_mode else 'OFF'}**\n\n")
 
-    f.write("## Hero Overlay Coverage\n\n")
-    for hero in overlay_heroes:
-        hero_matches = [path for path in overlay_rules_by_file if f"/{hero}/" in path]
-        if not hero_matches:
-            f.write(f"- `{hero}`: missing `aram*.opy`\n")
-            continue
-        for rel in sorted(hero_matches):
-            f.write(f"- `{rel}`: {len(overlay_rules_by_file[rel])} rules\n")
+    f.write("## Active Overlay Coverage\n\n")
+    for rel in sorted(overlay_rules_by_file):
+        f.write(f"- `{rel}`: {len(overlay_rules_by_file[rel])} rules\n")
     f.write("\n")
 
     f.write("## Retired Assembly Reference Scan\n\n")
@@ -435,7 +434,7 @@ with report_path.open("w", encoding="utf-8") as f:
 
 print(f"Report written: {report_path}")
 print(
-    "Counts => aram total/exact/diff/unique: {0}/{1}/{2}/{3}, hero overlays exact/diff/unique: {4}/{5}/{6}, residual exact runs >= {7}: {8}, retired src refs: {9}, unwhitelisted aram/overlay exact-diff: {10}/{11}, {12}/{13}".format(
+    "Counts => aram total/exact/diff/unique: {0}/{1}/{2}/{3}, active overlays exact/diff/unique: {4}/{5}/{6}, residual exact runs >= {7}: {8}, retired src refs: {9}, unwhitelisted aram/overlay exact-diff: {10}/{11}, {12}/{13}".format(
         len(aram_rules),
         len(aram_exact),
         len(aram_diff),

@@ -32,18 +32,18 @@
 | H2 | 工具链路径迁移 | done | `check_contracts`/`hero_pipeline`/`changelog_sync` 识别 `src/heroes/**` |
 | H3 | 白名单/重复检查迁移 | done | `aram-delta-whitelist.tsv` 与 duplicates 输出路径切到 `src/heroes/**` |
 | H4 | ARAM overlay 按英雄迁移 | done | 单英雄 ARAM 差异已归位到 `src/heroes/<hero>/aram.opy` 或同级叶子，`exact=0` |
-| H5 | `aram_overrides` 薄层化与分段机制退役 | in_progress | `aram_overrides_segments` 不再参与编译，剩余项以 hero-local mode diff 为主，`aram_overrides.opy` 继续薄层化 |
+| H5 | `aram_overrides` 薄层化与分段机制退役 | done | `aram_overrides_segments` 不再参与编译，`src/aram_overrides.opy` 不再承载 exact/same-name-diff，活跃差异已下沉到 hero/module overlays |
 
 ## Current Gate Baseline
 
 - 当前 duplicate 基线：
-  - `src/aram_overrides.opy exact/diff/unique = 0/11/30`
-  - `src/heroes/*/aram*.opy exact/diff/unique = 28/98/16`
+  - `src/aram_overrides.opy exact/diff/unique = 0/0/29`
+  - `src/**/aram*.opy active overlays exact/diff/unique = 28/109/17`
   - `unwhitelisted aram/overlay exact-diff = 0/0, 0/0`
-- H5 当前关注点：
-  - `src/aram_overrides.opy` 继续薄层化
-  - 剩余债务以 hero-local `same_name_diff` 为主
-  - `soldier76` 当前不在剩余 `same_name_diff` 高密度批次中，已从下一波候选移除
+- H5 收口结果：
+  - `src/aram_overrides.opy` 已清空 duplicate debt，只保留 ARAM-only 规则与装配入口
+  - 活跃 duplicate debt 已全部下沉到 `src/heroes/**/aram*.opy` 与 `src/modules/**/aram*.opy`
+  - 后续工作转入 H6，重点是 overlay 层的继续共享化与归档
 - 常用门禁：
   1. `pnpm run build`
   2. `pnpm run build:aram`
@@ -54,6 +54,7 @@
 
 ## Iteration Log
 
+- 2026-03-06: 完成 H5 Wave-N+8（system/bootstrap overlay extraction, no extra reports）。将 `init/settings`、`player ban/allowed heroes`、`player lifecycle/reset` 与 `changelog` 的 ARAM mode diff 从 `src/aram_overrides.opy` 抽到 `src/modules/**/aram-*.opy`，并扩展 duplicates 门禁扫描到活跃模块 overlays。H5 达成收口。
 - 2026-03-06: 完成 H5 Wave-N+7（thin-layer cleanup without extra reports）。修复 `Genji`/`Venture` 的原位装配残留，并将 `mei/bastion/juno/torbjorn/roadhog/winston/ashe/vendetta/widowmaker/soldier76` 的一批 ARAM-only hero-local 规则回收到 `src/heroes/<hero>/aram*.opy`；本波仅更新主 TODO，不新增 report。
 - 2026-03-06: 完成 H5 Wave-N+6（selective hero-local leftovers + report cleanup）。`cassidy/genji/venture/zenyatta` 共 6 条 ARAM diff 从 `src/aram_overrides.opy` 回收到英雄 overlay，同时清理 2 份已被后续波次覆盖的早期 pilot 报告。
 - 2026-03-06: 完成 H5 Wave-N+5（remaining mid-density hero-local diff localization）。`ashe/baptiste/illari/junkrat/moira/roadhog/sojourn` 共 12 条 ARAM diff 从 `src/aram_overrides.opy` 回收到 `src/heroes/<hero>/aram.opy`。
@@ -83,19 +84,19 @@
   - `docs/reports/aram-shared-wave-h5-next4-hjos-diff-localization-2026-03-06.md`
   - `docs/reports/aram-shared-wave-h5-next7-mid-density-diff-localization-2026-03-06.md`
 
-## Latest Completed Iteration (H5 Wave-N+7: Thin-Layer Cleanup Without Extra Reports)
+## Latest Completed Iteration (H5 Wave-N+8: System/Bootstrap Overlay Extraction Without Extra Reports)
 
 - 波次范围：
-  - 修复 `Genji` 与 `Venture` 在 `src/aram_overrides.opy` 中的残留装配问题，恢复 hero-owned overlay 的原位展开
-  - 将 `mei/bastion/juno/torbjorn/roadhog/winston/ashe/vendetta/widowmaker/soldier76` 的 ARAM-only 规则继续回收到对应 `src/heroes/<hero>/aram*.opy`
+  - 将剩余 `system/bootstrap/debug` mode diff 从 `src/aram_overrides.opy` 下沉到模块自有 overlays
+  - 扩展 duplicates 门禁扫描到 `src/**/aram*.opy` 活跃 overlays
   - 本波不新增 report，仅更新主 TODO
 - 变更动作：
-  - `src/aram_overrides.opy` 删除 `Genji` 半拆分残留，并把 `Venture` include 挪回原位，避免 hero overlay 被晚于原顺序展开。
-  - 新增 `src/heroes/ashe/aram-10-dynamite.opy` 与 `src/heroes/juno/aram-10-pulsar-torpedoes.opy`，用于保持原插入点，不把规则整体提前到通用 `aram.opy`。
-  - `src/heroes/mei/aram.opy`、`src/heroes/bastion/aram.opy`、`src/heroes/torbjorn/aram.opy`、`src/heroes/roadhog/aram.opy`、`src/heroes/winston/aram.opy`、`src/heroes/vendetta/aram.opy`、`src/heroes/widowmaker/aram.opy`、`src/heroes/soldier76/aram.opy` 收回对应 ARAM-only 规则。
+  - 新增 `src/modules/bootstrap/aram-00-init-and-settings.opy`、`aram-10-safety-blacklist-ban.opy`、`aram-20-player-lifecycle-and-reset.opy` 与 `src/modules/debug/aram-20-changelog.opy`。
+  - `src/aram_overrides.opy` 删除剩余 bootstrap/debug same-name-diff 规则体，改为原位 `#!include` 上述模块 overlays。
+  - `check_aram_overrides_duplicates.sh` 的 overlay 扫描面从 hero-only 扩展到所有活跃 `src/**/aram*.opy`，排除入口/协议/设置文件。
 - 指标结果：
-  - `src/aram_overrides.opy exact/diff/unique: 0/12/45 -> 0/11/30`
-  - `src/heroes/*/aram*.opy exact/diff/unique: 28/98/2 -> 28/98/16`
+  - `src/aram_overrides.opy exact/diff/unique: 0/11/30 -> 0/0/29`
+  - `src/**/aram*.opy active overlays exact/diff/unique: 28/98/16 -> 28/109/17`
   - `exact = 0`
   - `unwhitelisted exact/diff = 0/0`
 - 验证报告：
@@ -103,6 +104,6 @@
 
 ## Next Steps
 
-1. H5：继续处理剩余 11 条 `same_name_diff`，优先只动 `src/aram_overrides.opy` 与英雄 overlay，不碰你正在调整的 system/bootstrap 主线文件。
-2. H5：`src/aram_overrides.opy` 的 hero-local ARAM-only 规则已明显下降，下一步只在顺序确实需要时再新增 `aram-*.opy` 叶子，不再默认写波次 report。
-3. H6：在 `src/aram_overrides.opy` 稳定收缩到最后一批 system-level diff 后，再推进结构收敛与文档归档。
+1. H6：针对 `src/heroes/**/aram*.opy` 与 `src/modules/**/aram*.opy` 中的 active overlay diff，继续评估哪些值得共享叶子化，哪些保留为 mode-only 行为更合适。
+2. H6：逐步收缩 overlay debt，同时避免为了“清零 diff”而牺牲当前原位顺序和可读性。
+3. H6：在 overlay 结构稳定后，再统一清理 `docs/reports/` 的历史归档密度与 TODO 文案。
