@@ -56,6 +56,7 @@
 
 ## Iteration Log
 
+- 2026-03-06: 完成 H6 Wave-9（hazard/doomfist/mercy naming cleanup, no extra reports）。继续把 `hazard/doomfist/mercy` 的 ARAM 拆分文件改成纯语义命名，并将这 3 个英雄仍由 Main/ARAM 复用的技能文件一并去掉数字前缀；仅对齐 include 引用，不改规则体。
 - 2026-03-06: 完成 H6 Wave-8（aram-only offense naming cleanup, no extra reports）。继续把 `ashe/junkrat/moira/roadhog/soldier76` 的 ARAM-only 拆分文件改成纯语义命名；本波仅改 `src/aram_overrides.opy` 的装配引用，不触碰 Main 侧规则。
 - 2026-03-06: 完成 H6 Wave-7（control/support naming cleanup, no extra reports）。继续把 `orisa/sigma/zarya/zenyatta` 的 ARAM 拆分文件改成纯语义命名，并将这 4 个英雄仍由 Main/ARAM 共用的技能文件一并去掉数字前缀；仅对齐 include 引用，不改装配顺序。
 - 2026-03-06: 完成 H6 Wave-2（hero-owned exact cleanup without hero `shared/` dirs, no extra reports）。将 `src/heroes/**/shared/*.opy` 全部回卷到英雄根目录的同级技能/特效拆分文件，并完成 `mercy/zenyatta/reinhardt/widowmaker` 10 条 hero-local exact overlay 的双侧复用与 whitelist 收缩。
@@ -94,16 +95,16 @@
   - `docs/reports/aram-shared-wave-h5-next4-hjos-diff-localization-2026-03-06.md`
   - `docs/reports/aram-shared-wave-h5-next7-mid-density-diff-localization-2026-03-06.md`
 
-## Latest Completed Iteration (H6 Wave-8: ARAM-Only Offense Naming Cleanup)
+## Latest Completed Iteration (H6 Wave-9: Hazard/Doomfist/Mercy Naming Cleanup)
 
 - 波次范围：
-  - 将 `ashe/junkrat/moira/roadhog/soldier76` 的 ARAM-only 拆分文件改为纯语义命名
-  - 保持这些叶子仍只由 ARAM 装配引用，不向 Main 侧扩散
+  - 将 `hazard/doomfist/mercy` 的 ARAM 拆分文件改为纯语义命名
+  - 将这 3 个英雄仍由 Main/ARAM 复用的技能文件也改为纯语义命名
   - 保持 include 顺序不变，只清理命名
   - 本波不新增 report，仅更新主 TODO
 - 变更动作：
-  - `src/aram_overrides.opy` 改为引用新的 `ashe/junkrat/moira/roadhog/soldier76` 语义文件名。
-  - 这 5 个英雄的 ARAM-only 叶子文件在英雄目录中完成去数字前缀改名，不改规则体与归属。
+  - `src/aram_overrides.opy` 改为引用新的 `hazard/doomfist/mercy` 语义文件名。
+  - `hazard/rules.opy`、`hazard/aram.opy`、`doomfist/rules.opy`、`doomfist/aram.opy`、`mercy/rules.opy` 同步对齐新的语义文件名。
   - 不改规则体，不改 ARAM 装配顺序，也不改 whitelist 决策。
 - 指标结果：
   - `src/aram_overrides.opy exact/diff/unique` 维持 `0/0/0`

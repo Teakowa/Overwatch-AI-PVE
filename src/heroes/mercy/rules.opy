@@ -1,4 +1,4 @@
-#!include "10-valkyrie.opy"
+#!include "valkyrie.opy"
 rule "[Mercy]: Flash Heal cd":
     @Event eachPlayer
     @Hero mercy
