@@ -357,18 +357,7 @@ rule "[Orisa]: Fortify provides 100 temporary armor":
     removeHealthPool(eventPlayer.orisa_fortify_armor_id)
     eventPlayer.unaffected = false
 
-rule "[Mauga]: Fortify provides 100 temporary armor":
-    @Event eachPlayer
-    @Hero mauga
-    @Condition eventPlayer.isUsingAbility1() == true
-    
-    eventPlayer.unaffected = true
-    eventPlayer.hazard_buff[0] = false
-    eventPlayer.brigitte_buff[0] = false
-    eventPlayer.orisa_buff = false
-    eventPlayer.zarya_graviton_buff[0] = false
-    waitUntil(not eventPlayer.isUsingAbility1(), 3)
-    eventPlayer.unaffected = false
+#!include "heroes/mauga/aram-05-fortify.opy"
 
 #!include "heroes/mercy/aram.opy"
 
@@ -725,30 +714,6 @@ rule "[Baptiste]: Immortality Field":
     eventPlayer.startHealingOverTime(eventPlayer.reset_pvar[12], 5, 50 if eventPlayer.getTeam() == Team.1 else 25)
     wait(8)
 
-rule "[Mauga] Overrun knockdown duration":
-    @Event eachPlayer
-    @Hero mauga
-    @Condition eventPlayer.isUsingAbility1() == true
-    
-    eventPlayer.setStatusEffect(eventPlayer, Status.INVINCIBLE, 5)
-    waitUntil(not eventPlayer.isUsingAbility1(), 5)
-    eventPlayer.clearStatusEffect(Status.INVINCIBLE)
-
-rule "[Mauga] Overrun knockdown duration":
-    @Event playerDealtDamage
-    @Hero mauga
-    @Condition eventAbility == Button.ABILITY_1
-    
-    victim.setStatusEffect(attacker, Status.BURNING, 2)
-    if victim.hasStatus(Status.KNOCKED_DOWN):
-        goto lbl_0
-    victim.setStatusEffect(attacker, Status.KNOCKED_DOWN, 0.5)
-    lbl_0:
-    if victim.hasStatus(Status.INVINCIBLE) or victim.hasStatus(Status.UNKILLABLE) or victim.hasStatus(Status.PHASED_OUT) or victim.has_nano:
-        goto lbl_1
-    damage(victim, attacker, ceil(victim.getMaxHealth() * MaugaBuff[3]))
-    lbl_1:
-
 rule "[Mauga]: Cage Fight heal":
     @Event eachPlayer
     @Hero mauga
@@ -761,78 +726,9 @@ rule "[Mauga]: Cage Fight heal":
     if ruleCondition:
         loop()
 
-rule "[Mauga]: Berserker Soul status active":
-    @Event playerTookDamage
-    @Hero mauga
-    #@Condition eventDamage > eventPlayer.getHealth() + 25
-    @Condition eventPlayer.mauga_berserker_soul != true
-    @Condition eventPlayer.getHealth() <= 250
-    
-    eventPlayer.mauga_berserker_soul = true
-    bigMessage(eventPlayer, "狂战士之魂！")
-    waitUntil(eventPlayer.isDead(), 99999)
-    eventPlayer.mauga_berserker_soul = false
+#!include "heroes/mauga/aram-10-frontline-suite.opy"
 
 #!include "heroes/mauga/aram.opy"
-
-rule "[Mauga]: Berserker Soul Ability":
-    @Event eachPlayer
-    @Hero mauga
-    @Condition eventPlayer.mauga_berserker_soul == true
-    
-    eventPlayer.dmg_amplification = MaugaBuff[2]
-    eventPlayer.dmg_reduction = MaugaBuff[1]
-    playEffect(eventPlayer, DynamicEffect.GOOD_PICKUP_EFFECT, Color.WHITE, eventPlayer, 200)
-    eventPlayer.setStatusEffect(null, Status.UNKILLABLE, 6)
-    eventPlayer.setStatusEffect(null, Status.INVINCIBLE, 1.2)
-    eventPlayer.setStatusEffect(null, Status.PHASED_OUT, 0.2)
-    eventPlayer.setDamageDealt(100 + eventPlayer.dmg_amplification)
-    eventPlayer.setDamageReceived(100 - eventPlayer.dmg_reduction)
-    eventPlayer.setHealingDealt(0)
-    eventPlayer.setHealingReceived(0)
-    eventPlayer.setKnockbackReceived(100 - MaugaBuff[5])
-    eventPlayer.addHealthPool(Health.NORMAL, eventPlayer.getMaxHealth() * MaugaBuff[0], true, false)
-    eventPlayer.mauga_berserker_soul_id[0] = getLastCreatedHealthPool()
-    wait(0.16)
-    eventPlayer.setHealth(eventPlayer.getMaxHealth())
-    wait(0.16)
-    eventPlayer.startDamageOverTime(null, 9999, eventPlayer.getMaxHealth() * MaugaBuff[6])
-    eventPlayer.mauga_berserker_soul_id[1] = getLastDamageOverTimeId()
-    waitUntil(not eventPlayer.mauga_berserker_soul or eventPlayer.isDead(), 9999)
-    eventPlayer.dmg_amplification = 0
-    eventPlayer.dmg_reduction = 0
-    stopDamageOverTime(eventPlayer.mauga_berserker_soul_id[1])
-    removeHealthPool(eventPlayer.mauga_berserker_soul_id[0])
-    eventPlayer.setHealingDealt(100)
-    eventPlayer.setHealingReceived(100)
-    eventPlayer.setDamageDealt(100)
-    eventPlayer.setDamageReceived(100)
-    eventPlayer.setKnockbackReceived(100)
-    eventPlayer.mauga_berserker_soul_id = null
-    #eventPlayer.mauga_berserker_soul = false
-
-rule "[Mauga]: Berserker Soul kill to heal":
-    @Event playerDealtFinalBlow
-    @Hero mauga
-    @Condition eventPlayer.mauga_berserker_soul == true
-    
-    eventPlayer.setHealth(eventPlayer.getMaxHealth() * MaugaBuff[7] + eventPlayer.getHealth())
-    wait(0.5)
-
-rule "[Mauga]: Berserker Soul cd":
-    @Event eachPlayer
-    @Hero mauga
-    @Condition eventPlayer.mauga_berserker_soul == true
-    #@Condition any([i >= 2 for i in [eventPlayer.getAbilityCooldown(Button.ABILITY_1), eventPlayer.getAbilityCooldown(Button.ABILITY_2)]]) == true
-    @Condition (eventPlayer.getAbilityCooldown(Button.ABILITY_1) > 2 or eventPlayer.getAbilityCooldown(Button.ABILITY_2) > 2) == true
-    
-    if eventPlayer.getAbilityCooldown(Button.ABILITY_1) > 2:
-        eventPlayer.setAbilityCooldown(Button.ABILITY_1, 2)
-    else:
-        eventPlayer.setAbilityCooldown(Button.ABILITY_2, 2)
-    wait(1.96)
-    if ruleCondition:
-        loop()
 
 #!include "heroes/orisa/aram.opy"
 
@@ -1155,89 +1051,9 @@ rule "[Reinhardt]: Crusaders stand":
 
 #!include "heroes/reinhardt/aram.opy"
 
-rule "[Doomfist] Seismic Slam upper":
-    @Event playerTookDamage
-    @Condition attacker.getHero() == Hero.DOOMFIST
-    @Condition eventAbility in [Button.SECONDARY_FIRE, Button.ABILITY_1, Button.ULTIMATE] == true
-    
-    attacker.heart_steel[1] += 50
-    if attacker.heart_steel[0] == null:
-        goto lbl_0
-    removeHealthPool(attacker.heart_steel[0])
-    lbl_0:
-    attacker.addHealthPool(Health.ARMOR, attacker.heart_steel[1], false, false)
-    attacker.heart_steel[0] = getLastCreatedHealthPool()
-    wait(0.16)
-
-rule "[Doomfist] Seismic Slam upper":
-    @Event eachPlayer
-    @Hero doomfist
-    @Condition eventPlayer.heart_steel[1] != 0
-    
-    wait(3)
-    removeHealthPool(eventPlayer.heart_steel[0])
-    eventPlayer.heart_steel[1] = 0
-    eventPlayer.heart_steel[0] = 0
-    wait(0.16)
-    if ruleCondition:
-        loop()
-
-rule "[Doomfist] Seismic Slam upper":
-    @Event playerDealtDamage
-    @Hero doomfist
-    @Condition eventAbility == Button.ABILITY_1
-    @Condition victim.unaffected != true
-    @Condition (victim.getHero() == Hero.ORISA and (victim.isUsingAbility1() or victim.isUsingUltimate())) == false
-    @Condition (victim.getHero() == Hero.MAUGA and victim.isUsingAbility1()) == false
-    
-    eventPlayer.doom_buff += 50
-    eventPlayer.hudText = "{0}".format(floor(eventPlayer.doom_buff))
-    victim.applyImpulse(Vector.UP, 6, Relativity.TO_PLAYER)
-    victim.applyImpulse(worldVector(Vector.BACKWARD, attacker, Transform.ROTATION), 3.5, Relativity.TO_WORLD)
-    victim.startForcingThrottle(0, 0, 0, 0, 0, 0)
-    waitUntil(victim.isOnGround(), 1.2)
-    victim.stopForcingThrottle()
-
-rule "[Doomfist] Seismic Slam upper":
-    @Event playerDealtKnockback
-    @Hero doomfist
-    @Condition eventAbility == Button.MELEE
-    
-    eventPlayer.doom_buff += 50
-    eventPlayer.hudText = "{0}".format(floor(eventPlayer.doom_buff))
-
-rule "[Doomfist]: Meteor Strike":
-    @Event playerDealtDamage
-    @Hero doomfist
-    @Condition eventAbility == Button.ULTIMATE
-    @Condition victim.unaffected != true
-    
-    eventPlayer.doom_buff += 250
-
-rule "[Doomfist]: Power Block":
-    @Event playerTookDamage
-    @Hero doomfist
-    @Condition eventPlayer.isUsingAbility2() == true
-    @Condition eventPlayer.doom_buff <= DoomBuff[1]
-    
-    eventPlayer.doom_buff += DoomBuff[1] - eventPlayer.doom_buff if eventPlayer.doom_buff + eventDamage * DoomBuff[0] > DoomBuff[1] else eventDamage * DoomBuff[0]
-    eventPlayer.hudText = "{0}".format(floor(eventPlayer.doom_buff))
-    wait()
+#!include "heroes/doomfist/aram-10-combat-suite.opy"
 
 #!include "heroes/doomfist/aram.opy"
-
-rule "[Doomfist]: block HUD":
-    @Event eachPlayer
-    @Hero doomfist
-    @Condition eventPlayer.doom_buff != 0
-    @Condition eventPlayer.isInSpawnRoom() != true
-    @Condition eventPlayer.reset_pvar[0] == false
-    
-    #hudText(eventPlayer, null, "\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r", "{0}".format(floor(eventPlayer.doom_buff)), HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
-    #eventPlayer.doom_buff_hud = getLastCreatedText()
-    waitUntil(eventPlayer.doom_buff == 0 or eventPlayer.reset_pvar[0] or eventPlayer.isInSpawnRoom(), 999999986991104)
-    eventPlayer.hudText = ""
-    #destroyHudText(eventPlayer.doom_buff_hud)
 
 
 rule "[Hazard]: Spike Guard cd":
@@ -1326,62 +1142,6 @@ rule "[Mauga]: fly":
 
 #!include "heroes/reaper/aram.opy"
 
-rule "[Reaper]: kill to gain soul buff":
-    @Event playerDealtFinalBlow
-    @Hero reaper
-    #@Condition eventPlayer.reaper_buff[0] < 50
-    
-    eventPlayer.reaper_buff[0] += ReaperBuff[0] + 1 if eventPlayer.getTeam() == Team.1 else 0.5
-
-
-rule "[Reaper]: Ability Dire Triggers":
-    @Event eachPlayer
-    @Hero reaper
-    #@Condition eventPlayer.getAbilityCooldown(Button.SECONDARY_FIRE) > 1.5
-    @Condition eventPlayer.isFiringSecondaryFire() == true
-    
-    waitUntil(not eventPlayer.isFiringSecondaryFire(), 0.6)
-    eventPlayer.setAbilityCooldown(Button.SECONDARY_FIRE, ReaperBuff[6])
-
-rule "[Reaper]: Ability Dire Triggers dot":
-    @Event playerDealtDamage
-    @Hero reaper
-    @Condition eventAbility == Button.SECONDARY_FIRE
-    
-    #wait(0.16)
-    victim.startDamageOverTime(attacker, 1, victim.getMaxHealth() * 0.1 + eventPlayer.reaper_buff[0] * ReaperBuff[7])
-    #victim.reaper_buff = getLastDamageOverTimeId()
-    #wait(1)
-    #victim.reaper_buff = 0
-
-rule "[Reaper]: ultimate Death Blossom":
-    @Event eachPlayer
-    @Hero reaper
-    @Condition eventPlayer.isUsingUltimate() == true
-    
-    eventPlayer.setDamageDealt(100 + eventPlayer.reaper_buff[0] * ReaperBuff[8])
-    eventPlayer.setAbilityCooldown(Button.ABILITY_1, 0)
-    eventPlayer.setStatusEffect(eventPlayer, Status.INVINCIBLE, 2.5 if eventPlayer.reaper_buff[0] * 0.05 >= 2.5 else eventPlayer.reaper_buff[0] * 0.05)
-    eventPlayer.setStatusEffect(eventPlayer, Status.PHASED_OUT, 2.5 if eventPlayer.reaper_buff[0] * 0.05 >= 2.5 else eventPlayer.reaper_buff[0] * 0.05)
-    waitUntil(not eventPlayer.isUsingUltimate(), 3.016)
-    eventPlayer.setDamageDealt(100)
-
-rule "[Reaper]: HUD & Reset":
-    @Event eachPlayer
-    @Hero reaper
-    @Condition eventPlayer.isInSpawnRoom() != true
-    @Condition eventPlayer.reset_pvar[0] == false
-    @Condition eventPlayer.reaper_buff[0] > 0
-    
-    if eventPlayer.reaper_buff[2] != 0:
-        goto lbl_0
-    hudText(eventPlayer, null, " \r\n\r\n\n", "已收割灵魂： {0}".format(eventPlayer.reaper_buff[0]), HudPosition.LEFT, 3, null, null, rgb(255, 255, 255, 200), HudReeval.STRING)
-    eventPlayer.reaper_buff[2] = getLastCreatedText()
-    lbl_0:
-    waitUntil(eventPlayer.reaper_buff[0] == 0 or eventPlayer.reset_pvar[0], 999999986991104)
-    destroyHudText(eventPlayer.reaper_buff[2])
-    eventPlayer.reaper_buff[2] = 0
-
 rule "[Moira]: Fade disable on Coalescence":
     @Event eachPlayer
     @Hero moira
@@ -1422,17 +1182,6 @@ rule "[Moira]: auto charge Coalescence":
         loop()
 
 #!include "heroes/zarya/aram-20-will-to-win.opy"
-
-rule "[Reaper]: Death Blossom remove Mov. speed penalty":
-    @Event eachPlayer
-    @Hero reaper
-    @Condition eventPlayer.isUsingUltimate() == true
-    
-    eventPlayer.mov_speed_buff += 100
-    eventPlayer.setMoveSpeed(100 + eventPlayer.mov_speed_buff)
-    waitUntil(not eventPlayer.isUsingUltimate(), 3.5)
-    eventPlayer.mov_speed_buff = 0
-    eventPlayer.setMoveSpeed(100)
 
 rule "[Junkrat]: Steel Trap bleed":
     @Event playerDealtDamage
@@ -1698,79 +1447,7 @@ rule "[Ashe]: Dynamite cd":
     eventPlayer.setAbilityCooldown(Button.ABILITY_2, eventPlayer.getAbilityCooldown(Button.ABILITY_2) - 1)
     wait(1)
 
-rule "[Wuyang]: mov_speed_penalty":
-    @Event playerDealtKnockback
-    @Hero wuyang
-    #@Condition eventAbility == null
-    
-    if victim.mov_speed_penalty > 0 and victim.isAlive():
-        victim.setHealth(victim.getHealth() - 45)
-    else:
-        victim.mov_speed_penalty = WuyangBuff[0]
-        victim.setMoveSpeed(100 + victim.mov_speed_buff - victim.mov_speed_penalty)
-        waitUntil(victim.mov_speed_penalty == 0 or victim.unaffected or victim.hasStatus(Status.INVINCIBLE), 1.25)
-        victim.setMoveSpeed(100)
-        victim.mov_speed_penalty = 0
-    wait(0.32)
-
 #!include "heroes/wuyang/aram.opy"
-
-rule "[Wuyang]: Restorative shield Target":
-    @Event playerReceivedHealing
-    @Condition healer.getHero() == Hero.WUYANG
-    @Condition eventAbility == null
-    @Condition eventHealing <= 8
-    @Condition healee.wuyang_buff[0] != true
-    
-    healee.wuyang_buff[0] = true
-    wait(1)
-    removeHealthPool(eventPlayer.wuyang_buff[1])
-
-rule "[Wuyang]: Restorative shield":
-    @Event eachPlayer
-    @Condition eventPlayer.wuyang_buff[0] == true
-    @Condition eventPlayer.getHero() != Hero.WUYANG
-    
-    eventPlayer.wuyang_buff[0] = false
-    if eventPlayer.wuyang_buff[1] == null:
-        goto lbl_0
-    removeHealthPool(eventPlayer.wuyang_buff[1])
-    lbl_0:
-    eventPlayer.addHealthPool(Health.SHIELDS, WuyangBuff[1], true, false)
-    eventPlayer.wuyang_buff[1] = getLastCreatedHealthPool()
-
-rule "[Wuyang]: Rushing Torrent jump":
-    @Event eachPlayer
-    @Hero wuyang
-    @Condition eventPlayer.isUsingAbility1() == true
-    @Condition eventPlayer.isHoldingButton(Button.JUMP) == true
-    #@Condition eventPlayer.isInAir() != true
-    
-    eventPlayer.applyImpulse(Vector.UP, 12, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
-    wait(0.16)
-    waitUntil(eventPlayer.isOnGround(), 3)
-
-rule "[Wuyang]: Ebb and Flow set":
-    @Event playerReceivedKnockback
-    #@Condition eventPlayer.isUsingAbility2() == true
-    @Condition eventAbility == Button.ABILITY_2
-    @Condition attacker.getHero() == Hero.WUYANG
-    
-    victim.wuyang_buff[2]++
-    #eventPlayer.setAbilityCooldown(Button.ABILITY_2, eventPlayer.getAbilityCooldown(Button.ABILITY_2) - 1)
-    wait(0.16)
-
-
-rule "[Wuyang]: Tidal Blast mov_speed_penalty":
-    @Event playerDealtKnockback
-    @Hero wuyang
-    @Condition eventAbility == Button.ULTIMATE
-    
-    victim.mov_speed_penalty += WuyangBuff[4]
-    victim.setMoveSpeed(100 + victim.mov_speed_buff - victim.mov_speed_penalty)
-    waitUntil(victim.mov_speed_penalty == 0 or victim.unaffected or victim.hasStatus(Status.INVINCIBLE), 3)
-    victim.setMoveSpeed(100)
-    victim.mov_speed_penalty -= WuyangBuff[4]
 
 
 rule "[Vendetta] Palatine Fang":

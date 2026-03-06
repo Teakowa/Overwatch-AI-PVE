@@ -88,6 +88,7 @@
 
 ## Iteration Log
 
+- 2026-03-06: 完成 H5 Wave-N+2（next-4 same_name_diff localization）。`doomfist/mauga/reaper/wuyang` 共 26 条 ARAM diff 从 `src/aram_overrides.opy` 内联规则体回收到 `src/heroes/<hero>/aram*.opy`。
 - 2026-03-06: 完成 H5 Wave-N+1（top-5 same_name_diff localization）。`ramattra/sombra/tracer/zarya/wrecking_ball` 共 16 条 ARAM diff 从 `src/aram_overrides.opy` 内联规则体回收到 `src/heroes/<hero>/aram*.opy`。
 - 2026-03-06: 完成 H5 Wave-N（cross-hero exact cleanup + legacy directory retirement）。`aram_cross_hero_overrides.opy` 下线，4 组 cross-hero exact 回收到 hero-owned shared leaves；`src/aram_overrides_segments/` 整体删除。
 - 2026-03-06: 完成 H5 Prep（segment compile dependency retirement）。`aram_overrides` 不再直接 include `aram_overrides_segments/*`；单英雄 segment 归位到 `src/heroes/<hero>/aram.opy`，跨英雄残留收束到 `src/aram_cross_hero_overrides.opy`。
@@ -153,6 +154,24 @@
 - 验证报告：
   - `docs/reports/aram-shared-wave-h5-top5-diff-localization-2026-03-06.md`
 
+## Current Iteration (H5 Wave-N+2: Next-4 Same-Name Diff Localization)
+
+- 波次范围：
+  - 将 `doomfist/mauga/reaper/wuyang` 的 26 条 `same_name_diff` 从 `src/aram_overrides.opy` 回收到英雄本地 overlay
+- 变更动作：
+  - `src/heroes/doomfist/aram-10-combat-suite.opy` 承接 6 条 Doomfist diff，`src/heroes/doomfist/aram.opy` 承接剩余 HUD diff。
+  - `src/heroes/mauga/aram-10-frontline-suite.opy` 承接 4 条 Mauga 前段 diff，`src/heroes/mauga/aram.opy` 承接 3 条 Berserker Soul 后段 diff。
+  - `src/heroes/reaper/aram.opy` 扩展承接剩余 6 条 Reaper diff。
+  - `src/heroes/wuyang/aram.opy` 扩展承接剩余 6 条 Wuyang diff。
+  - `src/aram_overrides.opy` 对这 26 条规则改为原位 `#!include "heroes/<hero>/aram*.opy"`，不改变顺序，不做 diff 消项。
+- 指标目标：
+  - `src/aram_overrides.opy diff: 90 -> 64`
+  - `src/heroes/*/aram*.opy diff: 18 -> 45`
+  - `exact = 0`
+  - `unwhitelisted exact/diff = 0/0`
+- 验证报告：
+  - `docs/reports/aram-shared-wave-h5-next4-diff-localization-2026-03-06.md`
+
 ## Current Iteration (H4 Wave-2: Full Initialize Convergence)
 
 - 变更动作：
@@ -194,6 +213,6 @@
 
 ## Next Steps
 
-1. H5：继续处理 `doomfist/mauga/reaper/wuyang` 等高密度 hero-local `same_name_diff`，优先把 `src/aram_overrides.opy` 的内联规则体迁回英雄 overlay。
+1. H5：继续处理 `ana/brigitte/freja/kiriko/reinhardt` 等剩余高密度 hero-local `same_name_diff`，优先把 `src/aram_overrides.opy` 的内联规则体迁回英雄 overlay。
 2. H5：在 hero-local diff 基本归位后，再评估哪些差异值得继续参数化或共享叶子化，而不是提前做 diff 消项。
 3. H6：在 `src/aram_overrides.opy` 基本完成薄层化后，再推进剩余 `same_name_diff` 的结构收敛。
