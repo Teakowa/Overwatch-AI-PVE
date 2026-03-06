@@ -56,6 +56,7 @@
 
 ## Iteration Log
 
+- 2026-03-06: 完成 H6 Wave-A（highest-density hero overlay split, no extra reports）。先处理 `reaper/wuyang/soldier76/roadhog`，把大块 `aram.opy` 规则按技能/套件语义拆回同级 `aram-*.opy` 叶子；本波只做结构拆分，不改规则体。
 - 2026-03-06: 完成 H6 Wave-10（remaining hero leaf naming cleanup, no extra reports）。收掉剩余 `wrecking_ball/sombra/kiriko/widowmaker/wuyang` 数字前缀叶子；至此 `src/heroes/**` 中历史遗留、但不承担排序职责的数字前缀 hero 叶子已全部改为语义命名。
 - 2026-03-06: 完成 H6 Wave-9（hazard/doomfist/mercy naming cleanup, no extra reports）。继续把 `hazard/doomfist/mercy` 的 ARAM 拆分文件改成纯语义命名，并将这 3 个英雄仍由 Main/ARAM 复用的技能文件一并去掉数字前缀；仅对齐 include 引用，不改规则体。
 - 2026-03-06: 完成 H6 Wave-8（aram-only offense naming cleanup, no extra reports）。继续把 `ashe/junkrat/moira/roadhog/soldier76` 的 ARAM-only 拆分文件改成纯语义命名；本波仅改 `src/aram_overrides.opy` 的装配引用，不触碰 Main 侧规则。
@@ -96,20 +97,22 @@
   - `docs/reports/aram-shared-wave-h5-next4-hjos-diff-localization-2026-03-06.md`
   - `docs/reports/aram-shared-wave-h5-next7-mid-density-diff-localization-2026-03-06.md`
 
-## Latest Completed Iteration (H6 Wave-10: Remaining Hero Leaf Naming Cleanup)
+## Latest Completed Iteration (H6 Wave-A: Highest-Density Hero Overlay Split)
 
 - 波次范围：
-  - 将 `wrecking_ball/sombra/kiriko/widowmaker/wuyang` 的剩余数字前缀 hero 叶子全部改为纯语义命名
-  - 同步收掉这些英雄在 Main/ARAM 侧的共享技能叶子旧命名引用
-  - 保持 include 顺序不变，只清理命名
+  - 处理 `reaper/wuyang/soldier76/roadhog` 这 4 个 active overlay 最重的英雄
+  - 将大块 `aram.opy` 规则按技能/套件语义拆到同级 `aram-*.opy` 叶子
+  - 保持 include 顺序不变，不改规则体
   - 本波不新增 report，仅更新主 TODO
 - 变更动作：
-  - `src/aram_overrides.opy` 改为引用新的 `wrecking_ball/sombra` 语义文件名。
-  - `wrecking_ball/rules.opy`、`sombra/rules.opy`、`kiriko/rules.opy`、`kiriko/aram.opy`、`widowmaker/aram.opy`、`widowmaker/falloff.opy`、`wuyang/rules.opy`、`wuyang/aram.opy` 同步对齐新的语义文件名。
+  - `reaper/aram.opy` 改为纯 assembly，拆出 `aram-wraith-form-suite.opy`、`aram-soul-and-dire-suite.opy`、`aram-death-blossom-suite.opy`。
+  - `wuyang/aram.opy` 补拆 `aram-control-and-shield-suite.opy`、`aram-rushing-torrent-jump.opy`、`aram-ebb-and-flow-suite.opy`、`aram-tidal-blast-suite.opy`。
+  - `soldier76/aram.opy` 补拆 `aram-third-person-toggle.opy`、`aram-heartsteel.opy`、`aram-sprint-suite.opy`、`aram-tactical-visor-suite.opy`。
+  - `roadhog/aram.opy` 补拆 `aram-breather-suite.opy`、`aram-hook-suite.opy`。
   - 不改规则体，不改 ARAM 装配顺序，也不改 whitelist 决策。
 - 指标结果：
   - `src/aram_overrides.opy exact/diff/unique` 维持 `0/0/0`
-  - active overlay duplicate 基线保持不变；本波只调整命名与文档，不改规则归属
+  - active overlay 的 `exact/diff` 基线保持不变；`unique` 因大块 `aram.opy` 被拆成语义叶子而暂时上升，这是结构拆分的预期结果
   - `exact = 0`
   - `unwhitelisted exact/diff = 0/0`
 - 验证报告：
