@@ -1,4 +1,6 @@
+#!mainFile "../../main.opy"
 
+#!include "../../constants/ow2_hero_defaults.opy"
 
 settings {
     "main": {
@@ -398,9 +400,9 @@ settings {
             "domina": {
                 "damageDealt%": DOMINA_DAMAGE_DEALT_PERCENT,
                 "damageReceived%": DOMINA_AI_DAMAGE_RECEIVED_PERCENT,
-                "ability1Cooldown%": ratioPercent(DOMINA_CRYSTAL_CHARGE_COOLDOWN, DOMINA_CRYSTAL_CHARGE_COOLDOWN_RAW),
-                "ability2Cooldown%": ratioPercent(DOMINA_BARRIER_ARRAY_COOLDOWN, DOMINA_BARRIER_ARRAY_COOLDOWN_RAW),
-                "secondaryFireCooldown%": ratioPercent(DOMINA_SONIC_REPULSORS_COOLDOWN, DOMINA_SONIC_REPULSORS_COOLDOWN_RAW)
+                "ability1Cooldown%": ratioPercent(DOMINA_SONIC_REPULSORS_COOLDOWN, OW2_DOMINA_SONIC_REPULSORS_COOLDOWN),
+                "ability2Cooldown%": ratioPercent(DOMINA_CRYSTAL_CHARGE_COOLDOWN, OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN),
+                "secondaryFireCooldown%": ratioPercent(DOMINA_BARRIER_ARRAY_COOLDOWN, OW2_DOMINA_BARRIER_ARRAY_COOLDOWN)
             },
             "sombra": {
                 "damageDealt%": 110,
@@ -793,9 +795,9 @@ settings {
             "domina": {
                 "damageDealt%": DOMINA_DAMAGE_DEALT_PERCENT,
                 "damageReceived%": DOMINA_PLAYER_DAMAGE_RECEIVED_PERCENT,
-                "ability1Cooldown%": ratioPercent(DOMINA_CRYSTAL_CHARGE_COOLDOWN, DOMINA_CRYSTAL_CHARGE_COOLDOWN_RAW),
-                "ability2Cooldown%": ratioPercent(DOMINA_BARRIER_ARRAY_COOLDOWN, DOMINA_BARRIER_ARRAY_COOLDOWN_RAW),
-                "secondaryFireCooldown%": ratioPercent(DOMINA_SONIC_REPULSORS_COOLDOWN, DOMINA_SONIC_REPULSORS_COOLDOWN_RAW)
+                "ability1Cooldown%": ratioPercent(DOMINA_SONIC_REPULSORS_COOLDOWN, OW2_DOMINA_SONIC_REPULSORS_COOLDOWN),
+                "ability2Cooldown%": ratioPercent(DOMINA_CRYSTAL_CHARGE_COOLDOWN, OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN),
+                "secondaryFireCooldown%": ratioPercent(DOMINA_BARRIER_ARRAY_COOLDOWN, OW2_DOMINA_BARRIER_ARRAY_COOLDOWN)
             },
             "sombra": {
                 "damageDealt%": 135,
