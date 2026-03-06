@@ -1,13 +1,14 @@
+#Only remove the following directive if the gamemode does not use tricks such as A+0, A*0, "am" == "**", etc which would otherwise be optimized out.
+#!optimizeStrict
+#!postCompileHook "post-compile-hook.js"
+
 #
 # Mode config: constants + ARAM settings/protocol
 #
 #!include "constants/player_constants.opy"
+
 #!include "aram_settings.opy"
 #!include "aram_protocol.opy"
-
-#Only remove the following directive if the gamemode does not use tricks such as A+0, A*0, "am" == "**", etc which would otherwise be optimized out.
-#!optimizeStrict
-#!postCompileHook "post-compile-hook.js"
 
 #
 # Shared leaves reused from mainline modules
@@ -25,7 +26,6 @@
 #!include "utilities/reset_statuses.opy"
 #!include "utilities/reset_hero.opy"
 #!include "utilities/knockback.opy"
-#!include "utilities/changelog_text.opy"
 #!include "utilities/set_third_person.opy"
 #!include "utilities/remove_tank_passive.opy"
 #!include "modules/bootstrap/11-blacklist.opy"
