@@ -22,7 +22,7 @@ rule "[Wuyang]: mov_speed_penalty":
         victim.wuyang_buff[3] = false
         lbl_0:
     wait(0.32)
-#!include "shared/20-xuanwu-cd.opy"
+#!include "20-xuanwu-cd.opy"
 rule "[Wuyang]: Restorative shield Target":
     @Event playerReceivedHealing
     @Condition healer.getHero() == Hero.WUYANG
@@ -46,7 +46,7 @@ rule "[Wuyang]: Restorative shield":
     lbl_0:
     eventPlayer.addHealthPool(Health.SHIELDS, WuyangBuff[1], true, false)
     eventPlayer.wuyang_buff[1] = getLastCreatedHealthPool()
-#!include "shared/50-rushing-torrent.opy"
+#!include "50-rushing-torrent.opy"
 rule "[Wuyang]: Rushing Torrent jump":
     @Event eachPlayer
     @Hero wuyang
@@ -57,7 +57,7 @@ rule "[Wuyang]: Rushing Torrent jump":
     eventPlayer.applyImpulse(Vector.UP, 12, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
     wait(WAIT_SHORT_FRAME)
     waitUntil(eventPlayer.isOnGround(), 3)
-#!include "shared/70-ebb-and-flow-lost-control.opy"
+#!include "70-ebb-and-flow-lost-control.opy"
 rule "[Wuyang]: Ebb and Flow set":
     @Event playerReceivedKnockback
     #@Condition eventPlayer.isUsingAbility2() == true

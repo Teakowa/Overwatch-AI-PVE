@@ -26,4 +26,4 @@ rule "[Bot] ACC":
         loop()
     eventPlayer.stopAcceleration()
 
-#!include "shared/70-remove-swift-step-hp.opy"
+#!include "70-remove-swift-step-hp.opy"

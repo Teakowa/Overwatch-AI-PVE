@@ -1,2 +1,2 @@
 # orisa aram-mode overlay
-#!include "shared/10-fortify-ricochet-damage.opy"
+#!include "10-fortify-ricochet-damage.opy"

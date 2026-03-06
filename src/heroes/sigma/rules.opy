@@ -5,7 +5,7 @@ rule "[Sigma]: shield cd":
     
     eventPlayer.setAbilityCooldown(Button.SECONDARY_FIRE, 0.5)
     wait(0.5)
-#!include "shared/20-ult-damage.opy"
+#!include "20-ult-damage.opy"
 rule "[Sigma]: Accretion knockdown":
     @Event playerDealtDamage
     @Hero sigma

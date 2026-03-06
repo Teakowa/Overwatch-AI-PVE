@@ -10,5 +10,5 @@ rule "[widowmaker.opy]: Infra-Sight headshot x3":
     damage(victim, attacker, (3 / 2.5 - 1) * eventDamage)
 
 
-#!include "shared/10-revert-sniper-damage-falloff.opy"
+#!include "10-revert-sniper-damage-falloff.opy"
 

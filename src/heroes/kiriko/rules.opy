@@ -65,7 +65,7 @@ rule "[kiriko]: swift step hp":
     #eventPlayer.kiriko_buff = getLastCreatedHealthPool()
     lbl_1:
     eventPlayer.kiriko_buff.append(getLastCreatedHealthPool())
-#!include "shared/70-remove-swift-step-hp.opy"
+#!include "70-remove-swift-step-hp.opy"
 rule "[Kiriko]: headshot damage":
     @Event playerDealtDamage
     @Hero kiriko

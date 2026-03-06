@@ -1,5 +1,5 @@
 # doomfist aram-mode overlay
-#!include "shared/40-power-block-damage.opy"
+#!include "40-power-block-damage.opy"
 rule "[Doomfist]: block HUD":
     @Event eachPlayer
     @Hero doomfist

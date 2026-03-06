@@ -33,7 +33,7 @@ rule "[Doomfist]: Power Block":
     eventPlayer.doom_buff += DoomBuff[1] - eventPlayer.doom_buff if eventPlayer.doom_buff + eventDamage * DoomBuff[0] > DoomBuff[1] else eventDamage * DoomBuff[0]
     eventPlayer.hudText = "{0}".format(floor(eventPlayer.doom_buff))
     wait()
-#!include "shared/40-power-block-damage.opy"
+#!include "40-power-block-damage.opy"
 rule "[Doomfist]: block HUD":
     @Event eachPlayer
     @Hero doomfist

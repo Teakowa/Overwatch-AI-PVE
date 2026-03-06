@@ -6,7 +6,7 @@ rule "[Juno]: Hyper Ring Max. range":
     eventPlayer.setProjectileSpeed(117.7)
     waitUntil(not eventPlayer.isUsingAbility2(), 5)
     eventPlayer.setProjectileSpeed(100)
-#!include "shared/20-track-orbital-ray-position.opy"
+#!include "20-track-orbital-ray-position.opy"
 rule "[Juno]: Orbial Ray Damage":
     @Event eachPlayer
     @Condition eventPlayer.juno_buff[0] == true

@@ -4,5 +4,5 @@ rule "[Genji] Dragonblade Healing":
     @Condition eventAbility == Button.ULTIMATE
     
     heal(eventPlayer, eventPlayer, eventDamage)
-#!include "shared/10-dragonblade-damage-fix.opy"
-#!include "shared/20-deflect.opy"
+#!include "10-dragonblade-damage-fix.opy"
+#!include "20-deflect.opy"

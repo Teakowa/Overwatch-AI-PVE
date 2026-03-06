@@ -22,7 +22,7 @@
   - `src/aramMain.opy` 仅引入 `#!include "heroes/init.aram.opy"`（共享英雄段）。
 - 英雄目录规范：`src/heroes/<hero>/`
   - 必备：`init.opy`、`rules.opy`、`main.opy`、`aram.opy`
-  - 可选叶子：同级技能/特效文件（示例：`shared/*.opy`、`falloff.opy`）
+  - 可选叶子：同级技能/特效文件（示例：`10-*.opy`、`falloff.opy`）；不再使用 `shared/` 目录承载可复用规则
 
 ## Tracking Board
 
@@ -39,7 +39,7 @@
 
 - 当前 duplicate 基线：
   - `src/aram_overrides.opy exact/diff/unique = 0/0/0`
-  - `src/**/aram*.opy active overlays exact/diff/unique = 28/109/46`
+  - `src/**/aram*.opy active overlays exact/diff/unique = 18/109/46`
   - `unwhitelisted aram/overlay exact-diff = 0/0, 0/0`
 - H5 收口结果：
   - `src/aram_overrides.opy` 已清空 duplicate debt，只保留 ARAM-only 规则与装配入口
@@ -55,7 +55,7 @@
 
 ## Iteration Log
 
-- 2026-03-06: 完成 H6 Wave-2（shared exact cleanup for mercy/zenyatta/reinhardt/widowmaker, no extra reports）。将 10 条仍依赖 whitelist 的 hero-local exact overlay 迁入 hero-owned shared leaves，Main/ARAM 双侧统一复用，并同步删除对应 whitelist 行。
+- 2026-03-06: 完成 H6 Wave-2（hero-owned exact cleanup without hero `shared/` dirs, no extra reports）。将 `src/heroes/**/shared/*.opy` 全部回卷到英雄根目录的同级技能/特效叶子，并完成 `mercy/zenyatta/reinhardt/widowmaker` 10 条 hero-local exact overlay 的双侧复用与 whitelist 收缩。
 - 2026-03-06: 完成 H6 Wave-1（pure assembly cutover, no extra reports）。将 `src/aram_overrides.opy` 中剩余 bootstrap/player helper、hero-local ARAM-only 规则、hero init delimiter 与本地 `def` 全部迁回 `src/modules/**/aram-*.opy`、`src/heroes/**/aram-*.opy`、`src/utilities/*.opy`，并把 `src/aram_overrides.opy` 清成纯 `#!include` 装配层；本波不新增 report。
 - 2026-03-06: 完成 H5 Wave-N+8（system/bootstrap overlay extraction, no extra reports）。将 `init/settings`、`player ban/allowed heroes`、`player lifecycle/reset` 与 `changelog` 的 ARAM mode diff 从 `src/aram_overrides.opy` 抽到 `src/modules/**/aram-*.opy`，并扩展 duplicates 门禁扫描到活跃模块 overlays。H5 达成收口。
 - 2026-03-06: 完成 H5 Wave-N+7（thin-layer cleanup without extra reports）。修复 `Genji`/`Venture` 的原位装配残留，并将 `mei/bastion/juno/torbjorn/roadhog/winston/ashe/vendetta/widowmaker/soldier76` 的一批 ARAM-only hero-local 规则回收到 `src/heroes/<hero>/aram*.opy`；本波仅更新主 TODO，不新增 report。
@@ -69,7 +69,7 @@
 - 2026-03-06: 完成 H5 Prep（segment compile dependency retirement）。`aram_overrides` 不再直接 include `aram_overrides_segments/*`；单英雄 segment 归位到 `src/heroes/<hero>/aram.opy`，跨英雄残留收束到 `src/aram_cross_hero_overrides.opy`。
 - 2026-03-06: 完成 H4 Wave-1（6 英雄 Detect 先行）。门禁全绿，行为保持“仅抽取、不改逻辑”。后续进入 H4 下一波，继续收敛 Initialize same-name-diff 与 overlay 归位。
 - 2026-03-06: 完成 H4 Wave-2（全量 Initialize 向 Main 收敛 + custom_hp helper 下线）。ARAM hero_init 改为统一 include `src/heroes/*/init.opy`，`aram_overrides` 不再承载 Detect/Initialize 规则体与 custom_hp 依赖。
-- 2026-03-06: 完成 H4 Wave-3（Hero Overlay First 清理 10 条 hero exact）。规则源统一迁入 `src/heroes/<hero>/shared/*.opy`，ARAM 通过 `src/heroes/<hero>/aram.opy` 复用；duplicates 门禁 overlay 扫描扩展到 `src/heroes/*/aram*.opy` 全量。
+- 2026-03-06: 完成 H4 Wave-3（Hero Overlay First 清理 10 条 hero exact）。规则源统一迁入 `src/heroes/<hero>/*.opy`，ARAM 通过 `src/heroes/<hero>/aram.opy` 复用；duplicates 门禁 overlay 扫描扩展到 `src/heroes/*/aram*.opy` 全量。
 
 ## Archived Reports
 
@@ -87,19 +87,20 @@
   - `docs/reports/aram-shared-wave-h5-next4-hjos-diff-localization-2026-03-06.md`
   - `docs/reports/aram-shared-wave-h5-next7-mid-density-diff-localization-2026-03-06.md`
 
-## Latest Completed Iteration (H6 Wave-2: Shared Exact Cleanup Without Extra Reports)
+## Latest Completed Iteration (H6 Wave-2: Hero-Owned Exact Cleanup Without Hero `shared/` Dirs)
 
 - 波次范围：
-  - 将 `mercy/zenyatta/reinhardt/widowmaker` 的 10 条 hero-local exact overlay 迁入 hero-owned shared leaves
+  - 将 `src/heroes/**/shared/*.opy` 全部迁回英雄根目录的同级技能/特效叶子
+  - 将 `mercy/zenyatta/reinhardt/widowmaker` 的 10 条 hero-local exact overlay 改为 Main/ARAM 双侧复用同级叶子
   - 同步缩减 whitelist 历史保留项
   - 本波不新增 report，仅更新主 TODO
 - 变更动作：
-  - 新增 `src/heroes/<hero>/shared/*.opy` 叶子，承接 `Valkyrie`、`Snap Kick (Self)`、`Shield Slam/overhealth`、`Revert sniper damage falloff`。
-  - Main 侧对应 `rules.opy` / `falloff.opy` 改为 include shared leaves，ARAM 侧 `aram.opy` 也复用同一叶子。
+  - 原 `src/heroes/**/shared/*.opy` 文件整体回卷到 `src/heroes/<hero>/` 同级叶子，避免目录层级表达“共享”语义。
+  - `mercy/zenyatta/reinhardt/widowmaker` 的 `rules.opy` / `falloff.opy` 与 `aram.opy` 统一改为 include 同级技能/特效叶子。
   - 删除 10 条已不再需要的 `rule_exact_duplicate` whitelist 记录。
 - 指标结果：
   - `src/aram_overrides.opy exact/diff/unique` 维持 `0/0/0`
-  - active overlay exact 继续下降，whitelist 负债同步收缩
+  - `src/**/aram*.opy active overlays exact/diff/unique: 28/109/46 -> 18/109/46`
   - `exact = 0`
   - `unwhitelisted exact/diff = 0/0`
 - 验证报告：
@@ -107,6 +108,6 @@
 
 ## Next Steps
 
-1. H6：针对 `src/heroes/**/aram*.opy` 与 `src/modules/**/aram*.opy` 中的 active overlay diff，继续评估哪些值得共享叶子化，哪些保留为 mode-only 行为更合适。
+1. H6：针对 `src/heroes/**/aram*.opy` 与 `src/modules/**/aram*.opy` 中的 active overlay diff，继续评估哪些值得抽到英雄自有同级技能/特效叶子，哪些保留为 mode-only 行为更合适。
 2. H6：逐步收缩 overlay debt，同时保持 `src/aram_overrides.opy` 作为纯 assembly 文件，不再回流规则体或本地 helper。
 3. H6：在 overlay 结构稳定后，再统一清理 `docs/reports/` 的历史归档密度与 TODO 文案。

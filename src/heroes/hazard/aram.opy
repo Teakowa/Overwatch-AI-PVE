@@ -23,4 +23,4 @@ rule "[Hazard]: Violent Leap HP":
     removeHealthPool(eventPlayer.hazard_hp_id)
     eventPlayer.hazard_hp_id = null
 
-#!include "shared/60-spike-guard-using-tracking.opy"
+#!include "60-spike-guard-using-tracking.opy"

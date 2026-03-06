@@ -27,7 +27,7 @@ rule_same_name_diff	[Doomfist]: block HUD	src/heroes/doomfist/rules.opy	baseline
 rule_same_name_diff	[Freja]: Dmg. reduction	src/heroes/freja/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
 rule_same_name_diff	[Freja]: Ex	src/heroes/freja/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
 rule_same_name_diff	[Freja]: HUD & Reset	src/heroes/freja/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Freja]: Revdraw Crossbow Stack	src/heroes/freja/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Freja]: Revdraw Crossbow Stack	src/heroes/freja/10-revdraw-crossbow-stack-primary-fire.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
 rule_same_name_diff	[Freja]: Take Aim Damage	src/heroes/freja/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
 rule_same_name_diff	[Genji] Dragonblade Healing	src/heroes/genji/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
 rule_same_name_diff	[Hazard]: Spike Guard cd	src/heroes/hazard/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor

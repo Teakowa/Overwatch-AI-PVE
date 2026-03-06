@@ -1,4 +1,4 @@
-#!include "shared/10-flashbang-stun.opy"
+#!include "10-flashbang-stun.opy"
 rule "[Cassdy] Peacekeeper Alt Fire":
     @Event eachPlayer
     @Hero cassidy
@@ -7,7 +7,7 @@ rule "[Cassdy] Peacekeeper Alt Fire":
     eventPlayer.setDamageDealt(135)
     waitUntil(not eventPlayer.isFiringSecondaryFire(), 0.75)
     eventPlayer.setDamageDealt(100)
-#!include "shared/30-alt-fire-reload.opy"
+#!include "30-alt-fire-reload.opy"
 rule "[Cassdy] ammo restored by kills":
     @Event playerDealtFinalBlow
     @Team 1

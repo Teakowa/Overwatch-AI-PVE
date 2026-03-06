@@ -12,4 +12,4 @@ rule "[widowmaker.opy]: Infra-Sight headshot":
     damage(victim, attacker, victim.getMaxHealth() * (0.9 if eventPlayer.isUsingUltimate() == true else 0.5))
     lbl_0:
 
-#!include "shared/10-revert-sniper-damage-falloff.opy"
+#!include "10-revert-sniper-damage-falloff.opy"

@@ -1,4 +1,4 @@
-#!include "shared/10-fortify-ricochet-damage.opy"
+#!include "10-fortify-ricochet-damage.opy"
 rule "[Orisa]: Fortify provides 100 temporary armor":
     @Event eachPlayer
     @Hero orisa

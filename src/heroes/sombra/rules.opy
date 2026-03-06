@@ -49,4 +49,4 @@ rule "[Sombra]: hack healing received":
     #destroyEffect(eventPlayer.sombra_buff)
     #eventPlayer.sombra_buff = null
     eventPlayer.healing_decrease = 0
-#!include "shared/30-kill-reset-cooldown.opy"
+#!include "30-kill-reset-cooldown.opy"
