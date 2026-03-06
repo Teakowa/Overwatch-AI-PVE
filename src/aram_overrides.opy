@@ -354,19 +354,8 @@ rule "[Mercy]: Life Grip Clear Effect":
 
 #!include "heroes/sigma/aram-05-hyperspheres-suite.opy"
 
-rule "[Venture] Dragonblade Healing":
-    @Event playerDealtDamage
-    @Hero venture
-    @Condition eventAbility == Button.ULTIMATE
-    
-    damage(victim, attacker, eventPlayer.getMaxHealth() * 0.1)
-    wait(0.16)
+#!include "heroes/venture/aram.opy"
 
-rule "[Genji] Dragonblade Healing":
-    @Event playerDealtDamage
-    @Hero genji
-    @Condition eventAbility == Button.ULTIMATE
-    
 #!include "heroes/genji/aram.opy"
 
 rule "[Genji] Dragonblade Execution players less 10% HP expectancy":
@@ -390,8 +379,6 @@ rule "[Genji] Dragonblade Execution players less 10% HP expectancy":
 #!include "heroes/tracer/shared/30-kill-reset-cooldown.opy"
 #!include "heroes/wrecking_ball/shared/20-disable-adaptive-shield-for-allies.opy"
 #!include "heroes/zarya/shared/10-projected-barrier-target.opy"
-
-#!include "heroes/venture/aram.opy"
 
 #!include "heroes/cassidy/shared/10-flashbang-stun.opy"
 
@@ -459,25 +446,7 @@ def Knockback():
 #!include "heroes/ramattra/aram-10-ult-suite.opy"
 #!include "heroes/tracer/aram-20-pulse-bomb-damage.opy"
 
-rule "[Mei]: Endothermic Blaster":
-    @Event playerDealtDamage
-    @Hero mei
-    @Condition eventWasCriticalHit == true
-    @Condition eventAbility == Button.SECONDARY_FIRE
-    
-    victim.setStatusEffect(attacker, Status.FROZEN, 0.75)
-    wait(0.2)
-
-rule "[Mei]: Ice move":
-    @Event eachPlayer
-    @Hero mei
-    @Condition eventPlayer.isUsingAbility1() == true
-    @Condition eventPlayer.isHoldingButton(Button.JUMP) == true
-    
-    eventPlayer.applyImpulse(eventPlayer.getFacingDirection(), 5, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
-    wait()
-    if ruleCondition:
-        loop()
+#!include "heroes/mei/aram.opy"
 
 #!include "heroes/sombra/aram.opy"
 #!include "heroes/ana/aram-10-sleep-tanks.opy"
@@ -710,40 +679,11 @@ rule "[Junkrat]: Steel Trap bleed":
 
 #!include "heroes/freja/shared/90-set-projectile-speed.opy"
 
-rule "[Torbjörn]: Forge Hammer":
-    @Event eachPlayer
-    @Hero torbjorn
-    @Condition (eventPlayer.isInAlternateForm() and eventPlayer.getCurrentWeapon() == 2) == true
-    
-    eventPlayer.setDamageDealt(300)
-    waitUntil(not (eventPlayer.isInAlternateForm() and eventPlayer.getCurrentWeapon() == 2), 999999986991104)
-    eventPlayer.setDamageDealt(100)
-    wait(1)
+#!include "heroes/torbjorn/aram.opy"
 
-rule "[Torbjörn]: Forge Hammer":
-    @Event eachPlayer
-    @Hero torbjorn
-    @Condition eventPlayer.isUsingAbility2() == true
-    
-    eventPlayer.addHealthPool(Health.NORMAL, 100, false, false)
-    eventPlayer.heart_steel = getLastCreatedHealthPool()
-    waitUntil(not eventPlayer.isUsingAbility2(), 8)
-    removeHealthPool(eventPlayer.heart_steel)
+#!include "heroes/juno/aram-10-pulsar-torpedoes.opy"
 
-rule "[Juno]: Pulsar Torpedoes":
-    @Event playerDealtDamage
-    @Hero juno
-    @Condition eventAbility == Button.SECONDARY_FIRE
-    
-    damage(victim, attacker, victim.getMaxHealth() * 0.2)
-
-rule "[Bastion]: Configuration: Artillery":
-    @Event playerDealtDamage
-    @Hero bastion
-    @Condition eventAbility == Button.ULTIMATE
-    
-    damage(victim, attacker, victim.getHealth() * 0.25)
-    wait(0.25)
+#!include "heroes/bastion/aram.opy"
 
 rule "[Roadhog]: Hogdrogen Exposure":
     @Event playerDealtHealing
@@ -756,72 +696,16 @@ rule "[Roadhog]: Hogdrogen Exposure":
 
 #!include "heroes/roadhog/aram.opy"
 
-rule "[Roadhog]: Chain Hook return cd":
-    @Event playerDealtDamage
-    @Hero roadhog
-    @Condition eventAbility == Button.ABILITY_1
-    
-    waitUntil(not eventPlayer.isUsingAbility1(), 1.75)
-    eventPlayer.setAbilityCooldown(Button.ABILITY_1, eventPlayer.getAbilityCooldown(Button.ABILITY_1) * 0.5)
-
-rule "[Roadhog]: hook lancher":
-    @Event playerDealtDamage
-    @Hero roadhog
-    @Condition eventAbility == Button.ABILITY_1
-    
-    smallMessage(eventPlayer, "  {0} 长按 {1} 发射敌人".format(abilityIconString(Hero.ROADHOG, Button.ABILITY_1), Button.INTERACT))
-    wait(0.016, Wait.ABORT_WHEN_FALSE)
-    waitUntil(not eventPlayer.isUsingAbility1() or distance(attacker, victim) <= 1.5, 8)
-    #if eventPlayer.isHoldingButton(Button.INTERACT) != true:
-    #        goto lbl_0
-    if eventPlayer.getTeam() == Team.1 or eventPlayer.isHoldingButton(Button.INTERACT) == true:
-        eventPlayer.cancelPrimaryAction()
-        lbl_0:
-        #victim.startForcingThrottle(0, 0, 0, 0, 0, 0)
-        #victim.setGravity(10)
-        victim.applyImpulse(attacker.getFacingDirection(), 85, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
-
 #!include "heroes/wrecking_ball/aram.opy"
 
-rule "[Winston]: Tesla Cannon Alt Fire":
-    @Event playerTookDamage
-    @Condition victim.unaffected != true
-    @Condition attacker.getHero() == Hero.WINSTON
-    @Condition (eventAbility == Button.SECONDARY_FIRE or eventAbility == null) == true
-    
-    wait(0.16)
-    #victim.setStatusEffect(attacker, Status.STUNNED, 0.3)
-    damage(victim, null, eventPlayer.getMaxHealth() * 0.1)
-    wait(0.8)
+#!include "heroes/winston/aram.opy"
 
-rule "[Ashe]: Dynamite Damage":
-    @Event playerDealtDamage
-    @Hero ashe
-    @Condition eventAbility == Button.ABILITY_2
-    @Condition attacker != victim
-    
-    victim.startDamageOverTime(attacker, 2, victim.getMaxHealth() * 0.5 / 2)
-    wait(5)
-
-rule "[Ashe]: Dynamite cd":
-    @Event playerDealtDamage
-    @Hero ashe
-    @Condition eventAbility == Button.ABILITY_2
-    @Condition attacker != victim
-    
-    eventPlayer.setAbilityCooldown(Button.ABILITY_2, eventPlayer.getAbilityCooldown(Button.ABILITY_2) - 1)
-    wait(1)
+#!include "heroes/ashe/aram-10-dynamite.opy"
 
 #!include "heroes/wuyang/aram.opy"
 
 
-rule "[Vendetta] Palatine Fang":
-    @Event playerDealtDamage
-    @Hero vendetta
-    @Condition eventAbility != null
-    
-    heal(eventPlayer, eventPlayer, eventDamage * 0.4)
-    wait()
+#!include "heroes/vendetta/aram.opy"
 
 rule "Initialize Heors":
     @Disabled
@@ -878,33 +762,11 @@ rule "Initialize Heors":
 #!include "heroes/mauga/init.opy"
 #!include "heroes/illari/init.opy"
 
-rule "[widowmaker.opy]: Infra-Sight headshot":
-    @Event playerDealtDamage
-    @Hero widowmaker
-    #@Condition eventWasCriticalHit == true
-    @Condition eventPlayer.isFiringSecondaryFire() == true
-    @Condition eventPlayer.isFiringPrimaryFire() == true
-    @Condition eventAbility == Button.PRIMARY_FIRE
-    
-    if eventWasCriticalHit != true:
-        goto lbl_0
-    damage(victim, attacker, victim.getMaxHealth() * (0.9 if eventPlayer.isUsingUltimate() == true else 0.5))
-    lbl_0:
-
 #!include "heroes/widowmaker/aram.opy"
 
 #!include "heroes/cassidy/aram-10-falloff.opy"
 
-rule "[Soldier: 76]: Third Person":
-    @Event eachPlayer
-    @Team 2
-    @Hero soldier
-    @Condition eventPlayer.isHoldingButton(Button.INTERACT) == true
-    @Condition eventPlayer.isHoldingButton(Button.RELOAD) == true
-    
-    wait(1, Wait.ABORT_WHEN_FALSE)
-    eventPlayer.third_person = false if eventPlayer.third_person == true else true
-    setThirdPerson()
+#!include "heroes/soldier76/aram.opy"
 
 rule "Changelog":
     @Event eachPlayer

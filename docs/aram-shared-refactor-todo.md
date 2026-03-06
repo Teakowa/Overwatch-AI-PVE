@@ -37,8 +37,8 @@
 ## Current Gate Baseline
 
 - 当前 duplicate 基线：
-  - `src/aram_overrides.opy exact/diff/unique = 0/12/45`
-  - `src/heroes/*/aram*.opy exact/diff/unique = 28/98/2`
+  - `src/aram_overrides.opy exact/diff/unique = 0/11/30`
+  - `src/heroes/*/aram*.opy exact/diff/unique = 28/98/16`
   - `unwhitelisted aram/overlay exact-diff = 0/0, 0/0`
 - H5 当前关注点：
   - `src/aram_overrides.opy` 继续薄层化
@@ -54,6 +54,7 @@
 
 ## Iteration Log
 
+- 2026-03-06: 完成 H5 Wave-N+7（thin-layer cleanup without extra reports）。修复 `Genji`/`Venture` 的原位装配残留，并将 `mei/bastion/juno/torbjorn/roadhog/winston/ashe/vendetta/widowmaker/soldier76` 的一批 ARAM-only hero-local 规则回收到 `src/heroes/<hero>/aram*.opy`；本波仅更新主 TODO，不新增 report。
 - 2026-03-06: 完成 H5 Wave-N+6（selective hero-local leftovers + report cleanup）。`cassidy/genji/venture/zenyatta` 共 6 条 ARAM diff 从 `src/aram_overrides.opy` 回收到英雄 overlay，同时清理 2 份已被后续波次覆盖的早期 pilot 报告。
 - 2026-03-06: 完成 H5 Wave-N+5（remaining mid-density hero-local diff localization）。`ashe/baptiste/illari/junkrat/moira/roadhog/sojourn` 共 12 条 ARAM diff 从 `src/aram_overrides.opy` 回收到 `src/heroes/<hero>/aram.opy`。
 - 2026-03-06: 完成 H5 Wave-N+4（hazard/juno/orisa/sigma diff localization）。4 组高密度 hero-local ARAM diff 从 `src/aram_overrides.opy` 回收到 `src/heroes/<hero>/aram*.opy`，`src/aram_overrides.opy diff: 40 -> 30`。
@@ -82,28 +83,26 @@
   - `docs/reports/aram-shared-wave-h5-next4-hjos-diff-localization-2026-03-06.md`
   - `docs/reports/aram-shared-wave-h5-next7-mid-density-diff-localization-2026-03-06.md`
 
-## Latest Completed Iteration (H5 Wave-N+6: Selective Hero-Local Leftovers + Report Cleanup)
+## Latest Completed Iteration (H5 Wave-N+7: Thin-Layer Cleanup Without Extra Reports)
 
 - 波次范围：
-  - 将 `cassidy/genji/venture/zenyatta` 的剩余可安全分离的 hero-local `same_name_diff` 从 `src/aram_overrides.opy` 回收到英雄本地 overlay
-  - 清理已不再被当前追踪链路引用的早期 pilot 报告
+  - 修复 `Genji` 与 `Venture` 在 `src/aram_overrides.opy` 中的残留装配问题，恢复 hero-owned overlay 的原位展开
+  - 将 `mei/bastion/juno/torbjorn/roadhog/winston/ashe/vendetta/widowmaker/soldier76` 的 ARAM-only 规则继续回收到对应 `src/heroes/<hero>/aram*.opy`
+  - 本波不新增 report，仅更新主 TODO
 - 变更动作：
-  - `src/heroes/cassidy/aram-05-alt-fire.opy` 与 `aram-10-falloff.opy` 承接 2 条 Cassidy diff，保持分离插入点。
-  - `src/heroes/genji/aram.opy` 承接 `[Genji] Dragonblade Healing`。
-  - `src/heroes/venture/aram.opy` 承接 `[Venture] Burrow speed and healing`。
-  - `src/heroes/zenyatta/aram-05-headshot-damage.opy`、`aram-10-snap-kick-enemy.opy` 与 `aram-20-transcendence.opy` 承接 3 条 Zenyatta diff。
-  - `src/aram_overrides.opy` 对本波目标规则全部改为原位 `#!include "heroes/<hero>/aram*.opy"`；其余非 diff ARAM-only 规则继续内联保留。
-  - 删除 `docs/reports/aram-shared-wave-cassidy-pilot-2026-03-06.md` 与 `docs/reports/aram-shared-wave-freja-pilot-2026-03-06.md`。
+  - `src/aram_overrides.opy` 删除 `Genji` 半拆分残留，并把 `Venture` include 挪回原位，避免 hero overlay 被晚于原顺序展开。
+  - 新增 `src/heroes/ashe/aram-10-dynamite.opy` 与 `src/heroes/juno/aram-10-pulsar-torpedoes.opy`，用于保持原插入点，不把规则整体提前到通用 `aram.opy`。
+  - `src/heroes/mei/aram.opy`、`src/heroes/bastion/aram.opy`、`src/heroes/torbjorn/aram.opy`、`src/heroes/roadhog/aram.opy`、`src/heroes/winston/aram.opy`、`src/heroes/vendetta/aram.opy`、`src/heroes/widowmaker/aram.opy`、`src/heroes/soldier76/aram.opy` 收回对应 ARAM-only 规则。
 - 指标结果：
-  - `src/aram_overrides.opy diff: 18 -> 12`
-  - `src/heroes/*/aram*.opy diff: 91 -> 98`
+  - `src/aram_overrides.opy exact/diff/unique: 0/12/45 -> 0/11/30`
+  - `src/heroes/*/aram*.opy exact/diff/unique: 28/98/2 -> 28/98/16`
   - `exact = 0`
   - `unwhitelisted exact/diff = 0/0`
 - 验证报告：
-  - `docs/reports/aram-shared-wave-h5-next4-selective-leftovers-2026-03-06.md`
+  - 无；本波结果直接记入本 TODO。
 
 ## Next Steps
 
-1. H5：继续处理剩余零散 hero-local leftovers 与少量 system/bootstrap `same_name_diff`，但要避开你当前正在调整的主线结构文件。
-2. H5：在 hero-local diff 接近清空后，再评估 `ana`、`juno` 以及其他少量 ARAM-only 规则是否值得进一步共享叶子化，而不是直接做 diff 消项。
+1. H5：继续处理剩余 11 条 `same_name_diff`，优先只动 `src/aram_overrides.opy` 与英雄 overlay，不碰你正在调整的 system/bootstrap 主线文件。
+2. H5：`src/aram_overrides.opy` 的 hero-local ARAM-only 规则已明显下降，下一步只在顺序确实需要时再新增 `aram-*.opy` 叶子，不再默认写波次 report。
 3. H6：在 `src/aram_overrides.opy` 稳定收缩到最后一批 system-level diff 后，再推进结构收敛与文档归档。
