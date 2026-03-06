@@ -105,16 +105,6 @@ rule_same_name_diff	[utilities/reset]: Default respawn time	src/modules/bootstra
 rule_same_name_diff	[utilities/reset]: Default respawn time	src/modules/bootstrap/20-player-lifecycle-and-reset.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
 rule_same_name_diff	[utilities/reset]: reset when died	src/modules/bootstrap/20-player-lifecycle-and-reset.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
 rule_same_name_diff	【布丽吉塔】盾击伤害调整	src/heroes/brigitte/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_exact_duplicate	[Genji] Dragonblade Damage Fix	src/heroes/genji/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Genji]: Deflect	src/heroes/genji/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Tracer] Recall Healing	src/heroes/tracer/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Ramattra]: Pain endures	src/heroes/ramattra/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Wrecking Ball] Grappling Claw cd reset	src/heroes/wrecking_ball/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Sombra]: kiil reset cooldown	src/heroes/sombra/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Tracer] Kill Heal	src/heroes/tracer/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Tracer]: kiil reset cooldown	src/heroes/tracer/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Wrecking Ball] Disable Adaptive Shield for allies	src/heroes/wrecking_ball/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Zarya]: Projected Barrier Target	src/heroes/zarya/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
 rule_exact_duplicate	[Ana] Biotic Grenade Hit	src/heroes/ana/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
 rule_exact_duplicate	[Ana]: Damage Full Health Allies So Nano Can Heal	src/heroes/ana/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
 rule_exact_duplicate	【布丽吉塔】恢复包选中目标	src/heroes/brigitte/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor

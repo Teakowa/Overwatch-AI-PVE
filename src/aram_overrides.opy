@@ -620,7 +620,16 @@ rule "[Genji] Dragonblade Execution players less 10% HP expectancy":
     
     damage(victim, attacker, SojournBuff[1])
 
-#!include "aram_cross_hero_overrides.opy"
+#!include "heroes/genji/shared/10-dragonblade-damage-fix.opy"
+#!include "heroes/genji/shared/20-deflect.opy"
+#!include "heroes/tracer/shared/10-recall-healing.opy"
+#!include "heroes/ramattra/shared/70-pain-endures.opy"
+#!include "heroes/wrecking_ball/shared/10-grappling-claw-cd-reset.opy"
+#!include "heroes/sombra/shared/30-kill-reset-cooldown.opy"
+#!include "heroes/tracer/shared/20-kill-heal.opy"
+#!include "heroes/tracer/shared/30-kill-reset-cooldown.opy"
+#!include "heroes/wrecking_ball/shared/20-disable-adaptive-shield-for-allies.opy"
+#!include "heroes/zarya/shared/10-projected-barrier-target.opy"
 
 rule "[Venture] Burrow speed and healing":
     @Event eachPlayer

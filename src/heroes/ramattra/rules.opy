@@ -75,15 +75,7 @@ rule "[Ramattra]: Pummel healing":
     eventPlayer.ram_block_damage += eventDamage * 1.5
     eventPlayer.hudText = "{0}/{1}".format(floor(eventPlayer.ram_block_damage), Ram_Annihilation[0])
     wait(0.3)
-rule "[Ramattra]: Pain endures":
-    @Event playerDealtFinalBlow
-    @Hero ramattra
-    @Condition eventPlayer.getUltCharge() != 100
-    @Condition eventPlayer.isUsingUltimate() == true
-    @Condition (eventAbility == Button.ULTIMATE or eventAbility == Button.ABILITY_1) == true
-    
-    eventPlayer.setUltCharge(eventPlayer.getUltCharge() + 25)
-    wait(0.3)
+#!include "shared/70-pain-endures.opy"
 rule "[Ramattra]: block":
     @Event playerTookDamage
     @Hero ramattra

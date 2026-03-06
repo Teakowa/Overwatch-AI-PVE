@@ -88,6 +88,7 @@
 
 ## Iteration Log
 
+- 2026-03-06: 完成 H5 Wave-N（cross-hero exact cleanup + legacy directory retirement）。`aram_cross_hero_overrides.opy` 下线，4 组 cross-hero exact 回收到 hero-owned shared leaves；`src/aram_overrides_segments/` 整体删除。
 - 2026-03-06: 完成 H5 Prep（segment compile dependency retirement）。`aram_overrides` 不再直接 include `aram_overrides_segments/*`；单英雄 segment 归位到 `src/heroes/<hero>/aram.opy`，跨英雄残留收束到 `src/aram_cross_hero_overrides.opy`。
 - 2026-03-06: 完成 H4 Wave-1（6 英雄 Detect 先行）。门禁全绿，行为保持“仅抽取、不改逻辑”。后续进入 H4 下一波，继续收敛 Initialize same-name-diff 与 overlay 归位。
 - 2026-03-06: 完成 H4 Wave-2（全量 Initialize 向 Main 收敛 + custom_hp helper 下线）。ARAM hero_init 改为统一 include `src/heroes/*/init.opy`，`aram_overrides` 不再承载 Detect/Initialize 规则体与 custom_hp 依赖。
@@ -111,6 +112,26 @@
   - `rg '#!include "aram_overrides_segments/' src` 返回空
 - 验证报告：
   - `docs/reports/aram-shared-wave-h5-segment-retirement-prep-2026-03-06.md`
+
+## Current Iteration (H5 Wave-N: Cross-Hero Exact Cleanup + Legacy Directory Retirement)
+
+- 波次范围：
+  - 清理 `src/aram_cross_hero_overrides.opy` 中 4 组 cross-hero exact（10 条规则）
+  - 退役 `src/aram_overrides_segments/` 历史目录
+- 变更动作：
+  - 为 `genji/tracer/ramattra/wrecking_ball/sombra/zarya` 新增 `shared/*.opy` 叶子，作为 cross-hero exact 的事实来源。
+  - Main 侧 `rules*.opy` 改为 include 对应 shared 叶子，保持主线规则顺序不变。
+  - `src/aram_overrides.opy` 在原 cross-hero include 位置改为逐条 include hero-owned shared 叶子，保持 ARAM 规则顺序不变。
+  - 删除 `src/aram_cross_hero_overrides.opy`。
+  - 删除 `src/aram_overrides_segments/` 目录及 `manifest.tsv`。
+  - `check_aram_overrides_duplicates.sh` 不再读取 cross-hero transitional file 或 manifest，改为仅检查活跃装配面与退休引用残留。
+  - 白名单删除 10 条原 cross-hero exact `rule_exact_duplicate`。
+- 指标目标：
+  - `src/aram_overrides.opy exact = 0`
+  - `unwhitelisted exact/diff = 0/0`
+  - `rg 'aram_cross_hero_overrides|aram_overrides_segments' src` 返回空
+- 验证报告：
+  - `docs/reports/aram-shared-wave-h5-cross-hero-retirement-2026-03-06.md`
 
 ## Current Iteration (H4 Wave-2: Full Initialize Convergence)
 
@@ -153,6 +174,6 @@
 
 ## Next Steps
 
-1. H5：继续收敛 `src/aram_cross_hero_overrides.opy` 中的跨英雄 `same_name_diff`，优先 `ramattra/wrecking_ball/sombra/tracer/zarya`。
-2. H5：确认 `aram_overrides_segments/manifest.tsv` 是否仍需保留历史记录；若无额外工具依赖，可整体归档或删除目录。
-3. H6：在 cross-hero 残留进一步收缩后，继续薄层化 `src/aram_overrides.opy`。
+1. H5：继续收敛 `src/aram_overrides.opy` 中剩余的 `same_name_diff`，优先 `ramattra/wrecking_ball/sombra/tracer/zarya` 相关模式差异。
+2. H5：评估 hero-owned shared leaves 中哪些 cross-mode exact 已足够稳定，可进一步合并到更贴近主线的共享布局。
+3. H6：在 `same_name_diff` 继续下降后，进一步薄层化 `src/aram_overrides.opy`。
