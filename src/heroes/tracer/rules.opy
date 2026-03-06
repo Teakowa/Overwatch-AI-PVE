@@ -1,4 +1,4 @@
-#!include "10-recall-healing.opy"
+#!include "recall-healing.opy"
 rule "[Tracer] Instant Respawn":
     @Event playerDied
     @Hero tracer
@@ -14,8 +14,8 @@ rule "[Tracer] Pulse Bomb Damage":
     @Condition eventDamage > 10
     
     damage(victim, attacker, ceil(eventDamage))
-#!include "20-kill-heal.opy"
-#!include "30-kill-reset-cooldown.opy"
+#!include "kill-heal.opy"
+#!include "kill-reset-cooldown.opy"
 rule "[Tracer]: Recall follow Sombra":
     @Event eachPlayer
     @Team 1

@@ -18,7 +18,7 @@ rule "[Zenyatta] Snap Kick (enemy)":
     Knockback()
     damage(eventPlayer, attacker, eventDamage * 0.5)
     eventPlayer.isKnocked = true
-#!include "10-snap-kick-self.opy"
+#!include "snap-kick-self.opy"
 rule "[Zenyatta]: Transcendence":
     @Event eachPlayer
     @Hero zenyatta

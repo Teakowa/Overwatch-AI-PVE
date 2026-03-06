@@ -1,4 +1,4 @@
-#!include "10-projected-barrier-target.opy"
+#!include "projected-barrier-target.opy"
 rule "[Zarya]: will to win":
     @Event eachPlayer
     @Hero zarya

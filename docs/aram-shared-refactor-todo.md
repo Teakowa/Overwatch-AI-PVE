@@ -56,6 +56,7 @@
 
 ## Iteration Log
 
+- 2026-03-06: 完成 H6 Wave-7（control/support naming cleanup, no extra reports）。继续把 `orisa/sigma/zarya/zenyatta` 的 ARAM 拆分文件改成纯语义命名，并将这 4 个英雄仍由 Main/ARAM 共用的技能文件一并去掉数字前缀；仅对齐 include 引用，不改装配顺序。
 - 2026-03-06: 完成 H6 Wave-2（hero-owned exact cleanup without hero `shared/` dirs, no extra reports）。将 `src/heroes/**/shared/*.opy` 全部回卷到英雄根目录的同级技能/特效拆分文件，并完成 `mercy/zenyatta/reinhardt/widowmaker` 10 条 hero-local exact overlay 的双侧复用与 whitelist 收缩。
 - 2026-03-06: 完成 H6 Wave-3（naming cleanup start, no extra reports）。开始把 ARAM 拆分文件改成纯语义命名，避免用数字前缀表达加载顺序；本波先处理 `ana` 的 3 个 ARAM 拆分文件与 `freja` 的 `Revdraw Crossbow Stack` 文件，并同步修正文档用语。
 - 2026-03-06: 完成 H6 Wave-4（support naming cleanup, no extra reports）。继续把 `brigitte/kiriko/juno` 的 ARAM 拆分文件改成纯语义命名，并将 `juno` 复用的轨道射线跟踪文件一并改名为语义文件名。
@@ -92,16 +93,16 @@
   - `docs/reports/aram-shared-wave-h5-next4-hjos-diff-localization-2026-03-06.md`
   - `docs/reports/aram-shared-wave-h5-next7-mid-density-diff-localization-2026-03-06.md`
 
-## Latest Completed Iteration (H6 Wave-6: Tank Naming Cleanup)
+## Latest Completed Iteration (H6 Wave-7: Control/Support Naming Cleanup)
 
 - 波次范围：
-  - 将 `mauga/ramattra/reinhardt` 的 ARAM 拆分文件改为纯语义命名
-  - 将这 3 个英雄的复用技能文件也改为纯语义命名
+  - 将 `orisa/sigma/zarya/zenyatta` 的 ARAM 拆分文件改为纯语义命名
+  - 将这 4 个英雄仍由 Main/ARAM 复用的技能文件也改为纯语义命名
   - 保持 include 顺序不变，只清理命名
   - 本波不新增 report，仅更新主 TODO
 - 变更动作：
-  - `src/aram_overrides.opy` 改为引用新的 `mauga/ramattra/reinhardt` 语义文件名。
-  - `mauga/rules.opy`、`mauga/aram.opy`、`ramattra/rules.opy`、`reinhardt/rules.opy`、`reinhardt/aram.opy` 同步对齐新的语义文件名。
+  - `src/aram_overrides.opy` 改为引用新的 `orisa/sigma/zarya/zenyatta` 语义文件名。
+  - `orisa/rules.opy`、`orisa/aram.opy`、`sigma/rules.opy`、`sigma/aram.opy`、`zarya/rules.opy`、`zenyatta/rules.opy`、`zenyatta/aram.opy` 同步对齐新的语义文件名。
   - 不改规则体，不改 ARAM 装配顺序，也不改 whitelist 决策。
 - 指标结果：
   - `src/aram_overrides.opy exact/diff/unique` 维持 `0/0/0`
