@@ -56,6 +56,7 @@
 
 ## Iteration Log
 
+- 2026-03-06: 完成 H6 Wave-E（mode-only residual assembly cleanup, no extra reports）。继续处理 `genji/junkrat/moira/sombra/vendetta/venture/widowmaker/wrecking_ball`，把仍停留在 `aram.opy` 的 mode-only 规则下沉到同级语义叶子；`kiriko` 的 payload bot 规则尝试拆分后会新增 hero overlay exact duplicate，因此和 `hazard` 一样保留在 `aram.opy` 原位。
 - 2026-03-06: 完成 H6 Wave-D（residual hero overlay cleanup, no extra reports）。继续处理 `ashe/baptiste/bastion/illari/lifeweaver/mei/sojourn/torbjorn/winston` 的低密度 residual `aram.opy`，将其收成纯 assembly 并补齐语义叶子；`hazard` 的 `Violent Leap` 套件在尝试拆分后会新增 hero overlay exact duplicate，因此按评估结果保留原位、不强拆。
 - 2026-03-06: 完成 H6 Wave-C（tank/fighter suite consolidation, no extra reports）。处理 `mauga/doomfist` 的剩余 `aram.opy` 内联套件，并复核 `ramattra` 当前 suite 边界；`ramattra` 因 `pain-endures/ult/block` 在 assembly 中并非连续段，暂维持现状并标记为已评估保留。
 - 2026-03-06: 完成 H6 Wave-B（mid/high-density overlay normalization, no extra reports）。处理 `freja/ana/brigitte`，把仍堆在 `aram.opy` 里的 ARAM 规则按技能/效果语义拆到同级叶子；优先复用已有套件边界，不改规则体。
@@ -100,21 +101,21 @@
   - `docs/reports/aram-shared-wave-h5-next4-hjos-diff-localization-2026-03-06.md`
   - `docs/reports/aram-shared-wave-h5-next7-mid-density-diff-localization-2026-03-06.md`
 
-## Latest Completed Iteration (H6 Wave-D: Residual Hero Overlay Cleanup)
+## Latest Completed Iteration (H6 Wave-E: Mode-Only Residual Assembly Cleanup)
 
 - 波次范围：
-  - 处理 `ashe/baptiste/bastion/illari/lifeweaver/mei/sojourn/torbjorn/winston` 的 residual `aram.opy`
-  - 复核 `hazard` 的 `Violent Leap` 套件是否适合拆成同级语义叶子
+  - 处理 `genji/junkrat/moira/sombra/vendetta/venture/widowmaker/wrecking_ball` 的 residual `aram.opy`
+  - 复核 `kiriko` 的 payload bot 规则是否适合拆成同级语义叶子
   - 保持 include 顺序不变，不改规则体
   - 本波不新增 report，仅更新主 TODO
 - 变更动作：
-  - `ashe/baptiste/bastion/lifeweaver/mei/sojourn/torbjorn/winston` 的残留 ARAM-only 规则从 `aram.opy` 内联体拆到同级语义叶子，原 `aram.opy` 回收为纯 include 装配。
-  - `illari/aram.opy` 拆出 `aram-captive-sun-suite.opy`，将 HUD 与伤害规则保留在同一套件边界。
-  - `hazard` 评估后维持 `Violent Leap` 两条规则留在 `aram.opy`；原因是该组与 `rules.opy` 存在 exact overlay 关系，强拆会新增未白名单 duplicate debt。
+  - `genji/junkrat/moira/sombra/vendetta/venture/widowmaker/wrecking_ball` 的残留 mode-only 规则从 `aram.opy` 内联体拆到同级语义叶子，原 `aram.opy` 回收为纯 include 装配。
+  - `kiriko` 评估后维持 `[Bot] PTP1/[Bot] ACC` 留在 `aram.opy`；原因是该组与 `rules.opy` 存在 exact overlay 关系，强拆会新增未白名单 duplicate debt。
+  - 前一波已确认的 `hazard` 保留策略继续成立，本波未改其结构。
   - 不改规则体，不改 ARAM 装配顺序，也不改 whitelist 决策。
 - 指标结果：
   - `src/aram_overrides.opy exact/diff/unique` 维持 `0/0/0`
-  - active overlay 基线为 `18/109/53`；`exact/diff` 保持不变，`unique` 维持 Wave-C 后的结构化水平
+  - active overlay 基线维持 `18/109/53`
   - `exact = 0`
   - `unwhitelisted exact/diff = 0/0`
 - 验证报告：
