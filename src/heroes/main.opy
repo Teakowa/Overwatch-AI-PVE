@@ -33,7 +33,7 @@
 #!include "reaper/rules.opy"
 #!include "freja/rules.opy"
 #!include "wuyang/rules.opy"
-#!include "anran/rules.opy"
+# !include "anran/rules.opy"
 #!include "emre/rules.opy"
 #!include "mizuki/rules.opy"
 #!include "jetpack_cat/rules.opy"

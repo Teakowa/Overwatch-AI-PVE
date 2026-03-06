@@ -31,6 +31,7 @@ rule "[Player]: Override allowed heroes list when player joins lobby":
         eventPlayer.setAllowedHeroes(Heros.concat([Hero.MERCY, Hero.JUNKRAT, Hero.TORBJORN]))
     else:
         eventPlayer.setAllowedHeroes(Heros)
+    Heros.remove(Hero.ANRAN)
     wait(WAIT_SHORT_FRAME)
     eventPlayer.hudText = ""
 
