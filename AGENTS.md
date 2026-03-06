@@ -2,6 +2,10 @@
 
 本文件定义仓库协作约定，目标：玩法稳定、结构可维护、负载可控。
 
+## Golden Rule
+
+- 遵循 [CLAUDE.md](CLAUDE.md)
+
 ## 1. 项目范围
 
 - 类型：Overwatch 2 Workshop（OverPy）。
