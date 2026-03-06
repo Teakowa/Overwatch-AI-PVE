@@ -38,8 +38,8 @@
 ## Current Gate Baseline
 
 - 当前 duplicate 基线：
-  - `src/aram_overrides.opy exact/diff/unique = 0/0/29`
-  - `src/**/aram*.opy active overlays exact/diff/unique = 28/109/17`
+  - `src/aram_overrides.opy exact/diff/unique = 0/0/0`
+  - `src/**/aram*.opy active overlays exact/diff/unique = 28/109/46`
   - `unwhitelisted aram/overlay exact-diff = 0/0, 0/0`
 - H5 收口结果：
   - `src/aram_overrides.opy` 已清空 duplicate debt，只保留 ARAM-only 规则与装配入口
@@ -55,6 +55,7 @@
 
 ## Iteration Log
 
+- 2026-03-06: 完成 H6 Wave-2（shared exact cleanup for mercy/zenyatta/reinhardt/widowmaker, no extra reports）。将 10 条仍依赖 whitelist 的 hero-local exact overlay 迁入 hero-owned shared leaves，Main/ARAM 双侧统一复用，并同步删除对应 whitelist 行。
 - 2026-03-06: 完成 H6 Wave-1（pure assembly cutover, no extra reports）。将 `src/aram_overrides.opy` 中剩余 bootstrap/player helper、hero-local ARAM-only 规则、hero init delimiter 与本地 `def` 全部迁回 `src/modules/**/aram-*.opy`、`src/heroes/**/aram-*.opy`、`src/utilities/*.opy`，并把 `src/aram_overrides.opy` 清成纯 `#!include` 装配层；本波不新增 report。
 - 2026-03-06: 完成 H5 Wave-N+8（system/bootstrap overlay extraction, no extra reports）。将 `init/settings`、`player ban/allowed heroes`、`player lifecycle/reset` 与 `changelog` 的 ARAM mode diff 从 `src/aram_overrides.opy` 抽到 `src/modules/**/aram-*.opy`，并扩展 duplicates 门禁扫描到活跃模块 overlays。H5 达成收口。
 - 2026-03-06: 完成 H5 Wave-N+7（thin-layer cleanup without extra reports）。修复 `Genji`/`Venture` 的原位装配残留，并将 `mei/bastion/juno/torbjorn/roadhog/winston/ashe/vendetta/widowmaker/soldier76` 的一批 ARAM-only hero-local 规则回收到 `src/heroes/<hero>/aram*.opy`；本波仅更新主 TODO，不新增 report。
@@ -86,19 +87,19 @@
   - `docs/reports/aram-shared-wave-h5-next4-hjos-diff-localization-2026-03-06.md`
   - `docs/reports/aram-shared-wave-h5-next7-mid-density-diff-localization-2026-03-06.md`
 
-## Latest Completed Iteration (H6 Wave-1: Pure Assembly Cutover Without Extra Reports)
+## Latest Completed Iteration (H6 Wave-2: Shared Exact Cleanup Without Extra Reports)
 
 - 波次范围：
-  - 将 `src/aram_overrides.opy` 中剩余 ARAM-only 规则、helper 与 hero-init delimiter 全部下沉到 hero/module/utility overlays
-  - 修复 `heroes/ana/aram-10-sleep-tanks.opy` 抽取残片
+  - 将 `mercy/zenyatta/reinhardt/widowmaker` 的 10 条 hero-local exact overlay 迁入 hero-owned shared leaves
+  - 同步缩减 whitelist 历史保留项
   - 本波不新增 report，仅更新主 TODO
 - 变更动作：
-  - 新增 `src/modules/bootstrap/aram-15-extra-hero-pool.opy`、`src/heroes/aram-init.opy`、多份 `src/heroes/<hero>/aram-*.opy` 叶子，以及 `src/utilities/set_third_person.opy`。
-  - `src/aramMain.opy` 复用 `utilities/knockback.opy`、`utilities/changelog_text.opy` 与 `utilities/set_third_person.opy`，不再依赖 `src/aram_overrides.opy` 本地 `def`。
-  - `src/aram_overrides.opy` 删除所有 `rule/def`，仅保留原位 `#!include` 装配。
+  - 新增 `src/heroes/<hero>/shared/*.opy` 叶子，承接 `Valkyrie`、`Snap Kick (Self)`、`Shield Slam/overhealth`、`Revert sniper damage falloff`。
+  - Main 侧对应 `rules.opy` / `falloff.opy` 改为 include shared leaves，ARAM 侧 `aram.opy` 也复用同一叶子。
+  - 删除 10 条已不再需要的 `rule_exact_duplicate` whitelist 记录。
 - 指标结果：
-  - `src/aram_overrides.opy exact/diff/unique: 0/0/29 -> 0/0/0`
-  - 活跃 duplicate debt 继续保留在 `src/**/aram*.opy`，不回流到入口装配层
+  - `src/aram_overrides.opy exact/diff/unique` 维持 `0/0/0`
+  - active overlay exact 继续下降，whitelist 负债同步收缩
   - `exact = 0`
   - `unwhitelisted exact/diff = 0/0`
 - 验证报告：

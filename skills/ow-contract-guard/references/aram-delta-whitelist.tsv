@@ -111,8 +111,6 @@ rule_exact_duplicate	【布丽吉塔】恢复包选中目标	src/heroes/brigitte
 rule_exact_duplicate	【布丽吉塔】恢复包提供护甲	src/heroes/brigitte/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
 rule_exact_duplicate	[Hazard]: Violent Leap kiil reset cooldown	src/heroes/hazard/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
 rule_exact_duplicate	[Bot] PTP1	src/heroes/kiriko/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Mercy]: Valkyrie	src/heroes/mercy/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	【天使】女武神刷新复活冷却时间	src/heroes/mercy/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
 rule_exact_duplicate	[Reaper]: Wraith Form to fly	src/heroes/reaper/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
 rule_exact_duplicate	[Reaper]: kill to gain soul buff	src/heroes/reaper/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
 rule_exact_duplicate	[Reaper]: Ability 1 Wraith Form cd	src/heroes/reaper/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
@@ -120,17 +118,9 @@ rule_exact_duplicate	[Reaper]: Ability 2 Shadow Step cd	src/heroes/reaper/rules.
 rule_exact_duplicate	[Reaper]: Ability 1 Wraith Form dmg increase setup	src/heroes/reaper/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
 rule_exact_duplicate	[Reaper]: Ability 1 Wraith Form dmg increase set & hud	src/heroes/reaper/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
 rule_exact_duplicate	[Reaper]: Ability 2 Shadow Step dmg reduction setup	src/heroes/reaper/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Reinhardt]: Shield Slam knockback	src/heroes/reinhardt/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Reinhardt]: Shield Slam stun	src/heroes/reinhardt/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Reinhardt]: Attack to get overhealth	src/heroes/reinhardt/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Reinhardt]: Attack to get overhealth removal	src/heroes/reinhardt/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[widowmaker.opy]: Revert sniper damage falloff	src/heroes/widowmaker/falloff.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
 rule_exact_duplicate	[Wuyang]: Ebb and Flow Ability	src/heroes/wuyang/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
 rule_exact_duplicate	[Wuyang]: Ebb and Flow countdown	src/heroes/wuyang/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
 rule_exact_duplicate	[Wuyang]: Tidal Blast Allies Target	src/heroes/wuyang/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
 rule_exact_duplicate	[Wuyang]: Tidal Blast Allies Healing	src/heroes/wuyang/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Zenyatta] Snap Kick (Self Ground)	src/heroes/zenyatta/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Zenyatta] stop knocked	src/heroes/zenyatta/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Zenyatta] Snap Kick (Self Wall)	src/heroes/zenyatta/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
 rule_same_name_diff	[Hazard]: Violent Leap HP	src/heroes/hazard/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
 rule_same_name_diff	[Bot] ACC	src/heroes/kiriko/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
