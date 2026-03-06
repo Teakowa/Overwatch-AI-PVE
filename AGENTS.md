@@ -77,10 +77,12 @@
 - Git commit message 禁止包含 `Co-authored-by: Codex <noreply@openai.com>`；若工具自动注入该行，应在提交前移除，不得保留到最终 commit 中。
 
 常用命令：
+- `pnpm install --frozen-lockfile`
 - `pnpm run build`
 - `pnpm run build:release`
 - `pnpm run build:aram`
 - `skills/ow-contract-guard/scripts/check_contracts.sh`
+- `skills/ow-contract-guard/scripts/check_contracts.sh --build`
 - `skills/ow-contract-guard/scripts/check_contracts.sh --strict-hero-init`
 - `skills/ow-contract-guard/scripts/check_aram_overrides_duplicates.sh`
 - `skills/ow-contract-guard/scripts/check_aram_overrides_duplicates.sh --check --emit-candidates build/reports/aram-delta-whitelist-candidates.tsv`
