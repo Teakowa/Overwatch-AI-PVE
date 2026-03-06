@@ -48,11 +48,4 @@ rule "[Hazard]: Spike Guard get Ultimate and heal":
     eventPlayer.setUltCharge(eventPlayer.getUltCharge() + (HazardBuff[1] if eventPlayer.getTeam() == Team.2 else HazardBuff[1] * 1.15))
     heal(eventPlayer, eventPlayer, eventDamage / 0.35 * (HazardBuff[2] if eventPlayer.getTeam() == Team.2 else 0.5))
     wait(max(0.5, getAverageServerLoad() / 100))
-rule "[Hazard]: Spike Guard using tracking":
-    @Event eachPlayer
-    @Hero hazard
-    @Condition eventPlayer.isHoldingButton(Button.SECONDARY_FIRE) == true
-    
-    eventPlayer.hazard_using_ability_sec = true
-    waitUntil(not eventPlayer.isHoldingButton(Button.SECONDARY_FIRE), 12)
-    eventPlayer.hazard_using_ability_sec = false
+#!include "shared/60-spike-guard-using-tracking.opy"

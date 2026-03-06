@@ -1,1 +1,2 @@
-# hazard aram-mode overlay (intentionally empty for Hero-First migration)
+# hazard aram-mode overlay
+#!include "shared/60-spike-guard-using-tracking.opy"

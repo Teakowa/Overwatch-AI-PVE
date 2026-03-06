@@ -532,17 +532,7 @@ rule "[kiriko]: swift step hp":
     lbl_1:
     eventPlayer.kiriko_buff.append(getLastCreatedHealthPool())
 
-rule "[kiriko]: remove swift step hp":
-    @Event eachPlayer
-    @Condition eventPlayer.isAlive() == true
-    @Condition eventPlayer.kiriko_buff != []
-    
-    wait(3, Wait.ABORT_WHEN_FALSE)
-    removeHealthPool(eventPlayer.kiriko_buff[0])
-    eventPlayer.kiriko_buff.remove(eventPlayer.kiriko_buff[0])
-    if len(eventPlayer.kiriko_buff) != 0:
-        loop()
-    eventPlayer.kiriko_buff = []
+#!include "heroes/kiriko/aram.opy"
 
 rule "[Lifeweaver]: Life Grip Healing":
     @Event playerDealtHealing
@@ -566,13 +556,7 @@ rule "[Mercy]: Life Grip Clear Effect":
     
     healee.startHealingOverTime(healer, 2, healee.getMaxHealth() * 0.2)
 
-rule "[Sigma]: ult damage":
-    @Event playerDealtDamage
-    @Hero sigma
-    @Condition eventAbility == Button.ULTIMATE
-    @Condition eventDamage > 75
-    
-    damage(victim, attacker, eventDamage / 2)
+#!include "heroes/sigma/aram.opy"
 
 rule "[Sigma]: Hyperspheres Layer Damage":
     @Event playerDealtDamage
@@ -784,13 +768,7 @@ rule "[Mauga]: Berserker Soul status active":
     waitUntil(eventPlayer.isDead(), 99999)
     eventPlayer.mauga_berserker_soul = false
 
-rule "[Mauga]: Berserker Soul reset":
-    @Event eachPlayer
-    @Hero mauga
-    @Condition eventPlayer.isAlive() == true
-    @Condition eventPlayer.isInSpawnRoom() == true
-    
-    eventPlayer.mauga_berserker_soul = false
+#!include "heroes/mauga/aram.opy"
 
 rule "[Mauga]: Berserker Soul Ability":
     @Event eachPlayer
@@ -851,13 +829,7 @@ rule "[Mauga]: Berserker Soul cd":
     if ruleCondition:
         loop()
 
-rule "[Orisa]Fortify ricochet damage":
-    @Event playerTookDamage
-    @Hero orisa
-    @Condition (eventPlayer.isUsingAbility1() or eventPlayer.isUsingUltimate()) == true
-    @Condition eventPlayer.hasStatus(Status.HACKED) != true
-    
-    damage(attacker, eventPlayer, Orisa_Fortify[1] / 100 * eventDamage)
+#!include "heroes/orisa/aram.opy"
 
 rule "[Illari]: Captive Sun HUD":
     @Event eachPlayer
@@ -1363,14 +1335,7 @@ rule "[Doomfist]: Power Block":
     eventPlayer.hudText = "{0}".format(floor(eventPlayer.doom_buff))
     wait()
 
-rule "[Doomfist]: Power Block Damage":
-    @Event playerDealtDamage
-    @Hero doomfist
-    @Condition eventAbility == Button.SECONDARY_FIRE
-    @Condition eventPlayer.doom_buff != 0
-    
-    damage(victim, attacker, eventPlayer.doom_buff)
-    eventPlayer.doom_buff = 0
+#!include "heroes/doomfist/aram.opy"
 
 rule "[Doomfist]: block HUD":
     @Event eachPlayer
@@ -1407,14 +1372,7 @@ rule "[Hazard]: Spike Guard get Ultimate and heal":
     heal(eventPlayer, eventPlayer, eventDamage / 0.35 * HazardBuff[2])
     wait(min(0.16, getAverageServerLoad() / 100))
 
-rule "[Hazard]: Spike Guard using tracking":
-    @Event eachPlayer
-    @Hero hazard
-    @Condition eventPlayer.isHoldingButton(Button.SECONDARY_FIRE) == true
-    
-    eventPlayer.hazard_using_ability_sec = true
-    waitUntil(not eventPlayer.isHoldingButton(Button.SECONDARY_FIRE), 12)
-    eventPlayer.hazard_using_ability_sec = false
+#!include "heroes/hazard/aram.opy"
 
 rule "[Orisa]: stun when ult":
     @Event playerDealtKnockback
@@ -1685,16 +1643,7 @@ rule "[Junkrat]: arsonist":
     lbl_0:
     wait(1)
 
-rule "[Juno] Track Orbital Ray Position":
-    @Event eachPlayer
-    @Hero juno
-    @Condition eventPlayer.isUsingUltimate() == true
-    @Condition eventPlayer.isAlive() == true
-    
-    wait(0.5, Wait.ABORT_WHEN_FALSE)
-    getPlayersInRadius(eventPlayer, 12.5, eventPlayer.getTeam()).juno_buff[0] = true
-    wait(10)
-    getPlayers(eventPlayer.getTeam()).juno_buff[0] = false
+#!include "heroes/juno/aram.opy"
 
 rule "[Juno]: Orbial Ray Damage":
     @Event eachPlayer
@@ -1951,14 +1900,7 @@ rule "[Wuyang]: mov_speed_penalty":
         victim.mov_speed_penalty = 0
     wait(0.32)
 
-rule "[Wuyang]: xuanwu cd":
-    @Event playerDealtKnockback
-    @Hero wuyang
-    @Condition eventAbility == null
-    @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) > 0
-    
-    eventPlayer.setAbilityCooldown(Button.ABILITY_2, eventPlayer.getAbilityCooldown(Button.ABILITY_2) - 1)
-    wait(0.5)
+#!include "heroes/wuyang/aram.opy"
 
 rule "[Wuyang]: Restorative shield Target":
     @Event playerReceivedHealing
@@ -1984,23 +1926,6 @@ rule "[Wuyang]: Restorative shield":
     eventPlayer.addHealthPool(Health.SHIELDS, WuyangBuff[1], true, false)
     eventPlayer.wuyang_buff[1] = getLastCreatedHealthPool()
 
-rule "[Wuyang]: Rushing Torrent":
-    @Event eachPlayer
-    @Hero wuyang
-    @Condition eventPlayer.isUsingAbility1() == true
-    
-    if eventPlayer.getNormalizedHealth() == 1:
-        goto lbl_0
-    eventPlayer.startHealingOverTime(eventPlayer, 4.5, WuyangBuff[2])
-    eventPlayer.wuyang_buff[0] = getLastHealingOverTimeId()
-    lbl_0:
-    eventPlayer.dmg_reduction = WuyangBuff[3]
-    eventPlayer.setDamageReceived(100 - eventPlayer.dmg_reduction)
-    waitUntil(not eventPlayer.isUsingAbility1(), 4.5)
-    eventPlayer.dmg_reduction = 0
-    stopHealingOverTime(eventPlayer.wuyang_buff[0])
-    eventPlayer.setDamageReceived(100)
-
 rule "[Wuyang]: Rushing Torrent jump":
     @Event eachPlayer
     @Hero wuyang
@@ -2011,18 +1936,6 @@ rule "[Wuyang]: Rushing Torrent jump":
     eventPlayer.applyImpulse(Vector.UP, 12, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
     wait(0.16)
     waitUntil(eventPlayer.isOnGround(), 3)
-
-rule "[Wuyang]: Ebb and Flow lost control":
-    @Event playerReceivedKnockback
-    @Condition eventAbility == Button.ABILITY_2
-    @Condition attacker.getHero() == Hero.WUYANG
-    
-    victim.startForcingThrottle(0, 0, 0, 0, 0, 0)
-    #victim.applyImpulse(Vector.UP, 1, Relativity.TO_PLAYER)
-    #victim.setGravity(0)
-    waitUntil(victim.hasStatus(Status.INVINCIBLE), 0.75)
-    victim.stopForcingThrottle()
-    #victim.setGravity(100)
 
 rule "[Wuyang]: Ebb and Flow set":
     @Event playerReceivedKnockback

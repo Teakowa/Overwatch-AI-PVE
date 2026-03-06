@@ -1,1 +1,2 @@
-# sigma aram-mode overlay (intentionally empty for Hero-First migration)
+# sigma aram-mode overlay
+#!include "shared/20-ult-damage.opy"

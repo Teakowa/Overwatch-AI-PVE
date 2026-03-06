@@ -90,6 +90,7 @@
 
 - 2026-03-06: 完成 H4 Wave-1（6 英雄 Detect 先行）。门禁全绿，行为保持“仅抽取、不改逻辑”。后续进入 H4 下一波，继续收敛 Initialize same-name-diff 与 overlay 归位。
 - 2026-03-06: 完成 H4 Wave-2（全量 Initialize 向 Main 收敛 + custom_hp helper 下线）。ARAM hero_init 改为统一 include `src/heroes/*/init.opy`，`aram_overrides` 不再承载 Detect/Initialize 规则体与 custom_hp 依赖。
+- 2026-03-06: 完成 H4 Wave-3（Hero Overlay First 清理 10 条 hero exact）。规则源统一迁入 `src/heroes/<hero>/shared/*.opy`，ARAM 通过 `src/heroes/<hero>/aram.opy` 复用；duplicates 门禁 overlay 扫描扩展到 `src/heroes/*/aram*.opy` 全量。
 
 ## Current Iteration (H4 Wave-2: Full Initialize Convergence)
 
@@ -110,8 +111,28 @@
 - 验证报告：
   - `docs/reports/aram-shared-wave-h4-init-full-convergence-2026-03-06.md`
 
+## Current Iteration (H4 Wave-3: Hero Overlay First Exact Cleanup)
+
+- 波次范围：清理 10 条 hero `rule_exact_duplicate`（`doomfist/hazard/juno/mauga/orisa/sigma/kiriko/wuyang`）。
+- 变更动作：
+  - 新增 10 个共享叶子：`src/heroes/<hero>/shared/*.opy`，承载本波 exact 规则本体。
+  - `src/heroes/<hero>/rules.opy` 原位改为 include shared 叶子，保持 Main 顺序不变。
+  - `src/heroes/<hero>/aram.opy` 从空壳切换为 include 对应 shared 叶子。
+  - `src/aram_overrides.opy` 用 `#!include "heroes/<hero>/aram.opy"` 替换 7 条单英雄 exact；Wuyang 采用单点 include 并删除 3 条内联 exact。
+  - 白名单删除 10 条已迁移 `rule_exact_duplicate`，仅保留 bootstrap exact（`[utilities/reset]: setup var when player joins lobby`）。
+  - `check_aram_overrides_duplicates.sh` 将 overlay 门禁范围从 6 英雄 pilot 扩展到 `src/heroes/*/aram*.opy` 全量。
+- 指标结果：
+  - `total: 154`
+  - `exact: 1`
+  - `diff: 106`
+  - `unique: 47`
+  - `unwhitelisted exact/diff: 0/0`
+  - `candidates: 0`
+- 验证报告：
+  - `docs/reports/aram-shared-wave-h4-hero-exact-overlay-2026-03-06.md`
+
 ## Next Steps
 
-1. H4：继续按英雄把 `aram_overrides` 差异迁入 `src/heroes/<hero>/aram.opy`（迁移即白名单收口）。
-2. H4：推进 hero_rules same-name-diff 收敛（优先高重复英雄，采用 shared leaf + mode overlay）。
+1. H4：清理最后 1 条 bootstrap exact（`[utilities/reset]: setup var when player joins lobby`）。
+2. H4：继续推进 `rule_same_name_diff` 收敛（优先 `ramattra/doomfist/mauga/wuyang` 热点英雄）。
 3. H5：当 `aram_overrides` 仅剩跨英雄模式逻辑后，退役 `aram_overrides_segments`。

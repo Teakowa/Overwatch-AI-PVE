@@ -1,1 +1,2 @@
-# kiriko aram-mode overlay (intentionally empty for Hero-First migration)
+# kiriko aram-mode overlay
+#!include "shared/70-remove-swift-step-hp.opy"

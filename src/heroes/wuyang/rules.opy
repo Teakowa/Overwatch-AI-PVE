@@ -22,14 +22,7 @@ rule "[Wuyang]: mov_speed_penalty":
         victim.wuyang_buff[3] = false
         lbl_0:
     wait(0.32)
-rule "[Wuyang]: xuanwu cd":
-    @Event playerDealtKnockback
-    @Hero wuyang
-    @Condition eventAbility == null
-    @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) > 0
-    
-    eventPlayer.setAbilityCooldown(Button.ABILITY_2, eventPlayer.getAbilityCooldown(Button.ABILITY_2) - 1)
-    wait(0.5)
+#!include "shared/20-xuanwu-cd.opy"
 rule "[Wuyang]: Restorative shield Target":
     @Event playerReceivedHealing
     @Condition healer.getHero() == Hero.WUYANG
@@ -53,22 +46,7 @@ rule "[Wuyang]: Restorative shield":
     lbl_0:
     eventPlayer.addHealthPool(Health.SHIELDS, WuyangBuff[1], true, false)
     eventPlayer.wuyang_buff[1] = getLastCreatedHealthPool()
-rule "[Wuyang]: Rushing Torrent":
-    @Event eachPlayer
-    @Hero wuyang
-    @Condition eventPlayer.isUsingAbility1() == true
-    
-    if eventPlayer.getNormalizedHealth() == 1:
-        goto lbl_0
-    eventPlayer.startHealingOverTime(eventPlayer, 4.5, WuyangBuff[2])
-    eventPlayer.wuyang_buff[0] = getLastHealingOverTimeId()
-    lbl_0:
-    eventPlayer.dmg_reduction = WuyangBuff[3]
-    eventPlayer.setDamageReceived(100 - eventPlayer.dmg_reduction)
-    waitUntil(not eventPlayer.isUsingAbility1(), 4.5)
-    eventPlayer.dmg_reduction = 0
-    stopHealingOverTime(eventPlayer.wuyang_buff[0])
-    eventPlayer.setDamageReceived(100)
+#!include "shared/50-rushing-torrent.opy"
 rule "[Wuyang]: Rushing Torrent jump":
     @Event eachPlayer
     @Hero wuyang
@@ -79,17 +57,7 @@ rule "[Wuyang]: Rushing Torrent jump":
     eventPlayer.applyImpulse(Vector.UP, 12, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
     wait(WAIT_SHORT_FRAME)
     waitUntil(eventPlayer.isOnGround(), 3)
-rule "[Wuyang]: Ebb and Flow lost control":
-    @Event playerReceivedKnockback
-    @Condition eventAbility == Button.ABILITY_2
-    @Condition attacker.getHero() == Hero.WUYANG
-    
-    victim.startForcingThrottle(0, 0, 0, 0, 0, 0)
-    #victim.applyImpulse(Vector.UP, 1, Relativity.TO_PLAYER)
-    #victim.setGravity(0)
-    waitUntil(victim.hasStatus(Status.INVINCIBLE), 0.75)
-    victim.stopForcingThrottle()
-    #victim.setGravity(100)
+#!include "shared/70-ebb-and-flow-lost-control.opy"
 rule "[Wuyang]: Ebb and Flow set":
     @Event playerReceivedKnockback
     #@Condition eventPlayer.isUsingAbility2() == true

@@ -5,13 +5,7 @@ rule "[Sigma]: shield cd":
     
     eventPlayer.setAbilityCooldown(Button.SECONDARY_FIRE, 0.5)
     wait(0.5)
-rule "[Sigma]: ult damage":
-    @Event playerDealtDamage
-    @Hero sigma
-    @Condition eventAbility == Button.ULTIMATE
-    @Condition eventDamage > 75
-    
-    damage(victim, attacker, eventDamage / 2)
+#!include "shared/20-ult-damage.opy"
 rule "[Sigma]: Accretion knockdown":
     @Event playerDealtDamage
     @Hero sigma

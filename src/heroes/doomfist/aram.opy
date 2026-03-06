@@ -1,1 +1,2 @@
-# doomfist aram-mode overlay (intentionally empty for Hero-First migration)
+# doomfist aram-mode overlay
+#!include "shared/40-power-block-damage.opy"

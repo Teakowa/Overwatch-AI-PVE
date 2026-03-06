@@ -1,1 +1,2 @@
-# mauga aram-mode overlay (intentionally empty for Hero-First migration)
+# mauga aram-mode overlay
+#!include "shared/60-berserker-soul-reset.opy"

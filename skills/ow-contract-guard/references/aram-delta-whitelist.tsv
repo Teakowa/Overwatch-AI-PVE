@@ -1,14 +1,4 @@
 kind	rule_or_macro	source_module	reason	decision	owner
-rule_exact_duplicate	[Doomfist]: Power Block Damage	src/heroes/doomfist/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Hazard]: Spike Guard using tracking	src/heroes/hazard/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Juno] Track Orbital Ray Position	src/heroes/juno/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Mauga]: Berserker Soul reset	src/heroes/mauga/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Orisa]Fortify ricochet damage	src/heroes/orisa/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Sigma]: ult damage	src/heroes/sigma/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Wuyang]: Ebb and Flow lost control	src/heroes/wuyang/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Wuyang]: Rushing Torrent	src/heroes/wuyang/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[Wuyang]: xuanwu cd	src/heroes/wuyang/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
-rule_exact_duplicate	[kiriko]: remove swift step hp	src/heroes/kiriko/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
 rule_exact_duplicate	[utilities/reset]: setup var when player joins lobby	src/modules/bootstrap/20-player-lifecycle-and-reset.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
 rule_same_name_diff	Changelog	src/modules/debug/20-changelog.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
 rule_same_name_diff	Copyright (c) 2019-2025 他又（aka Teakowa）	src/modules/bootstrap/00-init-and-settings.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
