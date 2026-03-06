@@ -367,9 +367,7 @@ rule "[Genji] Dragonblade Healing":
     @Hero genji
     @Condition eventAbility == Button.ULTIMATE
     
-    heal(eventPlayer, eventPlayer, eventDamage)
-    damage(victim, attacker, eventPlayer.getMaxHealth() * 0.1)
-    wait(0.16)
+#!include "heroes/genji/aram.opy"
 
 rule "[Genji] Dragonblade Execution players less 10% HP expectancy":
     @Event playerDealtDamage
@@ -393,27 +391,11 @@ rule "[Genji] Dragonblade Execution players less 10% HP expectancy":
 #!include "heroes/wrecking_ball/shared/20-disable-adaptive-shield-for-allies.opy"
 #!include "heroes/zarya/shared/10-projected-barrier-target.opy"
 
-rule "[Venture] Burrow speed and healing":
-    @Event eachPlayer
-    @Hero venture
-    @Condition eventPlayer.isUsingAbility1() == true
-    
-    eventPlayer.mov_speed_buff = 56
-    eventPlayer.setMoveSpeed(100 + eventPlayer.mov_speed_buff)
-    waitUntil(not eventPlayer.isUsingAbility1(), 99999)
-    eventPlayer.mov_speed_buff = 0
-    eventPlayer.setMoveSpeed(100)
+#!include "heroes/venture/aram.opy"
 
 #!include "heroes/cassidy/shared/10-flashbang-stun.opy"
 
-rule "[Cassdy] Peacekeeper Alt Fire":
-    @Event eachPlayer
-    @Hero cassidy
-    @Condition eventPlayer.isFiringSecondaryFire() == true
-    
-    eventPlayer.setDamageDealt(180)
-    waitUntil(not eventPlayer.isFiringSecondaryFire(), 0.75)
-    eventPlayer.setDamageDealt(100)
+#!include "heroes/cassidy/aram-05-alt-fire.opy"
 
 #!include "heroes/cassidy/shared/30-alt-fire-reload.opy"
 
@@ -421,16 +403,7 @@ rule "[Cassdy] Peacekeeper Alt Fire":
 
 #!include "heroes/ashe/aram.opy"
 
-rule "[Zenyatta]: headshot damage":
-    @Event playerDealtDamage
-    @Hero zenyatta
-    @Condition HeadshotDamage[0] > 1
-    @Condition eventWasCriticalHit == true
-    @Condition eventAbility != Button.ABILITY_1
-    @Condition eventAbility != Button.ABILITY_2
-    @Condition eventAbility != Button.ULTIMATE
-    
-    damage(victim, attacker, ceil((eventDamage * (HeadshotDamage[0] - 2)) / 2))
+#!include "heroes/zenyatta/aram-05-headshot-damage.opy"
 
 #!include "heroes/baptiste/aram.opy"
 
@@ -469,27 +442,7 @@ rule "[Zenyatta] remove Snap Kick hp":
     if ruleCondition:
         loop()
 
-rule "[Zenyatta] Snap Kick (enemy)":
-    @Event playerReceivedKnockback
-    @Condition attacker.getHero() == Hero.ZENYATTA == true
-    @Condition eventAbility == Button.MELEE
-    
-    heal(attacker, attacker, victim.getMaxHealth() * 0.25)
-    victim.setStatusEffect(attacker, Status.STUNNED, 1.5)
-    attacker.heart_steel[1] += 150
-    if attacker.heart_steel[0] == null:
-        goto lbl_0
-    removeHealthPool(attacker.heart_steel[0])
-    lbl_0:
-    attacker.addHealthPool(Health.NORMAL, attacker.heart_steel[1], false, false)
-    attacker.heart_steel[0] = getLastCreatedHealthPool()
-    #eventPlayer.KnockbackDirection = directionFromAngles(attacker.getHorizontalFacingAngle(), -10)
-    #eventPlayer.startForcingThrottle(0, 0, 0, 0, 0, 0.5)
-    wait()
-    #eventPlayer.applyImpulse(eventPlayer.KnockbackDirection, Zen_KnockupStrength * 2, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
-    #eventPlayer.applyImpulse(Vector.UP, Zen_KnockupStrength * 2 * 0.3, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
-    damage(eventPlayer, attacker, eventDamage * 0.5)
-    #eventPlayer.isKnocked = true
+#!include "heroes/zenyatta/aram-10-snap-kick-enemy.opy"
 
 def Knockback():
     @Name "[Zenyatta] Sub Knockback"
@@ -500,21 +453,7 @@ def Knockback():
 
 #!include "heroes/zenyatta/aram.opy"
 
-rule "[Zenyatta]: Transcendence":
-    @Event eachPlayer
-    @Hero zenyatta
-    @Condition eventPlayer.isUsingUltimate() == true
-    
-    eventPlayer.mov_speed_penalty = 0
-    eventPlayer.mov_speed_buff += 25
-    wait(0.16)
-    eventPlayer.setStatusEffect(null, Status.PHASED_OUT, 6)
-    eventPlayer.setHealingDealt(133.34)
-    eventPlayer.setMoveSpeed(100 + eventPlayer.mov_speed_buff)
-    waitUntil(not eventPlayer.isUsingUltimate(), 6)
-    eventPlayer.mov_speed_buff = 0
-    eventPlayer.setHealingDealt(100)
-    eventPlayer.setMoveSpeed(100)
+#!include "heroes/zenyatta/aram-20-transcendence.opy"
 
 #!include "heroes/tracer/aram-10-instant-respawn.opy"
 #!include "heroes/ramattra/aram-10-ult-suite.opy"
@@ -954,30 +893,7 @@ rule "[widowmaker.opy]: Infra-Sight headshot":
 
 #!include "heroes/widowmaker/aram.opy"
 
-rule "[Cassidy.opy]: Revert sniper damage falloff":
-    @Event playerDealtDamage
-    @Hero cassidy
-    @Condition eventAbility == Button.PRIMARY_FIRE
-    @Condition distance(attacker.getEyePosition(), victim) >= 25.1
-    
-    eventPlayer.scoped_shot_distance = distance(attacker.getEyePosition(), victim)
-    #原OW2衰减计算（25-35米 70%衰减）
-    eventPlayer.ow2_scoped_damage_falloff_scalar = 1 - (((eventPlayer.scoped_shot_distance - 25) / 10) * 0.7) + (1 - ((eventPlayer.scoped_shot_distance - 25) / 10))
-    if eventPlayer.ow2_scoped_damage_falloff_scalar > 1:
-        eventPlayer.ow2_scoped_damage_falloff_scalar = 1
-        #Min damage scalar
-    elif eventPlayer.ow2_scoped_damage_falloff_scalar < 0.3:
-        eventPlayer.ow2_scoped_damage_falloff_scalar = 0.3
-    eventPlayer.scoped_damage_base = eventDamage / eventPlayer.ow2_scoped_damage_falloff_scalar
-    eventPlayer.ow1_scoped_damage_falloff_scalar = 1 - (((eventPlayer.scoped_shot_distance - 25) / 25) * 0.3)
-    #Cap min/max scalar
-    # Max damage scalar
-    if eventPlayer.ow1_scoped_damage_falloff_scalar < 0.7:
-        eventPlayer.ow1_scoped_damage_falloff_scalar = 0.7
-    if eventPlayer.scoped_shot_distance > 50:
-        eventPlayer.ow1_scoped_damage_falloff_scalar = 0.7
-    eventPlayer.expected_scoped_damage = eventPlayer.scoped_damage_base * eventPlayer.ow1_scoped_damage_falloff_scalar
-    damage(victim, attacker, ceil(eventPlayer.expected_scoped_damage - eventDamage))
+#!include "heroes/cassidy/aram-10-falloff.opy"
 
 rule "[Soldier: 76]: Third Person":
     @Event eachPlayer

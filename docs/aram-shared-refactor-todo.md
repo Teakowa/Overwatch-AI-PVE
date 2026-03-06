@@ -37,8 +37,8 @@
 ## Current Gate Baseline
 
 - 当前 duplicate 基线：
-  - `src/aram_overrides.opy exact/diff/unique = 0/18/45`
-  - `src/heroes/*/aram*.opy exact/diff/unique = 28/91/2`
+  - `src/aram_overrides.opy exact/diff/unique = 0/12/45`
+  - `src/heroes/*/aram*.opy exact/diff/unique = 28/98/2`
   - `unwhitelisted aram/overlay exact-diff = 0/0, 0/0`
 - H5 当前关注点：
   - `src/aram_overrides.opy` 继续薄层化
@@ -54,6 +54,7 @@
 
 ## Iteration Log
 
+- 2026-03-06: 完成 H5 Wave-N+6（selective hero-local leftovers + report cleanup）。`cassidy/genji/venture/zenyatta` 共 6 条 ARAM diff 从 `src/aram_overrides.opy` 回收到英雄 overlay，同时清理 2 份已被后续波次覆盖的早期 pilot 报告。
 - 2026-03-06: 完成 H5 Wave-N+5（remaining mid-density hero-local diff localization）。`ashe/baptiste/illari/junkrat/moira/roadhog/sojourn` 共 12 条 ARAM diff 从 `src/aram_overrides.opy` 回收到 `src/heroes/<hero>/aram.opy`。
 - 2026-03-06: 完成 H5 Wave-N+4（hazard/juno/orisa/sigma diff localization）。4 组高密度 hero-local ARAM diff 从 `src/aram_overrides.opy` 回收到 `src/heroes/<hero>/aram*.opy`，`src/aram_overrides.opy diff: 40 -> 30`。
 - 2026-03-06: 完成 H5 Wave-N+3（next-5 same_name_diff localization）。`ana/brigitte/freja/kiriko/reinhardt` 共 24 条 ARAM diff 从 `src/aram_overrides.opy` 内联规则体回收到 `src/heroes/<hero>/aram*.opy`。
@@ -79,30 +80,30 @@
   - `docs/reports/aram-shared-wave-h5-next4-diff-localization-2026-03-06.md`
   - `docs/reports/aram-shared-wave-h5-next5-diff-localization-2026-03-06.md`
   - `docs/reports/aram-shared-wave-h5-next4-hjos-diff-localization-2026-03-06.md`
+  - `docs/reports/aram-shared-wave-h5-next7-mid-density-diff-localization-2026-03-06.md`
 
-## Latest Completed Iteration (H5 Wave-N+5: Remaining Mid-Density Hero-Local Diff Localization)
+## Latest Completed Iteration (H5 Wave-N+6: Selective Hero-Local Leftovers + Report Cleanup)
 
 - 波次范围：
-  - 将 `ashe/baptiste/illari/junkrat/moira/roadhog/sojourn` 的剩余中密度 hero-local `same_name_diff` 从 `src/aram_overrides.opy` 回收到英雄本地 overlay
+  - 将 `cassidy/genji/venture/zenyatta` 的剩余可安全分离的 hero-local `same_name_diff` 从 `src/aram_overrides.opy` 回收到英雄本地 overlay
+  - 清理已不再被当前追踪链路引用的早期 pilot 报告
 - 变更动作：
-  - `src/heroes/sojourn/aram.opy` 承接 2 条 Sojourn diff。
-  - `src/heroes/ashe/aram.opy` 承接 1 条 Ashe diff。
-  - `src/heroes/baptiste/aram.opy` 承接 2 条 Baptiste diff。
-  - `src/heroes/illari/aram.opy` 承接 2 条 Illari diff。
-  - `src/heroes/junkrat/aram.opy` 承接 1 条 Junkrat diff。
-  - `src/heroes/moira/aram.opy` 承接 1 条 Moira diff。
-  - `src/heroes/roadhog/aram.opy` 承接 3 条 Roadhog diff。
-  - `src/aram_overrides.opy` 对本波目标规则全部改为原位 `#!include "heroes/<hero>/aram.opy"`；其他非 diff ARAM-only 规则继续内联保留。
+  - `src/heroes/cassidy/aram-05-alt-fire.opy` 与 `aram-10-falloff.opy` 承接 2 条 Cassidy diff，保持分离插入点。
+  - `src/heroes/genji/aram.opy` 承接 `[Genji] Dragonblade Healing`。
+  - `src/heroes/venture/aram.opy` 承接 `[Venture] Burrow speed and healing`。
+  - `src/heroes/zenyatta/aram-05-headshot-damage.opy`、`aram-10-snap-kick-enemy.opy` 与 `aram-20-transcendence.opy` 承接 3 条 Zenyatta diff。
+  - `src/aram_overrides.opy` 对本波目标规则全部改为原位 `#!include "heroes/<hero>/aram*.opy"`；其余非 diff ARAM-only 规则继续内联保留。
+  - 删除 `docs/reports/aram-shared-wave-cassidy-pilot-2026-03-06.md` 与 `docs/reports/aram-shared-wave-freja-pilot-2026-03-06.md`。
 - 指标结果：
-  - `src/aram_overrides.opy diff: 30 -> 18`
-  - `src/heroes/*/aram*.opy diff: 79 -> 91`
+  - `src/aram_overrides.opy diff: 18 -> 12`
+  - `src/heroes/*/aram*.opy diff: 91 -> 98`
   - `exact = 0`
   - `unwhitelisted exact/diff = 0/0`
 - 验证报告：
-  - `docs/reports/aram-shared-wave-h5-next7-mid-density-diff-localization-2026-03-06.md`
+  - `docs/reports/aram-shared-wave-h5-next4-selective-leftovers-2026-03-06.md`
 
 ## Next Steps
 
-1. H5：继续处理剩余零散 hero-local `same_name_diff` 与少量 bootstrap/system diff，优先把 `src/aram_overrides.opy` 中仍可安全归位的内联规则体迁回英雄 overlay。
-2. H5：在 hero-local diff 基本归位后，再评估 `ana`、`juno` 以及其他少量 ARAM-only 规则是否值得进一步共享叶子化，而不是直接做 diff 消项。
-3. H6：在 `src/aram_overrides.opy` 继续收缩到稳定薄层后，再推进系统级 `same_name_diff` 的结构收敛。
+1. H5：继续处理剩余零散 hero-local leftovers 与少量 system/bootstrap `same_name_diff`，但要避开你当前正在调整的主线结构文件。
+2. H5：在 hero-local diff 接近清空后，再评估 `ana`、`juno` 以及其他少量 ARAM-only 规则是否值得进一步共享叶子化，而不是直接做 diff 消项。
+3. H6：在 `src/aram_overrides.opy` 稳定收缩到最后一批 system-level diff 后，再推进结构收敛与文档归档。
