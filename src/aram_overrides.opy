@@ -920,88 +920,9 @@ rule "[Zenyatta]: Transcendence":
     eventPlayer.setHealingDealt(100)
     eventPlayer.setMoveSpeed(100)
 
-rule "[Tracer] Instant Respawn":
-    @Event playerDied
-    @Hero tracer
-    
-    wait(0.16)
-    eventPlayer.respawn()
-    eventPlayer.setAbilityCharge(Button.ABILITY_1, 3)
-
-rule "[Ramattra] ult speed":
-    @Event eachPlayer
-    @Hero ramattra
-    @Condition eventPlayer.isUsingUltimate() == true
-    
-    eventPlayer.mov_speed_buff += Ram_Annihilation[3]
-    eventPlayer.setDamageDealt(100 + Ram_Annihilation[5])
-    eventPlayer.setDamageReceived(100 - Ram_Annihilation[4])
-    eventPlayer.setMoveSpeed(100 + eventPlayer.mov_speed_buff - eventPlayer.mov_speed_penalty)
-    eventPlayer.setKnockbackReceived(30)
-    waitUntil(not eventPlayer.isUsingUltimate(), 999999986991104)
-    eventPlayer.mov_speed_buff = 0
-    eventPlayer.setMoveSpeed(100)
-    eventPlayer.setDamageReceived(100)
-    eventPlayer.setKnockbackReceived(100)
-    eventPlayer.setDamageDealt(100)
-    wait(0.16)
-    removeTankPassive()
-
-rule "[Ramattra] ult start":
-    @Event eachPlayer
-    @Hero ramattra
-    @Condition eventPlayer.isUsingUltimate() == true
-    @Condition eventPlayer.getHealthOfType(Health.NORMAL) <= eventPlayer.getMaxHealthOfType(Health.NORMAL) + 50
-    
-    eventPlayer.ram_block_damage += 50
-    eventPlayer.hudText = "{0}/{1}".format(floor(eventPlayer.ram_block_damage), Ram_Annihilation[0])
-    wait(1.16)
-    if ruleCondition:
-        loop()
-
-rule "[Ramattra] ult healing":
-    @Event playerDealtDamage
-    @Hero ramattra
-    #@Condition attacker.getHero() == Hero.RAMATTRA == true
-    @Condition attacker.isUsingUltimate() == true
-    @Condition attacker.getHealth() < attacker.getMaxHealth()
-    #@Condition eventAbility == Button.PRIMARY_FIRE == true
-    
-    heal(attacker, attacker, eventDamage * Ram_Annihilation[1])
-    wait(0.0016)
-
-rule "[Ramattra]: Pummel healing":
-    @Event playerDealtDamage
-    @Team 1
-    @Hero ramattra
-    @Condition eventPlayer.isUsingAbility1() == true
-    @Condition eventAbility == Button.ABILITY_1
-    @Condition eventPlayer.getHealthOfType(Health.NORMAL) <= eventPlayer.getMaxHealthOfType(Health.NORMAL) + 50
-    
-    eventPlayer.ram_block_damage += eventDamage * 2.5
-    eventPlayer.hudText = "{0}/{1}".format(floor(eventPlayer.ram_block_damage), Ram_Annihilation[0])
-    wait(0.3)
-
-rule "[Ramattra]: Pummel healing":
-    @Event playerDealtDamage
-    @Team 2
-    @Hero ramattra
-    @Condition eventPlayer.isUsingAbility1() == true
-    @Condition eventAbility == Button.ABILITY_1
-    @Condition eventPlayer.getHealthOfType(Health.NORMAL) <= eventPlayer.getMaxHealthOfType(Health.NORMAL) + 50
-    
-    eventPlayer.ram_block_damage += eventDamage * 1.5
-    wait(0.3)
-
-
-rule "[Tracer] Pulse Bomb Damage":
-    @Event playerDealtDamage
-    @Hero tracer
-    #@Condition attacker.getHero() == Hero.TRACER == true
-    @Condition eventAbility == Button.ULTIMATE
-    @Condition eventDamage > 10
-    
-    damage(victim, attacker, ceil(eventDamage * 2))
+#!include "heroes/tracer/aram-10-instant-respawn.opy"
+#!include "heroes/ramattra/aram-10-ult-suite.opy"
+#!include "heroes/tracer/aram-20-pulse-bomb-damage.opy"
 
 rule "[Mei]: Endothermic Blaster":
     @Event playerDealtDamage
@@ -1023,23 +944,7 @@ rule "[Mei]: Ice move":
     if ruleCondition:
         loop()
 
-rule "[Sombra]: Apply OW1 hack on top of OW2 hack":
-    @Event eachPlayer
-    @Condition eventPlayer.hasStatus(Status.HACKED) == true
-    @Condition eventPlayer.vendetta_hud != true
-    
-    stopChasingVariable(eventPlayer.hack_timer)
-    eventPlayer.setStatusEffect(eventPlayer.reset_pvar[6], Status.HACKED, 5)
-    eventPlayer.hack_timer = 5
-    chaseAtRate(eventPlayer.hack_timer, 0, 1, ChaseRateReeval.NONE)
-
-rule "[Sombra]: hack healing received":
-    @Event eachPlayer
-    @Condition eventPlayer.hasStatus(Status.HACKED) == true
-    
-    eventPlayer.setHealingReceived(100 - SombraBuff[0])
-    waitUntil(not eventPlayer.hasStatus(Status.HACKED), 5)
-    eventPlayer.setHealingReceived(100)
+#!include "heroes/sombra/aram.opy"
 
 
 rule "[Ana]: Sleep tanks for longer duration":
@@ -1071,25 +976,7 @@ rule "[Ana]: Sleep tanks for longer duration":
     eventPlayer.heart_steel[2] = false
 
 
-rule "[Zarya]: Projected Barrier Shields":
-    @Event eachPlayer
-    @Condition eventPlayer.getHero() != Hero.ZARYA
-    @Condition (eventPlayer.isAlive() and eventPlayer.zarya_barrier_shields[0]) == true
-    
-    if eventPlayer.mauga_berserker_soul == true:
-        goto lbl_0
-    resetStatuses()
-    lbl_0:
-    eventPlayer.zarya_barrier_shields[0] = false
-    if eventPlayer.zarya_barrier_shields[1] == null:
-        goto lbl_1
-    removeHealthPool(eventPlayer.zarya_barrier_shields[1])
-    lbl_1:
-    eventPlayer.addHealthPool(Health.NORMAL, ZaryaBuff[0], false, false)
-    eventPlayer.zarya_barrier_shields[1] = getLastCreatedHealthPool()
-    wait(3, Wait.RESTART_WHEN_TRUE)
-    removeHealthPool(eventPlayer.zarya_barrier_shields[1])
-    eventPlayer.zarya_barrier_shields[1] = null
+#!include "heroes/zarya/aram-10-projected-barrier-shields.opy"
 
 rule "[Soldier: 76]: HeartSteel":
     @Event eachPlayer
@@ -1435,53 +1322,7 @@ rule "[Mauga]: fly":
     if ruleCondition:
         loop()
 
-rule "[Ramattra]: block":
-    @Event playerTookDamage
-    @Hero ramattra
-    @Condition (eventPlayer.isUsingAbility1() or eventPlayer.isUsingUltimate()) == true
-    @Condition eventPlayer.isFiringSecondaryFire() == true
-    @Condition eventPlayer.ram_block_damage <= Ram_Annihilation[0]
-    @Condition eventPlayer.getHealthOfType(Health.NORMAL) <= eventPlayer.getMaxHealthOfType(Health.NORMAL) + 50
-    
-    eventPlayer.ram_block_damage += eventDamage
-    eventPlayer.hudText = "{0}/{1}".format(floor(eventPlayer.ram_block_damage), Ram_Annihilation[0])
-
-rule "[Ramattra]: block":
-    @Event eachPlayer
-    @Hero ramattra
-    @Condition Ram_Annihilation[0] != 0
-    @Condition eventPlayer.ram_block_damage != 0
-    @Condition eventPlayer.ram_block_damage >= Ram_Annihilation[0]
-    
-    eventPlayer.addHealthPool(Health.NORMAL, Ram_Annihilation[0] if eventPlayer.ram_block_damage >= Ram_Annihilation[0] else eventPlayer.ram_block_damage, false, false)
-    eventPlayer.ram_block_damage = 0
-    eventPlayer.hudText = ""
-    #eventPlayer.startHealingOverTime(eventPlayer, 5, eventPlayer.getMaxHealth() * 0.25)
-
-rule "[Ramattra]: block HUD":
-    @Event eachPlayer
-    @Team 2
-    @Hero ramattra
-    @Condition eventPlayer.isInSpawnRoom() != true
-    @Condition eventPlayer.reset_pvar[0] == false
-    @Condition (eventPlayer.isUsingAbility1() or eventPlayer.isUsingUltimate()) == true
-    
-    #hudText(eventPlayer, null, "\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r", "{0}/{1}".format(floor(eventPlayer.ram_block_damage), Ram_Annihilation[0]), HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
-    #eventPlayer.ram_block_damage_hud = getLastCreatedText()
-    waitUntil(eventPlayer.ram_block_damage == 0 or eventPlayer.reset_pvar[0] or eventPlayer.isInSpawnRoom(), 999999986991104)
-    eventPlayer.hudText = ""
-    #destroyHudText(eventPlayer.ram_block_damage_hud)
-
-rule "[Ramattra]: Annihilation dmg reduc":
-    @Event eachPlayer
-    @Condition getPlayersOnHero(Hero.RAMATTRA, getOppositeTeam(eventPlayer.getTeam())).isUsingUltimate() == true
-    @Condition distance(eventPlayer, getPlayersOnHero(Hero.RAMATTRA, getOppositeTeam(eventPlayer.getTeam()))) > 13
-    
-    startDamageModification(getPlayersOnHero(Hero.RAMATTRA, getOppositeTeam(eventPlayer.getTeam())), eventPlayer, 0.01)
-    eventPlayer.ram_dmg_reduc = getLastDamageModification()
-    waitUntil(not getPlayersOnHero(Hero.RAMATTRA, getOppositeTeam(eventPlayer.getTeam())).isUsingUltimate() or distance(eventPlayer, getPlayersOnHero(Hero.RAMATTRA, getOppositeTeam(eventPlayer.getTeam()))) <= 13, 120)
-    stopDamageModification(eventPlayer.ram_dmg_reduc)
-    eventPlayer.ram_dmg_reduc = null
+#!include "heroes/ramattra/aram-20-block-suite.opy"
 
 #!include "heroes/reaper/aram.opy"
 
@@ -1580,28 +1421,7 @@ rule "[Moira]: auto charge Coalescence":
     if ruleCondition:
         loop()
 
-rule "[Zarya]: will to win":
-    @Event eachPlayer
-    @Hero zarya
-    @Condition eventPlayer.reset_pvar[0] == false
-    @Condition eventPlayer.isInSpawnRoom() != true
-    @Condition eventPlayer.getHero() == Hero.ZARYA
-    @Condition ZaryaBuff[2] == true
-    @Condition eventPlayer.isAlive() == true
-    @Condition eventPlayer.zarya_buff[0] == true
-    @Condition eventPlayer.getHealth() <= eventPlayer.getMaxHealth() * 0.3
-    
-    bigMessage(eventPlayer, "胜利意志！")
-    eventPlayer.setStatusEffect(null, Status.UNKILLABLE, 1)
-    eventPlayer.setStatusEffect(null, Status.INVINCIBLE, 1)
-    eventPlayer.setStatusEffect(null, Status.PHASED_OUT, 1)
-    eventPlayer.setAbilityCooldown(Button.ABILITY_1, 0)
-    eventPlayer.setAbilityCooldown(Button.ABILITY_2, 0)
-    eventPlayer.startHealingOverTime(eventPlayer, ZaryaBuff[3], ZaryaBuff[4])
-    eventPlayer.zarya_buff[1] = getLastHealingOverTimeId()
-    wait(15)
-    eventPlayer.zarya_buff[0] = false
-    eventPlayer.zarya_buff[1] = null
+#!include "heroes/zarya/aram-20-will-to-win.opy"
 
 rule "[Reaper]: Death Blossom remove Mov. speed penalty":
     @Event eachPlayer
@@ -1847,14 +1667,7 @@ rule "[Roadhog]: hook lancher":
         #victim.setGravity(10)
         victim.applyImpulse(attacker.getFacingDirection(), 85, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
 
-rule "[Wrecking Ball]: ctrl 0cd":
-    @Event playerDealtKnockback
-    @Hero wreckingBall
-    @Condition eventAbility == Button.CROUCH
-    
-    victim.setStatusEffect(eventPlayer, Status.STUNNED, 0.3)
-    eventPlayer.applyImpulse(Vector.UP, 15, Relativity.TO_PLAYER, Impulse.CANCEL_CONTRARY_MOTION)
-    eventPlayer.setAbilityCooldown(Button.CROUCH, 0)
+#!include "heroes/wrecking_ball/aram.opy"
 
 rule "[Winston]: Tesla Cannon Alt Fire":
     @Event playerTookDamage

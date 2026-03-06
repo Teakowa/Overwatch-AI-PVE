@@ -1,1 +1,2 @@
-# zarya aram-mode overlay (intentionally empty for Hero-First migration)
+# zarya aram-mode overlay
+# ARAM-only diffs are split into aram-*.opy leaves to preserve original assembly order.

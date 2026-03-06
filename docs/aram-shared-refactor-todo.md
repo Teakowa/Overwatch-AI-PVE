@@ -32,7 +32,7 @@
 | H2 | 工具链路径迁移 | done | `check_contracts`/`hero_pipeline`/`changelog_sync` 识别 `src/heroes/**` |
 | H3 | 白名单/重复检查迁移 | done | `aram-delta-whitelist.tsv` 与 duplicates 输出路径切到 `src/heroes/**` |
 | H4 | ARAM overlay 按英雄迁移 | done | 单英雄 ARAM 差异已归位到 `src/heroes/<hero>/aram.opy` 或同级叶子，`exact=0` |
-| H5 | `aram_overrides` 薄层化与分段机制退役 | in_progress | `aram_overrides_segments` 不再参与编译，剩余项均为跨英雄模式差异 |
+| H5 | `aram_overrides` 薄层化与分段机制退役 | in_progress | `aram_overrides_segments` 不再参与编译，剩余项以 hero-local mode diff 为主，`aram_overrides.opy` 继续薄层化 |
 
 ## Current Iteration (H1/H2/H3 Cutover)
 
@@ -88,6 +88,7 @@
 
 ## Iteration Log
 
+- 2026-03-06: 完成 H5 Wave-N+1（top-5 same_name_diff localization）。`ramattra/sombra/tracer/zarya/wrecking_ball` 共 16 条 ARAM diff 从 `src/aram_overrides.opy` 内联规则体回收到 `src/heroes/<hero>/aram*.opy`。
 - 2026-03-06: 完成 H5 Wave-N（cross-hero exact cleanup + legacy directory retirement）。`aram_cross_hero_overrides.opy` 下线，4 组 cross-hero exact 回收到 hero-owned shared leaves；`src/aram_overrides_segments/` 整体删除。
 - 2026-03-06: 完成 H5 Prep（segment compile dependency retirement）。`aram_overrides` 不再直接 include `aram_overrides_segments/*`；单英雄 segment 归位到 `src/heroes/<hero>/aram.opy`，跨英雄残留收束到 `src/aram_cross_hero_overrides.opy`。
 - 2026-03-06: 完成 H4 Wave-1（6 英雄 Detect 先行）。门禁全绿，行为保持“仅抽取、不改逻辑”。后续进入 H4 下一波，继续收敛 Initialize same-name-diff 与 overlay 归位。
@@ -133,6 +134,25 @@
 - 验证报告：
   - `docs/reports/aram-shared-wave-h5-cross-hero-retirement-2026-03-06.md`
 
+## Current Iteration (H5 Wave-N+1: Top-5 Same-Name Diff Localization)
+
+- 波次范围：
+  - 将 `ramattra/sombra/tracer/zarya/wrecking_ball` 的 16 条 `same_name_diff` 从 `src/aram_overrides.opy` 回收到英雄本地 overlay
+- 变更动作：
+  - `src/heroes/ramattra/aram-10-ult-suite.opy` 与 `aram-20-block-suite.opy` 承接 9 条 Ramattra ARAM diff，保持两段原位装配。
+  - `src/heroes/tracer/aram-10-instant-respawn.opy` 与 `aram-20-pulse-bomb-damage.opy` 承接 2 条 Tracer ARAM diff。
+  - `src/heroes/sombra/aram.opy` 承接 2 条 Sombra ARAM diff。
+  - `src/heroes/zarya/aram-10-projected-barrier-shields.opy` 与 `aram-20-will-to-win.opy` 承接 2 条 Zarya ARAM diff。
+  - `src/heroes/wrecking_ball/aram.opy` 承接 1 条 Wrecking Ball ARAM diff。
+  - `src/aram_overrides.opy` 对这 16 条规则改为原位 `#!include "heroes/<hero>/aram*.opy"`，不改变顺序，不做 diff 消项。
+- 指标目标：
+  - `src/aram_overrides.opy diff: 106 -> 90`
+  - `src/heroes/*/aram*.opy diff: 2 -> 18`
+  - `exact = 0`
+  - `unwhitelisted exact/diff = 0/0`
+- 验证报告：
+  - `docs/reports/aram-shared-wave-h5-top5-diff-localization-2026-03-06.md`
+
 ## Current Iteration (H4 Wave-2: Full Initialize Convergence)
 
 - 变更动作：
@@ -174,6 +194,6 @@
 
 ## Next Steps
 
-1. H5：继续收敛 `src/aram_overrides.opy` 中剩余的 `same_name_diff`，优先 `ramattra/wrecking_ball/sombra/tracer/zarya` 相关模式差异。
-2. H5：评估 hero-owned shared leaves 中哪些 cross-mode exact 已足够稳定，可进一步合并到更贴近主线的共享布局。
-3. H6：在 `same_name_diff` 继续下降后，进一步薄层化 `src/aram_overrides.opy`。
+1. H5：继续处理 `doomfist/mauga/reaper/wuyang` 等高密度 hero-local `same_name_diff`，优先把 `src/aram_overrides.opy` 的内联规则体迁回英雄 overlay。
+2. H5：在 hero-local diff 基本归位后，再评估哪些差异值得继续参数化或共享叶子化，而不是提前做 diff 消项。
+3. H6：在 `src/aram_overrides.opy` 基本完成薄层化后，再推进剩余 `same_name_diff` 的结构收敛。
