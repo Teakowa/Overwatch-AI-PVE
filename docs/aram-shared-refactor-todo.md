@@ -33,6 +33,7 @@
 | H3 | 白名单/重复检查迁移 | done | `aram-delta-whitelist.tsv` 与 duplicates 输出路径切到 `src/heroes/**` |
 | H4 | ARAM overlay 按英雄迁移 | done | 单英雄 ARAM 差异已归位到 `src/heroes/<hero>/aram.opy` 或同级叶子，`exact=0` |
 | H5 | `aram_overrides` 薄层化与分段机制退役 | done | `aram_overrides_segments` 不再参与编译，`src/aram_overrides.opy` 不再承载 exact/same-name-diff，活跃差异已下沉到 hero/module overlays |
+| H6 | `aram_overrides.opy` 纯装配化 | in_progress | `src/aram_overrides.opy` 不再出现 `rule/def`，active duplicate debt 仅存在于 `src/**/aram*.opy` |
 
 ## Current Gate Baseline
 
@@ -43,7 +44,7 @@
 - H5 收口结果：
   - `src/aram_overrides.opy` 已清空 duplicate debt，只保留 ARAM-only 规则与装配入口
   - 活跃 duplicate debt 已全部下沉到 `src/heroes/**/aram*.opy` 与 `src/modules/**/aram*.opy`
-  - 后续工作转入 H6，重点是 overlay 层的继续共享化与归档
+  - 后续工作转入 H6，重点是把 `src/aram_overrides.opy` 收成纯装配层，并继续评估 overlay 层共享化与归档
 - 常用门禁：
   1. `pnpm run build`
   2. `pnpm run build:aram`
@@ -54,6 +55,7 @@
 
 ## Iteration Log
 
+- 2026-03-06: 完成 H6 Wave-1（pure assembly cutover, no extra reports）。将 `src/aram_overrides.opy` 中剩余 bootstrap/player helper、hero-local ARAM-only 规则、hero init delimiter 与本地 `def` 全部迁回 `src/modules/**/aram-*.opy`、`src/heroes/**/aram-*.opy`、`src/utilities/*.opy`，并把 `src/aram_overrides.opy` 清成纯 `#!include` 装配层；本波不新增 report。
 - 2026-03-06: 完成 H5 Wave-N+8（system/bootstrap overlay extraction, no extra reports）。将 `init/settings`、`player ban/allowed heroes`、`player lifecycle/reset` 与 `changelog` 的 ARAM mode diff 从 `src/aram_overrides.opy` 抽到 `src/modules/**/aram-*.opy`，并扩展 duplicates 门禁扫描到活跃模块 overlays。H5 达成收口。
 - 2026-03-06: 完成 H5 Wave-N+7（thin-layer cleanup without extra reports）。修复 `Genji`/`Venture` 的原位装配残留，并将 `mei/bastion/juno/torbjorn/roadhog/winston/ashe/vendetta/widowmaker/soldier76` 的一批 ARAM-only hero-local 规则回收到 `src/heroes/<hero>/aram*.opy`；本波仅更新主 TODO，不新增 report。
 - 2026-03-06: 完成 H5 Wave-N+6（selective hero-local leftovers + report cleanup）。`cassidy/genji/venture/zenyatta` 共 6 条 ARAM diff 从 `src/aram_overrides.opy` 回收到英雄 overlay，同时清理 2 份已被后续波次覆盖的早期 pilot 报告。
@@ -84,19 +86,19 @@
   - `docs/reports/aram-shared-wave-h5-next4-hjos-diff-localization-2026-03-06.md`
   - `docs/reports/aram-shared-wave-h5-next7-mid-density-diff-localization-2026-03-06.md`
 
-## Latest Completed Iteration (H5 Wave-N+8: System/Bootstrap Overlay Extraction Without Extra Reports)
+## Latest Completed Iteration (H6 Wave-1: Pure Assembly Cutover Without Extra Reports)
 
 - 波次范围：
-  - 将剩余 `system/bootstrap/debug` mode diff 从 `src/aram_overrides.opy` 下沉到模块自有 overlays
-  - 扩展 duplicates 门禁扫描到 `src/**/aram*.opy` 活跃 overlays
+  - 将 `src/aram_overrides.opy` 中剩余 ARAM-only 规则、helper 与 hero-init delimiter 全部下沉到 hero/module/utility overlays
+  - 修复 `heroes/ana/aram-10-sleep-tanks.opy` 抽取残片
   - 本波不新增 report，仅更新主 TODO
 - 变更动作：
-  - 新增 `src/modules/bootstrap/aram-00-init-and-settings.opy`、`aram-10-safety-blacklist-ban.opy`、`aram-20-player-lifecycle-and-reset.opy` 与 `src/modules/debug/aram-20-changelog.opy`。
-  - `src/aram_overrides.opy` 删除剩余 bootstrap/debug same-name-diff 规则体，改为原位 `#!include` 上述模块 overlays。
-  - `check_aram_overrides_duplicates.sh` 的 overlay 扫描面从 hero-only 扩展到所有活跃 `src/**/aram*.opy`，排除入口/协议/设置文件。
+  - 新增 `src/modules/bootstrap/aram-15-extra-hero-pool.opy`、`src/heroes/aram-init.opy`、多份 `src/heroes/<hero>/aram-*.opy` 叶子，以及 `src/utilities/set_third_person.opy`。
+  - `src/aramMain.opy` 复用 `utilities/knockback.opy`、`utilities/changelog_text.opy` 与 `utilities/set_third_person.opy`，不再依赖 `src/aram_overrides.opy` 本地 `def`。
+  - `src/aram_overrides.opy` 删除所有 `rule/def`，仅保留原位 `#!include` 装配。
 - 指标结果：
-  - `src/aram_overrides.opy exact/diff/unique: 0/11/30 -> 0/0/29`
-  - `src/**/aram*.opy active overlays exact/diff/unique: 28/98/16 -> 28/109/17`
+  - `src/aram_overrides.opy exact/diff/unique: 0/0/29 -> 0/0/0`
+  - 活跃 duplicate debt 继续保留在 `src/**/aram*.opy`，不回流到入口装配层
   - `exact = 0`
   - `unwhitelisted exact/diff = 0/0`
 - 验证报告：
@@ -105,5 +107,5 @@
 ## Next Steps
 
 1. H6：针对 `src/heroes/**/aram*.opy` 与 `src/modules/**/aram*.opy` 中的 active overlay diff，继续评估哪些值得共享叶子化，哪些保留为 mode-only 行为更合适。
-2. H6：逐步收缩 overlay debt，同时避免为了“清零 diff”而牺牲当前原位顺序和可读性。
+2. H6：逐步收缩 overlay debt，同时保持 `src/aram_overrides.opy` 作为纯 assembly 文件，不再回流规则体或本地 helper。
 3. H6：在 overlay 结构稳定后，再统一清理 `docs/reports/` 的历史归档密度与 TODO 文案。

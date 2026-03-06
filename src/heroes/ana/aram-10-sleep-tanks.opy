@@ -24,3 +24,4 @@ rule "[Ana]: Sleep tanks for longer duration":
     lbl_0:
     eventPlayer.addHealthPool(Health.ARMOR, eventPlayer.heart_steel[1], true, false)
     eventPlayer.heart_steel[0] = getLastCreatedHealthPool()
+    eventPlayer.heart_steel[2] = false

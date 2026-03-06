@@ -24,6 +24,9 @@
 #!include "utilities/reset_stats.opy"
 #!include "utilities/reset_statuses.opy"
 #!include "utilities/reset_hero.opy"
+#!include "utilities/knockback.opy"
+#!include "utilities/changelog_text.opy"
+#!include "utilities/set_third_person.opy"
 #!include "utilities/remove_tank_passive.opy"
 #!include "modules/bootstrap/11-blacklist.opy"
 
