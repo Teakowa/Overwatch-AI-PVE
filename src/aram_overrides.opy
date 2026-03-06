@@ -216,10 +216,7 @@ def setThirdPerson():
     waitUntil(eventPlayer.third_person != true, 999999986991104)
     eventPlayer.stopCamera()
 
-rule "[utilities/reset]: setup var when player joins lobby":
-    @Event eachPlayer
-    
-    resetFrenemies()
+#!include "modules/bootstrap/shared/10-setup-var-when-player-joins-lobby.opy"
 
 rule "[utilities/reset]: Default respawn time":
     @Event eachPlayer
@@ -373,7 +370,7 @@ rule "[Mauga]: Fortify provides 100 temporary armor":
     waitUntil(not eventPlayer.isUsingAbility1(), 3)
     eventPlayer.unaffected = false
 
-#!include "aram_overrides_segments/hero_rules_mercy_valkyrie_refresh_rez.opy"
+#!include "heroes/mercy/aram.opy"
 
 rule "[Ana]: Headhunter":
     @Event playerDealtDamage
@@ -388,7 +385,7 @@ rule "[Ana]: Headhunter":
         ([player for player in getLivingPlayers(eventPlayer.getTeam()) if isInLoS(eventPlayer, player, BarrierLos.BLOCKED_BY_ENEMY_BARRIERS) == true and player != eventPlayer]).startHealingOverTime(eventPlayer, 0.625, ceil(eventDamage * 31.25 * 10) / (len([player for player in getLivingPlayers(eventPlayer.getTeam()) if isInLoS(eventPlayer, player, BarrierLos.BLOCKED_BY_ENEMY_BARRIERS) == true and player != eventPlayer])))
     wait(0.625)
 
-#!include "aram_overrides_segments/hero_rules_ana_biotic_and_full_health_nano_prep.opy"
+#!include "heroes/ana/aram.opy"
 
 rule "Has Nano":
     @Event playerReceivedHealing
@@ -471,7 +468,7 @@ rule "[Brigitte]: speed":
     eventPlayer.brigitte_buff[0] = false
     eventPlayer.mov_speed_penalty = 0
 
-#!include "aram_overrides_segments/hero_rules_brigitte_repair_pack_target_and_armor.opy"
+#!include "heroes/brigitte/aram.opy"
 
 rule "[brigitte/rally.opy]: Rally 30% speed boost":
     @Event eachPlayer
@@ -485,7 +482,6 @@ rule "[brigitte/rally.opy]: Rally 30% speed boost":
     eventPlayer.mov_speed_buff = 0
     eventPlayer.setMoveSpeed(100)
 
-#!include "aram_overrides_segments/hero_rules_kiriko_bot_ptp1_and_acc.opy"
 
 rule "[Kiriko]: Protection Suzu Clear Effect":
     @Event playerDealtHealing
@@ -624,7 +620,7 @@ rule "[Genji] Dragonblade Execution players less 10% HP expectancy":
     
     damage(victim, attacker, SojournBuff[1])
 
-#!include "aram_overrides_segments/hero_rules_genji_dragonblade_fix_and_tracer_recall_heal.opy"
+#!include "aram_cross_hero_overrides.opy"
 
 rule "[Venture] Burrow speed and healing":
     @Event eachPlayer
@@ -897,7 +893,7 @@ def Knockback():
     eventPlayer.applyImpulse(eventPlayer.KnockbackDirection, Zen_KnockupStrength, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
     eventPlayer.applyImpulse(Vector.UP, Zen_KnockupStrength * 0.3, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
 
-#!include "aram_overrides_segments/hero_rules_zenyatta_snap_kick_self_ground_wall.opy"
+#!include "heroes/zenyatta/aram.opy"
 
 rule "[Zenyatta]: Transcendence":
     @Event eachPlayer
@@ -988,7 +984,6 @@ rule "[Ramattra]: Pummel healing":
     eventPlayer.ram_block_damage += eventDamage * 1.5
     wait(0.3)
 
-#!include "aram_overrides_segments/hero_rules_ramattra_pain_endures_and_ball_grapple_reset.opy"
 
 rule "[Tracer] Pulse Bomb Damage":
     @Event playerDealtDamage
@@ -1037,7 +1032,6 @@ rule "[Sombra]: hack healing received":
     waitUntil(not eventPlayer.hasStatus(Status.HACKED), 5)
     eventPlayer.setHealingReceived(100)
 
-#!include "aram_overrides_segments/hero_rules_sombra_and_tracer_kill_reset_cooldown.opy"
 
 rule "[Ana]: Sleep tanks for longer duration":
     @Event playerDealtDamage
@@ -1067,7 +1061,6 @@ rule "[Ana]: Sleep tanks for longer duration":
     eventPlayer.heart_steel[0] = getLastCreatedHealthPool()
     eventPlayer.heart_steel[2] = false
 
-#!include "aram_overrides_segments/hero_rules_ball_adaptive_shield_disable_and_zarya_barrier_target.opy"
 
 rule "[Zarya]: Projected Barrier Shields":
     @Event eachPlayer
@@ -1264,7 +1257,7 @@ rule "[Reinhardt]: Crusaders stand":
     waitUntil(not eventPlayer.reinhardt_buff, 8)
     eventPlayer.setKnockbackReceived(100)
 
-#!include "aram_overrides_segments/hero_rules_reinhardt_shield_slam_and_overhealth.opy"
+#!include "heroes/reinhardt/aram.opy"
 
 rule "[Doomfist] Seismic Slam upper":
     @Event playerTookDamage
@@ -1350,7 +1343,6 @@ rule "[Doomfist]: block HUD":
     eventPlayer.hudText = ""
     #destroyHudText(eventPlayer.doom_buff_hud)
 
-#!include "aram_overrides_segments/hero_rules_hazard_violent_leap_cooldown_and_hp.opy"
 
 rule "[Hazard]: Spike Guard cd":
     @Event playerDealtDamage
@@ -1482,7 +1474,7 @@ rule "[Ramattra]: Annihilation dmg reduc":
     stopDamageModification(eventPlayer.ram_dmg_reduc)
     eventPlayer.ram_dmg_reduc = null
 
-#!include "aram_overrides_segments/hero_rules_reaper_wraith_fly_and_kill_soul_buff.opy"
+#!include "heroes/reaper/aram.opy"
 
 rule "[Reaper]: kill to gain soul buff":
     @Event playerDealtFinalBlow
@@ -1491,7 +1483,6 @@ rule "[Reaper]: kill to gain soul buff":
     
     eventPlayer.reaper_buff[0] += ReaperBuff[0] + 1 if eventPlayer.getTeam() == Team.1 else 0.5
 
-#!include "aram_overrides_segments/hero_rules_reaper_wraith_shadowstep_cooldown_and_buffs.opy"
 
 rule "[Reaper]: Ability Dire Triggers":
     @Event eachPlayer
@@ -1947,7 +1938,6 @@ rule "[Wuyang]: Ebb and Flow set":
     #eventPlayer.setAbilityCooldown(Button.ABILITY_2, eventPlayer.getAbilityCooldown(Button.ABILITY_2) - 1)
     wait(0.16)
 
-#!include "aram_overrides_segments/hero_rules_wuyang_ebb_and_flow_ability_countdown.opy"
 
 rule "[Wuyang]: Tidal Blast mov_speed_penalty":
     @Event playerDealtKnockback
@@ -1960,7 +1950,6 @@ rule "[Wuyang]: Tidal Blast mov_speed_penalty":
     victim.setMoveSpeed(100)
     victim.mov_speed_penalty -= WuyangBuff[4]
 
-#!include "aram_overrides_segments/hero_rules_wuyang_tidal_blast_allies_target_healing.opy"
 
 rule "[Vendetta] Palatine Fang":
     @Event playerDealtDamage
@@ -2038,7 +2027,7 @@ rule "[widowmaker.opy]: Infra-Sight headshot":
     damage(victim, attacker, victim.getMaxHealth() * (0.9 if eventPlayer.isUsingUltimate() == true else 0.5))
     lbl_0:
 
-#!include "aram_overrides_segments/hero_init_widowmaker_falloff_and_bastion_detect.opy"
+#!include "heroes/widowmaker/aram.opy"
 
 rule "[Cassidy.opy]: Revert sniper damage falloff":
     @Event playerDealtDamage

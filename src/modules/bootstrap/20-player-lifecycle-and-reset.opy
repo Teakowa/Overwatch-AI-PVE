@@ -1,7 +1,4 @@
-rule "[utilities/reset]: setup var when player joins lobby":
-    @Event eachPlayer
-    
-    resetFrenemies()
+#!include "shared/10-setup-var-when-player-joins-lobby.opy"
 
 
 rule "[utilities/reset]: Default respawn time":

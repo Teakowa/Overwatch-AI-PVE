@@ -31,8 +31,8 @@
 | H1 | heroes 单入口切换 | done | `main/aramMain` 均通过 `heroes/init.<mode>.opy` 装配英雄段 |
 | H2 | 工具链路径迁移 | done | `check_contracts`/`hero_pipeline`/`changelog_sync` 识别 `src/heroes/**` |
 | H3 | 白名单/重复检查迁移 | done | `aram-delta-whitelist.tsv` 与 duplicates 输出路径切到 `src/heroes/**` |
-| H4 | ARAM overlay 按英雄迁移 | in_progress | `aram_overrides` 差异逐英雄落到 `src/heroes/<hero>/aram.opy` 或同级叶子 |
-| H5 | `aram_overrides` 薄层化与分段机制退役 | todo | `aram_overrides_segments` 不再参与编译，剩余项均为跨英雄模式差异 |
+| H4 | ARAM overlay 按英雄迁移 | done | 单英雄 ARAM 差异已归位到 `src/heroes/<hero>/aram.opy` 或同级叶子，`exact=0` |
+| H5 | `aram_overrides` 薄层化与分段机制退役 | in_progress | `aram_overrides_segments` 不再参与编译，剩余项均为跨英雄模式差异 |
 
 ## Current Iteration (H1/H2/H3 Cutover)
 
@@ -88,9 +88,29 @@
 
 ## Iteration Log
 
+- 2026-03-06: 完成 H5 Prep（segment compile dependency retirement）。`aram_overrides` 不再直接 include `aram_overrides_segments/*`；单英雄 segment 归位到 `src/heroes/<hero>/aram.opy`，跨英雄残留收束到 `src/aram_cross_hero_overrides.opy`。
 - 2026-03-06: 完成 H4 Wave-1（6 英雄 Detect 先行）。门禁全绿，行为保持“仅抽取、不改逻辑”。后续进入 H4 下一波，继续收敛 Initialize same-name-diff 与 overlay 归位。
 - 2026-03-06: 完成 H4 Wave-2（全量 Initialize 向 Main 收敛 + custom_hp helper 下线）。ARAM hero_init 改为统一 include `src/heroes/*/init.opy`，`aram_overrides` 不再承载 Detect/Initialize 规则体与 custom_hp 依赖。
 - 2026-03-06: 完成 H4 Wave-3（Hero Overlay First 清理 10 条 hero exact）。规则源统一迁入 `src/heroes/<hero>/shared/*.opy`，ARAM 通过 `src/heroes/<hero>/aram.opy` 复用；duplicates 门禁 overlay 扫描扩展到 `src/heroes/*/aram*.opy` 全量。
+
+## Current Iteration (H5 Prep: Segment Compile Dependency Retirement)
+
+- 波次范围：
+  - 清理最后 1 条 bootstrap `rule_exact_duplicate`
+  - 回收 12 个 single-hero segment 到 `src/heroes/<hero>/aram.opy`
+  - 将 4 组 multi-hero 残留差异收束到 `src/aram_cross_hero_overrides.opy`
+- 变更动作：
+  - 新增 `src/modules/bootstrap/shared/10-setup-var-when-player-joins-lobby.opy`，Main/ARAM 共享 lobby reset 初始化规则。
+  - `src/aram_overrides.opy` 不再 include `aram_overrides_segments/*`；single-hero 段切到 `heroes/<hero>/aram.opy`，cross-hero 段切到 `aram_cross_hero_overrides.opy`。
+  - `src/heroes/{mercy,ana,brigitte,kiriko,zenyatta,reinhardt,hazard,reaper,wuyang,widowmaker}/aram.opy` 从空壳或薄层扩展为该英雄 ARAM 差异归属层。
+  - `skills/ow-contract-guard/scripts/check_aram_overrides_duplicates.sh` 改为检查 `src/heroes/*/aram*.opy` 与 `src/aram_cross_hero_overrides.opy`，`manifest.tsv` 仅保留历史记录语义。
+  - 白名单删除最后 1 条 bootstrap `rule_exact_duplicate`。
+- 指标目标：
+  - `exact: 1 -> 0`
+  - `unwhitelisted exact/diff: 0/0`
+  - `rg '#!include "aram_overrides_segments/' src` 返回空
+- 验证报告：
+  - `docs/reports/aram-shared-wave-h5-segment-retirement-prep-2026-03-06.md`
 
 ## Current Iteration (H4 Wave-2: Full Initialize Convergence)
 
@@ -133,6 +153,6 @@
 
 ## Next Steps
 
-1. H4：清理最后 1 条 bootstrap exact（`[utilities/reset]: setup var when player joins lobby`）。
-2. H4：继续推进 `rule_same_name_diff` 收敛（优先 `ramattra/doomfist/mauga/wuyang` 热点英雄）。
-3. H5：当 `aram_overrides` 仅剩跨英雄模式逻辑后，退役 `aram_overrides_segments`。
+1. H5：继续收敛 `src/aram_cross_hero_overrides.opy` 中的跨英雄 `same_name_diff`，优先 `ramattra/wrecking_ball/sombra/tracer/zarya`。
+2. H5：确认 `aram_overrides_segments/manifest.tsv` 是否仍需保留历史记录；若无额外工具依赖，可整体归档或删除目录。
+3. H6：在 cross-hero 残留进一步收缩后，继续薄层化 `src/aram_overrides.opy`。

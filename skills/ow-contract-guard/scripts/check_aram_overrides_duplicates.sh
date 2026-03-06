@@ -6,7 +6,7 @@ usage() {
 Usage: skills/ow-contract-guard/scripts/check_aram_overrides_duplicates.sh [--segment-min N] [--report PATH] [--whitelist PATH] [--emit-candidates PATH] [--check]
 
 Options:
-  --segment-min N       Minimum contiguous exact segment length to enforce in aram_overrides (default: 2)
+  --segment-min N       Minimum contiguous exact run length to enforce in aram_overrides (default: 2)
   --report PATH         Markdown report path (default: build/reports/aram_overrides_duplicates.md)
   --whitelist PATH      Delta whitelist TSV path (default: skills/ow-contract-guard/references/aram-delta-whitelist.tsv)
   --emit-candidates PATH  Emit unwhitelisted candidate TSV to this path
@@ -92,15 +92,14 @@ emit_candidates_path = Path(sys.argv[5]) if sys.argv[5] else None
 root = Path.cwd()
 src = root / "src"
 aram_file = src / "aram_overrides.opy"
+cross_hero_file = src / "aram_cross_hero_overrides.opy"
 segments_dir = src / "aram_overrides_segments"
 manifest_file = segments_dir / "manifest.tsv"
 heroes_root = src / "heroes"
 overlay_heroes = sorted(p.name for p in heroes_root.iterdir() if p.is_dir()) if heroes_root.exists() else []
 
 rule_re = re.compile(r'^rule\s+"([^"]+)":\s*$')
-include_seg_re = re.compile(
-    r'^#!include\s+"(aram_overrides_segments/[a-z0-9._-]+\.opy)"\s*$'
-)
+include_seg_re = re.compile(r'^#!include\s+"(aram_overrides_segments/[a-z0-9._-]+\.opy)"\s*$')
 
 whitelist_fieldnames = [
     "kind",
@@ -130,14 +129,13 @@ def parse_rules(path: Path):
             i += 1
         end = i
         block = "\n".join(lines[start:end]) + "\n"
-        norm = "\n".join(l.rstrip() for l in block.splitlines()).strip() + "\n"
+        norm = "\n".join(line.rstrip() for line in block.splitlines()).strip() + "\n"
         rules.append(
             {
                 "name": name,
                 "line": start + 1,
                 "start": start,
                 "end": end,
-                "block": block,
                 "norm": norm,
                 "path": path,
             }
@@ -146,14 +144,10 @@ def parse_rules(path: Path):
 
 
 def parse_manifest(path: Path):
-    rows = []
     if not path.exists():
-        return rows
+        return []
     with path.open("r", encoding="utf-8", newline="") as f:
-        reader = csv.DictReader(f, delimiter="\t")
-        for row in reader:
-            rows.append(row)
-    return rows
+        return list(csv.DictReader(f, delimiter="\t"))
 
 
 def is_mode_overlay(path: Path) -> bool:
@@ -162,56 +156,11 @@ def is_mode_overlay(path: Path) -> bool:
     except ValueError:
         return False
     parts = rel.parts
-    if len(parts) != 3:
-        return False
-    return parts[0] == "heroes" and parts[2].startswith("aram") and parts[2].endswith(".opy")
-
-
-def classify_rules(rules, other_by_name):
-    exact = []
-    diff = []
-    unique = []
-    for r in rules:
-        cands = other_by_name.get(r["name"], [])
-        if not cands:
-            unique.append(r)
-            continue
-        if any(cn == r["norm"] for cn, _, _ in cands):
-            exact.append(r)
-        else:
-            diff.append(r)
-    return exact, diff, unique
-
-
-def parse_whitelist(path: Path):
-    rows = []
-    if not path.exists():
-        return rows
-    with path.open("r", encoding="utf-8", newline="") as f:
-        reader = csv.DictReader(f, delimiter="\t")
-        for row in reader:
-            rows.append(row)
-    return rows
+    return len(parts) == 3 and parts[0] == "heroes" and parts[2].startswith("aram") and parts[2].endswith(".opy")
 
 
 def rel_path(path: Path) -> str:
     return str(path.relative_to(root))
-
-
-def pick_source_module(rule: dict, other_by_name: dict, exact_only: bool) -> str:
-    cands = other_by_name.get(rule["name"], [])
-    if not cands:
-        return ""
-    paths = []
-    for cn, p, _ in cands:
-        if exact_only and cn != rule["norm"]:
-            continue
-        paths.append(rel_path(p))
-    if not paths and exact_only:
-        return ""
-    if not paths:
-        paths = [rel_path(p) for _, p, _ in cands]
-    return sorted(set(paths))[0]
 
 
 def normalize_value(value: str) -> str:
@@ -219,39 +168,105 @@ def normalize_value(value: str) -> str:
 
 
 def whitelist_keys(rows: list[dict]):
-    keys = set()
-    for row in rows:
-        kind = normalize_value(row.get("kind", ""))
-        rule = normalize_value(row.get("rule_or_macro", ""))
-        src = normalize_value(row.get("source_module", ""))
-        keys.add((kind, rule, src))
-    return keys
+    return {
+        (
+            normalize_value(row.get("kind", "")),
+            normalize_value(row.get("rule_or_macro", "")),
+            normalize_value(row.get("source_module", "")),
+        )
+        for row in rows
+    }
 
 
 def is_whitelisted(keys: set[tuple[str, str, str]], kind: str, rule_name: str, source_module: str) -> bool:
     source_module = normalize_value(source_module)
-    probes = [
-        (kind, rule_name, source_module),
-        (kind, rule_name, "*"),
-        (kind, rule_name, ""),
+    return any(
+        probe in keys
+        for probe in [
+            (kind, rule_name, source_module),
+            (kind, rule_name, "*"),
+            (kind, rule_name, ""),
+        ]
+    )
+
+
+def classify_rules(rules: list[dict], other_by_name):
+    exact = []
+    diff = []
+    unique = []
+    for rule in rules:
+        cands = other_by_name.get(rule["name"], [])
+        if not cands:
+            unique.append(rule)
+            continue
+        if any(candidate_norm == rule["norm"] for candidate_norm, _, _ in cands):
+            exact.append(rule)
+        else:
+            diff.append(rule)
+    return exact, diff, unique
+
+
+def pick_source_module(rule: dict, other_by_name, exact_only: bool) -> str:
+    cands = other_by_name.get(rule["name"], [])
+    paths = []
+    for candidate_norm, path, _ in cands:
+        if exact_only and candidate_norm != rule["norm"]:
+            continue
+        paths.append(rel_path(path))
+    if not paths and exact_only:
+        return ""
+    if not paths:
+        paths = [rel_path(path) for _, path, _ in cands]
+    return sorted(set(paths))[0] if paths else ""
+
+
+def annotate_sources(rules: list[dict], other_by_name, exact_only: bool):
+    for rule in rules:
+        rule["source_module"] = pick_source_module(rule, other_by_name, exact_only=exact_only)
+
+
+def collect_unwhitelisted(rules: list[dict], kind: str, whitelist_keyset):
+    return [
+        rule
+        for rule in rules
+        if not is_whitelisted(whitelist_keyset, kind, rule["name"], rule["source_module"])
     ]
-    return any(probe in keys for probe in probes)
+
+
+def candidate_rows_for(rules: list[dict], kind: str):
+    decision = "keep_aram_only" if kind == "rule_exact_duplicate" else "parameterize_shared"
+    return [
+        {
+            "kind": kind,
+            "rule_or_macro": rule["name"],
+            "source_module": rule["source_module"] or "*",
+            "reason": "TODO",
+            "decision": decision,
+            "owner": "TODO",
+        }
+        for rule in rules
+    ]
 
 
 failures = []
 
 if not aram_file.exists():
     failures.append(f"Missing file: {aram_file}")
-
-if not manifest_file.exists():
-    failures.append(f"Missing manifest: {manifest_file}")
-
+if not cross_hero_file.exists():
+    failures.append(f"Missing file: {cross_hero_file}")
 if whitelist_path and not whitelist_path.exists():
     failures.append(f"Missing whitelist: {whitelist_path}")
+if not overlay_heroes:
+    failures.append("overlay scan: no hero directories found under src/heroes")
 
 aram_rules = parse_rules(aram_file) if aram_file.exists() else []
+cross_rules = parse_rules(cross_hero_file) if cross_hero_file.exists() else []
 manifest_rows = parse_manifest(manifest_file)
-whitelist_rows = parse_whitelist(whitelist_path) if whitelist_path and whitelist_path.exists() else []
+
+whitelist_rows = []
+if whitelist_path and whitelist_path.exists():
+    with whitelist_path.open("r", encoding="utf-8", newline="") as f:
+        whitelist_rows = list(csv.DictReader(f, delimiter="\t"))
 
 whitelist_bad_rows = []
 for idx, row in enumerate(whitelist_rows, 2):
@@ -270,11 +285,8 @@ for line_no, decision in whitelist_bad_rows:
 
 whitelist_keyset = whitelist_keys(whitelist_rows)
 
-pilot_overlay_rules: list[dict] = []
-pilot_overlay_by_file: dict[str, list[dict]] = {}
-if not overlay_heroes:
-    failures.append("overlay scan: no hero directories found under src/heroes")
-
+overlay_rules = []
+overlay_rules_by_file: dict[str, list[dict]] = {}
 for hero in overlay_heroes:
     hero_dir = src / "heroes" / hero
     files = sorted(hero_dir.glob("aram*.opy")) if hero_dir.exists() else []
@@ -283,84 +295,75 @@ for hero in overlay_heroes:
         continue
     for path in files:
         parsed = parse_rules(path)
-        pilot_overlay_rules.extend(parsed)
-        pilot_overlay_by_file[rel_path(path)] = parsed
+        overlay_rules.extend(parsed)
+        overlay_rules_by_file[rel_path(path)] = parsed
 
 other_by_name = defaultdict(list)
-for p in src.rglob("*.opy"):
-    if p == aram_file:
+for path in src.rglob("*.opy"):
+    if path in {aram_file, cross_hero_file}:
         continue
-    if p.is_relative_to(segments_dir):
+    if path.is_relative_to(segments_dir):
         continue
-    if is_mode_overlay(p):
+    if is_mode_overlay(path):
         continue
-    for r in parse_rules(p):
-        other_by_name[r["name"]].append((r["norm"], p, r["line"]))
+    for rule in parse_rules(path):
+        other_by_name[rule["name"]].append((rule["norm"], path, rule["line"]))
 
 aram_exact, aram_diff, aram_unique = classify_rules(aram_rules, other_by_name)
+cross_exact, cross_diff, cross_unique = classify_rules(cross_rules, other_by_name)
+overlay_exact, overlay_diff, overlay_unique = classify_rules(overlay_rules, other_by_name)
 
-for r in aram_exact:
-    r["source_module"] = pick_source_module(r, other_by_name, exact_only=True)
-for r in aram_diff:
-    r["source_module"] = pick_source_module(r, other_by_name, exact_only=False)
+annotate_sources(aram_exact, other_by_name, exact_only=True)
+annotate_sources(aram_diff, other_by_name, exact_only=False)
+annotate_sources(cross_exact, other_by_name, exact_only=True)
+annotate_sources(cross_diff, other_by_name, exact_only=False)
+annotate_sources(overlay_exact, other_by_name, exact_only=True)
+annotate_sources(overlay_diff, other_by_name, exact_only=False)
 
-unwhitelisted_exact = [
-    r
-    for r in aram_exact
-    if not is_whitelisted(whitelist_keyset, "rule_exact_duplicate", r["name"], r["source_module"])
-]
-unwhitelisted_diff = [
-    r
-    for r in aram_diff
-    if not is_whitelisted(whitelist_keyset, "rule_same_name_diff", r["name"], r["source_module"])
-]
+unwhitelisted_exact = collect_unwhitelisted(aram_exact, "rule_exact_duplicate", whitelist_keyset)
+unwhitelisted_diff = collect_unwhitelisted(aram_diff, "rule_same_name_diff", whitelist_keyset)
+unwhitelisted_cross_exact = collect_unwhitelisted(cross_exact, "rule_exact_duplicate", whitelist_keyset)
+unwhitelisted_cross_diff = collect_unwhitelisted(cross_diff, "rule_same_name_diff", whitelist_keyset)
+unwhitelisted_overlay_exact = collect_unwhitelisted(overlay_exact, "rule_exact_duplicate", whitelist_keyset)
+unwhitelisted_overlay_diff = collect_unwhitelisted(overlay_diff, "rule_same_name_diff", whitelist_keyset)
 
 if unwhitelisted_exact:
-    failures.append(
-        f"Found {len(unwhitelisted_exact)} unwhitelisted exact duplicate rule(s) in src/aram_overrides.opy"
-    )
+    failures.append(f"Found {len(unwhitelisted_exact)} unwhitelisted exact duplicate rule(s) in src/aram_overrides.opy")
 if unwhitelisted_diff:
-    failures.append(
-        f"Found {len(unwhitelisted_diff)} unwhitelisted same-name-diff rule(s) in src/aram_overrides.opy"
-    )
-
-pilot_overlay_exact, pilot_overlay_diff, pilot_overlay_unique = classify_rules(
-    pilot_overlay_rules, other_by_name
-)
-for r in pilot_overlay_exact:
-    r["source_module"] = pick_source_module(r, other_by_name, exact_only=True)
-for r in pilot_overlay_diff:
-    r["source_module"] = pick_source_module(r, other_by_name, exact_only=False)
-
-unwhitelisted_overlay_exact = [
-    r
-    for r in pilot_overlay_exact
-    if not is_whitelisted(whitelist_keyset, "rule_exact_duplicate", r["name"], r["source_module"])
-]
-unwhitelisted_overlay_diff = [
-    r
-    for r in pilot_overlay_diff
-    if not is_whitelisted(whitelist_keyset, "rule_same_name_diff", r["name"], r["source_module"])
-]
-
+    failures.append(f"Found {len(unwhitelisted_diff)} unwhitelisted same-name-diff rule(s) in src/aram_overrides.opy")
+if unwhitelisted_cross_exact:
+    failures.append(f"Found {len(unwhitelisted_cross_exact)} unwhitelisted exact duplicate rule(s) in src/aram_cross_hero_overrides.opy")
+if unwhitelisted_cross_diff:
+    failures.append(f"Found {len(unwhitelisted_cross_diff)} unwhitelisted same-name-diff rule(s) in src/aram_cross_hero_overrides.opy")
 if unwhitelisted_overlay_exact:
     failures.append(
         "Found {0} unwhitelisted exact duplicate rule(s) in hero overlays ({1})".format(
             len(unwhitelisted_overlay_exact),
-            ", ".join(sorted({rel_path(r["path"]) for r in unwhitelisted_overlay_exact})),
+            ", ".join(sorted({rel_path(rule["path"]) for rule in unwhitelisted_overlay_exact})),
         )
     )
 if unwhitelisted_overlay_diff:
     failures.append(
         "Found {0} unwhitelisted same-name-diff rule(s) in hero overlays ({1})".format(
             len(unwhitelisted_overlay_diff),
-            ", ".join(sorted({rel_path(r["path"]) for r in unwhitelisted_overlay_diff})),
+            ", ".join(sorted({rel_path(rule["path"]) for rule in unwhitelisted_overlay_diff})),
         )
     )
 
-aram_exact_by_line = {r["line"] for r in aram_exact}
+legacy_segment_includes = []
+if aram_file.exists():
+    for line_no, line in enumerate(aram_file.read_text(encoding="utf-8").splitlines(), 1):
+        match = include_seg_re.match(line)
+        if match:
+            legacy_segment_includes.append((line_no, match.group(1)))
 
-# contiguous exact segments that remain in aram_overrides
+if legacy_segment_includes:
+    failures.append(
+        "Found legacy aram_overrides_segments include(s) in src/aram_overrides.opy: "
+        + ", ".join(f"{path}@{line_no}" for line_no, path in legacy_segment_includes)
+    )
+
+aram_exact_by_line = {rule["line"] for rule in aram_exact}
 residual_runs = []
 i = 0
 while i < len(aram_rules):
@@ -370,8 +373,7 @@ while i < len(aram_rules):
     j = i
     while j + 1 < len(aram_rules) and aram_rules[j + 1]["line"] in aram_exact_by_line:
         j += 1
-    run = aram_rules[i : j + 1]
-    residual_runs.append(run)
+    residual_runs.append(aram_rules[i : j + 1])
     i = j + 1
 
 violating_runs = [run for run in residual_runs if len(run) >= segment_min]
@@ -380,114 +382,13 @@ if violating_runs:
         f"Found {len(violating_runs)} residual contiguous exact run(s) with length >= {segment_min} in src/aram_overrides.opy"
     )
 
-# manifest <-> include one-to-one
-aram_include_paths = []
-if aram_file.exists():
-    for line in aram_file.read_text(encoding="utf-8").splitlines():
-        m = include_seg_re.match(line)
-        if m:
-            aram_include_paths.append(m.group(1))
-
-manifest_include_paths = [row.get("include_path", "") for row in manifest_rows]
-if aram_include_paths != manifest_include_paths:
-    failures.append(
-        "Manifest include paths and aram_overrides include paths do not match exactly (order-sensitive)."
-    )
-
-# validate manifest rows and segment exactness
-segment_rule_total = 0
-for idx, row in enumerate(manifest_rows, 1):
-    seg_rel = row.get("include_path", "")
-    seg_path = src / seg_rel if seg_rel else None
-
-    if not seg_rel:
-        failures.append(f"manifest row {idx}: include_path is empty")
-        continue
-
-    if not seg_path.exists():
-        failures.append(f"manifest row {idx}: missing segment file {seg_rel}")
-        continue
-
-    seg_rules = parse_rules(seg_path)
-    segment_rule_total += len(seg_rules)
-
-    expected_count = int(row.get("rule_count", "0") or 0)
-    if len(seg_rules) != expected_count:
-        failures.append(
-            f"{seg_rel}: rule_count mismatch (manifest={expected_count}, actual={len(seg_rules)})"
-        )
-
-    if seg_rules:
-        first_rule = row.get("first_rule", "")
-        last_rule = row.get("last_rule", "")
-        if seg_rules[0]["name"] != first_rule:
-            failures.append(
-                f"{seg_rel}: first_rule mismatch (manifest={first_rule}, actual={seg_rules[0]['name']})"
-            )
-        if seg_rules[-1]["name"] != last_rule:
-            failures.append(
-                f"{seg_rel}: last_rule mismatch (manifest={last_rule}, actual={seg_rules[-1]['name']})"
-            )
-
-    for rule in seg_rules:
-        cands = other_by_name.get(rule["name"], [])
-        if not cands:
-            failures.append(
-                f"{seg_rel}:{rule['line']}: rule '{rule['name']}' has no same-name candidate in src/heroes or other non-aram files"
-            )
-            continue
-        exact_hits = [(p, ln) for cn, p, ln in cands if cn == rule["norm"]]
-        if not exact_hits:
-            failures.append(
-                f"{seg_rel}:{rule['line']}: rule '{rule['name']}' is not exact with any non-aram module rule"
-            )
-
-# emit unwhitelisted candidates
 candidate_rows = []
-for rule in unwhitelisted_exact:
-    candidate_rows.append(
-        {
-            "kind": "rule_exact_duplicate",
-            "rule_or_macro": rule["name"],
-            "source_module": rule["source_module"] or "*",
-            "reason": "TODO",
-            "decision": "keep_aram_only",
-            "owner": "TODO",
-        }
-    )
-for rule in unwhitelisted_diff:
-    candidate_rows.append(
-        {
-            "kind": "rule_same_name_diff",
-            "rule_or_macro": rule["name"],
-            "source_module": rule["source_module"] or "*",
-            "reason": "TODO",
-            "decision": "parameterize_shared",
-            "owner": "TODO",
-        }
-    )
-for rule in unwhitelisted_overlay_exact:
-    candidate_rows.append(
-        {
-            "kind": "rule_exact_duplicate",
-            "rule_or_macro": rule["name"],
-            "source_module": rule["source_module"] or "*",
-            "reason": "TODO",
-            "decision": "keep_aram_only",
-            "owner": "TODO",
-        }
-    )
-for rule in unwhitelisted_overlay_diff:
-    candidate_rows.append(
-        {
-            "kind": "rule_same_name_diff",
-            "rule_or_macro": rule["name"],
-            "source_module": rule["source_module"] or "*",
-            "reason": "TODO",
-            "decision": "parameterize_shared",
-            "owner": "TODO",
-        }
-    )
+candidate_rows.extend(candidate_rows_for(unwhitelisted_exact, "rule_exact_duplicate"))
+candidate_rows.extend(candidate_rows_for(unwhitelisted_diff, "rule_same_name_diff"))
+candidate_rows.extend(candidate_rows_for(unwhitelisted_cross_exact, "rule_exact_duplicate"))
+candidate_rows.extend(candidate_rows_for(unwhitelisted_cross_diff, "rule_same_name_diff"))
+candidate_rows.extend(candidate_rows_for(unwhitelisted_overlay_exact, "rule_exact_duplicate"))
+candidate_rows.extend(candidate_rows_for(unwhitelisted_overlay_diff, "rule_same_name_diff"))
 
 if emit_candidates_path:
     emit_candidates_path.parent.mkdir(parents=True, exist_ok=True)
@@ -496,29 +397,25 @@ if emit_candidates_path:
         writer.writeheader()
         writer.writerows(candidate_rows)
 
-# report
 report_path.parent.mkdir(parents=True, exist_ok=True)
-
-whitelisted_exact = len(aram_exact) - len(unwhitelisted_exact)
-whitelisted_diff = len(aram_diff) - len(unwhitelisted_diff)
 
 with report_path.open("w", encoding="utf-8") as f:
     f.write("# ARAM Overrides Duplicate Report\n\n")
     f.write("## Summary\n\n")
     f.write(f"- `src/aram_overrides.opy` total rules: **{len(aram_rules)}**\n")
-    f.write(f"- Exact (same name + same body) against non-aram files: **{len(aram_exact)}**\n")
-    f.write(f"- Same-name but different body: **{len(aram_diff)}**\n")
-    f.write(f"- Name-unique: **{len(aram_unique)}**\n")
-    f.write(f"- Hero overlays (`src/heroes/*/aram*.opy`) total rules: **{len(pilot_overlay_rules)}**\n")
-    f.write(f"- Hero overlay exact/same-name-diff/unique: **{len(pilot_overlay_exact)}/{len(pilot_overlay_diff)}/{len(pilot_overlay_unique)}**\n")
-    f.write(f"- Segment files from manifest: **{len(manifest_rows)}**\n")
-    f.write(f"- Total rules in segment files: **{segment_rule_total}**\n")
+    f.write(f"- `src/aram_cross_hero_overrides.opy` total rules: **{len(cross_rules)}**\n")
+    f.write(f"- `src/aram_overrides.opy` exact/diff/unique: **{len(aram_exact)}/{len(aram_diff)}/{len(aram_unique)}**\n")
+    f.write(f"- `src/aram_cross_hero_overrides.opy` exact/diff/unique: **{len(cross_exact)}/{len(cross_diff)}/{len(cross_unique)}**\n")
+    f.write(f"- Hero overlays (`src/heroes/*/aram*.opy`) total rules: **{len(overlay_rules)}**\n")
+    f.write(f"- Hero overlay exact/diff/unique: **{len(overlay_exact)}/{len(overlay_diff)}/{len(overlay_unique)}**\n")
     f.write(f"- Residual contiguous exact runs in aram_overrides: **{len(residual_runs)}**\n")
     f.write(f"- Residual runs with length >= {segment_min}: **{len(violating_runs)}**\n")
+    f.write(f"- Legacy segment includes in aram_overrides: **{len(legacy_segment_includes)}**\n")
+    f.write(f"- Legacy segment manifest rows: **{len(manifest_rows)}**\n")
     f.write(f"- Whitelist file: `{whitelist_path}`\n" if whitelist_path else "- Whitelist file: *(disabled)*\n")
     f.write(f"- Whitelist rows: **{len(whitelist_rows)}**\n")
-    f.write(f"- Whitelisted exact duplicates: **{whitelisted_exact}/{len(aram_exact)}**\n")
-    f.write(f"- Whitelisted same-name-diff: **{whitelisted_diff}/{len(aram_diff)}**\n")
+    f.write(f"- Unwhitelisted aram exact/diff: **{len(unwhitelisted_exact)}/{len(unwhitelisted_diff)}**\n")
+    f.write(f"- Unwhitelisted cross exact/diff: **{len(unwhitelisted_cross_exact)}/{len(unwhitelisted_cross_diff)}**\n")
     f.write(f"- Unwhitelisted hero overlay exact/diff: **{len(unwhitelisted_overlay_exact)}/{len(unwhitelisted_overlay_diff)}**\n")
     if emit_candidates_path:
         f.write(f"- Candidate output: `{emit_candidates_path}` ({len(candidate_rows)} rows)\n")
@@ -526,25 +423,24 @@ with report_path.open("w", encoding="utf-8") as f:
 
     f.write("## Hero Overlay Coverage\n\n")
     for hero in overlay_heroes:
-        hero_matches = [p for p in pilot_overlay_by_file.keys() if f"/{hero}/" in p]
+        hero_matches = [path for path in overlay_rules_by_file if f"/{hero}/" in path]
         if not hero_matches:
             f.write(f"- `{hero}`: missing `aram*.opy`\n")
             continue
         for rel in sorted(hero_matches):
-            f.write(f"- `{rel}`: {len(pilot_overlay_by_file[rel])} rules\n")
+            f.write(f"- `{rel}`: {len(overlay_rules_by_file[rel])} rules\n")
     f.write("\n")
 
-    f.write("## Manifest Segments\n\n")
+    f.write("## Legacy Segment Manifest\n\n")
     if manifest_rows:
-        f.write("| segment_id | include_path | start_line | end_line | rule_count | first_rule | last_rule |\n")
-        f.write("|---|---|---:|---:|---:|---|---|\n")
+        f.write("- `src/aram_overrides_segments/manifest.tsv` is treated as historical metadata only.\n")
+        f.write("| segment_id | include_path | rule_count | first_rule | last_rule |\n")
+        f.write("|---|---|---:|---|---|\n")
         for row in manifest_rows:
             f.write(
-                "| {segment_id} | `{include_path}` | {start_line} | {end_line} | {rule_count} | {first_rule} | {last_rule} |\n".format(
+                "| {segment_id} | `{include_path}` | {rule_count} | {first_rule} | {last_rule} |\n".format(
                     segment_id=row.get("segment_id", ""),
                     include_path=row.get("include_path", ""),
-                    start_line=row.get("start_line", ""),
-                    end_line=row.get("end_line", ""),
                     rule_count=row.get("rule_count", ""),
                     first_rule=row.get("first_rule", "").replace("|", "\\|"),
                     last_rule=row.get("last_rule", "").replace("|", "\\|"),
@@ -564,33 +460,24 @@ with report_path.open("w", encoding="utf-8") as f:
         f.write("- None\n")
     f.write("\n")
 
-    f.write("## Unwhitelisted Exact Duplicates\n\n")
-    if unwhitelisted_exact:
-        for r in unwhitelisted_exact:
-            f.write(
-                f"- line {r['line']}: `{r['name']}` (source: `{r['source_module'] or '*'}`)\n"
-            )
-    else:
-        f.write("- None\n")
-    f.write("\n")
-
-    f.write("## Unwhitelisted Same-Name-Diff Rules\n\n")
-    if unwhitelisted_diff:
-        for r in unwhitelisted_diff:
-            f.write(
-                f"- line {r['line']}: `{r['name']}` (source: `{r['source_module'] or '*'}`)\n"
-            )
-    else:
-        f.write("- None\n")
-    f.write("\n")
-
-    f.write("## Unique Rule Names (aram_overrides)\n\n")
-    if aram_unique:
-        for r in aram_unique:
-            f.write(f"- line {r['line']}: `{r['name']}`\n")
-    else:
-        f.write("- None\n")
-    f.write("\n")
+    sections = [
+        ("Unwhitelisted Exact Duplicates (aram_overrides)", unwhitelisted_exact),
+        ("Unwhitelisted Same-Name-Diff (aram_overrides)", unwhitelisted_diff),
+        ("Unwhitelisted Exact Duplicates (cross_hero)", unwhitelisted_cross_exact),
+        ("Unwhitelisted Same-Name-Diff (cross_hero)", unwhitelisted_cross_diff),
+        ("Unwhitelisted Exact Duplicates (hero overlays)", unwhitelisted_overlay_exact),
+        ("Unwhitelisted Same-Name-Diff (hero overlays)", unwhitelisted_overlay_diff),
+    ]
+    for title, rules in sections:
+        f.write(f"## {title}\n\n")
+        if rules:
+            for rule in rules:
+                f.write(
+                    f"- `{rel_path(rule['path'])}:{rule['line']}` `{rule['name']}` (source: `{rule['source_module'] or '*'}`)\n"
+                )
+        else:
+            f.write("- None\n")
+        f.write("\n")
 
     f.write("## Validation\n\n")
     if failures:
@@ -601,33 +488,35 @@ with report_path.open("w", encoding="utf-8") as f:
 
 print(f"Report written: {report_path}")
 print(
-    "Counts => total: {0}, exact: {1}, diff: {2}, unique: {3}, hero overlays: {4} (exact/diff/unique: {5}/{6}/{7}), manifest segments: {8}, residual exact runs >= {9}: {10}, unwhitelisted exact: {11}, unwhitelisted diff: {12}, unwhitelisted hero overlay exact/diff: {13}/{14}".format(
+    "Counts => aram total/exact/diff/unique: {0}/{1}/{2}/{3}, cross total/exact/diff/unique: {4}/{5}/{6}/{7}, hero overlays exact/diff/unique: {8}/{9}/{10}, residual exact runs >= {11}: {12}, legacy includes: {13}, unwhitelisted aram/cross/overlay exact-diff: {14}/{15}, {16}/{17}, {18}/{19}".format(
         len(aram_rules),
         len(aram_exact),
         len(aram_diff),
         len(aram_unique),
-        len(pilot_overlay_rules),
-        len(pilot_overlay_exact),
-        len(pilot_overlay_diff),
-        len(pilot_overlay_unique),
-        len(manifest_rows),
+        len(cross_rules),
+        len(cross_exact),
+        len(cross_diff),
+        len(cross_unique),
+        len(overlay_exact),
+        len(overlay_diff),
+        len(overlay_unique),
         segment_min,
         len(violating_runs),
+        len(legacy_segment_includes),
         len(unwhitelisted_exact),
         len(unwhitelisted_diff),
+        len(unwhitelisted_cross_exact),
+        len(unwhitelisted_cross_diff),
         len(unwhitelisted_overlay_exact),
         len(unwhitelisted_overlay_diff),
     )
 )
-
 if emit_candidates_path:
     print(f"Candidates written: {emit_candidates_path} ({len(candidate_rows)} rows)")
-
 if failures:
     print("Validation failures:")
     for item in failures:
         print(f"- {item}")
-
 if check_mode and failures:
     sys.exit(1)
 PY
