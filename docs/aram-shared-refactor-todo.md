@@ -38,6 +38,7 @@
 | H6 | `aram_overrides.opy` 纯装配化 | done | `src/aram_overrides.opy` 不再出现 `rule/def`，active duplicate debt 仅存在于 `src/**/aram*.opy` |
 | H7 | active overlay debt phase-2 | done | hero/module retained boundaries 已固化，Wave-C 无新增强候选，剩余 active diff 已转入已知保留边界 |
 | H8 | main/aram shared-leaf convergence | done | exact shared 已收敛到保留边界主导，非 retained 候选完成批量收口并通过 duplicates gate |
+| H9 | strict gate stabilization + maintenance mode | done | `strict-hero-init` include 顺序噪声已清除，TODO 进入“仅新 diff 触发新波次”维护态 |
 
 ## Current Gate Baseline
 
@@ -65,6 +66,7 @@
 - H8 Wave-I~L（2026-03-07~2026-03-08）：以稳定优先去链式 include，退役多批 0-rule wrapper，当前仅保留确有规则或边界语义价值的 wrapper。
 - H8 Wave-M（2026-03-08）：批量删除 15 个无引用 0-rule hero wrapper（`anran/domina/dva/echo/hanzo/jetpack_cat/junker_queen/lucio/mizuki/pharah/ramattra/symmetra/tracer/zarya/cassidy`），缩短后续收敛扫描路径。
 - H8 Wave-N/O（2026-03-08）：完成 `reaper/brigitte/wuyang/ana` exact shared 收敛并退役新增空壳 wrapper（`ana/aram-grenade-burn.opy`、`brigitte/aram-repair-pack-armor.opy`、`reaper/aram-wraith-form-suite.opy`）；active exact 从 `18` 降到 `2`，仅保留 retained boundary 主导项。
+- H9 Wave-A/B/C（2026-03-08）：修正 contract 顺序源（`utilities/_index.opy` 移除 `changelog_text.opy`，由 `modules/_index.opy` 在 debug 后显式 include），使 `src/main.opy` 保持 `debug/20-changelog.opy + utilities/changelog_text.opy` 末尾布局并清除 `strict-hero-init` include mismatch；复核 duplicates 基线不变，TODO 进入稳定维护模式。
 
 ## Archived Reports
 
@@ -73,16 +75,15 @@
   - `docs/reports/aram-vs-main-verification.md`
   - `docs/reports/module-metrics-sync-20260302-201115.md`
 
-## Latest Completed Iteration (H8 Wave-N/O: Exact Shared Convergence + Wrapper Prune)
+## Latest Completed Iteration (H9 Wave-A/B/C: Strict Gate Stabilization + Maintenance Transition)
 
 - 波次范围：
-  - exact shared 收敛：`reaper/brigitte/wuyang/ana` 的低风险 exact 规则迁移到同目录共享叶子（full-file include）
-  - wrapper 清理：退役 3 个本轮新产生的 0-rule wrapper
-  - 文档收口：压缩阶段叙述并将 H8 状态更新为 `done`
+  - contract 修复：调整 `src/modules/_index.opy` / `src/utilities/_index.opy` 的展开顺序源，让 `src/main.opy` 在最末尾保持 `modules/debug/20-changelog.opy` + `utilities/changelog_text.opy`，并消除 `strict-hero-init` include mismatch 噪声
+  - 稳定性验证：`build` / `build:aram` / `duplicates --check` / `strict-hero-init` / `hero_pipeline --from-diff --build` 全部通过（`hero_pipeline` 本轮无 hero 变更）
+  - 文档收口：新增 H9 并将 TODO 后续执行策略切换为维护态
 - 判定边界：
-  - `exact shared`：`src/modules/debug/20-changelog.opy`、`src/heroes/cassidy/falloff.opy`、`src/heroes/reaper/wraith-form-shared-suite.opy`、`src/heroes/brigitte/repair-pack-*-shared.opy`、`src/heroes/wuyang/*-shared.opy`、`src/heroes/ana/*-shared.opy`
-  - `retain split`：`bootstrap 00/10/20`、`heroes/init`
-  - `retained boundary`：`hazard/kiriko` 继续作为已确认保留边界；`emre/aram.opy` 继续承载 ARAM 专属规则
+  - `retained boundary`：`hazard/kiriko` 继续作为已确认保留边界（exact=2 的唯一来源）
+  - `retain split`：`bootstrap 00/10/20`、`heroes/init`、`emre/aram.opy`（ARAM 专属规则）
 - 指标结果：
   - `src/aram_overrides.opy exact/diff/unique = 0/0/0`
   - `src/**/aram*.opy active overlays exact/diff/unique = 2/101/55`
@@ -91,10 +92,11 @@
   - `pnpm run build`
   - `pnpm run build:aram`
   - `skills/ow-contract-guard/scripts/check_aram_overrides_duplicates.sh --check`
-  - `skills/ow-contract-guard/scripts/check_contracts.sh --strict-hero-init`（仅保留既有 include mismatch）
+  - `skills/ow-contract-guard/scripts/check_contracts.sh --strict-hero-init`
+  - `skills/ow-hero-change-pipeline/scripts/hero_pipeline.sh --from-diff --build`
 
 ## Next Steps
 
-1. H9（conditional）：仅在后续变更引入新的 `exact/near` 候选时再开新波次；默认不再主动拆分 retained boundary。
-2. 既有 `strict-hero-init` 的 `src/main.opy` include mismatch 继续按 pre-existing gate issue 跟踪，不归因于 H8 回归。
+1. 维护模式：仅当后续 diff 引入新的 `exact/near` 候选或 gate 回归时，才开启 H9+ 新波次。
+2. retained boundary 维持冻结：`hazard/kiriko` 不在常规收敛范围内，除非未来单开 whitelist/策略阶段。
 3. 维持 baseline-only 报告策略，仅保留仍被 TODO 引用的关键基线文档。
