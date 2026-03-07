@@ -70,10 +70,11 @@
 - 2026-03-07: H8 Wave-A/B 改按 full-file shared leaves only 推进：回收所有 rule 内 snippet-style `#!include`，`debug/changelog` 改成合法完整共享叶子，`bootstrap` 的近重复规则改成 main/aram paired full leaves，`cassidy` 的 falloff 改成完整共享叶子，active overlay diff 从 `109` 降到 `102`。
 - 2026-03-07: H8 Wave-C 完成 pair inventory：`src/**/aram-*.opy` 与同目录 main 对文件逐对审计后，未发现新的可直接落地 exact shared 候选；`bootstrap 00/10/20` 与 `heroes/init` 保持 `retain split`，`cassidy falloff` 与 `debug/changelog` 维持已落地的合法 full-file shared 模式。
 - 2026-03-07: H8 Wave-D 完成 reports cleanup（baseline-only）：移除已完成且已被 TODO 覆盖的 H4/H5 波次归档，保留 `aram-vs-main-verification.md` 与 `module-metrics-sync-20260302-201115.md` 作为长期关键基线；`exact shared / paired full leaves / retain split` 判定边界不变。
-- 2026-03-07: H8 Wave-E 完成 bootstrap join/respawn 收敛：新增中性共享叶子 `player-join-and-respawn.opy`，main/aram 通过 mode-profile 常量注入后共同引用同一完整文件；`Team1/Team2` respawn 仍保持 main=`5/10`、aram=`2/5`，行为不变。
+- 2026-03-07: H8 Wave-E 完成 bootstrap join/respawn 收敛（后续被 Wave-I 稳定化策略覆盖）：曾以共享叶子承载 join/respawn；最终按稳定优先改回 main 单文件规则体 + aram paired full leaves，`Team1/Team2` respawn 仍保持 main=`5/10`、aram=`2/5`，行为不变。
 - 2026-03-07: H8 Wave-F 完成 ARAM 自定义英雄接入：`anran/domina/emre/mizuki/jetpack_cat` 在 ARAM 侧复用 main `rules.opy` 装配；并在 `aram_protocol.opy` 对齐补齐 `playervar anran_burn_target 111`、`anran_burn_dmg_mod 112` 以消除 `anran` 编译阻塞。基线保持 `0/0/0` 与 `18/102/53`。
 - 2026-03-07: H8 Wave-G 完成 `aram-* + *-aram` 全覆盖盘点：当前无新增 straight exact pair；`player-death-reset-main/-aram` 与 `player-reinitialize-main/-aram` 确认为可收敛 near-duplicate；`bootstrap 00/10/20` 与 `heroes/init` 继续保持 `retain split`。
 - 2026-03-07: H8 Wave-H 完成 near-duplicate 收敛：`player-death-reset`、`player-reinitialize` 与 `player-hero-switch-reset` 迁移到 shared full leaf + mode wrapper 形态，保留 mode 差量（wait/extra_hero/healing-reset/log）且不改行为顺序。基线保持 `0/0/0` 与 `18/102/53`。
+- 2026-03-07: H8 Wave-I 完成 bootstrap lifecycle 稳定化：`20-player-lifecycle-and-reset.opy` 改为 main 侧单文件完整规则体，移除 `20 -> *-main -> shared` 链式 include；ARAM 维持 paired full leaves，删除 main 包装壳与中间 shared 生命周期叶子。`main.opy` 恢复标准 include 路径，`build/build:aram` 通过，基线保持 `0/0/0` 与 `18/102/53`。
 
 ## Archived Reports
 
@@ -82,21 +83,19 @@
   - `docs/reports/aram-vs-main-verification.md`
   - `docs/reports/module-metrics-sync-20260302-201115.md`
 
-## Latest Completed Iteration (H8 Wave-H: Bootstrap Near-Duplicate Convergence)
+## Latest Completed Iteration (H8 Wave-I: Bootstrap Lifecycle Stabilization)
 
 - 波次范围：
-  - 对 `player-death-reset`、`player-reinitialize`、`player-hero-switch-reset` 执行 near-duplicate 收敛
-  - 统一为 shared full leaf + mode wrapper，不使用 rule 内片段 include
-  - 保持 main/aram 差量注入，避免玩法行为回归
+  - 对 `bootstrap/20` 生命周期链路执行稳定化，移除 `20 -> *-main -> shared` 多级 include
+  - main 侧改为单文件完整规则体，ARAM 侧维持 paired full leaves（full-file only）
+  - 删除仅用于转发的 main 包装壳与 shared 生命周期中间文件
 - 判定结论：
   - `exact shared`（边界不变）：
     - `src/modules/debug/aram-20-changelog.opy -> 20-changelog.opy`
     - `src/heroes/cassidy/aram-falloff.opy -> falloff.opy`
-    - `src/modules/bootstrap/player-join-and-respawn-main.opy / player-join-and-respawn-aram.opy -> player-join-and-respawn.opy`（经 mode-profile 常量注入后共享）
-  - `near-duplicate converged`（本波新增）：
-    - `player-death-reset-main.opy / player-death-reset-aram.opy -> player-death-reset.opy + wrappers`
-    - `player-reinitialize-main.opy / player-reinitialize-aram.opy -> player-reinitialize.opy + wrappers`
-    - `player-hero-switch-reset-main.opy / player-hero-switch-reset-aram.opy -> player-hero-switch-reset.opy + wrappers`
+  - `near-duplicate converged`（本波状态）：
+    - main：`src/modules/bootstrap/20-player-lifecycle-and-reset.opy` 承载 join/respawn、death reset、reinitialize、hero switch 全量规则
+    - aram：`player-join-and-respawn-aram.opy`、`player-death-reset-aram.opy`、`player-reinitialize-aram.opy`、`player-hero-switch-reset-aram.opy` 维持 paired full leaves
   - `retain split`（边界不变）：
     - `src/modules/bootstrap/00-init-and-settings.opy` vs `aram-00-init-and-settings.opy`
     - `src/modules/bootstrap/10-safety-blacklist-ban.opy` vs `aram-10-safety-blacklist-ban.opy`
@@ -119,8 +118,8 @@
   - `skills/ow-contract-guard/scripts/check_aram_overrides_duplicates.sh --check`
 - 当前 inventory：
   - retained hero overlays: `src/heroes/hazard/aram.opy`、`src/heroes/kiriko/aram.opy`
-  - near-duplicate converged leaves: `player-death-reset.opy`、`player-reinitialize.opy`、`player-hero-switch-reset.opy`
-  - exact shared candidates landed: `src/heroes/cassidy/falloff.opy`、`src/modules/bootstrap/player-join-and-respawn.opy`
+  - near-duplicate stabilized lifecycle: `src/modules/bootstrap/20-player-lifecycle-and-reset.opy` + `src/modules/bootstrap/aram-20-player-lifecycle-and-reset.opy`
+  - exact shared candidates landed: `src/heroes/cassidy/falloff.opy`
   - aram custom heroes reused from main rules: `anran`、`domina`、`emre`、`mizuki`、`jetpack_cat`
   - retained module overlays remain: `src/modules/bootstrap/aram-10-safety-blacklist-ban.opy`、`src/modules/bootstrap/aram-15-extra-hero-pool.opy`
   - retained baseline reports: `docs/reports/aram-vs-main-verification.md`、`docs/reports/module-metrics-sync-20260302-201115.md`
