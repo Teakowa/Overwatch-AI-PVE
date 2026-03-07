@@ -71,6 +71,7 @@
 - 2026-03-07: H8 Wave-C 完成 pair inventory：`src/**/aram-*.opy` 与同目录 main 对文件逐对审计后，未发现新的可直接落地 exact shared 候选；`bootstrap 00/10/20` 与 `heroes/init` 保持 `retain split`，`cassidy falloff` 与 `debug/changelog` 维持已落地的合法 full-file shared 模式。
 - 2026-03-07: H8 Wave-D 完成 reports cleanup（baseline-only）：移除已完成且已被 TODO 覆盖的 H4/H5 波次归档，保留 `aram-vs-main-verification.md` 与 `module-metrics-sync-20260302-201115.md` 作为长期关键基线；`exact shared / paired full leaves / retain split` 判定边界不变。
 - 2026-03-07: H8 Wave-E 完成 bootstrap join/respawn 收敛：新增中性共享叶子 `player-join-and-respawn.opy`，main/aram 通过 mode-profile 常量注入后共同引用同一完整文件；`Team1/Team2` respawn 仍保持 main=`5/10`、aram=`2/5`，行为不变。
+- 2026-03-07: H8 Wave-F 完成 ARAM 自定义英雄接入：`anran/domina/emre/mizuki/jetpack_cat` 在 ARAM 侧复用 main `rules.opy` 装配；并在 `aram_protocol.opy` 对齐补齐 `playervar anran_burn_target 111`、`anran_burn_dmg_mod 112` 以消除 `anran` 编译阻塞。基线保持 `0/0/0` 与 `18/102/53`。
 
 ## Archived Reports
 
@@ -79,14 +80,14 @@
   - `docs/reports/aram-vs-main-verification.md`
   - `docs/reports/module-metrics-sync-20260302-201115.md`
 
-## Latest Completed Iteration (H8 Wave-E: Bootstrap Join/Respawn Convergence)
+## Latest Completed Iteration (H8 Wave-F: Add 5 Custom Heroes to ARAM via Main Rules)
 
 - 波次范围：
-  - 将 `player-join-and-respawn-main/aram` 收敛到同一个完整共享叶子
-  - 保留 main/aram 的 respawn 数值差异，不改玩法行为
-  - 本波不触碰其余 near-duplicate pair 与 retained boundaries
+  - 在 ARAM 侧新增 5 个自定义英雄规则装配，直接复用 main `rules.opy`
+  - 保持 Hero-First/full-file include 约束，不新增 ARAM 专属规则体
+  - 对齐补齐 `anran` 所需 ARAM 协议变量，确保 ARAM 编译通过
 - 判定结论：
-  - `exact shared`（新增 1 项）：
+  - `exact shared`（边界不变）：
     - `src/modules/debug/aram-20-changelog.opy -> 20-changelog.opy`
     - `src/heroes/cassidy/aram-falloff.opy -> falloff.opy`
     - `src/modules/bootstrap/player-join-and-respawn-main.opy / player-join-and-respawn-aram.opy -> player-join-and-respawn.opy`（经 mode-profile 常量注入后共享）
@@ -94,6 +95,8 @@
     - `player-death-reset-main.opy` / `player-death-reset-aram.opy`
     - `player-reinitialize-main.opy` / `player-reinitialize-aram.opy`
     - `player-hero-switch-reset-main.opy`（main-only partner with ARAM lifecycle path in `player-reinitialize-aram.opy`）
+  - `ARAM custom heroes added from main rules`（本波新增）：
+    - `anran`、`domina`、`emre`、`mizuki`、`jetpack_cat`
   - `retain split`（边界不变）：
     - `src/modules/bootstrap/00-init-and-settings.opy` vs `aram-00-init-and-settings.opy`
     - `src/modules/bootstrap/10-safety-blacklist-ban.opy` vs `aram-10-safety-blacklist-ban.opy`
@@ -118,12 +121,13 @@
   - retained hero overlays: `src/heroes/hazard/aram.opy`、`src/heroes/kiriko/aram.opy`
   - paired full leaves landed: `player-death-reset-main.opy` / `player-death-reset-aram.opy`、`player-reinitialize-main.opy` / `player-reinitialize-aram.opy`、`player-hero-switch-reset-main.opy`
   - exact shared candidates landed: `src/heroes/cassidy/falloff.opy`、`src/modules/bootstrap/player-join-and-respawn.opy`
+  - aram custom heroes reused from main rules: `anran`、`domina`、`emre`、`mizuki`、`jetpack_cat`
   - retained module overlays remain: `src/modules/bootstrap/aram-10-safety-blacklist-ban.opy`、`src/modules/bootstrap/aram-15-extra-hero-pool.opy`
   - retained baseline reports: `docs/reports/aram-vs-main-verification.md`、`docs/reports/module-metrics-sync-20260302-201115.md`
 
 ## Next Steps
 
-1. H8 Wave-F：继续扫描 `main/aram` 成对叶子，仅处理新的 `exact shared` 候选；`retain split` 项默认不强拆。
+1. H8 Wave-G：继续扫描 `main/aram` 成对叶子，仅处理新的 `exact shared` 候选；`retain split` 项默认不强拆。
 2. `hazard/kiriko` 继续保持为 H7 retained boundary，不纳入 H8 shared merge 范围，除非未来另开 whitelist 策略阶段。
 3. `check_contracts --strict-hero-init` 当前仍有既有的 `src/main.opy` include mismatch，继续视为 pre-existing gate issue，而不是 H8 新回归。
 4. 继续只保留仍被主 TODO 引用、或对关键决策回溯仍有价值的 wave 报告。
