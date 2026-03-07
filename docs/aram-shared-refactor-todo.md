@@ -75,6 +75,7 @@
 - 2026-03-07: H8 Wave-G 完成 `aram-* + *-aram` 全覆盖盘点：当前无新增 straight exact pair；`player-death-reset-main/-aram` 与 `player-reinitialize-main/-aram` 确认为可收敛 near-duplicate；`bootstrap 00/10/20` 与 `heroes/init` 继续保持 `retain split`。
 - 2026-03-07: H8 Wave-H 完成 near-duplicate 收敛：`player-death-reset`、`player-reinitialize` 与 `player-hero-switch-reset` 迁移到 shared full leaf + mode wrapper 形态，保留 mode 差量（wait/extra_hero/healing-reset/log）且不改行为顺序。基线保持 `0/0/0` 与 `18/102/53`。
 - 2026-03-07: H8 Wave-I 完成 bootstrap lifecycle 稳定化：`20-player-lifecycle-and-reset.opy` 改为 main 侧单文件完整规则体，移除 `20 -> *-main -> shared` 链式 include；ARAM 维持 paired full leaves，删除 main 包装壳与中间 shared 生命周期叶子。`main.opy` 恢复标准 include 路径，`build/build:aram` 通过，基线保持 `0/0/0` 与 `18/102/53`。
+- 2026-03-07: H8 Wave-J 完成 de-wrapper 收敛：`aram_overrides` 中 `cassidy` 直接改引 `falloff.opy`，退役 `aram-falloff.opy`；`modules/debug/aram-20-changelog.opy` 退役，避免保留无入口依赖的一跳包装文件。行为不变，基线保持 `0/0/0` 与 `18/102/53`。
 
 ## Archived Reports
 
@@ -119,14 +120,14 @@
 - 当前 inventory：
   - retained hero overlays: `src/heroes/hazard/aram.opy`、`src/heroes/kiriko/aram.opy`
   - near-duplicate stabilized lifecycle: `src/modules/bootstrap/20-player-lifecycle-and-reset.opy` + `src/modules/bootstrap/aram-20-player-lifecycle-and-reset.opy`
-  - exact shared candidates landed: `src/heroes/cassidy/falloff.opy`
+  - exact shared candidates landed: `src/heroes/cassidy/falloff.opy`、`src/modules/debug/20-changelog.opy`
   - aram custom heroes reused from main rules: `anran`、`domina`、`emre`、`mizuki`、`jetpack_cat`
   - retained module overlays remain: `src/modules/bootstrap/aram-10-safety-blacklist-ban.opy`、`src/modules/bootstrap/aram-15-extra-hero-pool.opy`
   - retained baseline reports: `docs/reports/aram-vs-main-verification.md`、`docs/reports/module-metrics-sync-20260302-201115.md`
 
 ## Next Steps
 
-1. H8 Wave-I：继续扫描 `main/aram` 成对叶子，优先挖掘新的 `exact shared`；near-duplicate 仅在低风险可参数化时继续推进。
+1. H8 Wave-J：继续扫描 `main/aram` 成对叶子，优先挖掘新的 `exact shared`；near-duplicate 仅在低风险可参数化时继续推进。
 2. `hazard/kiriko` 继续保持为 H7 retained boundary，不纳入 H8 shared merge 范围，除非未来另开 whitelist 策略阶段。
 3. `check_contracts --strict-hero-init` 当前仍有既有的 `src/main.opy` include mismatch，继续视为 pre-existing gate issue，而不是 H8 新回归。
 4. 继续只保留仍被主 TODO 引用、或对关键决策回溯仍有价值的 wave 报告。
