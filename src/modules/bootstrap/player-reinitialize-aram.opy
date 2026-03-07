@@ -1,21 +1,7 @@
-rule "[reset.opy]: Reinitialize hero on new round":
-    @Event eachPlayer
-    @Condition isMatchBetweenRounds() == true
-    @Condition eventPlayer.getHero() != Hero.SOMBRA
-    
+macro BOOTSTRAP_PLAYER_REINITIALIZE_BEFORE_WAIT_UNTIL():
     eventPlayer.extra_hero = true
-    waitUntil(not isMatchBetweenRounds(), Math.INFINITY)
-    wait(1)
-    resetHero()
-    eventPlayer.reset_pvar[0] = true
-    logToInspector("called init after new round")
 
-rule "[utilities/hero_setup.opy]: Reset and initialize hero on hero switch":
-    @Event eachPlayer
-    @Condition eventPlayer.reset_pvar[0] != false
-    
-    eventPlayer.ram_block_damage = 0
-    eventPlayer.sigma_hyperspheres = 0
-    destroyHudText(eventPlayer.ChangelogText1)
-    destroyHudText(eventPlayer.ChangelogText2)
-    resetHero()
+macro BOOTSTRAP_PLAYER_REINITIALIZE_AFTER_WAIT_UNTIL():
+    pass
+
+#!include "player-reinitialize.opy"

@@ -1,7 +1,8 @@
 macro BOOTSTRAP_PLAYER_HERO_SWITCH_RESET_PRE():
-    pass
+    eventPlayer.ram_block_damage = 0
+    eventPlayer.sigma_hyperspheres = 0
 
 macro BOOTSTRAP_PLAYER_HERO_SWITCH_RESET_POST():
-    logToInspector("called reset hero")
+    pass
 
 #!include "player-hero-switch-reset.opy"
