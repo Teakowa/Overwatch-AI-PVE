@@ -64,6 +64,7 @@
   - `src/aram_overrides.opy` 收成纯 assembly，hero/module overlays 的 active diff 结构稳定
 - 2026-03-06: H6 后段确认 `hazard` 的 `Violent Leap` 与 `kiriko` 的 payload bot 规则属于已确认保留边界；继续拆分会重新引入与 `rules.opy` 的 exact-overlay 风险。
 - 2026-03-07: H7 Wave-A 完成 hero retained overlay inventory，hero 侧当前仅剩 `hazard/kiriko` 两组 retained overlays，后续重心转向 module-owned overlays inventory。
+- 2026-03-07: H7 Wave-B 完成 module overlay semantic split + retention decision：`aram-00-init-and-settings.opy` 与 `aram-20-player-lifecycle-and-reset.opy` 已拆成 module-local 语义叶子，`aram-10-safety-blacklist-ban.opy`、`aram-15-extra-hero-pool.opy`、`aram-20-changelog.opy` 维持保留整体。
 
 ## Archived Reports
 
@@ -82,32 +83,38 @@
   - `docs/reports/aram-shared-wave-h5-next4-hjos-diff-localization-2026-03-06.md`
   - `docs/reports/aram-shared-wave-h5-next7-mid-density-diff-localization-2026-03-06.md`
 
-## Latest Completed Iteration (H7 Wave-A: Hero Retained Overlay Inventory)
+## Latest Completed Iteration (H7 Wave-B: Module Overlay Semantic Split)
 
 - 波次范围：
-  - 盘点 `src/heroes/**/aram*.opy` 中仍位于 hero 根 `aram.opy` 的活跃边界
-  - 明确哪些属于 retained overlays，哪些属于入口/非目标文件
-  - 为 H7 后续波次建立可执行名单
+  - 复核 H7 Wave-A 留下的 module-owned overlay 候选
+  - 对厚文件执行 module-local semantic split，同时保留 module 归属与装配顺序
+  - 对 remaining candidates 做 retention decision，判断是否还需要启动 Wave-C
   - 本波不新增 report，仅更新主 TODO
 - 变更动作：
-  - 确认 `hazard` 与 `kiriko` 是当前仅存的 hero-root retained overlays；两者都不适合继续拆成同级叶子，因为会回到与 `rules.opy` 的 exact-overlay 风险。
-  - 确认 `src/heroes/aram-init.opy` 是入口/分隔文件，不属于 H7 debt inventory 的目标。
-  - 将 hero 侧 inventory 明确写入 TODO，作为 H7 Wave-B/C 的直接输入。
+  - 将 `src/modules/bootstrap/aram-00-init-and-settings.opy` 拆成纯 assembly 壳，语义叶子分为 `aram-mode-settings.opy`、`aram-hero-ability-settings.opy`、`aram-anti-crash.opy`。
+  - 将 `src/modules/bootstrap/aram-20-player-lifecycle-and-reset.opy` 拆成纯 assembly 壳，语义叶子分为 `aram-player-join-and-respawn.opy`、`aram-player-death-reset.opy`、`aram-player-reinitialize.opy`。
+  - 确认 `src/modules/bootstrap/aram-10-safety-blacklist-ban.opy`、`src/modules/bootstrap/aram-15-extra-hero-pool.opy`、`src/modules/debug/aram-20-changelog.opy` 仍然属于职责集中的 module-owned mode-only overlays，当前不继续拆分。
+  - 保持 `hazard/kiriko` 仅作为 hero-root retained overlays 记录，不纳入本波源码改造。
 - 指标结果：
   - `src/aram_overrides.opy exact/diff/unique` 维持 `0/0/0`
-  - active overlay 基线维持 `18/109/53`
-  - hero-root retained overlays = `2`（`hazard`、`kiriko`）
+  - active overlay 基线默认维持在 `18/109/53` 的 wave-a 起点上；若 `unique` 因语义叶子变多而上升，应视为结构细化而非债务回流
+  - hero-root retained overlays 仍为 `2`（`hazard`、`kiriko`）
   - `unwhitelisted exact/diff = 0/0`
 - 验证报告：
-  - 无；本波结果直接记入本 TODO。
+  - `skills/ow-hero-change-pipeline/scripts/hero_pipeline.sh --from-diff --build`
+  - `pnpm run build`
+  - `pnpm run build:aram`
+  - `skills/ow-contract-guard/scripts/check_contracts.sh --strict-hero-init`
+  - `skills/ow-contract-guard/scripts/check_aram_overrides_duplicates.sh --check`
 - 当前 inventory：
-  - retained overlays: `src/heroes/hazard/aram.opy`、`src/heroes/kiriko/aram.opy`
+  - retained hero overlays: `src/heroes/hazard/aram.opy`、`src/heroes/kiriko/aram.opy`
   - non-target entry file: `src/heroes/aram-init.opy`
-  - H7 Wave-B 候选：`src/modules/bootstrap/aram-00-init-and-settings.opy`、`src/modules/bootstrap/aram-10-safety-blacklist-ban.opy`、`src/modules/bootstrap/aram-15-extra-hero-pool.opy`、`src/modules/bootstrap/aram-20-player-lifecycle-and-reset.opy`、`src/modules/debug/aram-20-changelog.opy`
+  - retained module overlays: `src/modules/bootstrap/aram-10-safety-blacklist-ban.opy`、`src/modules/bootstrap/aram-15-extra-hero-pool.opy`、`src/modules/debug/aram-20-changelog.opy`
+  - newly split module assemblies: `src/modules/bootstrap/aram-00-init-and-settings.opy`、`src/modules/bootstrap/aram-20-player-lifecycle-and-reset.opy`
 
 ## Next Steps
 
-1. H7 Wave-B：按模块拆看 `src/modules/**/aram-*.opy`，确认是否存在可以继续下沉到 hero-owned leaves 的跨模块残留；若没有，就把 module-owned mode-only 设计固化成文档结论。
-2. H7 Wave-C：仅在 Wave-B 明确存在可继续下沉的非 module-owned 残留时启动，并继续坚持不放宽 whitelist 的前提。
-3. `hazard/kiriko` 视为当前已确认保留边界；若未来要继续拆分，应连同 whitelist 策略一起调整，而不是单独做文件重排。
+1. H7 Wave-C：仅在后续复核中发现新的 mixed-responsibility module overlays 时启动；当前没有新的强制拆分候选。
+2. 若 Wave-C 继续为空，下一步转入 H7 收尾判断：把 retained module-owned overlays 与 retained hero boundaries 固化成阶段结论。
+3. `hazard/kiriko` 仍视为已确认保留边界；若未来要继续拆分，应连同 whitelist 策略一起调整，而不是单独做文件重排。
 4. 后续只保留仍被主 TODO 引用、或对关键决策回溯仍有价值的 wave 报告。
