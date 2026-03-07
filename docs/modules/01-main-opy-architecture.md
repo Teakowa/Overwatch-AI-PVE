@@ -2,6 +2,17 @@
 
 本文档基于当前模块化结构整理，目标是帮助协作者理解编排顺序、运行链路与维护边界。
 
+## 规范来源迁移说明（Canonical）
+
+- 本文档用于架构理解与背景说明，不再作为规则 canonical 来源。
+- `src/main.opy` 结构与分隔规则以 `docs/agents/main-contract.md` 为准：
+  - `R-MAIN-TOP-ORDER`
+  - `R-MAIN-INCLUDE-ORDER`
+  - `R-MAIN-NO-INDEX-INCLUDE`
+  - `R-MAIN-CONSTANTS-BEFORE-PRELUDE`
+  - `R-MAIN-SECTION-DELIMITERS`
+- 变量与命名等通用约束以 `docs/agents/protocol-constraints.md` 为准。
+
 ## 1. 快速事实
 
 - 主入口：`src/main.opy`（manifest）

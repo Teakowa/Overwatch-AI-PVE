@@ -2,6 +2,15 @@
 
 本文档定义模块化后的“不可随意变更”约定。
 
+## 规范来源迁移说明（Canonical）
+
+- 本文档用于历史背景与实现注释，不再作为规则 canonical 来源。
+- 协议类规范请以 `docs/agents/*` 为准：
+  - `docs/agents/protocol-constraints.md`（索引、命名、`@Disabled`）
+  - `docs/agents/hero-init-contract.md`（Hero Init Detect/Initialize）
+  - `docs/agents/performance-stability.md`（性能与 Anti Crash）
+  - `docs/agents/gates-and-commits.md`（门禁与提交）
+
 ## 1. 变量索引协议（硬约束）
 
 - `globalvar` 索引不可重排
