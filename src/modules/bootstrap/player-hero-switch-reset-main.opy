@@ -1,7 +1,0 @@
-macro BOOTSTRAP_PLAYER_HERO_SWITCH_RESET_PRE():
-    pass
-
-macro BOOTSTRAP_PLAYER_HERO_SWITCH_RESET_POST():
-    logToInspector("called reset hero")
-
-#!include "player-hero-switch-reset.opy"

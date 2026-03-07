@@ -1,4 +1,0 @@
-#!define TEAM1_RESPAWN_TIME_MODE TEAM1_RESPAWN_TIME_DEFAULT
-#!define TEAM2_RESPAWN_TIME_MODE TEAM2_RESPAWN_TIME_DEFAULT
-
-#!include "player-join-and-respawn.opy"
