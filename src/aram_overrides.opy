@@ -93,7 +93,6 @@
 #!include "heroes/ashe/aram-dynamite.opy"
 #!include "heroes/wuyang/aram.opy"
 #!include "heroes/vendetta/aram.opy"
-#!include "heroes/aram-init.opy"
 #!include "heroes/widowmaker/aram.opy"
 #!include "heroes/cassidy/falloff.opy"
 #!include "heroes/soldier76/aram.opy"

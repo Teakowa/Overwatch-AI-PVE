@@ -1,6 +1,6 @@
 # emre aram-mode overlay (intentionally empty for Hero-First migration)
 
-rule "[Emre]: Cyber Grenade Control + Burn":
+rule "[Emre][ARAM]: Cyber Grenade Control + Burn":
     @Event playerDealtDamage
     @Hero emre
     @Condition eventAbility == Button.ABILITY_2
@@ -11,7 +11,7 @@ rule "[Emre]: Cyber Grenade Control + Burn":
     damage(victim, attacker, 75 + victim.getMaxHealth() * 0.05)
 	wait()
 
-rule "[Emre]: Override Protocol Burn":
+rule "[Emre][ARAM]: Override Protocol Burn":
     @Event playerDealtDamage
     @Hero emre
     @Condition eventAbility == Button.ULTIMATE
