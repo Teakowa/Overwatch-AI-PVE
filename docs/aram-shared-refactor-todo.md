@@ -21,7 +21,8 @@
   - `src/main.opy` 仅引入 `#!include "heroes/init.main.opy"`（英雄段）。
   - `src/aramMain.opy` 仅引入 `#!include "heroes/init.aram.opy"`（共享英雄段）。
 - 英雄目录规范：`src/heroes/<hero>/`
-  - 必备：`init.opy`、`rules.opy`、`main.opy`、`aram.opy`
+  - 必备：`init.opy`、`rules.opy`、`main.opy`
+  - `aram.opy`：可选（仅当该英雄需要保留 ARAM wrapper 语义边界或承载 ARAM 专属规则时保留）
   - 可选拆分文件：同级技能/特效文件（示例：`falloff.opy`、`aram-headhunter.opy`）；不再使用 `shared/` 目录承载可复用规则
   - 文件名只表达语义，不表达加载顺序；实际顺序只由 include 位置决定
 
@@ -77,6 +78,7 @@
 - 2026-03-07: H8 Wave-I 完成 bootstrap lifecycle 稳定化：`20-player-lifecycle-and-reset.opy` 改为 main 侧单文件完整规则体，移除 `20 -> *-main -> shared` 链式 include；ARAM 维持 paired full leaves，删除 main 包装壳与中间 shared 生命周期叶子。`main.opy` 恢复标准 include 路径，`build/build:aram` 通过，基线保持 `0/0/0` 与 `18/102/53`。
 - 2026-03-07: H8 Wave-J 完成 de-wrapper 收敛：`aram_overrides` 中 `cassidy` 直接改引 `falloff.opy`，退役 `aram-falloff.opy`；`modules/debug/aram-20-changelog.opy` 退役，避免保留无入口依赖的一跳包装文件。行为不变，基线保持 `0/0/0` 与 `18/102/53`。
 - 2026-03-08: H8 Wave-K 完成 assembly 去重 + gate 修复：`aram_overrides` 移除重复的 `heroes/aram-init.opy` include（该文件已由 `aramMain -> heroes/init.aram.opy` 装配），消除 `w_already_imported` 噪声；同时对 `emre/aram.opy` 做 ARAM rule 命名去冲突（不改行为）以恢复 duplicates gate。基线更新为 `0/0/0` 与 `18/102/54`。
+- 2026-03-08: H8 Wave-L 完成批量扁平化：`aram_overrides` 批量展开 hero 0-rule wrapper includes 并退役 32 个空壳 `hero/*/aram.opy` 文件；仅保留 `hazard/kiriko/emre` 等有规则或有边界语义的 wrapper。行为不变，基线保持 `0/0/0` 与 `18/102/54`。
 
 ## Archived Reports
 
@@ -85,12 +87,12 @@
   - `docs/reports/aram-vs-main-verification.md`
   - `docs/reports/module-metrics-sync-20260302-201115.md`
 
-## Latest Completed Iteration (H8 Wave-K: ARAM Assembly De-dup)
+## Latest Completed Iteration (H8 Wave-L: Bulk Wrapper Flattening)
 
 - 波次范围：
-  - 清理 ARAM assembly 冗余 include，减少重复装配噪声
-  - 从 `aram_overrides` 移除重复 `heroes/aram-init.opy` 引用
-  - 保持其余 overlay 装配顺序与行为不变
+  - 批量展开 `aram_overrides` 中 hero 0-rule wrapper includes，降低装配层跳转深度
+  - 删除 32 个无规则、无外部引用的 `hero/*/aram.opy` 空壳文件
+  - 保留有规则或保留边界语义的 wrapper（不强制删除）
 - 判定结论：
   - `exact shared`（边界不变）：
     - `src/modules/debug/20-changelog.opy`（ARAM 不再经 wrapper 转发）
@@ -98,6 +100,10 @@
   - `near-duplicate converged`（边界不变）：
     - main：`src/modules/bootstrap/20-player-lifecycle-and-reset.opy` 承载 join/respawn、death reset、reinitialize、hero switch 全量规则
     - aram：`player-join-and-respawn-aram.opy`、`player-death-reset-aram.opy`、`player-reinitialize-aram.opy`、`player-hero-switch-reset-aram.opy` 维持 paired full leaves
+  - `retained wrappers`（本波确认）：
+    - `src/heroes/hazard/aram.opy`：承载 2 条 retained ARAM mode-only 规则
+    - `src/heroes/kiriko/aram.opy`：承载 2 条 payload bot retained 规则
+    - `src/heroes/emre/aram.opy`：承载 2 条 ARAM 专属规则（已命名去冲突）
   - `retain split`（边界不变）：
     - `src/modules/bootstrap/00-init-and-settings.opy` vs `aram-00-init-and-settings.opy`
     - `src/modules/bootstrap/10-safety-blacklist-ban.opy` vs `aram-10-safety-blacklist-ban.opy`
@@ -129,7 +135,7 @@
 
 ## Next Steps
 
-1. H8 Wave-L：继续扫描 `main/aram` 成对叶子，优先挖掘新的 `exact shared`；near-duplicate 仅在低风险可参数化时继续推进。
+1. H8 Wave-M：继续扫描 `main/aram` 成对叶子，优先挖掘新的 `exact shared`；near-duplicate 仅在低风险可参数化时继续推进。
 2. `hazard/kiriko` 继续保持为 H7 retained boundary，不纳入 H8 shared merge 范围，除非未来另开 whitelist 策略阶段。
 3. `check_contracts --strict-hero-init` 当前仍有既有的 `src/main.opy` include mismatch，继续视为 pre-existing gate issue，而不是 H8 新回归。
 4. 继续只保留仍被主 TODO 引用、或对关键决策回溯仍有价值的 wave 报告。
