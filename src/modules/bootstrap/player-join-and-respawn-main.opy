@@ -1,13 +1,4 @@
-#!include "shared/10-setup-var-when-player-joins-lobby.opy"
+#!define TEAM1_RESPAWN_TIME_MODE TEAM1_RESPAWN_TIME_DEFAULT
+#!define TEAM2_RESPAWN_TIME_MODE TEAM2_RESPAWN_TIME_DEFAULT
 
-rule "[utilities/reset]: Default respawn time":
-    @Event eachPlayer
-    @Team 1
-    
-    eventPlayer.setRespawnTime(TEAM1_RESPAWN_TIME_DEFAULT)
-
-rule "[utilities/reset]: Default respawn time":
-    @Event eachPlayer
-    @Team 2
-    
-    eventPlayer.setRespawnTime(TEAM2_RESPAWN_TIME_DEFAULT)
+#!include "player-join-and-respawn.opy"
