@@ -57,6 +57,7 @@
 
 ## Iteration Log
 
+- 2026-03-07: 完成 H7 Wave-A（hero retained overlay inventory, no extra reports）。盘点 `src/heroes/**/aram*.opy` 中仍保留在 hero 根 `aram.opy` 的活跃边界；当前确认的 hero-local retained overlays 仅剩 `hazard` 与 `kiriko` 两组，均因与 `rules.opy` 存在 exact-overlay 风险而暂不继续拆分。
 - 2026-03-06: 完成 H6 Wave-F（closure review for retained overlays, no extra reports）。复核 `hazard/kiriko` 的 hero-local 保留项与 `src/modules/**/aram-*.opy` 的 active overlay 边界；结论是剩余规则均属于明确的 mode-only 或 exact-overlay 保留项，H6 退出条件满足，正式标记完成。
 - 2026-03-06: 完成 H6 Wave-E（mode-only residual assembly cleanup, no extra reports）。继续处理 `genji/junkrat/moira/sombra/vendetta/venture/widowmaker/wrecking_ball`，把仍停留在 `aram.opy` 的 mode-only 规则下沉到同级语义叶子；`kiriko` 的 payload bot 规则尝试拆分后会新增 hero overlay exact duplicate，因此和 `hazard` 一样保留在 `aram.opy` 原位。
 - 2026-03-06: 完成 H6 Wave-D（residual hero overlay cleanup, no extra reports）。继续处理 `ashe/baptiste/bastion/illari/lifeweaver/mei/sojourn/torbjorn/winston` 的低密度 residual `aram.opy`，将其收成纯 assembly 并补齐语义叶子；`hazard` 的 `Violent Leap` 套件在尝试拆分后会新增 hero overlay exact duplicate，因此按评估结果保留原位、不强拆。
@@ -106,24 +107,40 @@
   - `docs/reports/aram-shared-wave-h5-next4-hjos-diff-localization-2026-03-06.md`
   - `docs/reports/aram-shared-wave-h5-next7-mid-density-diff-localization-2026-03-06.md`
 
-## Latest Completed Iteration (H6 Wave-F: Closure Review For Retained Overlays)
+## Latest Completed Iteration (H7 Wave-A: Hero Retained Overlay Inventory)
 
 - 波次范围：
-  - 复核 `hazard/kiriko` 的 hero-local retained overlays
-  - 复核 `src/modules/bootstrap/*.opy` 与 `src/modules/debug/aram-20-changelog.opy` 的 active overlay 边界
-  - 确认 H6 exit criteria 是否已经满足
+  - 盘点 `src/heroes/**/aram*.opy` 中仍位于 hero 根 `aram.opy` 的活跃边界
+  - 明确哪些属于 retained overlays，哪些属于入口/非目标文件
+  - 为 H7 后续波次建立可执行名单
   - 本波不新增 report，仅更新主 TODO
 - 变更动作：
-  - 确认 `hazard` 的 `Violent Leap` 与 `kiriko` 的 payload bot 规则继续保留在 `aram.opy` 原位；原因都是与 `rules.opy` 存在 exact overlay 关系，继续强拆只会制造新的 whitelist debt。
-  - 确认 `src/modules/bootstrap/aram-00/10/15/20` 与 `src/modules/debug/aram-20-changelog.opy` 承担的是模式入口、玩家池、生命周期与 changelog 这类 module-owned mode-only 行为，不属于继续 hero-local 细拆的目标。
-  - 依据当前基线与 retained-overlay 评估结果，将 H6 从 `in_progress` 收口为 `done`。
+  - 确认 `hazard` 的 `Violent Leap` 与 `kiriko` 的 payload bot 规则是当前仅存的 hero-root retained overlays；两者都不适合继续拆成同级叶子，因为会回到与 `rules.opy` 的 exact-overlay 风险。
+  - 确认 `src/heroes/aram-init.opy` 是入口/分隔文件，不属于 H7 debt inventory 的目标。
+  - 将 hero 侧 inventory 明确写入 TODO，作为 H7 Wave-B/C 的直接输入。
 - 指标结果：
   - `src/aram_overrides.opy exact/diff/unique` 维持 `0/0/0`
   - active overlay 基线维持 `18/109/53`
-  - `exact = 0`
+  - hero-root retained overlays = `2`（`hazard`、`kiriko`）
   - `unwhitelisted exact/diff = 0/0`
 - 验证报告：
   - 无；本波结果直接记入本 TODO。
+
+## H7 Wave-A Inventory
+
+- Retained overlays:
+  - `src/heroes/hazard/aram.opy`
+    - retained rules: `[Hazard]: Violent Leap kiil reset cooldown`, `[Hazard]: Violent Leap HP`
+    - reason: 与 `src/heroes/hazard/rules.opy` 存在 exact-overlay 风险，继续拆分会新增 whitelist debt
+  - `src/heroes/kiriko/aram.opy`
+    - retained rules: `[Bot] PTP1`, `[Bot] ACC`
+    - reason: 与 `src/heroes/kiriko/rules.opy` 存在 exact-overlay 风险，继续拆分会新增 whitelist debt
+- Non-target entry file:
+  - `src/heroes/aram-init.opy`
+    - reason: 英雄段 delimiter/assembly 入口，不属于 active overlay debt 收敛对象
+- H7 candidate queue:
+  - Wave-B: `src/modules/bootstrap/aram-00-init-and-settings.opy`, `src/modules/bootstrap/aram-10-safety-blacklist-ban.opy`, `src/modules/bootstrap/aram-15-extra-hero-pool.opy`, `src/modules/bootstrap/aram-20-player-lifecycle-and-reset.opy`, `src/modules/debug/aram-20-changelog.opy`
+  - Wave-C: 仅在 Wave-B 明确存在可继续下沉的非 module-owned 残留时启动
 
 ## Next Steps
 
