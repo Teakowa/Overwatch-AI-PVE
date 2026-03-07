@@ -18,6 +18,7 @@
 | 改 `src/main.opy` 或 `src/modules/prelude/*` | [docs/agents/main-contract.md](docs/agents/main-contract.md), [docs/agents/protocol-constraints.md](docs/agents/protocol-constraints.md) |
 | 改 `src/modules/hero_init/*` | [docs/agents/hero-init-contract.md](docs/agents/hero-init-contract.md), [docs/agents/protocol-constraints.md](docs/agents/protocol-constraints.md) |
 | 改 `src/modules/hero_rules/*` 或 `src/modules/ai/*` 高频逻辑 | [docs/agents/performance-stability.md](docs/agents/performance-stability.md), [docs/agents/protocol-constraints.md](docs/agents/protocol-constraints.md) |
+| 改 `src/aramMain.opy`、`src/aram_overrides*.opy` 或 `src/heroes/*/shared/*.opy`（ARAM 波次重构） | [docs/agents/performance-stability.md](docs/agents/performance-stability.md), [docs/agents/protocol-constraints.md](docs/agents/protocol-constraints.md), [docs/agents/gates-and-commits.md](docs/agents/gates-and-commits.md) |
 | 提交前自检 | [docs/agents/self-checklist.md](docs/agents/self-checklist.md) |
 | 执行门禁与提交规范 | [docs/agents/gates-and-commits.md](docs/agents/gates-and-commits.md) |
 
