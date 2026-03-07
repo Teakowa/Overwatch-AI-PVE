@@ -1,12 +1,6 @@
-rule "[Reaper]: kill to gain soul buff":
-    @Event playerEarnedElimination
-    @Hero reaper
-    #@Condition eventPlayer.reaper_buff[0] < 50
-    @Condition ReaperBuff[0] != 0
+#!include "kill-soul-buff-earned-elimination-shared.opy"
 
-    eventPlayer.reaper_buff[0] += ReaperBuff[0] + 1 if eventPlayer.getTeam() == Team.1 else ReaperBuff[0]
-
-rule "[Reaper]: kill to gain soul buff":
+rule "[Reaper][ARAM]: kill to gain soul buff (final blow)":
     @Event playerDealtFinalBlow
     @Hero reaper
     #@Condition eventPlayer.reaper_buff[0] < 50

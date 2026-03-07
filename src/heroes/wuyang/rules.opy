@@ -67,22 +67,8 @@ rule "[Wuyang]: Ebb and Flow set":
     victim.wuyang_buff[2]++
     #eventPlayer.setAbilityCooldown(Button.ABILITY_2, eventPlayer.getAbilityCooldown(Button.ABILITY_2) - 1)
     wait(WAIT_SHORT_FRAME)
-rule "[Wuyang]: Ebb and Flow Ability":
-    @Event eachPlayer
-    @Condition eventPlayer.wuyang_buff[2] >= 2
-    
-    eventPlayer.setStatusEffect(eventPlayer.reset_pvar[14], Status.FROZEN, 2.5)
-    waitUntil(eventPlayer.unaffected or eventPlayer.hasStatus(Status.INVINCIBLE) or eventPlayer.hasStatus(Status.PHASED_OUT), 5)
-    eventPlayer.wuyang_buff[2] *= 0
-rule "[Wuyang]: Ebb and Flow countdown":
-    @Event eachPlayer
-    @Condition eventPlayer.wuyang_buff[2] > 0
-    
-    wait(2.5, Wait.ABORT_WHEN_FALSE)
-    eventPlayer.wuyang_buff[2]--
-    if ruleCondition:
-        loop()
-    #wait(0.25, Wait.RESTART_WHEN_TRUE)
+#!include "ebb-and-flow-ability-shared.opy"
+#!include "ebb-and-flow-countdown-shared.opy"
 rule "[Wuyang]: Tidal Blast mov_speed_penalty":
     @Event playerDealtKnockback
     @Hero wuyang
@@ -102,17 +88,5 @@ rule "[Wuyang]: Tidal Blast mov_speed_penalty":
         victim.setMoveSpeed(min(max(100 + victim.mov_speed_buff, 20), 200))
     victim.wuyang_buff[4] = false
     lbl_0:
-rule "[Wuyang]: Tidal Blast Allies Target":
-    @Event playerDealtHealing
-    @Hero wuyang
-    @Condition eventAbility == Button.ULTIMATE
-    
-    eventPlayer.startHealingOverTime(healee, 1.25, eventPlayer.getMaxHealth() * 0.5 / 1.25)
-rule "[Wuyang]: Tidal Blast Allies Healing":
-    @Event eachPlayer
-    @Condition eventPlayer.wuyang_buff == true
-    @Disabled
-    
-    eventPlayer.startHealingOverTime(eventPlayer.reset_pvar[13], 3, eventPlayer.getMaxHealth() * WuyangBuff[5])
-    wait(3)
-    eventPlayer.wuyang_buff = false
+#!include "tidal-blast-allies-target-shared.opy"
+#!include "tidal-blast-allies-healing-shared.opy"

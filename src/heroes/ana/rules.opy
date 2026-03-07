@@ -10,30 +10,8 @@ rule "[Ana]: Headhunter":
     else:
         ([player for player in getLivingPlayers(eventPlayer.getTeam()) if isInLoS(eventPlayer, player, BarrierLos.BLOCKED_BY_ENEMY_BARRIERS) == true and player != eventPlayer]).startHealingOverTime(eventPlayer, 0.625, ceil(eventDamage * 31.25 * Ana_GrenadeDamage[1]) / (len([player for player in getLivingPlayers(eventPlayer.getTeam()) if isInLoS(eventPlayer, player, BarrierLos.BLOCKED_BY_ENEMY_BARRIERS) == true and player != eventPlayer])))
     wait(0.625)
-rule "[Ana] Biotic Grenade Hit":
-    @Event playerTookDamage
-    @Condition eventAbility == Button.ABILITY_2
-    @Condition attacker.getHero() == Hero.ANA == true
-    @Condition (victim.hasStatus(Status.INVINCIBLE) or victim.hasStatus(Status.UNKILLABLE) or victim.hasStatus(Status.PHASED_OUT)) == false
-    @Condition victim.has_nano != true
-    
-    if victim.zarya_buff[1] != null:
-        goto lbl_0
-    eventPlayer.setStatusEffect(attacker, Status.BURNING, 3)
-    eventPlayer.startDamageOverTime(attacker, 3, ceil(Ana_GrenadeDamage[0] / 100 * victim.getMaxHealth()))
-    wait(3)
-    lbl_0:
-rule "[Ana]: Damage Full Health Allies So Nano Can Heal":
-    @Event eachPlayer
-    @Hero ana
-    @Condition eventPlayer.getUltCharge() == 100
-    
-    waitUntil(eventPlayer.getUltCharge() == 0, 99999)
-    eventPlayer.nano_full_health = [i for i in eventPlayer.getPlayerClosestToReticle(eventPlayer.getTeam()) if i.getHealth() >= i.getMaxHealth()]
-    damage(eventPlayer.nano_full_health, null, 0.05)
-    wait(0.216)
-    heal(eventPlayer.nano_full_health, null, 0.05)
-    eventPlayer.nano_full_health = null
+#!include "biotic-grenade-hit-shared.opy"
+#!include "nano-full-health-trigger-shared.opy"
 rule "Has Nano":
     @Event playerReceivedHealing
     #This checks that the ability used to deal the healing is the ultimate.
