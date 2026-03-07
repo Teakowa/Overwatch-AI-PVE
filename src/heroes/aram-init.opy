@@ -1,7 +1,3 @@
-rule "Initialize Heors":
-    @Disabled
-    @Delimiter
-
 #!include "reaper/init.opy"
 #!include "tracer/init.opy"
 #!include "mercy/init.opy"
@@ -52,3 +48,15 @@ rule "Initialize Heors":
 #!include "lifeweaver/init.opy"
 #!include "mauga/init.opy"
 #!include "illari/init.opy"
+
+#!include "echo/duplicate.opy"
+#!include "echo/rules.opy"
+#!include "hanzo/rules.opy"
+#!include "lucio/rules.opy"
+#!include "mercy/rules.opy"
+#!include "vendetta/rules.opy"
+#!include "anran/rules.opy"
+#!include "domina/rules.opy"
+#!include "emre/aram.opy"
+#!include "jetpack_cat/rules.opy"
+#!include "mizuki/rules.opy"

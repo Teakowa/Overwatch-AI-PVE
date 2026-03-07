@@ -1,2 +1,2 @@
 #!include "init.opy"
-#!include "aram.opy"
+#!include "aram-init.opy"
