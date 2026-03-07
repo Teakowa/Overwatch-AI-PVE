@@ -5,3 +5,8 @@
 #!include "lucio/rules.opy"
 #!include "mercy/rules.opy"
 #!include "vendetta/rules.opy"
+#!include "anran/rules.opy"
+#!include "domina/rules.opy"
+#!include "emre/rules.opy"
+#!include "jetpack_cat/rules.opy"
+#!include "mizuki/rules.opy"
