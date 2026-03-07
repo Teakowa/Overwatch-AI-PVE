@@ -36,6 +36,7 @@
 | H5 | `aram_overrides` 薄层化与分段机制退役 | done | `aram_overrides_segments` 不再参与编译，`src/aram_overrides.opy` 不再承载 exact/same-name-diff，活跃差异已下沉到 hero/module overlays |
 | H6 | `aram_overrides.opy` 纯装配化 | done | `src/aram_overrides.opy` 不再出现 `rule/def`，active duplicate debt 仅存在于 `src/**/aram*.opy` |
 | H7 | active overlay debt phase-2 | done | hero/module retained boundaries 已固化，Wave-C 无新增强候选，剩余 active diff 已转入已知保留边界 |
+| H8 | main/aram shared-leaf convergence | in_progress | bootstrap/debug shared merge 模板与首批 hero shared-leaf recovery 落地，main/aram 重复叶子继续收敛 |
 
 ## Current Gate Baseline
 
@@ -66,6 +67,7 @@
 - 2026-03-07: H7 Wave-A 完成 hero retained overlay inventory，hero 侧当前仅剩 `hazard/kiriko` 两组 retained overlays，后续重心转向 module-owned overlays inventory。
 - 2026-03-07: H7 Wave-B 完成 module overlay semantic split + retention decision：`aram-00-init-and-settings.opy` 与 `aram-20-player-lifecycle-and-reset.opy` 已拆成 module-local 语义叶子，`aram-10-safety-blacklist-ban.opy`、`aram-15-extra-hero-pool.opy`、`aram-20-changelog.opy` 维持保留整体。
 - 2026-03-07: H7 Closure Review 完成 retained boundary 审核：Wave-C 未发现新的 mixed-responsibility module overlays，`hazard/kiriko` 与剩余 module-owned overlays 全部固化为当前阶段的保留边界，H7 正式收口。
+- 2026-03-07: H8 Wave-A/B 启动 main/aram shared-leaf convergence：`bootstrap/debug` 改为共享 snippet 与共享叶子优先，`cassidy` 的 falloff 公式收敛到共享 body，active overlay diff 从 `109` 降到 `108`。
 
 ## Archived Reports
 
@@ -84,32 +86,39 @@
   - `docs/reports/aram-shared-wave-h5-next4-hjos-diff-localization-2026-03-06.md`
   - `docs/reports/aram-shared-wave-h5-next7-mid-density-diff-localization-2026-03-06.md`
 
-## Latest Completed Iteration (H7 Closure Review)
+## Latest Completed Iteration (H8 Wave-A/B: Shared-Leaf Convergence Kickoff)
 
 - 波次范围：
-  - 复核 H7 Wave-B 之后仍保留的 hero/module overlays
-  - 判断是否存在必须启动 Wave-C 的新 mixed-responsibility 候选
-  - 将 retained boundaries 固化为 H7 阶段结论
+  - 为 `bootstrap/debug` 建立 main/aram shared merge 模板
+  - 回收首批 hero 侧近重复叶子，验证同目录共享 body 的可行性
+  - 更新 H8 的 tracking 与 gate 基线
   - 本波不新增 report，仅更新主 TODO
 - 变更动作：
-  - 复核 `src/modules/bootstrap/aram-10-safety-blacklist-ban.opy`、`src/modules/bootstrap/aram-15-extra-hero-pool.opy`、`src/modules/debug/aram-20-changelog.opy`，确认它们仍是职责集中的 module-owned mode-only overlays，不触发 Wave-C。
-  - 复核 `src/heroes/hazard/aram.opy` 与 `src/heroes/kiriko/aram.opy`，确认它们仍属于已知 hero-root retained boundaries，继续拆分会回到 exact-overlay / whitelist 风险。
-  - 将 H7 的剩余 active overlay debt 从“待拆分候选”更新为“已知保留边界”。
+  - 将 `src/modules/bootstrap/20-player-lifecycle-and-reset.opy` 与 ARAM 对应叶子中的公共 reset / reinitialize 流程收敛为同目录共享 snippet，保留 mode-specific wrapper 只承载差量动作。
+  - 将 `src/modules/debug/aram-20-changelog.opy` 收成对共享 `20-changelog.opy` 的直接引用，并统一使用项目现有常量写法。
+  - 将 `src/heroes/cassidy/falloff.opy` 与 `src/heroes/cassidy/aram-falloff.opy` 的公共伤害衰减公式收敛到 `falloff-common.opy`，main/aram wrapper 仅保留阈值条件差异。
+  - 本波未触碰 `hazard/kiriko` retained boundary，也未调整 whitelist 策略。
 - 指标结果：
   - `src/aram_overrides.opy exact/diff/unique` 维持 `0/0/0`
-  - active overlay 基线维持 `18/109/53`
+  - `src/**/aram*.opy active overlays exact/diff/unique = 18/108/53`
+  - active overlay `diff` 相比 H7 基线下降 `1`
   - hero-root retained overlays 仍为 `2`（`hazard`、`kiriko`）
-  - retained module overlays 仍为 `3`
   - `unwhitelisted exact/diff = 0/0`
 - 验证报告：
-  - 无新增代码验证；本波为 closure review，沿用 Wave-B 后的 gate 基线。
+  - `skills/ow-hero-change-pipeline/scripts/hero_pipeline.sh --from-diff --build`
+  - `pnpm run build`
+  - `pnpm run build:aram`
+  - `skills/ow-contract-guard/scripts/check_contracts.sh --strict-hero-init`
+  - `skills/ow-contract-guard/scripts/check_aram_overrides_duplicates.sh --check`
 - 当前 inventory：
   - retained hero overlays: `src/heroes/hazard/aram.opy`、`src/heroes/kiriko/aram.opy`
-  - non-target entry file: `src/heroes/aram-init.opy`
-  - retained module overlays: `src/modules/bootstrap/aram-10-safety-blacklist-ban.opy`、`src/modules/bootstrap/aram-15-extra-hero-pool.opy`、`src/modules/debug/aram-20-changelog.opy`
-  - newly split module assemblies: `src/modules/bootstrap/aram-00-init-and-settings.opy`、`src/modules/bootstrap/aram-20-player-lifecycle-and-reset.opy`
+  - shared-leaf bootstrap candidates landed: `player-death-reset-common.opy`、`player-round-reinitialize-*.opy`、`player-hero-switch-reset-common.opy`
+  - shared-leaf hero candidate landed: `src/heroes/cassidy/falloff-common.opy`
+  - retained module overlays remain: `src/modules/bootstrap/aram-10-safety-blacklist-ban.opy`、`src/modules/bootstrap/aram-15-extra-hero-pool.opy`
 
 ## Next Steps
 
-1. 若继续推进，应新开后续阶段，单独评估是否要调整 whitelist 策略，再决定是否重启 `hazard/kiriko` 或其他 retained overlay 的结构化尝试。
-2. 继续只保留仍被主 TODO 引用、或对关键决策回溯仍有价值的 wave 报告。
+1. H8 Wave-C：继续扫描 hero/module 的 main/aram near-exact 叶子，优先处理只剩阈值、常量或低成本条件差异的候选。
+2. `hazard/kiriko` 仍保持为 H7 retained boundary，不纳入 H8 shared merge 范围，除非未来另开 whitelist 策略阶段。
+3. `check_contracts --strict-hero-init` 当前仍有既有的 `src/main.opy` include mismatch，需要继续视为 pre-existing gate issue，而不是 H8 新回归。
+4. 继续只保留仍被主 TODO 引用、或对关键决策回溯仍有价值的 wave 报告。
