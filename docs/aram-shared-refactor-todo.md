@@ -55,44 +55,19 @@
   5. `skills/ow-hero-change-pipeline/scripts/hero_pipeline.sh --from-diff --build`
   6. `skills/ow-contract-guard/scripts/check_aram_overrides_duplicates.sh --check --emit-candidates build/reports/aram-delta-whitelist-candidates.tsv`
 
-## Iteration Log
+## Condensed Iteration Summary
 
-- 2026-03-07: 完成 H7 Wave-A（hero retained overlay inventory, no extra reports）。盘点 `src/heroes/**/aram*.opy` 中仍保留在 hero 根 `aram.opy` 的活跃边界；当前确认的 hero-local retained overlays 仅剩 `hazard` 与 `kiriko` 两组，均因与 `rules.opy` 存在 exact-overlay 风险而暂不继续拆分。
-- 2026-03-06: 完成 H6 Wave-F（closure review for retained overlays, no extra reports）。复核 `hazard/kiriko` 的 hero-local 保留项与 `src/modules/**/aram-*.opy` 的 active overlay 边界；结论是剩余规则均属于明确的 mode-only 或 exact-overlay 保留项，H6 退出条件满足，正式标记完成。
-- 2026-03-06: 完成 H6 Wave-E（mode-only residual assembly cleanup, no extra reports）。继续处理 `genji/junkrat/moira/sombra/vendetta/venture/widowmaker/wrecking_ball`，把仍停留在 `aram.opy` 的 mode-only 规则下沉到同级语义叶子；`kiriko` 的 payload bot 规则尝试拆分后会新增 hero overlay exact duplicate，因此和 `hazard` 一样保留在 `aram.opy` 原位。
-- 2026-03-06: 完成 H6 Wave-D（residual hero overlay cleanup, no extra reports）。继续处理 `ashe/baptiste/bastion/illari/lifeweaver/mei/sojourn/torbjorn/winston` 的低密度 residual `aram.opy`，将其收成纯 assembly 并补齐语义叶子；`hazard` 的 `Violent Leap` 套件在尝试拆分后会新增 hero overlay exact duplicate，因此按评估结果保留原位、不强拆。
-- 2026-03-06: 完成 H6 Wave-C（tank/fighter suite consolidation, no extra reports）。处理 `mauga/doomfist` 的剩余 `aram.opy` 内联套件，并复核 `ramattra` 当前 suite 边界；`ramattra` 因 `pain-endures/ult/block` 在 assembly 中并非连续段，暂维持现状并标记为已评估保留。
-- 2026-03-06: 完成 H6 Wave-B（mid/high-density overlay normalization, no extra reports）。处理 `freja/ana/brigitte`，把仍堆在 `aram.opy` 里的 ARAM 规则按技能/效果语义拆到同级叶子；优先复用已有套件边界，不改规则体。
-- 2026-03-06: 完成 H6 Wave-A（highest-density hero overlay split, no extra reports）。先处理 `reaper/wuyang/soldier76/roadhog`，把大块 `aram.opy` 规则按技能/套件语义拆回同级 `aram-*.opy` 叶子；本波只做结构拆分，不改规则体。
-- 2026-03-06: 完成 H6 Wave-10（remaining hero leaf naming cleanup, no extra reports）。收掉剩余 `wrecking_ball/sombra/kiriko/widowmaker/wuyang` 数字前缀叶子；至此 `src/heroes/**` 中历史遗留、但不承担排序职责的数字前缀 hero 叶子已全部改为语义命名。
-- 2026-03-06: 完成 H6 Wave-9（hazard/doomfist/mercy naming cleanup, no extra reports）。继续把 `hazard/doomfist/mercy` 的 ARAM 拆分文件改成纯语义命名，并将这 3 个英雄仍由 Main/ARAM 复用的技能文件一并去掉数字前缀；仅对齐 include 引用，不改规则体。
-- 2026-03-06: 完成 H6 Wave-8（aram-only offense naming cleanup, no extra reports）。继续把 `ashe/junkrat/moira/roadhog/soldier76` 的 ARAM-only 拆分文件改成纯语义命名；本波仅改 `src/aram_overrides.opy` 的装配引用，不触碰 Main 侧规则。
-- 2026-03-06: 完成 H6 Wave-7（control/support naming cleanup, no extra reports）。继续把 `orisa/sigma/zarya/zenyatta` 的 ARAM 拆分文件改成纯语义命名，并将这 4 个英雄仍由 Main/ARAM 共用的技能文件一并去掉数字前缀；仅对齐 include 引用，不改装配顺序。
-- 2026-03-06: 完成 H6 Wave-2（hero-owned exact cleanup without hero `shared/` dirs, no extra reports）。将 `src/heroes/**/shared/*.opy` 全部回卷到英雄根目录的同级技能/特效拆分文件，并完成 `mercy/zenyatta/reinhardt/widowmaker` 10 条 hero-local exact overlay 的双侧复用与 whitelist 收缩。
-- 2026-03-06: 完成 H6 Wave-3（naming cleanup start, no extra reports）。开始把 ARAM 拆分文件改成纯语义命名，避免用数字前缀表达加载顺序；本波先处理 `ana` 的 3 个 ARAM 拆分文件与 `freja` 的 `Revdraw Crossbow Stack` 文件，并同步修正文档用语。
-- 2026-03-06: 完成 H6 Wave-4（support naming cleanup, no extra reports）。继续把 `brigitte/kiriko/juno` 的 ARAM 拆分文件改成纯语义命名，并将 `juno` 复用的轨道射线跟踪文件一并改名为语义文件名。
-- 2026-03-06: 完成 H6 Wave-5（offense naming cleanup, no extra reports）。继续把 `cassidy/genji/tracer` 的 ARAM 拆分文件与复用技能文件改成纯语义命名，不改装配顺序。
-- 2026-03-06: 完成 H6 Wave-6（tank naming cleanup, no extra reports）。继续把 `mauga/ramattra/reinhardt` 的 ARAM 拆分文件与复用技能文件改成纯语义命名，并同步对齐英雄目录内的 include。
-- 2026-03-06: 完成 H6 Wave-1（pure assembly cutover, no extra reports）。将 `src/aram_overrides.opy` 中剩余 bootstrap/player helper、hero-local ARAM-only 规则、hero init delimiter 与本地 `def` 全部迁回 `src/modules/**/aram-*.opy`、`src/heroes/**/aram-*.opy`、`src/utilities/*.opy`，并把 `src/aram_overrides.opy` 清成纯 `#!include` 装配层；本波不新增 report。
-- 2026-03-06: 完成 H5 Wave-N+8（system/bootstrap overlay extraction, no extra reports）。将 `init/settings`、`player ban/allowed heroes`、`player lifecycle/reset` 与 `changelog` 的 ARAM mode diff 从 `src/aram_overrides.opy` 抽到 `src/modules/**/aram-*.opy`，并扩展 duplicates 门禁扫描到活跃模块 overlays。H5 达成收口。
-- 2026-03-06: 完成 H5 Wave-N+7（thin-layer cleanup without extra reports）。修复 `Genji`/`Venture` 的原位装配残留，并将 `mei/bastion/juno/torbjorn/roadhog/winston/ashe/vendetta/widowmaker/soldier76` 的一批 ARAM-only hero-local 规则回收到 `src/heroes/<hero>/aram*.opy`；本波仅更新主 TODO，不新增 report。
-- 2026-03-06: 完成 H5 Wave-N+6（selective hero-local leftovers + report cleanup）。`cassidy/genji/venture/zenyatta` 共 6 条 ARAM diff 从 `src/aram_overrides.opy` 回收到英雄 overlay，同时清理 2 份已被后续波次覆盖的早期 pilot 报告。
-- 2026-03-06: 完成 H5 Wave-N+5（remaining mid-density hero-local diff localization）。`ashe/baptiste/illari/junkrat/moira/roadhog/sojourn` 共 12 条 ARAM diff 从 `src/aram_overrides.opy` 回收到 `src/heroes/<hero>/aram.opy`。
-- 2026-03-06: 完成 H5 Wave-N+4（hazard/juno/orisa/sigma diff localization）。4 组高密度 hero-local ARAM diff 从 `src/aram_overrides.opy` 回收到 `src/heroes/<hero>/aram*.opy`，`src/aram_overrides.opy diff: 40 -> 30`。
-- 2026-03-06: 完成 H5 Wave-N+3（next-5 same_name_diff localization）。`ana/brigitte/freja/kiriko/reinhardt` 共 24 条 ARAM diff 从 `src/aram_overrides.opy` 内联规则体回收到 `src/heroes/<hero>/aram*.opy`。
-- 2026-03-06: 完成 H5 Wave-N+2（next-4 same_name_diff localization）。`doomfist/mauga/reaper/wuyang` 共 26 条 ARAM diff 从 `src/aram_overrides.opy` 内联规则体回收到 `src/heroes/<hero>/aram*.opy`。
-- 2026-03-06: 完成 H5 Wave-N+1（top-5 same_name_diff localization）。`ramattra/sombra/tracer/zarya/wrecking_ball` 共 16 条 ARAM diff 从 `src/aram_overrides.opy` 内联规则体回收到 `src/heroes/<hero>/aram*.opy`。
-- 2026-03-06: 完成 H5 Wave-N（cross-hero exact cleanup + legacy directory retirement）。`aram_cross_hero_overrides.opy` 下线，4 组 cross-hero exact 回收到 hero-owned shared leaves；`src/aram_overrides_segments/` 整体删除。
-- 2026-03-06: 完成 H5 Prep（segment compile dependency retirement）。`aram_overrides` 不再直接 include `aram_overrides_segments/*`；单英雄 segment 归位到 `src/heroes/<hero>/aram.opy`，跨英雄残留收束到 `src/aram_cross_hero_overrides.opy`。
-- 2026-03-06: 完成 H4 Wave-1（6 英雄 Detect 先行）。门禁全绿，行为保持“仅抽取、不改逻辑”。后续进入 H4 下一波，继续收敛 Initialize same-name-diff 与 overlay 归位。
-- 2026-03-06: 完成 H4 Wave-2（全量 Initialize 向 Main 收敛 + custom_hp helper 下线）。ARAM hero_init 改为统一 include `src/heroes/*/init.opy`，`aram_overrides` 不再承载 Detect/Initialize 规则体与 custom_hp 依赖。
-- 2026-03-06: 完成 H4 Wave-3（Hero Overlay First 清理 10 条 hero exact）。规则源统一迁入 `src/heroes/<hero>/*.opy`，ARAM 通过 `src/heroes/<hero>/aram.opy` 复用；duplicates 门禁 overlay 扫描扩展到 `src/heroes/*/aram*.opy` 全量。
+- 2026-03-06: H4 完成 hero-first cutover 与 init/rules 收敛，英雄段入口切到 `src/heroes/init.<mode>.opy`，duplicates 扫描范围同步扩展到 `src/heroes/*/aram*.opy`。
+- 2026-03-06: H5 完成 `src/aram_overrides.opy` 薄层化与 segment retirement，大部分 hero-local 和 system-local diff 下沉到 `src/heroes/**/aram*.opy` 与 `src/modules/**/aram-*.opy`，并把 active overlay debt 从 overrides 本体迁出。
+- 2026-03-06: H6 完成两类结构收口：
+  - hero leaf 命名统一为纯语义命名，移除历史数字前缀与 `shared/` 目录残留
+  - `src/aram_overrides.opy` 收成纯 assembly，hero/module overlays 的 active diff 结构稳定
+- 2026-03-06: H6 后段确认 `hazard` 的 `Violent Leap` 与 `kiriko` 的 payload bot 规则属于已确认保留边界；继续拆分会重新引入与 `rules.opy` 的 exact-overlay 风险。
+- 2026-03-07: H7 Wave-A 完成 hero retained overlay inventory，hero 侧当前仅剩 `hazard/kiriko` 两组 retained overlays，后续重心转向 module-owned overlays inventory。
 
 ## Archived Reports
 
-- 已删除两份早期、且已被后续波次完全覆盖的归档：
-  - `docs/reports/aram-shared-wave-2026-03-06-baseline.md`
-  - `docs/reports/aram-shared-wave-h5-next4-selective-leftovers-2026-03-06.md`
+- 已删除两份已被后续波次完全覆盖的早期归档，当前不再保留引用。
 - Hero-First cutover and H4 migration details are archived in:
   - `docs/reports/aram-shared-wave-hero-first-cutover-2026-03-06.md`
   - `docs/reports/aram-shared-wave-h4-init-detect-pilot-2026-03-06.md`
@@ -115,7 +90,7 @@
   - 为 H7 后续波次建立可执行名单
   - 本波不新增 report，仅更新主 TODO
 - 变更动作：
-  - 确认 `hazard` 的 `Violent Leap` 与 `kiriko` 的 payload bot 规则是当前仅存的 hero-root retained overlays；两者都不适合继续拆成同级叶子，因为会回到与 `rules.opy` 的 exact-overlay 风险。
+  - 确认 `hazard` 与 `kiriko` 是当前仅存的 hero-root retained overlays；两者都不适合继续拆成同级叶子，因为会回到与 `rules.opy` 的 exact-overlay 风险。
   - 确认 `src/heroes/aram-init.opy` 是入口/分隔文件，不属于 H7 debt inventory 的目标。
   - 将 hero 侧 inventory 明确写入 TODO，作为 H7 Wave-B/C 的直接输入。
 - 指标结果：
@@ -125,26 +100,14 @@
   - `unwhitelisted exact/diff = 0/0`
 - 验证报告：
   - 无；本波结果直接记入本 TODO。
-
-## H7 Wave-A Inventory
-
-- Retained overlays:
-  - `src/heroes/hazard/aram.opy`
-    - retained rules: `[Hazard]: Violent Leap kiil reset cooldown`, `[Hazard]: Violent Leap HP`
-    - reason: 与 `src/heroes/hazard/rules.opy` 存在 exact-overlay 风险，继续拆分会新增 whitelist debt
-  - `src/heroes/kiriko/aram.opy`
-    - retained rules: `[Bot] PTP1`, `[Bot] ACC`
-    - reason: 与 `src/heroes/kiriko/rules.opy` 存在 exact-overlay 风险，继续拆分会新增 whitelist debt
-- Non-target entry file:
-  - `src/heroes/aram-init.opy`
-    - reason: 英雄段 delimiter/assembly 入口，不属于 active overlay debt 收敛对象
-- H7 candidate queue:
-  - Wave-B: `src/modules/bootstrap/aram-00-init-and-settings.opy`, `src/modules/bootstrap/aram-10-safety-blacklist-ban.opy`, `src/modules/bootstrap/aram-15-extra-hero-pool.opy`, `src/modules/bootstrap/aram-20-player-lifecycle-and-reset.opy`, `src/modules/debug/aram-20-changelog.opy`
-  - Wave-C: 仅在 Wave-B 明确存在可继续下沉的非 module-owned 残留时启动
+- 当前 inventory：
+  - retained overlays: `src/heroes/hazard/aram.opy`、`src/heroes/kiriko/aram.opy`
+  - non-target entry file: `src/heroes/aram-init.opy`
+  - H7 Wave-B 候选：`src/modules/bootstrap/aram-00-init-and-settings.opy`、`src/modules/bootstrap/aram-10-safety-blacklist-ban.opy`、`src/modules/bootstrap/aram-15-extra-hero-pool.opy`、`src/modules/bootstrap/aram-20-player-lifecycle-and-reset.opy`、`src/modules/debug/aram-20-changelog.opy`
 
 ## Next Steps
 
-1. H7 Wave-A：先做 `src/heroes/**/aram*.opy` retained overlay inventory，把 `hazard/kiriko` 之外仍存在 `exact-overlay` 风险的条目逐个标注成 `保留` / `候选`。
-2. H7 Wave-B：按模块拆看 `src/modules/**/aram-*.opy`，确认是否存在可以继续下沉到 hero-owned leaves 的跨模块残留；若没有，就把 module-owned mode-only 设计固化成文档结论。
-3. H7 Wave-C：在不放宽 whitelist 的前提下，再挑一小批高价值 active diff 做结构收敛，避免重新进入“大面积拆文件但不降债”的循环。
-4. 文档层已经完成一轮减噪；后续只保留仍被主 TODO 引用、或对回溯关键决策仍有价值的 wave 报告。
+1. H7 Wave-B：按模块拆看 `src/modules/**/aram-*.opy`，确认是否存在可以继续下沉到 hero-owned leaves 的跨模块残留；若没有，就把 module-owned mode-only 设计固化成文档结论。
+2. H7 Wave-C：仅在 Wave-B 明确存在可继续下沉的非 module-owned 残留时启动，并继续坚持不放宽 whitelist 的前提。
+3. `hazard/kiriko` 视为当前已确认保留边界；若未来要继续拆分，应连同 whitelist 策略一起调整，而不是单独做文件重排。
+4. 后续只保留仍被主 TODO 引用、或对关键决策回溯仍有价值的 wave 报告。
