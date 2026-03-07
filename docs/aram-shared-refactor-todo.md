@@ -69,40 +69,31 @@
 - 2026-03-07: H7 Closure Review 完成 retained boundary 审核：Wave-C 未发现新的 mixed-responsibility module overlays，`hazard/kiriko` 与剩余 module-owned overlays 全部固化为当前阶段的保留边界，H7 正式收口。
 - 2026-03-07: H8 Wave-A/B 改按 full-file shared leaves only 推进：回收所有 rule 内 snippet-style `#!include`，`debug/changelog` 改成合法完整共享叶子，`bootstrap` 的近重复规则改成 main/aram paired full leaves，`cassidy` 的 falloff 改成完整共享叶子，active overlay diff 从 `109` 降到 `102`。
 - 2026-03-07: H8 Wave-C 完成 pair inventory：`src/**/aram-*.opy` 与同目录 main 对文件逐对审计后，未发现新的可直接落地 exact shared 候选；`bootstrap 00/10/20` 与 `heroes/init` 保持 `retain split`，`cassidy falloff` 与 `debug/changelog` 维持已落地的合法 full-file shared 模式。
+- 2026-03-07: H8 Wave-D 完成 reports cleanup（baseline-only）：移除已完成且已被 TODO 覆盖的 H4/H5 波次归档，保留 `aram-vs-main-verification.md` 与 `module-metrics-sync-20260302-201115.md` 作为长期关键基线；`exact shared / paired full leaves / retain split` 判定边界不变。
 
 ## Archived Reports
 
-- 已删除两份已被后续波次完全覆盖的早期归档，当前不再保留引用。
-- Hero-First cutover and H4 migration details are archived in:
-  - `docs/reports/aram-shared-wave-hero-first-cutover-2026-03-06.md`
-  - `docs/reports/aram-shared-wave-h4-init-detect-pilot-2026-03-06.md`
-  - `docs/reports/aram-shared-wave-h4-init-full-convergence-2026-03-06.md`
-  - `docs/reports/aram-shared-wave-h4-hero-exact-overlay-2026-03-06.md`
-- H5 completed wave reports are archived in:
-  - `docs/reports/aram-shared-wave-h5-segment-retirement-prep-2026-03-06.md`
-  - `docs/reports/aram-shared-wave-h5-cross-hero-retirement-2026-03-06.md`
-  - `docs/reports/aram-shared-wave-h5-top5-diff-localization-2026-03-06.md`
-  - `docs/reports/aram-shared-wave-h5-next4-diff-localization-2026-03-06.md`
-  - `docs/reports/aram-shared-wave-h5-next5-diff-localization-2026-03-06.md`
-  - `docs/reports/aram-shared-wave-h5-next4-hjos-diff-localization-2026-03-06.md`
-  - `docs/reports/aram-shared-wave-h5-next7-mid-density-diff-localization-2026-03-06.md`
+- 波次报告已清理，关键信息已折叠进 `Condensed Iteration Summary`。
+- Baseline-only 保留文档：
+  - `docs/reports/aram-vs-main-verification.md`
+  - `docs/reports/module-metrics-sync-20260302-201115.md`
 
-## Latest Completed Iteration (H8 Wave-C: Pair Inventory and Retain Decisions)
+## Latest Completed Iteration (H8 Wave-D: Reports Cleanup and Archive Convergence)
 
 - 波次范围：
-  - 按 H8 修订策略完成 `main/aram` 成对候选盘点，判定 `exact shared` / `paired full leaves` / `retain split`
-  - 复核 snippet-style include 清理结果，确认仓库内不再出现 rule 内 `#!include`
-  - 本波不新增源码拆分，仅更新决策与 TODO
+  - 清理已完成且已被主 TODO 覆盖的 H4/H5 波次报告
+  - 将归档策略收敛为 baseline-only，压缩 reports 目录噪音
+  - 本波不新增源码拆分，保留 H8 Wave-C 的判定边界
 - 判定结论：
-  - `exact shared`（已落地，继续保留）：
+  - `exact shared`（边界不变）：
     - `src/modules/debug/aram-20-changelog.opy -> 20-changelog.opy`
     - `src/heroes/cassidy/aram-falloff.opy -> falloff.opy`
-  - `paired full leaves`（已落地，继续保留）：
+  - `paired full leaves`（边界不变）：
     - `player-death-reset-main.opy` / `player-death-reset-aram.opy`
     - `player-reinitialize-main.opy` / `player-reinitialize-aram.opy`
     - `player-join-and-respawn-main.opy` / `player-join-and-respawn-aram.opy`
     - `player-hero-switch-reset-main.opy`（main-only partner with ARAM lifecycle path in `player-reinitialize-aram.opy`）
-  - `retain split`（Wave-C 无新增强候选）：
+  - `retain split`（边界不变）：
     - `src/modules/bootstrap/00-init-and-settings.opy` vs `aram-00-init-and-settings.opy`
     - `src/modules/bootstrap/10-safety-blacklist-ban.opy` vs `aram-10-safety-blacklist-ban.opy`
     - `src/modules/bootstrap/20-player-lifecycle-and-reset.opy` vs `aram-20-player-lifecycle-and-reset.opy`
@@ -127,6 +118,7 @@
   - paired full leaves landed: `player-death-reset-main.opy` / `player-death-reset-aram.opy`、`player-reinitialize-main.opy` / `player-reinitialize-aram.opy`、`player-hero-switch-reset-main.opy`
   - exact shared candidate landed: `src/heroes/cassidy/falloff.opy`
   - retained module overlays remain: `src/modules/bootstrap/aram-10-safety-blacklist-ban.opy`、`src/modules/bootstrap/aram-15-extra-hero-pool.opy`
+  - retained baseline reports: `docs/reports/aram-vs-main-verification.md`、`docs/reports/module-metrics-sync-20260302-201115.md`
 
 ## Next Steps
 
