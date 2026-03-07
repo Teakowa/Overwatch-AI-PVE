@@ -1,12 +1,10 @@
 #!include "shared/10-setup-var-when-player-joins-lobby.opy"
 
-
 rule "[utilities/reset]: Default respawn time":
     @Event eachPlayer
     @Team 1
     
     eventPlayer.setRespawnTime(TEAM1_RESPAWN_TIME_DEFAULT)
-
 
 rule "[utilities/reset]: Default respawn time":
     @Event eachPlayer
@@ -14,21 +12,12 @@ rule "[utilities/reset]: Default respawn time":
     
     eventPlayer.setRespawnTime(TEAM2_RESPAWN_TIME_DEFAULT)
 
-
 rule "[utilities/reset]: reset when died":
     @Event playerDied
     
     wait(getAverageServerLoad() / 100)
-    eventPlayer.hudText = ""
-    eventPlayer.has_nano = false
-    eventPlayer.zarya_buff[0] = true
-    eventPlayer.zarya_buff[1] = null
-    eventPlayer.ram_block_damage = 0
-    eventPlayer.sigma_hyperspheres = 0
-    eventPlayer.doom_buff = 0
-    resetStats()
-    resetStatuses()
-    resetFrenemies()
+    #!include "player-death-reset-common.opy"
+    #!include "player-death-reset-cleanup.opy"
 
 
 
@@ -53,12 +42,9 @@ rule "[reset.opy]: Reinitialize hero on new round":
     @Condition isMatchBetweenRounds() == true
     @Condition eventPlayer.getHero() != Hero.SOMBRA
     
-    waitUntil(not isMatchBetweenRounds(), Math.INFINITY)
+    #!include "player-round-reinitialize-wait.opy"
     wait(eventPlayer.getSlot() * 0.032)
-    wait(1)
-    resetHero()
-    eventPlayer.reset_pvar[0] = true
-    logToInspector("called init after new round")
+    #!include "player-round-reinitialize-finish.opy"
 
 
 rule "[utilities/hero_setup.opy]: Reset and initialize hero on hero switch":
@@ -66,7 +52,5 @@ rule "[utilities/hero_setup.opy]: Reset and initialize hero on hero switch":
     @Condition eventPlayer.reset_pvar[0] != false
     
     #wait(10 * TICK_DURATION)
-    destroyHudText(eventPlayer.ChangelogText1)
-    destroyHudText(eventPlayer.ChangelogText2)
-    resetHero()
+    #!include "player-hero-switch-reset-common.opy"
     logToInspector("called reset hero")

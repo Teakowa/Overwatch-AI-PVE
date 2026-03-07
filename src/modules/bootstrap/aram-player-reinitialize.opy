@@ -4,11 +4,8 @@ rule "[reset.opy]: Reinitialize hero on new round":
     @Condition eventPlayer.getHero() != Hero.SOMBRA
     
     eventPlayer.extra_hero = true
-    waitUntil(not isMatchBetweenRounds(), 999999986991104)
-    wait(1)
-    resetHero()
-    eventPlayer.reset_pvar[0] = true
-    logToInspector("called init after new round")
+    #!include "player-round-reinitialize-wait.opy"
+    #!include "player-round-reinitialize-finish.opy"
 
 rule "[utilities/hero_setup.opy]: Reset and initialize hero on hero switch":
     @Event eachPlayer
@@ -16,6 +13,4 @@ rule "[utilities/hero_setup.opy]: Reset and initialize hero on hero switch":
     
     eventPlayer.ram_block_damage = 0
     eventPlayer.sigma_hyperspheres = 0
-    destroyHudText(eventPlayer.ChangelogText1)
-    destroyHudText(eventPlayer.ChangelogText2)
-    resetHero()
+    #!include "player-hero-switch-reset-common.opy"
