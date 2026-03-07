@@ -37,13 +37,13 @@
 | H5 | `aram_overrides` 薄层化与分段机制退役 | done | `aram_overrides_segments` 不再参与编译，`src/aram_overrides.opy` 不再承载 exact/same-name-diff，活跃差异已下沉到 hero/module overlays |
 | H6 | `aram_overrides.opy` 纯装配化 | done | `src/aram_overrides.opy` 不再出现 `rule/def`，active duplicate debt 仅存在于 `src/**/aram*.opy` |
 | H7 | active overlay debt phase-2 | done | hero/module retained boundaries 已固化，Wave-C 无新增强候选，剩余 active diff 已转入已知保留边界 |
-| H8 | main/aram shared-leaf convergence | in_progress | 仅使用完整 `.opy` 叶子做 shared merge 或 paired leaves，main/aram 重复规则继续按成对判定收敛 |
+| H8 | main/aram shared-leaf convergence | done | exact shared 已收敛到保留边界主导，非 retained 候选完成批量收口并通过 duplicates gate |
 
 ## Current Gate Baseline
 
 - 当前 duplicate 基线：
   - `src/aram_overrides.opy exact/diff/unique = 0/0/0`
-  - `src/**/aram*.opy active overlays exact/diff/unique = 18/102/54`
+  - `src/**/aram*.opy active overlays exact/diff/unique = 2/101/55`
   - `unwhitelisted aram/overlay exact-diff = 0/0, 0/0`
 - H5 收口结果：
   - `src/aram_overrides.opy` 已清空 duplicate debt，当前只保留装配入口
@@ -64,6 +64,7 @@
 - H8 Wave-A~H（2026-03-07）：修正为 full-file shared leaves only，完成 `debug/changelog` + `cassidy/falloff` exact shared，并完成 bootstrap lifecycle near-duplicate 收敛。
 - H8 Wave-I~L（2026-03-07~2026-03-08）：以稳定优先去链式 include，退役多批 0-rule wrapper，当前仅保留确有规则或边界语义价值的 wrapper。
 - H8 Wave-M（2026-03-08）：批量删除 15 个无引用 0-rule hero wrapper（`anran/domina/dva/echo/hanzo/jetpack_cat/junker_queen/lucio/mizuki/pharah/ramattra/symmetra/tracer/zarya/cassidy`），缩短后续收敛扫描路径。
+- H8 Wave-N/O（2026-03-08）：完成 `reaper/brigitte/wuyang/ana` exact shared 收敛并退役新增空壳 wrapper（`ana/aram-grenade-burn.opy`、`brigitte/aram-repair-pack-armor.opy`、`reaper/aram-wraith-form-suite.opy`）；active exact 从 `18` 降到 `2`，仅保留 retained boundary 主导项。
 
 ## Archived Reports
 
@@ -72,18 +73,19 @@
   - `docs/reports/aram-vs-main-verification.md`
   - `docs/reports/module-metrics-sync-20260302-201115.md`
 
-## Latest Completed Iteration (H8 Wave-M: Wrapper Prune + TODO Compression)
+## Latest Completed Iteration (H8 Wave-N/O: Exact Shared Convergence + Wrapper Prune)
 
 - 波次范围：
-  - 代码侧：删除 15 个无引用且 0-rule 的 `hero/*/aram.opy` 空壳文件
-  - 文档侧：压缩 TODO 重复段落，合并阶段信息并保留执行入口
+  - exact shared 收敛：`reaper/brigitte/wuyang/ana` 的低风险 exact 规则迁移到同目录共享叶子（full-file include）
+  - wrapper 清理：退役 3 个本轮新产生的 0-rule wrapper
+  - 文档收口：压缩阶段叙述并将 H8 状态更新为 `done`
 - 判定边界：
-  - `exact shared`：`src/modules/debug/20-changelog.opy`、`src/heroes/cassidy/falloff.opy`
+  - `exact shared`：`src/modules/debug/20-changelog.opy`、`src/heroes/cassidy/falloff.opy`、`src/heroes/reaper/wraith-form-shared-suite.opy`、`src/heroes/brigitte/repair-pack-*-shared.opy`、`src/heroes/wuyang/*-shared.opy`、`src/heroes/ana/*-shared.opy`
   - `retain split`：`bootstrap 00/10/20`、`heroes/init`
   - `retained boundary`：`hazard/kiriko` 继续作为已确认保留边界；`emre/aram.opy` 继续承载 ARAM 专属规则
 - 指标结果：
   - `src/aram_overrides.opy exact/diff/unique = 0/0/0`
-  - `src/**/aram*.opy active overlays exact/diff/unique = 18/102/54`
+  - `src/**/aram*.opy active overlays exact/diff/unique = 2/101/55`
   - `unwhitelisted aram/overlay exact-diff = 0/0, 0/0`
 - 验证：
   - `pnpm run build`
@@ -93,6 +95,6 @@
 
 ## Next Steps
 
-1. H8 Wave-N：继续扫描 `main/aram` 成对叶子，仅落地新增 `exact shared` 或低风险 near-duplicate 收敛。
+1. H9（conditional）：仅在后续变更引入新的 `exact/near` 候选时再开新波次；默认不再主动拆分 retained boundary。
 2. 既有 `strict-hero-init` 的 `src/main.opy` include mismatch 继续按 pre-existing gate issue 跟踪，不归因于 H8 回归。
 3. 维持 baseline-only 报告策略，仅保留仍被 TODO 引用的关键基线文档。
