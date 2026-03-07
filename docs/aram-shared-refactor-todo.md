@@ -70,6 +70,7 @@
 - 2026-03-07: H8 Wave-A/B 改按 full-file shared leaves only 推进：回收所有 rule 内 snippet-style `#!include`，`debug/changelog` 改成合法完整共享叶子，`bootstrap` 的近重复规则改成 main/aram paired full leaves，`cassidy` 的 falloff 改成完整共享叶子，active overlay diff 从 `109` 降到 `102`。
 - 2026-03-07: H8 Wave-C 完成 pair inventory：`src/**/aram-*.opy` 与同目录 main 对文件逐对审计后，未发现新的可直接落地 exact shared 候选；`bootstrap 00/10/20` 与 `heroes/init` 保持 `retain split`，`cassidy falloff` 与 `debug/changelog` 维持已落地的合法 full-file shared 模式。
 - 2026-03-07: H8 Wave-D 完成 reports cleanup（baseline-only）：移除已完成且已被 TODO 覆盖的 H4/H5 波次归档，保留 `aram-vs-main-verification.md` 与 `module-metrics-sync-20260302-201115.md` 作为长期关键基线；`exact shared / paired full leaves / retain split` 判定边界不变。
+- 2026-03-07: H8 Wave-E 完成 bootstrap join/respawn 收敛：新增中性共享叶子 `player-join-and-respawn.opy`，main/aram 通过 mode-profile 常量注入后共同引用同一完整文件；`Team1/Team2` respawn 仍保持 main=`5/10`、aram=`2/5`，行为不变。
 
 ## Archived Reports
 
@@ -78,20 +79,20 @@
   - `docs/reports/aram-vs-main-verification.md`
   - `docs/reports/module-metrics-sync-20260302-201115.md`
 
-## Latest Completed Iteration (H8 Wave-D: Reports Cleanup and Archive Convergence)
+## Latest Completed Iteration (H8 Wave-E: Bootstrap Join/Respawn Convergence)
 
 - 波次范围：
-  - 清理已完成且已被主 TODO 覆盖的 H4/H5 波次报告
-  - 将归档策略收敛为 baseline-only，压缩 reports 目录噪音
-  - 本波不新增源码拆分，保留 H8 Wave-C 的判定边界
+  - 将 `player-join-and-respawn-main/aram` 收敛到同一个完整共享叶子
+  - 保留 main/aram 的 respawn 数值差异，不改玩法行为
+  - 本波不触碰其余 near-duplicate pair 与 retained boundaries
 - 判定结论：
-  - `exact shared`（边界不变）：
+  - `exact shared`（新增 1 项）：
     - `src/modules/debug/aram-20-changelog.opy -> 20-changelog.opy`
     - `src/heroes/cassidy/aram-falloff.opy -> falloff.opy`
+    - `src/modules/bootstrap/player-join-and-respawn-main.opy / player-join-and-respawn-aram.opy -> player-join-and-respawn.opy`（经 mode-profile 常量注入后共享）
   - `paired full leaves`（边界不变）：
     - `player-death-reset-main.opy` / `player-death-reset-aram.opy`
     - `player-reinitialize-main.opy` / `player-reinitialize-aram.opy`
-    - `player-join-and-respawn-main.opy` / `player-join-and-respawn-aram.opy`
     - `player-hero-switch-reset-main.opy`（main-only partner with ARAM lifecycle path in `player-reinitialize-aram.opy`）
   - `retain split`（边界不变）：
     - `src/modules/bootstrap/00-init-and-settings.opy` vs `aram-00-init-and-settings.opy`
@@ -116,13 +117,13 @@
 - 当前 inventory：
   - retained hero overlays: `src/heroes/hazard/aram.opy`、`src/heroes/kiriko/aram.opy`
   - paired full leaves landed: `player-death-reset-main.opy` / `player-death-reset-aram.opy`、`player-reinitialize-main.opy` / `player-reinitialize-aram.opy`、`player-hero-switch-reset-main.opy`
-  - exact shared candidate landed: `src/heroes/cassidy/falloff.opy`
+  - exact shared candidates landed: `src/heroes/cassidy/falloff.opy`、`src/modules/bootstrap/player-join-and-respawn.opy`
   - retained module overlays remain: `src/modules/bootstrap/aram-10-safety-blacklist-ban.opy`、`src/modules/bootstrap/aram-15-extra-hero-pool.opy`
   - retained baseline reports: `docs/reports/aram-vs-main-verification.md`、`docs/reports/module-metrics-sync-20260302-201115.md`
 
 ## Next Steps
 
-1. H8 Wave-D：仅在出现新的 `exact shared` 候选时继续收敛；`retain split` 项默认不再强拆。
+1. H8 Wave-F：继续扫描 `main/aram` 成对叶子，仅处理新的 `exact shared` 候选；`retain split` 项默认不强拆。
 2. `hazard/kiriko` 继续保持为 H7 retained boundary，不纳入 H8 shared merge 范围，除非未来另开 whitelist 策略阶段。
 3. `check_contracts --strict-hero-init` 当前仍有既有的 `src/main.opy` include mismatch，继续视为 pre-existing gate issue，而不是 H8 新回归。
 4. 继续只保留仍被主 TODO 引用、或对关键决策回溯仍有价值的 wave 报告。
