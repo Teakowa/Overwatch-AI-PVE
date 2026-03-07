@@ -1,3 +1,3 @@
-#!include "aram-player-join-and-respawn.opy"
-#!include "aram-player-death-reset.opy"
-#!include "aram-player-reinitialize.opy"
+#!include "player-join-and-respawn-aram.opy"
+#!include "player-death-reset-aram.opy"
+#!include "player-reinitialize-aram.opy"

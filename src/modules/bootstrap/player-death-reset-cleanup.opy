@@ -1,3 +1,0 @@
-    resetStats()
-    resetStatuses()
-    resetFrenemies()
