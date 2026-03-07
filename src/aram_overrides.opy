@@ -95,7 +95,7 @@
 #!include "heroes/vendetta/aram.opy"
 #!include "heroes/aram-init.opy"
 #!include "heroes/widowmaker/aram.opy"
-#!include "heroes/cassidy/aram-falloff.opy"
+#!include "heroes/cassidy/falloff.opy"
 #!include "heroes/soldier76/aram.opy"
 # !include "modules/debug/20-changelog.opy"
 # !include "utilities/changelog_text.opy"
