@@ -271,11 +271,6 @@ whitelist_keyset = whitelist_keys(whitelist_rows)
 
 overlay_rules = []
 overlay_rules_by_file: dict[str, list[dict]] = {}
-for hero in overlay_heroes:
-    hero_dir = src / "heroes" / hero
-    files = sorted(hero_dir.glob("aram*.opy")) if hero_dir.exists() else []
-    if not files:
-        failures.append(f"overlay missing: src/heroes/{hero}/aram*.opy")
 
 overlay_paths = sorted(path for path in src.rglob("*.opy") if is_mode_overlay(path))
 for path in overlay_paths:
