@@ -42,7 +42,7 @@
 
 - 当前 duplicate 基线：
   - `src/aram_overrides.opy exact/diff/unique = 0/0/0`
-  - `src/**/aram*.opy active overlays exact/diff/unique = 18/102/53`
+  - `src/**/aram*.opy active overlays exact/diff/unique = 18/102/54`
   - `unwhitelisted aram/overlay exact-diff = 0/0, 0/0`
 - H5 收口结果：
   - `src/aram_overrides.opy` 已清空 duplicate debt，当前只保留装配入口
@@ -76,6 +76,7 @@
 - 2026-03-07: H8 Wave-H 完成 near-duplicate 收敛：`player-death-reset`、`player-reinitialize` 与 `player-hero-switch-reset` 迁移到 shared full leaf + mode wrapper 形态，保留 mode 差量（wait/extra_hero/healing-reset/log）且不改行为顺序。基线保持 `0/0/0` 与 `18/102/53`。
 - 2026-03-07: H8 Wave-I 完成 bootstrap lifecycle 稳定化：`20-player-lifecycle-and-reset.opy` 改为 main 侧单文件完整规则体，移除 `20 -> *-main -> shared` 链式 include；ARAM 维持 paired full leaves，删除 main 包装壳与中间 shared 生命周期叶子。`main.opy` 恢复标准 include 路径，`build/build:aram` 通过，基线保持 `0/0/0` 与 `18/102/53`。
 - 2026-03-07: H8 Wave-J 完成 de-wrapper 收敛：`aram_overrides` 中 `cassidy` 直接改引 `falloff.opy`，退役 `aram-falloff.opy`；`modules/debug/aram-20-changelog.opy` 退役，避免保留无入口依赖的一跳包装文件。行为不变，基线保持 `0/0/0` 与 `18/102/53`。
+- 2026-03-08: H8 Wave-K 完成 assembly 去重 + gate 修复：`aram_overrides` 移除重复的 `heroes/aram-init.opy` include（该文件已由 `aramMain -> heroes/init.aram.opy` 装配），消除 `w_already_imported` 噪声；同时对 `emre/aram.opy` 做 ARAM rule 命名去冲突（不改行为）以恢复 duplicates gate。基线更新为 `0/0/0` 与 `18/102/54`。
 
 ## Archived Reports
 
@@ -84,12 +85,12 @@
   - `docs/reports/aram-vs-main-verification.md`
   - `docs/reports/module-metrics-sync-20260302-201115.md`
 
-## Latest Completed Iteration (H8 Wave-J: De-wrapper Convergence)
+## Latest Completed Iteration (H8 Wave-K: ARAM Assembly De-dup)
 
 - 波次范围：
-  - 继续压缩 ARAM 一跳包装链路，退役无语义转发文件
-  - `aram_overrides` 直接 include `cassidy/falloff.opy`
-  - 退役 `modules/debug/aram-20-changelog.opy`，保留 `20-changelog.opy` 作为单一共享叶子
+  - 清理 ARAM assembly 冗余 include，减少重复装配噪声
+  - 从 `aram_overrides` 移除重复 `heroes/aram-init.opy` 引用
+  - 保持其余 overlay 装配顺序与行为不变
 - 判定结论：
   - `exact shared`（边界不变）：
     - `src/modules/debug/20-changelog.opy`（ARAM 不再经 wrapper 转发）
@@ -107,10 +108,11 @@
   - 未触碰 `hazard/kiriko` retained boundary，未调整 whitelist 策略
 - 指标结果：
   - `src/aram_overrides.opy exact/diff/unique` 维持 `0/0/0`
-  - `src/**/aram*.opy active overlays exact/diff/unique = 18/102/53`
+  - `src/**/aram*.opy active overlays exact/diff/unique = 18/102/54`
   - active overlay `diff` 相比 H7 基线下降 `7`
   - hero-root retained overlays 仍为 `2`（`hazard`、`kiriko`）
   - `unwhitelisted exact/diff = 0/0`
+  - `build:aram` 不再出现 `heroes/aram-init.opy` 重复导入告警
 - 验证报告：
   - `skills/ow-hero-change-pipeline/scripts/hero_pipeline.sh --from-diff --build`
   - `pnpm run build`
@@ -127,7 +129,7 @@
 
 ## Next Steps
 
-1. H8 Wave-K：继续扫描 `main/aram` 成对叶子，优先挖掘新的 `exact shared`；near-duplicate 仅在低风险可参数化时继续推进。
+1. H8 Wave-L：继续扫描 `main/aram` 成对叶子，优先挖掘新的 `exact shared`；near-duplicate 仅在低风险可参数化时继续推进。
 2. `hazard/kiriko` 继续保持为 H7 retained boundary，不纳入 H8 shared merge 范围，除非未来另开 whitelist 策略阶段。
 3. `check_contracts --strict-hero-init` 当前仍有既有的 `src/main.opy` include mismatch，继续视为 pre-existing gate issue，而不是 H8 新回归。
 4. 继续只保留仍被主 TODO 引用、或对关键决策回溯仍有价值的 wave 报告。
