@@ -4,3 +4,4 @@
 #!include "ai/_index.opy"
 #!include "../heroes/init.main.opy"
 #!include "debug/_index.opy"
+#!include "../utilities/changelog_text.opy"

@@ -7,7 +7,6 @@
 #!include "execute_uppercut.opy"
 #!include "enable_all_abilities.opy"
 #!include "disable_all_abilities.opy"
-#!include "changelog_text.opy"
 #!include "reset_hero.opy"
 #!include "remove_tank_passive.opy"
 #!include "bot_aim2target.opy"
