@@ -1,3 +1,5 @@
+#!mainFile "aramMain.opy"
+
 settings {
     "main": {
         "description": "Kook频道：kook.vip/EEC9UH\n\n企鹅坐牢群：361913638\n\n更新日志：workshop.codes/F288Z | v25.0828.1\n\n中途退永久BAN  |  玻璃心别玩  |  育碧平衡",
@@ -543,6 +545,40 @@ settings {
                 "secondaryFireCost%": 50,
                 "combatUltGen%": 0,
                 "passiveUltGen%": 0
+            },
+            "domina": {
+                "damageDealt%": 125,
+                "damageReceived%": 80,
+                "secondaryFireCooldown%": 42,
+                "ability2Cooldown%": 50
+            },
+            "mizuki": {
+                "damageDealt%": 125,
+                "damageReceived%": 80,
+                "secondaryFireCooldown%": 50,
+                "ability1Cooldown%": 42,
+                "ability2Cooldown%": 42
+            },
+            "anran": {
+                "damageDealt%": 135,
+                "damageReceived%": 70,
+                "ability1Cooldown%": 50,
+                "ability2Cooldown%": 50
+            },
+            "emre": {
+                "damageDealt%": 125,
+                "damageReceived%": 90,
+                "ability1Duration%": 160,
+                "ability1Heat%": 500,
+                "ability2Cooldown%": 40
+            },
+            "jetpackCat": {
+                "health%": 250,
+                "damageDealt%": 135,
+                "damageReceived%": 60,
+                "healingDealt%": 150,
+                "ability1Cooldown%": 0,
+                "ability2Cooldown%": 34
             },
             "general": {
                 "health%": 200
