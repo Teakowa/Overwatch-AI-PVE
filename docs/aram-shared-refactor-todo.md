@@ -36,13 +36,13 @@
 | H5 | `aram_overrides` 薄层化与分段机制退役 | done | `aram_overrides_segments` 不再参与编译，`src/aram_overrides.opy` 不再承载 exact/same-name-diff，活跃差异已下沉到 hero/module overlays |
 | H6 | `aram_overrides.opy` 纯装配化 | done | `src/aram_overrides.opy` 不再出现 `rule/def`，active duplicate debt 仅存在于 `src/**/aram*.opy` |
 | H7 | active overlay debt phase-2 | done | hero/module retained boundaries 已固化，Wave-C 无新增强候选，剩余 active diff 已转入已知保留边界 |
-| H8 | main/aram shared-leaf convergence | in_progress | bootstrap/debug shared merge 模板与首批 hero shared-leaf recovery 落地，main/aram 重复叶子继续收敛 |
+| H8 | main/aram shared-leaf convergence | in_progress | 仅使用完整 `.opy` 叶子做 shared merge 或 paired leaves，main/aram 重复规则继续按成对判定收敛 |
 
 ## Current Gate Baseline
 
 - 当前 duplicate 基线：
   - `src/aram_overrides.opy exact/diff/unique = 0/0/0`
-  - `src/**/aram*.opy active overlays exact/diff/unique = 18/109/53`
+  - `src/**/aram*.opy active overlays exact/diff/unique = 18/102/53`
   - `unwhitelisted aram/overlay exact-diff = 0/0, 0/0`
 - H5 收口结果：
   - `src/aram_overrides.opy` 已清空 duplicate debt，当前只保留装配入口
@@ -67,7 +67,7 @@
 - 2026-03-07: H7 Wave-A 完成 hero retained overlay inventory，hero 侧当前仅剩 `hazard/kiriko` 两组 retained overlays，后续重心转向 module-owned overlays inventory。
 - 2026-03-07: H7 Wave-B 完成 module overlay semantic split + retention decision：`aram-00-init-and-settings.opy` 与 `aram-20-player-lifecycle-and-reset.opy` 已拆成 module-local 语义叶子，`aram-10-safety-blacklist-ban.opy`、`aram-15-extra-hero-pool.opy`、`aram-20-changelog.opy` 维持保留整体。
 - 2026-03-07: H7 Closure Review 完成 retained boundary 审核：Wave-C 未发现新的 mixed-responsibility module overlays，`hazard/kiriko` 与剩余 module-owned overlays 全部固化为当前阶段的保留边界，H7 正式收口。
-- 2026-03-07: H8 Wave-A/B 启动 main/aram shared-leaf convergence：`bootstrap/debug` 改为共享 snippet 与共享叶子优先，`cassidy` 的 falloff 公式收敛到共享 body，active overlay diff 从 `109` 降到 `108`。
+- 2026-03-07: H8 Wave-A/B 改按 full-file shared leaves only 推进：回收所有 rule 内 snippet-style `#!include`，`debug/changelog` 改成合法完整共享叶子，`bootstrap` 的近重复规则改成 main/aram paired full leaves，`cassidy` 的 falloff 改成完整共享叶子，active overlay diff 从 `109` 降到 `102`。
 
 ## Archived Reports
 
@@ -86,22 +86,25 @@
   - `docs/reports/aram-shared-wave-h5-next4-hjos-diff-localization-2026-03-06.md`
   - `docs/reports/aram-shared-wave-h5-next7-mid-density-diff-localization-2026-03-06.md`
 
-## Latest Completed Iteration (H8 Wave-A/B: Shared-Leaf Convergence Kickoff)
+## Latest Completed Iteration (H8 Wave-A/B: Full-File Shared Leaves Only)
 
 - 波次范围：
-  - 为 `bootstrap/debug` 建立 main/aram shared merge 模板
-  - 回收首批 hero 侧近重复叶子，验证同目录共享 body 的可行性
+  - 修正 H8 首轮实现方向，移除 OverPy 不支持的 rule 内 snippet include
+  - 建立只使用完整 `.opy` 叶子的 shared merge / paired leaves 模板
+  - 回收首批合法 exact shared candidate，并把近重复规则收成 paired full leaves
   - 更新 H8 的 tracking 与 gate 基线
   - 本波不新增 report，仅更新主 TODO
 - 变更动作：
-  - 将 `src/modules/bootstrap/20-player-lifecycle-and-reset.opy` 与 ARAM 对应叶子中的公共 reset / reinitialize 流程收敛为同目录共享 snippet，保留 mode-specific wrapper 只承载差量动作。
-  - 将 `src/modules/debug/aram-20-changelog.opy` 收成对共享 `20-changelog.opy` 的直接引用，并统一使用项目现有常量写法。
-  - 将 `src/heroes/cassidy/falloff.opy` 与 `src/heroes/cassidy/aram-falloff.opy` 的公共伤害衰减公式收敛到 `falloff-common.opy`，main/aram wrapper 仅保留阈值条件差异。
+  - 将 `src/modules/debug/aram-20-changelog.opy` 保持为对完整共享 `20-changelog.opy` 的直接引用，作为 H8 的合法 exact shared 模板。
+  - 将 `bootstrap` 的 `reset when died`、`Reinitialize hero on new round`、`Reset and initialize hero on hero switch` 改成 main/aram 成对的完整叶子：main 侧使用 `*-main.opy`，ARAM 侧使用 `*-aram.opy`，不再在 `rule` 内拼接共享片段。
+  - 将 `bootstrap` 的 ARAM 成对叶子从 `aram-*.opy` 调整为 `*-aram.opy`，避免重新触发 active overlay same-name-diff guard。
+  - 将 `src/heroes/cassidy/aram-falloff.opy` 改为对完整共享 `falloff.opy` 的直接引用，`falloff-common.opy` 与其他 snippet-style body 文件一并退役。
+  - 明确 H8 的合法实现边界：`#!include` 只能引用完整 `.opy` 文件，不能引用 rule body 片段。
   - 本波未触碰 `hazard/kiriko` retained boundary，也未调整 whitelist 策略。
 - 指标结果：
   - `src/aram_overrides.opy exact/diff/unique` 维持 `0/0/0`
-  - `src/**/aram*.opy active overlays exact/diff/unique = 18/108/53`
-  - active overlay `diff` 相比 H7 基线下降 `1`
+  - `src/**/aram*.opy active overlays exact/diff/unique = 18/102/53`
+  - active overlay `diff` 相比 H7 基线下降 `7`
   - hero-root retained overlays 仍为 `2`（`hazard`、`kiriko`）
   - `unwhitelisted exact/diff = 0/0`
 - 验证报告：
@@ -112,13 +115,13 @@
   - `skills/ow-contract-guard/scripts/check_aram_overrides_duplicates.sh --check`
 - 当前 inventory：
   - retained hero overlays: `src/heroes/hazard/aram.opy`、`src/heroes/kiriko/aram.opy`
-  - shared-leaf bootstrap candidates landed: `player-death-reset-common.opy`、`player-round-reinitialize-*.opy`、`player-hero-switch-reset-common.opy`
-  - shared-leaf hero candidate landed: `src/heroes/cassidy/falloff-common.opy`
+  - paired full leaves landed: `player-death-reset-main.opy` / `player-death-reset-aram.opy`、`player-reinitialize-main.opy` / `player-reinitialize-aram.opy`、`player-hero-switch-reset-main.opy`
+  - exact shared candidate landed: `src/heroes/cassidy/falloff.opy`
   - retained module overlays remain: `src/modules/bootstrap/aram-10-safety-blacklist-ban.opy`、`src/modules/bootstrap/aram-15-extra-hero-pool.opy`
 
 ## Next Steps
 
-1. H8 Wave-C：继续扫描 hero/module 的 main/aram near-exact 叶子，优先处理只剩阈值、常量或低成本条件差异的候选。
+1. H8 Wave-C：继续按 pair 盘点 hero/module 的 main/aram 叶子，逐对判断是 `exact shared`、`paired full leaves` 还是 `retain split`。
 2. `hazard/kiriko` 仍保持为 H7 retained boundary，不纳入 H8 shared merge 范围，除非未来另开 whitelist 策略阶段。
 3. `check_contracts --strict-hero-init` 当前仍有既有的 `src/main.opy` include mismatch，需要继续视为 pre-existing gate issue，而不是 H8 新回归。
 4. 继续只保留仍被主 TODO 引用、或对关键决策回溯仍有价值的 wave 报告。
