@@ -7,6 +7,6 @@
     "build:aram": "mkdir -p build && overpy compile -i src/aramMain.opy --root src -l zh-CN -o build/aram.ow"
   },
   "dependencies": {
-    "overpy": "^9.4.21"
+    "overpy": "^9.4.24"
   }
 }
