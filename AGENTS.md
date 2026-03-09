@@ -28,3 +28,8 @@
 - `AGENTS.md`、`docs/modules/*` 只允许引用 canonical 规则，不重复定义正文。
 - 若规则未登记 `Rule ID`，视为无效规则。
 - Agent 规范文档文件名禁止使用数字前缀排序（例如 `01-*.md`、`10-*.md`）。
+
+## Workflow Command Pointers
+
+- 构建、门禁命令与推荐执行顺序：`docs/agents/gates-and-commits.md`（“常用命令”“建议门禁顺序”）。
+- 提交前检查清单：`docs/agents/self-checklist.md`。
