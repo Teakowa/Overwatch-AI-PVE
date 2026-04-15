@@ -740,16 +740,19 @@ settings {
             "reinhardt": {
                 "damageDealt%": 105,
                 "ability1Cooldown%": ratioPercent(SET_PLAYER_REINHARDT_ABILITY1_COOLDOWN_TARGET, REINHARDT_CHARGE_COOLDOWN_TIME),
-
                 "damageReceived%": 75,
                 "secondaryFireRechargeRate%": ratioPercent(SET_PLAYER_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET, REINHARDT_BARRIER_REGEN),
-
                 "combatUltGen%": 135,
                 "health%": ratioPercent(SET_PLAYER_REINHARDT_HEALTH_TARGET, REINHARDT_BARRIER_HEALTH),
-
                 "ultGen%": ultGenPercent(REINHARDT_ULT_COST, SET_PLAYER_REINHARDT_ULT_COST_TARGET),
-
                 "passiveUltGen%": 115
+            },
+            "sierra": {
+                "damageDealt%": 135,
+                "ability1Cooldown%": 99,
+                "damageReceived%": 75,
+                "secondaryFireCooldown%": 50,
+                "ability2Cooldown%": 83
             },
             "sigma": {
                 "damageDealt%": 125,
