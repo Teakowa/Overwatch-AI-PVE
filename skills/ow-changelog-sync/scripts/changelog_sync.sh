@@ -26,7 +26,7 @@ for cmd in rg awk sed sort uniq git mktemp date mkdir basename dirname; do
     fi
 done
 
-changelog_file="src/modules/debug/20-changelog.opy"
+changelog_file="src/modules/debug/changelog.opy"
 
 strict_coverage=false
 strict_language=true
@@ -214,7 +214,7 @@ fi
 
 collect_changed_files() {
     local range="$1"
-    git diff --name-only "$range" -- src/heroes src/modules/prelude/00-settings.opy "$changelog_file" 2>/dev/null || true
+    git diff --name-only "$range" -- src/heroes src/modules/prelude/settings.opy "$changelog_file" 2>/dev/null || true
 }
 
 collect_heroes_from_diff() {
@@ -227,7 +227,7 @@ collect_heroes_from_diff() {
         if [[ "$file" =~ ^src/heroes/([^/]+)/.+\.opy$ ]]; then
             add_target_hero "${BASH_REMATCH[1]}"
         fi
-        if [[ "$file" == "src/modules/prelude/00-settings.opy" ]]; then
+        if [[ "$file" == "src/modules/prelude/settings.opy" ]]; then
             while IFS= read -r hero_key; do
                 [[ -z "$hero_key" ]] && continue
                 add_target_hero "$hero_key"
@@ -352,7 +352,7 @@ collect_settings_cooldown_clues_for_hero() {
     local slug="$1"
     local range="$2"
     local hero_key
-    local settings_file="src/modules/prelude/00-settings.opy"
+    local settings_file="src/modules/prelude/settings.opy"
 
     hero_key="$(slug_to_settings_key "$slug")"
 
@@ -404,7 +404,7 @@ collect_diff_clues_for_hero() {
     while IFS= read -r file; do
         [[ -z "$file" ]] && continue
 
-        if [[ "$file" == "src/modules/prelude/00-settings.opy" ]]; then
+        if [[ "$file" == "src/modules/prelude/settings.opy" ]]; then
             continue
         fi
 

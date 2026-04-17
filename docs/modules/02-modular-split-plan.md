@@ -43,7 +43,7 @@ src/
 当前执行入口采用扁平清单：
 
 1. `constants/player_constants.opy`
-2. `modules/prelude/00-settings.opy -> 01-global-vars.opy -> 02-player-vars.opy -> 03-subroutine-names.opy`
+2. `modules/prelude/settings.opy -> global-vars.opy -> player-vars.opy -> subroutine-names.opy`
 3. `#!optimizeStrict`
 4. `modules/bootstrap/* -> utilities/* -> modules/ai/* -> modules/hero_rules/* -> modules/hero_init/* -> modules/debug/*`（显式列举）
 

@@ -18,9 +18,9 @@
 
 ## Shared Whitelist (Fully Identical)
 The following existing module files were verified as fully reusable and are shared by ARAM via include:
-1. `src/modules/ai/00-delimiter-begin.opy`
-2. `src/modules/ai/99-delimiter-end.opy`
-3. `src/modules/hero_init/99-delimiter-end.opy`
+1. `src/modules/ai/delimiter-begin.opy`
+2. `src/modules/ai/delimiter-end.opy`
+3. `src/modules/hero_init/delimiter-end.opy`
 4. `src/modules/hero_init/extras/echo-duplicate.opy`
 5. `src/modules/hero_rules/heroes/echo.opy`
 6. `src/modules/hero_rules/heroes/hanzo.opy`
@@ -96,7 +96,7 @@ Validation:
 
 Implemented shared skeleton + ARAM profile parameterization for reset utility chain:
 - Added reset behavior profile macros in `src/aram_protocol.opy` (ARAM profile).
-- Added mainline profile macro defaults in `src/modules/bootstrap/20-player-lifecycle-and-reset.opy` (after `clearMoveSpeedDebuffs()`).
+- Added mainline profile macro defaults in `src/modules/bootstrap/player-lifecycle-and-reset.opy` (after `clearMoveSpeedDebuffs()`).
 - Refactored shared utilities to consume profile macros:
   - `utilities/disable_all_abilities.opy`
   - `utilities/reset_stats.opy`

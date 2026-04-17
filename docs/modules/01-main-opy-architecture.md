@@ -23,10 +23,10 @@
 入口 `src/main.opy` 按以下顺序 include：
 
 1. `constants/player_constants.opy`（集中维护跨模块复用常量）
-2. `modules/prelude/00-settings.opy`
-3. `modules/prelude/01-global-vars.opy`
-4. `modules/prelude/02-player-vars.opy`
-5. `modules/prelude/03-subroutine-names.opy`
+2. `modules/prelude/settings.opy`
+3. `modules/prelude/global-vars.opy`
+4. `modules/prelude/player-vars.opy`
+5. `modules/prelude/subroutine-names.opy`
 6. `#!optimizeStrict`
 7. `#!postCompileHook "post-compile-hook.js"`
 8. `modules/bootstrap/*`

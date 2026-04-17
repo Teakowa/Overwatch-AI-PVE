@@ -26,10 +26,10 @@
 ## 2. 范围与边界
 
 - In scope：
-  - `src/modules/prelude/00-settings.opy` 中英雄相关裸数字（静态常量）。
+  - `src/modules/prelude/settings.opy` 中英雄相关裸数字（静态常量）。
   - `src/modules/hero_rules/heroes/*.opy` 中静态魔法数。
 - Out of scope：
-  - `src/modules/bootstrap/00-init-and-settings.opy` 的 `createWorkshopSetting*` 运行时配置（例如 `ReaperBuff/MaugaBuff/...`）。
+  - `src/modules/bootstrap/init-and-settings.opy` 的 `createWorkshopSetting*` 运行时配置（例如 `ReaperBuff/MaugaBuff/...`）。
   - 索引重排、规则改名、include 顺序调整。
 
 ## 3. 命名与表达式规范（强约束）
@@ -86,7 +86,7 @@
 ## 5. 英雄执行模板（每次提交可复制）
 
 1. 盘点
-- 扫描目标英雄在 `00-settings.opy` 与 `hero_rules` 的裸数字。
+- 扫描目标英雄在 `settings.opy` 与 `hero_rules` 的裸数字。
 - 标注“可迁移静态值”与“运行时配置值”。
 
 2. 常量定义

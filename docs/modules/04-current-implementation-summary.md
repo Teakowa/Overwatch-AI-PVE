@@ -14,10 +14,10 @@
 `src/main.opy` 当前顺序为：
 
 1. `#!include "constants/player_constants.opy"`
-2. `#!include "modules/prelude/00-settings.opy"`
-3. `#!include "modules/prelude/01-global-vars.opy"`
-4. `#!include "modules/prelude/02-player-vars.opy"`
-5. `#!include "modules/prelude/03-subroutine-names.opy"`
+2. `#!include "modules/prelude/settings.opy"`
+3. `#!include "modules/prelude/global-vars.opy"`
+4. `#!include "modules/prelude/player-vars.opy"`
+5. `#!include "modules/prelude/subroutine-names.opy"`
 6. `#!optimizeStrict`
 7. `#!postCompileHook "post-compile-hook.js"`
 8. `modules/bootstrap/*.opy`（在 `main.opy` 中显式逐条列举）
@@ -50,7 +50,7 @@
 
 ### 4.2 Reset 工具链（生命周期）
 
-核心在 `bootstrap/20-player-lifecycle-and-reset.opy`：
+核心在 `bootstrap/player-lifecycle-and-reset.opy`：
 
 - `playerDied` 与回合切换逻辑会重置状态。
 - `resetHero()` 统一执行：
@@ -85,8 +85,8 @@
 
 ### 4.6 Debug / Changelog
 
-- `debug/10-debug-ultimate.opy` 提供 Debug 开关逻辑（默认 `@Disabled`）。
-- `debug/20-changelog.opy` 通过 `changelogText()` 动态渲染不同英雄的更新说明 HUD。
+- `debug/debug-ultimate.opy` 提供 Debug 开关逻辑（默认 `@Disabled`）。
+- `debug/changelog.opy` 通过 `changelogText()` 动态渲染不同英雄的更新说明 HUD。
 
 ## 5. 维护重点（结合当前实现）
 

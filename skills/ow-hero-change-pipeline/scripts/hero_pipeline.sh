@@ -207,7 +207,7 @@ expected_team_for_slot() {
 hero_settings_key_present_for_both_teams() {
     local hero_key="$1"
     local key="$2"
-    local settings_file="src/modules/prelude/00-settings.opy"
+    local settings_file="src/modules/prelude/settings.opy"
     local count=0
     local line
 
@@ -470,7 +470,7 @@ audit_hero() {
     local detect_file="src/heroes/${slug}/init-detect.opy"
     local heroes_main="src/heroes/main.opy"
     local hero_dir="src/heroes/${slug}"
-    local changelog="src/modules/debug/20-changelog.opy"
+    local changelog="src/modules/debug/changelog.opy"
     current_hero="$slug"
 
     echo

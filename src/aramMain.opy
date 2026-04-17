@@ -27,11 +27,11 @@
 #!include "utilities/knockback.opy"
 #!include "utilities/set_third_person.opy"
 #!include "utilities/remove_tank_passive.opy"
-#!include "modules/bootstrap/11-blacklist.opy"
+#!include "modules/bootstrap/blacklist.opy"
 
-#!include "modules/ai/00-delimiter-begin.opy"
+#!include "modules/ai/delimiter-begin.opy"
 #!include "heroes/init.aram.opy"
-#!include "modules/ai/99-delimiter-end.opy"
+#!include "modules/ai/delimiter-end.opy"
 
 #
 # ARAM-specific overrides (target: thin layer only)

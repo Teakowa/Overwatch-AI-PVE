@@ -1,5 +1,5 @@
-#!include "00-delimiter-begin.opy"
+#!include "delimiter-begin.opy"
 #!include "core/_index.opy"
 #!include "movement/_index.opy"
 #!include "control/_index.opy"
-#!include "99-delimiter-end.opy"
+#!include "delimiter-end.opy"

@@ -52,7 +52,7 @@ For each hero, the pipeline checks:
 3. `hero_rules` touchpoint:
    - checks whether hero appears in `hero_rules` annotations/usages
 4. Changelog touchpoint:
-   - checks whether `debug/20-changelog.opy` has `eventPlayer.getHero() == Hero.<X>` branch
+   - checks whether `debug/changelog.opy` has `eventPlayer.getHero() == Hero.<X>` branch
 5. `reset_pvar` semantic checks inside hero init:
    - validates known slot set
    - enforces `reset_pvar[0]` boolean semantics (`true` / `false`)
@@ -66,7 +66,7 @@ For each hero, the pipeline checks:
 7. Cooldown placement checks:
    - scans hero rules for direct `setAbilityCooldown(...)` usage
    - treats relative cooldown deltas (`getAbilityCooldown(...) - X`) as trigger-dependent by default
-   - flags absolute cooldown writes and recommends moving generic cooldown tuning to `prelude/00-settings.opy`
+   - flags absolute cooldown writes and recommends moving generic cooldown tuning to `prelude/settings.opy`
    - maps ability buttons to settings keys:
      - `Button.ABILITY_1` -> `ability1Cooldown%`
      - `Button.ABILITY_2` -> `ability2Cooldown%`

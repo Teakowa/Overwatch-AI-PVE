@@ -36,7 +36,7 @@ into `Overwatch-AI-PVE` source files.
    - if task requests `percent(...)` expressions, use:
      - `percent((TARGET_VALUE) / (BASE_COOLDOWN))`
    - if task forbids `SET_*_TARGET`, use hero-specific non-`SET_` target constant names.
-6. Update `src/modules/prelude/00-settings.opy` hero entries:
+6. Update `src/modules/prelude/settings.opy` hero entries:
    - replace hard-coded percentages with constant-driven `percent(...)` expressions.
 7. Update `src/modules/hero_rules/heroes/<hero>.opy`:
    - replace hard-coded effect values with constants from `player_constants.opy`.
@@ -141,7 +141,7 @@ Recommended semantic checks (example for `Anran`):
 
 ```bash
 rg -n "SET_.*ANRAN" src/constants/player_constants.opy
-rg -n "\"anran\": \\{" src/modules/prelude/00-settings.opy
+rg -n "\"anran\": \\{" src/modules/prelude/settings.opy
 rg -n "ANRAN_BURN_TARGET_DAMAGE_AMP_PERCENT|startDamageModification" src/modules/hero_rules/heroes/anran.opy
 ```
 

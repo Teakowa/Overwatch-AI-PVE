@@ -1,14 +1,14 @@
 kind	rule_or_macro	source_module	reason	decision	owner
-rule_same_name_diff	Changelog	src/modules/debug/20-changelog.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	Copyright (c) 2019-2025 他又（aka Teakowa）	src/modules/bootstrap/00-init-and-settings.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	Changelog	src/modules/debug/changelog.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	Copyright (c) 2019-2025 他又（aka Teakowa）	src/modules/bootstrap/init-and-settings.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
 rule_same_name_diff	Has Nano	src/heroes/ana/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	Initialize Hero Ability Settings	src/modules/bootstrap/00-init-and-settings.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	Initialize global variables	src/modules/bootstrap/00-init-and-settings.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	Initialize Hero Ability Settings	src/modules/bootstrap/init-and-settings.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	Initialize global variables	src/modules/bootstrap/init-and-settings.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
 rule_same_name_diff	[Ana] Nano Boost Healing	src/heroes/ana/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
 rule_same_name_diff	[Ana]: Headhunter	src/heroes/ana/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
 rule_same_name_diff	[Ana]: Sleep tanks for longer duration	src/heroes/ana/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
 rule_same_name_diff	[Ana]: Sleep tanks for longer duration	src/heroes/ana/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Anti Crash]: Activate anti crash	src/modules/bootstrap/09-anti-crash.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Anti Crash]: Activate anti crash	src/modules/bootstrap/anti-crash.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
 rule_same_name_diff	[Ashe]: headshot damage	src/heroes/ashe/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
 rule_same_name_diff	[Baptiste]: Immortality Field	src/heroes/baptiste/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
 rule_same_name_diff	[Baptiste]: headshot damage	src/heroes/baptiste/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
@@ -51,7 +51,7 @@ rule_same_name_diff	[Moira]: Fade disable on Coalescence	src/heroes/moira/rules.
 rule_same_name_diff	[Orisa]: Fortify provides 100 temporary armor	src/heroes/orisa/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
 rule_same_name_diff	[Orisa]: fly	src/heroes/orisa/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
 rule_same_name_diff	[Orisa]: stun when ult	src/heroes/orisa/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[Player]: Override allowed heroes list when player joins lobby	src/modules/bootstrap/10-safety-blacklist-ban.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[Player]: Override allowed heroes list when player joins lobby	src/modules/bootstrap/safety-blacklist-ban.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
 rule_same_name_diff	[Ramattra] ult healing	src/heroes/ramattra/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
 rule_same_name_diff	[Ramattra] ult speed	src/heroes/ramattra/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
 rule_same_name_diff	[Ramattra] ult start	src/heroes/ramattra/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
@@ -99,11 +99,11 @@ rule_same_name_diff	[Zenyatta]: Transcendence	src/heroes/zenyatta/rules.opy	base
 rule_same_name_diff	[Zenyatta]: headshot damage	src/heroes/zenyatta/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
 rule_same_name_diff	[brigitte/rally.opy]: Rally 30% speed boost	src/heroes/brigitte/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
 rule_same_name_diff	[kiriko]: swift step hp	src/heroes/kiriko/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[reset.opy]: Reinitialize hero on new round	src/modules/bootstrap/20-player-lifecycle-and-reset.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[utilities/hero_setup.opy]: Reset and initialize hero on hero switch	src/modules/bootstrap/20-player-lifecycle-and-reset.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[utilities/reset]: Default respawn time	src/modules/bootstrap/20-player-lifecycle-and-reset.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[utilities/reset]: Default respawn time	src/modules/bootstrap/20-player-lifecycle-and-reset.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
-rule_same_name_diff	[utilities/reset]: reset when died	src/modules/bootstrap/20-player-lifecycle-and-reset.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[reset.opy]: Reinitialize hero on new round	src/modules/bootstrap/player-lifecycle-and-reset.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[utilities/hero_setup.opy]: Reset and initialize hero on hero switch	src/modules/bootstrap/player-lifecycle-and-reset.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[utilities/reset]: Default respawn time	src/modules/bootstrap/player-lifecycle-and-reset.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[utilities/reset]: Default respawn time	src/modules/bootstrap/player-lifecycle-and-reset.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
+rule_same_name_diff	[utilities/reset]: reset when died	src/modules/bootstrap/player-lifecycle-and-reset.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
 rule_same_name_diff	【布丽吉塔】盾击伤害调整	src/heroes/brigitte/rules.opy	baseline_aram_delta_2026-03-06	parameterize_shared	aram-shared-refactor
 rule_exact_duplicate	[Ana] Biotic Grenade Hit	src/heroes/ana/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor
 rule_exact_duplicate	[Ana]: Damage Full Health Allies So Nano Can Heal	src/heroes/ana/rules.opy	baseline_aram_delta_2026-03-06	keep_aram_only	aram-shared-refactor

@@ -15,7 +15,7 @@
 
 主入口 include 顺序必须保持：
 
-`constants/player_constants.opy` -> `modules/prelude/00-settings.opy` -> `modules/prelude/01-global-vars.opy` -> `modules/prelude/02-player-vars.opy` -> `modules/prelude/03-subroutine-names.opy` -> `#!optimizeStrict` -> `modules/bootstrap/*` -> `utilities/*` -> `modules/ai/*` -> `modules/hero_rules/*` -> `modules/hero_init/*` -> `modules/debug/*`
+`constants/player_constants.opy` -> `modules/prelude/settings.opy` -> `modules/prelude/global-vars.opy` -> `modules/prelude/player-vars.opy` -> `modules/prelude/subroutine-names.opy` -> `#!optimizeStrict` -> `modules/bootstrap/*` -> `utilities/*` -> `modules/ai/*` -> `modules/hero_rules/*` -> `modules/hero_init/*` -> `modules/debug/*`
 
 ### R-MAIN-NO-INDEX-INCLUDE
 

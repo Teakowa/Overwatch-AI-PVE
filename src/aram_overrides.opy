@@ -1,10 +1,10 @@
-#!include "modules/bootstrap/aram-00-init-and-settings.opy"
-#!include "modules/bootstrap/aram-10-safety-blacklist-ban.opy"
-#!include "modules/bootstrap/aram-15-extra-hero-pool.opy"
-#!include "modules/bootstrap/aram-20-player-lifecycle-and-reset.opy"
+#!include "modules/bootstrap/aram-init-and-settings.opy"
+#!include "modules/bootstrap/aram-safety-blacklist-ban.opy"
+#!include "modules/bootstrap/aram-extra-hero-pool.opy"
+#!include "modules/bootstrap/aram-player-lifecycle-and-reset.opy"
 
-#!include "modules/ai/core/10-core-global-and-targeting.opy"
-#!include "modules/ai/movement/20-movement.opy"
+#!include "modules/ai/core/core-global-and-targeting.opy"
+#!include "modules/ai/movement/movement.opy"
 #!include "modules/ai/control/common.opy"
 #!include "modules/ai/control/heroes.opy"
 
@@ -112,5 +112,5 @@
 #!include "heroes/soldier76/aram-heartsteel.opy"
 #!include "heroes/soldier76/aram-sprint-suite.opy"
 #!include "heroes/soldier76/aram-tactical-visor-suite.opy"
-# !include "modules/debug/20-changelog.opy"
+# !include "modules/debug/changelog.opy"
 # !include "utilities/changelog_text.opy"

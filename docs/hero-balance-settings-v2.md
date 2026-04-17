@@ -1,7 +1,7 @@
 # Hero Balance Settings V2
 
 - 生成时间：2026-03-02 (Asia/Shanghai)
-- 数据来源：`src/modules/prelude/00-settings.opy`
+- 数据来源：`src/modules/prelude/settings.opy`
 - 覆盖范围：`heroes.team1`、`heroes.team2`、`heroes.allTeams`、`workshop`
 - 差值定义：`Δ = Team1 - Team2`
 - 判读规则：对于 `damageReceived%` / `*Cooldown%`，`Δ < 0` 代表 Team1 更强（更耐打或冷却更快）

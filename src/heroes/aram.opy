@@ -1,4 +1,4 @@
-#!include "../modules/hero_init/99-delimiter-end.opy"
+#!include "../modules/hero_init/delimiter-end.opy"
 #!include "echo/duplicate.opy"
 #!include "echo/rules.opy"
 #!include "hanzo/rules.opy"

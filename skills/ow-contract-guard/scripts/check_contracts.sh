@@ -212,14 +212,14 @@ heroes_main_file="src/heroes/main.opy"
 
 ai_first="$(sed -n '1p' "$ai_index_file")"
 ai_last="$(tail -n 1 "$ai_index_file")"
-if [[ "$ai_first" == '#!include "00-delimiter-begin.opy"' && "$ai_last" == '#!include "99-delimiter-end.opy"' ]]; then
+if [[ "$ai_first" == '#!include "delimiter-begin.opy"' && "$ai_last" == '#!include "delimiter-end.opy"' ]]; then
     pass "AI delimiter includes are at the beginning/end of ai/_index.opy"
 else
     fail "AI delimiter include boundaries are broken in ai/_index.opy"
 fi
 
-hero_init_begin='#!include "../modules/hero_init/00-delimiter-begin.opy"'
-hero_init_end='#!include "../modules/hero_init/99-delimiter-end.opy"'
+hero_init_begin='#!include "../modules/hero_init/delimiter-begin.opy"'
+hero_init_end='#!include "../modules/hero_init/delimiter-end.opy"'
 hero_init_begin_count="$(count_fixed_matches "$heroes_main_file" "$hero_init_begin")"
 hero_init_end_count="$(count_fixed_matches "$heroes_main_file" "$hero_init_end")"
 hero_init_begin_line="$(line_of_fixed_match "$heroes_main_file" "$hero_init_begin")"
@@ -273,22 +273,22 @@ check_duplicate_indices() {
     fi
 }
 
-check_duplicate_indices "globalvar" "src/modules/prelude/01-global-vars.opy"
-check_duplicate_indices "playervar" "src/modules/prelude/02-player-vars.opy"
-check_duplicate_indices "subroutine" "src/modules/prelude/03-subroutine-names.opy"
+check_duplicate_indices "globalvar" "src/modules/prelude/global-vars.opy"
+check_duplicate_indices "playervar" "src/modules/prelude/player-vars.opy"
+check_duplicate_indices "subroutine" "src/modules/prelude/subroutine-names.opy"
 
 if [[ -f "$protocol_file" ]]; then
     while IFS=$'\t' read -r kind name index; do
         [[ -z "${kind}" ]] && continue
         case "$kind" in
             globalvar)
-                file="src/modules/prelude/01-global-vars.opy"
+                file="src/modules/prelude/global-vars.opy"
                 ;;
             playervar)
-                file="src/modules/prelude/02-player-vars.opy"
+                file="src/modules/prelude/player-vars.opy"
                 ;;
             subroutine)
-                file="src/modules/prelude/03-subroutine-names.opy"
+                file="src/modules/prelude/subroutine-names.opy"
                 ;;
             *)
                 fail "unknown kind in protocol file: $kind"

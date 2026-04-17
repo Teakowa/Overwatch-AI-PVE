@@ -1,1 +1,1 @@
-#!include "10-core-global-and-targeting.opy"
+#!include "core-global-and-targeting.opy"

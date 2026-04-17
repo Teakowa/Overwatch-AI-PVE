@@ -218,9 +218,9 @@ for target in "${docs_targets[@]}"; do
 done
 
 total_rules="$(count_pattern "src/modules" '^rule "')"
-globalvar_total="$(count_pattern "src/modules/prelude/01-global-vars.opy" '^globalvar[[:space:]]')"
-playervar_total="$(count_pattern "src/modules/prelude/02-player-vars.opy" '^playervar[[:space:]]')"
-subroutine_total="$(count_pattern "src/modules/prelude/03-subroutine-names.opy" '^subroutine[[:space:]]')"
+globalvar_total="$(count_pattern "src/modules/prelude/global-vars.opy" '^globalvar[[:space:]]')"
+playervar_total="$(count_pattern "src/modules/prelude/player-vars.opy" '^playervar[[:space:]]')"
+subroutine_total="$(count_pattern "src/modules/prelude/subroutine-names.opy" '^subroutine[[:space:]]')"
 def_total="$(count_pattern "src/modules" '^def[[:space:]]+[A-Za-z0-9_]+\(')"
 disabled_total="$(count_pattern "src/modules" '@Disabled\b')"
 

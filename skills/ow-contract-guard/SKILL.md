@@ -33,7 +33,7 @@ The checker validates these invariants:
 
 1. `src/main.opy` 扁平 include 顺序：
    - `constants/player_constants.opy`
-   - `modules/prelude/00-settings.opy -> 01-global-vars.opy -> 02-player-vars.opy -> 03-subroutine-names.opy`
+   - `modules/prelude/settings.opy -> global-vars.opy -> player-vars.opy -> subroutine-names.opy`
    - `#!optimizeStrict`
    - `modules/bootstrap/* -> utilities/* -> modules/ai/* -> modules/hero_rules/* -> modules/hero_init/* -> modules/debug/*`
    - `src/main.opy` 不直接 include `*_index.opy`。
@@ -44,7 +44,7 @@ The checker validates these invariants:
    - `Initialize Heroes`
    - `Initialize Heors End`
 4. Protocol index mappings for `globalvar`, `playervar`, `subroutine` (against `references/protocol-indexes.tsv`).
-5. Stable `reset_pvar` slot assignments in `bootstrap/20-player-lifecycle-and-reset.opy`.
+5. Stable `reset_pvar` slot assignments in `bootstrap/player-lifecycle-and-reset.opy`.
 6. Hero init safety pattern checks in `hero_init/heroes/*.opy`:
    - Detect trigger sets `reset_pvar[0] = true`
    - Initialize path calls `resetHero()`
@@ -61,7 +61,7 @@ The checker validates these invariants:
 
 For hero gameplay edits, enforce cooldown placement policy together with this guard:
 
-- Generic cooldown tuning belongs in `src/modules/prelude/00-settings.opy`.
+- Generic cooldown tuning belongs in `src/modules/prelude/settings.opy`.
 - `hero_rules` should only modify cooldowns when effects are trigger-dependent (for example hit-confirm refund, elimination refund, conditional lockout).
 - Run:
 
@@ -77,9 +77,9 @@ After intentional protocol updates, regenerate the baseline from source files:
 
 ```bash
 {
-  awk '/^globalvar /{print "globalvar\t"$2"\t"$3}' src/modules/prelude/01-global-vars.opy
-  awk '/^playervar /{print "playervar\t"$2"\t"$3}' src/modules/prelude/02-player-vars.opy
-  awk '/^subroutine /{print "subroutine\t"$2"\t"$3}' src/modules/prelude/03-subroutine-names.opy
+  awk '/^globalvar /{print "globalvar\t"$2"\t"$3}' src/modules/prelude/global-vars.opy
+  awk '/^playervar /{print "playervar\t"$2"\t"$3}' src/modules/prelude/player-vars.opy
+  awk '/^subroutine /{print "subroutine\t"$2"\t"$3}' src/modules/prelude/subroutine-names.opy
 } > skills/ow-contract-guard/references/protocol-indexes.tsv
 ```
 

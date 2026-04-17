@@ -17,7 +17,7 @@ Default editable file scope is limited to:
 
 1. `src/constants/ow2_hero_defaults.opy`
 2. `src/constants/player_constants.opy`
-3. `src/modules/prelude/00-settings.opy`
+3. `src/modules/prelude/settings.opy`
 4. `src/modules/hero_rules/heroes/<hero>.opy`
 
 Rules:

@@ -1,4 +1,4 @@
-#!include "00-delimiter-begin.opy"
+#!include "delimiter-begin.opy"
 #!include "heroes/reaper.opy"
 #!include "heroes/tracer.opy"
 #!include "heroes/mercy.opy"
@@ -52,4 +52,4 @@
 #!include "heroes/lifeweaver.opy"
 #!include "heroes/mauga.opy"
 #!include "heroes/illari.opy"
-#!include "99-delimiter-end.opy"
+#!include "delimiter-end.opy"

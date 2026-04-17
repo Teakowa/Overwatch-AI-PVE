@@ -54,7 +54,7 @@
 #!include "mercy/rules.opy"
 #!include "vendetta/rules.opy"
 
-#!include "../modules/hero_init/00-delimiter-begin.opy"
+#!include "../modules/hero_init/delimiter-begin.opy"
 #!include "reaper/init.opy"
 #!include "tracer/init.opy"
 #!include "mercy/init.opy"
@@ -109,4 +109,4 @@
 #!include "lifeweaver/init.opy"
 #!include "mauga/init.opy"
 #!include "illari/init.opy"
-#!include "../modules/hero_init/99-delimiter-end.opy"
+#!include "../modules/hero_init/delimiter-end.opy"

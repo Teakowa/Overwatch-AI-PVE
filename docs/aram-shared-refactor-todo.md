@@ -66,7 +66,7 @@
 - H8 Wave-I~L（2026-03-07~2026-03-08）：以稳定优先去链式 include，退役多批 0-rule wrapper，当前仅保留确有规则或边界语义价值的 wrapper。
 - H8 Wave-M（2026-03-08）：批量删除 15 个无引用 0-rule hero wrapper（`anran/domina/dva/echo/hanzo/jetpack_cat/junker_queen/lucio/mizuki/pharah/ramattra/symmetra/tracer/zarya/cassidy`），缩短后续收敛扫描路径。
 - H8 Wave-N/O（2026-03-08）：完成 `reaper/brigitte/wuyang/ana` exact shared 收敛并退役新增空壳 wrapper（`ana/aram-grenade-burn.opy`、`brigitte/aram-repair-pack-armor.opy`、`reaper/aram-wraith-form-suite.opy`）；active exact 从 `18` 降到 `2`，仅保留 retained boundary 主导项。
-- H9 Wave-A/B/C（2026-03-08）：修正 contract 顺序源（`utilities/_index.opy` 移除 `changelog_text.opy`，由 `modules/_index.opy` 在 debug 后显式 include），使 `src/main.opy` 保持 `debug/20-changelog.opy + utilities/changelog_text.opy` 末尾布局并清除 `strict-hero-init` include mismatch；复核 duplicates 基线不变，TODO 进入稳定维护模式。
+- H9 Wave-A/B/C（2026-03-08）：修正 contract 顺序源（`utilities/_index.opy` 移除 `changelog_text.opy`，由 `modules/_index.opy` 在 debug 后显式 include），使 `src/main.opy` 保持 `debug/changelog.opy + utilities/changelog_text.opy` 末尾布局并清除 `strict-hero-init` include mismatch；复核 duplicates 基线不变，TODO 进入稳定维护模式。
 
 ## Archived Reports
 
@@ -78,7 +78,7 @@
 ## Latest Completed Iteration (H9 Wave-A/B/C: Strict Gate Stabilization + Maintenance Transition)
 
 - 波次范围：
-  - contract 修复：调整 `src/modules/_index.opy` / `src/utilities/_index.opy` 的展开顺序源，让 `src/main.opy` 在最末尾保持 `modules/debug/20-changelog.opy` + `utilities/changelog_text.opy`，并消除 `strict-hero-init` include mismatch 噪声
+  - contract 修复：调整 `src/modules/_index.opy` / `src/utilities/_index.opy` 的展开顺序源，让 `src/main.opy` 在最末尾保持 `modules/debug/changelog.opy` + `utilities/changelog_text.opy`，并消除 `strict-hero-init` include mismatch 噪声
   - 稳定性验证：`build` / `build:aram` / `duplicates --check` / `strict-hero-init` / `hero_pipeline --from-diff --build` 全部通过（`hero_pipeline` 本轮无 hero 变更）
   - 文档收口：新增 H9 并将 TODO 后续执行策略切换为维护态
 - 判定边界：
