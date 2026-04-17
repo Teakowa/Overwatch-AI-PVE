@@ -40,5 +40,4 @@ globalvar Counters 46
 globalvar Counter_Bot 47
 globalvar Blacklist 50
 globalvar CustomAI 51
-globalvar CustomAIArray 52 = [Hero.FREJA, Hero.VENTURE, Hero.PHARAH, Hero.ILLARI, Hero.JUNO, Hero.HAZARD, Hero.VENDETTA]
-
+globalvar CustomAIArray 52 = [Hero.FREJA, Hero.VENTURE, Hero.PHARAH, Hero.ILLARI, Hero.JUNO, Hero.HAZARD, Hero.VENDETTA, Hero.EMRE]

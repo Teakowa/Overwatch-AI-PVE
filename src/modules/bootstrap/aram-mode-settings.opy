@@ -11,8 +11,8 @@ rule "Copyright (c) 2019-2025 他又（aka Teakowa）":
 rule "Initialize global variables":
     Debug_UltimateGain = createWorkshopSettingBool("Debug", "即时终极技能充能", false, 4)
     Hero_BAN[0] = createWorkshopSettingInt("模式", "初始随机英雄池：重装", 1, 1, 4, 11)
-    CustomAIArray = [Hero.FREJA, Hero.VENTURE, Hero.PHARAH, Hero.ILLARI, Hero.JUNO, Hero.HAZARD, Hero.VENDETTA]
-    CustomAI = createWorkshopSettingEnum("模式", "自定义 AI", 0, ["弗蕾娅", "探奇", "法老之鹰", "伊拉锐", "朱诺", "骇灾", "斩仇"], 12)
+    CustomAIArray = [Hero.FREJA, Hero.VENTURE, Hero.PHARAH, Hero.ILLARI, Hero.JUNO, Hero.HAZARD, Hero.VENDETTA, Hero.EMRE]
+    CustomAI = createWorkshopSettingEnum("模式", "自定义 AI", 0, ["弗蕾娅", "探奇", "法老之鹰", "伊拉锐", "朱诺", "骇灾", "斩仇", "埃姆雷"], 12)
     Hero_BAN[1] = createWorkshopSettingInt("模式", "初始随机英雄池：输出", 2, 1, 4, 12)
     Hero_BAN[2] = createWorkshopSettingInt("模式", "初始随机英雄池：支援", 1, 1, 4, 13)
     Hero_BAN[3] = createWorkshopSettingInt("模式", "扩展随机英雄池：重装", 2, 2, 6, 14)
