@@ -9,7 +9,7 @@ rule "[AI/control]: Emre Primary":
     @Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) == true]) > 0
 
     eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
-    wait(max(getAverageServerLoad() / 1000, WAIT_AI_THROTTLE_MIN))
+    wait(max(getAverageServerLoad() / 1000, WAIT_AI_THROTTLE_MIN), Wait.ABORT_WHEN_FALSE)
     eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
     if ruleCondition:
         loop()
