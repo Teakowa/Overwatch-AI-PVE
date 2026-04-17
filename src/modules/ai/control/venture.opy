@@ -2,7 +2,7 @@ rule "[AI/control]: Venture Primary":
     @Event eachPlayer
     @Team 1
     @Hero venture
-    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.isDummy() != false
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.botTarget != null
@@ -21,7 +21,7 @@ rule "[AI/control]: Venture Secondary":
     @Event eachPlayer
     @Team 1
     @Hero venture
-    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.isDummy() != false
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.getAbilityCooldown(Button.SECONDARY_FIRE) == 0
@@ -36,7 +36,7 @@ rule "[AI/control]: Venture Ability 1":
     @Event eachPlayer
     @Team 1
     @Hero venture
-    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.isDummy() != false
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) == 0
@@ -65,7 +65,7 @@ rule "[AI/control]: Venture Ultimate":
     @Event eachPlayer
     @Team 1
     @Hero venture
-    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.isDummy() != false
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.getUltCharge() == 100
     @Condition eventPlayer.isAlive() == true

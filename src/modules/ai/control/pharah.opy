@@ -2,7 +2,7 @@ rule "[AI/control]: Pharah Primary":
     @Event eachPlayer
     @Team 1
     @Hero pharah
-    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.isDummy() != false
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.botTarget != null
@@ -20,7 +20,7 @@ rule "[AI/control]: Pharah Secondary":
     @Event playerTookDamage
     @Team 1
     @Hero pharah
-    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.isDummy() != false
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.getAbilityCooldown(Button.SECONDARY_FIRE) == 0
     @Condition eventPlayer.isAlive() == true
@@ -38,7 +38,7 @@ rule "[AI/control]: Pharah Ability 1":
     @Event eachPlayer
     @Team 1
     @Hero pharah
-    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.isDummy() != false
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) == 0
     @Condition eventPlayer.isAlive() == true
@@ -55,7 +55,7 @@ rule "[AI/control]: Pharah Ability 2":
     @Event eachPlayer
     @Team 1
     @Hero pharah
-    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.isDummy() != false
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) == 0
     @Condition eventPlayer.isAlive() == true
@@ -72,7 +72,7 @@ rule "[AI/control]: Pharah Jump":
     @Event eachPlayer
     @Team 1
     @Hero pharah
-    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.isDummy() != false
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.botTarget != null
@@ -96,7 +96,7 @@ rule "[AI/control]: Pharah Ultimate":
     @Event eachPlayer
     @Team 1
     @Hero pharah
-    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.isDummy() != false
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.getUltCharge() == 100
     @Condition eventPlayer.isAlive() == true

@@ -28,7 +28,7 @@ rule "[AI]: Target in line of sight":
 rule "[AI]: Target increase aim to prep for flicking to a target entering range":
     @Event eachPlayer
     @Team 1
-    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.isDummy() != false
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.botTarget != null

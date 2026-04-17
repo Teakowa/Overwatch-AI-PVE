@@ -30,7 +30,7 @@ rule "[AI/control]: Tracer Primary":
     @Event eachPlayer
     @Team 1
     @Hero tracer
-    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.isDummy() != false
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.isAlive() == true
     @Condition entityExists(eventPlayer.botTarget[0]) == true

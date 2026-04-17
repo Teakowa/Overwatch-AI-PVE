@@ -2,7 +2,7 @@ rule "[AI/control]: Vendetta Primary":
     @Event eachPlayer
     @Team 1
     @Hero vendetta
-    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.isDummy() != false
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.botTarget != null
@@ -21,7 +21,7 @@ rule "[AI/control]: Vendetta Secondary":
     @Event playerTookDamage
     @Team 1
     @Hero vendetta
-    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.isDummy() != false
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.botTarget != null
@@ -38,7 +38,7 @@ rule "[AI/control]: Vendetta Ability 1":
     @Event eachPlayer
     @Team 1
     @Hero vendetta
-    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.isDummy() != false
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) == 0
@@ -56,7 +56,7 @@ rule "[AI/control]: Vendetta Ability 2":
     @Event eachPlayer
     @Team 1
     @Hero vendetta
-    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.isDummy() != false
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) != true
@@ -73,7 +73,7 @@ rule "[AI/control]: Vendetta Ultimate":
     @Event eachPlayer
     @Team 1
     @Hero vendetta
-    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.isDummy() != false
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.getUltCharge() == 100
     @Condition eventPlayer.isAlive() == true

@@ -2,7 +2,7 @@ rule "[AI/control]: Juno Primary":
     @Event eachPlayer
     @Team 1
     @Hero juno
-    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.isDummy() != false
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.botTarget != null
@@ -29,7 +29,7 @@ rule "[AI/control]: Juno Ability 2":
     @Event eachPlayer
     @Team 1
     @Hero juno
-    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.isDummy() != false
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) == 0
     @Condition eventPlayer.isAlive() == true
@@ -46,7 +46,7 @@ rule "[AI/control]: Juno Jump":
     @Event eachPlayer
     @Team 1
     @Hero juno
-    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.isDummy() != false
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.isDummy() == true
     @Condition eventPlayer.isAlive() == true
@@ -69,7 +69,7 @@ rule "[AI/control]: Juno Ultimate":
     @Event playerTookDamage
     @Team 1
     @Hero juno
-    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.isDummy() != false
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.getUltCharge() == 100
     @Condition eventPlayer.isAlive() == true

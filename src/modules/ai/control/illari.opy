@@ -2,7 +2,7 @@ rule "[AI/control]: Illari Primary":
     @Event eachPlayer
     @Team 1
     @Hero illari
-    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.isDummy() != false
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.botTarget != null
@@ -19,7 +19,7 @@ rule "[AI/control]: Illari Secondary":
     @Event eachPlayer
     @Team 1
     @Hero illari
-    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.isDummy() != false
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.getAbilityResource(Button.SECONDARY_FIRE) <= 80
@@ -40,7 +40,7 @@ rule "[AI/control]: Illari Ability 1":
     @Event playerTookDamage
     @Team 1
     @Hero illari
-    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.isDummy() != false
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) != true
@@ -55,7 +55,7 @@ rule "[AI/control]: Illari Ability 2":
     @Event eachPlayer
     @Team 1
     @Hero illari
-    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.isDummy() != false
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.isAlive() == true
     @Condition (not eventPlayer.getAbilityCooldown(Button.ABILITY_2)) == true
@@ -81,7 +81,7 @@ rule "[AI/control]: Illari Ultimate":
     @Event eachPlayer
     @Team 1
     @Hero illari
-    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.isDummy() != false
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.getUltCharge() == 100
     @Condition eventPlayer.isAlive() == true

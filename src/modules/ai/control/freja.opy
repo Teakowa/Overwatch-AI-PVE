@@ -2,7 +2,7 @@ rule "[AI/control]: Freja Primary":
     @Event eachPlayer
     @Team 1
     @Hero freja
-    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.isDummy() != false
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.botTarget != null
@@ -27,7 +27,7 @@ rule "[AI/control]: Freja Ability 2":
     @Event eachPlayer
     @Team 1
     @Hero freja
-    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.isDummy() != false
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) != true
@@ -48,7 +48,7 @@ rule "[AI/control]: Freja Ultimate":
     @Event eachPlayer
     @Team 1
     @Hero freja
-    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.isDummy() != false
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.getUltCharge() == 100

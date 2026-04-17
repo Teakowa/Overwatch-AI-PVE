@@ -2,7 +2,7 @@ rule "[Mauga] Overrun knockdown duration":
     @Event playerDealtDamage
     @Hero mauga
     @Condition eventAbility == Button.ABILITY_1
-    
+
     victim.setStatusEffect(attacker, Status.BURNING, 2)
     if not victim.hasStatus(Status.KNOCKED_DOWN):
         goto lbl_0
@@ -12,6 +12,7 @@ rule "[Mauga] Overrun knockdown duration":
     damage(victim, attacker, ceil(victim.getMaxHealth() * MaugaBuff[3]))
     lbl_0:
     lbl_1:
+
 rule "[Mauga]: Fortify provides 100 temporary armor":
     @Event eachPlayer
     @Hero mauga
@@ -20,10 +21,11 @@ rule "[Mauga]: Fortify provides 100 temporary armor":
     eventPlayer.unaffected = true
     waitUntil(not eventPlayer.isUsingAbility1(), 3)
     eventPlayer.unaffected = false
+
 rule "[Mauga]: Cardiac Overdrive Dmg. reduction":
     @Event eachPlayer
     @Hero mauga
-    @Condition evalOnce(MaugaBuff[4]) != 0
+    @Condition MaugaBuff[4] != 0
     @Condition eventPlayer.mauga_berserker_soul != true
     @Condition eventPlayer.isUsingAbility2() == true
     @Condition eventPlayer.dmg_reduction >= 0

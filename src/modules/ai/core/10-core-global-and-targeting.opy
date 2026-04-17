@@ -63,7 +63,7 @@ rule "[AI/ultimate]: Auto charge Ultimate":
 rule "[AI/global]: TP":
     @Event eachPlayer
     @Team 1
-    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.isDummy() != false
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.reset_pvar[15].isAlive() == true
     @Condition eventPlayer.hasStatus(Status.FROZEN) == false

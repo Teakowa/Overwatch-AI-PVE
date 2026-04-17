@@ -2,7 +2,7 @@ rule "[AI/control]: Hazard Primary":
     @Event eachPlayer
     @Team 1
     @Hero hazard
-    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.isDummy() != false
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.botTarget != null
@@ -21,7 +21,7 @@ rule "[AI/control]: Hazard Secondary":
     @Event playerTookDamage
     @Team 1
     @Hero hazard
-    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.isDummy() != false
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.botTarget != null
@@ -38,7 +38,7 @@ rule "[AI/control]: Hazard Ability 1":
     @Event eachPlayer
     @Team 1
     @Hero hazard
-    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.isDummy() != false
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) != true
@@ -57,7 +57,7 @@ rule "[AI/control]: Hazard Ability 2":
     @Event eachPlayer
     @Team 1
     @Hero hazard
-    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.isDummy() != false
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) != true
@@ -73,7 +73,7 @@ rule "[AI/control]: Hazard Ultimate":
     @Event eachPlayer
     @Team 1
     @Hero hazard
-    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.isDummy() != false
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.getUltCharge() == 100
     @Condition eventPlayer.isAlive() == true

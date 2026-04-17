@@ -1,7 +1,7 @@
 rule "[AI/Movement]: Movement":
     @Event eachPlayer
     @Team 1
-    @Condition evalOnce(eventPlayer.isDummy()) != false
+    @Condition eventPlayer.isDummy() != false
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.isAlive() == true
     
