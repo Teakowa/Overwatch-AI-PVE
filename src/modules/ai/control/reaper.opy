@@ -1,5 +1,3 @@
-
-
 rule "[AI/control]: Reaper Primary":
     @Event eachPlayer
     @Team 1
@@ -9,6 +7,7 @@ rule "[AI/control]: Reaper Primary":
     @Condition eventPlayer.botTarget != null
     
     eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
+
 
 rule "[AI/control]: Reaper Secondary":
     @Event eachPlayer
@@ -23,6 +22,7 @@ rule "[AI/control]: Reaper Secondary":
     wait(max(getAverageServerLoad() / 1000, WAIT_AI_THROTTLE_MIN))
     eventPlayer.stopForcingButton(Button.SECONDARY_FIRE)
     wait(3)
+
 
 
 rule "[AI/control]: Reaper Ability 1":
@@ -50,6 +50,7 @@ rule "[AI/control]: Reaper Ability 1":
         loop()
 
 
+
 rule "[AI/control]: Reaper Ability 2":
     @Event eachPlayer
     @Team 1
@@ -72,6 +73,7 @@ rule "[AI/control]: Reaper Ability 2":
         loop()
 
 
+
 rule "[AI/control]: Reaper Ultimate":
     @Event eachPlayer
     @Team 1
@@ -89,3 +91,4 @@ rule "[AI/control]: Reaper Ultimate":
     wait(WAIT_AI_THROTTLE_MIN)
     if ruleCondition:
         loop()
+

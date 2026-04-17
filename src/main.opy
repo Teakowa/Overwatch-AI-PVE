@@ -38,10 +38,8 @@
 #!include "modules/ai/00-delimiter-begin.opy"
 #!include "modules/ai/core/10-core-global-and-targeting.opy"
 #!include "modules/ai/movement/20-movement.opy"
-#!include "modules/ai/control/30-control-tracer-reaper-genji.opy"
-#!include "modules/ai/control/31-control-supports.opy"
-#!include "modules/ai/control/32-control-tanks.opy"
-#!include "modules/ai/control/33-control-projectile-and-special.opy"
+#!include "modules/ai/control/common.opy"
+#!include "modules/ai/control/heroes.opy"
 #!include "modules/ai/99-delimiter-end.opy"
 
 # Hero gameplay rules
