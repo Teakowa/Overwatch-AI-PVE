@@ -16,6 +16,7 @@ rule "[Sierra]: ultmate stun":
     @Condition eventAbility == Button.ULTIMATE
     
     victim.setStatusEffect(eventPlayer, Status.KNOCKED_DOWN, 1.5)
+    damage(victim, attacker, eventDamage / 2)
     wait(1.5)
 
 rule "[Sierra]: ability 2 heal":
