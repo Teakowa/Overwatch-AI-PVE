@@ -5,7 +5,6 @@ rule "[AI/control]: Reaper Primary":
     @Team 1
     @Hero reaper
     @Condition eventPlayer.hasSpawned() == true
-    @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.botTarget != null
     
     eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
@@ -32,7 +31,6 @@ rule "[AI/control]: Reaper Ability 1":
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) == 0
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) <= 3
-    @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.botTarget != null
     
     eventPlayer.startForcingButton(Button.ABILITY_1)
@@ -55,7 +53,6 @@ rule "[AI/control]: Reaper Ability 2":
     @Team 1
     @Hero reaper
     @Condition eventPlayer.hasSpawned() == true
-    @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) <= 3
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) == 0
     @Condition eventPlayer.botTarget != null
@@ -78,7 +75,6 @@ rule "[AI/control]: Reaper Ultimate":
     @Hero reaper
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.getUltCharge() == 100
-    @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.botTarget != null
     @Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if distance(eventPlayer, player) <= 8.3]) > 0
     

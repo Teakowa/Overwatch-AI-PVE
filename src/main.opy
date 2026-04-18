@@ -14,7 +14,6 @@
 
 # Bootstrap: init, anti-crash, blacklist, lifecycle
 #!include "modules/bootstrap/00-init-and-settings.opy"
-#!include "modules/bootstrap/09-anti-crash.opy"
 #!include "modules/bootstrap/11-blacklist.opy"
 #!include "modules/bootstrap/10-safety-blacklist-ban.opy"
 #!include "modules/bootstrap/20-player-lifecycle-and-reset.opy"

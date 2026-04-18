@@ -193,8 +193,9 @@ rule "[AI/control]: Genji Ultimate":
     @Condition eventPlayer.isUsingUltimate() == true
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) == 0
     
+    eventPlayer.stopForcingButton(Button.ABILITY_1)
     eventPlayer.forceButtonPress(Button.ABILITY_1)
-    wait(0.5)
+    wait(max(getAverageServerLoad() / 1000, 0.5), Wait.ABORT_WHEN_FALSE)
     if ruleCondition:
         loop()
 
@@ -229,7 +230,7 @@ rule "[AI/control]: Hazard Secondary":
     
     eventPlayer.startForcingButton(Button.SECONDARY_FIRE)
     wait(WAIT_AI_THROTTLE_MIN)
-    wait(WAIT_AI_THROTTLE_MIN, Wait.RESTART_WHEN_TRUE)
+    wait(max(getAverageServerLoad() / 1000, WAIT_AI_THROTTLE_MIN), Wait.RESTART_WHEN_TRUE)
     eventPlayer.stopForcingButton(Button.SECONDARY_FIRE)
 
 
@@ -247,7 +248,7 @@ rule "[AI/control]: Hazard Ability 1":
     waitUntil(eventPlayer.getAltitude() > 0.1, 99999)
     waitUntil(eventPlayer.getAltitude() < 0.1, 99999)
     eventPlayer.startForcingButton(Button.ABILITY_1)
-    wait(WAIT_AI_THROTTLE_MIN)
+    wait(max(getAverageServerLoad() / 1000, WAIT_AI_THROTTLE_MIN))
     eventPlayer.stopForcingButton(Button.ABILITY_1)
 
 

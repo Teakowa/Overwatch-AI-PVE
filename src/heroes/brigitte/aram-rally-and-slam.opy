@@ -21,7 +21,7 @@ rule "[Brigitte]Rally provides permanent armor to self":
     @Condition Brigitte[2] != 0
     @Condition eventPlayer.isUsingUltimate() == true
     @Condition len(eventPlayer.brig_rally_armor_id) < 9
-    @Condition getServerLoad() < ANTI_CRASH_DEACTIVATE_PERCENT
+    # @Condition getAverageServerLoad() < ANTI_CRASH_DEACTIVATE_PERCENT
     
     eventPlayer.dmg_reduction += Brigitte[0]
     eventPlayer.setDamageReceived(100 - eventPlayer.dmg_reduction)
@@ -39,7 +39,7 @@ rule "[Brigitte]Rally provides permanent armor to allies":
     @Condition distance(eventPlayer, getPlayersOnHero(Hero.BRIGITTE, eventPlayer.getTeam())) <= 8.5
     @Condition eventPlayer.getHero() != Hero.BRIGITTE
     @Condition len(eventPlayer.brig_rally_armor_id) < 9
-    @Condition getServerLoad() < ANTI_CRASH_DEACTIVATE_PERCENT
+    # @Condition getAverageServerLoad() < ANTI_CRASH_DEACTIVATE_PERCENT
     
     eventPlayer.addHealthPool(Health.ARMOR, Brigitte[2], false, false)
     eventPlayer.brig_rally_armor_id.append(getLastCreatedHealthPool())
