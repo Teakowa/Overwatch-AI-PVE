@@ -3,7 +3,7 @@ rule "[Roadhog]: Breather":
     @Team 1
     @Hero roadhog
     @Condition eventPlayer.isUsingAbility2() == true
-    @Condition eventAbility.getNormalizedHealth() != 1
+    @Condition eventPlayer.getNormalizedHealth() < 1
     
     heal(getLivingPlayers(eventPlayer.getTeam()), eventPlayer, 70)
     wait(1)
@@ -20,3 +20,4 @@ rule "[Roadhog]: Breather":
     wait(0.54)
     eventPlayer.setAbilityResource(Button.SECONDARY_FIRE, 50)
     wait(1.25)
+

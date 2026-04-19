@@ -34,7 +34,7 @@ rule "[Ramattra] ult healing":
     @Hero ramattra
     #@Condition attacker.getHero() == Hero.RAMATTRA == true
     @Condition eventAbility.isUsingUltimate() == true
-    @Condition eventAbility.getNormalizedHealth() != 1
+    @Condition eventPlayer.getNormalizedHealth() != 1
     #@Condition eventAbility == Button.PRIMARY_FIRE == true
     
     heal(eventAbility, eventAbility, eventDamage * Ram_Annihilation[1])
