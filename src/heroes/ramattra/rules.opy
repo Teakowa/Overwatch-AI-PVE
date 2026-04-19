@@ -7,6 +7,7 @@ rule "[Ramattra]: Pummel Knockback":
     victim.applyImpulse(Vector.UP, 2.5, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
     victim.setEnvironmentalKillCreditor(attacker)
     wait(0.5)
+
 rule "[Ramattra] ult speed":
     @Event eachPlayer
     @Hero ramattra
@@ -30,6 +31,7 @@ rule "[Ramattra] ult speed":
     eventPlayer.setDamageDealt(100)
     wait(WAIT_SHORT_FRAME)
     #removeTankPassive()
+
 rule "[Ramattra] ult start":
     @Event eachPlayer
     @Hero ramattra
@@ -41,19 +43,21 @@ rule "[Ramattra] ult start":
     wait(1.16)
     if ruleCondition:
         loop()
+    
 rule "[Ramattra] ult healing":
     @Event playerDealtDamage
     @Hero ramattra
     #@Condition attacker.getHero() == Hero.RAMATTRA == true
-    @Condition attacker.isUsingUltimate() == true
-    @Condition attacker.getHealth() < attacker.getMaxHealth()
+    @Condition eventAbility.isUsingUltimate() == true
+    @Condition eventAbility.getNormalizedHealth() != 1
     #@Condition eventAbility == Button.PRIMARY_FIRE == true
     
     #heal(eventPlayer, eventPlayer, Ram_Annihilation[2] * 15 * len(getPlayersInRadius(eventPlayer, 13, getOppositeTeam(eventPlayer.getTeam()), LosCheck.SURFACES_AND_ENEMY_BARRIERS)))
     #wait(0.5)
     #playEffect(eventPlayer, DynamicEffect.GOOD_PICKUP_EFFECT, Color.YELLOW, eventPlayer, 200)
-    heal(attacker, attacker, eventDamage * Ram_Annihilation[1])
+    heal(eventAbility, eventAbility, eventDamage * Ram_Annihilation[1])
     wait(0.0016)
+
 rule "[Ramattra]: Pummel healing":
     @Event playerDealtDamage
     @Team 1
@@ -64,6 +68,7 @@ rule "[Ramattra]: Pummel healing":
     
     eventPlayer.ram_block_damage += eventDamage * 2.5
     wait(0.3)
+
 rule "[Ramattra]: Pummel healing":
     @Event playerDealtDamage
     @Team 2
@@ -75,7 +80,9 @@ rule "[Ramattra]: Pummel healing":
     eventPlayer.ram_block_damage += eventDamage * 1.5
     eventPlayer.hudText = "{0}/{1}".format(floor(eventPlayer.ram_block_damage), Ram_Annihilation[0])
     wait(0.3)
+
 #!include "pain-endures.opy"
+
 rule "[Ramattra]: block":
     @Event playerTookDamage
     @Hero ramattra
@@ -86,6 +93,7 @@ rule "[Ramattra]: block":
     
     eventPlayer.ram_block_damage += eventDamage
     eventPlayer.hudText = "{0}/{1}".format(floor(eventPlayer.ram_block_damage), Ram_Annihilation[0])
+
 rule "[Ramattra]: block HP":
     @Event eachPlayer
     @Hero ramattra
@@ -100,6 +108,7 @@ rule "[Ramattra]: block HP":
     #        goto lbl_0
     #eventPlayer.startHealingOverTime(eventPlayer, 5, eventPlayer.getMaxHealth() * 0.25)
     lbl_0:
+
 rule "[Ramattra]: block HUD":
     @Event eachPlayer
     @Team 2
@@ -114,6 +123,7 @@ rule "[Ramattra]: block HUD":
     waitUntil(eventPlayer.ram_block_damage == 0 or eventPlayer.reset_pvar[0] or eventPlayer.isInSpawnRoom(), Math.INFINITY)
     eventPlayer.hudText = ""
     #destroyHudText(eventPlayer.ram_block_damage_hud)
+
 rule "[Ramattra]: Annihilation dmg reduc":
     @Event eachPlayer
     @Condition eventPlayer.reset_pvar[5].isUsingUltimate() == true
