@@ -114,5 +114,3 @@
 #!include "heroes/soldier76/aram-heartsteel.opy"
 #!include "heroes/soldier76/aram-sprint-suite.opy"
 #!include "heroes/soldier76/aram-tactical-visor-suite.opy"
-# !include "modules/debug/20-changelog.opy"
-# !include "utilities/changelog_text.opy"

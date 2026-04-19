@@ -45,8 +45,3 @@
 
 # Hero gameplay rules
 #!include "heroes/init.main.opy"
-
-# Debug and changelog
-#!include "modules/debug/10-debug-ultimate.opy"
-#!include "modules/debug/20-changelog.opy"
-#!include "utilities/changelog_text.opy"
