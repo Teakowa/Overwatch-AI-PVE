@@ -82,7 +82,6 @@
 #!include "heroes/moira/aram-fade-disable-on-coalescence.opy"
 #!include "heroes/moira/aram-kill-tracking.opy"
 #!include "heroes/zarya/aram-will-to-win.opy"
-#!include "heroes/junkrat/aram-steel-trap-bleed.opy"
 #!include "heroes/junkrat/aram-arsonist.opy"
 #!include "heroes/juno/track-orbital-ray-position.opy"
 #!include "heroes/juno/aram-orbital-and-pulsar-heal.opy"
