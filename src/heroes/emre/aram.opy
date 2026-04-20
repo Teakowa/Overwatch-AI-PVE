@@ -6,9 +6,9 @@ rule "[Emre][ARAM]: Cyber Grenade Control + Burn":
     @Condition eventAbility == Button.ABILITY_2
     @Condition (victim.hasStatus(Status.INVINCIBLE) or victim.hasStatus(Status.UNKILLABLE) or victim.hasStatus(Status.PHASED_OUT) or victim.has_nano) == false
     
-    victim.setStatusEffect(attacker, Status.KNOCKED_DOWN, 0.8)
+    victim.setStatusEffect(attacker, Status.KNOCKED_DOWN, 2)
     victim.setStatusEffect(attacker, Status.BURNING, 2)
-    damage(victim, attacker, 75 + victim.getMaxHealth() * 0.05)
+    damage(victim, attacker, 75 + victim.getMaxHealth() * 0.15)
 	wait()
 
 rule "[Emre][ARAM]: Override Protocol Burn":
@@ -19,5 +19,5 @@ rule "[Emre][ARAM]: Override Protocol Burn":
     @Condition (victim.hasStatus(Status.INVINCIBLE) or victim.hasStatus(Status.UNKILLABLE) or victim.hasStatus(Status.PHASED_OUT) or victim.has_nano) == false
     
     victim.setStatusEffect(attacker, Status.BURNING, 2)
-    damage(victim, attacker, 100 + victim.getMaxHealth() * 0.25)
+    damage(victim, attacker, 100 + victim.getMaxHealth() * 0.50)
 	wait()
