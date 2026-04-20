@@ -48,14 +48,14 @@ rule "[Ramattra] ult healing":
     @Event playerDealtDamage
     @Hero ramattra
     #@Condition attacker.getHero() == Hero.RAMATTRA == true
-    @Condition eventAbility.isUsingUltimate() == true
-    @Condition eventAbility.getNormalizedHealth() != 1
+    @Condition eventPlayer.isUsingUltimate() == true
+    @Condition eventPlayer.getNormalizedHealth() != 1
     #@Condition eventAbility == Button.PRIMARY_FIRE == true
     
     #heal(eventPlayer, eventPlayer, Ram_Annihilation[2] * 15 * len(getPlayersInRadius(eventPlayer, 13, getOppositeTeam(eventPlayer.getTeam()), LosCheck.SURFACES_AND_ENEMY_BARRIERS)))
     #wait(0.5)
     #playEffect(eventPlayer, DynamicEffect.GOOD_PICKUP_EFFECT, Color.YELLOW, eventPlayer, 200)
-    heal(eventAbility, eventAbility, eventDamage * Ram_Annihilation[1])
+    heal(eventPlayer, eventPlayer, eventDamage * Ram_Annihilation[1])
     wait(0.0016)
 
 rule "[Ramattra]: Pummel healing":
