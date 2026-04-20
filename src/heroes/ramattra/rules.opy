@@ -1,7 +1,11 @@
+#Only remove the following directive if the gamemode does not use tricks such as A+0, A*0, "am" == "**", etc which would otherwise be optimized out.
+#!optimizeStrict
+
 rule "[Ramattra]: Pummel Knockback":
     @Event playerDealtDamage
     @Hero ramattra
     @Condition eventAbility == Button.ABILITY_1
+    @Disabled
     
     victim.applyImpulse(directionFromAngles(horizontalAngleOfDirection(victim.getPosition() - attacker.getPosition()), -20), 5, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
     victim.applyImpulse(Vector.UP, 2.5, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
@@ -127,10 +131,15 @@ rule "[Ramattra]: block HUD":
 rule "[Ramattra]: Annihilation dmg reduc":
     @Event eachPlayer
     @Condition eventPlayer.reset_pvar[5].isUsingUltimate() == true
-    @Condition distance(eventPlayer, eventPlayer.reset_pvar[5].getPosition()) > 13
+    @Condition len(getPlayersInRadius(eventPlayer, 13, getOppositeTeam(eventPlayer.getTeam()), LosCheck.SURFACES)) > 0
     
-    startDamageModification(eventPlayer.reset_pvar[5], eventPlayer, 25)
+    startDamageModification(eventPlayer, getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())).filter(lambda player: distance(eventPlayer, player) > 13), 25)
     eventPlayer.ram_dmg_reduc = getLastDamageModification()
-    waitUntil(not eventPlayer.reset_pvar[5].isUsingUltimate() or distance(eventPlayer, eventPlayer.reset_pvar[5].getPosition()) <= 13, 120)
+    wait(1)
+    if ruleCondition:
+        loop()
+    #waitUntil(not eventPlayer.reset_pvar[5].isUsingUltimate() or distance(eventPlayer, eventPlayer.reset_pvar[5].getPosition()) <= 13, 120)
     stopDamageModification(eventPlayer.ram_dmg_reduc)
     eventPlayer.ram_dmg_reduc = null
+
+
