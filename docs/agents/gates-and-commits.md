@@ -18,6 +18,8 @@
 - `pnpm run build`
 - `pnpm run build:release`
 - `pnpm run build:aram`
+- `pnpm run perf:scan`
+- `pnpm run perf:scan:strict`
 - `skills/ow-contract-guard/scripts/check_contracts.sh`
 - `skills/ow-contract-guard/scripts/check_contracts.sh --build`
 - `skills/ow-contract-guard/scripts/check_contracts.sh --strict-hero-init`
@@ -42,4 +44,5 @@
 
 ### R-GATE-RUN-BUILD
 
-3. `pnpm run build`
+3. `pnpm run perf:scan`
+4. `pnpm run build`

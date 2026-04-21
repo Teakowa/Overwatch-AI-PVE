@@ -15,6 +15,7 @@
 ### R-CHECK-NO-WAITLESS-LOOP
 
 4. 是否引入无等待循环或高频昂贵表达式？
+   建议执行：`pnpm run perf:scan`（日常）或 `pnpm run perf:scan:strict`（收敛高风险）。
 
 ### R-CHECK-TEAM-BOUNDARY
 

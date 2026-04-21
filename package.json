@@ -4,7 +4,9 @@
   "scripts": {
     "build": "overpy compile -i src/main.opy --root src -o workshop.ow -l zh-CN",
     "build:release": "mkdir -p build && overpy compile -i src/main.opy --root src -l zh-CN -o build/main.ow",
-    "build:aram": "mkdir -p build && overpy compile -i src/aramMain.opy --root src -l zh-CN -o build/aram.ow"
+    "build:aram": "mkdir -p build && overpy compile -i src/aramMain.opy --root src -l zh-CN -o build/aram.ow",
+    "perf:scan": "node tools/perf-loop-scan.mjs src",
+    "perf:scan:strict": "node tools/perf-loop-scan.mjs --strict src"
   },
   "dependencies": {
     "overpy": "^9.5.11"
