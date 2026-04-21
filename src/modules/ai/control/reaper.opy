@@ -57,8 +57,8 @@ rule "[AI/control]: Reaper Ability 2":
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) <= 3
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) == 0
     @Condition eventPlayer.botTarget != null
+    @Condition distance(eventPlayer.getPosition() * vect(1, 0, 1), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) > 5
     
-    waitUntil(not eventPlayer.getAbilityCooldown(Button.ABILITY_2) and distance(eventPlayer.getPosition(), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) > 5, 99999)
     eventPlayer.startForcingButton(Button.ABILITY_2)
     eventPlayer.startFacing(directionTowards(eventPlayer.getEyePosition(), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)), 10000)
     wait(WAIT_AI_THROTTLE_MIN)
@@ -78,13 +78,14 @@ rule "[AI/control]: Reaper Ultimate":
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.getUltCharge() == 100
     @Condition eventPlayer.botTarget != null
-    @Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if distance(eventPlayer, player) <= 8.3]) > 0
+    @Condition eventPlayer.botTarget.isAlive() == true
+    @Condition isInLoS(eventPlayer, eventPlayer.botTarget) == true
+    @Condition distance(eventPlayer, eventPlayer.botTarget) <= 8.3
+    @Condition not eventPlayer.isFiringPrimaryFire()
     
-    waitUntil(not eventPlayer.isFiringPrimaryFire() and distance(eventPlayer.getPosition(), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) < 3, 99999)
     eventPlayer.startForcingButton(Button.ULTIMATE)
-    waitUntil(not eventPlayer.isUsingUltimate(), 99999)
+    waitUntil(not eventPlayer.isUsingUltimate(), 3.5)
     eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
     wait(WAIT_AI_THROTTLE_MIN)
     if ruleCondition:
         loop()
-

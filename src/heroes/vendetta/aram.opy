@@ -33,7 +33,7 @@ rule "[Vendetta]: Soaring Slice":
 
     eventPlayer.setStatusEffect(null, Status.PHASED_OUT, 2.5)
     eventPlayer.unaffected = true
-    waitUntil(not true, eventPlayer.isUsingAbility2())
+    waitUntil(not eventPlayer.isUsingAbility2(), 2.5)
     wait(0.8)
     eventPlayer.unaffected = false
     eventPlayer.clearStatusEffect(Status.PHASED_OUT)
