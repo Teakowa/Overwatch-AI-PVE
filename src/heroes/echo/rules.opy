@@ -1,10 +1,9 @@
-rule "[Echo]: Focusing Beam Damage":
+rule "[Echo] Duplicate fast ultimate charge":
     @Event eachPlayer
     @Hero echo
-    @Condition eventPlayer.isAlive() == true
-    @Condition eventPlayer.isUsingAbility2() == true
-    
-    wait(1, Wait.ABORT_WHEN_FALSE)
-    eventPlayer.setDamageDealt(150)
-    waitUntil(not eventPlayer.isUsingAbility2(), 2)
-    eventPlayer.setDamageDealt(100)
+    @Condition eventPlayer.isDuplicatingAHero() == true
+    @Condition eventPlayer.getUltCharge() < 50 == true
+
+    eventPlayer.setUltCharge(10)
+
+#!include "ability2.opy"

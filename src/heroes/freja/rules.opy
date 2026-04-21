@@ -1,12 +1,11 @@
-#!include "revdraw-crossbow-stack-primary-fire.opy"
 rule "[Freja]: Revdraw Crossbow Stack":
-    @Event playerDealtKnockback
+    @Event playerDealtDamage
     @Hero freja
-    @Condition eventAbility == Button.ULTIMATE
+    @Condition eventAbility == Button.PRIMARY_FIRE
     @Condition eventPlayer.hasStatus(Status.INVINCIBLE) != true
-    
-    victim.freja_buff[0] += 15
-    wait(5)
+
+    victim.freja_buff[0]++
+
 rule "[Freja]: Take Aim Damage":
     @Event playerDealtDamage
     @Hero freja
@@ -14,17 +13,18 @@ rule "[Freja]: Take Aim Damage":
     @Condition (victim.hasStatus(Status.INVINCIBLE) or victim.hasStatus(Status.UNKILLABLE) or victim.hasStatus(Status.PHASED_OUT)) == false
     @Condition victim.has_nano != true
     @Condition victim.freja_buff[0] > 0
-    
+
     wait(0.5, Wait.ABORT_WHEN_FALSE)
     playEffect(getAllPlayers(), DynamicEffect.BAD_EXPLOSION, Color.BLUE, victim, 0.8)
     playEffect(getAllPlayers(), DynamicEffect.EXPLOSION_SOUND, Color.BLUE, victim, 10)
     damage(victim, attacker, FrejaBuff[0] * victim.freja_buff[0])
     victim.freja_buff[0] = 0
     victim.freja_buff[1] = 0
+
 rule "[Freja]: HUD & Reset":
     @Event eachPlayer
     @Condition eventPlayer.freja_buff[0] > 0
-    
+
     if eventPlayer.freja_buff[3] != 0:
         goto lbl_0
     hudText(eventPlayer.reset_pvar[11], null, " \r\n\r\n\n", "  {0} 狩猎印记： {1}".format(heroIcon(eventPlayer.getHero()), eventPlayer.freja_buff[0]), HudPosition.LEFT, 1, null, null, rgb(255, 255, 255, 200), HudReeval.STRING)
@@ -45,49 +45,27 @@ rule "[Freja]: HUD & Reset":
     destroyHudText(eventPlayer.freja_buff[4])
     eventPlayer.freja_buff[3] = 0
     eventPlayer.freja_buff[4] = 0
+
 rule "[Freja]: Ex":
     @Event playerDealtKnockback
     @Hero freja
     @Condition eventAbility == null
     @Condition (victim.hasStatus(Status.INVINCIBLE) or victim.hasStatus(Status.UNKILLABLE) or victim.hasStatus(Status.PHASED_OUT) or not victim.has_nano) == false
     #@Condition victim.freja_buff[0] > 0
-    
+
     if not victim.isAlive() or victim.getHealth() > victim.getMaxHealth() * FrejaBuff[2]:
         goto lbl_0
     damage(victim, attacker, 44444)
     smallMessage(eventPlayer, "  斩杀： {0} ".format(heroIcon(victim.getHero())))
     wait(1, Wait.ABORT_WHEN_FALSE)
     lbl_0:
+
 rule "[Freja]: Ammo":
     @Event playerEarnedElimination
     @Hero freja
     @Disabled
-    
+
     eventPlayer.setAmmo(0, eventPlayer.getAmmo() + 1)
-rule "[Freja]: Dmg. reduction":
-    @Event eachPlayer
-    @Hero freja
-    @Condition eventPlayer.isUsingAbility2() == true
-    #@Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) != 0
-    @Condition eventPlayer.isInAir() == true
-    
-    if eventPlayer.getTeam() == Team.2:
-        goto lbl_0
-    eventPlayer.startHealingOverTime(null, 10, 30)
-    eventPlayer.freja_buff[5] = getLastHealingOverTimeId()
-    eventPlayer.setDamageReceived(75)
-    hudText(eventPlayer, null, " \r\n", "受到伤害减免：{0}%".format(25), HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
-    #eventPlayer.hudText = "受到伤害减免：{0}%".format(25)
-    eventPlayer.freja_buff[2] = getLastCreatedText()
-    lbl_0:
-    waitUntil(not eventPlayer.isInAir() and eventPlayer.isOnGround(), 99999)
-    eventPlayer.hudText = ""
-    destroyHudText(eventPlayer.freja_buff[2])
-    eventPlayer.freja_buff[2] = 0
-    eventPlayer.setDamageReceived(100)
-    if eventPlayer.getTeam() == Team.2:
-        goto lbl_1
-    stopHealingOverTime(eventPlayer.freja_buff[5])
-    eventPlayer.freja_buff[5] = null
-    lbl_1:
-#!include "set-projectile-speed.opy"
+
+#!include "ability2.opy"
+#!include "ultimate.opy"

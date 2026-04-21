@@ -3,7 +3,7 @@ rule "[Junkrat]: arsonist":
     @Hero junkrat
     #@Condition victim.hasStatus(Status.BURNING) == false
     @Condition eventAbility != Button.MELEE
-    
+
     victim.setStatusEffect(attacker, Status.BURNING, 3)
     if victim.hasStatus(Status.BURNING) != true:
         goto lbl_0
