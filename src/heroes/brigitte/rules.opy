@@ -12,6 +12,5 @@ rule "【布丽吉塔】恢复包提供护甲":
     eventPlayer.addHealthPool(Health.ARMOR, Brigitte[1], false, false)
     smallMessage(eventPlayer, "  {0} 获得来自 {1} 的护甲".format(abilityIconString(Hero.BRIGITTE, Button.ABILITY_2), eventPlayer.reset_pvar[1].getHero()))
     eventPlayer.brig_repair_pack_id = getLastCreatedHealthPool()
-
 #!include "ability2.opy"
 #!include "ultimate.opy"

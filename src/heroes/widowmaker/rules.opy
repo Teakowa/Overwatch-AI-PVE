@@ -28,5 +28,4 @@ rule "[widowmaker.opy]: Revert sniper damage falloff":
         eventPlayer.ow1_scoped_damage_falloff_scalar = 0.3
     eventPlayer.expected_scoped_damage = eventPlayer.scoped_damage_base * eventPlayer.ow1_scoped_damage_falloff_scalar
     damage(victim, attacker, ceil(eventPlayer.expected_scoped_damage - eventDamage))
-
 #!include "ultimate.opy"

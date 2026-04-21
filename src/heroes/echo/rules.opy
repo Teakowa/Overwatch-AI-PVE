@@ -5,5 +5,4 @@ rule "[Echo] Duplicate fast ultimate charge":
     @Condition eventPlayer.getUltCharge() < 50 == true
 
     eventPlayer.setUltCharge(10)
-
 #!include "ability2.opy"

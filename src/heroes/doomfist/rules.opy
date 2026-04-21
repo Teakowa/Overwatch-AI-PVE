@@ -65,6 +65,5 @@ rule "[Doomfist] remove The Best Defense armor":
     wait(WAIT_SHORT_FRAME)
     if ruleCondition:
         loop()
-
 #!include "ability2.opy"
 #!include "ultimate.opy"

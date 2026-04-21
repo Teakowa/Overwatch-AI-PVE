@@ -44,14 +44,12 @@ rule "[Reinhardt]: Shield Slam knockback":
     waitUntil(not eventPlayer.isFiringSecondaryFire(), 99999)
     eventPlayer.setKnockbackDealt(100)
 
-
 rule "[Reinhardt]: Shield Slam stun":
     @Event playerDealtKnockback
     @Hero reinhardt
     @Condition eventAbility == Button.SECONDARY_FIRE
 
     victim.setStatusEffect(attacker, Status.STUNNED, 1.2)
-
 
 rule "[Reinhardt]: Attack to get overhealth":
     @Event playerDealtKnockback
@@ -65,7 +63,6 @@ rule "[Reinhardt]: Attack to get overhealth":
     wait(0.5)
     #if ruleCondition:
     #        loop()
-
 
 rule "[Reinhardt]: Attack to get overhealth removal":
     @Event eachPlayer
@@ -91,6 +88,5 @@ rule "[Reinhardt]: Charge dmg fix":
     eventPlayer.rein_charge_fix = getLastDamageModification()
     waitUntil(eventPlayer.getAbilityCooldown(Button.ABILITY_1) > 0, 3.12)
     stopDamageModification(eventPlayer.rein_charge_fix)
-
 #!include "ability1.opy"
 #!include "ultimate.opy"

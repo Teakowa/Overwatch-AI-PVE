@@ -40,5 +40,4 @@ rule "[Zarya]: Projected Barrier Shields":
     wait(3, Wait.RESTART_WHEN_TRUE)
     removeHealthPool(eventPlayer.zarya_barrier_shields[1])
     eventPlayer.zarya_barrier_shields[1] = null
-
 #!include "ability2.opy"

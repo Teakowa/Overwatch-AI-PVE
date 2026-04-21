@@ -16,5 +16,4 @@ rule "[JunkerQueen]: Taunt enemies":
     enableAllAbilities()
     eventPlayer.stopFacing()
     eventPlayer.taunt = false
-
 #!include "ability1.opy"

@@ -49,6 +49,5 @@ rule "[Orisa]: stun when ult":
         victim.setMoveSpeed(min(max(100 + victim.mov_speed_buff, 20), 200))
     victim.orisa_buff = false
     lbl_0:
-
 #!include "ability2.opy"
 #!include "ultimate.opy"

@@ -12,7 +12,6 @@ rule "[Ramattra]: Pain endures":
     eventPlayer.setUltCharge(eventPlayer.getUltCharge() + 25)
     wait(0.3)
 
-
 rule "[Ramattra]: block":
     @Event playerTookDamage
     @Hero ramattra
@@ -23,7 +22,6 @@ rule "[Ramattra]: block":
 
     eventPlayer.ram_block_damage += eventDamage
     eventPlayer.hudText = "{0}/{1}".format(floor(eventPlayer.ram_block_damage), Ram_Annihilation[0])
-
 
 rule "[Ramattra]: block HP":
     @Event eachPlayer
@@ -40,7 +38,6 @@ rule "[Ramattra]: block HP":
     #eventPlayer.startHealingOverTime(eventPlayer, 5, eventPlayer.getMaxHealth() * 0.25)
     lbl_0:
 
-
 rule "[Ramattra]: block HUD":
     @Event eachPlayer
     @Team 2
@@ -55,6 +52,5 @@ rule "[Ramattra]: block HUD":
     waitUntil(eventPlayer.ram_block_damage == 0 or eventPlayer.reset_pvar[0] or eventPlayer.isInSpawnRoom(), Math.INFINITY)
     eventPlayer.hudText = ""
     #destroyHudText(eventPlayer.ram_block_damage_hud)
-
 #!include "ability1.opy"
 #!include "ultimate.opy"

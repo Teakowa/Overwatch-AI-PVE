@@ -7,7 +7,6 @@ rule "[Reaper]: Ability 2 Shadow Step cd":
     eventPlayer.setAbilityCooldown(Button.ABILITY_2, eventPlayer.getAbilityCooldown(Button.ABILITY_2) - (50 * ReaperBuff[1] if eventPlayer.reaper_buff[0] > 50 else eventPlayer.reaper_buff[0] * ReaperBuff[1]))
     eventPlayer.dmg_reduction += 60 if ReaperBuff[4] + eventPlayer.reaper_buff[0] * ReaperBuff[5] >= 60 else ReaperBuff[4] + eventPlayer.reaper_buff[0] * ReaperBuff[5]
 
-
 rule "[Reaper]: Ability 2 Shadow Step dmg reduction setup":
     @Event eachPlayer
     @Hero reaper

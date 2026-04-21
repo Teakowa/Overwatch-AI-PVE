@@ -10,7 +10,6 @@ rule "[Wuyang]: Ebb and Flow lost control":
     victim.stopForcingThrottle()
     #victim.setGravity(100)
 
-
 rule "[Wuyang]: Ebb and Flow set":
     @Event playerReceivedKnockback
     #@Condition eventPlayer.isUsingAbility2() == true

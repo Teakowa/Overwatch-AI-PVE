@@ -76,7 +76,6 @@ rule "[Mauga]: Berserker Soul cd":
     wait(1.96)
     if ruleCondition:
         loop()
-
 #!include "ability1.opy"
 #!include "ability2.opy"
 #!include "ultimate.opy"

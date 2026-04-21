@@ -23,7 +23,6 @@ rule "[Wuyang]: mov_speed_penalty":
         lbl_0:
     wait(0.32)
 
-
 rule "[Wuyang]: xuanwu cd":
     @Event playerDealtKnockback
     @Hero wuyang
@@ -32,7 +31,6 @@ rule "[Wuyang]: xuanwu cd":
 
     eventPlayer.setAbilityCooldown(Button.ABILITY_2, eventPlayer.getAbilityCooldown(Button.ABILITY_2) - 1)
     wait(0.5)
-
 
 rule "[Wuyang]: Restorative shield Target":
     @Event playerReceivedHealing
@@ -47,7 +45,6 @@ rule "[Wuyang]: Restorative shield Target":
     removeHealthPool(eventPlayer.wuyang_buff[1])
     eventPlayer.wuyang_buff[0] = false
 
-
 rule "[Wuyang]: Restorative shield":
     @Event eachPlayer
     @Condition eventPlayer.wuyang_buff[0] == true
@@ -61,7 +58,6 @@ rule "[Wuyang]: Restorative shield":
     lbl_0:
     eventPlayer.addHealthPool(Health.SHIELDS, WuyangBuff[1], true, false)
     eventPlayer.wuyang_buff[1] = getLastCreatedHealthPool()
-
 
 rule "[Wuyang]: Ebb and Flow Ability":
     @Event eachPlayer
@@ -81,7 +77,6 @@ rule "[Wuyang]: Ebb and Flow countdown":
         loop()
     #wait(0.25, Wait.RESTART_WHEN_TRUE)
 
-
 rule "[Wuyang]: Tidal Blast Allies Healing":
     @Event eachPlayer
     @Condition eventPlayer.wuyang_buff == true
@@ -90,7 +85,6 @@ rule "[Wuyang]: Tidal Blast Allies Healing":
     eventPlayer.startHealingOverTime(eventPlayer.reset_pvar[13], 3, eventPlayer.getMaxHealth() * WuyangBuff[5])
     wait(3)
     eventPlayer.wuyang_buff = false
-
 #!include "ability1.opy"
 #!include "ability2.opy"
 #!include "ultimate.opy"

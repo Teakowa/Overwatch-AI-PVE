@@ -66,6 +66,5 @@ rule "[Freja]: Ammo":
     @Disabled
 
     eventPlayer.setAmmo(0, eventPlayer.getAmmo() + 1)
-
 #!include "ability2.opy"
 #!include "ultimate.opy"

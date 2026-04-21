@@ -11,7 +11,6 @@ rule "[Mercy]: Valkyrie":
     eventPlayer.setDamageReceived(100)
     eventPlayer.setDamageDealt(100)
 
-
 rule "【天使】女武神刷新复活冷却时间":
     @Event eachPlayer
     @Hero mercy

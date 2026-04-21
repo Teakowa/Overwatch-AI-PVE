@@ -18,7 +18,6 @@ rule "[Wuyang]: Tidal Blast mov_speed_penalty":
     victim.wuyang_buff[4] = false
     lbl_0:
 
-
 rule "[Wuyang]: Tidal Blast Allies Target":
     @Event playerDealtHealing
     @Hero wuyang

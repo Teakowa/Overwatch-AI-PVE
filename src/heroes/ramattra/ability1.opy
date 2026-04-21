@@ -9,7 +9,6 @@ rule "[Ramattra]: Pummel Knockback":
     victim.setEnvironmentalKillCreditor(attacker)
     wait(0.5)
 
-
 rule "[Ramattra]: Pummel healing":
     @Event playerDealtDamage
     @Team 1
@@ -20,7 +19,6 @@ rule "[Ramattra]: Pummel healing":
 
     eventPlayer.ram_block_damage += eventDamage * 2.5
     wait(0.3)
-
 
 rule "[Ramattra]: Pummel healing":
     @Event playerDealtDamage

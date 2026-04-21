@@ -20,6 +20,5 @@ rule "[Juno]: Pulsar Torpedoes Healing":
     eventPlayer.setHealingReceived(100)
     eventPlayer.healing_increase = 0
     wait(2.6)
-
 #!include "ability2.opy"
 #!include "ultimate.opy"

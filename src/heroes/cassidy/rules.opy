@@ -47,5 +47,4 @@ rule "[Cassidy.opy]: Revert sniper damage falloff":
         eventPlayer.ow1_scoped_damage_falloff_scalar = 0.7
     eventPlayer.expected_scoped_damage = eventPlayer.scoped_damage_base * eventPlayer.ow1_scoped_damage_falloff_scalar
     damage(victim, attacker, ceil(eventPlayer.expected_scoped_damage - eventDamage))
-
 #!include "ability2.opy"

@@ -23,7 +23,6 @@ rule "【布丽吉塔】盾击伤害调整":
     victim.brigitte_buff[0] = false
     lbl_0:
 
-
 rule "[brigitte/rally.opy]: Rally 30% speed boost":
     @Event eachPlayer
     @Hero brigitte
@@ -41,7 +40,6 @@ rule "[brigitte/rally.opy]: Rally 30% speed boost":
         applySignedMoveSpeed()
     lbl_0:
 
-
 rule "[Brigitte]: remove Rally provides permanent armor":
     @Event eachPlayer
     @Condition Brigitte[2] != 0
@@ -58,15 +56,14 @@ rule "[Brigitte]: remove Rally provides permanent armor":
     eventPlayer.hudText = ""
     eventPlayer.setDamageReceived(100)
 
-
 rule "[Brigitte]Rally provides permanent armor to self":
     @Event eachPlayer
     @Hero brigitte
     @Condition Brigitte[2] != 0
     @Condition eventPlayer.isUsingUltimate() == true
     @Condition len(eventPlayer.brig_rally_armor_id) < 9
-    # @Condition getAverageServerLoad() < ANTI_CRASH_DEACTIVATE_PERCENT
 
+    # @Condition getAverageServerLoad() < ANTI_CRASH_DEACTIVATE_PERCENT
     eventPlayer.dmg_reduction += 1.5
     eventPlayer.setDamageReceived(100 - eventPlayer.dmg_reduction)
     eventPlayer.hudText = "受到伤害减免：{0}%".format(eventPlayer.dmg_reduction)
@@ -76,7 +73,6 @@ rule "[Brigitte]Rally provides permanent armor to self":
     if ruleCondition:
         loop()
 
-
 rule "[Brigitte]Rally provides permanent armor to allies":
     @Event eachPlayer
     @Team 2
@@ -84,8 +80,8 @@ rule "[Brigitte]Rally provides permanent armor to allies":
     @Condition distance(eventPlayer, getPlayersOnHero(Hero.BRIGITTE, eventPlayer.getTeam())) <= 8.5
     @Condition eventPlayer.getHero() != Hero.BRIGITTE
     @Condition len(eventPlayer.brig_rally_armor_id) < 9
-    # @Condition getAverageServerLoad() < ANTI_CRASH_DEACTIVATE_PERCENT
 
+    # @Condition getAverageServerLoad() < ANTI_CRASH_DEACTIVATE_PERCENT
     eventPlayer.addHealthPool(Health.ARMOR, Brigitte[2], false, false)
     eventPlayer.brig_rally_armor_id.append(getLastCreatedHealthPool())
     wait(0.5)

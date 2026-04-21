@@ -8,7 +8,6 @@ rule "[JetpackCat]: Catnapper damage reduction":
     wait(2)
     eventPlayer.setDamageReceived(100)
 
-
 rule "[JetpackCat]: Catnapper bonus max health damage":
     @Event playerDealtKnockback
     @Hero jetpackCat

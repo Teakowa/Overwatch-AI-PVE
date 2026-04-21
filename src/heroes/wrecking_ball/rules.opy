@@ -12,5 +12,4 @@ rule "[Wrecking Ball]: ctrl 0cd":
     @Condition eventAbility == Button.CROUCH
 
     victim.setStatusEffect(eventPlayer, Status.STUNNED, 0.3)
-
 #!include "ability2.opy"

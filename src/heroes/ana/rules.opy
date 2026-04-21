@@ -22,7 +22,6 @@ rule "[Ana]: Damage Full Health Allies So Nano Can Heal":
     wait(0.216)
     heal(eventPlayer.nano_full_health, null, 0.05)
     eventPlayer.nano_full_health = null
-
 #!include "ability1.opy"
 #!include "ability2.opy"
 #!include "ultimate.opy"

@@ -47,6 +47,5 @@ rule "[Tracer]: Recall follow Sombra":
     eventPlayer.startFacing(vectorTowards(updateEveryFrame(eventPlayer.getEyePosition()), ((sorted([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer.getEyePosition(), player.getEyePosition()) == true], lambda i: distance(eventPlayer.getEyePosition(), i.getEyePosition())))[0]).getEyePosition()), 10000)
     waitUntil(not eventPlayer.reset_pvar[4].reset_pvar[9][0].isAlive(), 3)
     eventPlayer.stopFacing()
-
 #!include "ability2.opy"
 #!include "ultimate.opy"

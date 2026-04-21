@@ -48,5 +48,4 @@ rule "[Hazard]: Spike Guard using tracking":
     eventPlayer.hazard_using_ability_sec = true
     waitUntil(not eventPlayer.isHoldingButton(Button.SECONDARY_FIRE), 12)
     eventPlayer.hazard_using_ability_sec = false
-
 #!include "ultimate.opy"

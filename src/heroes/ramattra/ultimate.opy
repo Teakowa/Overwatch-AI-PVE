@@ -22,7 +22,6 @@ rule "[Ramattra] ult speed":
     wait(WAIT_SHORT_FRAME)
     #removeTankPassive()
 
-
 rule "[Ramattra] ult start":
     @Event eachPlayer
     @Hero ramattra
@@ -34,7 +33,6 @@ rule "[Ramattra] ult start":
     wait(1.16)
     if ruleCondition:
         loop()
-
 
 rule "[Ramattra] ult healing":
     @Event playerDealtDamage
@@ -49,7 +47,6 @@ rule "[Ramattra] ult healing":
     #playEffect(eventPlayer, DynamicEffect.GOOD_PICKUP_EFFECT, Color.YELLOW, eventPlayer, 200)
     heal(eventPlayer, eventPlayer, eventDamage * Ram_Annihilation[1])
     wait(0.0016)
-
 
 rule "[Ramattra]: Annihilation dmg reduc":
     @Event eachPlayer

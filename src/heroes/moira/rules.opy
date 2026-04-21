@@ -6,5 +6,4 @@ rule "[Moira]: Abilities to heal self":
 
     eventPlayer.startHealingOverTime(eventPlayer, 0.6, 0.75 * (eventPlayer.getMaxHealth() - eventPlayer.getHealth()))
     wait(WAIT_SHORT_FRAME)
-
 #!include "ultimate.opy"

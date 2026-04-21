@@ -28,7 +28,6 @@ rule "[Zenyatta] stop knocked":
     eventPlayer.stopForcingThrottle()
     eventPlayer.isKnocked = false
 
-
 rule "[Zenyatta] Snap Kick (Self Ground)":
     @Event eachPlayer
     @Hero zenyatta
@@ -40,7 +39,6 @@ rule "[Zenyatta] Snap Kick (Self Ground)":
     if distance(raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 2.51, getAllPlayers(), eventPlayer, true).getHitPosition(), eventPlayer.getEyePosition()) <= 2.5:
         eventPlayer.KnockbackDirection = eventPlayer.getFacingDirection() * -1
         Knockback()
-
 
 rule "[Zenyatta] Snap Kick (Self Wall)":
     @Event eachPlayer
@@ -54,5 +52,4 @@ rule "[Zenyatta] Snap Kick (Self Wall)":
         if raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + eventPlayer.getFacingDirection() * 5, getAllPlayers(), eventPlayer, true).getPlayerHit() == null:
             eventPlayer.KnockbackDirection = eventPlayer.getFacingDirection() * -1
             Knockback()
-
 #!include "ultimate.opy"

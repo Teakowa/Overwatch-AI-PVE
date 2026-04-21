@@ -18,5 +18,4 @@ rule "[Ashe]: headshot damage":
     @Condition eventAbility != Button.ULTIMATE
 
     damage(victim, attacker, ceil((eventDamage * (HeadshotDamage[1] - 2)) / 2))
-
 #!include "ability1.opy"

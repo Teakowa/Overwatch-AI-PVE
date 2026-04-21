@@ -13,7 +13,6 @@ rule "[Mauga] Overrun knockdown duration":
     lbl_0:
     lbl_1:
 
-
 rule "[Mauga]: Fortify provides 100 temporary armor":
     @Event eachPlayer
     @Hero mauga

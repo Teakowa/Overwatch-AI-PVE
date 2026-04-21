@@ -4,5 +4,4 @@ rule "[Mercy]: Flash Heal cd":
     @Condition eventPlayer.getAbilityCooldown(Button.RELOAD) != 0
 
     eventPlayer.setAbilityCooldown(Button.RELOAD, 2)
-
 #!include "ultimate.opy"

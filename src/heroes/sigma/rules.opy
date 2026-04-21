@@ -44,6 +44,5 @@ rule "[Sigma]: Hyperspheres HUD":
     waitUntil(eventPlayer.reset_pvar[0] or eventPlayer.isInSpawnRoom(), Math.INFINITY)
     eventPlayer.hudText = ""
     #destroyHudText(eventPlayer.sigma_hyperspheres_hud)
-
 #!include "ability2.opy"
 #!include "ultimate.opy"

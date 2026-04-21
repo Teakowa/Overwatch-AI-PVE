@@ -10,7 +10,6 @@ rule "[JetpackCat]: Frenetic Flight fuel regeneration":
     if ruleCondition:
         loop()
 
-
 rule "[JetpackCat]: Claws Out melee stun":
     @Event playerDealtDamage
     @Hero jetpackCat
@@ -21,7 +20,6 @@ rule "[JetpackCat]: Claws Out melee stun":
 
     victim.setStatusEffect(attacker, Status.STUNNED, 1.2)
     heal(eventPlayer, eventPlayer, 25 + eventDamage)
-
 #!include "ability1.opy"
 #!include "ability2.opy"
 #!include "ultimate.opy"

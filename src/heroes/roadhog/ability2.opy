@@ -10,7 +10,6 @@ rule "[Roadhog]: Breather":
     if ruleCondition:
         loop()
 
-
 rule "[Roadhog]: Breather":
     @Event eachPlayer
     @Team 1

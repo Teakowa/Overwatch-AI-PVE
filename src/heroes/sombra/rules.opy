@@ -41,5 +41,4 @@ rule "[Sombra]: kiil reset cooldown":
 
     eventPlayer.setAbilityCooldown(Button.ABILITY_2, 0)
     wait(0.5)
-
 #!include "ability1.opy"

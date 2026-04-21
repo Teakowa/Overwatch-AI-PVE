@@ -8,7 +8,6 @@ rule "[Reaper]: Wraith Form to fly":
     wait(0.1, Wait.ABORT_WHEN_FALSE)
     loop()
 
-
 rule "[Reaper]: Wraith Form to fly":
     @Event eachPlayer
     @Hero reaper
@@ -18,7 +17,6 @@ rule "[Reaper]: Wraith Form to fly":
     eventPlayer.applyImpulse(Vector.DOWN, 5, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
     wait(0.1, Wait.ABORT_WHEN_FALSE)
     loop()
-
 
 rule "[Reaper]: Ability 1 Wraith Form dmg increase setup":
     @Event eachPlayer
@@ -32,7 +30,6 @@ rule "[Reaper]: Ability 1 Wraith Form dmg increase setup":
         loop()
     eventPlayer.setDamageDealt(100)
 
-
 rule "[Reaper]: Ability 1 Wraith Form dmg increase set & hud":
     @Event eachPlayer
     @Hero reaper
@@ -44,7 +41,6 @@ rule "[Reaper]: Ability 1 Wraith Form dmg increase set & hud":
     waitUntil(eventPlayer.dmg_amplification == 0 and eventPlayer.isDead(), 3.5)
     destroyHudText(eventPlayer.reaper_buff[1])
     eventPlayer.reaper_buff[1] = 0
-
 
 rule "[Reaper]: kill to gain soul buff":
     @Event playerEarnedElimination
@@ -97,7 +93,6 @@ rule "[Reaper]: HUD & Reset":
     waitUntil(eventPlayer.reaper_buff[0] == 0 or eventPlayer.reset_pvar[0], Math.INFINITY)
     destroyHudText(eventPlayer.reaper_buff[2])
     eventPlayer.reaper_buff[2] = 0
-
 #!include "ability1.opy"
 #!include "ability2.opy"
 #!include "ultimate.opy"

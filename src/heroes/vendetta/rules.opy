@@ -16,7 +16,6 @@ rule "[Vendetta]: Palatine Fang":
     wait()
     eventPlayer.startHealingOverTime(eventPlayer, eventPlayer.getMaxHealth() * VendettaBuff[6] / 1.5, 1.5)
     wait(0.032)
-
 #!include "ability1.opy"
 #!include "ability2.opy"
 #!include "ultimate.opy"

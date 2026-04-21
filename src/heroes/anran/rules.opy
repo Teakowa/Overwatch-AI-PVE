@@ -16,7 +16,6 @@ rule "[Anran]: burning target damage amp":
         loop()
     stopDamageModification(eventPlayer.anran_burn_dmg_mod)
 
-
 rule "[Anran] heal from burning target":
     @Event playerDealtDamage
     @Hero anran

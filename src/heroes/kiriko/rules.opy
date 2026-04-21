@@ -40,7 +40,6 @@ rule "[Kiriko]: headshot damage":
     @Condition eventAbility == Button.PRIMARY_FIRE
 
     damage(victim, attacker, ceil((eventDamage * (HeadshotDamage[2] - 2)) / 2))
-
 #!include "ability1.opy"
 #!include "ability2.opy"
 #!include "ultimate.opy"
