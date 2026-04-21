@@ -46,6 +46,4 @@
 #!include "heroes/init.main.opy"
 
 # Debug and changelog
-#!include "modules/debug/debug-ultimate.opy"
-#!include "modules/debug/changelog.opy"
-#!include "utilities/changelog_text.opy"
+
