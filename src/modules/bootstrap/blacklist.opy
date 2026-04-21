@@ -1,7 +1,9 @@
+#!mainFile "../../main.opy"
+
 rule "[Global]Setup Blacklist":
     Blacklist = []
     wait(getAverageServerLoad() / 100)
-    Blacklist.append("蜡笔小新眼子-Patrick-蟑螂恶霸".split("-"))
+    Blacklist.append("蜡笔小新眼子-Patrick-蟑螂恶霸-哈奇-翻斗花园胡图图-心有猛虎-亞当-我要去美国了".split("-"))
     Blacklist.append("为这点事活着吗-她与春风皆过客-Eliake-李幽州-LETSGODUDE-嗣音-河神与樵夫的交易-qing-Gastby-暴躁的快速玩家-Azuki9527-李慕下".split("-"))
     Blacklist.append("小哲-比奇堡悍匪-蓝海-啊哈哈哈哈-EdwardJoe-EQUA-小余天天开心-梦想成为源氏糕手-口执剑只为伊人口-折耳-必深深李雪花大姨-乌有".split("-"))
     Blacklist.append("假如给我三天雨姐-YyX-挽风-太酱樱铃-笙墨-秘泽-高大的死灵-大魔王皮平1-两毛五-Robotman-三十三岁上班族-土豆焖马铃薯-Freakybab".split("-"))
@@ -34,7 +36,6 @@ rule "[Global]Setup Blacklist":
 
 rule "[Player]Remove Player from Blacklist":
     @Event playerJoined
-    @Team 2
     @Condition "{0}".format(eventPlayer) in Blacklist == true
     
     eventPlayer.removeFromGame()

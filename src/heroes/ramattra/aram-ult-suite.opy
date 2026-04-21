@@ -33,11 +33,11 @@ rule "[Ramattra] ult healing":
     @Event playerDealtDamage
     @Hero ramattra
     #@Condition attacker.getHero() == Hero.RAMATTRA == true
-    @Condition attacker.isUsingUltimate() == true
-    @Condition attacker.getHealth() < attacker.getMaxHealth()
+    @Condition eventPlayer.isUsingUltimate() == true
+    @Condition eventPlayer.getNormalizedHealth() != 1
     #@Condition eventAbility == Button.PRIMARY_FIRE == true
     
-    heal(attacker, attacker, eventDamage * Ram_Annihilation[1])
+    heal(eventPlayer, eventPlayer, eventDamage * Ram_Annihilation[1])
     wait(0.0016)
 
 rule "[Ramattra]: Pummel healing":

@@ -4,6 +4,7 @@ rule "[Wuyang]: Rushing Torrent jump":
     @Condition eventPlayer.isUsingAbility1() == true
     @Condition eventPlayer.isHoldingButton(Button.JUMP) == true
     #@Condition eventPlayer.isInAir() != true
+    @Disabled
 
     eventPlayer.applyImpulse(Vector.UP, 12, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
     wait(0.16)

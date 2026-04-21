@@ -15,4 +15,13 @@ rule "[Anran]: burning target damage amp":
         loop()
     stopDamageModification(eventPlayer.anran_burn_dmg_mod)
 
-
+rule "[Anran] heal from burning target":
+    @Event playerDealtDamage
+    @Hero anran
+    @Condition eventAbility != 0
+    @Condition victim.hasStatus(Status.BURNING) == true
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.getNormalizedHealth() < 1
+    
+    heal(eventPlayer, eventPlayer, 25 + eventDamage * 0.65)
+    wait()

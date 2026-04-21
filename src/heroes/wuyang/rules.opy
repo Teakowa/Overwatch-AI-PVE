@@ -22,22 +22,27 @@ rule "[Wuyang]: mov_speed_penalty":
         victim.wuyang_buff[3] = false
         lbl_0:
     wait(0.32)
+
 #!include "xuanwu-cd.opy"
+
 rule "[Wuyang]: Restorative shield Target":
     @Event playerReceivedHealing
     @Condition healer.getHero() == Hero.WUYANG
     @Condition eventAbility == null
     @Condition eventHealing <= 8
     @Condition healee.wuyang_buff[0] != true
+    @Disabled
     
     healee.wuyang_buff[0] = true
     wait(5)
     removeHealthPool(eventPlayer.wuyang_buff[1])
     eventPlayer.wuyang_buff[0] = false
+
 rule "[Wuyang]: Restorative shield":
     @Event eachPlayer
     @Condition eventPlayer.wuyang_buff[0] == true
     @Condition eventPlayer.getHero() != Hero.WUYANG
+    @Disabled
     
     #eventPlayer.wuyang_buff[0] = false
     if eventPlayer.wuyang_buff[1] == null:
@@ -46,6 +51,7 @@ rule "[Wuyang]: Restorative shield":
     lbl_0:
     eventPlayer.addHealthPool(Health.SHIELDS, WuyangBuff[1], true, false)
     eventPlayer.wuyang_buff[1] = getLastCreatedHealthPool()
+
 #!include "rushing-torrent.opy"
 rule "[Wuyang]: Rushing Torrent jump":
     @Event eachPlayer
@@ -53,11 +59,14 @@ rule "[Wuyang]: Rushing Torrent jump":
     @Condition eventPlayer.isUsingAbility1() == true
     @Condition eventPlayer.isHoldingButton(Button.JUMP) == true
     #@Condition eventPlayer.isInAir() != true
+    @Disabled
     
     eventPlayer.applyImpulse(Vector.UP, 12, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
     wait(WAIT_SHORT_FRAME)
     waitUntil(eventPlayer.isOnGround(), 3)
+
 #!include "ebb-and-flow-lost-control.opy"
+
 rule "[Wuyang]: Ebb and Flow set":
     @Event playerReceivedKnockback
     #@Condition eventPlayer.isUsingAbility2() == true
@@ -67,8 +76,10 @@ rule "[Wuyang]: Ebb and Flow set":
     victim.wuyang_buff[2]++
     #eventPlayer.setAbilityCooldown(Button.ABILITY_2, eventPlayer.getAbilityCooldown(Button.ABILITY_2) - 1)
     wait(WAIT_SHORT_FRAME)
+
 #!include "ebb-and-flow-ability-shared.opy"
 #!include "ebb-and-flow-countdown-shared.opy"
+
 rule "[Wuyang]: Tidal Blast mov_speed_penalty":
     @Event playerDealtKnockback
     @Hero wuyang
@@ -88,5 +99,6 @@ rule "[Wuyang]: Tidal Blast mov_speed_penalty":
         victim.setMoveSpeed(min(max(100 + victim.mov_speed_buff, 20), 200))
     victim.wuyang_buff[4] = false
     lbl_0:
+
 #!include "tidal-blast-allies-target-shared.opy"
 #!include "tidal-blast-allies-healing-shared.opy"

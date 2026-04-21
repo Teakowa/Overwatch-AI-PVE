@@ -14,6 +14,7 @@ rule "[JunkerQueen]: Commanding Shout taunt enemies":
     eventPlayer.junker_queen_buff = getLastCreatedHealthPool()
     wait(6)
     removeHealthPool(eventPlayer.junker_queen_buff)
+
 rule "[JunkerQueen]: Taunt enemies":
     @Event eachPlayer
     @Condition eventPlayer.isAlive() == true
@@ -21,6 +22,7 @@ rule "[JunkerQueen]: Taunt enemies":
     @Condition eventPlayer.taunt == true
     @Condition (eventPlayer.getHero() == Hero.ORISA and (eventPlayer.isUsingAbility1() or eventPlayer.isUsingUltimate())) == false
     @Condition (eventPlayer.getHero() == Hero.MAUGA and eventPlayer.isUsingAbility1()) == false
+    @Disabled
     
     bigMessage(eventPlayer, "嘲讽")
     eventPlayer.startFacing(directionTowards(eventPlayer.getEyePosition(), getPlayersOnHero(Hero.JUNKER_QUEEN, getOppositeTeam(eventPlayer.getTeam()))[0].getEyePosition()), 270)

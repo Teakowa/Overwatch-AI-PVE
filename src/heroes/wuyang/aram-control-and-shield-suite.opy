@@ -19,6 +19,7 @@ rule "[Wuyang]: Restorative shield Target":
     @Condition eventAbility == null
     @Condition eventHealing <= 8
     @Condition healee.wuyang_buff[0] != true
+    @Disabled
 
     healee.wuyang_buff[0] = true
     wait(1)
@@ -28,6 +29,7 @@ rule "[Wuyang]: Restorative shield":
     @Event eachPlayer
     @Condition eventPlayer.wuyang_buff[0] == true
     @Condition eventPlayer.getHero() != Hero.WUYANG
+    @Disabled
 
     eventPlayer.wuyang_buff[0] = false
     if eventPlayer.wuyang_buff[1] == null:
