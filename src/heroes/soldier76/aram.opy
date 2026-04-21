@@ -162,6 +162,7 @@ rule "[Soldier: 76]: HeartSteel":
     smallMessage(eventPlayer, "  心之钢 {0} {1}".format(iconString(Icon.PLUS), S76Buff[1]))
     eventPlayer.heart_steel[0] = getLastCreatedHealthPool()
     if ruleCondition:
+        wait(0.016, Wait.ABORT_WHEN_FALSE)
         loop()
 
 rule "[Soldier: 76]: HeartSteel":
@@ -187,6 +188,7 @@ rule "[Soldier: 76]: HeartSteel":
     smallMessage(eventPlayer, "  心之钢 {0} {1}".format(iconString(Icon.PLUS), S76Buff[1]))
     eventPlayer.heart_steel[0] = getLastCreatedHealthPool()
     if ruleCondition:
+        wait(0.016, Wait.ABORT_WHEN_FALSE)
         loop()
 
 rule "[Soldier: 76]: 燃烧":

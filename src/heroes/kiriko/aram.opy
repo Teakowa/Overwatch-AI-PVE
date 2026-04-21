@@ -42,6 +42,7 @@ rule "[kiriko]: swift step hp":
 rule "[Bot] PTP1":
     @Event eachPlayer
     @Team 1
+    @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.hasStatus(Status.FROZEN) == false
     @Condition eventPlayer.hasStatus(Status.ASLEEP) == false
     @Condition eventPlayer.hasStatus(Status.ROOTED) == false
