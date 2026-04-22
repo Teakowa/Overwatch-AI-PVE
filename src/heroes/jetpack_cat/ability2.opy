@@ -4,4 +4,6 @@ rule "[JetpackCat]: Purr cleanses negative statuses":
     @Condition eventPlayer.isUsingAbility2() == true
 
     resetStatuses()
-    waitUntil(not eventPlayer.isUsingAbility2(), 3)
+    eventPlayer.setStatusEffect(eventPlayer, Status.INVINCIBLE, 0.5)
+    eventPlayer.setStatusEffect(eventPlayer, Status.PHASED_OUT, 0.5)
+    wait(3)
