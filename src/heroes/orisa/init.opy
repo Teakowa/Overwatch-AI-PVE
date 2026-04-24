@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Orisa]: Detect switch to Orisa":
     @Event eachPlayer
     @Hero orisa

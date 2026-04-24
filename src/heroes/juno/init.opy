@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Juno]: Detect switch to Juno":
     @Event eachPlayer
     @Hero juno

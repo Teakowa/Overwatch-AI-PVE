@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Wuyang]: Ebb and Flow lost control":
     @Event playerReceivedKnockback
     @Condition eventAbility == Button.ABILITY_2

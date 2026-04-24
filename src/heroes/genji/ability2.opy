@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Genji]: Deflect":
     @Event eachPlayer
     @Hero genji

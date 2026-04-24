@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[AI/control]: Mauga Secondary":
     @Event eachPlayer
     @Team 1

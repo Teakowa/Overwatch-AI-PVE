@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Sierra]: ability 2 stun":
     @Event playerDealtKnockback
     @Hero sierra

@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Sombra] TP to Support":
     @Event eachPlayer
     @Team 1

@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "Has Nano":
     @Event playerReceivedHealing
 

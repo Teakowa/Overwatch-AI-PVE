@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Ana]: Headhunter":
     @Event playerDealtDamage
     @Team 2

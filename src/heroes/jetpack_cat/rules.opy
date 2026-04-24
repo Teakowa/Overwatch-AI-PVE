@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[JetpackCat]: Frenetic Flight fuel regeneration":
     @Event eachPlayer
     @Hero jetpackCat

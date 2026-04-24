@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 
 rule "[AI/global]: Generated at the beginning":
     @Condition any([isWaitingForPlayers(), isInSetup(), isGameInProgress()]) == true

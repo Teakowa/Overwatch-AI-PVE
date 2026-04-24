@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Wuyang]: Rushing Torrent":
     @Event eachPlayer
     @Hero wuyang

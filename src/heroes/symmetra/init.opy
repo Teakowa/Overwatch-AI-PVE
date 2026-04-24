@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[symmetra/init.opy]: Detect switch to Symmetra":
     @Event eachPlayer
     @Hero symmetra

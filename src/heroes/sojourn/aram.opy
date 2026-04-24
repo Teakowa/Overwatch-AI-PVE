@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 # sojourn aram-only overclock execution
 
 rule "[Sojourn] Overclock Buff":

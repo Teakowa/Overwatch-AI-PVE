@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Moira]: Detect switch to Moira":
     @Event eachPlayer
     @Hero moira

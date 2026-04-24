@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Mizuki]: Substitute Doll clears negative statuses":
     @Event eachPlayer
     @Hero mizuki

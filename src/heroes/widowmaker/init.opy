@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[widowmaker/init.opy]: Detect switch to Widowmaker":
     @Event eachPlayer
     @Hero widowmaker

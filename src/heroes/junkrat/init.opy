@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Junkrat]: Detect switch to Junkrat":
     @Event eachPlayer
     @Hero junkrat

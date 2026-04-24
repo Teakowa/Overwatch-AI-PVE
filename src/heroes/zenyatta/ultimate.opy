@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Zenyatta]: Transcendence":
     @Event eachPlayer
     @Hero zenyatta

@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Domina]: Energy Crystal Slow":
     @Event playerDealtDamage
     @Hero domina

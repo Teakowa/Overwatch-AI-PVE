@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Hazard/init.opy]: Detect switch to Hazard":
     @Event eachPlayer
     @Hero hazard

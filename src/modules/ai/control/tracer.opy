@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[AI/control]: Tracer Ability 2":
     @Event playerTookDamage
     @Team 1

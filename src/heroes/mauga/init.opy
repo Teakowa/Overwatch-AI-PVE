@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Mauga]: Detect switch to Mauga":
     @Event eachPlayer
     @Hero mauga

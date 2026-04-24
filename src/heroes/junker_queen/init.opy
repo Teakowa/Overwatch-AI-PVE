@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Junker Queen]: Detect switch to Junker Queen":
     @Event eachPlayer
     @Hero junkerQueen

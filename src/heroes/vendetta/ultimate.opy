@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Vendetta]: Sundering Blade":
     @Event playerReceivedKnockback
     @Condition attacker.getHero() == Hero.VENDETTA

@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Cassidy]: Detect switch to Cassidy":
     @Event eachPlayer
     @Hero cassidy

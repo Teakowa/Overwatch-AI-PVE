@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Ramattra]: Detect switch to Ramattra":
     @Event eachPlayer
     @Hero ramattra

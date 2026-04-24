@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Bot] PTP1":
     @Event eachPlayer
     @Team 1

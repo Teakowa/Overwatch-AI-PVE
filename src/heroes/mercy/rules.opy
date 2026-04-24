@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Mercy]: Flash Heal cd":
     @Event eachPlayer
     @Hero mercy

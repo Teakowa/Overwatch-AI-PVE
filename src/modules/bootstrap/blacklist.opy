@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 #!mainFile "../../main.opy"
 
 rule "[Global]Setup Blacklist":

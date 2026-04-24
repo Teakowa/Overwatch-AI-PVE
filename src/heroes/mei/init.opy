@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Mei]: Detect switch to Mei":
     @Event eachPlayer
     @Hero mei

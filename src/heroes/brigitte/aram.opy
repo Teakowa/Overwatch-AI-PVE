@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Brigitte]: remove Rally provides permanent armor":
     @Event eachPlayer
     @Condition Brigitte[2] != 0

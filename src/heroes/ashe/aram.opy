@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 # ashe aram-only headshot damage
 
 rule "[Ashe]: headshot damage":

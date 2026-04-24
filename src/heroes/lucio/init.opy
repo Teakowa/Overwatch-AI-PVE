@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Lucio]: Detect switch to Lucio":
     @Event eachPlayer
     @Hero lucio

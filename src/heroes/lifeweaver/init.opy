@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Lifeweaver]: Detect switch to Lifeweaver":
     @Event eachPlayer
     @Hero lifeweaver

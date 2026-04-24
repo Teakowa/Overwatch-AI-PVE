@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 # widowmaker aram-only infra-sight headshot
 
 rule "[widowmaker.opy]: Infra-Sight headshot":

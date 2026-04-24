@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Baptiste]: Detect switch to Baptiste":
     @Event eachPlayer
     @Hero baptiste

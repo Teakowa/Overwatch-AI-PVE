@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Roadhog]: Hogdrogen Exposure":
     @Event playerDealtHealing
     @Hero roadhog

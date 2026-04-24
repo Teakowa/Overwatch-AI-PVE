@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Mizuki/init.opy]: Detect switch to Mizuki":
     @Event eachPlayer
     @Hero mizuki

@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Sigma]: Accretion knockdown":
     @Event playerDealtDamage
     @Hero sigma

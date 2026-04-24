@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[AI/control]: Venture Primary":
     @Event eachPlayer
     @Team 1

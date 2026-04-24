@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Ash] ammo restored by kills":
     @Event playerDealtFinalBlow
     @Team 2

@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Roadhog]: Breather":
     @Event eachPlayer
     @Team 1

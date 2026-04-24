@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Wuyang]: xuanwu cd":
     @Event playerDealtKnockback
     @Hero wuyang

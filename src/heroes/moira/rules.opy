@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Moira]: Abilities to heal self":
     @Event eachPlayer
     @Hero moira

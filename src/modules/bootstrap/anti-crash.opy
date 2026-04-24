@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Anti Crash]: Setup settings":
     ANTI_CRASH_ACTIVATE_PERCENT = createWorkshopSettingInt("Anti Crash", "激活阈值", ANTI_CRASH_ACTIVATE_DEFAULT, ANTI_CRASH_ACTIVATE_MIN, ANTI_CRASH_ACTIVATE_MAX)
     ANTI_CRASH_HOLD_TIME = createWorkshopSettingFloat("Anti Crash", "激活持续时间", ANTI_CRASH_HOLD_DEFAULT, ANTI_CRASH_HOLD_MIN, ANTI_CRASH_HOLD_MAX, ANTI_CRASH_HOLD_ORDER)

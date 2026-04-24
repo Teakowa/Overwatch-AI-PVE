@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Vendetta]: Palatine Fang":
     @Event playerDealtKnockback
     @Hero vendetta

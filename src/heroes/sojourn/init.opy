@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Sojourn]: Detect switch to Sojourn":
     @Event eachPlayer
     @Hero sojourn

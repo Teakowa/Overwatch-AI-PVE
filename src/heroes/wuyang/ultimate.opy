@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Wuyang]: Tidal Blast mov_speed_penalty":
     @Event playerDealtKnockback
     @Hero wuyang

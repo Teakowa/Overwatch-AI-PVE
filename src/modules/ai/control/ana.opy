@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[AI/control]: Ana Set botTarget":
     @Event eachPlayer
     @Team 2

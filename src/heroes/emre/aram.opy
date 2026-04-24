@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 # emre aram-mode overlay (intentionally empty for Hero-First migration)
 
 rule "[Emre][ARAM]: Cyber Grenade Control + Burn":

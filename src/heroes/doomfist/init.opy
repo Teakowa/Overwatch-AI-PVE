@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Doomfist]: Detect switch to Doomfist":
     @Event eachPlayer
     @Hero doomfist

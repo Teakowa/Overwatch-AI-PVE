@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "Copyright (c) 2019-2025 他又（aka Teakowa）":
     disableInspector()
     Collaborator = ["他又", "别感冒", "步六孤", "Destiny", "smile"]

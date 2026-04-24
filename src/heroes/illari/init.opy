@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Illari]: Detect switch to Illari":
     @Event eachPlayer
     @Hero illari

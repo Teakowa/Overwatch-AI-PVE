@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Emre]: Override Protocol Burn":
     @Event playerDealtDamage
     @Hero emre

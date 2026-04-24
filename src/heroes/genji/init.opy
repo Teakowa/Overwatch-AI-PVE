@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Genji]: Detect switch to Genji":
     @Event eachPlayer
     @Hero genji

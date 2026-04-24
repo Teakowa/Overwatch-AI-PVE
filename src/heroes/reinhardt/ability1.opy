@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Reinhardt]: Charge cd":
     @Event eachPlayer
     @Hero reinhardt

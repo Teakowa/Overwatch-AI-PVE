@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Freja/init.opy]: Detect switch to Freja":
     @Event eachPlayer
     @Hero freja

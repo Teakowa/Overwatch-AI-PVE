@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[JetpackCat]: Purr cleanses negative statuses":
     @Event eachPlayer
     @Hero jetpackCat

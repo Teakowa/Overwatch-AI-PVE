@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[AI/control]: Sojourn Ability 1":
     @Event playerTookDamage
     @Team 1

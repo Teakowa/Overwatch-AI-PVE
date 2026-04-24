@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 # baptiste aram-only headshot damage
 
 rule "[Baptiste]: headshot damage":

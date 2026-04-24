@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Hazard]: Violent Leap kiil reset cooldown":
     @Event playerEarnedElimination
     @Hero hazard

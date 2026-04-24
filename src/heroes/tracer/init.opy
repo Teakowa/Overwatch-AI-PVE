@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[tracer/init.opy]: Detect switch to Tracer":
     @Event eachPlayer
     @Hero tracer

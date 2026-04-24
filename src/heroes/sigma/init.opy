@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Sigma]: Detect switch to Sigma":
     @Event eachPlayer
     @Hero sigma

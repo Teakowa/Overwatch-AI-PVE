@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 #!mainFile "../../main.opy"
 
 rule "[Sierra]: Detect switch to Sierra":

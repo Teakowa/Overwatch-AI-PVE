@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Sigma]: shield cd":
     @Event eachPlayer
     @Hero sigma

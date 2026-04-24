@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "【布丽吉塔】恢复包提供护甲":
     @Event eachPlayer
     @Condition Brigitte[1] != 0

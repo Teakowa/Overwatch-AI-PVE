@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[widowmaker.opy]: Infra-Sight headshot x3":
     @Event playerDealtDamage
     @Hero widowmaker

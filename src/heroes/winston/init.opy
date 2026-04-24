@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[winston/init.opy]: Detect switch to Winston":
     @Event eachPlayer
     @Hero winston

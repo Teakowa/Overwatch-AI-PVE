@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[AI]: Target in line of sight":
     @Event eachPlayer
     @Team 1

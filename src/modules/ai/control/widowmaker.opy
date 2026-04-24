@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[AI/control]: Widowmaker Fly Sky Attack Mode":
     @Event eachPlayer
     @Team 1

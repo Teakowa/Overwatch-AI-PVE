@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Emre/init.opy]: Detect switch to Emre":
     @Event eachPlayer
     @Hero emre

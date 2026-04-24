@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Vendetta]: Whirlwind Dash":
     @Event playerReceivedKnockback
     @Condition attacker.getHero() == Hero.VENDETTA

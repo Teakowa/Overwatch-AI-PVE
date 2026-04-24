@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Wrecking Ball]: Detect switch to Wrecking Ball":
     @Event eachPlayer
     @Hero wreckingBall

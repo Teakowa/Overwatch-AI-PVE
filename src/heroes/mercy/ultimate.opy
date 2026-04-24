@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Mercy]: Valkyrie":
     @Event eachPlayer
     @Hero mercy

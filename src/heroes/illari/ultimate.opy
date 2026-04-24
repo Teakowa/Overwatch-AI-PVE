@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Illari]: Captive Sun HUD":
     @Event eachPlayer
     @Hero illari

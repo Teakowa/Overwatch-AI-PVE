@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[AI/control]: Juno Primary":
     @Event eachPlayer
     @Team 1

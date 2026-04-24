@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Reinhardt]: Earthshatter":
     @Event playerDealtFinalBlow
     @Hero reinhardt

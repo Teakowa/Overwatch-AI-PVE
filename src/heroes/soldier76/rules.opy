@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Soldier: 76]: Helix Rockets lose control":
     @Event playerDealtDamage
     @Hero soldier

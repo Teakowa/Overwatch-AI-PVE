@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Player]: status reset":
     @Event eachPlayer
     @Condition eventPlayer.isAlive() == true

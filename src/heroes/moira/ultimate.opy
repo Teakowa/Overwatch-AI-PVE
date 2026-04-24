@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Moira]: Fade disable on Coalescence":
     @Event eachPlayer
     @Hero moira

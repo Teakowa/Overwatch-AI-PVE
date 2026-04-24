@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Mauga]: Cardiac Overdrive Dmg. reduction":
     @Event eachPlayer
     @Hero mauga

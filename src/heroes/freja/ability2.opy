@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Freja]: Dmg. reduction":
     @Event eachPlayer
     @Hero freja

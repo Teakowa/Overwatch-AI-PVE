@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Echo] Duplicate fast ultimate charge":
     @Event eachPlayer
     @Hero echo

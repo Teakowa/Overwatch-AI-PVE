@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[JetpackCat]: Catnapper damage reduction":
     @Event eachPlayer
     @Hero jetpackCat

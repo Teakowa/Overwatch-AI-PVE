@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Kiriko]: Detect switch to Kiriko":
     @Event eachPlayer
     @Hero kiriko

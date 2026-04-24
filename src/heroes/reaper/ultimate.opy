@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Reaper]: ultimate Death Blossom":
     @Event eachPlayer
     @Hero reaper

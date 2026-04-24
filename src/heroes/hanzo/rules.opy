@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Hanzo]: headshot damage":
     @Event playerDealtDamage
     @Hero hanzo

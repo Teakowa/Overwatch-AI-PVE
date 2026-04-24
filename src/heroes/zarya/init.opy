@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Zarya]: Detect switch to Zarya":
     @Event eachPlayer
     @Hero zarya

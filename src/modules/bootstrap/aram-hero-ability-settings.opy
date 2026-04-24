@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "Initialize Hero Ability Settings":
     Brigitte[1] = createWorkshopSettingInt("英雄：布丽吉塔", "恢复包：提供的护甲", 150, 0, 200, 31)
     Brigitte[3] = createWorkshopSettingInt("英雄：布丽吉塔", "能量盾击：使敌人减速 %", 90, 0, 90, 32)

@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Sombra]: Detect switch to Sombra":
     @Event eachPlayer
     @Hero sombra

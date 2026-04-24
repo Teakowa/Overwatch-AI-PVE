@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Ramattra]: Pummel Knockback":
     @Event playerDealtDamage
     @Hero ramattra

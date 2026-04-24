@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[torbjorn/init.opy]: Detect switch to Torbjorn":
     @Event eachPlayer
     @Hero torbjorn

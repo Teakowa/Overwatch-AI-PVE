@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Hazard]: Spike Guard cd":
     @Event playerDealtDamage
     @Hero hazard

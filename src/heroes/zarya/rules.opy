@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Zarya]: will to win":
     @Event eachPlayer
     @Hero zarya

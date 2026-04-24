@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Player]: hudText init":
     wait(HUD_TEXT_INIT_WAIT)
     hudText(getPlayersInSlot(0, Team.2), null, HUD_TEXT_SPACER, getPlayersInSlot(0, Team.2).hudText, HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)

@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 # venture aram-only burrow speed and healing
 
 rule "[Venture] Burrow speed and healing":

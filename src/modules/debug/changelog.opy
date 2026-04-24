@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "Changelog":
     @Event eachPlayer
     @Team 2

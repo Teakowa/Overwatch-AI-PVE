@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Cassdy] Flashbang stun":
     @Event playerDealtDamage
     @Hero cassidy

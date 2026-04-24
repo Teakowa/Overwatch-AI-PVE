@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Ana]: Sleep tanks for longer duration":
     @Event playerDealtDamage
     @Hero ana

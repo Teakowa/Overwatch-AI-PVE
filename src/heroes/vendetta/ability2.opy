@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Vendetta]: Soaring Slice":
     @Event eachPlayer
     @Hero vendetta

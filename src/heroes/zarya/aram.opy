@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Zarya]: Projected Barrier Target":
     @Event eachPlayer
     @Hero zarya

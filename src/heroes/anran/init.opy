@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Anran/init.opy]: Detect switch to Anran":
     @Event eachPlayer
     @Hero anran

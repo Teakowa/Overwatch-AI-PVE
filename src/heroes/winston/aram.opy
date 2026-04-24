@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 # winston aram-only tesla alt fire
 
 rule "[Winston]: Tesla Cannon Alt Fire":

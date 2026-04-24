@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Baptiste]: headshot damage":
     @Event playerDealtDamage
     @Hero baptiste

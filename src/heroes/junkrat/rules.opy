@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Junkrat]: arsonist":
     @Event playerDealtDamage
     @Hero junkrat

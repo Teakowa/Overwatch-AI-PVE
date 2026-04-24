@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Global][Debug]Auto Ultimate Gain":
     @Event eachPlayer
     @Condition Debug_UltimateGain != 0

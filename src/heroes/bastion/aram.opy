@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 # bastion aram-only artillery
 
 rule "[Bastion]: Configuration: Artillery":

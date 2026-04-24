@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[JunkerQueen]: Commanding Shout taunt enemies":
     @Event eachPlayer
     @Hero junkerQueen

@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Juno]: Hyper Ring Max. range":
     @Event eachPlayer
     @Hero juno

@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Orisa]: Fortify provides 100 temporary armor":
     @Event eachPlayer
     @Hero orisa

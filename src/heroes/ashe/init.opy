@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Ashe]: Detect switch to Ashe":
     @Event eachPlayer
     @Hero ashe

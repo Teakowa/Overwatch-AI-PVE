@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Reaper]: Ability 1 Wraith Form cd":
     @Event eachPlayer
     @Hero reaper

@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 # genji aram-only dragonblade healing
 
 rule "[Genji] Dragonblade Healing":

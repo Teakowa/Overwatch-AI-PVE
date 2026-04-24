@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[wuyang/init.opy]: Detect switch to wuyang":
     @Event eachPlayer
     @Hero wuyang

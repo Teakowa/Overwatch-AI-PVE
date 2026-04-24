@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Mizuki]: Soul Chain weakens target":
     @Event playerDealtDamage
     @Hero mizuki

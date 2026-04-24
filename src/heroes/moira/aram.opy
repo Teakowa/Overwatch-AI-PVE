@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 # moira aram-only fade disable on coalescence
 
 rule "[Moira]: Fade disable on Coalescence":

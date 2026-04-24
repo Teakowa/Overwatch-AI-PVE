@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 # mei aram-only endothermic blaster
 
 rule "[Mei]: Endothermic Blaster":

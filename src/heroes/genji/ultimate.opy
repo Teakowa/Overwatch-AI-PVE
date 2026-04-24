@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Genji] Dragonblade Healing":
     @Event playerDealtDamage
     @Hero genji

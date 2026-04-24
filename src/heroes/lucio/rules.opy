@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Lucio]: Soundwave Healing":
     @Event eachPlayer
     @Hero lucio

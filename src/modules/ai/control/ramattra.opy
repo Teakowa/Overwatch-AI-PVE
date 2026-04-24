@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[AI/control]: Ramattra Ability 1":
     @Event eachPlayer
     @Team 1

@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 # illari aram-only captive sun suite
 
 rule "[Illari]: Captive Sun HUD":

@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Orisa]: fly":
     @Event eachPlayer
     @Hero orisa

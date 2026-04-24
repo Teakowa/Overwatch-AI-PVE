@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[pharah/init.opy]: Detect switch to Pharah":
     @Event eachPlayer
     @Hero pharah

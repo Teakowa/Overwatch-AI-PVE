@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Bot] ACC":
     @Event eachPlayer
     @Team 1

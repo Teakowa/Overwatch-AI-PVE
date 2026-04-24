@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[zenyatta]: Detect switch to zenyatta":
     @Event eachPlayer
     @Hero zenyatta

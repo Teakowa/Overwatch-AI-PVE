@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Orisa]: stun when ult":
     @Event playerDealtKnockback
     @Hero orisa

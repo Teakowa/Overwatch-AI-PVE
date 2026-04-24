@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[AI/Movement]: Movement":
     @Event eachPlayer
     @Team 1

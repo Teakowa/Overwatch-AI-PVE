@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "【布丽吉塔】恢复包选中目标":
     @Event eachPlayer
     @Hero brigitte

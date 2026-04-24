@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Doomfist]: Meteor Strike":
     @Event eachPlayer
     @Hero doomfist

@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Player]Hero BAN":
     @Condition Hero_BAN == true
     

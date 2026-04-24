@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Player]: when game star lock hero":
     @Event eachPlayer
     @Team 2

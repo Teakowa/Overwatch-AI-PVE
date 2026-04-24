@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Junkrat]: Steel Trap bleed":
     @Event playerDealtDamage
     @Hero junkrat

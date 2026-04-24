@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Wrecking Ball] Grappling Claw cd reset":
     @Event eachPlayer
     @Hero wreckingBall

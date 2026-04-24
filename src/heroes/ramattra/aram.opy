@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Ramattra]: Pain endures":
     @Event playerDealtFinalBlow
     @Hero ramattra

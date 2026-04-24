@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Sombra]: kiil reset cooldown":
     @Event playerEarnedElimination
     @Hero sombra

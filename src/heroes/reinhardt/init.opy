@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[reinhardt/init.opy]: Detect switch to Reinhardt":
     @Event eachPlayer
     @Hero reinhardt

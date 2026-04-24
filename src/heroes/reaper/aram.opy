@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Reaper]: Wraith Form to fly":
     @Event eachPlayer
     @Hero reaper

@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Echo]: Focusing Beam Damage":
     @Event eachPlayer
     @Hero echo

@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[AI/control]: Emre Primary":
     @Event eachPlayer
     @Team 1

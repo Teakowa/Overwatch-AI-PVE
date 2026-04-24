@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Tracer] Instant Respawn":
     @Event playerDied
     @Hero tracer

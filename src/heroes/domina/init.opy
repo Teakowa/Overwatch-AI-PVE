@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Domina/init.opy]: Detect switch to Domina":
     @Event eachPlayer
     @Hero domina

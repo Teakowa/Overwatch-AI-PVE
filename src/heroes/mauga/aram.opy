@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Mauga]: Fortify provides 100 temporary armor":
     @Event eachPlayer
     @Hero mauga

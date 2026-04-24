@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 # torbjorn aram-only forge hammer suite
 
 rule "[Torbjörn]: Forge Hammer":

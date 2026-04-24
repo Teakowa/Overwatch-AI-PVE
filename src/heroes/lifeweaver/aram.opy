@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 # lifeweaver aram-only life grip healing
 
 rule "[Lifeweaver]: Life Grip Healing":

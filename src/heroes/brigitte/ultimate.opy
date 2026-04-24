@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "【布丽吉塔】盾击伤害调整":
     @Event playerDealtDamage
     @Hero brigitte

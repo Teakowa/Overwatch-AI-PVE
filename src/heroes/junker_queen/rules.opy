@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[JunkerQueen]: Taunt enemies":
     @Event eachPlayer
     @Condition eventPlayer.isAlive() == true

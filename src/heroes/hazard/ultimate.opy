@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Hazard]: stun Downpour":
     @Event playerTookDamage
     @Condition HazardBuff[10] == true

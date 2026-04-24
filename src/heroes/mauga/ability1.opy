@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Mauga] Overrun knockdown duration":
     @Event playerDealtDamage
     @Hero mauga

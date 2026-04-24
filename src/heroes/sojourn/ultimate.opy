@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Sojourn] Overclock Buff":
     @Event eachPlayer
     @Hero sojourn

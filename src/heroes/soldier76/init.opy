@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Soldier: 76]: Detect switch to Soldier 76":
     @Event eachPlayer
     @Hero soldier

@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 # widowmaker hero rules (no custom rules yet)
 
 rule "[widowmaker.opy]: Revert sniper damage falloff":

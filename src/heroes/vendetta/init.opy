@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Vendetta/init.opy]: Detect switch to Vendetta":
     @Event eachPlayer
     @Hero vendetta

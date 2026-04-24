@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Domina]: Sonic Repulsion Field Debuff":
     @Event playerDealtKnockback
     @Hero domina

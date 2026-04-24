@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Mauga]: Berserker Soul status active":
     @Event playerTookDamage
     @Hero mauga

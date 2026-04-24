@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Tracer] Pulse Bomb Damage":
     @Event playerDealtDamage
     @Hero tracer

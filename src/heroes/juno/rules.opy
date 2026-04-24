@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Juno]: Orbial Ray Damage":
     @Event eachPlayer
     @Condition eventPlayer.juno_buff[0] == true

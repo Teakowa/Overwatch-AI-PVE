@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Tracer] Recall Healing":
     @Event eachPlayer
     @Hero tracer

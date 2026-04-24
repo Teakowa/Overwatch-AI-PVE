@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[AI/control]: Reaper Primary":
     @Event eachPlayer
     @Team 1

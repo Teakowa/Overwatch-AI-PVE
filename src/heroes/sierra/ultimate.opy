@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Sierra]: ultmate stun":
     @Event playerDealtKnockback
     @Hero sierra

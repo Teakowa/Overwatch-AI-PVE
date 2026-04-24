@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Freja]: Revdraw Crossbow Stack":
     @Event playerDealtKnockback
     @Hero freja

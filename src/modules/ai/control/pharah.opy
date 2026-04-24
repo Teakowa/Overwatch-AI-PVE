@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[AI/control]: Pharah Primary":
     @Event eachPlayer
     @Team 1

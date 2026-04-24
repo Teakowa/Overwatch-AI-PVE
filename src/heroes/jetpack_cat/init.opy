@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[JetpackCat/init.opy]: Detect switch to JetpackCat":
     @Event eachPlayer
     @Hero jetpackCat

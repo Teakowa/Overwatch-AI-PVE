@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[kiriko]: swift step hp":
     @Event eachPlayer
     @Condition getPlayersOnHero(Hero.KIRIKO, eventPlayer.getTeam())[0].isHoldingButton(Button.ABILITY_1) == true

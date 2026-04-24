@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Soldier: 76]: HeartSteel":
     @Event eachPlayer
     @Team 2

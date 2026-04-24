@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[D.Va]: Detect switch to D.Va":
     @Event eachPlayer
     @Hero dva

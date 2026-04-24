@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[AI/control]: Vendetta Primary":
     @Event eachPlayer
     @Team 1

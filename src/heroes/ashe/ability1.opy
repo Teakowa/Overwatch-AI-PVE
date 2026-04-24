@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Ash] ammo add by Coach Gun":
     @Event eachPlayer
     @Team 2

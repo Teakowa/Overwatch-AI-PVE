@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Reinhardt] firestrike healing":
     @Event playerDealtDamage
     @Hero reinhardt

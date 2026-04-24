@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Cassdy] Peacekeeper Alt Fire":
     @Event eachPlayer
     @Hero cassidy

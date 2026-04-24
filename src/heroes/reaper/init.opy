@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[reaper/init.opy]: Detect switch to Reaper":
     @Event eachPlayer
     @Hero reaper

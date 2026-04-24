@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Orisa]Fortify ricochet damage":
     @Event playerTookDamage
     @Hero orisa

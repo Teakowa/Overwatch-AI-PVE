@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Sigma]: ult damage":
     @Event playerDealtDamage
     @Hero sigma

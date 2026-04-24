@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[AI/control]: Hazard Primary":
     @Event eachPlayer
     @Team 1

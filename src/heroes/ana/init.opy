@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Ana]: Detect switch to Ana":
     @Event eachPlayer
     @Hero ana

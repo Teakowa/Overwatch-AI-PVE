@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Ramattra] ult speed":
     @Event eachPlayer
     @Hero ramattra

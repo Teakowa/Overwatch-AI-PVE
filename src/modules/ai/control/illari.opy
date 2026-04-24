@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[AI/control]: Illari Primary":
     @Event eachPlayer
     @Team 1

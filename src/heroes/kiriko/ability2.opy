@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Kiriko]: Protection Suzu Clear Effect":
     @Event playerDealtHealing
     @Hero kiriko

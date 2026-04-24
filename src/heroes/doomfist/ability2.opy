@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Doomfist]: Power Block":
     @Event playerTookDamage
     @Team 1

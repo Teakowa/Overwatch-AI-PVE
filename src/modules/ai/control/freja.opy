@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[AI/control]: Freja Primary":
     @Event eachPlayer
     @Team 1

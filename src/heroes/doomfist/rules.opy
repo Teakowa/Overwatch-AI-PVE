@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Doomfist] Seismic Slam upper":
     @Event playerDealtDamage
     @Hero doomfist

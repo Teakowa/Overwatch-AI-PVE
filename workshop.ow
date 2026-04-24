@@ -1060,6 +1060,7 @@
 }
 
 //Strict optimizations enabled
+//Strict optimizations enabled
 规则 ("Copyright (c) 2019-2025 他又（aka Teakowa）") {
     事件 {
         持续 - 全局;
@@ -1180,6 +1181,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Anti Crash]: Setup settings") {
     事件 {
         持续 - 全局;
@@ -1208,6 +1210,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Global]Setup Blacklist") {
     事件 {
         持续 - 全局;
@@ -1261,6 +1264,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Player]Hero BAN") {
     事件 {
         持续 - 全局;
@@ -1305,6 +1309,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Player]: hudText init") {
     事件 {
         持续 - 全局;
@@ -1320,6 +1325,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[utilities/reset]: setup var when player joins lobby") {
     事件 {
         持续 - 每名玩家;
@@ -1605,12 +1611,14 @@
     }
 }
 
+//Strict optimizations enabled
 禁用 规则 ("Initialize AI Scripts") {
     事件 {
         持续 - 全局;
     }
 }
 
+//Strict optimizations enabled
 规则 ("[AI/global]: Generated at the beginning") {
     事件 {
         持续 - 全局;
@@ -1737,6 +1745,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[AI/Movement]: Movement") {
     事件 {
         持续 - 每名玩家;
@@ -1855,6 +1864,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[AI]: Target in line of sight") {
     事件 {
         持续 - 每名玩家;
@@ -1904,6 +1914,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[AI/control]: Tracer Ability 2") {
     事件 {
         玩家受到伤害;
@@ -1981,6 +1992,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[AI/control]: Reaper Primary") {
     事件 {
         持续 - 每名玩家;
@@ -2093,6 +2105,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[AI/control]: Genji Ability 2") {
     事件 {
         玩家受到伤害;
@@ -2136,6 +2149,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[AI/control]: Ana Set botTarget") {
     事件 {
         持续 - 每名玩家;
@@ -2190,6 +2204,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[AI/control]: Sojourn Ability 1") {
     事件 {
         玩家受到伤害;
@@ -2212,6 +2227,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[AI/control]: Kiriko Ability 1") {
     事件 {
         持续 - 每名玩家;
@@ -2245,6 +2261,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[AI/control]: Ramattra Ability 1") {
     事件 {
         持续 - 每名玩家;
@@ -2287,6 +2304,7 @@
     }
 }
 
+//Strict optimizations enabled
 禁用 规则 ("[AI/control]: Mauga Secondary") {
     事件 {
         持续 - 每名玩家;
@@ -2323,6 +2341,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[AI/control]: Freja Primary") {
     事件 {
         持续 - 每名玩家;
@@ -2413,6 +2432,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[AI/control]: Pharah Primary") {
     事件 {
         持续 - 每名玩家;
@@ -2545,6 +2565,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[AI/control]: Venture Primary") {
     事件 {
         持续 - 每名玩家;
@@ -2636,6 +2657,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[AI/control]: Vendetta Primary") {
     事件 {
         持续 - 每名玩家;
@@ -2750,6 +2772,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[AI/control]: Widowmaker Fly Sky Attack Mode") {
     事件 {
         持续 - 每名玩家;
@@ -2789,6 +2812,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[AI/control]: Hazard Primary") {
     事件 {
         持续 - 每名玩家;
@@ -2893,6 +2917,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[AI/control]: Illari Primary") {
     事件 {
         持续 - 每名玩家;
@@ -3006,6 +3031,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[AI/control]: Juno Primary") {
     事件 {
         持续 - 每名玩家;
@@ -3100,6 +3126,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[AI/control]: Emre Primary") {
     事件 {
         持续 - 每名玩家;
@@ -3214,12 +3241,14 @@
     }
 }
 
+//Strict optimizations enabled
 禁用 规则 ("Initialize AI Scripts End") {
     事件 {
         持续 - 全局;
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Player]: status reset") {
     事件 {
         持续 - 每名玩家;
@@ -3237,6 +3266,7 @@
     }
 }
 
+//Strict optimizations enabled
 禁用 规则 ("[Ana]: Headhunter") {
     事件 {
         玩家造成伤害;
@@ -3275,6 +3305,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Ana]: Sleep tanks for longer duration") {
     事件 {
         玩家造成伤害;
@@ -3292,6 +3323,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Ana] Biotic Grenade Hit") {
     事件 {
         玩家受到伤害;
@@ -3313,6 +3345,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("Has Nano") {
     事件 {
         玩家受到治疗;
@@ -3387,6 +3420,7 @@
     }
 }
 
+//Strict optimizations enabled
 禁用 规则 ("[JunkerQueen]: Taunt enemies") {
     事件 {
         持续 - 每名玩家;
@@ -3413,6 +3447,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[JunkerQueen]: Commanding Shout taunt enemies") {
     事件 {
         持续 - 每名玩家;
@@ -3436,6 +3471,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Roadhog]: Breather") {
     事件 {
         持续 - 每名玩家;
@@ -3470,6 +3506,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Juno]: Orbial Ray Damage") {
     事件 {
         持续 - 每名玩家;
@@ -3509,6 +3546,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Juno]: Hyper Ring Max. range") {
     事件 {
         持续 - 每名玩家;
@@ -3525,6 +3563,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Juno] Track Orbital Ray Position") {
     事件 {
         持续 - 每名玩家;
@@ -3543,6 +3582,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Junkrat]: arsonist") {
     事件 {
         玩家造成伤害;
@@ -3562,6 +3602,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Moira]: Abilities to heal self") {
     事件 {
         持续 - 每名玩家;
@@ -3578,6 +3619,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Moira]: Fade disable on Coalescence") {
     事件 {
         持续 - 每名玩家;
@@ -3596,6 +3638,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Soldier: 76]: Helix Rockets lose control") {
     事件 {
         玩家造成伤害;
@@ -3614,6 +3657,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Zarya]: will to win") {
     事件 {
         持续 - 每名玩家;
@@ -3671,6 +3715,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Zarya]: Projected Barrier Target") {
     事件 {
         持续 - 每名玩家;
@@ -3685,6 +3730,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Wrecking Ball] Grappling Claw cd reset") {
     事件 {
         持续 - 每名玩家;
@@ -3714,6 +3760,7 @@
     }
 }
 
+//Strict optimizations enabled
 禁用 规则 ("[Wrecking Ball] Disable Adaptive Shield for allies") {
     事件 {
         持续 - 每名玩家;
@@ -3805,6 +3852,7 @@
     }
 }
 
+//Strict optimizations enabled
 禁用 规则 ("[Ramattra]: Pummel Knockback") {
     事件 {
         玩家造成伤害;
@@ -3857,6 +3905,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Ramattra] ult speed") {
     事件 {
         持续 - 每名玩家;
@@ -3945,6 +3994,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Orisa]Fortify ricochet damage") {
     事件 {
         玩家受到伤害;
@@ -4018,6 +4068,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Orisa]: fly") {
     事件 {
         持续 - 每名玩家;
@@ -4035,6 +4086,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Orisa]: stun when ult") {
     事件 {
         玩家造成击退;
@@ -4050,6 +4102,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Mauga]: Berserker Soul status active") {
     事件 {
         玩家受到伤害;
@@ -4163,6 +4216,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Mauga] Overrun knockdown duration") {
     事件 {
         玩家造成伤害;
@@ -4199,6 +4253,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Mauga]: Cardiac Overdrive Dmg. reduction") {
     事件 {
         持续 - 每名玩家;
@@ -4220,6 +4275,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Mauga]: Cage Fight ignore headshot") {
     事件 {
         持续 - 每名玩家;
@@ -4234,6 +4290,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Illari]: Captive Sun HUD") {
     事件 {
         持续 - 每名玩家;
@@ -4273,6 +4330,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Zenyatta]: headshot damage") {
     事件 {
         玩家造成伤害;
@@ -4365,6 +4423,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Zenyatta]: Transcendence") {
     事件 {
         持续 - 每名玩家;
@@ -4393,6 +4452,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Venture] Burrow speed and healing") {
     事件 {
         持续 - 每名玩家;
@@ -4417,6 +4477,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Sojourn] Overclock Buff") {
     事件 {
         持续 - 每名玩家;
@@ -4455,6 +4516,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Genji]: Deflect") {
     事件 {
         持续 - 每名玩家;
@@ -4472,6 +4534,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Genji] Dragonblade Healing") {
     事件 {
         玩家造成伤害;
@@ -4504,6 +4567,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("【布丽吉塔】恢复包提供护甲") {
     事件 {
         持续 - 每名玩家;
@@ -4527,6 +4591,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("【布丽吉塔】恢复包选中目标") {
     事件 {
         持续 - 每名玩家;
@@ -4543,6 +4608,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("【布丽吉塔】盾击伤害调整") {
     事件 {
         玩家造成伤害;
@@ -4666,6 +4732,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Bot] ACC") {
     事件 {
         持续 - 每名玩家;
@@ -4742,6 +4809,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[kiriko]: swift step hp") {
     事件 {
         持续 - 每名玩家;
@@ -4764,6 +4832,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Kiriko]: Protection Suzu Clear Effect") {
     事件 {
         玩家造成治疗;
@@ -4787,6 +4856,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Bot] PTP1") {
     事件 {
         持续 - 每名玩家;
@@ -4815,6 +4885,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Lifeweaver]: Life Grip Clear Effect") {
     事件 {
         玩家受到治疗;
@@ -4832,6 +4903,7 @@
 }
 
 //Strict optimizations enabled
+//Strict optimizations enabled
 规则 ("[Sierra]: ability 2 heal") {
     事件 {
         持续 - 每名玩家;
@@ -4848,6 +4920,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Sierra]: ability 2 stun") {
     事件 {
         玩家造成击退;
@@ -4864,6 +4937,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Sierra]: ultmate stun") {
     事件 {
         玩家造成击退;
@@ -4880,6 +4954,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Sigma]: shield cd") {
     事件 {
         持续 - 每名玩家;
@@ -4951,6 +5026,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Sigma]: Accretion knockdown") {
     事件 {
         玩家造成伤害;
@@ -4966,6 +5042,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Sigma]: ult damage") {
     事件 {
         玩家造成伤害;
@@ -4981,6 +5058,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Cassdy] Peacekeeper Alt Fire") {
     事件 {
         持续 - 每名玩家;
@@ -5060,6 +5138,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Cassdy] Flashbang stun") {
     事件 {
         玩家造成伤害;
@@ -5074,6 +5153,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Ash] ammo restored by kills") {
     事件 {
         玩家造成最后一击;
@@ -5108,6 +5188,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Ash] ammo add by Coach Gun") {
     事件 {
         持续 - 每名玩家;
@@ -5123,6 +5204,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Baptiste]: headshot damage") {
     事件 {
         玩家造成伤害;
@@ -5157,6 +5239,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Sombra]: AI Auto use Translocator") {
     事件 {
         持续 - 每名玩家;
@@ -5230,6 +5313,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Sombra] TP to Support") {
     事件 {
         持续 - 每名玩家;
@@ -5257,6 +5341,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Tracer] Instant Respawn") {
     事件 {
         玩家阵亡;
@@ -5332,6 +5417,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Tracer] Recall Healing") {
     事件 {
         持续 - 每名玩家;
@@ -5346,6 +5432,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Tracer] Pulse Bomb Damage") {
     事件 {
         玩家造成伤害;
@@ -5362,6 +5449,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Reinhardt] firestrike healing") {
     事件 {
         玩家造成伤害;
@@ -5505,6 +5593,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Reinhardt]: Charge cd") {
     事件 {
         持续 - 每名玩家;
@@ -5525,6 +5614,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Reinhardt]: Earthshatter") {
     事件 {
         玩家造成最后一击;
@@ -5540,6 +5630,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Doomfist] Seismic Slam upper") {
     事件 {
         玩家造成伤害;
@@ -5640,6 +5731,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Doomfist]: Power Block") {
     事件 {
         玩家受到伤害;
@@ -5673,6 +5765,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Doomfist]: Meteor Strike") {
     事件 {
         持续 - 每名玩家;
@@ -5689,6 +5782,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Hazard]: Violent Leap kiil reset cooldown") {
     事件 {
         玩家参与消灭;
@@ -5774,6 +5868,7 @@
     }
 }
 
+//Strict optimizations enabled
 禁用 规则 ("[Hazard]: stun Downpour") {
     事件 {
         玩家受到伤害;
@@ -5793,6 +5888,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Domina]: Sonic Repulsion Field Debuff") {
     事件 {
         玩家造成击退;
@@ -5821,6 +5917,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Domina]: Energy Crystal Slow") {
     事件 {
         玩家造成伤害;
@@ -5848,6 +5945,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Reaper]: Wraith Form to fly") {
     事件 {
         持续 - 每名玩家;
@@ -6000,6 +6098,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Reaper]: Ability 1 Wraith Form cd") {
     事件 {
         持续 - 每名玩家;
@@ -6019,6 +6118,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Reaper]: Ability 2 Shadow Step cd") {
     事件 {
         持续 - 每名玩家;
@@ -6058,6 +6158,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Reaper]: ultimate Death Blossom") {
     事件 {
         持续 - 每名玩家;
@@ -6100,6 +6201,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Freja]: Revdraw Crossbow Stack") {
     事件 {
         玩家造成伤害;
@@ -6198,6 +6300,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Freja]: Dmg. reduction") {
     事件 {
         持续 - 每名玩家;
@@ -6230,6 +6333,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Freja]: Revdraw Crossbow Stack") {
     事件 {
         玩家造成击退;
@@ -6262,6 +6366,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Wuyang]: mov_speed_penalty") {
     事件 {
         玩家造成击退;
@@ -6397,6 +6502,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Wuyang]: Rushing Torrent") {
     事件 {
         持续 - 每名玩家;
@@ -6437,6 +6543,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Wuyang]: Ebb and Flow lost control") {
     事件 {
         玩家受到击退;
@@ -6473,6 +6580,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Wuyang]: Tidal Blast mov_speed_penalty") {
     事件 {
         玩家造成击退;
@@ -6514,6 +6622,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Emre]: Cyber Grenade Control + Burn") {
     事件 {
         玩家造成伤害;
@@ -6527,11 +6636,12 @@
     }
     动作 {
         设置状态(被攻击方, 攻击方, 燃烧, 2);
-        伤害(被攻击方, 攻击方, 加(75, 乘(最大生命值(被攻击方), 0.25)));
+        伤害(被攻击方, 攻击方, 加(75, 乘(最大生命值(被攻击方), 0.15)));
         等待(0.016, 无视条件);
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Emre]: Override Protocol Burn") {
     事件 {
         玩家造成伤害;
@@ -6551,6 +6661,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Mizuki]: Soul Hat bonus heal and cooldown refund") {
     事件 {
         玩家受到治疗;
@@ -6569,6 +6680,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Mizuki]: Substitute Doll clears negative statuses") {
     事件 {
         持续 - 每名玩家;
@@ -6586,6 +6698,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Mizuki]: Soul Chain weakens target") {
     事件 {
         玩家造成伤害;
@@ -6614,6 +6727,7 @@
     }
 }
 
+//Strict optimizations enabled
 禁用 规则 ("[JetpackCat]: Frenetic Flight fuel regeneration") {
     事件 {
         持续 - 每名玩家;
@@ -6649,6 +6763,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[JetpackCat]: Frenetic Flight damage reduction") {
     事件 {
         持续 - 每名玩家;
@@ -6668,6 +6783,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[JetpackCat]: Purr cleanses negative statuses") {
     事件 {
         持续 - 每名玩家;
@@ -6685,6 +6801,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[JetpackCat]: Catnapper damage reduction") {
     事件 {
         持续 - 每名玩家;
@@ -6718,6 +6835,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[widowmaker.opy]: Revert sniper damage falloff") {
     事件 {
         玩家造成伤害;
@@ -6752,6 +6870,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[widowmaker.opy]: Infra-Sight headshot x3") {
     事件 {
         玩家造成伤害;
@@ -6770,6 +6889,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Echo] Duplicate fast ultimate charge") {
     事件 {
         持续 - 每名玩家;
@@ -6785,6 +6905,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Echo]: Focusing Beam Damage") {
     事件 {
         持续 - 每名玩家;
@@ -6803,6 +6924,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Hanzo]: headshot damage") {
     事件 {
         玩家造成伤害;
@@ -6818,6 +6940,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Lucio]: Soundwave Healing") {
     事件 {
         持续 - 每名玩家;
@@ -6836,6 +6959,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Mercy]: Flash Heal cd") {
     事件 {
         持续 - 每名玩家;
@@ -6850,6 +6974,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Mercy]: Valkyrie") {
     事件 {
         持续 - 每名玩家;
@@ -6885,6 +7010,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Vendetta]: Palatine Fang") {
     事件 {
         玩家造成击退;
@@ -6909,6 +7035,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Vendetta]: Whirlwind Dash") {
     事件 {
         玩家受到击退;
@@ -6926,6 +7053,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Vendetta]: Soaring Slice") {
     事件 {
         持续 - 每名玩家;
@@ -6966,6 +7094,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Vendetta]: Sundering Blade") {
     事件 {
         玩家受到击退;
@@ -6988,12 +7117,14 @@
     }
 }
 
+//Strict optimizations enabled
 禁用 规则 ("Initialize Heroes") {
     事件 {
         持续 - 全局;
     }
 }
 
+//Strict optimizations enabled
 规则 ("[reaper/init.opy]: Detect switch to Reaper") {
     事件 {
         持续 - 每名玩家;
@@ -7023,6 +7154,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[tracer/init.opy]: Detect switch to Tracer") {
     事件 {
         持续 - 每名玩家;
@@ -7053,6 +7185,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[mercy/init.opy]: Detect switch to Mercy") {
     事件 {
         持续 - 每名玩家;
@@ -7085,6 +7218,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[hanzo/init.opy]: Detect switch to Hanzo") {
     事件 {
         持续 - 每名玩家;
@@ -7114,6 +7248,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Freja/init.opy]: Detect switch to Freja") {
     事件 {
         持续 - 每名玩家;
@@ -7145,6 +7280,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[torbjorn/init.opy]: Detect switch to Torbjorn") {
     事件 {
         持续 - 每名玩家;
@@ -7174,6 +7310,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[venture/init.opy]: Detect switch to venture") {
     事件 {
         持续 - 每名玩家;
@@ -7203,6 +7340,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Vendetta/init.opy]: Detect switch to Vendetta") {
     事件 {
         持续 - 每名玩家;
@@ -7232,6 +7370,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[wuyang/init.opy]: Detect switch to wuyang") {
     事件 {
         持续 - 每名玩家;
@@ -7261,6 +7400,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[reinhardt/init.opy]: Detect switch to Reinhardt") {
     事件 {
         持续 - 每名玩家;
@@ -7291,6 +7431,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Hazard/init.opy]: Detect switch to Hazard") {
     事件 {
         持续 - 每名玩家;
@@ -7318,6 +7459,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Domina/init.opy]: Detect switch to Domina") {
     事件 {
         持续 - 每名玩家;
@@ -7344,6 +7486,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Anran/init.opy]: Detect switch to Anran") {
     事件 {
         持续 - 每名玩家;
@@ -7370,6 +7513,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Emre/init.opy]: Detect switch to Emre") {
     事件 {
         持续 - 每名玩家;
@@ -7396,6 +7540,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Mizuki/init.opy]: Detect switch to Mizuki") {
     事件 {
         持续 - 每名玩家;
@@ -7422,6 +7567,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[JetpackCat/init.opy]: Detect switch to JetpackCat") {
     事件 {
         持续 - 每名玩家;
@@ -7448,6 +7594,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[pharah/init.opy]: Detect switch to Pharah") {
     事件 {
         持续 - 每名玩家;
@@ -7477,6 +7624,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[winston/init.opy]: Detect switch to Winston") {
     事件 {
         持续 - 每名玩家;
@@ -7507,6 +7655,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[widowmaker/init.opy]: Detect switch to Widowmaker") {
     事件 {
         持续 - 每名玩家;
@@ -7539,6 +7688,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[bastion/init.opy]: Detect switch to Bastion") {
     事件 {
         持续 - 每名玩家;
@@ -7568,6 +7718,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[symmetra/init.opy]: Detect switch to Symmetra") {
     事件 {
         持续 - 每名玩家;
@@ -7598,6 +7749,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[zenyatta]: Detect switch to zenyatta") {
     事件 {
         持续 - 每名玩家;
@@ -7630,6 +7782,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Genji]: Detect switch to Genji") {
     事件 {
         持续 - 每名玩家;
@@ -7659,6 +7812,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[roadhog]: Detect switch to roadhog") {
     事件 {
         持续 - 每名玩家;
@@ -7689,6 +7843,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Cassidy]: Detect switch to Cassidy") {
     事件 {
         持续 - 每名玩家;
@@ -7718,6 +7873,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Junkrat]: Detect switch to Junkrat") {
     事件 {
         持续 - 每名玩家;
@@ -7747,6 +7903,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Zarya]: Detect switch to Zarya") {
     事件 {
         持续 - 每名玩家;
@@ -7778,6 +7935,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Soldier: 76]: Detect switch to Soldier 76") {
     事件 {
         持续 - 每名玩家;
@@ -7807,6 +7965,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Lucio]: Detect switch to Lucio") {
     事件 {
         持续 - 每名玩家;
@@ -7836,6 +7995,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[D.Va]: Detect switch to D.Va") {
     事件 {
         持续 - 每名玩家;
@@ -7866,6 +8026,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Mei]: Detect switch to Mei") {
     事件 {
         持续 - 每名玩家;
@@ -7895,6 +8056,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Sombra]: Detect switch to Sombra") {
     事件 {
         持续 - 每名玩家;
@@ -7926,6 +8088,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Ana]: Detect switch to Ana") {
     事件 {
         持续 - 每名玩家;
@@ -7957,6 +8120,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Orisa]: Detect switch to Orisa") {
     事件 {
         持续 - 每名玩家;
@@ -7987,6 +8151,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Brigitte]: Detect switch to Brigitte") {
     事件 {
         持续 - 每名玩家;
@@ -8017,6 +8182,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Moira]: Detect switch to Moira") {
     事件 {
         持续 - 每名玩家;
@@ -8046,6 +8212,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Wrecking Ball]: Detect switch to Wrecking Ball") {
     事件 {
         持续 - 每名玩家;
@@ -8073,6 +8240,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Sojourn]: Detect switch to Sojourn") {
     事件 {
         持续 - 每名玩家;
@@ -8102,6 +8270,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Ashe]: Detect switch to Ashe") {
     事件 {
         持续 - 每名玩家;
@@ -8131,6 +8300,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Echo]: Detect switch to Echo") {
     事件 {
         持续 - 每名玩家;
@@ -8157,6 +8327,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Baptiste]: Detect switch to Baptiste") {
     事件 {
         持续 - 每名玩家;
@@ -8191,6 +8362,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Kiriko]: Detect switch to Kiriko") {
     事件 {
         持续 - 每名玩家;
@@ -8220,6 +8392,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Junker Queen]: Detect switch to Junker Queen") {
     事件 {
         持续 - 每名玩家;
@@ -8251,6 +8424,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Sierra]: Detect switch to Sierra") {
     事件 {
         持续 - 每名玩家;
@@ -8278,6 +8452,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Sigma]: Detect switch to Sigma") {
     事件 {
         持续 - 每名玩家;
@@ -8308,6 +8483,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Ramattra]: Detect switch to Ramattra") {
     事件 {
         持续 - 每名玩家;
@@ -8338,6 +8514,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Juno]: Detect switch to Juno") {
     事件 {
         持续 - 每名玩家;
@@ -8368,6 +8545,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Doomfist]: Detect switch to Doomfist") {
     事件 {
         持续 - 每名玩家;
@@ -8400,6 +8578,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Lifeweaver]: Detect switch to Lifeweaver") {
     事件 {
         持续 - 每名玩家;
@@ -8427,6 +8606,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Mauga]: Detect switch to Mauga") {
     事件 {
         持续 - 每名玩家;
@@ -8457,6 +8637,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Illari]: Detect switch to Illari") {
     事件 {
         持续 - 每名玩家;
@@ -8484,6 +8665,7 @@
     }
 }
 
+//Strict optimizations enabled
 禁用 规则 ("Initialize Heors End") {
     事件 {
         持续 - 全局;

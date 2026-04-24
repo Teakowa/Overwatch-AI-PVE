@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[venture/init.opy]: Detect switch to venture":
     @Event eachPlayer
     @Hero venture

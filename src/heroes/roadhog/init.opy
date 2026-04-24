@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[roadhog]: Detect switch to roadhog":
     @Event eachPlayer
     @Hero roadhog

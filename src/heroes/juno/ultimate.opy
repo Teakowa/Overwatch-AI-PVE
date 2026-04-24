@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Juno] Track Orbital Ray Position":
     @Event eachPlayer
     @Hero juno

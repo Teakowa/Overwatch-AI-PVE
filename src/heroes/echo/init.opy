@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Echo]: Detect switch to Echo":
     @Event eachPlayer
     @Hero echo

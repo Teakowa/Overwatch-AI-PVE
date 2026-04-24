@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Emre]: Cyber Grenade Control + Burn":
     @Event playerDealtDamage
     @Hero emre

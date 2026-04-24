@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Sierra]: ability 2 heal":
     @Event eachPlayer
     @Hero sierra

@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Wuyang]: mov_speed_penalty":
     @Event playerDealtKnockback
     @Hero wuyang

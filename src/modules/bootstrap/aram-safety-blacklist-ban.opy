@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Player] Override allowed heroes list when player joins lobby":
     @Event eachPlayer
     @Team 2

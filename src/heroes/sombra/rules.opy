@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Sombra]: AI Auto use Translocator":
     @Event eachPlayer
     @Team 1

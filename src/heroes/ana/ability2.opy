@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 rule "[Ana] Biotic Grenade Hit":
     @Event playerTookDamage
     @Condition eventAbility == Button.ABILITY_2
