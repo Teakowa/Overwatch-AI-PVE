@@ -46,7 +46,7 @@
 #!include "heroes/wuyang/aram.opy"
 #!include "heroes/vendetta/aram.opy"
 #!include "heroes/widowmaker/aram.opy"
-#!include "heroes/echo/aram.opy"
+#!include "heroes/echo/rules.opy"
 #!include "heroes/emre/aram.opy"
 #!include "heroes/jetpack_cat/aram.opy"
 #!include "heroes/mizuki/aram.opy"
