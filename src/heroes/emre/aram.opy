@@ -8,7 +8,7 @@ rule "[Emre][ARAM]: Cyber Grenade Control + Burn":
 
     victim.setStatusEffect(attacker, Status.KNOCKED_DOWN, 2)
     victim.setStatusEffect(attacker, Status.BURNING, 2)
-    damage(victim, attacker, 75 + victim.getMaxHealth() * 0.15)
+    damage(victim, attacker, 75 + victim.getMaxHealth() * 0.25)
 	wait()
 
 rule "[Emre][ARAM]: Override Protocol Burn":
