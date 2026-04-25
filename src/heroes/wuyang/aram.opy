@@ -13,6 +13,7 @@ rule "[Wuyang]: Rushing Torrent":
     @Event eachPlayer
     @Hero wuyang
     @Condition eventPlayer.isUsingAbility1() == true
+    
 
     if eventPlayer.getNormalizedHealth() == 1:
         goto lbl_0
@@ -26,58 +27,6 @@ rule "[Wuyang]: Rushing Torrent":
     stopHealingOverTime(eventPlayer.wuyang_buff[0])
     eventPlayer.setDamageReceived(100)
 
-rule "[Wuyang]: Ebb and Flow lost control":
-    @Event playerReceivedKnockback
-    @Condition eventAbility == Button.ABILITY_2
-    @Condition attacker.getHero() == Hero.WUYANG
-
-    victim.startForcingThrottle(0, 0, 0, 0, 0, 0)
-    #victim.applyImpulse(Vector.UP, 1, Relativity.TO_PLAYER)
-    #victim.setGravity(0)
-    waitUntil(victim.hasStatus(Status.INVINCIBLE), 0.75)
-    victim.stopForcingThrottle()
-    #victim.setGravity(100)
-
-rule "[Wuyang]: mov_speed_penalty":
-    @Event playerDealtKnockback
-    @Hero wuyang
-    #@Condition eventAbility == null
-
-    if victim.mov_speed_penalty > 0 and victim.isAlive():
-        victim.setHealth(victim.getHealth() - 45)
-    else:
-        victim.mov_speed_penalty = WuyangBuff[0]
-        victim.setMoveSpeed(100 + victim.mov_speed_buff - victim.mov_speed_penalty)
-        waitUntil(victim.mov_speed_penalty == 0 or victim.unaffected or victim.hasStatus(Status.INVINCIBLE), 1.25)
-        victim.setMoveSpeed(100)
-        victim.mov_speed_penalty = 0
-    wait(0.32)
-
-rule "[Wuyang]: Restorative shield Target":
-    @Event playerReceivedHealing
-    @Condition healer.getHero() == Hero.WUYANG
-    @Condition eventAbility == null
-    @Condition eventHealing <= 8
-    @Condition healee.wuyang_buff[0] != true
-    @Disabled
-
-    healee.wuyang_buff[0] = true
-    wait(1)
-    removeHealthPool(eventPlayer.wuyang_buff[1])
-
-rule "[Wuyang]: Restorative shield":
-    @Event eachPlayer
-    @Condition eventPlayer.wuyang_buff[0] == true
-    @Condition eventPlayer.getHero() != Hero.WUYANG
-    @Disabled
-
-    eventPlayer.wuyang_buff[0] = false
-    if eventPlayer.wuyang_buff[1] == null:
-        goto lbl_0
-    removeHealthPool(eventPlayer.wuyang_buff[1])
-    lbl_0:
-    eventPlayer.addHealthPool(Health.SHIELDS, WuyangBuff[1], true, false)
-    eventPlayer.wuyang_buff[1] = getLastCreatedHealthPool()
 
 rule "[Wuyang]: Rushing Torrent jump":
     @Event eachPlayer
@@ -135,13 +84,3 @@ rule "[Wuyang]: Tidal Blast Allies Healing":
     wait(3)
     eventPlayer.wuyang_buff = false
 
-rule "[Wuyang]: Tidal Blast mov_speed_penalty":
-    @Event playerDealtKnockback
-    @Hero wuyang
-    @Condition eventAbility == Button.ULTIMATE
-
-    victim.mov_speed_penalty += WuyangBuff[4]
-    victim.setMoveSpeed(100 + victim.mov_speed_buff - victim.mov_speed_penalty)
-    waitUntil(victim.mov_speed_penalty == 0 or victim.unaffected or victim.hasStatus(Status.INVINCIBLE), 3)
-    victim.setMoveSpeed(100)
-    victim.mov_speed_penalty -= WuyangBuff[4]
