@@ -16,8 +16,8 @@ rule "[Vendetta]: Palatine Fang":
     lbl_1:
     damage(victim, attacker, victim.getMaxHealth() * VendettaBuff[0] if victim.getHealthOfType(Health.ARMOR) == 0 else victim.getMaxHealth() * VendettaBuff[1])
     wait()
-    eventPlayer.startHealingOverTime(eventPlayer, eventPlayer.getMaxHealth() * VendettaBuff[6] / 1.5, 1.5)
+    heal(eventPlayer, eventPlayer, eventPlayer.getMaxHealth() * VendettaBuff[6])
     wait(0.032)
+
 #!include "ability1.opy"
-#!include "ability2.opy"
 #!include "ultimate.opy"
