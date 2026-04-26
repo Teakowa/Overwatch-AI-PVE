@@ -8,7 +8,8 @@ rule "[AI/control]: Freja Primary":
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.botTarget != null
-    #@Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) == true]) > 0
+    @Condition eventPlayer.botTarget.isAlive() == true
+    @Condition isInLoS(eventPlayer, eventPlayer.botTarget) == true
     
     eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
     waitUntil(eventPlayer.isUsingAbility1(), 1.5)
@@ -72,6 +73,5 @@ rule "[AI/control]: Freja Ammo":
     #@Condition (eventPlayer.isUsingAbility1() or eventPlayer.isUsingAbility2() or eventPlayer.isUsingUltimate()) == true
     
     eventPlayer.setAmmo(0, eventPlayer.getMaxAmmo())
-
 
 
