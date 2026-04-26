@@ -9,6 +9,6 @@
     "perf:scan:strict": "node tools/perf-loop-scan.mjs --strict src"
   },
   "dependencies": {
-    "overpy": "^9.5.11"
+    "overpy": "^9.5.12"
   }
 }

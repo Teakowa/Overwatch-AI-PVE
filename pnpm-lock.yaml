@@ -9,15 +9,15 @@ importers:
   .:
     dependencies:
       overpy:
-        specifier: ^9.5.11
-        version: 9.5.11
+        specifier: ^9.5.12
+        version: 9.5.12
 
 packages:
 
-  overpy@9.5.11:
-    resolution: {integrity: sha512-AGKtuBmwMeMBxHWSj9vo+bLRKzCW/xCNyMYKHagxQGKhLG8SLyI7+Ets29kQ99i8fx24elJJul7KAKkCKG2uHA==}
+  overpy@9.5.12:
+    resolution: {integrity: sha512-XBw37Kvgxu/RVNhVugB8KckBexjZ4GFbfY6m9ii3KzibmvYSkW+nwu3KGBC2QlNuslaaaV+/2EozC/eN+L/QKw==}
     hasBin: true
 
 snapshots:
 
-  overpy@9.5.11: {}
+  overpy@9.5.12: {}
