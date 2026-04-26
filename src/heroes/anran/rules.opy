@@ -25,4 +25,4 @@ rule "[Anran] heal from burning target":
     @Condition eventPlayer.getNormalizedHealth() < 1
 
     heal(eventPlayer, eventPlayer, 25 + eventDamage * 0.65)
-    wait()
+    wait(0.5)
