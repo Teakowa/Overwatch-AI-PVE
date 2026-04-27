@@ -10,7 +10,7 @@ rule "Initialize global variables":
     Debug_UltimateGain = createWorkshopSettingBool("Debug", "即时终极技能充能", false, 4)
     #随机禁用英雄池中的4名英雄（1 重装 2输出 1辅助）
     Hero_BAN = createWorkshopSettingBool("模式", "英雄BAN池", false, 11)
-    CustomAI = createWorkshopSettingEnum("模式", "自定义 AI", 0, ["弗蕾娅", "探奇", "法老之鹰", "伊拉锐", "朱诺", "骇灾", "斩仇", "埃姆雷"], 12)
+    CustomAI = createWorkshopSettingEnum("模式", "自定义 AI", 0, ["弗蕾娅", "探奇", "法老之鹰", "伊拉锐", "朱诺", "骇灾", "斩仇", "埃姆雷", "安然"], 12)
 
 
 rule "Initialize Hero Ability Settings":
