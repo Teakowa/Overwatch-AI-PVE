@@ -50,7 +50,7 @@
 #!include "heroes/domina/rules.opy"
 #!include "heroes/emre/aram.opy"
 #!include "heroes/jetpack_cat/aram.opy"
-#!include "heroes/anran/rules.opy"
+#!include "heroes/anran/aram.opy"
 #!include "heroes/lucio/rules.opy"
 # !include "modules/debug/changelog.opy"
 # !include "utilities/changelog_text.opy"
