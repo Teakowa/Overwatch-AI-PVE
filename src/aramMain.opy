@@ -29,11 +29,11 @@
 #!include "utilities/remove_tank_passive.opy"
 #!include "modules/bootstrap/blacklist.opy"
 
-#!include "modules/ai/delimiter-begin.opy"
-#!include "heroes/init.aram.opy"
-#!include "modules/ai/delimiter-end.opy"
-
 #
 # ARAM-specific overrides (target: thin layer only)
 #
 #!include "aram_overrides.opy"
+
+#!include "modules/ai/delimiter-begin.opy"
+#!include "heroes/init.aram.opy"
+#!include "modules/ai/delimiter-end.opy"
