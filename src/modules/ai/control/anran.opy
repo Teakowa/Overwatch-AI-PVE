@@ -13,10 +13,10 @@ rule "[AI/control]: Anran Attack Pattern":
 
     eventPlayer.stopForcingButton(Button.SECONDARY_FIRE)
     eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
-    wait(1.2, Wait.ABORT_WHEN_FALSE)
+    wait(1.2)
     eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
     eventPlayer.startForcingButton(Button.SECONDARY_FIRE)
-    wait(0.6, Wait.ABORT_WHEN_FALSE)
+    wait(0.6)
     if ruleCondition:
         loop()
     eventPlayer.stopForcingButton(Button.SECONDARY_FIRE)
