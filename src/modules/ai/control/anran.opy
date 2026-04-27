@@ -31,8 +31,8 @@ rule "[AI/control]: Anran Ability 1":
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) == 0
     @Condition eventPlayer.botTarget != null
     @Condition eventPlayer.botTarget.isAlive() == true
-    @Condition distance(eventPlayer.getPosition(), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) > 8
-    @Condition distance(eventPlayer.getPosition(), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) < 24
+    @Condition distance(eventPlayer.getPosition() * vect(1, 0, 1), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) > 8
+    @Condition distance(eventPlayer.getPosition() * vect(1, 0, 1), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) < 24
 
     eventPlayer.startForcingButton(Button.ABILITY_1)
     wait(max(getAverageServerLoad() / 1000, WAIT_AI_THROTTLE_MIN))
