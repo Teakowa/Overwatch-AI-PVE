@@ -13,8 +13,7 @@ rule "[AI/control]: Sojourn Ability 1":
     wait(0.75)
     eventPlayer.stopForcingButton(Button.ABILITY_1)
     eventPlayer.forceButtonPress(Button.JUMP)
-    waitUntil(not eventPlayer.isUsingAbility1(), 99999)
+    waitUntil(not eventPlayer.isUsingAbility1(), 3)
     wait(0.25)
-
 
 

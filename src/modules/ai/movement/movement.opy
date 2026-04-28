@@ -7,7 +7,7 @@ rule "[AI/Movement]: Movement":
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.isAlive() == true
     
-    if eventPlayer.botTarget == null or len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) == true]) == 0:
+    if eventPlayer.botTarget == null or eventPlayer.botTarget.isAlive() != true or isInLoS(eventPlayer, eventPlayer.botTarget) != true:
         eventPlayer.startThrottleInDirection(directionTowards(eventPlayer, eventPlayer.reset_pvar[15]), 1, Relativity.TO_WORLD)
     else:
         eventPlayer.startThrottleInDirection(directionFromAngles(horizontalAngleOfDirection(directionTowards(eventPlayer, eventPlayer.botTarget)) + eventPlayer.Strafe, 0), 1, Relativity.TO_WORLD)

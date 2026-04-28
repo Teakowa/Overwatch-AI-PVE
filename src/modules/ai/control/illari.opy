@@ -8,7 +8,8 @@ rule "[AI/control]: Illari Primary":
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.botTarget != null
-    @Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) == true]) > 0
+    @Condition eventPlayer.botTarget.isAlive() == true
+    @Condition isInLoS(eventPlayer, eventPlayer.botTarget) == true
     
     eventPlayer.forceButtonPress(Button.PRIMARY_FIRE)
     wait(0.9)
@@ -62,7 +63,9 @@ rule "[AI/control]: Illari Ability 2":
     @Condition eventPlayer.isAlive() == true
     @Condition (not eventPlayer.getAbilityCooldown(Button.ABILITY_2)) == true
     @Condition (not eventPlayer.isUsingAbility2()) == true
-    @Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) == true]) > 0
+    @Condition eventPlayer.botTarget != null
+    @Condition eventPlayer.botTarget.isAlive() == true
+    @Condition isInLoS(eventPlayer, eventPlayer.botTarget) == true
     
     eventPlayer.setProjectileSpeed(10)
     eventPlayer.setProjectileGravity(250)
@@ -88,11 +91,13 @@ rule "[AI/control]: Illari Ultimate":
     @Condition eventPlayer.getUltCharge() == 100
     @Condition eventPlayer.isAlive() == true
     
-    waitUntil(true and distance(eventPlayer.getPosition(), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) < 25.5, 99999)
+    waitUntil(
+        eventPlayer.botTarget != null and eventPlayer.botTarget.isAlive() == true and distance(eventPlayer.getPosition(), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) < 25.5,
+        5
+    )
     eventPlayer.startForcingButton(Button.ULTIMATE)
     eventPlayer.startForcingButton(Button.JUMP)
     waitUntil(not eventPlayer.isUsingUltimate(), 4)
     eventPlayer.stopForcingButton(Button.JUMP)
-
 
 

@@ -8,7 +8,8 @@ rule "[AI/control]: Juno Primary":
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.botTarget != null
-    @Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) == true]) > 0
+    @Condition eventPlayer.botTarget.isAlive() == true
+    @Condition isInLoS(eventPlayer, eventPlayer.botTarget) == true
     
     eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
     if eventPlayer.getAbilityCooldown(Button.SECONDARY_FIRE) != 0:
@@ -36,7 +37,8 @@ rule "[AI/control]: Juno Ability 2":
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) == 0
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.botTarget != null
-    @Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) == true]) > 0
+    @Condition eventPlayer.botTarget.isAlive() == true
+    @Condition isInLoS(eventPlayer, eventPlayer.botTarget) == true
     
     eventPlayer.startForcingButton(Button.ABILITY_2)
     wait(WAIT_AI_THROTTLE_MIN)
@@ -76,8 +78,10 @@ rule "[AI/control]: Juno Ultimate":
     @Condition eventPlayer.getUltCharge() == 100
     @Condition eventPlayer.isAlive() == true
     
-    waitUntil(true and (((len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) and distance(eventPlayer, player) <= 10])) + (len([player for player in getLivingPlayers(eventPlayer.getTeam()) if isInLoS(eventPlayer, player) and distance(eventPlayer, player) <= 15]))) >= 3), 99999)
+    waitUntil(
+        eventPlayer.botTarget != null and eventPlayer.botTarget.isAlive() == true and isInLoS(eventPlayer, eventPlayer.botTarget) == true and distance(eventPlayer, eventPlayer.botTarget) <= 10,
+        4
+    )
     eventPlayer.forceButtonPress(Button.ULTIMATE)
-
 
 

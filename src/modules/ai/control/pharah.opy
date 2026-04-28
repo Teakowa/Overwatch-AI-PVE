@@ -8,7 +8,8 @@ rule "[AI/control]: Pharah Primary":
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.botTarget != null
-    @Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) == true]) > 0
+    @Condition eventPlayer.botTarget.isAlive() == true
+    @Condition isInLoS(eventPlayer, eventPlayer.botTarget) == true
     
     eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
     wait(max(getAverageServerLoad() / 1000, 1))
@@ -27,7 +28,8 @@ rule "[AI/control]: Pharah Secondary":
     @Condition eventPlayer.getAbilityCooldown(Button.SECONDARY_FIRE) == 0
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.botTarget != null
-    @Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) == true]) > 0
+    @Condition eventPlayer.botTarget.isAlive() == true
+    @Condition isInLoS(eventPlayer, eventPlayer.botTarget) == true
     
     eventPlayer.startForcingButton(Button.SECONDARY_FIRE)
     wait(max(getAverageServerLoad() / 1000, WAIT_AI_THROTTLE_MIN))
@@ -45,7 +47,8 @@ rule "[AI/control]: Pharah Ability 1":
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) == 0
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.botTarget != null
-    @Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) == true]) > 0
+    @Condition eventPlayer.botTarget.isAlive() == true
+    @Condition isInLoS(eventPlayer, eventPlayer.botTarget) == true
     
     eventPlayer.startForcingButton(Button.ABILITY_1)
     wait(max(getAverageServerLoad() / 1000, WAIT_AI_THROTTLE_MIN))
@@ -62,7 +65,8 @@ rule "[AI/control]: Pharah Ability 2":
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) == 0
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.botTarget != null
-    @Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) == true]) > 0
+    @Condition eventPlayer.botTarget.isAlive() == true
+    @Condition isInLoS(eventPlayer, eventPlayer.botTarget) == true
     
     eventPlayer.startForcingButton(Button.ABILITY_2)
     wait(max(getAverageServerLoad() / 1000, WAIT_AI_THROTTLE_MIN))
@@ -78,7 +82,8 @@ rule "[AI/control]: Pharah Jump":
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.botTarget != null
-    @Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) == true]) > 0
+    @Condition eventPlayer.botTarget.isAlive() == true
+    @Condition isInLoS(eventPlayer, eventPlayer.botTarget) == true
     
     eventPlayer.startForcingButton(Button.JUMP)
     wait(max(getAverageServerLoad() / 1000, 0.333))
@@ -103,8 +108,10 @@ rule "[AI/control]: Pharah Ultimate":
     @Condition eventPlayer.getUltCharge() == 100
     @Condition eventPlayer.isAlive() == true
     
-    waitUntil(true and distance(eventPlayer.getPosition(), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) < 10, 99999)
+    waitUntil(
+        eventPlayer.botTarget != null and eventPlayer.botTarget.isAlive() == true and distance(eventPlayer.getPosition(), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) < 10,
+        3
+    )
     eventPlayer.startForcingButton(Button.ULTIMATE)
-
 
 

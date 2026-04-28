@@ -21,7 +21,10 @@ rule "[AI/control]: Tracer Ultimate":
     @Condition eventPlayer.getUltCharge() == 100
     @Condition eventPlayer.isAlive() == true
     
-    waitUntil(true and distance(eventPlayer.getPosition(), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) < 2.6, 99999)
+    waitUntil(
+        eventPlayer.botTarget != null and eventPlayer.botTarget.isAlive() == true and distance(eventPlayer.getPosition(), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) < 2.6,
+        3
+    )
     eventPlayer.startForcingButton(Button.ULTIMATE)
     wait(3)
     eventPlayer.stopForcingButton(Button.ULTIMATE)
@@ -59,6 +62,5 @@ rule "[AI/control]: Tracer Recall (Remove Pluse Bomb)":
     
     eventPlayer.forceButtonPress(Button.ABILITY_2)
     wait(max(getAverageServerLoad() / 1000, 0.1))
-
 
 

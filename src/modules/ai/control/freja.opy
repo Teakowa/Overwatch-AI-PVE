@@ -35,7 +35,8 @@ rule "[AI/control]: Freja Ability 2":
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) != true
     @Condition eventPlayer.botTarget != null
-    @Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) == true]) > 0
+    @Condition eventPlayer.botTarget.isAlive() == true
+    @Condition isInLoS(eventPlayer, eventPlayer.botTarget) == true
     
     eventPlayer.startForcingButton(Button.ABILITY_2)
     wait(1)
@@ -56,9 +57,13 @@ rule "[AI/control]: Freja Ultimate":
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.getUltCharge() == 100
     @Condition eventPlayer.botTarget != null
-    @Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) == true]) > 0
+    @Condition eventPlayer.botTarget.isAlive() == true
+    @Condition isInLoS(eventPlayer, eventPlayer.botTarget) == true
     
-    waitUntil(true and distance(eventPlayer.getPosition(), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) < 18.6, 99999)
+    waitUntil(
+        eventPlayer.botTarget != null and eventPlayer.botTarget.isAlive() == true and distance(eventPlayer.getPosition(), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) < 18.6,
+        4
+    )
     eventPlayer.startForcingButton(Button.ULTIMATE)
     wait(3)
     eventPlayer.stopForcingButton(Button.ULTIMATE)
@@ -73,5 +78,4 @@ rule "[AI/control]: Freja Ammo":
     #@Condition (eventPlayer.isUsingAbility1() or eventPlayer.isUsingAbility2() or eventPlayer.isUsingUltimate()) == true
     
     eventPlayer.setAmmo(0, eventPlayer.getMaxAmmo())
-
 

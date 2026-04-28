@@ -8,7 +8,8 @@ rule "[AI/control]: Venture Primary":
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.botTarget != null
-    @Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) == true]) > 0
+    @Condition eventPlayer.botTarget.isAlive() == true
+    @Condition isInLoS(eventPlayer, eventPlayer.botTarget) == true
     
     eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
     wait(max(getAverageServerLoad() / 1000, WAIT_AI_THROTTLE_MIN))
@@ -28,7 +29,8 @@ rule "[AI/control]: Venture Secondary":
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.getAbilityCooldown(Button.SECONDARY_FIRE) == 0
     @Condition eventPlayer.botTarget != null
-    @Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) == true]) > 0
+    @Condition eventPlayer.botTarget.isAlive() == true
+    @Condition isInLoS(eventPlayer, eventPlayer.botTarget) == true
     
     eventPlayer.startForcingButton(Button.SECONDARY_FIRE)
 
@@ -43,7 +45,8 @@ rule "[AI/control]: Venture Ability 1":
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) == 0
     @Condition eventPlayer.botTarget != null
-    @Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) == true]) > 0
+    @Condition eventPlayer.botTarget.isAlive() == true
+    @Condition isInLoS(eventPlayer, eventPlayer.botTarget) == true
     
     eventPlayer.startForcingButton(Button.ABILITY_1)
     eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
@@ -72,8 +75,10 @@ rule "[AI/control]: Venture Ultimate":
     @Condition eventPlayer.getUltCharge() == 100
     @Condition eventPlayer.isAlive() == true
     
-    waitUntil(true and distance(eventPlayer.getPosition(), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) < 20, 99999)
+    waitUntil(
+        eventPlayer.botTarget != null and eventPlayer.botTarget.isAlive() == true and distance(eventPlayer.getPosition(), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) < 20,
+        4
+    )
     eventPlayer.startForcingButton(Button.ULTIMATE)
-
 
 
