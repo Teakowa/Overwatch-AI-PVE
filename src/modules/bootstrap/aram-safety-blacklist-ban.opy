@@ -13,6 +13,7 @@ rule "[Player]: Override allowed heroes list when player joins lobby":
     
     eventPlayer.heros = [random.shuffle(getTankHeroes().exclude(Hero.WINSTON)).slice(0, Hero_BAN[0]), random.shuffle(getDamageHeroes()).slice(0, Hero_BAN[1]), random.shuffle(getSupportHeroes()).slice(0, Hero_BAN[2])]
     eventPlayer.setAllowedHeroes(eventPlayer.heros)
+    eventPlayer.aram_extra_pool_applied = false
     wait(0.16)
     eventPlayer.hudText = ""
 

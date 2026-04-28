@@ -43,11 +43,12 @@ rule "[reset.opy]: Reinitialize hero on new round":
     @Condition eventPlayer.getHero() != Hero.SOMBRA
 
     eventPlayer.extra_hero = true
+    eventPlayer.aram_extra_pool_applied = false
     waitUntil(not isMatchBetweenRounds(), Math.INFINITY)
-    wait(1)
+    wait(eventPlayer.getSlot() * 0.5 + getAverageServerLoad() / 100)
     resetHero()
     eventPlayer.reset_pvar[0] = true
-    logToInspector("called init after new round")
+    logToInspector("called init after new round (aram throttled)")
 
 rule "[utilities/hero_setup.opy]: Reset and initialize hero on hero switch":
     @Event eachPlayer
