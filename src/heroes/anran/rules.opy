@@ -38,3 +38,5 @@ rule "[Anran] heal from burning target":
 
     heal(eventPlayer, eventPlayer, 25 + eventDamage * 0.65)
     wait(0.5)
+
+#!include "ability2.opy"
