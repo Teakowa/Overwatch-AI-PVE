@@ -85,8 +85,8 @@ rule "[AI/control]: Vendetta Ultimate":
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.botTarget != null
     @Condition eventPlayer.botTarget.isAlive() == true
-    @Condition distance(eventPlayer.getPosition(), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) < 16 or eventPlayer.isInAir()
     
+    waitUntil(eventPlayer.isInAir() or distance(eventPlayer.getPosition() * vect(1, 0, 1), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) <= 16 , 99999)
     resetStatuses()
     eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
     eventPlayer.forceButtonPress(Button.ULTIMATE)

@@ -31,9 +31,8 @@ rule "[AI/control]: Anran Ability 1":
     @Condition eventPlayer.botTarget != null
     @Condition eventPlayer.botTarget.isAlive() == true
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) == 0
-    @Condition distance(eventPlayer.getPosition() * vect(1, 0, 1), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) > 8
-    @Condition distance(eventPlayer.getPosition() * vect(1, 0, 1), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) < 24
 
+    waitUntil(true and distance(eventPlayer.getPosition() * vect(1, 0, 1), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) < 24, random.uniform(0.65, 1.2))
     eventPlayer.startForcingButton(Button.ABILITY_1)
     wait(max(getAverageServerLoad() / 1000, WAIT_AI_THROTTLE_MIN))
     eventPlayer.stopForcingButton(Button.ABILITY_1)
@@ -48,7 +47,7 @@ rule "[AI/control]: Anran Ability 2":
     @Condition eventPlayer.botTarget != null
     @Condition eventPlayer.botTarget.isAlive() == true
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) == 0
-    @Condition eventPlayer.getNormalizedHealth() < 0.45 or distance(eventPlayer.getPosition() * vect(1, 0, 1), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) <= 8
+    @Condition eventPlayer.getNormalizedHealth() < 0.45 or distance(eventPlayer.getPosition() * vect(1, 0, 1), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) <= 7.8
 
     eventPlayer.startForcingButton(Button.ABILITY_2)
     wait(max(getAverageServerLoad() / 1000, WAIT_AI_THROTTLE_MIN))
@@ -60,11 +59,10 @@ rule "[AI/control]: Anran Ultimate":
     @Hero anran
     @Condition eventPlayer.isDummy() != false
     @Condition eventPlayer.hasSpawned() == true
-    @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.getUltCharge() == 100
     @Condition eventPlayer.botTarget != null
     @Condition eventPlayer.botTarget.isAlive() == true
     @Condition eventPlayer.botTarget.hasStatus(Status.BURNING) == true
-    @Condition distance(eventPlayer.getPosition() * vect(1, 0, 1), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) <= 12
 
+    waitUntil(true and distance(eventPlayer.getPosition() * vect(1, 0, 1), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) <= 12, 99999)
     eventPlayer.forceButtonPress(Button.ULTIMATE)

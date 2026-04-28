@@ -31,10 +31,10 @@ rule "[Anran]: burning target damage amp":
 rule "[Anran] heal from burning target":
     @Event playerDealtDamage
     @Hero anran
-    @Condition eventAbility != 0
-    @Condition victim.hasStatus(Status.BURNING) == true
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.getNormalizedHealth() < 1
+    @Condition eventAbility != 0
+    @Condition victim.hasStatus(Status.BURNING) == true
 
     heal(eventPlayer, eventPlayer, 25 + eventDamage * 0.65)
     wait(0.5)

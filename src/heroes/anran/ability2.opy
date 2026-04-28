@@ -13,3 +13,4 @@ rule "[Anran]: Ability 2":
     wait(0.8)
     eventPlayer.unaffected = false
     eventPlayer.clearStatusEffect(Status.PHASED_OUT)
+    wait(4)
