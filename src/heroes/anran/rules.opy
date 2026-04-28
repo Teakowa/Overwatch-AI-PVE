@@ -5,16 +5,28 @@
 rule "[Anran]: burning target damage amp":
     @Event eachPlayer
     @Hero anran
-    @Condition getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())).filter(lambda player: player.hasStatus(Status.BURNING) == true) == true
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.isAlive() == true
 
+    eventPlayer.anran_burn_target = getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())).filter(lambda player: player.hasStatus(Status.BURNING) == true)
+    if not eventPlayer.anran_burn_target:
+        if eventPlayer.anran_burn_dmg_mod != null:
+            stopDamageModification(eventPlayer.anran_burn_dmg_mod)
+            eventPlayer.anran_burn_dmg_mod = null
+        eventPlayer.anran_burn_target = []
+        wait(3)
+        if ruleCondition:
+            loop()
+        goto lbl_0
     if eventPlayer.anran_burn_dmg_mod != null:
         stopDamageModification(eventPlayer.anran_burn_dmg_mod)
-    startDamageModification(getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())).filter(lambda player: player.hasStatus(Status.BURNING)), eventPlayer, 150, DamageReeval.RECEIVERS_AND_DAMAGERS)
+    startDamageModification(eventPlayer.anran_burn_target, eventPlayer, 150, DamageReeval.RECEIVERS_AND_DAMAGERS)
     eventPlayer.anran_burn_dmg_mod = getLastDamageModification()
     wait(3)
     if ruleCondition:
         loop()
     stopDamageModification(eventPlayer.anran_burn_dmg_mod)
+    lbl_0:
 
 rule "[Anran] heal from burning target":
     @Event playerDealtDamage
