@@ -14,7 +14,7 @@ rule "[Anran]: burning target damage amp":
             stopDamageModification(eventPlayer.anran_burn_dmg_mod)
             eventPlayer.anran_burn_dmg_mod = null
         eventPlayer.anran_burn_target = []
-        wait(3)
+        wait(2)
         if ruleCondition:
             loop()
         goto lbl_0
@@ -22,7 +22,7 @@ rule "[Anran]: burning target damage amp":
         stopDamageModification(eventPlayer.anran_burn_dmg_mod)
     startDamageModification(eventPlayer.anran_burn_target, eventPlayer, 300, DamageReeval.RECEIVERS_AND_DAMAGERS)
     eventPlayer.anran_burn_dmg_mod = getLastDamageModification()
-    wait(3)
+    wait(2)
     if ruleCondition:
         loop()
     stopDamageModification(eventPlayer.anran_burn_dmg_mod)
@@ -37,7 +37,7 @@ rule "[Anran] heal from burning target":
     @Condition eventPlayer.getNormalizedHealth() < 1
 
     damage(victim, attacker, victim.getMaxHealth() * 0.08)
-    heal(eventPlayer, eventPlayer, 75 + eventDamage * 1.8)
+    heal(eventPlayer, eventPlayer, 75 + len(eventPlayer.anran_burn_target) * 50)
     wait(1)
 
 #!include "ability2.opy"
