@@ -69,16 +69,7 @@ rule "[Reaper]: Ability Dire Triggers":
     eventPlayer.setAmmo(0, eventPlayer.getAmmo() + 1)
     eventPlayer.setAbilityCooldown(Button.SECONDARY_FIRE, ReaperBuff[6])
 
-rule "[Reaper]: Ability Dire Triggers dot":
-    @Event playerDealtDamage
-    @Hero reaper
-    @Condition eventAbility == Button.SECONDARY_FIRE
-
-    #wait(WAIT_SHORT_FRAME)
-    victim.startDamageOverTime(attacker, 1, eventPlayer.reaper_buff[0] * ReaperBuff[7])
-    #victim.reaper_buff = getLastDamageOverTimeId()
-    #wait(1)
-    #victim.reaper_buff = 0
+#!include "secondary.opy"
 
 rule "[Reaper]: HUD & Reset":
     @Event eachPlayer
