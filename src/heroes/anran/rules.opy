@@ -6,37 +6,30 @@ rule "[Anran]: burning target damage amp":
     @Event eachPlayer
     @Hero anran
     @Condition eventPlayer.hasSpawned() == true
-    @Condition eventPlayer.isAlive() == true
 
-    eventPlayer.anran_burn_target = getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())).filter(lambda player: player.hasStatus(Status.BURNING) == true)
-    if not eventPlayer.anran_burn_target:
-        if eventPlayer.anran_burn_dmg_mod != null:
-            stopDamageModification(eventPlayer.anran_burn_dmg_mod)
-            eventPlayer.anran_burn_dmg_mod = null
-        eventPlayer.anran_burn_target = []
-        wait(2)
+    if eventPlayer.hasStatus(Status.BURNING) != true:
+        if eventPlayer.anran_burn_stack != 0:
+            eventPlayer.anran_burn_stack = 0
+        wait(1)
         if ruleCondition:
             loop()
         goto lbl_0
-    if eventPlayer.anran_burn_dmg_mod != null:
-        stopDamageModification(eventPlayer.anran_burn_dmg_mod)
-    startDamageModification(eventPlayer.anran_burn_target, eventPlayer, 150, DamageReeval.RECEIVERS_AND_DAMAGERS)
-    eventPlayer.anran_burn_dmg_mod = getLastDamageModification()
-    wait(2)
+    eventPlayer.anran_burn_stack += 1
+    getPlayersOnHero(Hero.ANRAN, getOppositeTeam(eventPlayer.getTeam())).startHealingOverTime(eventPlayer, 1, ceil(eventPlayer.anran_burn_stack * ANRAN_BURN_STACK_HEAL_PER_SECOND * (0.75 if eventPlayer.getHero() in getTankHeroes() else 1)))
+    wait(1)
     if ruleCondition:
         loop()
-    stopDamageModification(eventPlayer.anran_burn_dmg_mod)
     lbl_0:
 
-rule "[Anran] heal from burning target":
+rule "[Anran]: burning target stack bonus":
     @Event playerDealtDamage
     @Hero anran
     @Condition eventAbility != 0
     @Condition victim.hasStatus(Status.BURNING) == true
+    @Condition victim.anran_burn_stack > 0
     @Condition eventPlayer.isAlive() == true
-    @Condition eventPlayer.getNormalizedHealth() < 1
 
-    heal(eventPlayer, eventPlayer, 25 + len(eventPlayer.anran_burn_target) * 10)
+    damage(victim, attacker, ceil(eventDamage * (((ANRAN_BURN_TARGET_DAMAGE_AMP_PERCENT - 100) / 100 + victim.anran_burn_stack * ANRAN_BURN_STACK_DAMAGE_PERCENT / 100) * (0.75 if victim.getHero() in getTankHeroes() else 1))))
     wait(0.5)
 
 #!include "ability2.opy"

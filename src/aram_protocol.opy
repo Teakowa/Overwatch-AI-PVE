@@ -118,6 +118,7 @@ playervar ow1_scoped_damage_falloff_scalar 109
 playervar expected_scoped_damage 110
 playervar anran_burn_target 111
 playervar anran_burn_dmg_mod 112
+playervar anran_burn_stack 114
 playervar aram_extra_pool_applied 113
 
 
