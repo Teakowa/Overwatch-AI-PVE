@@ -85,8 +85,7 @@
 
 ### 4.6 Debug / Changelog
 
-- `debug/debug-ultimate.opy` 提供 Debug 开关逻辑（默认 `@Disabled`）。
-- `debug/changelog.opy` 通过 `changelogText()` 动态渲染不同英雄的更新说明 HUD。
+当前 main 不再显式 include `debug/*` 入口。
 
 ## 5. 维护重点（结合当前实现）
 

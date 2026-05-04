@@ -51,8 +51,7 @@
 
 ## 7. Debug
 
-- `src/modules/debug/debug-ultimate.opy`
-- `src/modules/debug/changelog.opy`
+当前 main 不再显式 include `src/modules/debug/*`。
 
 ## 8. 关键不变量检查点
 
