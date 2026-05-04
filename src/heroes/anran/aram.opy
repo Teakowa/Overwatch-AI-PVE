@@ -4,7 +4,6 @@
 
 rule "[Anran]: burning target damage amp":
     @Event eachPlayer
-    @Hero anran
     @Condition eventPlayer.hasSpawned() == true
 
     if eventPlayer.hasStatus(Status.BURNING) != true:
