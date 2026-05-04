@@ -23,7 +23,12 @@ rule "[Ana] Biotic Grenade Hit":
     if victim.zarya_buff[1] != null:
         goto lbl_0
     eventPlayer.setStatusEffect(attacker, Status.BURNING, 3)
-    eventPlayer.startDamageOverTime(attacker, 3, ceil(Ana_GrenadeDamage[0] / 100 * victim.getMaxHealth()))
+    eventPlayer.burn_stack += 3
+    damage(eventPlayer, attacker, ceil(Ana_GrenadeDamage[0] / 100 * victim.getMaxHealth()))
+    wait(1)
+    damage(eventPlayer, attacker, ceil(Ana_GrenadeDamage[0] / 100 * victim.getMaxHealth()))
+    wait(1)
+    damage(eventPlayer, attacker, ceil(Ana_GrenadeDamage[0] / 100 * victim.getMaxHealth()))
     wait(3)
     lbl_0:
 

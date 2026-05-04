@@ -119,6 +119,7 @@ playervar expected_scoped_damage 110
 playervar anran_burn_target 111
 playervar anran_burn_dmg_mod 112
 playervar aram_extra_pool_applied 113
+playervar burn_stack 114
 
 
 #Subroutine names

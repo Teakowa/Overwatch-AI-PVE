@@ -19,7 +19,10 @@ rule "[Ashe]: Dynamite Damage":
     @Condition eventAbility == Button.ABILITY_2
     @Condition attacker != victim
 
-    victim.startDamageOverTime(attacker, 2, victim.getMaxHealth() * 0.5 / 2)
+    victim.burn_stack += 3
+    damage(victim, attacker, victim.getMaxHealth() * 0.125)
+    wait(1)
+    damage(victim, attacker, victim.getMaxHealth() * 0.125)
     wait(5)
 
 rule "[Ashe]: Dynamite cd":

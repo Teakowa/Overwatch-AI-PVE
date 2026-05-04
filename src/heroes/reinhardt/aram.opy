@@ -10,7 +10,10 @@ rule "[Reinhardt] firestrike healing":
     eventPlayer.startHealingOverTime(eventPlayer, 2, eventDamage * 2)
     lbl_0:
     victim.setStatusEffect(attacker, Status.BURNING, 2)
-    victim.startDamageOverTime(attacker, 2, victim.getMaxHealth() * 0.05)
+    victim.burn_stack += 2
+    damage(victim, attacker, victim.getMaxHealth() * 0.025)
+    wait(1)
+    damage(victim, attacker, victim.getMaxHealth() * 0.025)
 
 rule "[Reinhardt]: Earthshatter":
     @Event playerDealtFinalBlow

@@ -95,6 +95,8 @@ macro ultGenPercent(ow2UltCost, targetUltCost):
 
 # Rule Effects
 #!define ANRAN_BURN_TARGET_DAMAGE_AMP_PERCENT 125
+#!define ANRAN_BURN_STACK_DAMAGE_PERCENT 1.5
+#!define ANRAN_BURN_STACK_HEAL_PER_SECOND 1.25
 
 # Ashe
 
