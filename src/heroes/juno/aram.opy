@@ -28,7 +28,7 @@ rule "[Juno]: Pulsar Torpedoes Healing":
 
     eventPlayer.healing_increase += 50
     eventPlayer.setHealingReceived(100 - eventPlayer.healing_decrease + eventPlayer.healing_increase)
-    healee.startHealingOverTime(healer, 2.5, ceil(healee.getMaxHealth() * 0.25 / 2.5))
+    heal(healee, healer, healee.getMaxHealth() * 0.25)
     waitUntil(eventPlayer.isDead(), 4)
     eventPlayer.setHealingReceived(100)
     eventPlayer.healing_increase = 0

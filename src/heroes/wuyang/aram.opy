@@ -17,14 +17,12 @@ rule "[Wuyang]: Rushing Torrent":
 
     if eventPlayer.getNormalizedHealth() == 1:
         goto lbl_0
-    eventPlayer.startHealingOverTime(eventPlayer, 4.5, WuyangBuff[2])
-    eventPlayer.wuyang_buff[0] = getLastHealingOverTimeId()
+    heal(eventPlayer, eventPlayer, 4.5 * WuyangBuff[2])
     lbl_0:
     eventPlayer.dmg_reduction = WuyangBuff[3]
     eventPlayer.setDamageReceived(100 - eventPlayer.dmg_reduction)
     waitUntil(not eventPlayer.isUsingAbility1(), 4.5)
     eventPlayer.dmg_reduction = 0
-    stopHealingOverTime(eventPlayer.wuyang_buff[0])
     eventPlayer.setDamageReceived(100)
 
 
@@ -73,14 +71,13 @@ rule "[Wuyang]: Tidal Blast Allies Target":
     @Hero wuyang
     @Condition eventAbility == Button.ULTIMATE
 
-    eventPlayer.startHealingOverTime(healee, 1.25, eventPlayer.getMaxHealth() * 0.5 / 1.25)
+    heal(eventPlayer, healee, eventPlayer.getMaxHealth() * 0.5)
 
 rule "[Wuyang]: Tidal Blast Allies Healing":
     @Event eachPlayer
     @Condition eventPlayer.wuyang_buff == true
     @Disabled
 
-    eventPlayer.startHealingOverTime(eventPlayer.reset_pvar[13], 3, eventPlayer.getMaxHealth() * WuyangBuff[5])
+    heal(eventPlayer, eventPlayer.reset_pvar[13], 3 * eventPlayer.getMaxHealth() * WuyangBuff[5])
     wait(3)
     eventPlayer.wuyang_buff = false
-

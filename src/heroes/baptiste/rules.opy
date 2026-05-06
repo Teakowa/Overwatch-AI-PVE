@@ -16,5 +16,5 @@ rule "[Baptiste]: Immortality Field":
 
     eventPlayer.setStatusEffect(eventPlayer.reset_pvar[12], Status.PHASED_OUT, 0.26)
     #heal(eventPlayer, eventPlayer.reset_pvar[12], 50)
-    eventPlayer.startHealingOverTime(eventPlayer.reset_pvar[12], 5, 50 if eventPlayer.getTeam() == Team.1 else 25)
+    heal(eventPlayer, eventPlayer.reset_pvar[12], 250 if eventPlayer.getTeam() == Team.1 else 125)
     wait(8)

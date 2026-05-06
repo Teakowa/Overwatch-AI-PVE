@@ -8,9 +8,9 @@ rule "[Ana]: Headhunter":
     @Disabled
 
     if eventPlayer.getNormalizedHealth() != 1:
-        eventPlayer.startHealingOverTime(eventPlayer, 0.625, ceil(eventDamage * 31.25 * 10))
+        heal(eventPlayer, eventPlayer, 0.625 * ceil(eventDamage * 31.25 * 10))
     else:
-        ([player for player in getLivingPlayers(eventPlayer.getTeam()) if isInLoS(eventPlayer, player, BarrierLos.BLOCKED_BY_ENEMY_BARRIERS) == true and player != eventPlayer]).startHealingOverTime(eventPlayer, 0.625, ceil(eventDamage * 31.25 * 10) / (len([player for player in getLivingPlayers(eventPlayer.getTeam()) if isInLoS(eventPlayer, player, BarrierLos.BLOCKED_BY_ENEMY_BARRIERS) == true and player != eventPlayer])))
+        heal([player for player in getLivingPlayers(eventPlayer.getTeam()) if isInLoS(eventPlayer, player, BarrierLos.BLOCKED_BY_ENEMY_BARRIERS) == true and player != eventPlayer], eventPlayer, 0.625 * ceil(eventDamage * 31.25 * 10) / (len([player for player in getLivingPlayers(eventPlayer.getTeam()) if isInLoS(eventPlayer, player, BarrierLos.BLOCKED_BY_ENEMY_BARRIERS) == true and player != eventPlayer])))
     wait(0.625)
 
 rule "[Ana] Biotic Grenade Hit":
@@ -62,14 +62,14 @@ rule "[Ana] Nano Boost Healing":
     @Condition eventPlayer.has_nano == true
 
     heal(healee, healer, 99999)
-    healee.startHealingOverTime(healer, 10, ceil(healee.getMaxHealth() * 0.2))
+    heal(healee, healer, 10 * ceil(healee.getMaxHealth() * 0.2))
 
 rule "[Ana] Biotic Grenade Hit for allies":
     @Event playerDealtHealing
     @Hero ana
     @Condition eventAbility == Button.ABILITY_2
 
-    healee.startHealingOverTime(healer, 3, healee.getMaxHealth() * Ana_GrenadeDamage[1])
+    heal(healee, healer, 3 * healee.getMaxHealth() * Ana_GrenadeDamage[1])
 
 rule "[Ana] Nano Boost ":
     @Event eachPlayer

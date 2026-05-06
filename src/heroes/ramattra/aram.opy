@@ -96,7 +96,6 @@ rule "[Ramattra]: block":
     eventPlayer.addHealthPool(Health.NORMAL, Ram_Annihilation[0] if eventPlayer.ram_block_damage >= Ram_Annihilation[0] else eventPlayer.ram_block_damage, false, false)
     eventPlayer.ram_block_damage = 0
     eventPlayer.hudText = ""
-    #eventPlayer.startHealingOverTime(eventPlayer, 5, eventPlayer.getMaxHealth() * 0.25)
 
 rule "[Ramattra]: block HUD":
     @Event eachPlayer

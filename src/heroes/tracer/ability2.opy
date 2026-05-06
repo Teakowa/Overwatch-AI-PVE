@@ -5,4 +5,4 @@ rule "[Tracer] Recall Healing":
     @Hero tracer
     @Condition eventPlayer.isUsingAbility2() == true
 
-    eventPlayer.startHealingOverTime(null, 2, 25)
+    heal(eventPlayer, null, 50)

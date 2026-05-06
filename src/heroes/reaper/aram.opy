@@ -34,7 +34,6 @@ rule "[Reaper]: Ability 1 Wraith Form cd":
     wait(3)
     #chaseOverTime(eventPlayer.dmg_amplification, 0, 3, ChaseTimeReeval.NONE)
     eventPlayer.dmg_amplification = 0
-    @Disabled
 
 rule "[Reaper]: Ability 2 Shadow Step cd":
     @Event eachPlayer

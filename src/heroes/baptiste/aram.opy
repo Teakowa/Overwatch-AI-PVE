@@ -18,5 +18,5 @@ rule "[Baptiste]: Immortality Field":
     @Condition eventPlayer.reset_pvar[12].getAbilityCooldown(Button.ABILITY_2) > 0
 
     #heal(eventPlayer, eventPlayer.reset_pvar[12], 50)
-    eventPlayer.startHealingOverTime(eventPlayer.reset_pvar[12], 5, 50 if eventPlayer.getTeam() == Team.1 else 25)
+    heal(eventPlayer, eventPlayer.reset_pvar[12], 250 if eventPlayer.getTeam() == Team.1 else 125)
     wait(8)

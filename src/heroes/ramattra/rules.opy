@@ -35,7 +35,6 @@ rule "[Ramattra]: block HP":
     eventPlayer.hudText = ""
     #if eventPlayer.getTeam() == Team.2:
     #        goto lbl_0
-    #eventPlayer.startHealingOverTime(eventPlayer, 5, eventPlayer.getMaxHealth() * 0.25)
     lbl_0:
 
 rule "[Ramattra]: block HUD":

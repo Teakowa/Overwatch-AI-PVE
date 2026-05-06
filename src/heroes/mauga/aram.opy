@@ -20,7 +20,7 @@ rule "[Mauga]: Cage Fight heal":
     @Condition eventPlayer.isUsingUltimate() == true
     @Condition (len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if distance(eventPlayer, player) <= 7 and player.hasStatus(Status.ROOTED)])) > 0
 
-    eventPlayer.startHealingOverTime(eventPlayer, 2, 120 * (len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if distance(eventPlayer, player) <= 7 and player.hasStatus(Status.ROOTED)])))
+    heal(eventPlayer, eventPlayer, 240 * (len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if distance(eventPlayer, player) <= 7 and player.hasStatus(Status.ROOTED)])))
     wait(1.996)
     if ruleCondition:
         loop()

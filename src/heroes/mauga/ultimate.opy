@@ -6,4 +6,4 @@ rule "[Mauga]: Cage Fight ignore headshot":
     @Hero mauga
     @Condition eventPlayer.isUsingUltimate() == true
 
-    eventPlayer.startHealingOverTime(eventPlayer, 50, 15)
+    heal(eventPlayer, eventPlayer, 750)

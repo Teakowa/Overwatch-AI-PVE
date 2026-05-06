@@ -44,8 +44,8 @@ rule "[Zarya]: will to win":
     eventPlayer.setStatusEffect(null, Status.PHASED_OUT, 1)
     eventPlayer.setAbilityCooldown(Button.ABILITY_1, 0)
     eventPlayer.setAbilityCooldown(Button.ABILITY_2, 0)
-    eventPlayer.startHealingOverTime(eventPlayer, ZaryaBuff[3], ZaryaBuff[4])
-    eventPlayer.zarya_buff[1] = getLastHealingOverTimeId()
+    heal(eventPlayer, eventPlayer, ZaryaBuff[3] * ZaryaBuff[4])
+    eventPlayer.zarya_buff[1] = true
     wait(15)
     eventPlayer.zarya_buff[0] = false
     eventPlayer.zarya_buff[1] = null

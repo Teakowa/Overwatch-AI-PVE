@@ -7,7 +7,7 @@ rule "[Reinhardt] firestrike healing":
 
     if eventAbility == Button.ULTIMATE:
         goto lbl_0
-    eventPlayer.startHealingOverTime(eventPlayer, 2, eventDamage * 2)
+    heal(eventPlayer, eventPlayer, eventDamage * 4)
     lbl_0:
     victim.setStatusEffect(attacker, Status.BURNING, 2)
     victim.burn_stack += 2

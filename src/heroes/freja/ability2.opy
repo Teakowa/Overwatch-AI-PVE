@@ -9,8 +9,7 @@ rule "[Freja]: Dmg. reduction":
 
     if eventPlayer.getTeam() == Team.2:
         goto lbl_0
-    eventPlayer.startHealingOverTime(null, 10, 30)
-    eventPlayer.freja_buff[5] = getLastHealingOverTimeId()
+    heal(eventPlayer, null, 300)
     eventPlayer.setDamageReceived(75)
     hudText(eventPlayer, null, " \r\n", "受到伤害减免：{0}%".format(25), HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
     #eventPlayer.hudText = "受到伤害减免：{0}%".format(25)
@@ -21,8 +20,3 @@ rule "[Freja]: Dmg. reduction":
     destroyHudText(eventPlayer.freja_buff[2])
     eventPlayer.freja_buff[2] = 0
     eventPlayer.setDamageReceived(100)
-    if eventPlayer.getTeam() == Team.2:
-        goto lbl_1
-    stopHealingOverTime(eventPlayer.freja_buff[5])
-    eventPlayer.freja_buff[5] = null
-    lbl_1:

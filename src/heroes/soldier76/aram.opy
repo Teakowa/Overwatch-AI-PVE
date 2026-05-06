@@ -100,7 +100,7 @@ rule "[Soldier: 76]: 治疗":
     @Condition eventPlayer.isAlive() == true
 
     wait(0.16, Wait.ABORT_WHEN_FALSE)
-    eventPlayer.startHealingOverTime(eventPlayer, 5, eventPlayer.getMaxHealth() * 0.1)
+    heal(eventPlayer, eventPlayer, eventPlayer.getMaxHealth() * 0.5)
 
 rule "[Soldier: 76]: 替代射击":
     @Event eachPlayer
