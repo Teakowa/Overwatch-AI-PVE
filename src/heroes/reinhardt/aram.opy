@@ -12,6 +12,12 @@ rule "[Reinhardt] firestrike healing":
     victim.setStatusEffect(attacker, Status.BURNING, 2)
     victim.burn_stack += 2
     damage(victim, attacker, victim.getMaxHealth() * 0.025)
+
+rule "[Reinhardt] firestrike burn dot":
+    @Event playerDealtDamage
+    @Hero reinhardt
+    @Condition (eventAbility == Button.ABILITY_2 or eventAbility == Button.ULTIMATE) == true
+
     wait(1)
     damage(victim, attacker, victim.getMaxHealth() * 0.025)
 

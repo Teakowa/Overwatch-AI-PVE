@@ -21,6 +21,13 @@ rule "[Ashe]: Dynamite Damage":
 
     victim.burn_stack += 3
     damage(victim, attacker, victim.getMaxHealth() * 0.125)
+
+rule "[Ashe]: Dynamite Burn Dot":
+    @Event playerDealtDamage
+    @Hero ashe
+    @Condition eventAbility == Button.ABILITY_2
+    @Condition attacker != victim
+
     wait(1)
     damage(victim, attacker, victim.getMaxHealth() * 0.125)
     wait(5)
