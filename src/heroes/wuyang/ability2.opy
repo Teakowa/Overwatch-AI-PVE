@@ -1,17 +1,5 @@
 #!optimizeStrict
 
-rule "[Wuyang]: Ebb and Flow lost control":
-    @Event playerReceivedKnockback
-    @Condition eventAbility == Button.ABILITY_2
-    @Condition attacker.getHero() == Hero.WUYANG
-
-    victim.startForcingThrottle(0, 0, 0, 0, 0, 0)
-    #victim.applyImpulse(Vector.UP, 1, Relativity.TO_PLAYER)
-    #victim.setGravity(0)
-    waitUntil(victim.hasStatus(Status.INVINCIBLE), 0.75)
-    victim.stopForcingThrottle()
-    #victim.setGravity(100)
-
 rule "[Wuyang]: Ebb and Flow set":
     @Event playerReceivedKnockback
     #@Condition eventPlayer.isUsingAbility2() == true
@@ -21,3 +9,29 @@ rule "[Wuyang]: Ebb and Flow set":
     victim.wuyang_buff[2]++
     #eventPlayer.setAbilityCooldown(Button.ABILITY_2, eventPlayer.getAbilityCooldown(Button.ABILITY_2) - 1)
     wait(WAIT_SHORT_FRAME)
+
+rule "[Wuyang]: Ebb and Flow Ability":
+    @Event eachPlayer
+    @Condition eventPlayer.wuyang_buff[2] >= 2
+
+    eventPlayer.setStatusEffect(eventPlayer.reset_pvar[14], Status.FROZEN, 2.5)
+    waitUntil(eventPlayer.unaffected or eventPlayer.hasStatus(Status.INVINCIBLE) or eventPlayer.hasStatus(Status.PHASED_OUT), 5)
+    eventPlayer.wuyang_buff[2] *= 0
+
+rule "[Wuyang]: Ebb and Flow countdown":
+    @Event eachPlayer
+    @Condition eventPlayer.wuyang_buff[2] > 0
+
+    wait(2.5, Wait.ABORT_WHEN_FALSE)
+    eventPlayer.wuyang_buff[2]--
+    if ruleCondition:
+        loop()
+
+rule "[Wuyang]: xuanwu cd":
+    @Event playerDealtKnockback
+    @Hero wuyang
+    @Condition eventAbility == null
+    @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) > 0
+
+    eventPlayer.setAbilityCooldown(Button.ABILITY_2, eventPlayer.getAbilityCooldown(Button.ABILITY_2) - 1)
+    wait(0.5)
