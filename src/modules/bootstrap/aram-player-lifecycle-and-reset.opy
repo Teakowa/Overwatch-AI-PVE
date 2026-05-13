@@ -45,9 +45,8 @@ rule "[reset.opy]: Reinitialize hero on new round":
     eventPlayer.extra_hero = true
     eventPlayer.aram_extra_pool_applied = false
     waitUntil(not isMatchBetweenRounds(), Math.INFINITY)
-    wait(eventPlayer.getSlot() * 0.5 + getAverageServerLoad() / 100)
+    wait(eventPlayer.getSlot() * 10 + getAverageServerLoad() / 100)
     resetHero()
-    eventPlayer.reset_pvar[0] = true
     logToInspector("called init after new round (aram throttled)")
 
 rule "[utilities/hero_setup.opy]: Reset and initialize hero on hero switch":
@@ -59,3 +58,19 @@ rule "[utilities/hero_setup.opy]: Reset and initialize hero on hero switch":
     destroyHudText(eventPlayer.ChangelogText1)
     destroyHudText(eventPlayer.ChangelogText2)
     resetHero()
+
+def applySignedMoveSpeed():
+    @Name "[utilities/move_speed.opy]: applySignedMoveSpeed()"
+
+    eventPlayer.setMoveSpeed(min(max(100 + eventPlayer.mov_speed_buff, 20), 200))
+
+def clearMoveSpeedDebuffs():
+    @Name "[utilities/move_speed.opy]: clearMoveSpeedDebuffs()"
+
+    eventPlayer.brigitte_buff[0] = false
+    eventPlayer.orisa_buff = false
+    eventPlayer.wuyang_buff[3] = false
+    eventPlayer.wuyang_buff[4] = false
+    eventPlayer.mov_speed_penalty = 0
+    eventPlayer.mov_speed_buff = 0
+    applySignedMoveSpeed()

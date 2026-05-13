@@ -42,8 +42,8 @@ rule "[reset.opy]: Reinitialize hero on new round":
     @Condition isMatchBetweenRounds() == true
     @Condition eventPlayer.getHero() != Hero.SOMBRA
 
-    waitUntil(not isMatchBetweenRounds(), 5)
-    wait(eventPlayer.getSlot() * 0.5 + getAverageServerLoad() / 100)
+    waitUntil(not isMatchBetweenRounds(), 10)
+    wait(eventPlayer.getSlot() * 1 + getAverageServerLoad() / 100)
     resetHero()
     logToInspector("called init after new round")
 
