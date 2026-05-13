@@ -42,15 +42,16 @@ rule "[Ramattra] ult start":
         loop()
 
 rule "[Ramattra] ult healing":
-    @Event playerDealtDamage
+    @Event eachPlayer
     @Hero ramattra
-    #@Condition attacker.getHero() == Hero.RAMATTRA == true
     @Condition eventPlayer.isUsingUltimate() == true
     @Condition eventPlayer.getNormalizedHealth() != 1
-    #@Condition eventAbility == Button.PRIMARY_FIRE == true
 
-    heal(eventPlayer, eventPlayer, eventDamage * Ram_Annihilation[1])
-    wait(0.0016)
+    heal(eventPlayer, eventPlayer, 75 * Ram_Annihilation[1])
+    wait(0.5)
+    if ruleCondition:
+        loop()
+
 
 rule "[Ramattra]: Pummel healing":
     @Event playerDealtDamage
@@ -61,7 +62,6 @@ rule "[Ramattra]: Pummel healing":
     @Condition eventPlayer.getHealthOfType(Health.NORMAL) <= eventPlayer.getMaxHealthOfType(Health.NORMAL) + 50
 
     eventPlayer.ram_block_damage += eventDamage * 2.5
-    eventPlayer.hudText = "{0}/{1}".format(floor(eventPlayer.ram_block_damage), Ram_Annihilation[0])
     wait(0.3)
 
 rule "[Ramattra]: Pummel healing":
@@ -85,6 +85,7 @@ rule "[Ramattra]: block":
 
     eventPlayer.ram_block_damage += eventDamage
     eventPlayer.hudText = "{0}/{1}".format(floor(eventPlayer.ram_block_damage), Ram_Annihilation[0])
+    wait()
 
 rule "[Ramattra]: block":
     @Event eachPlayer
@@ -113,11 +114,12 @@ rule "[Ramattra]: block HUD":
 
 rule "[Ramattra]: Annihilation dmg reduc":
     @Event eachPlayer
-    @Condition getPlayersOnHero(Hero.RAMATTRA, getOppositeTeam(eventPlayer.getTeam())).isUsingUltimate() == true
-    @Condition distance(eventPlayer, getPlayersOnHero(Hero.RAMATTRA, getOppositeTeam(eventPlayer.getTeam()))) > 13
+    @Hero ramattra
+    @Condition eventPlayer.isUsingUltimate() == true
+    @Condition eventPlayer.ram_dmg_reduc == null
 
-    startDamageModification(getPlayersOnHero(Hero.RAMATTRA, getOppositeTeam(eventPlayer.getTeam())), eventPlayer, 0.01)
+    startDamageModification(eventPlayer, getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())).filter(lambda player: distance(eventPlayer, player) > 0.01), 25)
     eventPlayer.ram_dmg_reduc = getLastDamageModification()
-    waitUntil(not getPlayersOnHero(Hero.RAMATTRA, getOppositeTeam(eventPlayer.getTeam())).isUsingUltimate() or distance(eventPlayer, getPlayersOnHero(Hero.RAMATTRA, getOppositeTeam(eventPlayer.getTeam()))) <= 13, 120)
+    waitUntil(not eventPlayer.isUsingUltimate(), Math.INFINITY)
     stopDamageModification(eventPlayer.ram_dmg_reduc)
     eventPlayer.ram_dmg_reduc = null

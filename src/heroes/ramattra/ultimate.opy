@@ -1,5 +1,15 @@
 #!optimizeStrict
 
+rule "[Ramattra]: Pain endures":
+    @Event playerDealtFinalBlow
+    @Hero ramattra
+    @Condition eventPlayer.getUltCharge() != 100
+    @Condition eventPlayer.isUsingUltimate() == true
+    @Condition (eventAbility == Button.ULTIMATE or eventAbility == Button.ABILITY_1) == true
+
+    eventPlayer.setUltCharge(eventPlayer.getUltCharge() + 25)
+    wait(0.3)
+
 rule "[Ramattra] ult speed":
     @Event eachPlayer
     @Hero ramattra
@@ -37,29 +47,24 @@ rule "[Ramattra] ult start":
         loop()
 
 rule "[Ramattra] ult healing":
-    @Event playerDealtDamage
+    @Event eachPlayer
     @Hero ramattra
-    #@Condition attacker.getHero() == Hero.RAMATTRA == true
     @Condition eventPlayer.isUsingUltimate() == true
     @Condition eventPlayer.getNormalizedHealth() != 1
-    #@Condition eventAbility == Button.PRIMARY_FIRE == true
 
-    #heal(eventPlayer, eventPlayer, Ram_Annihilation[2] * 15 * len(getPlayersInRadius(eventPlayer, 13, getOppositeTeam(eventPlayer.getTeam()), LosCheck.SURFACES_AND_ENEMY_BARRIERS)))
-    #wait(0.5)
-    #playEffect(eventPlayer, DynamicEffect.GOOD_PICKUP_EFFECT, Color.YELLOW, eventPlayer, 200)
-    heal(eventPlayer, eventPlayer, eventDamage * Ram_Annihilation[1])
-    wait(0.0016)
+    heal(eventPlayer, eventPlayer, 25 * Ram_Annihilation[1])
+    wait(0.5)
+    if ruleCondition:
+        loop()
 
 rule "[Ramattra]: Annihilation dmg reduc":
     @Event eachPlayer
-    @Condition eventPlayer.reset_pvar[5].isUsingUltimate() == true
-    @Condition len(getPlayersInRadius(eventPlayer, 13, getOppositeTeam(eventPlayer.getTeam()), LosCheck.SURFACES)) > 0
+    @Hero ramattra
+    @Condition eventPlayer.isUsingUltimate() == true
+    @Condition eventPlayer.ram_dmg_reduc == null
 
     startDamageModification(eventPlayer, getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())).filter(lambda player: distance(eventPlayer, player) > 13), 25)
     eventPlayer.ram_dmg_reduc = getLastDamageModification()
-    wait(1)
-    if ruleCondition:
-        loop()
-    #waitUntil(not eventPlayer.reset_pvar[5].isUsingUltimate() or distance(eventPlayer, eventPlayer.reset_pvar[5].getPosition()) <= 13, 120)
+    waitUntil(not eventPlayer.isUsingUltimate(), Math.INFINITY)
     stopDamageModification(eventPlayer.ram_dmg_reduc)
     eventPlayer.ram_dmg_reduc = null
