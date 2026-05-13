@@ -11,3 +11,27 @@ rule "[Reaper]: Ability 1 Wraith Form cd":
     wait(3)
     #chaseOverTime(eventPlayer.dmg_amplification, 0, 3, ChaseTimeReeval.NONE)
     eventPlayer.dmg_amplification = 0
+
+rule "[Reaper]: Ability 1 Wraith Form dmg increase setup":
+    @Event eachPlayer
+    @Hero reaper
+    @Condition eventPlayer.dmg_amplification != 0
+
+    eventPlayer.setDamageDealt(100 + eventPlayer.dmg_amplification)
+    wait(0.5)
+    eventPlayer.dmg_amplification -= eventPlayer.dmg_amplification * 0.3
+    if ruleCondition:
+        loop()
+    eventPlayer.setDamageDealt(100)
+
+rule "[Reaper]: Ability 1 Wraith Form dmg increase set & hud":
+    @Event eachPlayer
+    @Hero reaper
+    @Condition eventPlayer.dmg_amplification != 0
+
+    destroyHudText(eventPlayer.reaper_buff[1])
+    hudText(eventPlayer, null, " \r\n", "伤害增幅：{0}%".format(ceil(eventPlayer.dmg_amplification)), HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
+    eventPlayer.reaper_buff[1] = getLastCreatedText()
+    waitUntil(eventPlayer.dmg_amplification == 0 and eventPlayer.isDead(), 3.5)
+    destroyHudText(eventPlayer.reaper_buff[1])
+    eventPlayer.reaper_buff[1] = 0

@@ -1,5 +1,15 @@
 #!optimizeStrict
 
+rule "[Reaper]: Ability Dire Triggers":
+    @Event eachPlayer
+    @Hero reaper
+    #@Condition eventPlayer.getAbilityCooldown(Button.SECONDARY_FIRE) > 1.5
+    @Condition eventPlayer.isFiringSecondaryFire() == true
+
+    waitUntil(not eventPlayer.isFiringSecondaryFire(), 0.6)
+    eventPlayer.setAmmo(0, eventPlayer.getAmmo() + 1)
+    eventPlayer.setAbilityCooldown(Button.SECONDARY_FIRE, ReaperBuff[6])
+
 rule "[Reaper]: Ability Dire Triggers dot":
     @Event playerDealtDamage
     @Hero reaper
