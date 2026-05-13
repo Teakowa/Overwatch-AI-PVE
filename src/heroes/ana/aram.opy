@@ -1,47 +1,6 @@
 #!optimizeStrict
 
-rule "[Ana]: Headhunter":
-    @Event playerDealtDamage
-    @Team 2
-    @Hero ana
-    @Condition eventWasCriticalHit == true
-    @Disabled
-
-    if eventPlayer.getNormalizedHealth() != 1:
-        heal(eventPlayer, eventPlayer, 0.625 * ceil(eventDamage * 31.25 * 10))
-    else:
-        heal([player for player in getLivingPlayers(eventPlayer.getTeam()) if isInLoS(eventPlayer, player, BarrierLos.BLOCKED_BY_ENEMY_BARRIERS) == true and player != eventPlayer], eventPlayer, 0.625 * ceil(eventDamage * 31.25 * 10) / (len([player for player in getLivingPlayers(eventPlayer.getTeam()) if isInLoS(eventPlayer, player, BarrierLos.BLOCKED_BY_ENEMY_BARRIERS) == true and player != eventPlayer])))
-    wait(0.625)
-
-rule "[Ana] Biotic Grenade Hit":
-    @Event playerTookDamage
-    @Condition eventAbility == Button.ABILITY_2
-    @Condition attacker.getHero() == Hero.ANA == true
-    @Condition (victim.hasStatus(Status.INVINCIBLE) or victim.hasStatus(Status.UNKILLABLE) or victim.hasStatus(Status.PHASED_OUT)) == false
-    @Condition victim.has_nano != true
-
-    if victim.zarya_buff[1] != null:
-        goto lbl_0
-    eventPlayer.setStatusEffect(attacker, Status.BURNING, 3)
-    eventPlayer.burn_stack += 3
-    damage(eventPlayer, attacker, ceil(Ana_GrenadeDamage[0] / 100 * victim.getMaxHealth()))
-    lbl_0:
-
-rule "[Ana] Biotic Grenade Burn Dot":
-    @Event playerTookDamage
-    @Condition eventAbility == Button.ABILITY_2
-    @Condition attacker.getHero() == Hero.ANA == true
-    @Condition (victim.hasStatus(Status.INVINCIBLE) or victim.hasStatus(Status.UNKILLABLE) or victim.hasStatus(Status.PHASED_OUT)) == false
-    @Condition victim.has_nano != true
-
-    if victim.zarya_buff[1] != null:
-        goto lbl_0
-    wait(1)
-    damage(eventPlayer, attacker, ceil(Ana_GrenadeDamage[0] / 100 * victim.getMaxHealth()))
-    wait(1)
-    damage(eventPlayer, attacker, ceil(Ana_GrenadeDamage[0] / 100 * victim.getMaxHealth()))
-    wait(3)
-    lbl_0:
+#!include "ability2.opy"
 
 rule "[Ana]: Damage Full Health Allies So Nano Can Heal":
     @Event eachPlayer
