@@ -7,6 +7,7 @@ rule "[Freja]: Revdraw Crossbow Stack":
     @Condition eventPlayer.hasStatus(Status.INVINCIBLE) != true
 
     victim.freja_buff[0]++
+    wait()
 
 rule "[Freja]: Take Aim Damage":
     @Event playerDealtDamage
@@ -17,8 +18,6 @@ rule "[Freja]: Take Aim Damage":
     @Condition victim.freja_buff[0] > 0
 
     wait(0.5, Wait.ABORT_WHEN_FALSE)
-    playEffect(getAllPlayers(), DynamicEffect.BAD_EXPLOSION, Color.BLUE, victim, 0.8)
-    playEffect(getAllPlayers(), DynamicEffect.EXPLOSION_SOUND, Color.BLUE, victim, 10)
     damage(victim, attacker, FrejaBuff[0] * victim.freja_buff[0])
     victim.freja_buff[0] = 0
     victim.freja_buff[1] = 0
