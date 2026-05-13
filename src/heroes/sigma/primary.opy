@@ -1,10 +1,11 @@
 #!optimizeStrict
 
+
 rule "[Sigma]: Hyperspheres Layer Damage":
     @Event playerDealtDamage
     @Hero sigma
     @Condition SigmaBuff[0] != 0
-    @Condition eventPlayer.sigma_hyperspheres < SigmaBuff[1] + 1
+    @Condition eventPlayer.sigma_hyperspheres < 4
     @Condition eventAbility == Button.PRIMARY_FIRE
 
     eventPlayer.sigma_hyperspheres++
@@ -15,12 +16,12 @@ rule "[Sigma]: Hyperspheres Layer Damage":
     @Event playerDealtDamage
     @Hero sigma
     @Condition SigmaBuff[0] != 0
-    @Condition eventPlayer.sigma_hyperspheres == SigmaBuff[1] + 1
+    @Condition eventPlayer.sigma_hyperspheres == 4
     @Condition eventAbility == Button.PRIMARY_FIRE
 
     eventPlayer.sigma_hyperspheres = 0
     eventPlayer.hudText = "{0}|{1}".format(eventPlayer.sigma_hyperspheres, 3)
-    damage(victim, attacker, attacker.getHealth() * SigmaBuff[0])
+    damage(victim, attacker, (attacker.getMaxHealthOfType(Health.NORMAL) + attacker.getMaxHealthOfType(Health.ARMOR) + attacker.getMaxHealthOfType(Health.SHIELDS)) * SigmaBuff[0])
     wait(4)
 
 rule "[Sigma]: Hyperspheres HUD":
@@ -38,5 +39,3 @@ rule "[Sigma]: Hyperspheres HUD":
     waitUntil(eventPlayer.reset_pvar[0] or eventPlayer.isInSpawnRoom(), Math.INFINITY)
     eventPlayer.hudText = ""
     #destroyHudText(eventPlayer.sigma_hyperspheres_hud)
-
-#!include "ultimate.opy"
