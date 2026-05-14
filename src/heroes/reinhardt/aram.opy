@@ -1,26 +1,5 @@
 #!optimizeStrict
 
-rule "[Reinhardt] firestrike healing":
-    @Event playerDealtDamage
-    @Hero reinhardt
-    @Condition (eventAbility == Button.ABILITY_2 or eventAbility == Button.ULTIMATE) == true
-
-    if eventAbility == Button.ULTIMATE:
-        goto lbl_0
-    heal(eventPlayer, eventPlayer, eventDamage * 4)
-    lbl_0:
-    victim.setStatusEffect(attacker, Status.BURNING, 2)
-    victim.burn_stack += 2
-    damage(victim, attacker, victim.getMaxHealth() * 0.025)
-
-rule "[Reinhardt] firestrike burn dot":
-    @Event playerDealtDamage
-    @Hero reinhardt
-    @Condition (eventAbility == Button.ABILITY_2 or eventAbility == Button.ULTIMATE) == true
-
-    wait(1)
-    damage(victim, attacker, victim.getMaxHealth() * 0.025)
-
 rule "[Reinhardt]: Earthshatter":
     @Event playerDealtFinalBlow
     @Hero reinhardt
@@ -61,56 +40,18 @@ rule "[Reinhardt]: Crusaders stand":
     waitUntil(not eventPlayer.reinhardt_buff, 8)
     eventPlayer.setKnockbackReceived(100)
 
-rule "[Reinhardt]: Shield Slam knockback":
-    @Event eachPlayer
-    @Team 2
-    @Hero reinhardt
-    @Condition eventPlayer.isFiringSecondaryFire() == true
-
-    eventPlayer.setKnockbackDealt(50)
-    waitUntil(not eventPlayer.isFiringSecondaryFire(), 99999)
-    eventPlayer.setKnockbackDealt(100)
-
-rule "[Reinhardt]: Shield Slam stun":
-    @Event playerDealtKnockback
-    @Hero reinhardt
-    @Condition eventAbility == Button.SECONDARY_FIRE
-
-    victim.setStatusEffect(attacker, Status.STUNNED, 1.2)
-
-rule "[Reinhardt]: Attack to get overhealth":
-    @Event playerDealtKnockback
-    @Hero reinhardt
-    @Condition eventAbility == Button.PRIMARY_FIRE
-    @Condition attacker.getHero() == Hero.REINHARDT
-    @Condition len(eventPlayer.rein_health_id) < 5
-
-    eventPlayer.addHealthPool(Health.NORMAL, 50, false, false)
-    eventPlayer.rein_health_id.append(getLastCreatedHealthPool())
-    wait(0.5)
-    #if ruleCondition:
-    #        loop()
-
-rule "[Reinhardt]: Attack to get overhealth removal":
-    @Event eachPlayer
-    @Hero reinhardt
-    @Condition len(eventPlayer.rein_health_id) != 0
-
-    wait(5, Wait.ABORT_WHEN_FALSE)
-    removeHealthPool(eventPlayer.rein_health_id[0])
-    eventPlayer.rein_health_id.remove(eventPlayer.rein_health_id[0])
-    wait(0.25)
-    if ruleCondition:
-        loop()
-    eventPlayer.rein_health_id = []
-
 rule "[Rein]: fly":
     @Event eachPlayer
     @Hero reinhardt
-    @Condition eventPlayer.isUsingAbility1() == true
+    @Condition eventPlayer.isFiringSecondaryFire() == true
     @Condition eventPlayer.isHoldingButton(Button.JUMP) == true
 
     eventPlayer.applyImpulse(eventPlayer.getFacingDirection(), 10, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
     wait()
     if ruleCondition:
         loop()
+
+#!include "secondary.opy"
+#!include "ability1.opy"
+#!include "ability2.opy"
+#!include "ultimate.opy"
