@@ -6,18 +6,6 @@
 #!define WAIT_AI_THROTTLE_MIN 0.192
 
 # =========================
-# Macro Helpers for Settings
-# =========================
-macro percent(p):
-    100 * (p)
-
-macro ratioPercent(value, baseValue):
-    percent((value) / (baseValue))
-
-macro ultGenPercent(ow2UltCost, targetUltCost):
-    percent((ow2UltCost) / (targetUltCost))
-
-# =========================
 # Anti Crash
 # =========================
 #!define ANTI_CRASH_ACTIVATE_DEFAULT 230

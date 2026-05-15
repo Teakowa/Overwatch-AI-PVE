@@ -1,10 +1,12 @@
 #Only remove the following directive if the gamemode does not use tricks such as A+0, A*0, "am" == "**", etc which would otherwise be optimized out.
 #!optimizeStrict
+
 #!postCompileHook "post-compile-hook.js"
 
 #
 # Mode config: constants + ARAM settings/protocol
 #
+#!include "utilities/macros.opy"
 #!include "constants/ow2_hero_defaults.opy"
 #!include "constants/player_constants.opy"
 

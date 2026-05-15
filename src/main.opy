@@ -1,4 +1,5 @@
 # Useful constants and macros
+#!include "utilities/macros.opy"
 #!include "constants/player_constants.opy"
 
 # Prelude: settings and protocol declarations
