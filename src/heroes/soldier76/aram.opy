@@ -7,9 +7,8 @@ rule "[Soldier: 76]: HeartSteel":
     @Condition any([isInSetup(), isGameInProgress()]) == true
     @Condition S76Buff[1] != 0
     @Condition eventPlayer.isInSpawnRoom() != true
-    @Condition eventPlayer.isUsingAbility1() == true
+    @Condition eventPlayer.isUsingAbility2() == true
     @Condition eventPlayer.isAlive() == true
-    @Condition eventPlayer.getSpeed() != 0
     @Condition eventPlayer.getMaxHealth() < S76Buff[2]
 
     wait(S76Buff[0], Wait.ABORT_WHEN_FALSE)
@@ -37,6 +36,7 @@ rule "[Soldier: 76]: HeartSteel":
     @Hero soldier
     @Condition S76Buff[1] != 0
     @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.isUsingAbility2() == true
 
     wait(S76Buff[0], Wait.ABORT_WHEN_FALSE)
     #heart_steel_hp_id
@@ -57,41 +57,15 @@ rule "[Soldier: 76]: HeartSteel":
         wait(0.016, Wait.ABORT_WHEN_FALSE)
         loop()
 
-rule "[Soldier: 76]: 燃烧":
-    @Event eachPlayer
-    @Team 2
+rule "[Soldier: 76]: 辅助攻击燃烧":
+    @Event playerDealtDamage
     @Hero soldier
-    @Condition eventPlayer.isUsingUltimate() != true
-    @Condition S76Buff[3] != 0
-    @Condition eventPlayer.isUsingAbility1() == true
-    @Condition eventPlayer.isAlive() == true
-    @Condition eventPlayer.getSpeed() != 0
-    @Condition (len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player, BarrierLos.BLOCKED_BY_ENEMY_BARRIERS) and distance(eventPlayer, player) <= S76Buff[4] and not player.hasStatus(Status.INVINCIBLE) and player.getPosition().y - eventPlayer.getPosition().y <= 2])) > 0
+    @Condition eventAbility == Button.SECONDARY_FIRE
+    @Condition attacker != victim
 
-    wait(1, Wait.ABORT_WHEN_FALSE)
-    ([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player, BarrierLos.BLOCKED_BY_ENEMY_BARRIERS) and distance(eventPlayer, player) <= S76Buff[4] and not player.hasStatus(Status.INVINCIBLE) and player.getPosition().y - eventPlayer.getPosition().y <= 2]).setStatusEffect(eventPlayer, Status.BURNING, 2)
-    ([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player, BarrierLos.BLOCKED_BY_ENEMY_BARRIERS) and distance(eventPlayer, player) <= S76Buff[4] and not player.hasStatus(Status.INVINCIBLE) and player.getPosition().y - eventPlayer.getPosition().y <= 2]).burn_stack += 2
-    damage([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player, BarrierLos.BLOCKED_BY_ENEMY_BARRIERS) and distance(eventPlayer, player) <= S76Buff[4] and not player.hasStatus(Status.INVINCIBLE) and player.getPosition().y - eventPlayer.getPosition().y <= 2], eventPlayer, eventPlayer.getMaxHealth() * S76Buff[3])
-    wait(1.9)
-    if ruleCondition:
-        loop()
-
-rule "[Soldier: 76]: 燃烧 AI":
-    @Event eachPlayer
-    @Team 1
-    @Hero soldier
-    @Condition eventPlayer.isUsingUltimate() != true
-    @Condition S76Buff[3] != 0
-    @Condition eventPlayer.isAlive() == true
-    @Condition (len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player, BarrierLos.BLOCKED_BY_ENEMY_BARRIERS) and distance(eventPlayer, player) <= S76Buff[4] and not player.hasStatus(Status.INVINCIBLE) and player.getPosition().y - eventPlayer.getPosition().y <= 2])) > 0
-
-    wait(1, Wait.ABORT_WHEN_FALSE)
-    ([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player, BarrierLos.BLOCKED_BY_ENEMY_BARRIERS) and distance(eventPlayer, player) <= S76Buff[4] and not player.hasStatus(Status.INVINCIBLE) and player.getPosition().y - eventPlayer.getPosition().y <= 2]).setStatusEffect(eventPlayer, Status.BURNING, 2)
-    ([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player, BarrierLos.BLOCKED_BY_ENEMY_BARRIERS) and distance(eventPlayer, player) <= S76Buff[4] and not player.hasStatus(Status.INVINCIBLE) and player.getPosition().y - eventPlayer.getPosition().y <= 2]).burn_stack += 2
-    damage([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player, BarrierLos.BLOCKED_BY_ENEMY_BARRIERS) and distance(eventPlayer, player) <= S76Buff[4] and not player.hasStatus(Status.INVINCIBLE) and player.getPosition().y - eventPlayer.getPosition().y <= 2], eventPlayer, eventPlayer.getMaxHealth() * S76Buff[3])
-    wait(1.9)
-    if ruleCondition:
-        loop()
+    victim.setStatusEffect(attacker, Status.BURNING, S76Buff[4])
+    victim.burn_stack += S76Buff[4]
+    damage(victim, attacker, attacker.getMaxHealth() * S76Buff[3])
 
 rule "[Soldier: 76]: 治疗":
     @Event eachPlayer
@@ -101,6 +75,17 @@ rule "[Soldier: 76]: 治疗":
 
     wait(0.16, Wait.ABORT_WHEN_FALSE)
     heal(eventPlayer, eventPlayer, eventPlayer.getMaxHealth() * 0.5)
+
+rule "[Soldier: 76]: fly":
+    @Event eachPlayer
+    @Hero soldier
+    @Condition eventPlayer.isUsingAbility1() == true
+    @Condition eventPlayer.isHoldingButton(Button.JUMP) == true
+
+    eventPlayer.applyImpulse(eventPlayer.getFacingDirection(), 10, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
+    wait()
+    if ruleCondition:
+        loop()
 
 rule "[Soldier: 76]: 替代射击":
     @Event eachPlayer

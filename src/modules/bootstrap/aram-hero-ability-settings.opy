@@ -51,11 +51,11 @@ rule "Initialize Hero Ability Settings":
     MaugaBuff[7] = createWorkshopSettingInt("英雄：毛加", "狂战士之魂：击杀回复最大生命值 %", 30, 0, 80, 122) / 100
     MaugaBuff[3] = createWorkshopSettingInt("英雄：毛加", "蛮力冲撞：被击倒的敌人造成最大生命值伤害 %", 5, 0, 50, 122) / 100
     MaugaBuff[4] = createWorkshopSettingFloat("英雄：毛加", "心脏过载：额外伤害减免", 25, 0, 50, 121)
-    S76Buff[0] = createWorkshopSettingInt("英雄：士兵 76", "疾跑：心之钢冷却", 5, 0, 5, 124)
-    S76Buff[1] = createWorkshopSettingInt("英雄：士兵 76", "疾跑：心之钢单次叠加生命值", 10, 0, 25, 125)
-    S76Buff[2] = createWorkshopSettingInt("英雄：士兵 76", "疾跑：心之钢最大叠加生命值", 2500, 0, 5000, 126)
-    S76Buff[3] = createWorkshopSettingInt("英雄：士兵 76", "疾跑：灼烧最大生命值伤害 %", 5, 0, 10, 127) / 100
-    S76Buff[4] = createWorkshopSettingFloat("英雄：士兵 76", "疾跑：灼烧范围", 6.5, 0, 10, 128)
+    S76Buff[0] = createWorkshopSettingInt("英雄：士兵 76", "生物力场：心之钢叠层间隔", 1, 0, 5, 124)
+    S76Buff[1] = createWorkshopSettingInt("英雄：士兵 76", "生物力场：心之钢单次叠加生命值", 10, 0, 25, 125)
+    S76Buff[2] = createWorkshopSettingInt("英雄：士兵 76", "生物力场：心之钢最大叠加生命值", 2500, 0, 5000, 126)
+    S76Buff[3] = createWorkshopSettingInt("英雄：士兵 76", "辅助攻击：额外造成自身最大生命值伤害 %", 12, 0, 50, 127) / 100
+    S76Buff[4] = createWorkshopSettingInt("英雄：士兵 76", "辅助攻击：燃烧持续时间", 2, 0, 5, 128)
     SigmaBuff[0] = createWorkshopSettingInt("英雄：西格玛", "超能之球：基于当前生命值造成额外伤害 %", 50, 0, 200, 130) / 100
     SigmaBuff[1] = createWorkshopSettingInt("英雄：西格玛", "超能之球：额外伤害所需充能次数", 5, 0, 10, 131)
     JunoBuff = createWorkshopSettingInt("英雄：朱诺", "轨道射线：友方英雄伤害减免 %", 80, 0, 200, 130)
