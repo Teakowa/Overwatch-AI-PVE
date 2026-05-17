@@ -60,7 +60,7 @@ rule "Initialize Hero Ability Settings":
     SigmaBuff[1] = createWorkshopSettingInt("英雄：西格玛", "超能之球：额外伤害所需充能次数", 5, 0, 10, 131)
     JunoBuff = createWorkshopSettingInt("英雄：朱诺", "轨道射线：友方英雄伤害减免 %", 80, 0, 200, 130)
     DoomBuff[0] = createWorkshopSettingFloat("英雄：末日铁拳", "悍猛格挡：伤害吸收倍率", 7, 0, 10, 131)
-    DoomBuff[1] = createWorkshopSettingInt("英雄：末日铁拳", "悍猛格挡：最大吸收伤害", 1800, 0, 1800, 132) + 0.001
+    DoomBuff[1] = createWorkshopSettingInt("英雄：末日铁拳", "悍猛格挡：最大吸收伤害", 2500, 0, 3000, 132) + 0.001
     FrejaBuff[0] = createWorkshopSettingInt("英雄：弗蕾娅", "无情猎杀：每层伤害", 25, 0, 75, 133)
     FrejaBuff[1] = createWorkshopSettingInt("英雄：弗蕾娅", "无情猎杀：最大生命值百分比伤害", 5, 0, 50, 134) / 100
     FrejaBuff[2] = createWorkshopSettingInt("英雄：弗蕾娅", "无情猎杀：斩杀阈值", 20, 0, 40, 135) / 100
