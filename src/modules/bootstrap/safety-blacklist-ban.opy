@@ -30,7 +30,7 @@ rule "[Player]: Override allowed heroes list when player joins lobby":
     if "{0}".format(eventPlayer) in ["他又"]:
         eventPlayer.setAllowedHeroes(getAllHeroes())
     elif "{0}".format(eventPlayer) in Collaborator:
-        eventPlayer.setAllowedHeroes(Heros.concat([Hero.MERCY, Hero.JUNKRAT, Hero.TORBJORN]))
+        eventPlayer.setAllowedHeroes(Heros.concat([Hero.JUNKRAT, Hero.TORBJORN]))
     else:
         eventPlayer.setAllowedHeroes(Heros)
     wait(WAIT_SHORT_FRAME)
