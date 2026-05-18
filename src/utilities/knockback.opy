@@ -1,3 +1,5 @@
+#!optimizeStrict
+
 def Knockback():
     @Name "[Zenyatta] Sub Knockback"
     
