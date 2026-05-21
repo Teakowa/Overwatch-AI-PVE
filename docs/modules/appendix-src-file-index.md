@@ -45,8 +45,7 @@
 ## 6. Hero Init
 
 - `src/modules/hero_init/delimiter-begin.opy`
-- `src/modules/hero_init/heroes/*.opy`
-- `src/modules/hero_init/extras/*.opy`
+- `src/heroes/*/init.opy`
 - `src/modules/hero_init/delimiter-end.opy`
 
 ## 7. Debug

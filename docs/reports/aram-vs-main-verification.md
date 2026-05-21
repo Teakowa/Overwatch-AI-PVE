@@ -21,12 +21,11 @@ The following existing module files were verified as fully reusable and are shar
 1. `src/modules/ai/delimiter-begin.opy`
 2. `src/modules/ai/delimiter-end.opy`
 3. `src/modules/hero_init/delimiter-end.opy`
-4. `src/modules/hero_init/extras/echo-duplicate.opy`
-5. `src/modules/hero_rules/heroes/echo.opy`
-6. `src/modules/hero_rules/heroes/hanzo.opy`
-7. `src/modules/hero_rules/heroes/lucio.opy`
-8. `src/modules/hero_rules/heroes/mercy.opy`
-9. `src/modules/hero_rules/heroes/vendetta.opy`
+4. `src/modules/hero_rules/heroes/echo.opy`
+5. `src/modules/hero_rules/heroes/hanzo.opy`
+6. `src/modules/hero_rules/heroes/lucio.opy`
+7. `src/modules/hero_rules/heroes/mercy.opy`
+8. `src/modules/hero_rules/heroes/vendetta.opy`
 
 ## Build Baseline Freeze
 Commands used:

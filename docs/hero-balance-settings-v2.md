@@ -79,8 +79,7 @@
 
 ### 4.1 读取范围
 
-- `src/modules/hero_init/heroes/*.opy`
-- `src/modules/hero_init/extras/*.opy`
+- `src/heroes/*/init.opy`
 - `src/modules/hero_rules/heroes/*.opy`
 - `src/modules/hero_rules/player_shared.opy`
 

@@ -174,7 +174,7 @@ else
 fi
 
 if [[ "$optimize_count" == "1" ]]; then
-    expected_before_optimize=("constants/player_constants.opy")
+    expected_before_optimize=("utilities/macros.opy" "constants/player_constants.opy")
     while IFS= read -r include; do
         [[ -z "$include" ]] && continue
         expected_before_optimize+=("$include")
