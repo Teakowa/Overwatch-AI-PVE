@@ -43,9 +43,9 @@ rule "[AI/ultimate]: Auto use Ultimate Ability":
     @Event playerTookDamage
     @Team 1
     #@Condition getPlayersInRadius(eventPlayer, 10, getOppositeTeam(eventPlayer.getTeam()), LosCheck.SURFACES) >= 3
-    @Condition (len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) and distance(eventPlayer, player) <= 10])) >= 3
+    @Condition len(getPlayersInRadius(eventPlayer, 10, getOppositeTeam(eventPlayer.getTeam()), LosCheck.SURFACES)) >= 3
     #@Condition getPlayersInRadius(eventPlayer, 15, eventPlayer.getTeam(), LosCheck.SURFACES) >= 3
-    @Condition (len([player for player in getLivingPlayers(eventPlayer.getTeam()) if isInLoS(eventPlayer, player) and distance(eventPlayer, player) <= 15])) >= 3
+    @Condition len(getPlayersInRadius(eventPlayer, 15, eventPlayer.getTeam(), LosCheck.SURFACES)) >= 3
     @Condition victim.getHero() in Counter_Bot == false
     @Condition (eventPlayer.isAlive() and eventPlayer.getUltCharge() == 100) == true
     

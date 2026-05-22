@@ -5,10 +5,10 @@ rule "[AI]: Target in line of sight":
     @Team 1
     @Condition eventPlayer.getHero() in CustomAIArray.concat([Hero.REAPER, Hero.KIRIKO, Hero.MAUGA, Hero.SOJOURN, Hero.GENJI, Hero.TRACER]) == true
     @Condition eventPlayer.hasSpawned() == true
-    @Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if distance(eventPlayer, player) <= 22]) > 0
+    @Condition len(getPlayersInRadius(eventPlayer, 22, getOppositeTeam(eventPlayer.getTeam()), LosCheck.SURFACES)) > 0
     #@Condition getPlayersInRadius(eventPlayer.getEyePosition(), 50, getOppositeTeam(eventPlayer.getTeam()))[0] != false
     
-    eventPlayer.botTemp = [player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player)]
+    eventPlayer.botTemp = [player for player in getPlayersInRadius(eventPlayer, 22, getOppositeTeam(eventPlayer.getTeam()), LosCheck.SURFACES) if isInLoS(eventPlayer, player)]
     wait()
     if not eventPlayer.botTemp:
         eventPlayer.botTarget = null
@@ -36,6 +36,4 @@ rule "[AI]: Target increase aim to prep for flicking to a target entering range"
     @Condition eventPlayer.botTarget != null
     
     botAim2Target()
-
-
 

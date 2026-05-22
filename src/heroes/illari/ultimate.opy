@@ -7,7 +7,8 @@ rule "[Illari]: Captive Sun HUD":
 
     createEffect(eventPlayer, Effect.RING, rgb(254, 180, 21), eventPlayer, 10, EffectReeval.VISIBILITY_POSITION_AND_RADIUS)
     eventPlayer.illari_captive_hud[0] = getLastCreatedEntity()
-    eventPlayer.hudText = "最大生命值伤害：{0}%".format(((len([player for player in getLivingPlayers(eventPlayer.getTeam()) if isInLoS(eventPlayer, player) and distance(eventPlayer, player) <= 10 and player != eventPlayer])) * IllariBuff) * 100)
+    eventPlayer.illari_captive_hud[2] = len(getPlayersInRadius(eventPlayer, 10, eventPlayer.getTeam(), LosCheck.SURFACES).exclude(eventPlayer))
+    eventPlayer.hudText = "最大生命值伤害：{0}%".format(eventPlayer.illari_captive_hud[2] * IllariBuff * 100)
     #hudText(eventPlayer, null, "\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r", "最大生命值伤害：{0}%".format(((len([player for player in getLivingPlayers(eventPlayer.getTeam()) if isInLoS(eventPlayer, player) and distance(eventPlayer, player) <= 10 and player != eventPlayer])) * IllariBuff) * 100), HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
     #eventPlayer.illari_captive_hud[1] = getLastCreatedText()
     waitUntil(not eventPlayer.isUsingUltimate(), 8)
@@ -24,4 +25,5 @@ rule "[Illari] Captive Sun":
     @Condition eventAbility == Button.ULTIMATE
     @Condition eventDamage > 5
 
-    damage(victim, attacker, (IllariBuff * (len([player for player in getLivingPlayers(eventPlayer.getTeam()) if isInLoS(eventPlayer, player) and distance(eventPlayer, player) <= 10 and player != eventPlayer]))) * victim.getMaxHealth())
+    eventPlayer.illari_captive_hud[2] = len(getPlayersInRadius(eventPlayer, 10, eventPlayer.getTeam(), LosCheck.SURFACES).exclude(eventPlayer))
+    damage(victim, attacker, eventPlayer.illari_captive_hud[2] * IllariBuff * victim.getMaxHealth())
