@@ -6,11 +6,17 @@ rule "[AI/control]: Mauga Secondary":
     @Hero mauga
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.isAlive() == true
-    @Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if distance(eventPlayer, player) <= 10]) > 0
+    @Condition len(getPlayersInRadius(eventPlayer, 10, getOppositeTeam(eventPlayer.getTeam()), LosCheck.SURFACES)) > 0
     @Disabled
     
     eventPlayer.startForcingButton(Button.SECONDARY_FIRE)
-    waitUntil(distance(eventPlayer.getPosition(), eventPlayer.botTarget) > 10 or len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if distance(eventPlayer, player) <= 10]) == 0, 99999)
+    waitUntil(
+        eventPlayer.botTarget == null or
+        eventPlayer.botTarget.isAlive() != true or
+        distance(eventPlayer.getPosition(), eventPlayer.botTarget) > 10 or
+        len(getPlayersInRadius(eventPlayer, 10, getOppositeTeam(eventPlayer.getTeam()), LosCheck.SURFACES)) == 0,
+        99999
+    )
     eventPlayer.stopForcingButton(Button.SECONDARY_FIRE)
 
 
@@ -26,6 +32,5 @@ rule "[AI/control]: Mauga Ability 2":
     
     eventPlayer.forceButtonPress(Button.ABILITY_2)
     wait(3)
-
 
 
