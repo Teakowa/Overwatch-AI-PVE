@@ -8,7 +8,7 @@ rule "[AI]: Target in line of sight":
     @Condition len(getPlayersInRadius(eventPlayer, 22, getOppositeTeam(eventPlayer.getTeam()), LosCheck.SURFACES)) > 0
     #@Condition getPlayersInRadius(eventPlayer.getEyePosition(), 50, getOppositeTeam(eventPlayer.getTeam()))[0] != false
     
-    eventPlayer.botTemp = [player for player in getPlayersInRadius(eventPlayer, 22, getOppositeTeam(eventPlayer.getTeam()), LosCheck.SURFACES) if isInLoS(eventPlayer, player)]
+    eventPlayer.botTemp = [player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player)]
     wait()
     if not eventPlayer.botTemp:
         eventPlayer.botTarget = null
@@ -18,7 +18,7 @@ rule "[AI]: Target in line of sight":
     if len(eventPlayer.botTemp) > 1:
         eventPlayer.botTemp = sorted(eventPlayer.botTemp, lambda player: player.getHealth() * distance(eventPlayer, player))
         wait()
-    eventPlayer.botTarget = eventPlayer.botTemp[0]
+    eventPlayer.botTarget = eventPlayer.botTemp.frist()
     lbl_0:
     wait(max(getAverageServerLoad() / 1000, 0.512))
     if ruleCondition:
