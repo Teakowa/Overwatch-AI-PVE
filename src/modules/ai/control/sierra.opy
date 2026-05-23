@@ -94,7 +94,7 @@ rule "[AI/control]: Sierra Ultimate":
 
     waitUntil(
         eventPlayer.botTarget != null and eventPlayer.botTarget.isAlive() == true and isInLoS(eventPlayer, eventPlayer.botTarget) == true and distance(eventPlayer.getPosition(), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) < 16,
-        4
+        Math.INFINITY
     )
     eventPlayer.startForcingButton(Button.ULTIMATE)
     wait(0.8)
