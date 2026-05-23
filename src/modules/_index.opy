@@ -2,5 +2,5 @@
 #!include "../main_mode_profile.opy"
 #!include "../utilities/_index.opy"
 #!include "ai/_index.opy"
-#!include "../heroes/init.main.opy"
+#!include "../heroes/main.opy"
 #!include "debug/_index.opy"

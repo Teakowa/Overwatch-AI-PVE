@@ -44,6 +44,6 @@
 #!include "modules/ai/delimiter-end.opy"
 
 # Hero gameplay rules
-#!include "heroes/init.main.opy"
+#!include "heroes/main.opy"
 
 # Debug and changelog
