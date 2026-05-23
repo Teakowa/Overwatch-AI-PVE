@@ -32,4 +32,5 @@
 ## Workflow Command Pointers
 
 - 构建、门禁命令与推荐执行顺序：`docs/agents/gates-and-commits.md`（“常用命令”“建议门禁顺序”）。
+- 仓库脚本入口：`pnpm run build`、`pnpm run build:release`、`pnpm run build:aram`、`pnpm run perf:scan`、`pnpm run perf:scan:strict`。
 - 提交前检查清单：`docs/agents/self-checklist.md`。
