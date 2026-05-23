@@ -5,7 +5,7 @@ rule "[Ramattra]: Pain endures":
     @Hero ramattra
     @Condition eventPlayer.getUltCharge() != 100
     @Condition eventPlayer.isUsingUltimate() == true
-    @Condition (eventAbility == Button.ULTIMATE or eventAbility == Button.ABILITY_1) == true
+    @Condition (eventAbility == Button.ULTIMATE or eventAbility == Button.ABILITY_1 or eventAbility == Button.MELEE) == true
 
     eventPlayer.setUltCharge(eventPlayer.getUltCharge() + 25)
     wait(0.3)
