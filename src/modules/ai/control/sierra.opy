@@ -12,7 +12,7 @@ rule "[AI/control]: Sierra Primary":
     @Condition isInLoS(eventPlayer, eventPlayer.botTarget) == true
 
     eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
-    wait(max(getAverageServerLoad() / 1000, WAIT_AI_THROTTLE_MIN))
+    wait(max(getAverageServerLoad() / 1000, 1))
     if ruleCondition:
         loop()
     eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
@@ -50,6 +50,38 @@ rule "[AI/control]: Sierra Ability 1":
     wait(0.8)
     eventPlayer.stopForcingButton(Button.ABILITY_1)
     wait(max(getAverageServerLoad() / 1000, 0.5))
+
+rule "[AI/control]: Sierra Ability 1":
+    @Event eachPlayer
+    @Team 1
+    @Hero sierra
+    @Condition eventPlayer.isUsingAbility1() == true
+    @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) > 0
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.botTarget != null
+    @Condition eventPlayer.botTarget.isAlive() == true
+    @Condition isInLoS(eventPlayer, eventPlayer.botTarget) == true
+
+    wait(random.uniform(1, 3))
+    eventPlayer.startForcingButton(Button.ABILITY_1)
+    if ruleCondition:
+        loop()
+
+rule "[AI/control]: Emre Ability 2":
+    @Event eachPlayer
+    @Team 1
+    @Hero emre
+    @Condition eventPlayer.isDummy() != false
+    @Condition eventPlayer.hasSpawned() == true
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) != true
+    @Condition eventPlayer.botTarget != null
+    @Condition eventPlayer.botTarget.isAlive() == true
+    @Condition isInLoS(eventPlayer, eventPlayer.botTarget) == true
+
+    eventPlayer.startForcingButton(Button.ABILITY_2)
+    wait(1)
+    eventPlayer.stopForcingButton(Button.ABILITY_2)
 
 rule "[AI/control]: Sierra Ultimate":
     @Event eachPlayer
