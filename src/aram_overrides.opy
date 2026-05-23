@@ -52,5 +52,6 @@
 #!include "heroes/jetpack_cat/aram.opy"
 #!include "heroes/anran/aram.opy"
 #!include "heroes/lucio/rules.opy"
+#!include "heroes/sierra/rules.opy"
 # !include "modules/debug/changelog.opy"
 # !include "utilities/changelog_text.opy"

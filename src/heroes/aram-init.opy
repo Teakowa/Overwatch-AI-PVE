@@ -48,3 +48,4 @@
 #!include "lifeweaver/init.opy"
 #!include "mauga/init.opy"
 #!include "illari/init.opy"
+#!include "sierra/init.opy"
