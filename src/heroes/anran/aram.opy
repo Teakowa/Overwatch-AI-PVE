@@ -14,7 +14,7 @@ rule "[Burn]: stack while burning":
             loop()
         goto lbl_0
     eventPlayer.burn_stack += 1
-    heal(getPlayersOnHero(Hero.ANRAN, getOppositeTeam(eventPlayer.getTeam())), eventPlayer, ceil(eventPlayer.burn_stack * 1.5 * (0.75 if eventPlayer.getHero() in getTankHeroes() else 1)))
+    heal(eventPlayer.reset_pvar.frist(), null, ceil(eventPlayer.burn_stack * 1.5 * (0.75 if eventPlayer.getHero() in getTankHeroes() else 1)))
     wait(1)
     if ruleCondition:
         loop()
