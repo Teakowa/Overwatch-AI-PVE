@@ -29,3 +29,11 @@ rule "[Sierra]: secondary target damage amp":
     if ruleCondition:
         loop()
     stopDamageModification(eventPlayer.dmg_amplification)
+
+rule "[Sierra]: secondary kill":
+    @Event playerDealtFinalBlow
+    @Hero sierra
+    @Condition eventAbility == Button.SECONDARY_FIRE
+    @Condition eventPlayer.getAbilityCooldown(Button.SECONDARY_FIRE) > 0.5
+    
+    eventPlayer.setAbilityCooldown(Button.SECONDARY_FIRE, 0.5)
