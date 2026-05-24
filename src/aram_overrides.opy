@@ -1,4 +1,5 @@
-#!include "modules/bootstrap/aram-init-and-settings.opy"
+#!include "modules/bootstrap/aram-mode-settings.opy"
+#!include "modules/bootstrap/aram-hero-ability-settings.opy"
 #!include "modules/bootstrap/aram-safety-blacklist-ban.opy"
 #!include "modules/bootstrap/aram-extra-hero-pool.opy"
 #!include "modules/bootstrap/aram-player-lifecycle-and-reset.opy"
