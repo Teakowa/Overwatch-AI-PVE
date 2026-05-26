@@ -33,4 +33,7 @@
 
 - 构建、门禁命令与推荐执行顺序：`docs/agents/gates-and-commits.md`（“常用命令”“建议门禁顺序”）。
 - 仓库脚本入口：`pnpm run build`、`pnpm run build:release`、`pnpm run build:aram`、`pnpm run perf:scan`、`pnpm run perf:scan:strict`。
+- 常用门禁脚本：`skills/ow-contract-guard/scripts/check_contracts.sh`、`skills/ow-contract-guard/scripts/check_contracts.sh --build`、`skills/ow-contract-guard/scripts/check_contracts.sh --strict-hero-init`、`skills/ow-contract-guard/scripts/check_aram_overrides_duplicates.sh`。
+- 变更联动脚本：`skills/ow-hero-change-pipeline/scripts/hero_pipeline.sh --from-diff`、`skills/ow-hero-change-pipeline/scripts/hero_pipeline.sh --from-diff --build`、`skills/ow-changelog-sync/scripts/changelog_sync.sh --from-diff`、`skills/ow-changelog-sync/scripts/changelog_sync.sh --from-diff --strict-coverage --strict-language --strict-settings-sync`。
+- 结构同步脚本：`skills/ow-module-metrics-sync/scripts/metrics_sync.sh`、`skills/ow-module-metrics-sync/scripts/metrics_sync.sh --check`。
 - 提交前检查清单：`docs/agents/self-checklist.md`。
