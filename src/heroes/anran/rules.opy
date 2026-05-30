@@ -14,7 +14,7 @@ rule "[Burn]: stack while burning":
             loop()
         goto lbl_0
     eventPlayer.burn_stack += 1
-    heal(eventPlayer.reset_pvar.frist(), null, ceil(eventPlayer.burn_stack * ANRAN_BURN_STACK_HEAL_PER_SECOND * (0.75 if eventPlayer.getHero() in getTankHeroes() else 1)))
+    heal(eventPlayer.reset_pvar.frist(), null, ceil(25 + eventPlayer.burn_stack * ANRAN_BURN_STACK_HEAL_PER_SECOND))
     wait(1)
     if ruleCondition:
         loop()
@@ -24,11 +24,12 @@ rule "[Anran]: burning target stack bonus":
     @Event playerDealtDamage
     @Hero anran
     @Condition eventAbility != 0
+    @Condition eventDamage > 5
     @Condition victim.hasStatus(Status.BURNING) == true
     @Condition victim.burn_stack > 0
     @Condition eventPlayer.isAlive() == true
 
-    damage(victim, attacker, ceil(eventDamage * (((ANRAN_BURN_TARGET_DAMAGE_AMP_PERCENT - 100) / 100 + victim.burn_stack * ANRAN_BURN_STACK_DAMAGE_PERCENT / 100) * (0.75 if victim.getHero() in getTankHeroes() else 1))))
+    damage(victim, attacker, ceil(25 + (victim.burn_stack * 2)))
     wait(0.5)
 
 #!include "ability2.opy"
