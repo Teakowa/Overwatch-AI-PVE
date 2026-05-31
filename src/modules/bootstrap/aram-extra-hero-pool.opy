@@ -4,6 +4,7 @@ rule "[Player]: when game star lock hero":
     @Event eachPlayer
     @Team 2
     @Condition isGameInProgress() == true
+    @Condition eventPlayer.isAlive() == true
     @Condition isTeamOnDefense(eventPlayer.getTeam()) == false
     @Condition eventPlayer.extra_hero != true
     
@@ -15,6 +16,7 @@ rule "[Player]: Dead count":
     @Event playerDied
     @Team 2
     @Condition isGameInProgress() == true
+    @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.extra_hero != true
     @Condition eventPlayer.getStatistic(Stat.DEATHS) >= 2
     
@@ -22,15 +24,40 @@ rule "[Player]: Dead count":
     eventPlayer.extra_hero = true
     eventPlayer.aram_extra_pool_applied = false
 
+rule "[Player]: extra hero pick when dead & attack":
+    @Event eachPlayer
+    @Team 2
+    @Condition  == true
+    @Condition eventPlayer.isAlive() == true
+    @Condition (eventPlayer.getStatistic(Stat.DEATHS) >= 2 or eventPlayer.extra_hero) == true
+    @Condition eventPlayer.aram_extra_pool_applied != true
+    @Disabled
+
+    setPlayerHeros()
+
+
 rule "[Player]: extra hero pick when dead & defense":
     @Event eachPlayer
     @Team 2
     @Condition isGameInProgress() == true
-    @Condition (isTeamOnDefense(Team.2) or getMatchRound() > 1) == true
+    @Condition eventPlayer.isAlive() == true
+    @Condition (isTeamOnDefense(Team.2) or isTeamOnOffense(Team.2) or getMatchRound() > 1 ) == true
     @Condition (eventPlayer.getStatistic(Stat.DEATHS) >= 2 or eventPlayer.extra_hero) == true
     @Condition eventPlayer.aram_extra_pool_applied != true
 
     setPlayerHeros()
+
+rule "[Player]: extra hero pick when refresh & defense":
+    @Event eachPlayer
+    @Team 2
+    @Condition isTeamOnDefense(Team.2) == true
+    @Condition eventPlayer.isAlive() == true
+    @Condition (eventPlayer.getStatistic(Stat.DEATHS) >= 2 or eventPlayer.extra_hero) == true
+    @Condition eventPlayer.aram_extra_pool_applied != true
+    @Disabled
+
+    setPlayerHeros()
+
 
 def setPlayerHeros():
     @Name "[Player]: set extra hero"
