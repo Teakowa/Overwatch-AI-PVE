@@ -14,15 +14,3 @@ rule "[Wuyang]: Rushing Torrent":
     waitUntil(not eventPlayer.isUsingAbility1(), 4.5)
     eventPlayer.dmg_reduction = 0
     eventPlayer.setDamageReceived(100)
-
-rule "[Wuyang]: Rushing Torrent jump":
-    @Event eachPlayer
-    @Hero wuyang
-    @Condition eventPlayer.isUsingAbility1() == true
-    @Condition eventPlayer.isHoldingButton(Button.JUMP) == true
-    #@Condition eventPlayer.isInAir() != true
-    @Disabled
-
-    eventPlayer.applyImpulse(Vector.UP, 12, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
-    wait(WAIT_SHORT_FRAME)
-    waitUntil(eventPlayer.isOnGround(), 3)
