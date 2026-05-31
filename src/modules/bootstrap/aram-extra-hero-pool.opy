@@ -27,7 +27,7 @@ rule "[Player]: Dead count":
 rule "[Player]: extra hero pick when dead & attack":
     @Event eachPlayer
     @Team 2
-    @Condition  == true
+    @Condition isTeamOnOffense(Team.2) == true
     @Condition eventPlayer.isAlive() == true
     @Condition (eventPlayer.getStatistic(Stat.DEATHS) >= 2 or eventPlayer.extra_hero) == true
     @Condition eventPlayer.aram_extra_pool_applied != true
