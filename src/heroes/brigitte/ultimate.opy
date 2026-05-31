@@ -50,6 +50,9 @@ rule "[Brigitte]Rally provides permanent armor to self":
     wait(0.5)
     if ruleCondition:
         loop()
+    eventPlayer.dmg_reduction = 0
+    eventPlayer.hudText = ""
+    eventPlayer.setDamageReceived(100)
 
 rule "[Brigitte]Rally provides permanent armor to allies":
     @Event eachPlayer
