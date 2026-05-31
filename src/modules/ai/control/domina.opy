@@ -10,11 +10,12 @@ rule "[AI/control]: Domina Primary":
     @Condition eventPlayer.botTarget != null
     @Condition eventPlayer.botTarget.isAlive() == true
     @Condition isInLoS(eventPlayer, eventPlayer.botTarget) == true
+    @Condition distance(eventPlayer, eventPlayer.botTarget) <= 25
 
+    wait(0.032)
     eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
-    wait(max(getAverageServerLoad() / 1000, WAIT_AI_THROTTLE_MIN))
-    if ruleCondition:
-        loop()
+    wait(1.2)
+    waitUntil(any([eventPlayer.botTarget == null, eventPlayer.botTarget.isDead(), isInLoS(eventPlayer, eventPlayer.botTarget) != true, distance(eventPlayer, eventPlayer.botTarget) > 25]), Math.INFINITY)
     eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
 
 rule "[AI/control]: Domina Secondary":
