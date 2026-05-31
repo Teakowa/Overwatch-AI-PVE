@@ -84,33 +84,9 @@ line_of_fixed_match() {
 
 echo "Running ow-contract-guard checks from: $ROOT_DIR"
 
-# 1) Top-level flattened main include order contract
+# 1) Top-level main include order contract
 main_file="src/main.opy"
 main_optimize='#!optimizeStrict'
-
-flatten_index_includes() {
-    local file="$1"
-    local base include target rel
-    base="$(cd "$(dirname "$file")" && pwd)"
-
-    while IFS= read -r include; do
-        [[ -z "$include" ]] && continue
-
-        target="$(cd "$base" && cd "$(dirname "$include")" && printf '%s/%s' "$PWD" "$(basename "$include")")"
-        rel="${target#${ROOT_DIR}/src/}"
-
-        if [[ "$(basename "$target")" == "_index.opy" ]]; then
-            flatten_index_includes "$target"
-        else
-            printf '%s\n' "$rel"
-        fi
-    done < <(awk '/^[[:space:]]*#!include[[:space:]]+"[^"]+"/ {
-        line = $0
-        sub(/^[[:space:]]*#!include[[:space:]]+"/, "", line)
-        sub(/".*$/, "", line)
-        print line
-    }' "$file")
-}
 
 compare_array_by_name() {
     local label="$1"
@@ -174,17 +150,42 @@ else
 fi
 
 if [[ "$optimize_count" == "1" ]]; then
-    expected_before_optimize=("utilities/macros.opy" "constants/player_constants.opy")
-    while IFS= read -r include; do
-        [[ -z "$include" ]] && continue
-        expected_before_optimize+=("$include")
-    done < <(flatten_index_includes "${ROOT_DIR}/src/modules/prelude/_index.opy")
+    expected_before_optimize=(
+        "utilities/macros.opy"
+        "constants/player_constants.opy"
+        "modules/prelude/settings.opy"
+        "modules/prelude/global-vars.opy"
+        "modules/prelude/player-vars.opy"
+        "modules/prelude/subroutine-names.opy"
+    )
 
-    expected_after_optimize=()
-    while IFS= read -r include; do
-        [[ -z "$include" ]] && continue
-        expected_after_optimize+=("$include")
-    done < <(flatten_index_includes "${ROOT_DIR}/src/modules/_index.opy")
+    expected_after_optimize=(
+        "modules/bootstrap/init-and-settings.opy"
+        "modules/bootstrap/anti-crash.opy"
+        "modules/bootstrap/blacklist.opy"
+        "modules/bootstrap/safety-blacklist-ban.opy"
+        "modules/bootstrap/player-lifecycle-and-reset.opy"
+        "main_mode_profile.opy"
+        "utilities/knockback.opy"
+        "utilities/apply_custom_hp.opy"
+        "utilities/clear_custom_hp.opy"
+        "utilities/reset_frenemies.opy"
+        "utilities/reset_stats.opy"
+        "utilities/reset_statuses.opy"
+        "utilities/execute_uppercut.opy"
+        "utilities/enable_all_abilities.opy"
+        "utilities/disable_all_abilities.opy"
+        "utilities/reset_hero.opy"
+        "utilities/remove_tank_passive.opy"
+        "utilities/bot_aim2target.opy"
+        "modules/ai/delimiter-begin.opy"
+        "modules/ai/core/core-global-and-targeting.opy"
+        "modules/ai/movement/movement.opy"
+        "modules/ai/control/common.opy"
+        "modules/ai/control/heroes.opy"
+        "modules/ai/delimiter-end.opy"
+        "heroes/main.opy"
+    )
 
     actual_before_optimize=()
     actual_after_optimize=()
