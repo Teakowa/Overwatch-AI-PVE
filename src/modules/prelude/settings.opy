@@ -817,7 +817,6 @@ settings {
             },
             "general": {
                 "ultGen%": 115,
-                "passiveHealthRegen": true
             }
         },
         "allTeams": {
