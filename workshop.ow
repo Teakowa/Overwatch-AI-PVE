@@ -455,7 +455,6 @@
 		队伍2
 		{
 			终极技能充能速度: 115%
-			被动生命值恢复: 开启
 			半藏
 			{
 				伤害量: 125%
@@ -950,19 +949,20 @@
         25: FrejaBuff
         26: WuyangBuff
         27: Brigitte
-        28: SigmaBuff
-        29: JunoBuff
-        30: Ana_GrenadeDamage
-        31: DoomBuff
-        32: Zen_KnockupStrength
-        33: Ram_Annihilation
-        34: VendettaBuff
-        38: health_pool
-        46: Counters
-        47: Counter_Bot
-        50: Blacklist
-        51: CustomAI
-        52: CustomAIArray
+        28: LifeweaverBuff
+        29: SigmaBuff
+        30: JunoBuff
+        31: Ana_GrenadeDamage
+        32: DoomBuff
+        33: Zen_KnockupStrength
+        34: Ram_Annihilation
+        35: VendettaBuff
+        36: health_pool
+        37: Counters
+        38: Counter_Bot
+        39: Blacklist
+        40: CustomAI
+        41: CustomAIArray
     玩家:
         0: custom_hp_pvar
         1: reset_pvar
@@ -970,66 +970,77 @@
         3: botTemp
         4: botTarget
         5: Strafe
-        6: hudText
-        7: unaffected
-        8: mov_speed_penalty
-        9: mov_speed_buff
-        10: sierra_buff
-        11: orisa_buff
-        12: ram_block_damage
-        13: ram_block_damage_hud
-        14: ram_dmg_reduc
-        15: hack_timer
-        16: taunt
-        17: illari_captive_hud
-        18: brigitte_buff
-        19: zarya_barrier_shields
-        21: brig_repair_pack
-        22: brig_repair_pack_id
-        23: brig_rally_armor_id
-        24: reinhardt_charge_cd
-        25: isKnocked
-        26: KnockbackDirection
-        27: wuyang_buff
-        28: orisa_fortify_armor_id
-        29: mauga_berserker_soul
-        30: mauga_berserker_soul_id
-        31: ChangelogText1
-        32: ChangelogText2
-        34: hazard_hp_id
-        35: reaper_buff
-        36: zarya_buff
-        38: rein_charge_fix
-        39: sigma_hyperspheres_hud
-        40: sigma_hyperspheres
-        41: doom_buff
-        42: doom_buff_hud
-        43: juno_buff
-        44: freja_buff
-        45: reinhardt_buff
-        46: junker_queen_buff
-        47: kiriko_buff
-        48: heart_steel
-        49: hero_id_duplicated
-        50: nano_full_health
-        51: has_nano
-        52: sombra_buff
-        53: healing_increase
-        54: healing_decrease
-        55: dmg_amplification
-        56: dmg_decrease
-        57: dmg_reduction
-        60: hazard_using_ability_sec
-        61: rein_health_id
-        62: vendetta_hud
-        106: scoped_shot_distance
-        107: scoped_damage_base
-        108: ow2_scoped_damage_falloff_scalar
-        109: ow1_scoped_damage_falloff_scalar
-        110: expected_scoped_damage
-        111: anran_burn_target
-        112: anran_burn_dmg_mod
-        113: burn_stack
+        6: third_person
+        7: hudText
+        8: unaffected
+        9: heros
+        10: extra_hero
+        11: mov_speed_penalty
+        12: mov_speed_buff
+        13: orisa_buff
+        14: ram_block_damage
+        15: ram_block_damage_hud
+        16: ram_dmg_reduc
+        17: hack_timer
+        18: taunt
+        19: mauga_berserker_soul
+        20: mauga_berserker_soul_id
+        21: illari_captive_hud
+        22: brigitte_buff
+        23: zarya_barrier_shields
+        24: zarya_graviton_buff
+        25: brig_repair_pack
+        26: brig_repair_pack_id
+        27: brig_rally_armor_id
+        28: brig_rally_dmg_redc
+        29: reinhardt_charge_cd
+        30: isKnocked
+        31: KnockbackDirection
+        32: wuyang_buff
+        33: orisa_fortify_armor_id
+        34: N
+        35: junkrat_buff
+        36: ChangelogText1
+        37: ChangelogText2
+        38: hazard_buff
+        39: hazard_hp_id
+        40: reaper_buff
+        41: zarya_buff
+        42: moira_buff
+        43: hanzo_buff
+        44: rein_charge_fix
+        45: sigma_hyperspheres_hud
+        46: sigma_hyperspheres
+        47: doom_buff
+        48: doom_buff_hud
+        49: juno_buff
+        50: freja_buff
+        51: reinhardt_buff
+        52: junker_queen_buff
+        53: heart_steel
+        54: kiriko_buff
+        55: hero_id_duplicated
+        56: nano_full_health
+        57: has_nano
+        58: sombra_buff
+        59: healing_increase
+        60: healing_decrease
+        61: dmg_amplification
+        62: dmg_decrease
+        63: dmg_reduction
+        64: hazard_using_ability_sec
+        65: rein_health_id
+        66: vendetta_hud
+        67: scoped_shot_distance
+        68: scoped_damage_base
+        69: ow2_scoped_damage_falloff_scalar
+        70: ow1_scoped_damage_falloff_scalar
+        71: expected_scoped_damage
+        72: anran_burn_target
+        73: anran_burn_dmg_mod
+        74: aram_extra_pool_applied
+        75: burn_stack
+        76: sierra_buff
 }
 子程序 {
     0: Knockback
@@ -1044,23 +1055,10 @@
     9: changelogText
     10: resetHero
     11: removeTankPassive
-    13: botAim2Target
-    14: applySignedMoveSpeed
-    15: clearMoveSpeedDebuffs
+    12: botAim2Target
+    13: applySignedMoveSpeed
+    14: clearMoveSpeedDebuffs
 }
-规则 ("Initialize global variables") {
-    事件 {
-        持续 - 全局;
-    }
-    动作 {
-        设置全局变量(FalloffMin, 数组(2.5, 2.5, 50, 8, 1, 10, 14, 22, 40, 18, 30, 10, 12.5, 25, 30, 10, 2.5, 3.75, 2.5, 23, 15, 100000000, 2.5, 20, 2.5, 17.5, 5.75, 15, 30, 25, 9.6, 15, 32, 2.5, 18, 9.75, 20, 30, 30, 15, 20, 2.5, 25));
-        设置全局变量(ProjectileSpeed, 数组(100000000, 100000000, 100000000, 40, 100000000, 50, 70, 110, 100000000, 90, 100000000, 100000000, 100000000, 100000000, 100000000, 50, 80, 35, 100000000, 115, 75, 100000000, 100000000, 100, 80, 100000000, 100000000, 100000000, 100000000, 100000000, 48, 75, 160, 100000000, 90, 80, 100, 100000000, 100000000, 50, 100000000, 140, 625));
-        设置全局变量(BotHeroArray, 数组(英雄(猎空), 英雄(死神), 英雄(黑百合), 英雄(法老之鹰), 英雄(莱因哈特), 英雄(天使), 英雄(托比昂), 英雄(半藏), 英雄(温斯顿), 英雄(禅雅塔), 英雄(堡垒), 英雄(秩序之光), 英雄(查莉娅), 英雄(卡西迪), 英雄(士兵：76), 英雄(卢西奥), 英雄(路霸), 英雄(狂鼠), 英雄(D.Va), 英雄(美), 英雄(源氏), 英雄(安娜), 英雄(黑影), 英雄(奥丽莎), 英雄(末日铁拳), 英雄(莫伊拉), 英雄(布丽吉塔), 英雄(破坏球), 英雄(艾什), 英雄(巴蒂斯特), 英雄(西格玛), 英雄(回声), 英雄(索杰恩), 英雄(渣客女王), 英雄(雾子), 英雄(拉玛刹), 英雄(生命之梭), 英雄(伊拉锐), 英雄(毛加), 英雄(探奇), 英雄(朱诺), 英雄(骇灾), 英雄(弗蕾娅)));
-        设置全局变量(Heros, 从数组中移除(全部英雄, 数组(英雄(天使), 英雄(狂鼠), 英雄(托比昂), 英雄(堡垒))));
-        设置全局变量(CustomAIArray, 数组(英雄(弗蕾娅), 英雄(探奇), 英雄(法老之鹰), 英雄(伊拉锐), 英雄(朱诺), 英雄(骇灾), 英雄(斩仇), 英雄(埃姆雷), 英雄(安燃), 英雄(金驭), 英雄(西拉)));
-    }
-}
-
 //Strict optimizations enabled
 //Strict optimizations enabled
 规则 ("Copyright (c) 2019-2025 他又（aka Teakowa）") {
@@ -1083,6 +1081,11 @@
         "随机禁用英雄池中的4名英雄（1 重装 2输出 1辅助）"
         设置全局变量(Hero_BAN, 地图工坊设置开关(自定义字符串("模式"), 自定义字符串("英雄BAN池"), 假, 11));
         设置全局变量(CustomAI, 地图工坊设置组合(自定义字符串("模式"), 自定义字符串("自定义 AI"), 0, 数组(自定义字符串("弗蕾娅"), 自定义字符串("探奇"), 自定义字符串("法老之鹰"), 自定义字符串("伊拉锐"), 自定义字符串("朱诺"), 自定义字符串("骇灾"), 自定义字符串("斩仇"), 自定义字符串("埃姆雷"), 自定义字符串("安燃"), 自定义字符串("金驭"), 自定义字符串("西拉")), 12));
+        设置全局变量(FalloffMin, 数组(2.5, 2.5, 50, 8, 1, 10, 14, 22, 40, 18, 30, 10, 12.5, 25, 30, 10, 2.5, 3.75, 2.5, 23, 15, 100000000, 2.5, 20, 2.5, 17.5, 5.75, 15, 30, 25, 9.6, 15, 32, 2.5, 18, 9.75, 20, 30, 30, 15, 20, 2.5, 25));
+        设置全局变量(ProjectileSpeed, 数组(100000000, 100000000, 100000000, 40, 100000000, 50, 70, 110, 100000000, 90, 100000000, 100000000, 100000000, 100000000, 100000000, 50, 80, 35, 100000000, 115, 75, 100000000, 100000000, 100, 80, 100000000, 100000000, 100000000, 100000000, 100000000, 48, 75, 160, 100000000, 90, 80, 100, 100000000, 100000000, 50, 100000000, 140, 625));
+        设置全局变量(BotHeroArray, 数组(英雄(猎空), 英雄(死神), 英雄(黑百合), 英雄(法老之鹰), 英雄(莱因哈特), 英雄(天使), 英雄(托比昂), 英雄(半藏), 英雄(温斯顿), 英雄(禅雅塔), 英雄(堡垒), 英雄(秩序之光), 英雄(查莉娅), 英雄(卡西迪), 英雄(士兵：76), 英雄(卢西奥), 英雄(路霸), 英雄(狂鼠), 英雄(D.Va), 英雄(美), 英雄(源氏), 英雄(安娜), 英雄(黑影), 英雄(奥丽莎), 英雄(末日铁拳), 英雄(莫伊拉), 英雄(布丽吉塔), 英雄(破坏球), 英雄(艾什), 英雄(巴蒂斯特), 英雄(西格玛), 英雄(回声), 英雄(索杰恩), 英雄(渣客女王), 英雄(雾子), 英雄(拉玛刹), 英雄(生命之梭), 英雄(伊拉锐), 英雄(毛加), 英雄(探奇), 英雄(朱诺), 英雄(骇灾), 英雄(弗蕾娅)));
+        设置全局变量(Heros, 从数组中移除(全部英雄, 数组(英雄(天使), 英雄(狂鼠), 英雄(托比昂), 英雄(堡垒))));
+        设置全局变量(CustomAIArray, 数组(英雄(弗蕾娅), 英雄(探奇), 英雄(法老之鹰), 英雄(伊拉锐), 英雄(朱诺), 英雄(骇灾), 英雄(斩仇), 英雄(埃姆雷), 英雄(安燃), 英雄(金驭), 英雄(西拉)));
     }
 }
 
@@ -1220,7 +1223,7 @@
     动作 {
         设置全局变量(Blacklist, 空数组);
         等待(除(服务器负载平均值, 100), 无视条件);
-        修改全局变量(Blacklist, 添加至数组, 字符串分割(自定义字符串("蜡笔小新眼子-Patrick-蟑螂恶霸-哈奇-翻斗花园胡图图-心有猛虎-亞当-我要去美国了-无月-念安-浑沌"), 自定义字符串("-")));
+        修改全局变量(Blacklist, 添加至数组, 字符串分割(自定义字符串("蜡笔小新眼子-Patrick-蟑螂恶霸-哈奇-翻斗花园胡图图-心有猛虎-亞当-我要去美国了-无月-念安-浑沌-贝壳"), 自定义字符串("-")));
         修改全局变量(Blacklist, 添加至数组, 字符串分割(自定义字符串("为这点事活着吗-她与春风皆过客-Eliake-李幽州-LETSGODUDE-嗣音-河神与樵夫的交易-qing-Gastby-暴躁的快速玩家-Azuki9527-李慕下"), 自定义字符串("-")));
         修改全局变量(Blacklist, 添加至数组, 字符串分割(自定义字符串("小哲-比奇堡悍匪-蓝海-啊哈哈哈哈-EdwardJoe-EQUA-小余天天开心-梦想成为源氏糕手-口执剑只为伊人口-折耳-必深深李雪花大姨-乌有"), 自定义字符串("-")));
         修改全局变量(Blacklist, 添加至数组, 字符串分割(自定义字符串("假如给我三天雨姐-YyX-挽风-太酱樱铃-笙墨-秘泽-高大的死灵-大魔王皮平1-两毛五-Robotman-三十三岁上班族-土豆焖马铃薯-Freakybab"), 自定义字符串("-")));
@@ -3309,11 +3312,13 @@
         (事件玩家).botTarget != 空;
         存活((事件玩家).botTarget) == 真;
         在视线内(事件玩家, (事件玩家).botTarget, 屏障不会阻挡视线) == 真;
+        相距距离(事件玩家, (事件玩家).botTarget) <= 25;
     }
     动作 {
+        等待(0.032, 无视条件);
         开始按下按钮(事件玩家, 按钮(主要攻击模式));
-        等待(较大(除(服务器负载平均值, 1000), 0.192), 无视条件);
-        如条件为“真”则循环;
+        等待(1.2, 无视条件);
+        等待直到 (对任意为“真”(数组(比较((事件玩家).botTarget, ==, 空), 死亡((事件玩家).botTarget), 非(在视线内(事件玩家, (事件玩家).botTarget, 屏障不会阻挡视线)), 比较(相距距离(事件玩家, (事件玩家).botTarget), >, 25)), 当前数组元素), 999999999999);
         停止按下按钮(事件玩家, 按钮(主要攻击模式));
     }
 }
@@ -3594,7 +3599,7 @@
     条件 {
         所用英雄(攻击方) == 英雄(安娜);
         事件技能 == 按钮(技能2);
-        或(或(具有状态(被攻击方, 无敌), 具有状态(被攻击方, 无法杀死)), 具有状态(被攻击方, 相移)) == 假;
+        或(具有状态(被攻击方, 无敌), 具有状态(被攻击方, 相移)) == 假;
         (被攻击方).has_nano != 真;
     }
     动作 {
@@ -3680,7 +3685,7 @@
             跳过(5);
         End;
         修改玩家变量(事件玩家, burn_stack, 加, 1);
-        治疗(首个((事件玩家).reset_pvar), 空, 取整(乘(乘((事件玩家).burn_stack, 1.25), If-Then-Else(数组包含(所有重装英雄, 所用英雄(事件玩家)), 0.75, 1)), 上));
+        治疗(首个((事件玩家).reset_pvar), 空, 取整(加(25, 乘((事件玩家).burn_stack, 1.25)), 上));
         等待(1, 无视条件);
         如条件为“真”则循环;
         //lbl_0:
@@ -3695,12 +3700,13 @@
     }
     条件 {
         事件技能 != 0;
+        事件伤害 > 5;
         具有状态(被攻击方, 燃烧) == 真;
         (被攻击方).burn_stack > 0;
         存活(事件玩家) == 真;
     }
     动作 {
-        伤害(被攻击方, 攻击方, 取整(乘(事件伤害, 乘(加(0.25, 除(乘((被攻击方).burn_stack, 1.5), 100)), If-Then-Else(数组包含(所有重装英雄, 所用英雄(被攻击方)), 0.75, 1))), 上));
+        伤害(被攻击方, 攻击方, 取整(加(25, 乘((被攻击方).burn_stack, 2)), 上));
         等待(0.5, 无视条件);
     }
 }
@@ -3729,32 +3735,6 @@
 }
 
 //Strict optimizations enabled
-禁用 规则 ("[JunkerQueen]: Taunt enemies") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        全部;
-    }
-    条件 {
-        存活(事件玩家) == 真;
-        (事件玩家).unaffected != 真;
-        (事件玩家).taunt == 真;
-        与(比较(所用英雄(事件玩家), ==, 英雄(奥丽莎)), 或(正在使用技能 1(事件玩家), 正在使用终极技能(事件玩家))) == 假;
-        与(比较(所用英雄(事件玩家), ==, 英雄(毛加)), 正在使用技能 1(事件玩家)) == 假;
-    }
-    动作 {
-        大字体信息(事件玩家, 自定义字符串("嘲讽"));
-        开始朝向(事件玩家, 方向(眼睛位置(事件玩家), 眼睛位置(首个(选择英雄的玩家(英雄(渣客女王), 对方队伍(所在队伍(事件玩家)))))), 270, 至地图, 方向及角速率);
-        开始按下按钮(事件玩家, 按钮(主要攻击模式));
-        调用子程序(disableAllAbilities);
-        等待直到 (或(或(死亡(事件玩家), 非((事件玩家).taunt)), 具有状态(事件玩家, 相移)), 2);
-        停止按下按钮(事件玩家, 按钮(主要攻击模式));
-        调用子程序(enableAllAbilities);
-        停止朝向(事件玩家);
-        设置玩家变量(事件玩家, taunt, 假);
-    }
-}
-
 //Strict optimizations enabled
 规则 ("[JunkerQueen]: Commanding Shout taunt enemies") {
     事件 {
@@ -3764,18 +3744,35 @@
     }
     条件 {
         正在使用技能 1(事件玩家) == 真;
-        数量(范围内玩家(事件玩家, 15, 对方队伍(所在队伍(事件玩家)), 表面)) > 0;
     }
     动作 {
         根据条件跳过(比较((事件玩家).junker_queen_buff, ==, 空), 1);
         移除玩家的生命池((事件玩家).junker_queen_buff);
         //lbl_0:
-        设置玩家变量(已过滤的数组(范围内玩家(事件玩家, 15, 对方队伍(所在队伍(事件玩家)), 表面), 比较((当前数组元素).unaffected, !=, 真)), taunt, 真);
         等待(0.096, 无视条件);
-        为玩家添加生命池(事件玩家, 生命值, 乘(500, 数量(已过滤的数组(范围内玩家(事件玩家, 15, 对方队伍(所在队伍(事件玩家)), 表面), 比较((当前数组元素).taunt, ==, 真)))), 假, 假);
+        为玩家添加生命池(事件玩家, 生命值, 乘(500, 数量(范围内玩家(事件玩家, 15, 对方队伍(所在队伍(事件玩家)), 表面))), 假, 假);
         设置玩家变量(事件玩家, junker_queen_buff, 最后创建的生命池);
         等待(6, 无视条件);
         移除玩家的生命池((事件玩家).junker_queen_buff);
+    }
+}
+
+//Strict optimizations enabled
+规则 ("[JunkerQueen]: ability2") {
+    事件 {
+        玩家造成伤害;
+        双方;
+        渣客女王;
+    }
+    条件 {
+        事件技能 == 按钮(技能2);
+        事件伤害 > 3;
+        生命值(被攻击方) <= 乘(最大生命值(被攻击方), 0.1);
+    }
+    动作 {
+        伤害(被攻击方, 攻击方, 44444);
+        设置技能冷却(攻击方, 按钮(技能2), 0);
+        等待(0.25, 无视条件);
     }
 }
 
@@ -4017,6 +4014,7 @@
     }
 }
 
+//Strict optimizations enabled
 //Strict optimizations enabled
 规则 ("[Wrecking Ball] Grappling Claw cd reset") {
     事件 {
@@ -4280,6 +4278,7 @@
 }
 
 //Strict optimizations enabled
+//Strict optimizations enabled
 规则 ("[Orisa]Fortify ricochet damage") {
     事件 {
         玩家受到伤害;
@@ -4407,6 +4406,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Mauga]: Berserker Soul reset") {
     事件 {
         持续 - 每名玩家;
@@ -4655,6 +4655,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Zenyatta] stop knocked") {
     事件 {
         持续 - 每名玩家;
@@ -4963,6 +4964,9 @@
         "eventPlayer.addHealthPool(Health.ARMOR, Brigitte[2], false, false)\neventPlayer.brig_rally_armor_id.append(getLastCreatedHealthPool())"
         等待(0.5, 无视条件);
         如条件为“真”则循环;
+        设置玩家变量(事件玩家, dmg_reduction, 0);
+        设置玩家变量(事件玩家, hudText, 自定义字符串(""));
+        设置受到伤害(事件玩家, 100);
     }
 }
 
@@ -5288,22 +5292,7 @@
 }
 
 //Strict optimizations enabled
-规则 ("[Cassdy] Peacekeeper Alt Fire") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        卡西迪;
-    }
-    条件 {
-        正在使用辅助武器(事件玩家) == 真;
-    }
-    动作 {
-        设置造成伤害(事件玩家, 135);
-        等待直到 (非(正在使用辅助武器(事件玩家)), 0.75);
-        设置造成伤害(事件玩家, 100);
-    }
-}
-
+//Strict optimizations enabled
 规则 ("[Cassdy] Peacekeeper Alt Fire Reload") {
     事件 {
         持续 - 每名玩家;
@@ -5315,22 +5304,6 @@
     }
     动作 {
         等待(0.75, 当为“假”时中止);
-        设置弹药(事件玩家, 0, 最大弹药(事件玩家, 0));
-    }
-}
-
-规则 ("[Cassdy] ammo restored by kills") {
-    事件 {
-        玩家造成最后一击;
-        队伍1;
-        卡西迪;
-    }
-    条件 {
-        游戏正在进行中 == 真;
-        存活(事件玩家) == 真;
-        弹药(事件玩家, 0) < 最大弹药(事件玩家, 0);
-    }
-    动作 {
         设置弹药(事件玩家, 0, 最大弹药(事件玩家, 0));
     }
 }
@@ -5364,6 +5337,23 @@
         End;
         设置玩家变量(事件玩家, expected_scoped_damage, 乘((事件玩家).scoped_damage_base, (事件玩家).ow1_scoped_damage_falloff_scalar));
         伤害(被攻击方, 攻击方, 取整(减((事件玩家).expected_scoped_damage, 事件伤害), 上));
+    }
+}
+
+//Strict optimizations enabled
+规则 ("[Cassdy] Peacekeeper Alt Fire") {
+    事件 {
+        持续 - 每名玩家;
+        双方;
+        卡西迪;
+    }
+    条件 {
+        正在使用辅助武器(事件玩家) == 真;
+    }
+    动作 {
+        设置造成伤害(事件玩家, 135);
+        等待直到 (非(正在使用辅助武器(事件玩家)), 0.75);
+        设置造成伤害(事件玩家, 100);
     }
 }
 
@@ -5584,39 +5574,6 @@
     }
 }
 
-规则 ("[Tracer] Kill Heal") {
-    事件 {
-        玩家参与消灭;
-        双方;
-        猎空;
-    }
-    条件 {
-        数组中的值(全局.Tracer_Ability, 1) == 真;
-        存活(事件玩家) == 真;
-        生命值(事件玩家) < 最大生命值(事件玩家);
-    }
-    动作 {
-        治疗(事件玩家, 空, 99999);
-    }
-}
-
-规则 ("[Tracer]: kiil reset cooldown") {
-    事件 {
-        玩家参与消灭;
-        双方;
-        猎空;
-    }
-    条件 {
-        首个(全局.Tracer_Ability) == 真;
-        存活(事件玩家) == 真;
-        或(比较(技能充能(事件玩家, 按钮(技能1)), <, 3), 比较(技能冷却时间(事件玩家, 按钮(技能2)), >, 0)) == 真;
-    }
-    动作 {
-        设置技能充能(事件玩家, 按钮(技能1), 3);
-        设置技能冷却(事件玩家, 按钮(技能2), 0);
-    }
-}
-
 规则 ("[Tracer]: Recall follow Sombra") {
     事件 {
         持续 - 每名玩家;
@@ -5658,6 +5615,39 @@
     }
     动作 {
         治疗(事件玩家, 空, 50);
+    }
+}
+
+规则 ("[Tracer] Kill Heal") {
+    事件 {
+        玩家参与消灭;
+        双方;
+        猎空;
+    }
+    条件 {
+        数组中的值(全局.Tracer_Ability, 1) == 真;
+        存活(事件玩家) == 真;
+        生命值(事件玩家) < 最大生命值(事件玩家);
+    }
+    动作 {
+        治疗(事件玩家, 空, 99999);
+    }
+}
+
+规则 ("[Tracer]: kiil reset cooldown") {
+    事件 {
+        玩家参与消灭;
+        双方;
+        猎空;
+    }
+    条件 {
+        首个(全局.Tracer_Ability) == 真;
+        存活(事件玩家) == 真;
+        或(比较(技能充能(事件玩家, 按钮(技能1)), <, 3), 比较(技能冷却时间(事件玩家, 按钮(技能2)), >, 0)) == 真;
+    }
+    动作 {
+        设置技能充能(事件玩家, 按钮(技能1), 3);
+        设置技能冷却(事件玩家, 按钮(技能2), 0);
     }
 }
 
@@ -5960,6 +5950,7 @@
 }
 
 //Strict optimizations enabled
+//Strict optimizations enabled
 规则 ("[Hazard]: Violent Leap kiil reset cooldown") {
     事件 {
         玩家参与消灭;
@@ -6138,6 +6129,7 @@
     }
 }
 
+//Strict optimizations enabled
 规则 ("[Reaper]: kill to gain soul buff") {
     事件 {
         玩家参与消灭;
@@ -6523,6 +6515,23 @@
 
 //Strict optimizations enabled
 //Strict optimizations enabled
+规则 ("[Wuyang]: primary dmg") {
+    事件 {
+        玩家造成击退;
+        双方;
+        无漾;
+    }
+    条件 {
+        事件技能 == 空;
+    }
+    动作 {
+        设置技能冷却(事件玩家, 按钮(技能2), 减(技能冷却时间(事件玩家, 按钮(技能2)), 1));
+        伤害(被攻击方, 攻击方, 乘(最大生命值(被攻击方), 0.08));
+        等待(0.25, 无视条件);
+    }
+}
+
+//Strict optimizations enabled
 规则 ("[Wuyang]: Rushing Torrent") {
     事件 {
         持续 - 每名玩家;
@@ -6541,23 +6550,6 @@
         等待直到 (非(正在使用技能 1(事件玩家)), 4.5);
         设置玩家变量(事件玩家, dmg_reduction, 0);
         设置受到伤害(事件玩家, 100);
-    }
-}
-
-禁用 规则 ("[Wuyang]: Rushing Torrent jump") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        无漾;
-    }
-    条件 {
-        正在使用技能 1(事件玩家) == 真;
-        按钮被按下(事件玩家, 按钮(跳跃)) == 真;
-    }
-    动作 {
-        施加推力(事件玩家, 上, 12, 至地图, 取消相反运动);
-        等待(0.16, 无视条件);
-        等待直到 (在地面上(事件玩家), 3);
     }
 }
 
@@ -6612,22 +6604,6 @@
     }
 }
 
-规则 ("[Wuyang]: xuanwu cd") {
-    事件 {
-        玩家造成击退;
-        双方;
-        无漾;
-    }
-    条件 {
-        事件技能 == 空;
-        技能冷却时间(事件玩家, 按钮(技能2)) > 0;
-    }
-    动作 {
-        设置技能冷却(事件玩家, 按钮(技能2), 减(技能冷却时间(事件玩家, 按钮(技能2)), 1));
-        等待(0.5, 无视条件);
-    }
-}
-
 //Strict optimizations enabled
 规则 ("[Wuyang]: Tidal Blast Allies Target") {
     事件 {
@@ -6639,7 +6615,7 @@
         事件技能 == 按钮(终极技能);
     }
     动作 {
-        治疗(事件玩家, 受治疗者, 乘(最大生命值(事件玩家), 0.5));
+        治疗(事件玩家, 受治疗者, 最大生命值(事件玩家));
     }
 }
 
@@ -6733,18 +6709,12 @@
     动作 {
         设置状态(被攻击方, 攻击方, 定身, 2);
         设置造成伤害(被攻击方, 50);
-        If(比较(绝对值((被攻击方).mov_speed_buff), <, 60));
-            设置玩家变量(被攻击方, mov_speed_buff, -60);
-            设置移动速度(被攻击方, 较小(较大(加(100, (被攻击方).mov_speed_buff), 20), 200));
-        End;
+        设置受到伤害(被攻击方, 145);
+        设置受到治疗(被攻击方, 60);
         等待(4, 无视条件);
-        If(存活(被攻击方));
-            If(比较((被攻击方).mov_speed_buff, ==, -60));
-                设置玩家变量(被攻击方, mov_speed_buff, 0);
-                设置移动速度(被攻击方, 较小(较大(加(100, (被攻击方).mov_speed_buff), 20), 200));
-            End;
-        End;
         设置造成伤害(被攻击方, 100);
+        设置受到伤害(被攻击方, 100);
+        设置受到治疗(被攻击方, 100);
     }
 }
 
@@ -6853,6 +6823,23 @@
     }
     动作 {
         伤害(被攻击方, 攻击方, 乘(最大生命值(被攻击方), 0.5));
+    }
+}
+
+//Strict optimizations enabled
+规则 ("[Winston]: Tesla Cannon Alt Fire") {
+    事件 {
+        玩家造成伤害;
+        双方;
+        温斯顿;
+    }
+    条件 {
+        事件技能 == 按钮(辅助攻击模式);
+    }
+    动作 {
+        伤害(被攻击方, 攻击方, 乘(最大生命值(被攻击方), 0.08));
+        治疗(攻击方, 攻击方, 事件伤害);
+        等待(0.016, 无视条件);
     }
 }
 

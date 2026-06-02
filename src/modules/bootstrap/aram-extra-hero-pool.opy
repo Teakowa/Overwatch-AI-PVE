@@ -1,5 +1,15 @@
 #!optimizeStrict
 
+def setPlayerHeros():
+    @Name "[Player]: set extra hero"
+
+    wait(eventPlayer.getSlot() * 1 + getAverageServerLoad() / 100)
+    eventPlayer.heros = [random.shuffle(getTankHeroes()).slice(0, Hero_BAN[3]), random.shuffle(getDamageHeroes()).slice(0, Hero_BAN[4]), random.shuffle(getSupportHeroes()).slice(0, Hero_BAN[5]), eventPlayer.getHero()]
+    eventPlayer.setAllowedHeroes(eventPlayer.heros)
+    eventPlayer.aram_extra_pool_applied = true
+    logToInspector("aram extra hero pool applied")
+    smallMessage(eventPlayer, "  {0} 扩展英雄池已开启".format(iconString(Icon.RECYCLE)))
+
 rule "[Player]: when game star lock hero":
     @Event eachPlayer
     @Team 2
@@ -57,14 +67,3 @@ rule "[Player]: extra hero pick when refresh & defense":
     @Disabled
 
     setPlayerHeros()
-
-
-def setPlayerHeros():
-    @Name "[Player]: set extra hero"
-    
-    wait(eventPlayer.getSlot() * 1 + getAverageServerLoad() / 100)
-    eventPlayer.heros = [random.shuffle(getTankHeroes()).slice(0, Hero_BAN[3]), random.shuffle(getDamageHeroes()).slice(0, Hero_BAN[4]), random.shuffle(getSupportHeroes()).slice(0, Hero_BAN[5]), eventPlayer.getHero()]
-    eventPlayer.setAllowedHeroes(eventPlayer.heros)
-    eventPlayer.aram_extra_pool_applied = true
-    logToInspector("aram extra hero pool applied")
-    smallMessage(eventPlayer, "  {0} 扩展英雄池已开启".format(iconString(Icon.RECYCLE)))

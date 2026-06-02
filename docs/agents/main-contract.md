@@ -5,9 +5,9 @@
 `src/main.opy` 顶层顺序必须保持：
 
 1. `settings { ... }`
-2. `#Global variables` + `globalvar ... <index>`
-3. `#Player variables` + `playervar ... <index>`
-4. `#Subroutine names` + `subroutine ... <index>`
+2. `#Global variables` + `globalvar ...`
+3. `#Player variables` + `playervar ...`
+4. `#Subroutine names` + `subroutine ...`
 5. `#!optimizeStrict`
 6. 规则主体（分区顺序保持）
 
@@ -15,7 +15,7 @@
 
 主入口 include 顺序必须保持：
 
-`constants/player_constants.opy` -> `modules/prelude/settings.opy` -> `modules/prelude/global-vars.opy` -> `modules/prelude/player-vars.opy` -> `modules/prelude/subroutine-names.opy` -> `#!optimizeStrict` -> `modules/bootstrap/*` -> `utilities/*` -> `modules/ai/*` -> `modules/hero_rules/*` -> `modules/hero_init/*` -> `modules/debug/*`
+`constants/player_constants.opy` -> `modules/prelude/settings.opy` -> `modules/prelude/global-vars.opy` -> `modules/prelude/player-vars.opy` -> `modules/prelude/subroutine.opy` -> `#!optimizeStrict` -> `modules/bootstrap/*` -> `utilities/*` -> `modules/ai/*` -> `modules/hero_rules/*` -> `modules/hero_init/*` -> `modules/debug/*`
 
 ### R-MAIN-NO-INDEX-INCLUDE
 

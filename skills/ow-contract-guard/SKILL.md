@@ -33,7 +33,7 @@ The checker validates these invariants:
 
 1. `src/main.opy` 扁平 include 顺序：
    - `constants/player_constants.opy`
-   - `modules/prelude/settings.opy -> global-vars.opy -> player-vars.opy -> subroutine-names.opy`
+   - `modules/prelude/settings.opy -> global-vars.opy -> player-vars.opy -> subroutine.opy`
    - `#!optimizeStrict`
    - `modules/bootstrap/* -> utilities/* -> modules/ai/* -> modules/hero_rules/* -> modules/hero_init/* -> modules/debug/*`
    - `src/main.opy` 不直接 include `*_index.opy`。
@@ -43,7 +43,7 @@ The checker validates these invariants:
    - `Initialize AI Scripts End`
    - `Initialize Heroes`
    - `Initialize Heors End`
-4. Protocol index mappings for `globalvar`, `playervar`, `subroutine` (against `references/protocol-indexes.tsv`).
+4. Unified declaration-order mappings for `globalvar`, `playervar`, `subroutine` (against `references/protocol-indexes.tsv`).
 5. Stable `reset_pvar` slot assignments in `bootstrap/player-lifecycle-and-reset.opy`.
 6. Hero init safety pattern checks in `hero_init/heroes/*.opy`:
    - Detect trigger sets `reset_pvar[0] = true`
@@ -77,9 +77,9 @@ After intentional protocol updates, regenerate the baseline from source files:
 
 ```bash
 {
-  awk '/^globalvar /{print "globalvar\t"$2"\t"$3}' src/modules/prelude/global-vars.opy
-  awk '/^playervar /{print "playervar\t"$2"\t"$3}' src/modules/prelude/player-vars.opy
-  awk '/^subroutine /{print "subroutine\t"$2"\t"$3}' src/modules/prelude/subroutine-names.opy
+  awk 'BEGIN { count = 0 } /^globalvar /{print "globalvar\t"$2"\t"count; count++}' src/modules/prelude/global-vars.opy
+  awk 'BEGIN { count = 0 } /^playervar /{print "playervar\t"$2"\t"count; count++}' src/modules/prelude/player-vars.opy
+  awk 'BEGIN { count = 0 } /^subroutine /{print "subroutine\t"$2"\t"count; count++}' src/modules/prelude/subroutine.opy
 } > skills/ow-contract-guard/references/protocol-indexes.tsv
 ```
 

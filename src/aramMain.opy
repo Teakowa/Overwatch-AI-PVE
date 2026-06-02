@@ -11,6 +11,9 @@
 #!include "constants/player_constants.opy"
 
 #!include "aram_settings.opy"
+#!include "modules/prelude/global-vars.opy"
+#!include "modules/prelude/player-vars.opy"
+#!include "modules/prelude/subroutine.opy"
 #!include "aram_protocol.opy"
 
 #

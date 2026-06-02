@@ -2,11 +2,11 @@
 
 ### R-PROTO-INDEX-IMMUTABLE
 
-- 变量/子程序索引是协议：禁止改号（`globalvar/playervar/subroutine <index>`）。
+- 统一变量与公共子程序的声明顺序是协议：禁止在 `global-vars.opy`、`player-vars.opy`、`subroutine.opy` 中插队重排。
 
 ### R-PROTO-APPEND-NO-REORDER
 
-- 改动策略：优先追加，避免重排变量与规则。
+- 改动策略：优先追加，避免重排统一变量协议与公共子程序协议。
 
 ### R-PROTO-KEEP-DELIMITER-NAMES
 
@@ -19,6 +19,11 @@
 ### R-PROTO-RULE-NAME-STYLE
 
 - 规则命名保持现有风格（`[module]: action`）。
+
+### 公共/模式侧边界
+
+- 只有跨模式共享的子程序进入 `src/modules/prelude/subroutine.opy`。
+- 模式独占子程序与 `setThirdPerson` 这类 ARAM 自留实现，不要求进入统一协议。
 
 ### R-PROTO-SETTINGS-FIRST
 

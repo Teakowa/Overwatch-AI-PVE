@@ -156,7 +156,7 @@ if [[ "$optimize_count" == "1" ]]; then
         "modules/prelude/settings.opy"
         "modules/prelude/global-vars.opy"
         "modules/prelude/player-vars.opy"
-        "modules/prelude/subroutine-names.opy"
+        "modules/prelude/subroutine.opy"
     )
 
     expected_after_optimize=(
@@ -254,7 +254,7 @@ for name in "${required_delimiters[@]}"; do
     fi
 done
 
-# 4) Protocol index mapping and duplicate index checks
+# 4) Unified declaration-order mapping and duplicate name checks
 protocol_file="skills/ow-contract-guard/references/protocol-indexes.tsv"
 if [[ ! -f "$protocol_file" ]]; then
     fail "protocol index reference file missing: $protocol_file"
@@ -262,21 +262,32 @@ else
     pass "protocol index reference file found"
 fi
 
-check_duplicate_indices() {
+check_duplicate_names() {
     local kind="$1"
     local file="$2"
     local dupes
-    dupes="$(awk -v k="$kind" '$1 == k {print $3}' "$file" | sort -n | uniq -d)"
+    dupes="$(awk -v k="$kind" '$1 == k {print $2}' "$file" | sort | uniq -d)"
     if [[ -n "$dupes" ]]; then
-        fail "$kind has duplicate index values in $file: $(printf '%s' "$dupes" | tr '\n' ' ')"
+        fail "$kind has duplicate names in $file: $(printf '%s' "$dupes" | tr '\n' ' ')"
     else
-        pass "$kind has no duplicate index values in $file"
+        pass "$kind has no duplicate names in $file"
     fi
 }
 
-check_duplicate_indices "globalvar" "src/modules/prelude/global-vars.opy"
-check_duplicate_indices "playervar" "src/modules/prelude/player-vars.opy"
-check_duplicate_indices "subroutine" "src/modules/prelude/subroutine-names.opy"
+check_duplicate_names "globalvar" "src/modules/prelude/global-vars.opy"
+check_duplicate_names "playervar" "src/modules/prelude/player-vars.opy"
+check_duplicate_names "subroutine" "src/modules/prelude/subroutine.opy"
+
+generate_protocol_mapping() {
+    local kind="$1"
+    local file="$2"
+    awk -v k="$kind" 'BEGIN { count = 0 }
+        $1 == k {
+            print $2 "\t" count
+            count++
+        }
+    ' "$file"
+}
 
 if [[ -f "$protocol_file" ]]; then
     while IFS=$'\t' read -r kind name index; do
@@ -289,7 +300,7 @@ if [[ -f "$protocol_file" ]]; then
                 file="src/modules/prelude/player-vars.opy"
                 ;;
             subroutine)
-                file="src/modules/prelude/subroutine-names.opy"
+                file="src/modules/prelude/subroutine.opy"
                 ;;
             *)
                 fail "unknown kind in protocol file: $kind"
@@ -297,14 +308,13 @@ if [[ -f "$protocol_file" ]]; then
                 ;;
         esac
 
-        pattern="^${kind} ${name} ${index}(\\s|$)"
-        matches="$(rg -n "$pattern" "$file" || true)"
+        matches="$(generate_protocol_mapping "$kind" "$file" | awk -F '\t' -v n="$name" -v i="$index" '$1 == n && $2 == i {print $0}')"
         count="$(printf '%s\n' "$matches" | sed '/^$/d' | wc -l | tr -d ' ')"
 
         if [[ "$count" == "1" ]]; then
-            pass "index mapping preserved: ${kind} ${name} ${index}"
+            pass "declaration order preserved: ${kind} ${name} ${index}"
         else
-            fail "index mapping changed/missing: ${kind} ${name} ${index}"
+            fail "declaration order changed/missing: ${kind} ${name} ${index}"
         fi
     done < "$protocol_file"
 fi

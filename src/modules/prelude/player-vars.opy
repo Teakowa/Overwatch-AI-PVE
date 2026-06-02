@@ -1,67 +1,78 @@
 #Player variables
 
-playervar custom_hp_pvar 0
-playervar reset_pvar 1
-playervar heroNum 2
-playervar botTemp 3
-playervar botTarget 4
-playervar Strafe 5
-playervar hudText 6
-playervar unaffected 7
-playervar mov_speed_penalty 8
-playervar mov_speed_buff 9
-playervar orisa_buff 11
-playervar ram_block_damage 12
-playervar ram_block_damage_hud 13
-playervar ram_dmg_reduc 14
-playervar hack_timer 15
-playervar taunt 16
-playervar illari_captive_hud 17
-playervar brigitte_buff 18
-playervar zarya_barrier_shields 19
-playervar brig_repair_pack 21
-playervar brig_repair_pack_id 22
-playervar brig_rally_armor_id 23
-playervar reinhardt_charge_cd 24
-playervar isKnocked 25
-playervar KnockbackDirection 26
-playervar wuyang_buff 27
-playervar orisa_fortify_armor_id 28
-playervar mauga_berserker_soul 29
-playervar mauga_berserker_soul_id 30
-playervar ChangelogText1 31
-playervar ChangelogText2 32
-playervar hazard_hp_id 34
-playervar reaper_buff 35
-playervar zarya_buff 36
-playervar rein_charge_fix 38
-playervar sigma_hyperspheres_hud 39
-playervar sigma_hyperspheres 40
-playervar doom_buff 41
-playervar doom_buff_hud 42
-playervar juno_buff 43
-playervar freja_buff 44
-playervar reinhardt_buff 45
-playervar junker_queen_buff 46
-playervar kiriko_buff 47
-playervar heart_steel 48
-playervar hero_id_duplicated 49
-playervar nano_full_health 50
-playervar has_nano 51
-playervar sombra_buff 52
-playervar healing_increase 53
-playervar healing_decrease 54
-playervar dmg_amplification 55
-playervar dmg_decrease 56
-playervar dmg_reduction 57
-playervar hazard_using_ability_sec 60
-playervar rein_health_id 61
-playervar vendetta_hud 62
-playervar scoped_shot_distance 106
-playervar scoped_damage_base 107
-playervar ow2_scoped_damage_falloff_scalar 108
-playervar ow1_scoped_damage_falloff_scalar 109
-playervar expected_scoped_damage 110
-playervar anran_burn_target 111
-playervar anran_burn_dmg_mod 112
-playervar burn_stack 113
+playervar custom_hp_pvar
+playervar reset_pvar
+playervar heroNum
+playervar botTemp
+playervar botTarget
+playervar Strafe
+playervar third_person
+playervar hudText
+playervar unaffected
+playervar heros
+playervar extra_hero
+playervar mov_speed_penalty
+playervar mov_speed_buff
+playervar orisa_buff
+playervar ram_block_damage
+playervar ram_block_damage_hud
+playervar ram_dmg_reduc
+playervar hack_timer
+playervar taunt
+playervar mauga_berserker_soul
+playervar mauga_berserker_soul_id
+playervar illari_captive_hud
+playervar brigitte_buff
+playervar zarya_barrier_shields
+playervar zarya_graviton_buff
+playervar brig_repair_pack
+playervar brig_repair_pack_id
+playervar brig_rally_armor_id
+playervar brig_rally_dmg_redc
+playervar reinhardt_charge_cd
+playervar isKnocked
+playervar KnockbackDirection
+playervar wuyang_buff
+playervar orisa_fortify_armor_id
+playervar N
+playervar junkrat_buff
+playervar ChangelogText1
+playervar ChangelogText2
+playervar hazard_buff
+playervar hazard_hp_id
+playervar reaper_buff
+playervar zarya_buff
+playervar moira_buff
+playervar hanzo_buff
+playervar rein_charge_fix
+playervar sigma_hyperspheres_hud
+playervar sigma_hyperspheres
+playervar doom_buff
+playervar doom_buff_hud
+playervar juno_buff
+playervar freja_buff
+playervar reinhardt_buff
+playervar junker_queen_buff
+playervar heart_steel
+playervar kiriko_buff
+playervar hero_id_duplicated
+playervar nano_full_health
+playervar has_nano
+playervar sombra_buff
+playervar healing_increase
+playervar healing_decrease
+playervar dmg_amplification
+playervar dmg_decrease
+playervar dmg_reduction
+playervar hazard_using_ability_sec
+playervar rein_health_id
+playervar vendetta_hud
+playervar scoped_shot_distance
+playervar scoped_damage_base
+playervar ow2_scoped_damage_falloff_scalar
+playervar ow1_scoped_damage_falloff_scalar
+playervar expected_scoped_damage
+playervar anran_burn_target
+playervar anran_burn_dmg_mod
+playervar aram_extra_pool_applied
+playervar burn_stack
