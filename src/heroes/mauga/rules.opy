@@ -9,6 +9,7 @@ rule "[Mauga]: Berserker Soul status active":
 
     eventPlayer.mauga_berserker_soul = true
     bigMessage(eventPlayer, "狂战士之魂！")
+    smallMessage(eventPlayer, "你已被禁疗，获得额外生命值与增伤")
     waitUntil(eventPlayer.isDead(), 99999)
     eventPlayer.mauga_berserker_soul = false
 
