@@ -1,9 +1,11 @@
 #!optimizeStrict
 
-rule "[Mercy]: Flash Heal cd":
-    @Event eachPlayer
+rule "[Mercy]: Life Grip Clear Effect":
+    @Event playerDealtHealing
     @Hero mercy
-    @Condition eventPlayer.getAbilityCooldown(Button.RELOAD) != 0
+    @Condition eventAbility == Button.ABILITY_2
 
-    eventPlayer.setAbilityCooldown(Button.RELOAD, 2)
+    heal(healee, healer, 25)
+
+#!include "reload.opy"
 #!include "ultimate.opy"
