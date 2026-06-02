@@ -74,13 +74,7 @@ rule "[Mauga]: Berserker Soul status active":
     waitUntil(eventPlayer.isDead(), 99999)
     eventPlayer.mauga_berserker_soul = false
 
-rule "[Mauga]: Berserker Soul reset":
-    @Event eachPlayer
-    @Hero mauga
-    @Condition eventPlayer.isAlive() == true
-    @Condition eventPlayer.isInSpawnRoom() == true
-
-    eventPlayer.mauga_berserker_soul = false
+#!include "passive.opy"
 
 rule "[Mauga]: Berserker Soul Ability":
     @Event eachPlayer

@@ -3,14 +3,7 @@
 #!include "fly.opy"
 #!include "ability1.opy"
 #!include "ability2.opy"
-
-rule "[Reaper]: kill to gain soul buff":
-    @Event playerEarnedElimination
-    @Hero reaper
-    #@Condition eventPlayer.reaper_buff[0] < 50
-    @Condition ReaperBuff[0] != 0
-
-    eventPlayer.reaper_buff[0] += ReaperBuff[0] + 1 if eventPlayer.getTeam() == Team.1 else ReaperBuff[0]
+#!include "passive.opy"
 
 rule "[Reaper][ARAM]: kill to gain soul buff (final blow)":
     @Event playerDealtFinalBlow

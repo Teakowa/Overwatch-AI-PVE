@@ -17,15 +17,6 @@ rule "[Doomfist] Seismic Slam upper":
     waitUntil(victim.isOnGround() or victim.hasStatus(Status.PHASED_OUT), 1.2)
     victim.stopForcingThrottle()
 
-rule "[Doomfist]: Power Block Damage":
-    @Event playerDealtDamage
-    @Hero doomfist
-    @Condition eventAbility == Button.SECONDARY_FIRE
-    @Condition eventPlayer.doom_buff != 0
-
-    damage(victim, attacker, eventPlayer.doom_buff)
-    eventPlayer.doom_buff = 0
-
 rule "[Doomfist]: block HUD":
     @Event eachPlayer
     @Hero doomfist
