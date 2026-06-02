@@ -1,7 +1,5 @@
 #!optimizeStrict
 
-#!include "ability1.shared.opy"
-
 rule "[JetpackCat]: Frenetic Flight damage reduction":
     @Event eachPlayer
     @Hero jetpackCat

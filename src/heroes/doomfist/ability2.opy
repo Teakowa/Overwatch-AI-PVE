@@ -1,7 +1,5 @@
 #!optimizeStrict
 
-#!include "ability2.shared.opy"
-
 rule "[Doomfist]: Power Block":
     @Event playerTookDamage
     @Team 1
