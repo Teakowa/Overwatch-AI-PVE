@@ -17,7 +17,7 @@
 2. `#!include "modules/prelude/settings.opy"`
 3. `#!include "modules/prelude/global-vars.opy"`
 4. `#!include "modules/prelude/player-vars.opy"`
-5. `#!include "modules/prelude/subroutine-names.opy"`
+5. `#!include "modules/prelude/subroutine.opy"`
 6. `#!optimizeStrict`
 7. `#!postCompileHook "post-compile-hook.js"`
 8. `modules/bootstrap/*.opy`（在 `main.opy` 中显式逐条列举）

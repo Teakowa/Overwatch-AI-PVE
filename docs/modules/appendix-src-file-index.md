@@ -11,7 +11,7 @@
 - `src/modules/prelude/settings.opy`
 - `src/modules/prelude/global-vars.opy`
 - `src/modules/prelude/player-vars.opy`
-- `src/modules/prelude/subroutine-names.opy`
+- `src/modules/prelude/subroutine.opy`
 
 ## 3. Bootstrap
 

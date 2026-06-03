@@ -1,0 +1,357 @@
+#!/usr/bin/env -S node --import tsx
+
+import fs from "node:fs/promises";
+import path from "node:path";
+import { Reporter } from "./lib/report.js";
+import { readLines, repoRoot, resolveRepo, runCommand } from "./lib/runtime.js";
+
+type Args = {
+  strictHeroInit: boolean;
+  runBuild: boolean;
+};
+
+function usage(): void {
+  console.log("Usage: tools/check-contracts.ts [--strict-hero-init] [--build]");
+}
+
+function parseArgs(argv: string[]): Args {
+  const args: Args = { strictHeroInit: false, runBuild: false };
+  for (const arg of argv) {
+    switch (arg) {
+      case "--strict-hero-init":
+        args.strictHeroInit = true;
+        break;
+      case "--build":
+        args.runBuild = true;
+        break;
+      case "-h":
+      case "--help":
+        usage();
+        process.exit(0);
+      default:
+        throw new Error(`Unknown argument: ${arg}`);
+    }
+  }
+  return args;
+}
+
+function compareArrays(reporter: Reporter, label: string, actual: string[], expected: string[]): void {
+  if (actual.length !== expected.length) {
+    reporter.fail(`${label} include count mismatch (actual=${actual.length} expected=${expected.length})`);
+    return;
+  }
+  for (let index = 0; index < expected.length; index += 1) {
+    if (actual[index] !== expected[index]) {
+      reporter.fail(
+        `${label} include mismatch at position ${index + 1}: actual=${actual[index]} expected=${expected[index]}`,
+      );
+      return;
+    }
+  }
+  reporter.pass(`${label} include order contract preserved`);
+}
+
+function parseIncludes(lines: string[]): Array<{ line: number; path: string }> {
+  const includes: Array<{ line: number; path: string }> = [];
+  for (let index = 0; index < lines.length; index += 1) {
+    const match = lines[index]!.match(/^\s*#!include\s+"([^"]+)"/);
+    if (match) {
+      includes.push({ line: index + 1, path: match[1]! });
+    }
+  }
+  return includes;
+}
+
+function countExactRuleName(lines: string[], name: string): number {
+  return lines.filter((line) => line === `rule "${name}":`).length;
+}
+
+async function parseProtocolMapping(filePath: string): Promise<Array<{ kind: string; name: string; index: number }>> {
+  const lines = (await fs.readFile(filePath, "utf8")).split(/\r?\n/);
+  return lines
+    .map((line) => line.trim())
+    .filter(Boolean)
+    .map((line) => {
+      const [kind, name, index] = line.split("\t");
+      return { kind: kind!, name: name!, index: Number(index) };
+    });
+}
+
+async function extractDeclarations(
+  filePath: string,
+  kind: "globalvar" | "playervar" | "subroutine",
+): Promise<string[]> {
+  const lines = await readLines(filePath);
+  return lines
+    .map((line) => line.match(new RegExp(`^${kind}\\s+([^\\s]+)`))?.[1] ?? null)
+    .filter((value): value is string => Boolean(value));
+}
+
+function duplicateNames(values: string[]): string[] {
+  const seen = new Set<string>();
+  const dupes = new Set<string>();
+  for (const value of values) {
+    if (seen.has(value)) {
+      dupes.add(value);
+    }
+    seen.add(value);
+  }
+  return [...dupes].sort((a, b) => a.localeCompare(b));
+}
+
+async function main(): Promise<void> {
+  const args = parseArgs(process.argv.slice(2));
+  const reporter = new Reporter();
+  console.log(`Running ow-contract-guard checks from: ${repoRoot}`);
+
+  const mainFile = resolveRepo("src/main.opy");
+  const mainLines = await readLines(mainFile);
+  const mainIncludes = parseIncludes(mainLines);
+  const optimizeLine = mainLines.findIndex((line) => line.includes("#!optimizeStrict")) + 1;
+
+  const indexRefCount = mainIncludes.filter((item) => item.path.endsWith("/_index.opy")).length;
+  if (indexRefCount === 0) {
+    reporter.pass("main includes are flattened (no *_index.opy references)");
+  } else {
+    reporter.fail(`main still references *_index.opy includes (count=${indexRefCount})`);
+  }
+
+  if (optimizeLine > 0 && mainLines.filter((line) => line.includes("#!optimizeStrict")).length === 1) {
+    reporter.pass(`main directive: #!optimizeStrict at line ${optimizeLine}`);
+  } else {
+    reporter.fail("main directive missing/duplicated: #!optimizeStrict");
+  }
+
+  if (optimizeLine > 0) {
+    const expectedBefore = [
+      "utilities/macros.opy",
+      "constants/player_constants.opy",
+      "modules/prelude/settings.opy",
+      "modules/prelude/global-vars.opy",
+      "modules/prelude/player-vars.opy",
+      "modules/prelude/subroutine.opy",
+    ];
+    const expectedAfter = [
+      "modules/bootstrap/init-and-settings.opy",
+      "modules/bootstrap/anti-crash.opy",
+      "modules/bootstrap/blacklist.opy",
+      "modules/bootstrap/safety-blacklist-ban.opy",
+      "modules/bootstrap/player-lifecycle-and-reset.opy",
+      "main_mode_profile.opy",
+      "utilities/knockback.opy",
+      "utilities/apply_custom_hp.opy",
+      "utilities/clear_custom_hp.opy",
+      "utilities/reset_frenemies.opy",
+      "utilities/reset_stats.opy",
+      "utilities/reset_statuses.opy",
+      "utilities/execute_uppercut.opy",
+      "utilities/enable_all_abilities.opy",
+      "utilities/disable_all_abilities.opy",
+      "utilities/reset_hero.opy",
+      "utilities/remove_tank_passive.opy",
+      "utilities/bot_aim2target.opy",
+      "modules/ai/delimiter-begin.opy",
+      "modules/ai/core/core-global-and-targeting.opy",
+      "modules/ai/movement/movement.opy",
+      "modules/ai/control/common.opy",
+      "modules/ai/control/heroes.opy",
+      "modules/ai/delimiter-end.opy",
+      "heroes/main.opy",
+    ];
+    const before = mainIncludes.filter((item) => item.line < optimizeLine).map((item) => item.path);
+    const after = mainIncludes.filter((item) => item.line > optimizeLine).map((item) => item.path);
+    compareArrays(reporter, "main before optimizeStrict", before, expectedBefore);
+    compareArrays(reporter, "main after optimizeStrict", after, expectedAfter);
+  }
+
+  const aiIndexFile = resolveRepo("src/modules/ai/_index.opy");
+  const aiLines = await readLines(aiIndexFile);
+  const aiFirst = aiLines.find((line) => line.trim().length > 0) ?? "";
+  const aiLast = [...aiLines].reverse().find((line) => line.trim().length > 0) ?? "";
+  if (aiFirst === '#!include "delimiter-begin.opy"' && aiLast === '#!include "delimiter-end.opy"') {
+    reporter.pass("AI delimiter includes are at the beginning/end of ai/_index.opy");
+  } else {
+    reporter.fail("AI delimiter include boundaries are broken in ai/_index.opy");
+  }
+
+  const heroesMainFile = resolveRepo("src/heroes/main.opy");
+  const heroesMainLines = await readLines(heroesMainFile);
+  const beginLine = heroesMainLines.findIndex((line) => line.includes('../modules/hero_init/delimiter-begin.opy')) + 1;
+  const endLine = heroesMainLines.findIndex((line) => line.includes('../modules/hero_init/delimiter-end.opy')) + 1;
+  if (beginLine > 0 && endLine > 0 && beginLine < endLine) {
+    reporter.pass("Hero init delimiter includes are ordered in src/heroes/main.opy");
+  } else {
+    reporter.fail("Hero init delimiter include boundaries are broken in src/heroes/main.opy");
+  }
+
+  const srcLines = (await fs.readFile(resolveRepo("src"), "utf8").catch(() => "")).split(/\r?\n/);
+  const allOpyFiles: string[] = [];
+  async function walk(current: string): Promise<void> {
+    const entries = await fs.readdir(current, { withFileTypes: true });
+    for (const entry of entries) {
+      const next = path.join(current, entry.name);
+      if (entry.isDirectory()) {
+        await walk(next);
+      } else if (entry.name.endsWith(".opy")) {
+        allOpyFiles.push(next);
+      }
+    }
+  }
+  await walk(resolveRepo("src"));
+  const requiredDelimiters = [
+    "Initialize AI Scripts",
+    "Initialize AI Scripts End",
+    "Initialize Heroes",
+    "Initialize Heors End",
+  ];
+  const mergedLines = (
+    await Promise.all(allOpyFiles.map(async (filePath) => fs.readFile(filePath, "utf8")))
+  ).join("\n");
+  for (const name of requiredDelimiters) {
+    const count = countExactRuleName(mergedLines.split(/\r?\n/), name);
+    if (count === 1) {
+      reporter.pass(`delimiter rule exists exactly once: ${name}`);
+    } else {
+      reporter.fail(`delimiter rule missing/duplicated: ${name} (count=${count})`);
+    }
+  }
+
+  const protocolFile = resolveRepo("tools/data/contract-guard/protocol-indexes.tsv");
+  const protocolMappings = await parseProtocolMapping(protocolFile);
+  reporter.pass(`protocol index reference file found`);
+
+  const declarationFiles = {
+    globalvar: resolveRepo("src/modules/prelude/global-vars.opy"),
+    playervar: resolveRepo("src/modules/prelude/player-vars.opy"),
+    subroutine: resolveRepo("src/modules/prelude/subroutine.opy"),
+  } as const;
+
+  for (const kind of ["globalvar", "playervar", "subroutine"] as const) {
+    const declarations = await extractDeclarations(declarationFiles[kind], kind);
+    const dupes = duplicateNames(declarations);
+    if (dupes.length > 0) {
+      reporter.fail(`${kind} has duplicate names in ${path.relative(repoRoot, declarationFiles[kind])}: ${dupes.join(" ")}`);
+    } else {
+      reporter.pass(`${kind} has no duplicate names in ${path.relative(repoRoot, declarationFiles[kind])}`);
+    }
+  }
+
+  for (const mapping of protocolMappings) {
+    const filePath = declarationFiles[mapping.kind as keyof typeof declarationFiles];
+    if (!filePath) {
+      reporter.fail(`unknown kind in protocol file: ${mapping.kind}`);
+      continue;
+    }
+    const declarations = await extractDeclarations(filePath, mapping.kind as keyof typeof declarationFiles);
+    if (declarations[mapping.index] === mapping.name) {
+      reporter.pass(`declaration order preserved: ${mapping.kind} ${mapping.name} ${mapping.index}`);
+    } else {
+      reporter.fail(`declaration order changed/missing: ${mapping.kind} ${mapping.name} ${mapping.index}`);
+    }
+  }
+
+  const resetLines = await readLines(resolveRepo("src/utilities/reset_frenemies.opy"));
+  const stableSlots = [1, 3, 4, 5, 6, 7, 9, 11, 12, 13, 14, 15, 16];
+  for (const slot of stableSlots) {
+    const count = resetLines.filter((line) => line.includes(`eventPlayer.reset_pvar[${slot}] =`)).length;
+    if (count === 1) {
+      reporter.pass(`reset slot mapping present once: reset_pvar[${slot}]`);
+    } else {
+      reporter.fail(`reset slot mapping broken for reset_pvar[${slot}] (count=${count})`);
+    }
+  }
+
+  const heroDirs = await fs.readdir(resolveRepo("src/heroes"), { withFileTypes: true });
+  for (const heroDir of heroDirs) {
+    if (!heroDir.isDirectory()) {
+      continue;
+    }
+    const heroName = heroDir.name;
+    const initFile = resolveRepo("src/heroes", heroName, "init.opy");
+    try {
+      await fs.access(initFile);
+    } catch {
+      continue;
+    }
+
+    const detectFile = resolveRepo("src/heroes", heroName, "init-detect.opy");
+    const sourceFiles = [initFile];
+    try {
+      await fs.access(detectFile);
+      sourceFiles.push(detectFile);
+      const initLines = await readLines(initFile);
+      const detectIncludeCount = initLines.filter((line) => line.includes('#!include "init-detect.opy"')).length;
+      if (detectIncludeCount === 1) {
+        reporter.pass(`${heroName}.init includes init-detect.opy exactly once`);
+      } else {
+        reporter.fail(`${heroName}.init should include init-detect.opy exactly once (count=${detectIncludeCount})`);
+      }
+    } catch {
+      // no detect file
+    }
+
+    let ruleCount = 0;
+    let trueCount = 0;
+    let falseCount = 0;
+    let resetHeroCount = 0;
+    let condCount = 0;
+    for (const sourceFile of sourceFiles) {
+      const lines = await readLines(sourceFile);
+      ruleCount += lines.filter((line) => line.startsWith('rule "')).length;
+      trueCount += lines.filter((line) => line.includes("eventPlayer.reset_pvar[0] = true")).length;
+      falseCount += lines.filter((line) => line.includes("eventPlayer.reset_pvar[0] = false")).length;
+      resetHeroCount += lines.filter((line) => line.includes("resetHero()")).length;
+      condCount += lines.filter(
+        (line) =>
+          line.includes("@Condition eventPlayer.reset_pvar[0] != false") ||
+          line.includes("@Condition eventPlayer.reset_pvar[0] == true"),
+      ).length;
+    }
+
+    if (ruleCount >= 2) {
+      reporter.pass(`${heroName}.init has at least two rules`);
+    } else {
+      reporter.fail(`${heroName}.init should include Detect + Initialize rules (rule count=${ruleCount})`);
+    }
+    if (trueCount >= 1) {
+      reporter.pass(`${heroName}.init sets reset_pvar[0] = true`);
+    } else {
+      reporter.fail(`${heroName}.init missing reset_pvar[0] = true trigger`);
+    }
+    if (falseCount >= 1) {
+      reporter.pass(`${heroName}.init resets reset_pvar[0] = false`);
+    } else {
+      reporter.fail(`${heroName}.init missing reset_pvar[0] = false reset`);
+    }
+    if (resetHeroCount >= 1) {
+      reporter.pass(`${heroName}.init calls resetHero() in initialization`);
+    } else {
+      reporter.fail(`${heroName}.init missing resetHero() call`);
+    }
+    if (condCount >= 1) {
+      reporter.pass(`${heroName}.init gates initialize rule with reset_pvar[0] condition`);
+    } else if (args.strictHeroInit) {
+      reporter.fail(`${heroName}.init missing initialize gating condition on reset_pvar[0]`);
+    } else {
+      reporter.warn(`${heroName}.init missing initialize gating condition on reset_pvar[0]`);
+    }
+  }
+
+  if (args.runBuild) {
+    console.log("Running build gate: pnpm run build");
+    try {
+      runCommand("pnpm", ["run", "build"]);
+      reporter.pass("build succeeded");
+    } catch {
+      reporter.fail("build failed");
+    }
+  }
+
+  reporter.summary();
+  process.exit(reporter.exitCode());
+}
+
+main().catch((error: Error) => {
+  console.error(error.message);
+  process.exit(1);
+});

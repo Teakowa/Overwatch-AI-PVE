@@ -98,11 +98,11 @@
 - `rules` 改为命名常量引用。
 
 4. 门禁执行
-- `skills/ow-hero-change-pipeline/scripts/hero_pipeline.sh --from-diff`
-- `skills/ow-contract-guard/scripts/check_contracts.sh --build`
+- `tools/hero-pipeline.ts --from-diff`
+- `tools/check-contracts.ts --build`
 - `pnpm run build`
 - 若改动实质影响玩家数值：
-  - `skills/ow-changelog-sync/scripts/changelog_sync.sh --from-diff`
+  - `tools/changelog-sync.ts --from-diff`
 
 5. 收口
 - 更新本 Todo 进度表状态与备注。

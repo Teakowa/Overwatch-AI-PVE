@@ -20,27 +20,27 @@
 - `pnpm run build:aram`
 - `pnpm run perf:scan`
 - `pnpm run perf:scan:strict`
-- `skills/ow-contract-guard/scripts/check_contracts.sh`
-- `skills/ow-contract-guard/scripts/check_contracts.sh --build`
-- `skills/ow-contract-guard/scripts/check_contracts.sh --strict-hero-init`
-- `skills/ow-contract-guard/scripts/check_aram_overrides_duplicates.sh`
-- `skills/ow-contract-guard/scripts/check_aram_overrides_duplicates.sh --check --emit-candidates build/reports/aram-delta-whitelist-candidates.tsv`
-- `skills/ow-hero-change-pipeline/scripts/hero_pipeline.sh --from-diff`
-- `skills/ow-hero-change-pipeline/scripts/hero_pipeline.sh --from-diff --build`
-- `skills/ow-changelog-sync/scripts/changelog_sync.sh --from-diff`
-- `skills/ow-changelog-sync/scripts/changelog_sync.sh --from-diff --strict-coverage --strict-language --strict-settings-sync`
-- `skills/ow-module-metrics-sync/scripts/metrics_sync.sh`
-- `skills/ow-module-metrics-sync/scripts/metrics_sync.sh --check`
+- `tools/check-contracts.ts`
+- `tools/check-contracts.ts --build`
+- `tools/check-contracts.ts --strict-hero-init`
+- `tools/check-aram-overrides-duplicates.ts`
+- `tools/check-aram-overrides-duplicates.ts --check --emit-candidates build/reports/aram-delta-whitelist-candidates.tsv`
+- `tools/hero-pipeline.ts --from-diff`
+- `tools/hero-pipeline.ts --from-diff --build`
+- `tools/changelog-sync.ts --from-diff`
+- `tools/changelog-sync.ts --from-diff --strict-coverage --strict-language --strict-settings-sync`
+- `tools/module-metrics-sync.ts`
+- `tools/module-metrics-sync.ts --check`
 
 ### 建议门禁顺序
 
 ### R-GATE-RUN-HERO-PIPELINE
 
-1. `skills/ow-hero-change-pipeline/scripts/hero_pipeline.sh --from-diff`
+1. `tools/hero-pipeline.ts --from-diff`
 
 ### R-GATE-RUN-CONTRACT-GUARD
 
-2. `skills/ow-contract-guard/scripts/check_contracts.sh --build`
+2. `tools/check-contracts.ts --build`
 
 ### R-GATE-RUN-BUILD
 

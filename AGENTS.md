@@ -14,7 +14,7 @@ This file is the minimal entrypoint for AI agents. Canonical rule bodies live un
 - This repository is an Overwatch Workshop / OverPy project with one primary entry (`src/main.opy`) and one ARAM entry (`src/aramMain.opy`).
 - Collaboration is contract-first: canonical constraints are registered in `docs/agents/rules-index.md` and implemented in `docs/agents/*.md`.
 - High-risk change surfaces are include ordering, protocol index stability, hero init/reset chain integrity, and high-frequency AI/hero logic.
-- Validation combines `pnpm` build/perf scripts and repo-local guard scripts in `skills/*/scripts/`.
+- Validation combines `pnpm` build/perf scripts and repo-local guard scripts in `tools/*.ts`.
 
 ## Minimal Red Lines
 
@@ -67,24 +67,24 @@ Use these as the only canonical policy sources:
   - `pnpm run perf:scan:strict`
 
 - Contract and ARAM guards:
-  - `skills/ow-contract-guard/scripts/check_contracts.sh`
-  - `skills/ow-contract-guard/scripts/check_contracts.sh --build`
-  - `skills/ow-contract-guard/scripts/check_contracts.sh --strict-hero-init`
-  - `skills/ow-contract-guard/scripts/check_aram_overrides_duplicates.sh`
-  - `skills/ow-contract-guard/scripts/check_aram_overrides_duplicates.sh --check --emit-candidates build/reports/aram-delta-whitelist-candidates.tsv`
+  - `tools/check-contracts.ts`
+  - `tools/check-contracts.ts --build`
+  - `tools/check-contracts.ts --strict-hero-init`
+  - `tools/check-aram-overrides-duplicates.ts`
+  - `tools/check-aram-overrides-duplicates.ts --check --emit-candidates build/reports/aram-delta-whitelist-candidates.tsv`
 
 - Hero/changelog linkage:
-  - `skills/ow-hero-change-pipeline/scripts/hero_pipeline.sh --from-diff`
-  - `skills/ow-hero-change-pipeline/scripts/hero_pipeline.sh --from-diff --build`
-  - `skills/ow-hero-change-pipeline/scripts/hero_pipeline.sh --from-diff --strict-cooldown-placement`
-  - `skills/ow-hero-change-pipeline/scripts/hero_pipeline.sh --from-diff --report-template`
-  - `skills/ow-changelog-sync/scripts/changelog_sync.sh --from-diff`
-  - `skills/ow-changelog-sync/scripts/changelog_sync.sh --from-diff --strict-coverage --strict-language --strict-settings-sync`
-  - `skills/ow-changelog-sync/scripts/changelog_sync.sh --from-diff --report`
-  - `skills/ow-changelog-sync/scripts/changelog_sync.sh --hero freja --strict-coverage --strict-language`
-  - `skills/ow-changelog-sync/scripts/changelog_sync.sh --hero jetpack_cat --strict-coverage --strict-language --strict-settings-sync`
+  - `tools/hero-pipeline.ts --from-diff`
+  - `tools/hero-pipeline.ts --from-diff --build`
+  - `tools/hero-pipeline.ts --from-diff --strict-cooldown-placement`
+  - `tools/hero-pipeline.ts --from-diff --report-template`
+  - `tools/changelog-sync.ts --from-diff`
+  - `tools/changelog-sync.ts --from-diff --strict-coverage --strict-language --strict-settings-sync`
+  - `tools/changelog-sync.ts --from-diff --report`
+  - `tools/changelog-sync.ts --hero freja --strict-coverage --strict-language`
+  - `tools/changelog-sync.ts --hero jetpack_cat --strict-coverage --strict-language --strict-settings-sync`
 
 - Structure sync:
-  - `skills/ow-module-metrics-sync/scripts/metrics_sync.sh`
-  - `skills/ow-module-metrics-sync/scripts/metrics_sync.sh --check`
-  - `skills/ow-module-metrics-sync/scripts/metrics_sync.sh --report`
+  - `tools/module-metrics-sync.ts`
+  - `tools/module-metrics-sync.ts --check`
+  - `tools/module-metrics-sync.ts --report`

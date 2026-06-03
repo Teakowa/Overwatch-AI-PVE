@@ -53,10 +53,10 @@
 - 常用门禁：
   1. `pnpm run build`
   2. `pnpm run build:aram`
-  3. `skills/ow-contract-guard/scripts/check_contracts.sh --build`
-  4. `skills/ow-contract-guard/scripts/check_contracts.sh --strict-hero-init`
-  5. `skills/ow-hero-change-pipeline/scripts/hero_pipeline.sh --from-diff --build`
-  6. `skills/ow-contract-guard/scripts/check_aram_overrides_duplicates.sh --check --emit-candidates build/reports/aram-delta-whitelist-candidates.tsv`
+  3. `tools/check-contracts.ts --build`
+  4. `tools/check-contracts.ts --strict-hero-init`
+  5. `tools/hero-pipeline.ts --from-diff --build`
+  6. `tools/check-aram-overrides-duplicates.ts --check --emit-candidates build/reports/aram-delta-whitelist-candidates.tsv`
 
 ## Condensed Iteration Summary
 
@@ -91,9 +91,9 @@
 - 验证：
   - `pnpm run build`
   - `pnpm run build:aram`
-  - `skills/ow-contract-guard/scripts/check_aram_overrides_duplicates.sh --check`
-  - `skills/ow-contract-guard/scripts/check_contracts.sh --strict-hero-init`
-  - `skills/ow-hero-change-pipeline/scripts/hero_pipeline.sh --from-diff --build`
+  - `tools/check-aram-overrides-duplicates.ts --check`
+  - `tools/check-contracts.ts --strict-hero-init`
+  - `tools/hero-pipeline.ts --from-diff --build`
 
 ## Next Steps
 

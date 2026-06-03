@@ -26,7 +26,7 @@
 2. `modules/prelude/settings.opy`
 3. `modules/prelude/global-vars.opy`
 4. `modules/prelude/player-vars.opy`
-5. `modules/prelude/subroutine-names.opy`
+5. `modules/prelude/subroutine.opy`
 6. `#!optimizeStrict`
 7. `#!postCompileHook "post-compile-hook.js"`
 8. `modules/bootstrap/*`

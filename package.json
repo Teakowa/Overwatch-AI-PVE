@@ -6,9 +6,23 @@
     "build:release": "mkdir -p build && overpy compile -i src/main.opy --root src -l zh-CN -o build/main.ow",
     "build:aram": "mkdir -p build && overpy compile -i src/aramMain.opy --root src -l zh-CN -o build/aram.ow",
     "perf:scan": "node tools/perf-loop-scan.mjs src",
-    "perf:scan:strict": "node tools/perf-loop-scan.mjs --strict src"
+    "perf:scan:strict": "node tools/perf-loop-scan.mjs --strict src",
+    "tool:check-contracts": "tsx tools/check-contracts.ts",
+    "tool:check-aram-overrides-duplicates": "tsx tools/check-aram-overrides-duplicates.ts",
+    "tool:hero-pipeline": "tsx tools/hero-pipeline.ts",
+    "tool:changelog-sync": "tsx tools/changelog-sync.ts",
+    "tool:module-metrics-sync": "tsx tools/module-metrics-sync.ts",
+    "tool:player-constants-reachability": "tsx tools/player-constants-reachability.ts",
+    "tool:fandom:fetch-heroes": "tsx tools/fandom/fetch-heroes.ts",
+    "tool:fandom:fetch-hero-details": "tsx tools/fandom/fetch-hero-details.ts",
+    "tool:fandom:fetch-all-hero-details": "tsx tools/fandom/fetch-all-hero-details.ts"
   },
   "dependencies": {
     "overpy": "^9.6.8"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.1",
+    "tsx": "^4.20.6",
+    "typescript": "^5.8.3"
   }
 }
