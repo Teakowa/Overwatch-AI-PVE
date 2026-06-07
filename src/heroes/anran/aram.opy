@@ -13,7 +13,7 @@ rule "[Burn]: stack while burning":
         if ruleCondition:
             loop()
         goto lbl_0
-    eventPlayer.burn_stack += 1
+    eventPlayer.burn_stack += 2
     heal(eventPlayer.reset_pvar.frist(), null, ceil(50 + eventPlayer.burn_stack * 2))
     wait(1)
     if ruleCondition:
@@ -29,7 +29,7 @@ rule "[Anran]: burning target stack bonus":
     @Condition victim.burn_stack > 0
     @Condition eventPlayer.isAlive() == true
 
-    damage(victim, attacker, ceil(50 + (victim.burn_stack * 2)))
+    damage(victim, attacker, ceil(75 + (victim.burn_stack * 2)))
     wait(1)
 
 #!include "ability2.opy"
