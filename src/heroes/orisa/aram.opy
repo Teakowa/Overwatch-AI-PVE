@@ -4,7 +4,7 @@ rule "[Orisa]: Fortify provides 100 temporary armor":
     @Event eachPlayer
     @Hero orisa
     @Condition Orisa_Fortify[0] != 0
-    @Condition any([i == true for i in [eventPlayer.isUsingAbility1(), eventPlayer.isUsingUltimate()]]) == true
+    @Condition any([eventPlayer.isUsingAbility1(), eventPlayer.isUsingUltimate()]) == true
 
     wait(0.16)
     eventPlayer.unaffected = true

@@ -7,3 +7,4 @@ rule "[Orisa]Fortify ricochet damage":
     @Condition eventPlayer.hasStatus(Status.HACKED) != true
 
     damage(attacker, eventPlayer, Orisa_Fortify[1] / 100 * eventDamage)
+    wait()
