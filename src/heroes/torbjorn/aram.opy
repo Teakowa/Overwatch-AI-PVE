@@ -13,6 +13,14 @@ rule "[Torbjörn]: Forge Hammer":
     wait(1)
 
 rule "[Torbjörn]: Forge Hammer":
+    @Event playerDealtDamage
+    @Hero torbjorn
+    @Condition (eventPlayer.isInAlternateForm() and eventPlayer.getCurrentWeapon() == 2) == true
+    @Condition eventAbility == Button.PRIMARY_FIRE
+
+    heal(eventPlayer, eventPlayer, eventDamage * 0.75)
+
+rule "[Torbjörn]: Forge Hammer":
     @Event eachPlayer
     @Hero torbjorn
     @Condition eventPlayer.isUsingAbility2() == true
