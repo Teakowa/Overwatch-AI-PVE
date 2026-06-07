@@ -4,6 +4,7 @@ rule "[Doomfist] Seismic Slam upper":
     @Event playerTookDamage
     @Condition attacker.getHero() == Hero.DOOMFIST
     @Condition eventAbility in [Button.SECONDARY_FIRE, Button.ABILITY_1, Button.ULTIMATE] == true
+    @Disabled
 
     attacker.heart_steel[1] += 50
     if attacker.heart_steel[0] == null:
@@ -18,6 +19,7 @@ rule "[Doomfist] Seismic Slam upper":
     @Event eachPlayer
     @Hero doomfist
     @Condition eventPlayer.heart_steel[1] != 0
+    @Disabled
 
     wait(3)
     removeHealthPool(eventPlayer.heart_steel[0])
@@ -35,7 +37,7 @@ rule "[Doomfist] Seismic Slam upper":
     @Condition (victim.getHero() == Hero.ORISA and (victim.isUsingAbility1() or victim.isUsingUltimate())) == false
     @Condition (victim.getHero() == Hero.MAUGA and victim.isUsingAbility1()) == false
 
-    eventPlayer.doom_buff += 50
+    eventPlayer.doom_buff += eventDamage + 50
     eventPlayer.hudText = "{0}".format(floor(eventPlayer.doom_buff))
     victim.applyImpulse(Vector.UP, 6, Relativity.TO_PLAYER)
     victim.applyImpulse(worldVector(Vector.BACKWARD, attacker, Transform.ROTATION), 3.5, Relativity.TO_WORLD)
@@ -57,7 +59,7 @@ rule "[Doomfist]: Meteor Strike":
     @Condition eventAbility == Button.ULTIMATE
     @Condition victim.unaffected != true
 
-    eventPlayer.doom_buff += 250
+    eventPlayer.doom_buff += eventDamage + 250
 
 rule "[Doomfist]: Power Block":
     @Event playerTookDamage
