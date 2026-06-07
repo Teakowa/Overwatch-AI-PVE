@@ -19,9 +19,10 @@
 #
 # Shared leaves reused from mainline modules
 #
-
+#!include "modules/bootstrap/aram-mode-settings.opy"
+#!include "modules/bootstrap/aram-hero-ability-settings.opy"
+#!include "modules/bootstrap/aram-safety-blacklist-ban.opy"
 #!include "utilities/bot_aim2target.opy"
-#!include "utilities/apply_custom_hp.opy"
 #!include "utilities/clear_custom_hp.opy"
 #!include "utilities/enable_all_abilities.opy"
 #!include "utilities/reset_frenemies.opy"
