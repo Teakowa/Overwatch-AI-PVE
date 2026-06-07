@@ -41,7 +41,6 @@ rule "[Player]: extra hero pick when dead & attack":
     @Condition eventPlayer.isAlive() == true
     @Condition (eventPlayer.getStatistic(Stat.DEATHS) >= 2 or eventPlayer.extra_hero) == true
     @Condition eventPlayer.aram_extra_pool_applied != true
-    @Disabled
 
     setPlayerHeros()
 
@@ -51,7 +50,7 @@ rule "[Player]: extra hero pick when dead & defense":
     @Team 2
     @Condition isGameInProgress() == true
     @Condition eventPlayer.isAlive() == true
-    @Condition (isTeamOnDefense(Team.2) or isTeamOnOffense(Team.2) or getMatchRound() > 1 ) == true
+    @Condition (isTeamOnDefense(Team.2) or getMatchRound() > 1 ) == true
     @Condition (eventPlayer.getStatistic(Stat.DEATHS) >= 2 or eventPlayer.extra_hero) == true
     @Condition eventPlayer.aram_extra_pool_applied != true
 
@@ -64,6 +63,5 @@ rule "[Player]: extra hero pick when refresh & defense":
     @Condition eventPlayer.isAlive() == true
     @Condition (eventPlayer.getStatistic(Stat.DEATHS) >= 2 or eventPlayer.extra_hero) == true
     @Condition eventPlayer.aram_extra_pool_applied != true
-    @Disabled
 
     setPlayerHeros()
