@@ -20,3 +20,4 @@ rule "【天使】女武神刷新复活冷却时间":
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) != 0
 
     eventPlayer.setAbilityCooldown(Button.ABILITY_2, 0)
+    wait()
