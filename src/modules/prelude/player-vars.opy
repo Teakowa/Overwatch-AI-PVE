@@ -1,6 +1,5 @@
 #Player variables
 
-playervar custom_hp_pvar
 playervar reset_pvar
 playervar heroNum
 playervar botTemp
@@ -28,14 +27,11 @@ playervar zarya_graviton_buff
 playervar brig_repair_pack
 playervar brig_repair_pack_id
 playervar brig_rally_armor_id
-playervar brig_rally_dmg_redc
 playervar reinhardt_charge_cd
 playervar isKnocked
 playervar KnockbackDirection
 playervar wuyang_buff
 playervar orisa_fortify_armor_id
-playervar N
-playervar junkrat_buff
 playervar ChangelogText1
 playervar ChangelogText2
 playervar hazard_buff
@@ -43,8 +39,6 @@ playervar hazard_hp_id
 playervar reaper_buff
 playervar zarya_buff
 playervar moira_buff
-playervar hanzo_buff
-playervar rein_charge_fix
 playervar sigma_hyperspheres_hud
 playervar sigma_hyperspheres
 playervar doom_buff
@@ -55,24 +49,19 @@ playervar reinhardt_buff
 playervar junker_queen_buff
 playervar heart_steel
 playervar kiriko_buff
-playervar hero_id_duplicated
 playervar nano_full_health
 playervar has_nano
 playervar sombra_buff
 playervar healing_increase
 playervar healing_decrease
 playervar dmg_amplification
-playervar dmg_decrease
 playervar dmg_reduction
 playervar hazard_using_ability_sec
-playervar rein_health_id
 playervar vendetta_hud
 playervar scoped_shot_distance
 playervar scoped_damage_base
 playervar ow2_scoped_damage_falloff_scalar
 playervar ow1_scoped_damage_falloff_scalar
 playervar expected_scoped_damage
-playervar anran_burn_target
-playervar anran_burn_dmg_mod
 playervar aram_extra_pool_applied
 playervar burn_stack

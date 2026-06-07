@@ -21,14 +21,12 @@ globalvar SombraBuff
 globalvar Tracer_Ability
 globalvar ReaperBuff
 globalvar MaugaBuff
-globalvar HanzoBuff
 globalvar S76Buff
 globalvar SojournBuff
 globalvar HazardBuff
 globalvar FrejaBuff
 globalvar WuyangBuff
 globalvar Brigitte
-globalvar LifeweaverBuff
 globalvar SigmaBuff
 globalvar JunoBuff
 globalvar Ana_GrenadeDamage
@@ -36,7 +34,6 @@ globalvar DoomBuff
 globalvar Zen_KnockupStrength
 globalvar Ram_Annihilation
 globalvar VendettaBuff
-globalvar health_pool
 globalvar Counters
 globalvar Counter_Bot
 globalvar Blacklist
