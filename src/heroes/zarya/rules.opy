@@ -9,7 +9,7 @@ rule "[Zarya]: will to win":
     @Condition ZaryaBuff[2] == true
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.zarya_buff[0] == true
-    @Condition eventPlayer.getHealth() <= eventPlayer.getMaxHealth() * 0.3
+    @Condition eventPlayer.getHealth() <= percentOf(30, eventPlayer.getMaxHealth())
 
     bigMessage(eventPlayer, "胜利意志！")
     eventPlayer.setStatusEffect(null, Status.INVINCIBLE, ZARYA_RULES_INVINCIBLE_DURATION)

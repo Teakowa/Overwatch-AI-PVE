@@ -6,5 +6,5 @@ rule "[Hanzo]: headshot damage":
     # @Condition HeadshotDamage[3] > 2
     @Condition eventWasCriticalHit == true
 
-    damage(victim, attacker, ceil((victim.getMaxHealth() * 0.08)))
+    damage(victim, attacker, ceil(percentOf(8, victim.getMaxHealth())))
     wait()

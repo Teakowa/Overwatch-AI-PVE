@@ -7,7 +7,7 @@ rule "[Reaper]: ultimate Death Blossom":
 
     eventPlayer.setDamageDealt(100 + eventPlayer.reaper_buff[0] * ReaperBuff[8])
     eventPlayer.setAbilityCooldown(Button.ABILITY_1, 0)
-    eventPlayer.setStatusEffect(eventPlayer, Status.UNKILLABLE, 2.5 if eventPlayer.reaper_buff[0] * 0.05 >= 2.5 else eventPlayer.reaper_buff[0] * 0.05)
+    eventPlayer.setStatusEffect(eventPlayer, Status.UNKILLABLE, 2.5 if percentOf(5, eventPlayer.reaper_buff[0]) >= 2.5 else percentOf(5, eventPlayer.reaper_buff[0]))
     waitUntil(not eventPlayer.isUsingUltimate(), 3.016)
     eventPlayer.setDamageDealt(100)
 
