@@ -1,5 +1,9 @@
 #!optimizeStrict
 
+#!mainFile "../../aramMain.opy"
+
+playervar reinhardt_buff
+
 rule "[Reinhardt]: Earthshatter":
     @Event playerDealtFinalBlow
     @Hero reinhardt

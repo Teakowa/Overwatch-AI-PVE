@@ -1,5 +1,13 @@
 #!optimizeStrict
 
+#!mainFile "../../main.opy"
+
+playervar hack_timer
+playervar sombra_buff
+playervar healing_increase
+playervar healing_decrease
+playervar vendetta_hud
+
 rule "[Sombra]: AI Auto use Translocator":
     @Event eachPlayer
     @Team 1

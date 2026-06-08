@@ -2,6 +2,10 @@
 
 #!optimizeStrict
 
+#!mainFile "../../main.opy"
+
+playervar ram_dmg_reduc
+
 
 #!include "secondary.opy"
 #!include "ability1.opy"

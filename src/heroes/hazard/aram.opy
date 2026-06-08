@@ -1,5 +1,9 @@
 #!optimizeStrict
 
+#!mainFile "../../aramMain.opy"
+
+playervar hazard_hp_id
+
 rule "[Hazard]: Spike Guard cd":
     @Event playerDealtDamage
     @Hero hazard

@@ -1,5 +1,9 @@
 #!optimizeStrict
 
+#!mainFile "../../main.opy"
+
+playervar orisa_fortify_armor_id
+
 #!include "ability1.opy"
 
 rule "[Orisa]: Fortify provides 100 temporary armor":

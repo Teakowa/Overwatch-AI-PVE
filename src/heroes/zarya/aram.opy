@@ -1,5 +1,9 @@
 #!optimizeStrict
 
+#!mainFile "../../aramMain.opy"
+
+playervar zarya_barrier_shields
+
 rule "[Zarya]: Projected Barrier Target":
     @Event eachPlayer
     @Hero zarya

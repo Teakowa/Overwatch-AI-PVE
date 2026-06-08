@@ -3,6 +3,7 @@
 ### R-PROTO-INDEX-IMMUTABLE
 
 - 统一变量与公共子程序的声明顺序是协议：禁止在 `global-vars.opy`、`player-vars.opy`、`subroutine.opy` 中插队重排。
+- 这条协议只约束共享 prelude 面；英雄私有变量不必继续挤在 prelude 中。
 
 ### R-PROTO-APPEND-NO-REORDER
 
@@ -24,6 +25,8 @@
 
 - 只有跨模式共享的子程序进入 `src/modules/prelude/subroutine.opy`。
 - 模式独占子程序与 `setThirdPerson` 这类 ARAM 自留实现，不要求进入统一协议。
+- 只有跨英雄或跨基础设施共享的 `globalvar` / `playervar` 才留在 `src/modules/prelude/*.opy`。
+- 英雄私有变量允许下沉到模式局部文件，但声明文件必须带 `#!mainFile`，且不能在同一入口的 include 闭包里重复声明同名变量。
 
 ### R-PROTO-SETTINGS-FIRST
 

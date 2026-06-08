@@ -1,5 +1,9 @@
 #!optimizeStrict
 
+#!mainFile "../../main.opy"
+
+playervar mauga_berserker_soul_id
+
 rule "[Mauga]: Berserker Soul status active":
     @Event playerTookDamage
     @Hero mauga

@@ -1,5 +1,12 @@
 #!optimizeStrict
 
+#!mainFile "../../aramMain.opy"
+
+playervar brig_repair_pack_state
+#!defineMember repair_pack_pending brig_repair_pack_state[0]
+#!defineMember repair_pack_id      brig_repair_pack_state[1]
+playervar brig_rally_armor_id
+
 rule "[Brigitte]: speed":
     @Event eachPlayer
     @Condition eventPlayer.isAlive() == true

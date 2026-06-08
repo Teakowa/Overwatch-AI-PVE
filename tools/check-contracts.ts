@@ -10,6 +10,8 @@ type Args = {
   runBuild: boolean;
 };
 
+type DeclarationKind = "globalvar" | "playervar" | "subroutine";
+
 function usage(): void {
   console.log("Usage: tools/check-contracts.ts [--strict-hero-init] [--build]");
 }
@@ -79,12 +81,64 @@ async function parseProtocolMapping(filePath: string): Promise<Array<{ kind: str
 
 async function extractDeclarations(
   filePath: string,
-  kind: "globalvar" | "playervar" | "subroutine",
+  kind: DeclarationKind,
 ): Promise<string[]> {
   const lines = await readLines(filePath);
   return lines
     .map((line) => line.match(new RegExp(`^${kind}\\s+([^\\s]+)`))?.[1] ?? null)
     .filter((value): value is string => Boolean(value));
+}
+
+function extractDeclarationsFromLines(
+  lines: string[],
+  kind: DeclarationKind,
+): string[] {
+  return lines
+    .map((line) => line.match(new RegExp(`^${kind}\\s+([^\\s]+)`))?.[1] ?? null)
+    .filter((value): value is string => Boolean(value));
+}
+
+async function collectIncludedFiles(entryFile: string): Promise<string[]> {
+  const visited = new Set<string>();
+  const ordered: string[] = [];
+
+  async function visit(filePath: string): Promise<void> {
+    const resolved = path.resolve(filePath);
+    if (visited.has(resolved)) {
+      return;
+    }
+    visited.add(resolved);
+    ordered.push(resolved);
+
+    const lines = await readLines(resolved);
+    for (const include of parseIncludes(lines)) {
+      await visit(path.resolve(path.dirname(resolved), include.path));
+    }
+  }
+
+  await visit(entryFile);
+  return ordered;
+}
+
+function findEntryDuplicates(
+  declarations: Array<{ filePath: string; name: string }>,
+): Array<{ name: string; files: string[] }> {
+  const byName = new Map<string, Set<string>>();
+  for (const declaration of declarations) {
+    if (!byName.has(declaration.name)) {
+      byName.set(declaration.name, new Set<string>());
+    }
+    byName.get(declaration.name)!.add(path.relative(repoRoot, declaration.filePath));
+  }
+
+  return [...byName.entries()]
+    .filter(([, files]) => files.size > 1)
+    .map(([name, files]) => ({ name, files: [...files].sort((a, b) => a.localeCompare(b)) }))
+    .sort((a, b) => a.name.localeCompare(b.name));
+}
+
+function hasMainFileDirective(lines: string[]): boolean {
+  return lines.some((line) => /^\s*#!mainFile\s+"[^"]+"/.test(line));
 }
 
 function duplicateNames(values: string[]): string[] {
@@ -233,6 +287,52 @@ async function main(): Promise<void> {
       reporter.fail(`${kind} has duplicate names in ${path.relative(repoRoot, declarationFiles[kind])}: ${dupes.join(" ")}`);
     } else {
       reporter.pass(`${kind} has no duplicate names in ${path.relative(repoRoot, declarationFiles[kind])}`);
+    }
+  }
+
+  const entryRoots = [
+    { label: "main", filePath: resolveRepo("src/main.opy") },
+    { label: "aram", filePath: resolveRepo("src/aramMain.opy") },
+  ] as const;
+  const sharedPreludeFiles = new Set(Object.values(declarationFiles).map((filePath) => path.resolve(filePath)));
+
+  for (const entryRoot of entryRoots) {
+    const includedFiles = await collectIncludedFiles(entryRoot.filePath);
+    for (const kind of ["globalvar", "playervar", "subroutine"] as const) {
+      const declarations: Array<{ filePath: string; name: string }> = [];
+      for (const filePath of includedFiles) {
+        const lines = await readLines(filePath);
+        for (const name of extractDeclarationsFromLines(lines, kind)) {
+          declarations.push({ filePath, name });
+        }
+      }
+
+      const duplicates = findEntryDuplicates(declarations);
+      if (duplicates.length === 0) {
+        reporter.pass(`${entryRoot.label} ${kind} declarations are unique across the entry include graph`);
+      } else {
+        const detail = duplicates.map((item) => `${item.name} (${item.files.join(", ")})`).join("; ");
+        reporter.fail(`${entryRoot.label} ${kind} duplicate declarations found: ${detail}`);
+      }
+    }
+
+    for (const filePath of includedFiles) {
+      if (sharedPreludeFiles.has(path.resolve(filePath))) {
+        continue;
+      }
+      const lines = await readLines(filePath);
+      const localDeclarationCount =
+        extractDeclarationsFromLines(lines, "globalvar").length +
+        extractDeclarationsFromLines(lines, "playervar").length +
+        extractDeclarationsFromLines(lines, "subroutine").length;
+      if (localDeclarationCount === 0) {
+        continue;
+      }
+      if (hasMainFileDirective(lines)) {
+        reporter.pass(`local declaration file has mainFile: ${path.relative(repoRoot, filePath)}`);
+      } else {
+        reporter.fail(`local declaration file missing mainFile: ${path.relative(repoRoot, filePath)}`);
+      }
     }
   }
 

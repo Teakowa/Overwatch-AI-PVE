@@ -1,5 +1,9 @@
 #!optimizeStrict
 
+#!mainFile "../../aramMain.opy"
+
+playervar isKnocked
+
 rule "[Zenyatta]: headshot damage":
     @Event playerDealtDamage
     @Hero zenyatta

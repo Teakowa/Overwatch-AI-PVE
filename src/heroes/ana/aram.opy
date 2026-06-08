@@ -1,5 +1,9 @@
 #!optimizeStrict
 
+#!mainFile "../../aramMain.opy"
+
+playervar nano_full_health
+
 #!include "ability2.opy"
 
 rule "[Ana]: Damage Full Health Allies So Nano Can Heal":

@@ -1,5 +1,9 @@
 #!optimizeStrict
 
+#!mainFile "../../main.opy"
+
+playervar hazard_hp_id
+
 #!include "ability1.opy"
 
 rule "[Hazard]: Spike Guard cd":

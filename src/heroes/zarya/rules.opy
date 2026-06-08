@@ -1,5 +1,9 @@
 #!optimizeStrict
 
+#!mainFile "../../main.opy"
+
+playervar zarya_barrier_shields
+
 rule "[Zarya]: will to win":
     @Event eachPlayer
     @Hero zarya

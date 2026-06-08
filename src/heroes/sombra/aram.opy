@@ -1,5 +1,10 @@
 #!optimizeStrict
 
+#!mainFile "../../aramMain.opy"
+
+playervar hack_timer
+playervar vendetta_hud
+
 rule "[Sombra]: kiil reset cooldown":
     @Event playerEarnedElimination
     @Hero sombra

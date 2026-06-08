@@ -1,5 +1,9 @@
 #!optimizeStrict
 
+#!mainFile "../../aramMain.opy"
+
+playervar ram_dmg_reduc
+
 rule "[Ramattra]: Pain endures":
     @Event playerDealtFinalBlow
     @Hero ramattra

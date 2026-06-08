@@ -1,5 +1,9 @@
 #!optimizeStrict
 
+#!mainFile "../../aramMain.opy"
+
+playervar moira_buff
+
 # moira aram-only fade disable on coalescence
 
 rule "[Moira]: Fade disable on Coalescence":

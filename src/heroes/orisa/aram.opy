@@ -1,5 +1,9 @@
 #!optimizeStrict
 
+#!mainFile "../../aramMain.opy"
+
+playervar orisa_fortify_armor_id
+
 rule "[Orisa]: Fortify provides 100 temporary armor":
     @Event eachPlayer
     @Hero orisa

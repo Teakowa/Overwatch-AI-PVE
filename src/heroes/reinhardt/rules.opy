@@ -1,5 +1,10 @@
 #!optimizeStrict
 
+#!mainFile "../../main.opy"
+
+playervar reinhardt_buff
+playervar reinhardt_charge_cd
+
 rule "[Reinhardt]: Crusaders stand":
     @Event eachPlayer
     @Hero reinhardt

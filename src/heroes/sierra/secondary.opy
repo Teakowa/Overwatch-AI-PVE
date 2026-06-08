@@ -2,6 +2,8 @@
 
 #!optimizeStrict
 
+#!mainFile "../../main.opy"
+
 playervar sierra_buff
 
 rule "[Sierra]: secondary hit get ammo":

@@ -1,5 +1,9 @@
 #!optimizeStrict
 
+#!mainFile "../../aramMain.opy"
+
+playervar mauga_berserker_soul_id
+
 rule "[Mauga]: Fortify provides 100 temporary armor":
     @Event eachPlayer
     @Hero mauga
