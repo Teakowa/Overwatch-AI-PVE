@@ -88,3 +88,8 @@ Use these as the only canonical policy sources:
   - `tools/module-metrics-sync.ts`
   - `tools/module-metrics-sync.ts --check`
   - `tools/module-metrics-sync.ts --report`
+
+- Hero sync guard:
+  - `tools/player-constants-reachability.ts --prefix ANRAN_`
+  - `tools/player-constants-reachability.ts --prefix ANRAN_ --apply`
+  - `tools/player-constants-reachability.ts --global-cleanup --apply`
