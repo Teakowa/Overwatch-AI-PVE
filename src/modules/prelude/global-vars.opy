@@ -39,3 +39,5 @@ globalvar Counter_Bot
 globalvar Blacklist
 globalvar CustomAI
 globalvar CustomAIArray
+globalvar HanzoBuff
+globalvar BaptisteBuff

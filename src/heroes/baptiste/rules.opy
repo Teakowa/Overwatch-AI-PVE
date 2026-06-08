@@ -3,11 +3,11 @@
 rule "[Baptiste]: headshot damage":
     @Event playerDealtDamage
     @Hero baptiste
-    @Condition HeadshotDamage[4] > 2
+    @Condition BaptisteBuff[0] > 0
     @Condition eventWasCriticalHit == true
     @Condition eventAbility == Button.PRIMARY_FIRE
 
-    damage(victim, attacker, ceil((eventDamage * (HeadshotDamage[4] - 2)) / 2))
+    damage(victim, attacker, BaptisteBuff[0])
 
 rule "[Baptiste]: Immortality Field":
     @Event eachPlayer

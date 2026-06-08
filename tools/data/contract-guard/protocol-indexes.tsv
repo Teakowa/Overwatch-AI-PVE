@@ -37,6 +37,8 @@ globalvar	Counter_Bot	35
 globalvar	Blacklist	36
 globalvar	CustomAI	37
 globalvar	CustomAIArray	38
+globalvar	HanzoBuff	39
+globalvar	BaptisteBuff	40
 playervar	reset_pvar	0
 playervar	heroNum	1
 playervar	botTemp	2

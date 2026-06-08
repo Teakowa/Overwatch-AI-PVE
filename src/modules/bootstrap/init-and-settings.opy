@@ -93,13 +93,12 @@ rule "Initialize Hero Ability Settings":
     WuyangBuff[3] = createWorkshopSettingInt("英雄：无漾", "飞流步：伤害减免", 30, 0, 90, 139)
     WuyangBuff[4] = createWorkshopSettingInt("英雄：无漾", "惊涛波：爆炸减速 %", 70, 0, 90, 140)
     WuyangBuff[5] = createWorkshopSettingInt("英雄：无漾", "惊涛波：友方每秒额外生命值回复 %", 15, 0, 50, 141) / 100
+    HanzoBuff[0] = createWorkshopSettingInt("英雄：半藏", "暴击额外伤害", 60, 0, 150, 107)
+    BaptisteBuff[0] = createWorkshopSettingInt("英雄：巴蒂斯特", "暴击额外伤害", 13, 0, 100, 110)
     #Setup Headshot Damage
     HeadshotDamage[0] = createWorkshopSettingFloat("暴击倍率", "禅雅塔：暴击倍率（以下实际数值将被除以100）", 250, 200, 300, 70) / 100
     #AshHeadshotDamage
     HeadshotDamage[1] = createWorkshopSettingFloat("暴击倍率", "艾什：暴击倍率", 275, 200, 300, 107) / 100
-    HeadshotDamage[3] = createWorkshopSettingFloat("暴击倍率", "半藏：暴击倍率", 275, 200, 300, 107) / 100
-    #Baptiste_HeadshotDamage
-    HeadshotDamage[4] = createWorkshopSettingFloat("暴击倍率", "巴蒂斯特：暴击倍率", 250, 200, 300, 110) / 100
     HeadshotDamage[2] = createWorkshopSettingFloat("暴击倍率", "雾子：暴击倍率", 250, 200, 300, 110) / 100
     VendettaBuff[0] = createWorkshopSettingInt("英雄：斩仇", "帕拉蒂尼之牙：暴击造成额外最大生命值伤害 %", 8, 0, 30, 150) / 100
     VendettaBuff[1] = createWorkshopSettingInt("英雄：斩仇", "帕拉蒂尼之牙：暴击对护甲造成额外最大生命值伤害 %", 16, 0, 50, 150) / 100

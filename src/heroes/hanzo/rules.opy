@@ -3,7 +3,7 @@
 rule "[Hanzo]: headshot damage":
     @Event playerDealtDamage
     @Hero hanzo
-    @Condition HeadshotDamage[3] > 2
+    @Condition HanzoBuff[0] > 0
     @Condition eventWasCriticalHit == true
 
-    damage(victim, attacker, ceil((eventDamage * (HeadshotDamage[3] - 2)) / 2))
+    damage(victim, attacker, HanzoBuff[0])
