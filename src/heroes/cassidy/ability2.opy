@@ -5,4 +5,4 @@ rule "[Cassdy] Flashbang stun":
     @Hero cassidy
     @Condition eventAbility == Button.ABILITY_2
 
-    victim.setStatusEffect(attacker, Status.STUNNED, CASSIDY_ABILITY2_LINE_8_STUNNED_DURATION)
+    victim.setStatusEffect(attacker, Status.STUNNED, CASSIDY_ABILITY2_STUNNED_DURATION)

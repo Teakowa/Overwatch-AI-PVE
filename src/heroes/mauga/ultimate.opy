@@ -6,4 +6,4 @@ rule "[Mauga]: Cage Fight ignore headshot":
     @Hero mauga
     @Condition eventPlayer.isUsingUltimate() == true
 
-    heal(eventPlayer, eventPlayer, MAUGA_ULTIMATE_LINE_9_HEAL)
+    heal(eventPlayer, eventPlayer, MAUGA_ULTIMATE_HEAL)

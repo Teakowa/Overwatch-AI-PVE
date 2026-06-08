@@ -56,7 +56,7 @@ rule "[Freja]: Ex":
 
     if not victim.isAlive() or victim.getHealth() > victim.getMaxHealth() * FrejaBuff[2]:
         goto lbl_0
-    damage(victim, attacker, FREJA_RULES_LINE_59_EXECUTE_DAMAGE)
+    damage(victim, attacker, FREJA_RULES_EXECUTE_DAMAGE)
     smallMessage(eventPlayer, "  斩杀： {0} ".format(heroIcon(victim.getHero())))
     wait(1, Wait.ABORT_WHEN_FALSE)
     lbl_0:

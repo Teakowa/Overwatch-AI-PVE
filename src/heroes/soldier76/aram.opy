@@ -74,7 +74,7 @@ rule "[Soldier: 76]: 治疗":
     @Condition eventPlayer.isAlive() == true
 
     wait(0.16, Wait.ABORT_WHEN_FALSE)
-    heal(eventPlayer, eventPlayer, eventPlayer.getMaxHealth() * SOLDIER76_ARAM_LINE_77_HEALTH_SCALAR)
+    heal(eventPlayer, eventPlayer, eventPlayer.getMaxHealth() * SOLDIER76_ARAM_HEALTH_SCALAR)
 
 rule "[Soldier: 76]: fly":
     @Event eachPlayer
@@ -82,7 +82,7 @@ rule "[Soldier: 76]: fly":
     @Condition eventPlayer.isUsingAbility1() == true
     @Condition eventPlayer.isHoldingButton(Button.JUMP) == true
 
-    eventPlayer.applyImpulse(eventPlayer.getFacingDirection(), SOLDIER76_ARAM_LINE_85_IMPULSE, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
+    eventPlayer.applyImpulse(eventPlayer.getFacingDirection(), SOLDIER76_ARAM_IMPULSE, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
     wait()
     if ruleCondition:
         loop()
@@ -110,7 +110,7 @@ rule "[Soldier: 76]: 替代射击":
     @Condition eventPlayer.isFiringSecondaryFire() == true
 
     waitUntil(not eventPlayer.isFiringSecondaryFire(), 0.496)
-    eventPlayer.setAbilityCooldown(Button.SECONDARY_FIRE, SOLDIER76_ARAM_LINE_113_SECONDARY_FIRE_COOLDOWN_SET)
+    eventPlayer.setAbilityCooldown(Button.SECONDARY_FIRE, SOLDIER76_ARAM_SECONDARY_FIRE_COOLDOWN_SET)
 
 rule "[Soldier: 76]: Third Person":
     @Event eachPlayer

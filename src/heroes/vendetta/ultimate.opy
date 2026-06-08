@@ -11,5 +11,5 @@ rule "[Vendetta]: Sundering Blade":
     #waitUntil(victim.hasStatus(Status.KNOCKED_DOWN), 0.5)
     waitUntil(victim.getHealth() <= victim.getMaxHealth() * VendettaBuff[5], VendettaBuff[4])
     if victim.getHealth() <= victim.getMaxHealth() * VendettaBuff[5]:
-        damage(victim, attacker, VENDETTA_ULTIMATE_LINE_14_EXECUTE_DAMAGE)
+        damage(victim, attacker, VENDETTA_ULTIMATE_EXECUTE_DAMAGE)
     wait(1)

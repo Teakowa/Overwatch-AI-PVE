@@ -11,8 +11,8 @@ rule "[Doomfist] Seismic Slam upper":
 
     eventPlayer.doom_buff += 25
     eventPlayer.hudText = "{0}".format(floor(eventPlayer.doom_buff))
-    victim.applyImpulse(Vector.UP, DOOMFIST_RULES_LINE_14_IMPULSE, Relativity.TO_PLAYER)
-    victim.applyImpulse(worldVector(Vector.BACKWARD, attacker, Transform.ROTATION), DOOMFIST_RULES_LINE_15_IMPULSE, Relativity.TO_WORLD)
+    victim.applyImpulse(Vector.UP, DOOMFIST_RULES_UPWARD_IMPULSE, Relativity.TO_PLAYER)
+    victim.applyImpulse(worldVector(Vector.BACKWARD, attacker, Transform.ROTATION), DOOMFIST_RULES_BACKWARD_IMPULSE, Relativity.TO_WORLD)
     victim.startForcingThrottle(0, 0, 0, 0, 0, 0)
     waitUntil(victim.isOnGround() or victim.hasStatus(Status.PHASED_OUT), 1.2)
     victim.stopForcingThrottle()

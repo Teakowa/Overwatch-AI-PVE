@@ -7,7 +7,7 @@ rule "[Anran]: Ability 2":
 
     wait()
     resetStatuses()
-    eventPlayer.setStatusEffect(null, Status.PHASED_OUT, ANRAN_ABILITY2_LINE_10_PHASED_OUT_DURATION)
+    eventPlayer.setStatusEffect(null, Status.PHASED_OUT, ANRAN_ABILITY2_PHASED_OUT_DURATION)
     eventPlayer.unaffected = true
     waitUntil(not eventPlayer.isUsingAbility2(), 2.5)
     wait(0.8)

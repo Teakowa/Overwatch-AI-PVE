@@ -20,7 +20,7 @@ rule "[Ramattra] ult speed":
         applySignedMoveSpeed()
     eventPlayer.setDamageDealt(100 + Ram_Annihilation[5])
     eventPlayer.setDamageReceived(100 - Ram_Annihilation[4])
-    eventPlayer.setKnockbackReceived(RAMATTRA_ULTIMATE_LINE_23_KNOCKBACK_RECEIVED)
+    eventPlayer.setKnockbackReceived(RAMATTRA_ULTIMATE_KNOCKBACK_RECEIVED)
     waitUntil(not eventPlayer.isUsingUltimate() or eventPlayer.isDead(), Math.INFINITY)
     if eventPlayer.isDead():
         goto lbl_0

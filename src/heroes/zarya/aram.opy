@@ -39,9 +39,9 @@ rule "[Zarya]: will to win":
     @Condition eventPlayer.getHealth() <= eventPlayer.getMaxHealth() * 0.3
 
     bigMessage(eventPlayer, "胜利意志！")
-    eventPlayer.setStatusEffect(null, Status.UNKILLABLE, ZARYA_ARAM_LINE_42_UNKILLABLE_DURATION)
-    eventPlayer.setStatusEffect(null, Status.INVINCIBLE, ZARYA_ARAM_LINE_43_INVINCIBLE_DURATION)
-    eventPlayer.setStatusEffect(null, Status.PHASED_OUT, ZARYA_ARAM_LINE_44_PHASED_OUT_DURATION)
+    eventPlayer.setStatusEffect(null, Status.UNKILLABLE, ZARYA_ARAM_UNKILLABLE_DURATION)
+    eventPlayer.setStatusEffect(null, Status.INVINCIBLE, ZARYA_ARAM_INVINCIBLE_DURATION)
+    eventPlayer.setStatusEffect(null, Status.PHASED_OUT, ZARYA_ARAM_PHASED_OUT_DURATION)
     eventPlayer.setAbilityCooldown(Button.ABILITY_1, 0)
     eventPlayer.setAbilityCooldown(Button.ABILITY_2, 0)
     heal(eventPlayer, eventPlayer, ZaryaBuff[3] * ZaryaBuff[4])

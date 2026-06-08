@@ -13,7 +13,7 @@ rule "[Genji] Dragonblade Damage Fix":
     @Condition eventPlayer.isUsingUltimate() == true
 
     eventPlayer.setDamageDealt(100 + Genji[1])
-    eventPlayer.setDamageReceived(GENJI_ULTIMATE_LINE_16_DAMAGE_RECEIVED)
+    eventPlayer.setDamageReceived(GENJI_ULTIMATE_DAMAGE_RECEIVED)
     waitUntil(not eventPlayer.isUsingUltimate(), 8)
     eventPlayer.setDamageDealt(100)
     eventPlayer.setDamageReceived(100)

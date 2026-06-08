@@ -5,7 +5,7 @@ rule "[JetpackCat]: Frenetic Flight damage reduction":
     @Hero jetpackCat
     @Condition eventPlayer.isUsingAbility1() == true
 
-    eventPlayer.setDamageReceived(JETPACK_CAT_ARAM_LINE_8_DAMAGE_RECEIVED)
+    eventPlayer.setDamageReceived(JETPACK_CAT_ARAM_ABILITY1_DAMAGE_RECEIVED)
     waitUntil(not eventPlayer.isUsingAbility1(), 3)
     eventPlayer.setDamageReceived(100)
     wait(0.5)
@@ -23,7 +23,7 @@ rule "[JetpackCat]: Catnapper damage reduction":
     @Hero jetpackCat
     @Condition eventPlayer.isUsingUltimate() == true
 
-    eventPlayer.setDamageReceived(JETPACK_CAT_ARAM_LINE_26_DAMAGE_RECEIVED)
+    eventPlayer.setDamageReceived(JETPACK_CAT_ARAM_ULTIMATE_DAMAGE_RECEIVED)
     waitUntil(not eventPlayer.isUsingUltimate(), 6)
     wait(2)
     eventPlayer.setDamageReceived(100)
@@ -35,7 +35,7 @@ rule "[JetpackCat]: Catnapper bonus max health damage":
     @Condition victim.getTeam() != attacker.getTeam()
     @Condition (victim.hasStatus(Status.INVINCIBLE) or victim.hasStatus(Status.UNKILLABLE) or victim.hasStatus(Status.PHASED_OUT)) == false
 
-    damage(victim, attacker, victim.getMaxHealth() * JETPACK_CAT_ARAM_LINE_38_HEALTH_SCALAR)
+    damage(victim, attacker, victim.getMaxHealth() * JETPACK_CAT_ARAM_HEALTH_SCALAR)
 
 rule "[JetpackCat]: Frenetic Flight fuel regeneration":
     @Event eachPlayer
@@ -57,5 +57,5 @@ rule "[JetpackCat]: Claws Out melee stun":
     @Condition victim.unaffected != true
     @Condition (victim.hasStatus(Status.INVINCIBLE) or victim.hasStatus(Status.UNKILLABLE) or victim.hasStatus(Status.PHASED_OUT)) == false
 
-    victim.setStatusEffect(attacker, Status.STUNNED, JETPACK_CAT_ARAM_LINE_60_STUNNED_DURATION)
+    victim.setStatusEffect(attacker, Status.STUNNED, JETPACK_CAT_ARAM_STUNNED_DURATION)
     heal(eventPlayer, eventPlayer, 25 + eventDamage)

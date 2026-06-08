@@ -18,7 +18,7 @@ rule "[Hazard]: Violent Leap HP":
         goto lbl_0
     removeHealthPool(eventPlayer.hazard_hp_id)
     lbl_0:
-    eventPlayer.addHealthPool(Health.NORMAL, HAZARD_ABILITY1_LINE_21_NORMAL_HEALTH_POOL_AMOUNT, false, false)
+    eventPlayer.addHealthPool(Health.NORMAL, HAZARD_ABILITY1_NORMAL_HEALTH_POOL_AMOUNT, false, false)
     eventPlayer.hazard_hp_id = getLastCreatedHealthPool()
     wait(3, Wait.RESTART_WHEN_TRUE)
     removeHealthPool(eventPlayer.hazard_hp_id)

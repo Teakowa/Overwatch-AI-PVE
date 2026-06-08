@@ -12,7 +12,7 @@ rule "[Freja/init.opy]: Initialize Freja":
     @Condition eventPlayer.reset_pvar[0] != false
 
     resetHero()
-    eventPlayer.setProjectileSpeed(FREJA_INIT_LINE_15_PROJECTILE_SPEED)
+    eventPlayer.setProjectileSpeed(FREJA_INIT_PROJECTILE_SPEED)
     if eventPlayer.getTeam() != Team.1:
         goto lbl_0
     eventPlayer.startForcingName(random.choice(["ANS", "射 爆", "拉矢摩西"]))

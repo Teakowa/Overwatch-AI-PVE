@@ -7,7 +7,7 @@ rule "[Juno] Track Orbital Ray Position":
     @Condition eventPlayer.isAlive() == true
 
     wait(0.5, Wait.ABORT_WHEN_FALSE)
-    getPlayersInRadius(eventPlayer, JUNO_ULTIMATE_LINE_10_RADIUS, eventPlayer.getTeam()).juno_buff[0] = true
+    getPlayersInRadius(eventPlayer, JUNO_ULTIMATE_RADIUS, eventPlayer.getTeam()).juno_buff[0] = true
     wait(10)
     getPlayers(eventPlayer.getTeam()).juno_buff[0] = false
 

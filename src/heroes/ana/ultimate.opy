@@ -9,7 +9,7 @@ rule "[Ana]: Damage Full Health Allies So Nano Can Heal":
     eventPlayer.nano_full_health = [i for i in eventPlayer.getPlayerClosestToReticle(eventPlayer.getTeam()) if i.getHealth() >= i.getMaxHealth()]
     damage(eventPlayer.nano_full_health, null, 0.05)
     wait(0.216)
-    heal(eventPlayer.nano_full_health, null, ANA_ULTIMATE_LINE_12_HEAL)
+    heal(eventPlayer.nano_full_health, null, ANA_ULTIMATE_FULL_HEALTH_HEAL)
     eventPlayer.nano_full_health = null
 
 rule "Has Nano":
@@ -29,4 +29,4 @@ rule "[Ana] Nano Boost Healing":
     @Condition eventAbility == Button.ULTIMATE
     @Condition healer.getHero() == Hero.ANA == true
 
-    heal(healee, healer, ANA_ULTIMATE_LINE_32_HEAL)
+    heal(healee, healer, ANA_ULTIMATE_NANO_HEAL)

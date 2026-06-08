@@ -7,5 +7,5 @@ rule "[Wrecking Ball]: ctrl 0cd":
     @Hero wreckingBall
     @Condition eventAbility == Button.CROUCH
 
-    victim.setStatusEffect(eventPlayer, Status.STUNNED, WRECKING_BALL_RULES_LINE_10_STUNNED_DURATION)
+    victim.setStatusEffect(eventPlayer, Status.STUNNED, WRECKING_BALL_RULES_STUNNED_DURATION)
 #!include "ability2.opy"

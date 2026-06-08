@@ -12,7 +12,7 @@ rule "[Kiriko]: Protection Suzu Clear Effect":
     resetStatuses()
     lbl_0:
     healee.unaffected = true
-    healee.setStatusEffect(healer, Status.INVINCIBLE, KIRIKO_ABILITY2_LINE_15_INVINCIBLE_DURATION)
-    healee.setStatusEffect(healer, Status.PHASED_OUT, KIRIKO_ABILITY2_LINE_16_PHASED_OUT_DURATION)
+    healee.setStatusEffect(healer, Status.INVINCIBLE, KIRIKO_ABILITY2_INVINCIBLE_DURATION)
+    healee.setStatusEffect(healer, Status.PHASED_OUT, KIRIKO_ABILITY2_PHASED_OUT_DURATION)
     wait(1.8)
     healee.unaffected = false

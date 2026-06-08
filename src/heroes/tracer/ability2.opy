@@ -5,7 +5,7 @@ rule "[Tracer] Recall Healing":
     @Hero tracer
     @Condition eventPlayer.isUsingAbility2() == true
 
-    heal(eventPlayer, null, TRACER_ABILITY2_LINE_8_HEAL)
+    heal(eventPlayer, null, TRACER_ABILITY2_RECALL_HEAL)
 
 rule "[Tracer] Kill Heal":
     @Event playerEarnedElimination
@@ -14,7 +14,7 @@ rule "[Tracer] Kill Heal":
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.getHealth() < eventPlayer.getMaxHealth() == true
 
-    heal(eventPlayer, null, TRACER_ABILITY2_LINE_17_HEAL)
+    heal(eventPlayer, null, TRACER_ABILITY2_ELIMINATION_HEAL)
 
 rule "[Tracer]: kiil reset cooldown":
     @Event playerEarnedElimination

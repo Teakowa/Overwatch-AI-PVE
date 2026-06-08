@@ -16,7 +16,7 @@ rule "[Sombra]: Apply OW1 hack on top of OW2 hack":
     @Condition eventPlayer.vendetta_hud != true
 
     stopChasingVariable(eventPlayer.hack_timer)
-    eventPlayer.setStatusEffect(eventPlayer.reset_pvar[6], Status.HACKED, SOMBRA_ARAM_LINE_19_HACKED_DURATION)
+    eventPlayer.setStatusEffect(eventPlayer.reset_pvar[6], Status.HACKED, SOMBRA_ARAM_HACKED_DURATION)
     eventPlayer.hack_timer = 5
     chaseAtRate(eventPlayer.hack_timer, 0, 1, ChaseRateReeval.NONE)
 

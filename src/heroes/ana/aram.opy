@@ -11,7 +11,7 @@ rule "[Ana]: Damage Full Health Allies So Nano Can Heal":
     eventPlayer.nano_full_health = [i for i in eventPlayer.getPlayerClosestToReticle(eventPlayer.getTeam()) if i.getHealth() >= i.getMaxHealth()]
     damage(eventPlayer.nano_full_health, null, 0.05)
     wait(0.216)
-    heal(eventPlayer.nano_full_health, null, ANA_ARAM_LINE_14_HEAL)
+    heal(eventPlayer.nano_full_health, null, ANA_ARAM_FULL_HEALTH_HEAL)
     eventPlayer.nano_full_health = null
 
 rule "Has Nano":
@@ -31,8 +31,8 @@ rule "[Ana] Nano Boost Healing":
     @Condition healer.getHero() == Hero.ANA == true
     @Condition eventPlayer.has_nano == true
 
-    heal(healee, healer, ANA_ARAM_LINE_34_HEAL)
-    heal(healee, healer, ANA_ARAM_LINE_35_HEAL_MULTIPLIER * ceil(healee.getMaxHealth() * ANA_ARAM_LINE_35_HEALTH_SCALAR))
+    heal(healee, healer, ANA_ARAM_NANO_HEAL)
+    heal(healee, healer, ANA_ARAM_HEAL_MULTIPLIER * ceil(healee.getMaxHealth() * ANA_ARAM_HEALTH_SCALAR))
 
 rule "[Ana] Biotic Grenade Hit for allies":
     @Event playerDealtHealing
@@ -75,7 +75,7 @@ rule "[Ana]: Sleep tanks for longer duration":
 
     victim.clearStatusEffect(Status.ASLEEP)
     #waitUntil(victim.hasStatus(Status.ASLEEP), 999999986991104)
-    victim.setStatusEffect(attacker, Status.KNOCKED_DOWN, ANA_ARAM_LINE_78_KNOCKED_DOWN_DURATION)
+    victim.setStatusEffect(attacker, Status.KNOCKED_DOWN, ANA_ARAM_KNOCKED_DOWN_DURATION)
     #heart_steel_hp
     eventPlayer.heart_steel[1] += 50 if eventPlayer.getTeam() == Team.2 else 100
     eventPlayer.heart_steel[2] = true

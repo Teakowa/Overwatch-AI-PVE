@@ -29,8 +29,8 @@ rule "[Zenyatta] Snap Kick (enemy)":
     @Condition attacker.getHero() == Hero.ZENYATTA == true
     @Condition eventAbility == Button.MELEE
 
-    heal(attacker, attacker, victim.getMaxHealth() * ZENYATTA_ARAM_LINE_32_HEALTH_SCALAR)
-    victim.setStatusEffect(attacker, Status.STUNNED, ZENYATTA_ARAM_LINE_33_STUNNED_DURATION)
+    heal(attacker, attacker, victim.getMaxHealth() * ZENYATTA_ARAM_HEALTH_SCALAR)
+    victim.setStatusEffect(attacker, Status.STUNNED, ZENYATTA_ARAM_STUNNED_DURATION)
     attacker.heart_steel[1] += 150
     if attacker.heart_steel[0] == null:
         goto lbl_0
@@ -39,7 +39,7 @@ rule "[Zenyatta] Snap Kick (enemy)":
     attacker.addHealthPool(Health.NORMAL, attacker.heart_steel[1], false, false)
     attacker.heart_steel[0] = getLastCreatedHealthPool()
     wait()
-    damage(eventPlayer, attacker, eventDamage * ZENYATTA_ARAM_LINE_42_EVENT_DAMAGE_SCALAR)
+    damage(eventPlayer, attacker, eventDamage * ZENYATTA_ARAM_EVENT_DAMAGE_SCALAR)
 
 #!include "melee.opy"
 
@@ -64,8 +64,8 @@ rule "[Zenyatta]: Transcendence":
     eventPlayer.mov_speed_penalty = 0
     eventPlayer.mov_speed_buff += 25
     wait(0.16)
-    eventPlayer.setStatusEffect(null, Status.PHASED_OUT, ZENYATTA_ARAM_LINE_67_PHASED_OUT_DURATION)
-    eventPlayer.setHealingDealt(ZENYATTA_ARAM_LINE_68_HEALING_DEALT)
+    eventPlayer.setStatusEffect(null, Status.PHASED_OUT, ZENYATTA_ARAM_PHASED_OUT_DURATION)
+    eventPlayer.setHealingDealt(ZENYATTA_ARAM_HEALING_DEALT)
     eventPlayer.setMoveSpeed(100 + eventPlayer.mov_speed_buff)
     waitUntil(not eventPlayer.isUsingUltimate(), 6)
     eventPlayer.mov_speed_buff = 0

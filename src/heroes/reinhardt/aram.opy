@@ -35,7 +35,7 @@ rule "[Reinhardt]: Crusaders stand":
 
     bigMessage(eventPlayer, "  十字军坚定")
     smallMessage(eventPlayer, "  {0} 无视击退".format(iconString(Icon.FLAG)))
-    eventPlayer.addHealthPool(Health.NORMAL, REINHARDT_ARAM_LINE_38_NORMAL_HEALTH_POOL_AMOUNT, false, false)
+    eventPlayer.addHealthPool(Health.NORMAL, REINHARDT_ARAM_NORMAL_HEALTH_POOL_AMOUNT, false, false)
     eventPlayer.setKnockbackReceived(0)
     waitUntil(not eventPlayer.reinhardt_buff, 8)
     eventPlayer.setKnockbackReceived(100)
@@ -46,7 +46,7 @@ rule "[Rein]: fly":
     @Condition eventPlayer.isFiringSecondaryFire() == true
     @Condition eventPlayer.isHoldingButton(Button.JUMP) == true
 
-    eventPlayer.applyImpulse(eventPlayer.getFacingDirection(), REINHARDT_ARAM_LINE_49_IMPULSE, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
+    eventPlayer.applyImpulse(eventPlayer.getFacingDirection(), REINHARDT_ARAM_IMPULSE, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
     wait()
     if ruleCondition:
         loop()

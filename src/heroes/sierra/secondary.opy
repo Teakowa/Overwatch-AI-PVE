@@ -36,4 +36,4 @@ rule "[Sierra]: secondary kill":
     @Condition eventAbility == Button.SECONDARY_FIRE
     @Condition eventPlayer.getAbilityCooldown(Button.SECONDARY_FIRE) > 0.5
     
-    eventPlayer.setAbilityCooldown(Button.SECONDARY_FIRE, SIERRA_SECONDARY_LINE_39_SECONDARY_FIRE_COOLDOWN_SET)
+    eventPlayer.setAbilityCooldown(Button.SECONDARY_FIRE, SIERRA_SECONDARY_SECONDARY_FIRE_COOLDOWN_SET)

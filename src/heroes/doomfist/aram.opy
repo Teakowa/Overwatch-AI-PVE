@@ -39,8 +39,8 @@ rule "[Doomfist] Seismic Slam upper":
 
     eventPlayer.doom_buff += eventDamage + 50
     eventPlayer.hudText = "{0}".format(floor(eventPlayer.doom_buff))
-    victim.applyImpulse(Vector.UP, DOOMFIST_ARAM_LINE_42_IMPULSE, Relativity.TO_PLAYER)
-    victim.applyImpulse(worldVector(Vector.BACKWARD, attacker, Transform.ROTATION), DOOMFIST_ARAM_LINE_43_IMPULSE, Relativity.TO_WORLD)
+    victim.applyImpulse(Vector.UP, DOOMFIST_ARAM_UPWARD_IMPULSE, Relativity.TO_PLAYER)
+    victim.applyImpulse(worldVector(Vector.BACKWARD, attacker, Transform.ROTATION), DOOMFIST_ARAM_BACKWARD_IMPULSE, Relativity.TO_WORLD)
     victim.startForcingThrottle(0, 0, 0, 0, 0, 0)
     waitUntil(victim.isOnGround(), 1.2)
     victim.stopForcingThrottle()

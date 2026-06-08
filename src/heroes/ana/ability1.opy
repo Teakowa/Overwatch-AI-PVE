@@ -8,4 +8,4 @@ rule "[Ana]: Sleep tanks for longer duration":
 
     victim.clearStatusEffect(Status.ASLEEP)
     #waitUntil(victim.hasStatus(Status.ASLEEP), Math.INFINITY)
-    victim.setStatusEffect(attacker, Status.KNOCKED_DOWN, ANA_ABILITY1_LINE_11_KNOCKED_DOWN_DURATION)
+    victim.setStatusEffect(attacker, Status.KNOCKED_DOWN, ANA_ABILITY1_KNOCKED_DOWN_DURATION)
