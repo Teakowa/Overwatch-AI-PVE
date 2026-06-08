@@ -8,7 +8,7 @@ rule "[Genji] Dragonblade Healing":
     @Condition eventAbility == Button.ULTIMATE
 
     heal(eventPlayer, eventPlayer, eventDamage)
-    damage(victim, attacker, eventPlayer.getMaxHealth() * 0.1)
+    damage(victim, attacker, eventPlayer.getMaxHealth() * GENJI_ARAM_LINE_11_HEALTH_SCALAR)
     wait(0.16)
 
 rule "[Genji] Dragonblade Execution players less 10% HP expectancy":
@@ -28,7 +28,7 @@ rule "[Genji] Dragonblade Damage Fix":
     @Condition eventPlayer.isUsingUltimate() == true
 
     eventPlayer.setDamageDealt(100 + Genji[1])
-    eventPlayer.setDamageReceived(90)
+    eventPlayer.setDamageReceived(GENJI_ARAM_LINE_31_DAMAGE_RECEIVED)
     waitUntil(not eventPlayer.isUsingUltimate(), 8)
     eventPlayer.setDamageDealt(100)
     eventPlayer.setDamageReceived(100)
@@ -38,7 +38,7 @@ rule "[Genji]: Deflect":
     @Hero genji
     @Condition eventPlayer.isUsingAbility2() == true
 
-    eventPlayer.setStatusEffect(eventPlayer, Status.INVINCIBLE, 2.192)
-    eventPlayer.setDamageDealt(200)
+    eventPlayer.setStatusEffect(eventPlayer, Status.INVINCIBLE, GENJI_ARAM_LINE_41_INVINCIBLE_DURATION)
+    eventPlayer.setDamageDealt(GENJI_ARAM_LINE_42_DAMAGE_DEALT)
     waitUntil(not eventPlayer.isUsingAbility2(), 3)
     eventPlayer.setDamageDealt(100)

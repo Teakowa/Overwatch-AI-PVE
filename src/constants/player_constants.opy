@@ -45,6 +45,12 @@
 #!define HUD_TEXT_SPACER "\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r"
 
 # =========================
+# Project Constants
+# =========================
+#!include "workshop_setting_constants.opy"
+#!include "hero_balance_constants.opy"
+
+# =========================
 # Hero Defaults
 # =========================
 # Misc

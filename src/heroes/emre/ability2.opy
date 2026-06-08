@@ -7,6 +7,6 @@ rule "[Emre]: Cyber Grenade Control + Burn":
     @Condition victim != eventPlayer
     @Condition (victim.hasStatus(Status.INVINCIBLE) or victim.hasStatus(Status.PHASED_OUT)) == false
 
-    victim.setStatusEffect(attacker, Status.BURNING, 2)
+    victim.setStatusEffect(attacker, Status.BURNING, EMRE_ABILITY2_LINE_10_BURNING_DURATION)
     damage(victim, attacker, 50)
 	wait()

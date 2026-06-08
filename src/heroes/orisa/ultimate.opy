@@ -6,4 +6,4 @@ rule "[Orisa]: stun when ult":
     @Condition eventAbility == Button.ULTIMATE
     @Condition victim.unaffected != true
 
-    victim.setStatusEffect(attacker, Status.STUNNED, 1.25)
+    victim.setStatusEffect(attacker, Status.STUNNED, ORISA_ULTIMATE_LINE_9_STUNNED_DURATION)

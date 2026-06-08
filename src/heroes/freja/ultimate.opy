@@ -16,4 +16,4 @@ rule "[Freja]: set Projectile speed":
 
     eventPlayer.setProjectileSpeed(100)
     waitUntil(not eventPlayer.isUsingUltimate(), 99999)
-    eventPlayer.setProjectileSpeed(500)
+    eventPlayer.setProjectileSpeed(FREJA_ULTIMATE_LINE_19_PROJECTILE_SPEED)

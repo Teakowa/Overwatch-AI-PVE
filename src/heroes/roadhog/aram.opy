@@ -6,7 +6,7 @@ rule "[Roadhog]: Hogdrogen Exposure":
     @Condition eventPlayer.isFiringSecondaryFire() == true
     @Condition eventAbility == Button.SECONDARY_FIRE
 
-    heal(healee, healer, 50)
+    heal(healee, healer, ROADHOG_ARAM_LINE_9_HEAL)
     wait(0.5)
 
 rule "[Roadhog]: Breather":
@@ -16,7 +16,7 @@ rule "[Roadhog]: Breather":
     @Condition eventPlayer.isUsingAbility2() == true
     @Condition eventPlayer.getNormalizedHealth() < 1
 
-    heal(getLivingPlayers(eventPlayer.getTeam()), eventPlayer, 70)
+    heal(getLivingPlayers(eventPlayer.getTeam()), eventPlayer, ROADHOG_ARAM_LINE_19_HEAL)
     wait(0.65)
     if ruleCondition:
         loop()
@@ -61,4 +61,4 @@ rule "[Roadhog]: hook lancher":
     if eventPlayer.getTeam() == Team.1 or eventPlayer.isHoldingButton(Button.INTERACT) == true:
         eventPlayer.cancelPrimaryAction()
         lbl_0:
-        victim.applyImpulse(attacker.getFacingDirection(), 85, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
+        victim.applyImpulse(attacker.getFacingDirection(), ROADHOG_ARAM_LINE_64_IMPULSE, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)

@@ -14,7 +14,7 @@ rule "[Orisa]: Fortify provides 100 temporary armor":
     eventPlayer.orisa_buff = false
     eventPlayer.addHealthPool(Health.ARMOR, Orisa_Fortify[0], true, false)
     eventPlayer.orisa_fortify_armor_id = getLastCreatedHealthPool()
-    heal(eventPlayer, eventPlayer, eventPlayer.getMaxHealth() * 0.4)
+    heal(eventPlayer, eventPlayer, eventPlayer.getMaxHealth() * ORISA_ARAM_LINE_17_HEALTH_SCALAR)
     if eventPlayer.isUsingAbility1() == true:
         waitUntil(not eventPlayer.isUsingAbility1(), 999999986991104)
     else:
@@ -57,7 +57,7 @@ rule "[Orisa]: fly":
     #@Condition eventPlayer.isUsingAbility2() == true
     @Condition eventPlayer.isHoldingButton(Button.JUMP) == true
 
-    eventPlayer.applyImpulse(eventPlayer.getFacingDirection(), 10, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
+    eventPlayer.applyImpulse(eventPlayer.getFacingDirection(), ORISA_ARAM_LINE_60_IMPULSE, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
     wait()
     if ruleCondition:
         loop()

@@ -5,7 +5,7 @@ rule "[JetpackCat]: Catnapper damage reduction":
     @Hero jetpackCat
     @Condition eventPlayer.isUsingUltimate() == true
 
-    eventPlayer.setDamageReceived(25)
+    eventPlayer.setDamageReceived(JETPACK_CAT_ULTIMATE_LINE_8_DAMAGE_RECEIVED)
     waitUntil(not eventPlayer.isUsingUltimate(), 6)
     wait(2)
     eventPlayer.setDamageReceived(100)
@@ -17,4 +17,4 @@ rule "[JetpackCat]: Catnapper bonus max health damage":
     @Condition victim.getTeam() != attacker.getTeam()
     @Condition (victim.hasStatus(Status.INVINCIBLE) or victim.hasStatus(Status.UNKILLABLE) or victim.hasStatus(Status.PHASED_OUT)) == false
 
-    damage(victim, attacker, victim.getMaxHealth() * 0.5)
+    damage(victim, attacker, victim.getMaxHealth() * JETPACK_CAT_ULTIMATE_LINE_20_HEALTH_SCALAR)

@@ -6,7 +6,7 @@ rule "[Reinhardt]: Shield Slam knockback":
     @Hero reinhardt
     @Condition eventPlayer.isFiringSecondaryFire() == true
 
-    eventPlayer.setKnockbackDealt(50)
+    eventPlayer.setKnockbackDealt(REINHARDT_SECONDARY_LINE_9_KNOCKBACK_DEALT)
     waitUntil(not eventPlayer.isFiringSecondaryFire(), 99999)
     eventPlayer.setKnockbackDealt(100)
 
@@ -15,4 +15,4 @@ rule "[Reinhardt]: Shield Slam stun":
     @Hero reinhardt
     @Condition eventAbility == Button.SECONDARY_FIRE
 
-    victim.setStatusEffect(attacker, Status.STUNNED, 1.2)
+    victim.setStatusEffect(attacker, Status.STUNNED, REINHARDT_SECONDARY_LINE_18_STUNNED_DURATION)

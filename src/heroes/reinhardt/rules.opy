@@ -16,7 +16,7 @@ rule "[Reinhardt]: Crusaders stand":
 
     bigMessage(eventPlayer, "  十字军坚定")
     smallMessage(eventPlayer, "  {0} 无视击退".format(abilityIconString(eventPlayer.getHero(), Button.SECONDARY_FIRE)))
-    eventPlayer.addHealthPool(Health.NORMAL, 200, false, false)
+    eventPlayer.addHealthPool(Health.NORMAL, REINHARDT_RULES_LINE_19_NORMAL_HEALTH_POOL_AMOUNT, false, false)
     eventPlayer.setKnockbackReceived(0)
     waitUntil(not eventPlayer.reinhardt_buff[0], 8)
     eventPlayer.setKnockbackReceived(100)

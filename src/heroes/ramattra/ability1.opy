@@ -6,8 +6,8 @@ rule "[Ramattra]: Pummel Knockback":
     @Condition eventAbility == Button.ABILITY_1
     @Disabled
 
-    victim.applyImpulse(directionFromAngles(horizontalAngleOfDirection(victim.getPosition() - attacker.getPosition()), -20), 5, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
-    victim.applyImpulse(Vector.UP, 2.5, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
+    victim.applyImpulse(directionFromAngles(horizontalAngleOfDirection(victim.getPosition() - attacker.getPosition()), -20), RAMATTRA_ABILITY1_LINE_9_IMPULSE, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
+    victim.applyImpulse(Vector.UP, RAMATTRA_ABILITY1_LINE_10_IMPULSE, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
     victim.setEnvironmentalKillCreditor(attacker)
     wait(0.5)
 

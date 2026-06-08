@@ -7,5 +7,5 @@ rule "[Bastion]: Configuration: Artillery":
     @Hero bastion
     @Condition eventAbility == Button.ULTIMATE
 
-    damage(victim, attacker, victim.getHealth() * 0.25)
+    damage(victim, attacker, victim.getHealth() * BASTION_ARAM_LINE_10_HEALTH_SCALAR)
     wait(0.25)

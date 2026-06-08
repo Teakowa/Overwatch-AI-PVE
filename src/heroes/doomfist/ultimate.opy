@@ -5,6 +5,6 @@ rule "[Doomfist]: Meteor Strike":
     @Hero doomfist
     @Condition eventPlayer.isUsingUltimate() == true
 
-    eventPlayer.setDamageDealt(175 if eventPlayer.getTeam() == Team.1 else 150)
+    eventPlayer.setDamageDealt(DOOMFIST_ULTIMATE_LINE_8_DAMAGE_DEALT_PERCENT_MAIN if eventPlayer.getTeam() == Team.1 else DOOMFIST_ULTIMATE_LINE_8_DAMAGE_DEALT_PERCENT_ALT)
     waitUntil(not eventPlayer.isUsingUltimate(), 10)
     eventPlayer.setDamageDealt(100)

@@ -12,8 +12,8 @@ rule "[Zarya]: will to win":
     @Condition eventPlayer.getHealth() <= eventPlayer.getMaxHealth() * 0.3
 
     bigMessage(eventPlayer, "胜利意志！")
-    eventPlayer.setStatusEffect(null, Status.INVINCIBLE, 1)
-    eventPlayer.setStatusEffect(null, Status.PHASED_OUT, 1)
+    eventPlayer.setStatusEffect(null, Status.INVINCIBLE, ZARYA_RULES_LINE_15_INVINCIBLE_DURATION)
+    eventPlayer.setStatusEffect(null, Status.PHASED_OUT, ZARYA_RULES_LINE_16_PHASED_OUT_DURATION)
     eventPlayer.setAbilityCooldown(Button.ABILITY_1, 0)
     eventPlayer.setAbilityCooldown(Button.ABILITY_2, 0)
     heal(eventPlayer, eventPlayer, ZaryaBuff[3] * ZaryaBuff[4])
@@ -36,7 +36,7 @@ rule "[Zarya]: Projected Barrier Shields":
         goto lbl_1
     removeHealthPool(eventPlayer.zarya_barrier_shields[1])
     lbl_1:
-    eventPlayer.addHealthPool(Health.NORMAL, 50, false, false)
+    eventPlayer.addHealthPool(Health.NORMAL, ZARYA_RULES_LINE_39_NORMAL_HEALTH_POOL_AMOUNT, false, false)
     eventPlayer.zarya_barrier_shields[1] = getLastCreatedHealthPool()
     wait(3, Wait.RESTART_WHEN_TRUE)
     removeHealthPool(eventPlayer.zarya_barrier_shields[1])

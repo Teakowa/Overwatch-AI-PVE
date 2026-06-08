@@ -13,8 +13,8 @@ rule "[Kiriko]: Protection Suzu Clear Effect":
     resetStatuses()
     lbl_0:
     healee.unaffected = true
-    healee.setStatusEffect(healer, Status.INVINCIBLE, 2.5)
-    healee.setStatusEffect(healer, Status.PHASED_OUT, 2.5)
+    healee.setStatusEffect(healer, Status.INVINCIBLE, KIRIKO_ARAM_LINE_16_INVINCIBLE_DURATION)
+    healee.setStatusEffect(healer, Status.PHASED_OUT, KIRIKO_ARAM_LINE_17_PHASED_OUT_DURATION)
     wait(2.5)
     healee.unaffected = false
 
@@ -24,5 +24,5 @@ rule "[Kiriko]: Swift Step":
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) > 0
 
     resetStatuses()
-    eventPlayer.setStatusEffect(eventPlayer, Status.INVINCIBLE, 2.5)
-    eventPlayer.setStatusEffect(eventPlayer, Status.PHASED_OUT, 2.5)
+    eventPlayer.setStatusEffect(eventPlayer, Status.INVINCIBLE, KIRIKO_ARAM_LINE_27_INVINCIBLE_DURATION)
+    eventPlayer.setStatusEffect(eventPlayer, Status.PHASED_OUT, KIRIKO_ARAM_LINE_28_PHASED_OUT_DURATION)

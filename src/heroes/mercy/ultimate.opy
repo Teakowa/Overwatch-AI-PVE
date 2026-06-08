@@ -6,8 +6,8 @@ rule "[Mercy]: Valkyrie":
     @Condition MercyBuff[0] != 0
     @Condition eventPlayer.isUsingUltimate() == true
 
-    heal(getLivingPlayers(eventPlayer.getTeam()), eventPlayer, 675)
-    eventPlayer.setDamageDealt(200)
+    heal(getLivingPlayers(eventPlayer.getTeam()), eventPlayer, MERCY_ULTIMATE_LINE_9_HEAL)
+    eventPlayer.setDamageDealt(MERCY_ULTIMATE_LINE_10_DAMAGE_DEALT)
     eventPlayer.setDamageReceived(100 - MercyBuff[0])
     waitUntil(not eventPlayer.isUsingUltimate(), 20)
     eventPlayer.setDamageReceived(100)

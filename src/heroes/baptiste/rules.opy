@@ -14,7 +14,7 @@ rule "[Baptiste]: Immortality Field":
     @Condition eventPlayer.hasStatus(Status.UNKILLABLE) == true
     @Condition eventPlayer.reset_pvar[12].getAbilityCooldown(Button.ABILITY_2) > 0
 
-    eventPlayer.setStatusEffect(eventPlayer.reset_pvar[12], Status.PHASED_OUT, 0.26)
-    #heal(eventPlayer, eventPlayer.reset_pvar[12], 50)
-    heal(eventPlayer, eventPlayer.reset_pvar[12], 250 if eventPlayer.getTeam() == Team.1 else 125)
+    eventPlayer.setStatusEffect(eventPlayer.reset_pvar[12], Status.PHASED_OUT, BAPTISTE_RULES_LINE_17_PHASED_OUT_DURATION)
+    #heal(eventPlayer, eventPlayer.reset_pvar[12], BAPTISTE_RULES_LINE_18_HEAL)
+    heal(eventPlayer, eventPlayer.reset_pvar[12], BAPTISTE_RULES_LINE_19_HEAL_MAIN if eventPlayer.getTeam() == Team.1 else BAPTISTE_RULES_LINE_19_HEAL_ALT)
     wait(8)

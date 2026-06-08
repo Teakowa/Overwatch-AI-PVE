@@ -9,8 +9,8 @@ rule "[Freja]: Dmg. reduction":
 
     if eventPlayer.getTeam() == Team.2:
         goto lbl_0
-    heal(eventPlayer, null, 300)
-    eventPlayer.setDamageReceived(75)
+    heal(eventPlayer, null, FREJA_ABILITY2_LINE_12_HEAL)
+    eventPlayer.setDamageReceived(FREJA_ABILITY2_LINE_13_DAMAGE_RECEIVED)
     hudText(eventPlayer, null, " \r\n", "受到伤害减免：{0}%".format(25), HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
     #eventPlayer.hudText = "受到伤害减免：{0}%".format(25)
     eventPlayer.freja_buff[2] = getLastCreatedText()

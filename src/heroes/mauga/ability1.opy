@@ -5,10 +5,10 @@ rule "[Mauga] Overrun knockdown duration":
     @Hero mauga
     @Condition eventAbility == Button.ABILITY_1
 
-    victim.setStatusEffect(attacker, Status.BURNING, 2)
+    victim.setStatusEffect(attacker, Status.BURNING, MAUGA_ABILITY1_LINE_8_BURNING_DURATION)
     if not victim.hasStatus(Status.KNOCKED_DOWN):
         goto lbl_0
-    victim.setStatusEffect(attacker, Status.KNOCKED_DOWN, 2)
+    victim.setStatusEffect(attacker, Status.KNOCKED_DOWN, MAUGA_ABILITY1_LINE_11_KNOCKED_DOWN_DURATION)
     if victim.hasStatus(Status.INVINCIBLE) or victim.hasStatus(Status.UNKILLABLE) or victim.hasStatus(Status.PHASED_OUT) or victim.has_nano:
         goto lbl_1
     damage(victim, attacker, ceil(victim.getMaxHealth() * MaugaBuff[3]))

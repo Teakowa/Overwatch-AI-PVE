@@ -9,8 +9,8 @@ rule "[Zenyatta]: Transcendence":
         eventPlayer.mov_speed_buff = 25
         applySignedMoveSpeed()
     wait(WAIT_SHORT_FRAME)
-    eventPlayer.setStatusEffect(null, Status.PHASED_OUT, 6)
-    eventPlayer.setHealingDealt(133.34)
+    eventPlayer.setStatusEffect(null, Status.PHASED_OUT, ZENYATTA_ULTIMATE_LINE_12_PHASED_OUT_DURATION)
+    eventPlayer.setHealingDealt(ZENYATTA_ULTIMATE_LINE_13_HEALING_DEALT)
     waitUntil(not eventPlayer.isUsingUltimate() or eventPlayer.isDead(), 6)
     if eventPlayer.isDead() != true:
         if eventPlayer.mov_speed_buff == 25:

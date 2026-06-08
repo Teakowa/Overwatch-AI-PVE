@@ -23,9 +23,9 @@ rule "[Mauga]: Berserker Soul Ability":
     eventPlayer.dmg_amplification = MaugaBuff[2]
     eventPlayer.dmg_reduction = eventPlayer.dmg_reduction if eventPlayer.dmg_reduction > MaugaBuff[1] else MaugaBuff[1]
     playEffect(eventPlayer, DynamicEffect.GOOD_PICKUP_EFFECT, Color.WHITE, eventPlayer, 200)
-    eventPlayer.setStatusEffect(null, Status.UNKILLABLE, 6)
-    eventPlayer.setStatusEffect(null, Status.INVINCIBLE, 1.2)
-    eventPlayer.setStatusEffect(null, Status.PHASED_OUT, 0.2)
+    eventPlayer.setStatusEffect(null, Status.UNKILLABLE, MAUGA_RULES_LINE_26_UNKILLABLE_DURATION)
+    eventPlayer.setStatusEffect(null, Status.INVINCIBLE, MAUGA_RULES_LINE_27_INVINCIBLE_DURATION)
+    eventPlayer.setStatusEffect(null, Status.PHASED_OUT, MAUGA_RULES_LINE_28_PHASED_OUT_DURATION)
     eventPlayer.setDamageDealt(100 + eventPlayer.dmg_amplification)
     eventPlayer.setDamageReceived(100 - eventPlayer.dmg_reduction)
     eventPlayer.setHealingDealt(0)
@@ -36,7 +36,7 @@ rule "[Mauga]: Berserker Soul Ability":
     wait(WAIT_SHORT_FRAME)
     eventPlayer.setHealth(eventPlayer.getMaxHealth())
     wait(WAIT_SHORT_FRAME)
-    eventPlayer.startDamageOverTime(null, 9999, eventPlayer.getMaxHealth() * MaugaBuff[6])
+    eventPlayer.startDamageOverTime(null, MAUGA_RULES_LINE_39_DOT_DURATION, eventPlayer.getMaxHealth() * MaugaBuff[6])
     eventPlayer.mauga_berserker_soul_id[1] = getLastDamageOverTimeId()
     waitUntil(not eventPlayer.mauga_berserker_soul or eventPlayer.isDead(), 9999)
     eventPlayer.dmg_amplification = 0

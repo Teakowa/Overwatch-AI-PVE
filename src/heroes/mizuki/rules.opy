@@ -6,7 +6,7 @@ rule "[Mizuki]: Soul Hat bonus heal and cooldown refund":
     @Condition eventAbility == Button.SECONDARY_FIRE
     @Condition healee != healer
 
-    heal(healee, healer, healee.getMaxHealth() * 0.10)
+    heal(healee, healer, healee.getMaxHealth() * MIZUKI_RULES_LINE_9_HEALTH_SCALAR)
     healer.setAbilityCooldown(Button.SECONDARY_FIRE, max(0, healer.getAbilityCooldown(Button.SECONDARY_FIRE) - 0.5))
     wait(0.5)
 #!include "ability1.opy"

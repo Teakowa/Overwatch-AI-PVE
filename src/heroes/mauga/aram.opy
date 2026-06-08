@@ -43,7 +43,7 @@ rule "[Mauga] Overrun knockdown duration":
     @Hero mauga
     @Condition eventPlayer.isUsingAbility1() == true
 
-    eventPlayer.setStatusEffect(eventPlayer, Status.INVINCIBLE, 5)
+    eventPlayer.setStatusEffect(eventPlayer, Status.INVINCIBLE, MAUGA_ARAM_LINE_46_INVINCIBLE_DURATION)
     waitUntil(not eventPlayer.isUsingAbility1(), 5)
     eventPlayer.clearStatusEffect(Status.INVINCIBLE)
 
@@ -52,10 +52,10 @@ rule "[Mauga] Overrun knockdown duration":
     @Hero mauga
     @Condition eventAbility == Button.ABILITY_1
 
-    victim.setStatusEffect(attacker, Status.BURNING, 2)
+    victim.setStatusEffect(attacker, Status.BURNING, MAUGA_ARAM_LINE_55_BURNING_DURATION)
     if victim.hasStatus(Status.KNOCKED_DOWN):
         goto lbl_0
-    victim.setStatusEffect(attacker, Status.KNOCKED_DOWN, 0.5)
+    victim.setStatusEffect(attacker, Status.KNOCKED_DOWN, MAUGA_ARAM_LINE_58_KNOCKED_DOWN_DURATION)
     lbl_0:
     if victim.hasStatus(Status.INVINCIBLE) or victim.hasStatus(Status.UNKILLABLE) or victim.hasStatus(Status.PHASED_OUT) or victim.has_nano:
         goto lbl_1
@@ -84,9 +84,9 @@ rule "[Mauga]: Berserker Soul Ability":
     eventPlayer.dmg_amplification = MaugaBuff[2]
     eventPlayer.dmg_reduction = MaugaBuff[1]
     playEffect(eventPlayer, DynamicEffect.GOOD_PICKUP_EFFECT, Color.WHITE, eventPlayer, 200)
-    eventPlayer.setStatusEffect(null, Status.UNKILLABLE, 6)
-    eventPlayer.setStatusEffect(null, Status.INVINCIBLE, 1.2)
-    eventPlayer.setStatusEffect(null, Status.PHASED_OUT, 0.2)
+    eventPlayer.setStatusEffect(null, Status.UNKILLABLE, MAUGA_ARAM_LINE_87_UNKILLABLE_DURATION)
+    eventPlayer.setStatusEffect(null, Status.INVINCIBLE, MAUGA_ARAM_LINE_88_INVINCIBLE_DURATION)
+    eventPlayer.setStatusEffect(null, Status.PHASED_OUT, MAUGA_ARAM_LINE_89_PHASED_OUT_DURATION)
     eventPlayer.setDamageDealt(100 + eventPlayer.dmg_amplification)
     eventPlayer.setDamageReceived(100 - eventPlayer.dmg_reduction)
     eventPlayer.setHealingDealt(0)
@@ -97,7 +97,7 @@ rule "[Mauga]: Berserker Soul Ability":
     wait(0.16)
     eventPlayer.setHealth(eventPlayer.getMaxHealth())
     wait(0.16)
-    eventPlayer.startDamageOverTime(null, 9999, eventPlayer.getMaxHealth() * MaugaBuff[6])
+    eventPlayer.startDamageOverTime(null, MAUGA_ARAM_LINE_100_DOT_DURATION, eventPlayer.getMaxHealth() * MaugaBuff[6])
     eventPlayer.mauga_berserker_soul_id[1] = getLastDamageOverTimeId()
     waitUntil(not eventPlayer.mauga_berserker_soul or eventPlayer.isDead(), 9999)
     eventPlayer.dmg_amplification = 0
@@ -141,7 +141,7 @@ rule "[Mauga]: fly":
     @Condition eventPlayer.isUsingAbility2() == true
     @Condition eventPlayer.isHoldingButton(Button.JUMP) == true
 
-    eventPlayer.applyImpulse(eventPlayer.getFacingDirection(), 10, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
+    eventPlayer.applyImpulse(eventPlayer.getFacingDirection(), MAUGA_ARAM_LINE_144_IMPULSE, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
     wait()
     if ruleCondition:
         loop()

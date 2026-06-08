@@ -8,4 +8,4 @@ rule "【布丽吉塔】盾击":
     @Condition eventAbility == Button.PRIMARY_FIRE
     @Condition attacker.isUsingUltimate() != true
     
-    victim.setStatusEffect(attacker, Status.STUNNED, 0.9)
+    victim.setStatusEffect(attacker, Status.STUNNED, BRIGITTE_BASH_LINE_11_STUNNED_DURATION)

@@ -5,5 +5,5 @@ rule "[Juno]: Pulsar Torpedoes":
     @Hero juno
     @Condition eventAbility == Button.SECONDARY_FIRE
 
-    damage(victim, attacker, victim.getMaxHealth() * 0.2)
+    damage(victim, attacker, victim.getMaxHealth() * JUNO_SECONDARY_LINE_8_HEALTH_SCALAR)
     wait()

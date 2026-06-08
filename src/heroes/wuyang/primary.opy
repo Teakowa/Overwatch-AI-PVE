@@ -7,5 +7,5 @@ rule "[Wuyang]: primary dmg":
     @Condition eventAbility == null
     
     eventPlayer.setAbilityCooldown(Button.ABILITY_2, eventPlayer.getAbilityCooldown(Button.ABILITY_2) - 1)
-    damage(victim, attacker, victim.getMaxHealth() * 0.08)
+    damage(victim, attacker, victim.getMaxHealth() * WUYANG_PRIMARY_LINE_10_HEALTH_SCALAR)
     wait(0.25)

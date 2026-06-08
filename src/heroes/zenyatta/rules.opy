@@ -19,7 +19,7 @@ rule "[Zenyatta] Snap Kick (enemy)":
     eventPlayer.KnockbackDirection = directionFromAngles(attacker.getHorizontalFacingAngle(), -10)
     eventPlayer.startForcingThrottle(0, 0, 0, 0, 0, 0.5)
     Knockback()
-    damage(eventPlayer, attacker, eventDamage * 0.5)
+    damage(eventPlayer, attacker, eventDamage * ZENYATTA_RULES_LINE_22_EVENT_DAMAGE_SCALAR)
     eventPlayer.isKnocked = true
 
 #!include "melee.opy"

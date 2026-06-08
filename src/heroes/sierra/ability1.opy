@@ -5,7 +5,7 @@ rule "[Sierra]: ability 1 heal":
     @Hero sierra
     @Condition eventPlayer.isUsingAbility1() == true
 
-    heal(eventPlayer, eventPlayer, 25)
+    heal(eventPlayer, eventPlayer, SIERRA_ABILITY1_LINE_8_HEAL)
     wait(0.5)
     if ruleCondition:
         loop()

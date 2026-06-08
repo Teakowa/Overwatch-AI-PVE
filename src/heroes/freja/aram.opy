@@ -60,7 +60,7 @@ rule "[Freja]: Ex":
 
     if not victim.isAlive() or victim.getHealth() > victim.getMaxHealth() * FrejaBuff[2]:
         goto lbl_0
-    damage(victim, attacker, 44444)
+    damage(victim, attacker, FREJA_ARAM_LINE_63_EXECUTE_DAMAGE)
     smallMessage(eventPlayer, "  斩杀： {0} ".format(heroIcon(victim.getHero())))
     wait(1, Wait.ABORT_WHEN_FALSE)
     lbl_0:
@@ -71,7 +71,7 @@ rule "[Freja]: Dmg. reduction":
     @Condition eventPlayer.isUsingAbility2() == true
     @Condition eventPlayer.isInAir() == true
 
-    eventPlayer.setDamageReceived(75)
+    eventPlayer.setDamageReceived(FREJA_ARAM_LINE_74_DAMAGE_RECEIVED)
     hudText(eventPlayer, null, " \r\n", "受到伤害减免：{0}%".format(25), HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
     eventPlayer.freja_buff[2] = getLastCreatedText()
     waitUntil(not eventPlayer.isInAir() and eventPlayer.isOnGround(), 99999)
@@ -86,4 +86,4 @@ rule "[Freja]: set Projectile speed":
 
     eventPlayer.setProjectileSpeed(100)
     waitUntil(not eventPlayer.isUsingUltimate(), 99999)
-    eventPlayer.setProjectileSpeed(500)
+    eventPlayer.setProjectileSpeed(FREJA_ARAM_LINE_89_PROJECTILE_SPEED)

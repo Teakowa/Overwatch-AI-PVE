@@ -7,4 +7,4 @@ rule "[Winston]: Tesla Cannon Alt Fire":
     @Hero winston
     @Condition eventAbility == Button.SECONDARY_FIRE
 
-    damage(victim, attacker, victim.getMaxHealth() * 0.2)
+    damage(victim, attacker, victim.getMaxHealth() * WINSTON_ARAM_LINE_10_HEALTH_SCALAR)

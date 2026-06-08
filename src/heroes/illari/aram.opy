@@ -7,7 +7,7 @@ rule "[Illari]: Captive Sun HUD":
     @Hero illari
     @Condition eventPlayer.isUsingUltimate() == true
 
-    eventPlayer.heart_steel[5] = len(getPlayersInRadius(eventPlayer, 10, eventPlayer.getTeam(), LosCheck.SURFACES).exclude(eventPlayer))
+    eventPlayer.heart_steel[5] = len(getPlayersInRadius(eventPlayer, ILLARI_ARAM_LINE_10_RADIUS, eventPlayer.getTeam(), LosCheck.SURFACES).exclude(eventPlayer))
     eventPlayer.hudText = "最大生命值伤害：{0}%".format(eventPlayer.heart_steel[5] * IllariBuff * 100)
     #hudText(eventPlayer, null, "\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r", "最大生命值伤害：{0}%".format((len([player for player in getLivingPlayers(eventPlayer.getTeam()) if isInLoS(eventPlayer, player) and distance(eventPlayer, player) <= 10 and player != eventPlayer])) * IllariBuff), HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
     #eventPlayer.heart_steel[4] = getLastCreatedText()
@@ -25,5 +25,5 @@ rule "[Illari] Captive Sun":
     @Condition eventAbility == Button.ULTIMATE
     @Condition eventDamage > 5
 
-    eventPlayer.heart_steel[5] = len(getPlayersInRadius(eventPlayer, 10, eventPlayer.getTeam(), LosCheck.SURFACES).exclude(eventPlayer))
+    eventPlayer.heart_steel[5] = len(getPlayersInRadius(eventPlayer, ILLARI_ARAM_LINE_28_RADIUS, eventPlayer.getTeam(), LosCheck.SURFACES).exclude(eventPlayer))
     damage(victim, attacker, IllariBuff / 100 * eventPlayer.heart_steel[5] * victim.getMaxHealth())

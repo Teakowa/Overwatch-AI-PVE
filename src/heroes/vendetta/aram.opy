@@ -11,5 +11,5 @@ rule "[Vendetta] Palatine Fang":
     @Hero vendetta
     @Condition eventAbility != null
 
-    heal(eventPlayer, eventPlayer, eventDamage * 0.4)
+    heal(eventPlayer, eventPlayer, eventDamage * VENDETTA_ARAM_LINE_14_EVENT_DAMAGE_HEAL_SCALAR)
     wait()

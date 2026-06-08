@@ -19,6 +19,6 @@ rule "[Wrecking Ball]: ctrl 0cd":
     @Hero wreckingBall
     @Condition eventAbility == Button.CROUCH
 
-    victim.setStatusEffect(eventPlayer, Status.STUNNED, 0.3)
-    eventPlayer.applyImpulse(Vector.UP, 15, Relativity.TO_PLAYER, Impulse.CANCEL_CONTRARY_MOTION)
+    victim.setStatusEffect(eventPlayer, Status.STUNNED, WRECKING_BALL_ARAM_LINE_22_STUNNED_DURATION)
+    eventPlayer.applyImpulse(Vector.UP, WRECKING_BALL_ARAM_LINE_23_IMPULSE, Relativity.TO_PLAYER, Impulse.CANCEL_CONTRARY_MOTION)
     eventPlayer.setAbilityCooldown(Button.CROUCH, 0)

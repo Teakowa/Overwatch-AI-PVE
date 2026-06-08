@@ -10,5 +10,5 @@ rule "[Domina]: Ultimate":
     #waitUntil(victim.hasStatus(Status.KNOCKED_DOWN), 0.5)
     waitUntil(victim.getHealth() <= victim.getMaxHealth() * 0.2, 5)
     if victim.getHealth() <= victim.getMaxHealth() * 0.2:
-        damage(victim, attacker, 44444)
+        damage(victim, attacker, DOMINA_ULTIMATE_LINE_13_EXECUTE_DAMAGE)
     wait(1)
