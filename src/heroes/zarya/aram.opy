@@ -36,7 +36,7 @@ rule "[Zarya]: will to win":
     @Condition ZaryaBuff[2] == true
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.zarya_buff[0] == true
-    @Condition eventPlayer.getHealth() <= percentOf(30, eventPlayer.getMaxHealth())
+    @Condition eventPlayer.getHealth().isAtMostPercentOf(30, eventPlayer.getMaxHealth())
 
     bigMessage(eventPlayer, "胜利意志！")
     eventPlayer.setStatusEffect(null, Status.UNKILLABLE, ZARYA_ARAM_UNKILLABLE_DURATION)

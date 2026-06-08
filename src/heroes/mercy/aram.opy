@@ -5,7 +5,7 @@ rule "[Mercy]: Life Grip Clear Effect":
     @Hero mercy
     @Condition eventAbility == Button.RELOAD
 
-    heal(healee, healer, healee.getMaxHealth() * MERCY_ARAM_HEALTH_SCALAR)
+    heal(healee, healer, healee.getMaxHealth().scaledBy(MERCY_ARAM_HEALTH_SCALAR))
 
 #!include "reload.opy"
 #!include "ultimate.opy"

@@ -17,4 +17,4 @@ rule "[JetpackCat]: Catnapper bonus max health damage":
     @Condition victim.getTeam() != attacker.getTeam()
     @Condition (victim.hasStatus(Status.INVINCIBLE) or victim.hasStatus(Status.UNKILLABLE) or victim.hasStatus(Status.PHASED_OUT)) == false
 
-    damage(victim, attacker, victim.getMaxHealth() * JETPACK_CAT_ULTIMATE_HEALTH_SCALAR)
+    damage(victim, attacker, victim.getMaxHealth().scaledBy(JETPACK_CAT_ULTIMATE_HEALTH_SCALAR))

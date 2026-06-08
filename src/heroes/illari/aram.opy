@@ -26,4 +26,4 @@ rule "[Illari] Captive Sun":
     @Condition eventDamage > 5
 
     eventPlayer.heart_steel[5] = len(getPlayersInRadius(eventPlayer, ILLARI_ARAM_DAMAGE_RADIUS, eventPlayer.getTeam(), LosCheck.SURFACES).exclude(eventPlayer))
-    damage(victim, attacker, IllariBuff / 100 * eventPlayer.heart_steel[5] * victim.getMaxHealth())
+    damage(victim, attacker, victim.getMaxHealth().scaledBy(IllariBuff / 100 * eventPlayer.heart_steel[5]))

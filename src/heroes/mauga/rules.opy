@@ -31,12 +31,12 @@ rule "[Mauga]: Berserker Soul Ability":
     eventPlayer.setHealingDealt(0)
     eventPlayer.setHealingReceived(0)
     eventPlayer.setKnockbackReceived(100 - MaugaBuff[5])
-    eventPlayer.addHealthPool(Health.NORMAL, eventPlayer.getMaxHealth() * MaugaBuff[0], true, false)
+    eventPlayer.addHealthPool(Health.NORMAL, eventPlayer.getMaxHealth().scaledBy(MaugaBuff[0]), true, false)
     eventPlayer.mauga_berserker_soul_id[0] = getLastCreatedHealthPool()
     wait(WAIT_SHORT_FRAME)
     eventPlayer.setHealth(eventPlayer.getMaxHealth())
     wait(WAIT_SHORT_FRAME)
-    eventPlayer.startDamageOverTime(null, MAUGA_RULES_DOT_DURATION, eventPlayer.getMaxHealth() * MaugaBuff[6])
+    eventPlayer.startDamageOverTime(null, MAUGA_RULES_DOT_DURATION, eventPlayer.getMaxHealth().scaledBy(MaugaBuff[6]))
     eventPlayer.mauga_berserker_soul_id[1] = getLastDamageOverTimeId()
     waitUntil(not eventPlayer.mauga_berserker_soul or eventPlayer.isDead(), 9999)
     eventPlayer.dmg_amplification = 0
@@ -56,7 +56,7 @@ rule "[Mauga]: Berserker Soul kill to heal":
     @Hero mauga
     @Condition eventPlayer.mauga_berserker_soul == true
 
-    eventPlayer.setHealth(eventPlayer.getMaxHealth() * MaugaBuff[7] + eventPlayer.getHealth())
+    eventPlayer.setHealth(eventPlayer.getMaxHealth().scaledBy(MaugaBuff[7]) + eventPlayer.getHealth())
     wait(0.5)
 
 rule "[Mauga]: Berserker Soul cd":

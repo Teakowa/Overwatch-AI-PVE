@@ -6,9 +6,8 @@ rule "[JunkerQueen]: ability2":
     @Hero junkerQueen
     @Condition eventAbility == Button.ABILITY_2
     @Condition eventDamage > 3
-    @Condition victim.getHealth() <= percentOf(10, victim.getMaxHealth())
+    @Condition victim.getHealth().isAtMostPercentOf(10, victim.getMaxHealth())
     
     damage(victim, attacker, JUNKER_QUEEN_ABILITY2_EXECUTE_DAMAGE)
     attacker.setAbilityCooldown(Button.ABILITY_2, 0)
     wait(0.25)
-

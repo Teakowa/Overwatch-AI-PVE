@@ -29,7 +29,7 @@ rule "[Zenyatta] Snap Kick (enemy)":
     @Condition attacker.getHero() == Hero.ZENYATTA == true
     @Condition eventAbility == Button.MELEE
 
-    heal(attacker, attacker, victim.getMaxHealth() * ZENYATTA_ARAM_HEALTH_SCALAR)
+    heal(attacker, attacker, victim.getMaxHealth().scaledBy(ZENYATTA_ARAM_HEALTH_SCALAR))
     victim.setStatusEffect(attacker, Status.STUNNED, ZENYATTA_ARAM_STUNNED_DURATION)
     attacker.heart_steel[1] += 150
     if attacker.heart_steel[0] == null:

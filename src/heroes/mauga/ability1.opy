@@ -11,7 +11,7 @@ rule "[Mauga] Overrun knockdown duration":
     victim.setStatusEffect(attacker, Status.KNOCKED_DOWN, MAUGA_ABILITY1_KNOCKED_DOWN_DURATION)
     if victim.hasStatus(Status.INVINCIBLE) or victim.hasStatus(Status.UNKILLABLE) or victim.hasStatus(Status.PHASED_OUT) or victim.has_nano:
         goto lbl_1
-    damage(victim, attacker, ceil(victim.getMaxHealth() * MaugaBuff[3]))
+    damage(victim, attacker, ceil(victim.getMaxHealth().scaledBy(MaugaBuff[3])))
     lbl_0:
     lbl_1:
 

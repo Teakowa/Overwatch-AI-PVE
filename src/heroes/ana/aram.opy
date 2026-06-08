@@ -32,7 +32,7 @@ rule "[Ana] Nano Boost Healing":
     @Condition eventPlayer.has_nano == true
 
     heal(healee, healer, ANA_ARAM_NANO_HEAL)
-    heal(healee, healer, ANA_ARAM_HEAL_MULTIPLIER * ceil(healee.getMaxHealth() * ANA_ARAM_HEALTH_SCALAR))
+    heal(healee, healer, ANA_ARAM_HEAL_MULTIPLIER * ceil(healee.getMaxHealth().scaledBy(ANA_ARAM_HEALTH_SCALAR)))
 
 rule "[Ana] Biotic Grenade Hit for allies":
     @Event playerDealtHealing

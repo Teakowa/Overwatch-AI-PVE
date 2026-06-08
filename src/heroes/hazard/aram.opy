@@ -8,7 +8,7 @@ rule "[Hazard]: Spike Guard cd":
     @Condition victim.hasStatus(Status.INVINCIBLE) != true
     @Condition victim.zarya_buff[1] == null
 
-    damage(victim, attacker, victim.getMaxHealth() * HazardBuff[0])
+    damage(victim, attacker, victim.getMaxHealth().scaledBy(HazardBuff[0]))
     wait(0.032)
 
 rule "[Hazard]: Spike Guard get Ultimate and heal":

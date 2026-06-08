@@ -6,5 +6,5 @@ rule "[Pharah]: kb effect":
     @Condition eventAbility == Button.PRIMARY_FIRE
     @Condition victim != eventPlayer
 
-    damage(victim, attacker, ceil(percentOf(6, victim.getMaxHealth())))
+    damage(victim, attacker, ceil(victim.getMaxHealth().percentOf(6)))
 	wait()

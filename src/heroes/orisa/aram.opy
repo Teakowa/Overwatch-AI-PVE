@@ -14,7 +14,7 @@ rule "[Orisa]: Fortify provides 100 temporary armor":
     eventPlayer.orisa_buff = false
     eventPlayer.addHealthPool(Health.ARMOR, Orisa_Fortify[0], true, false)
     eventPlayer.orisa_fortify_armor_id = getLastCreatedHealthPool()
-    heal(eventPlayer, eventPlayer, eventPlayer.getMaxHealth() * ORISA_ARAM_HEALTH_SCALAR)
+    heal(eventPlayer, eventPlayer, eventPlayer.getMaxHealth().scaledBy(ORISA_ARAM_HEALTH_SCALAR))
     if eventPlayer.isUsingAbility1() == true:
         waitUntil(not eventPlayer.isUsingAbility1(), 999999986991104)
     else:

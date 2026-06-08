@@ -48,7 +48,7 @@ rule "[Roadhog]: Chain Hook return cd":
     @Condition eventAbility == Button.ABILITY_1
 
     waitUntil(not eventPlayer.isUsingAbility1(), 1.75)
-    eventPlayer.setAbilityCooldown(Button.ABILITY_1, percentOf(50, eventPlayer.getAbilityCooldown(Button.ABILITY_1)))
+    eventPlayer.setAbilityCooldown(Button.ABILITY_1, eventPlayer.getAbilityCooldown(Button.ABILITY_1).percentOf(50))
 
 rule "[Roadhog]: hook lancher":
     @Event playerDealtDamage

@@ -8,7 +8,7 @@ rule "[Genji] Dragonblade Healing":
     @Condition eventAbility == Button.ULTIMATE
 
     heal(eventPlayer, eventPlayer, eventDamage)
-    damage(victim, attacker, eventPlayer.getMaxHealth() * GENJI_ARAM_HEALTH_SCALAR)
+    damage(victim, attacker, eventPlayer.getMaxHealth().scaledBy(GENJI_ARAM_HEALTH_SCALAR))
     wait(0.16)
 
 rule "[Genji] Dragonblade Execution players less 10% HP expectancy":
@@ -18,7 +18,7 @@ rule "[Genji] Dragonblade Execution players less 10% HP expectancy":
     @Condition victim.zarya_buff[1] == null
     @Condition (victim.hasStatus(Status.INVINCIBLE) or victim.hasStatus(Status.UNKILLABLE) or victim.hasStatus(Status.PHASED_OUT)) == false
     @Condition victim.has_nano != true
-    @Condition victim.getHealth() <= percentOf(10, victim.getMaxHealth())
+    @Condition victim.getHealth().isAtMostPercentOf(10, victim.getMaxHealth())
 
     damage(victim, attacker, SojournBuff[1])
 

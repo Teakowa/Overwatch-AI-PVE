@@ -26,4 +26,4 @@ rule "[Illari] Captive Sun":
     @Condition eventDamage > 5
 
     eventPlayer.illari_captive_hud[2] = len(getPlayersInRadius(eventPlayer, ILLARI_ULTIMATE_DAMAGE_RADIUS, eventPlayer.getTeam(), LosCheck.SURFACES).exclude(eventPlayer))
-    damage(victim, attacker, eventPlayer.illari_captive_hud[2] * IllariBuff * victim.getMaxHealth())
+    damage(victim, attacker, victim.getMaxHealth().scaledBy(eventPlayer.illari_captive_hud[2] * IllariBuff))

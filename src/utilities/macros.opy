@@ -44,6 +44,18 @@ macro roundedPercent(p):
 macro percentOf(p, n):
     (p)/100*(n)
 
+macro Number.percentOf(p):
+    self * (p) / 100
+
+macro Number.scaledBy(factor):
+    self * factor
+
+macro Number.isAtMostPercentOf(p, base):
+    self <= base.percentOf(p)
+
+macro Number.isAbovePercentOf(p, base):
+    self > base.percentOf(p)
+
 # Convert angle in degrees to radians
 macro toRadians(deg):
     (Math.PI/180)*deg

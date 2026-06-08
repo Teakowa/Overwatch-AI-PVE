@@ -11,5 +11,5 @@ rule "[Ana] Biotic Grenade Hit":
         goto lbl_0
     eventPlayer.setStatusEffect(attacker, Status.BURNING, ANA_ABILITY2_BURNING_DURATION)
     eventPlayer.burn_stack += 3
-    victim.startDamageOverTime(attacker, ANA_ABILITY2_DOT_DURATION, percentOf(Ana_GrenadeDamage[0], victim.getMaxHealth()))
+    victim.startDamageOverTime(attacker, ANA_ABILITY2_DOT_DURATION, victim.getMaxHealth().percentOf(Ana_GrenadeDamage[0]))
     lbl_0:

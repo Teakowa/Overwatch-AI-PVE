@@ -59,7 +59,7 @@ rule "[Mauga] Overrun knockdown duration":
     lbl_0:
     if victim.hasStatus(Status.INVINCIBLE) or victim.hasStatus(Status.UNKILLABLE) or victim.hasStatus(Status.PHASED_OUT) or victim.has_nano:
         goto lbl_1
-    damage(victim, attacker, ceil(victim.getMaxHealth() * MaugaBuff[3]))
+    damage(victim, attacker, ceil(victim.getMaxHealth().scaledBy(MaugaBuff[3])))
     lbl_1:
 
 rule "[Mauga]: Berserker Soul status active":
@@ -92,12 +92,12 @@ rule "[Mauga]: Berserker Soul Ability":
     eventPlayer.setHealingDealt(0)
     eventPlayer.setHealingReceived(0)
     eventPlayer.setKnockbackReceived(100 - MaugaBuff[5])
-    eventPlayer.addHealthPool(Health.NORMAL, eventPlayer.getMaxHealth() * MaugaBuff[0], true, false)
+    eventPlayer.addHealthPool(Health.NORMAL, eventPlayer.getMaxHealth().scaledBy(MaugaBuff[0]), true, false)
     eventPlayer.mauga_berserker_soul_id[0] = getLastCreatedHealthPool()
     wait(0.16)
     eventPlayer.setHealth(eventPlayer.getMaxHealth())
     wait(0.16)
-    eventPlayer.startDamageOverTime(null, MAUGA_ARAM_DOT_DURATION, eventPlayer.getMaxHealth() * MaugaBuff[6])
+    eventPlayer.startDamageOverTime(null, MAUGA_ARAM_DOT_DURATION, eventPlayer.getMaxHealth().scaledBy(MaugaBuff[6]))
     eventPlayer.mauga_berserker_soul_id[1] = getLastDamageOverTimeId()
     waitUntil(not eventPlayer.mauga_berserker_soul or eventPlayer.isDead(), 9999)
     eventPlayer.dmg_amplification = 0
@@ -117,7 +117,7 @@ rule "[Mauga]: Berserker Soul kill to heal":
     @Hero mauga
     @Condition eventPlayer.mauga_berserker_soul == true
 
-    eventPlayer.setHealth(eventPlayer.getMaxHealth() * MaugaBuff[7] + eventPlayer.getHealth())
+    eventPlayer.setHealth(eventPlayer.getMaxHealth().scaledBy(MaugaBuff[7]) + eventPlayer.getHealth())
     wait(0.5)
 
 rule "[Mauga]: Berserker Soul cd":

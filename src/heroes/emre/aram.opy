@@ -10,7 +10,7 @@ rule "[Emre][ARAM]: Cyber Grenade Control + Burn":
     @Condition (victim.hasStatus(Status.INVINCIBLE) or victim.hasStatus(Status.PHASED_OUT)) == false
 
     victim.setStatusEffect(attacker, Status.BURNING, EMRE_ARAM_ABILITY2_BURNING_DURATION)
-    damage(victim, attacker, EMRE_ARAM_ABILITY2_BASE_DAMAGE + victim.getMaxHealth() * EMRE_ARAM_ABILITY2_HEALTH_SCALAR)
+    damage(victim, attacker, EMRE_ARAM_ABILITY2_BASE_DAMAGE + victim.getMaxHealth().scaledBy(EMRE_ARAM_ABILITY2_HEALTH_SCALAR))
 	wait()
 
 rule "[Emre][ARAM]: Override Protocol Burn":
@@ -21,5 +21,5 @@ rule "[Emre][ARAM]: Override Protocol Burn":
     @Condition (victim.hasStatus(Status.INVINCIBLE) or victim.hasStatus(Status.PHASED_OUT)) == false
 
     victim.setStatusEffect(attacker, Status.BURNING, EMRE_ARAM_ULTIMATE_BURNING_DURATION)
-    damage(victim, attacker, EMRE_ARAM_ULTIMATE_BASE_DAMAGE + victim.getMaxHealth() * EMRE_ARAM_ULTIMATE_HEALTH_SCALAR)
+    damage(victim, attacker, EMRE_ARAM_ULTIMATE_BASE_DAMAGE + victim.getMaxHealth().scaledBy(EMRE_ARAM_ULTIMATE_HEALTH_SCALAR))
 	wait()
