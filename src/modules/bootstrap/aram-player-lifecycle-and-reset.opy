@@ -55,8 +55,6 @@ rule "[utilities/hero_setup.opy]: Reset and initialize hero on hero switch":
 
     eventPlayer.ram_block_damage = 0
     eventPlayer.sigma_hyperspheres = 0
-    destroyHudText(eventPlayer.ChangelogText1)
-    destroyHudText(eventPlayer.ChangelogText2)
     resetHero()
 
 def applySignedMoveSpeed():
