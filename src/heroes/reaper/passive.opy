@@ -8,3 +8,10 @@ rule "[Reaper]: kill to gain soul buff":
     @Condition ReaperBuff[0] != 0
 
     eventPlayer.reaper_soul_count += ReaperBuff[0] + 1 if eventPlayer.getTeam() == Team.1 else ReaperBuff[0]
+
+rule "[Reaper]: kill to gain soul buff":
+    @Event playerDealtFinalBlow
+    @Hero reaper
+    #@Condition eventPlayer.reaper_soul_count < 50
+
+    eventPlayer.reaper_soul_count += ReaperBuff[0] + 1 if eventPlayer.getTeam() == Team.1 else ReaperBuff[0]

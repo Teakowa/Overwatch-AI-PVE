@@ -10,14 +10,6 @@ playervar reaper_buff
 #!include "ability1.opy"
 #!include "ability2.opy"
 #!include "passive.opy"
-
-rule "[Reaper][ARAM]: kill to gain soul buff (final blow)":
-    @Event playerDealtFinalBlow
-    @Hero reaper
-    #@Condition eventPlayer.reaper_soul_count < 50
-
-    eventPlayer.reaper_soul_count += ReaperBuff[0] + 1 if eventPlayer.getTeam() == Team.1 else 0.5
-
 #!include "secondary.opy"
 
 rule "[Reaper]: HUD & Reset":

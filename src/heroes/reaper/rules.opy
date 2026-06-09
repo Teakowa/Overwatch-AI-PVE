@@ -8,15 +8,10 @@ playervar reaper_buff
 
 #!include "fly.opy"
 #!include "passive.opy"
-
-rule "[Reaper]: kill to gain soul buff":
-    @Event playerDealtFinalBlow
-    @Hero reaper
-    #@Condition eventPlayer.reaper_soul_count < 50
-
-    eventPlayer.reaper_soul_count += ReaperBuff[0] + 1 if eventPlayer.getTeam() == Team.1 else ReaperBuff[0]
-
 #!include "secondary.opy"
+#!include "ability1.opy"
+#!include "ability2.opy"
+#!include "ultimate.opy"
 
 rule "[Reaper]: HUD & Reset":
     @Event eachPlayer
@@ -33,6 +28,3 @@ rule "[Reaper]: HUD & Reset":
     waitUntil(eventPlayer.reaper_soul_count == 0 or eventPlayer.reset_pvar[0], Math.INFINITY)
     destroyHudText(eventPlayer.reaper_soul_hud)
     eventPlayer.reaper_soul_hud = 0
-#!include "ability1.opy"
-#!include "ability2.opy"
-#!include "ultimate.opy"
