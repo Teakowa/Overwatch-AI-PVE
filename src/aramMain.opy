@@ -39,5 +39,5 @@
 #!include "aram_overrides.opy"
 
 #!include "modules/ai/delimiter-begin.opy"
-#!include "heroes/aram-init.opy"
+#!include "heroes/aram.opy"
 #!include "modules/ai/delimiter-end.opy"

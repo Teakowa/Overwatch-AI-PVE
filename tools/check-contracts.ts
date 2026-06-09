@@ -264,6 +264,15 @@ async function main(): Promise<void> {
     reporter.fail("heroes/main reset late-binding order is broken");
   }
 
+  const heroesAramFile = resolveRepo("src/heroes/aram.opy");
+  const heroesAramLines = await readLines(heroesAramFile);
+  const heroesAramIncludes = parseIncludes(heroesAramLines).map((item) => item.path);
+  if (heroesAramIncludes.length > 0) {
+    reporter.pass("src/heroes/aram.opy includes hero init files");
+  } else {
+    reporter.fail("src/heroes/aram.opy is missing hero init includes");
+  }
+
   const aramOverridesFile = resolveRepo("src/aram_overrides.opy");
   const aramOverridesLines = await readLines(aramOverridesFile);
   const aramOverridesIncludes = parseIncludes(aramOverridesLines).map((item) => item.path);

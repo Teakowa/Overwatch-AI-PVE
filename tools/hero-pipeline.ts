@@ -329,7 +329,7 @@ async function auditHero(slug: string, args: Args, reporter: Reporter): Promise<
   const initFile = resolveRepo("src/heroes", slug, "init.opy");
   const detectFile = resolveRepo("src/heroes", slug, "init-detect.opy");
   const heroesMain = await readLines(resolveRepo("src/heroes/main.opy"));
-  const heroInitShared = await readLines(resolveRepo("src/heroes/init.shared.opy"));
+  const heroesAram = await readLines(resolveRepo("src/heroes/aram.opy"));
   const changelogFile = await readLines(resolveRepo("src/modules/debug/changelog.opy"));
   const currentHeroDir = resolveRepo("src/heroes", slug);
 
@@ -349,17 +349,13 @@ async function auditHero(slug: string, args: Args, reporter: Reporter): Promise<
     ? reporter.pass("hero rules include exists in src/heroes/main.opy")
     : reporter.fail(`hero rules include missing/duplicated in src/heroes/main.opy (count=${rulesIncludeCount})`);
 
-  const initIncludeCount = countOccurrences(heroesMain, `#!include "${slug}/init.opy"`);
-  const sharedInitIncludeCount = countOccurrences(heroInitShared, `#!include "${slug}/init.opy"`);
-  if (initIncludeCount === 1 || sharedInitIncludeCount === 1) {
-    reporter.pass(
-      initIncludeCount === 1
-        ? "hero init include exists in src/heroes/main.opy"
-        : "hero init include exists in src/heroes/init.shared.opy",
-    );
+  const mainInitIncludeCount = countOccurrences(heroesMain, `#!include "${slug}/init.opy"`);
+  const aramInitIncludeCount = countOccurrences(heroesAram, `#!include "${slug}/init.opy"`);
+  if (mainInitIncludeCount === 1 && aramInitIncludeCount === 1) {
+    reporter.pass("hero init include exists in src/heroes/main.opy and src/heroes/aram.opy");
   } else {
     reporter.fail(
-      `hero init include missing/duplicated in src/heroes/main.opy + src/heroes/init.shared.opy (count=${initIncludeCount + sharedInitIncludeCount})`,
+      `hero init include missing/duplicated in src/heroes/main.opy + src/heroes/aram.opy (main=${mainInitIncludeCount} aram=${aramInitIncludeCount})`,
     );
   }
 
