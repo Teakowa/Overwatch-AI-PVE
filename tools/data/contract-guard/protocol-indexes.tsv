@@ -82,8 +82,6 @@ playervar	ow1_scoped_damage_falloff_scalar	39
 playervar	expected_scoped_damage	40
 playervar	aram_extra_pool_applied	41
 playervar	burn_stack	42
-playervar	ChangelogSubtext	43
-playervar	ChangelogBody	44
 subroutine	Knockback	0
 subroutine	applyCustomHp	1
 subroutine	clearCustomHp	2
