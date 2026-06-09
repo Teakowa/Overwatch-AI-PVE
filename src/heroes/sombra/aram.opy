@@ -1,6 +1,6 @@
+#!mainFile "../../aramMain.opy"
 #!optimizeStrict
 
-#!mainFile "../../aramMain.opy"
 
 playervar hack_timer
 playervar vendetta_hud

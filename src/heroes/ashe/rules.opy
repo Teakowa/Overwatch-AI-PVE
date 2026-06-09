@@ -1,3 +1,4 @@
+#!mainFile "../../main.opy"
 #!optimizeStrict
 
 rule "[Ash] ammo restored by kills":

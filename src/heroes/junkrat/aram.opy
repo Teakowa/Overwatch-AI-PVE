@@ -1,2 +1,3 @@
+#!mainFile "../../aramMain.opy"
 #!optimizeStrict
 

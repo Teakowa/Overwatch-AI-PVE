@@ -1,6 +1,6 @@
+#!mainFile "../../main.opy"
 #!optimizeStrict
 
-#!mainFile "../../main.opy"
 
 playervar kiriko_buff
 

@@ -1,3 +1,4 @@
+#!mainFile "../../main.opy"
 #!optimizeStrict
 
 rule "[torbjorn/init.opy]: Detect switch to Torbjorn":

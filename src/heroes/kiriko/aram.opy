@@ -1,3 +1,4 @@
+#!mainFile "../../aramMain.opy"
 #!optimizeStrict
 
 #!include "headshot.opy"

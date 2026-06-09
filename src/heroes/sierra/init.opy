@@ -1,6 +1,6 @@
+#!mainFile "../../main.opy"
 #!optimizeStrict
 
-#!mainFile "../../main.opy"
 
 rule "[Sierra]: Detect switch to Sierra":
     @Event eachPlayer

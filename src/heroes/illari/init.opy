@@ -1,3 +1,4 @@
+#!mainFile "../../main.opy"
 #!optimizeStrict
 
 rule "[Illari]: Detect switch to Illari":

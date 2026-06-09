@@ -1,3 +1,4 @@
+#!mainFile "../../main.opy"
 #!optimizeStrict
 
 rule "[JunkerQueen]: Commanding Shout taunt enemies":

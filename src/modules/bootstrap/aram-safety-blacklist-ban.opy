@@ -1,3 +1,4 @@
+#!mainFile "../../aramMain.opy"
 #!optimizeStrict
 
 rule "[Player] Override allowed heroes list when player joins lobby":

@@ -1,3 +1,4 @@
+#!mainFile "../../aramMain.opy"
 #!optimizeStrict
 
 # venture aram-only burrow speed and healing

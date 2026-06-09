@@ -1,6 +1,6 @@
+#!mainFile "../../aramMain.opy"
 #!optimizeStrict
 
-#!mainFile "../../aramMain.opy"
 
 playervar nano_full_health
 

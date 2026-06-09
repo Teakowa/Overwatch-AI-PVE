@@ -1,6 +1,6 @@
+#!mainFile "../../aramMain.opy"
 #!optimizeStrict
 
-#!mainFile "../../aramMain.opy"
 
 playervar orisa_fortify_armor_id
 

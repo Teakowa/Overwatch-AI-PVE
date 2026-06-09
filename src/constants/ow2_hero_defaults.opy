@@ -1,3 +1,4 @@
+#!mainFile "../main.opy"
 # OW2 hero default constants imported from ow1-emulator.
 # Keep this file focused on baseline values; project-specific balance tweaks
 # should override by editing constants here, then reference them in rules/init.

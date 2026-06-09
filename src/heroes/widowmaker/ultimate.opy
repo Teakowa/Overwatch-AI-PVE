@@ -1,3 +1,4 @@
+#!mainFile "../../main.opy"
 #!optimizeStrict
 
 rule "[widowmaker.opy]: Infra-Sight headshot x3":

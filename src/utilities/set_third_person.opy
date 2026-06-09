@@ -1,3 +1,4 @@
+#!mainFile "../aramMain.opy"
 def setThirdPerson():
     @Name "[utilities/Player]: Set Third Person"
     

@@ -1,3 +1,4 @@
+#!mainFile "../../main.opy"
 #Player variables
 
 playervar reset_pvar

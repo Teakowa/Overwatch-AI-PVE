@@ -1,3 +1,4 @@
+#!mainFile "../../../main.opy"
 #!optimizeStrict
 
 rule "[AI/control]: Widowmaker Fly Sky Attack Mode":

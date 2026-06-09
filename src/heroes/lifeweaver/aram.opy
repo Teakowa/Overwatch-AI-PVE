@@ -1,3 +1,4 @@
+#!mainFile "../../aramMain.opy"
 #!optimizeStrict
 
 # lifeweaver aram-only life grip healing

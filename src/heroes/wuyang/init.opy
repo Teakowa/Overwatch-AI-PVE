@@ -1,3 +1,4 @@
+#!mainFile "../../main.opy"
 #!optimizeStrict
 
 rule "[wuyang/init.opy]: Detect switch to wuyang":

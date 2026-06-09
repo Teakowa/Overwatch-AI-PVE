@@ -1,3 +1,4 @@
+#!mainFile "../../main.opy"
 #!optimizeStrict
 
 rule "[Vendetta/init.opy]: Detect switch to Vendetta":

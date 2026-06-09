@@ -1,3 +1,4 @@
+#!mainFile "../../main.opy"
 #!optimizeStrict
 
 rule "[reinhardt/init.opy]: Detect switch to Reinhardt":

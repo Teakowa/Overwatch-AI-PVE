@@ -16,6 +16,7 @@
 | R-PROTO-KEEP-DELIMITER-NAMES | docs/agents/protocol-constraints.md | #r-proto-keep-delimiter-names | 改关键分隔规则 | repo-maintainers |
 | R-PROTO-KEEP-DISABLED | docs/agents/protocol-constraints.md | #r-proto-keep-disabled | 清理或启停规则 | repo-maintainers |
 | R-PROTO-RULE-NAME-STYLE | docs/agents/protocol-constraints.md | #r-proto-rule-name-style | 新增/改名规则 | repo-maintainers |
+| R-PROTO-REPO-WIDE-MAINFILE | docs/agents/protocol-constraints.md | #r-proto-repo-wide-mainfile | 改 `.opy` 模块入口声明或 LSP 模块解析 | repo-maintainers |
 | R-PROTO-SETTINGS-FIRST | docs/agents/protocol-constraints.md | #r-proto-settings-first | 改英雄通用数值策略 | repo-maintainers |
 | R-PROTO-NO-FILENAME-ORDER-HACK | docs/agents/protocol-constraints.md | #r-proto-no-filename-order-hack | 变更模块文件命名 | repo-maintainers |
 | R-HINIT-DETECT-SET-RESET-FLAG | docs/agents/hero-init-contract.md | #r-hinit-detect-set-reset-flag | 新增/改 hero init detect | repo-maintainers |

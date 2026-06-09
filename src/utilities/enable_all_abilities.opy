@@ -1,3 +1,4 @@
+#!mainFile "../main.opy"
 def enableAllAbilities():
     @Name "[utilities/reset.opy]: enableAllAbilities()"
     

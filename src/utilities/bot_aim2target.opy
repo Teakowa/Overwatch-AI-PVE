@@ -1,3 +1,4 @@
+#!mainFile "../main.opy"
 def botAim2Target():
     @Name "[AI/global]: botAim2Target"
     

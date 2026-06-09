@@ -1,6 +1,6 @@
+#!mainFile "../../main.opy"
 #!optimizeStrict
 
-#!mainFile "../../main.opy"
 
 playervar hack_timer
 playervar sombra_buff

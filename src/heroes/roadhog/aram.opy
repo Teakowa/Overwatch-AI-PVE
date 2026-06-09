@@ -1,3 +1,4 @@
+#!mainFile "../../aramMain.opy"
 #!optimizeStrict
 
 rule "[Roadhog]: Hogdrogen Exposure":

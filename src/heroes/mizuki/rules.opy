@@ -1,3 +1,4 @@
+#!mainFile "../../main.opy"
 #!optimizeStrict
 
 rule "[Mizuki]: Soul Hat bonus heal and cooldown refund":

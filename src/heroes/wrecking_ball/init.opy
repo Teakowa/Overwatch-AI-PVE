@@ -1,3 +1,4 @@
+#!mainFile "../../main.opy"
 #!optimizeStrict
 
 rule "[Wrecking Ball]: Detect switch to Wrecking Ball":

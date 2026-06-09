@@ -1,3 +1,4 @@
+#!mainFile "../../main.opy"
 #!optimizeStrict
 
 rule "[Mizuki/init.opy]: Detect switch to Mizuki":

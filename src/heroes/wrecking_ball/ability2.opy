@@ -1,3 +1,4 @@
+#!mainFile "../../main.opy"
 #!optimizeStrict
 
 rule "[Wrecking Ball] Disable Adaptive Shield for allies":

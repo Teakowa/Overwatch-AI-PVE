@@ -1,6 +1,6 @@
+#!mainFile "../../main.opy"
 #!optimizeStrict
 
-#!mainFile "../../main.opy"
 
 playervar junker_queen_buff
 

@@ -1,3 +1,4 @@
+#!mainFile "../../aramMain.opy"
 #!optimizeStrict
 
 rule "[Juno]: Pulsar Torpedoes":

@@ -1,6 +1,6 @@
+#!mainFile "../../main.opy"
 #!optimizeStrict
 
-#!mainFile "../../main.opy"
 
 playervar mauga_berserker_soul_id
 

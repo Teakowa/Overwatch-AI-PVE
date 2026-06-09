@@ -1,6 +1,6 @@
+#!mainFile "../../aramMain.opy"
 #!optimizeStrict
 
-#!mainFile "../../aramMain.opy"
 
 playervar ram_dmg_reduc
 

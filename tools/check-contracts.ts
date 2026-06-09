@@ -137,8 +137,20 @@ function findEntryDuplicates(
     .sort((a, b) => a.name.localeCompare(b.name));
 }
 
-function hasMainFileDirective(lines: string[]): boolean {
-  return lines.some((line) => /^\s*#!mainFile\s+"[^"]+"/.test(line));
+function inspectMainFileDirective(lines: string[]): { count: number; target: string | null; isFirstLine: boolean } {
+  const matches = lines
+    .map((line) => line.match(/^\s*#!mainFile\s+"([^"]+)"\s*$/)?.[1] ?? null)
+    .filter((value): value is string => value !== null);
+
+  return {
+    count: matches.length,
+    target: matches[0] ?? null,
+    isFirstLine: /^\s*#!mainFile\s+"[^"]+"\s*$/.test(lines[0] ?? ""),
+  };
+}
+
+function toDirectivePath(filePath: string, targetFile: string): string {
+  return path.relative(path.dirname(filePath), targetFile).split(path.sep).join("/");
 }
 
 function duplicateNames(values: string[]): string[] {
@@ -294,10 +306,53 @@ async function main(): Promise<void> {
     { label: "main", filePath: resolveRepo("src/main.opy") },
     { label: "aram", filePath: resolveRepo("src/aramMain.opy") },
   ] as const;
-  const sharedPreludeFiles = new Set(Object.values(declarationFiles).map((filePath) => path.resolve(filePath)));
+  const includedFilesByEntry = new Map<string, string[]>();
 
   for (const entryRoot of entryRoots) {
-    const includedFiles = await collectIncludedFiles(entryRoot.filePath);
+    includedFilesByEntry.set(entryRoot.label, await collectIncludedFiles(entryRoot.filePath));
+  }
+
+  const moduleOwners = new Map<string, Set<string>>();
+  for (const entryRoot of entryRoots) {
+    for (const filePath of includedFilesByEntry.get(entryRoot.label) ?? []) {
+      const resolved = path.resolve(filePath);
+      if (resolved === path.resolve(entryRoot.filePath)) {
+        continue;
+      }
+      if (!moduleOwners.has(resolved)) {
+        moduleOwners.set(resolved, new Set<string>());
+      }
+      moduleOwners.get(resolved)!.add(entryRoot.label);
+    }
+  }
+
+  for (const [filePath, owners] of [...moduleOwners.entries()].sort((a, b) => a[0].localeCompare(b[0]))) {
+    const lines = await readLines(filePath);
+    const directive = inspectMainFileDirective(lines);
+    const expectedTarget = owners.size === 1 && owners.has("aram")
+      ? toDirectivePath(filePath, resolveRepo("src/aramMain.opy"))
+      : toDirectivePath(filePath, resolveRepo("src/main.opy"));
+    const relPath = path.relative(repoRoot, filePath);
+
+    if (directive.count !== 1) {
+      reporter.fail(`module mainFile count invalid: ${relPath} (count=${directive.count})`);
+      continue;
+    }
+    if (!directive.isFirstLine) {
+      reporter.fail(`module mainFile must be first line: ${relPath}`);
+      continue;
+    }
+    if (directive.target !== expectedTarget) {
+      reporter.fail(
+        `module mainFile target mismatch: ${relPath} (actual=${directive.target} expected=${expectedTarget})`,
+      );
+      continue;
+    }
+    reporter.pass(`module mainFile contract preserved: ${relPath}`);
+  }
+
+  for (const entryRoot of entryRoots) {
+    const includedFiles = includedFilesByEntry.get(entryRoot.label) ?? [];
     for (const kind of ["globalvar", "playervar", "subroutine"] as const) {
       const declarations: Array<{ filePath: string; name: string }> = [];
       for (const filePath of includedFiles) {
@@ -313,25 +368,6 @@ async function main(): Promise<void> {
       } else {
         const detail = duplicates.map((item) => `${item.name} (${item.files.join(", ")})`).join("; ");
         reporter.fail(`${entryRoot.label} ${kind} duplicate declarations found: ${detail}`);
-      }
-    }
-
-    for (const filePath of includedFiles) {
-      if (sharedPreludeFiles.has(path.resolve(filePath))) {
-        continue;
-      }
-      const lines = await readLines(filePath);
-      const localDeclarationCount =
-        extractDeclarationsFromLines(lines, "globalvar").length +
-        extractDeclarationsFromLines(lines, "playervar").length +
-        extractDeclarationsFromLines(lines, "subroutine").length;
-      if (localDeclarationCount === 0) {
-        continue;
-      }
-      if (hasMainFileDirective(lines)) {
-        reporter.pass(`local declaration file has mainFile: ${path.relative(repoRoot, filePath)}`);
-      } else {
-        reporter.fail(`local declaration file missing mainFile: ${path.relative(repoRoot, filePath)}`);
       }
     }
   }

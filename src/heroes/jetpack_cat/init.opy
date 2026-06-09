@@ -1,3 +1,4 @@
+#!mainFile "../../main.opy"
 #!optimizeStrict
 
 rule "[JetpackCat/init.opy]: Detect switch to JetpackCat":

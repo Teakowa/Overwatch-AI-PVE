@@ -1,3 +1,4 @@
+#!mainFile "main.opy"
 #
 # Main mode profile macros consumed by shared reset utilities.
 # Keep this file main-only to avoid macro redefinition in ARAM.

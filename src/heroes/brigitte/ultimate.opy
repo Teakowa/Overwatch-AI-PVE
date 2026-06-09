@@ -1,3 +1,4 @@
+#!mainFile "../../main.opy"
 #!optimizeStrict
 
 rule "[brigitte/rally.opy]: Rally 30% speed boost":

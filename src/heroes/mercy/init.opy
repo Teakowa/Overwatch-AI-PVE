@@ -1,3 +1,4 @@
+#!mainFile "../../main.opy"
 #!optimizeStrict
 
 rule "[mercy/init.opy]: Detect switch to Mercy":

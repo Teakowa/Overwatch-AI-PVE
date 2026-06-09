@@ -1,3 +1,4 @@
+#!mainFile "../../main.opy"
 #!optimizeStrict
 
 rule "[hanzo/init.opy]: Detect switch to Hanzo":

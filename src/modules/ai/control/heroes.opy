@@ -1,3 +1,4 @@
+#!mainFile "../../../main.opy"
 #!include "tracer.opy"
 #!include "reaper.opy"
 #!include "genji.opy"

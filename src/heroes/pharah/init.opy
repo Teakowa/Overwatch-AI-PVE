@@ -1,3 +1,4 @@
+#!mainFile "../../main.opy"
 #!optimizeStrict
 
 rule "[pharah/init.opy]: Detect switch to Pharah":

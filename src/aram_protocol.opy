@@ -1,3 +1,4 @@
+#!mainFile "aramMain.opy"
 # Reset Utility Behavior Profile (ARAM)
 
 macro RESET_DISABLE_ALL_ABILITIES_EXTRA():

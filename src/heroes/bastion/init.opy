@@ -1,3 +1,4 @@
+#!mainFile "../../main.opy"
 #!optimizeStrict
 
 rule "[bastion/init.opy]: Detect switch to Bastion":

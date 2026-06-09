@@ -1,3 +1,4 @@
+#!mainFile "../main.opy"
 def removeTankPassive():
     @Name "[passives/tank/knockback.opy]: removeTankPassive()"
 

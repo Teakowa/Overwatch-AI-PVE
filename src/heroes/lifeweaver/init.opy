@@ -1,3 +1,4 @@
+#!mainFile "../../main.opy"
 #!optimizeStrict
 
 rule "[Lifeweaver]: Detect switch to Lifeweaver":

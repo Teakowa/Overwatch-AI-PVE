@@ -1,3 +1,4 @@
+#!mainFile "../main.opy"
 #!include "../modules/hero_rules/player_shared.opy"
 #!include "ana/rules.opy"
 #!include "anran/rules.opy"

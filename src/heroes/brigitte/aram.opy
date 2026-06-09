@@ -1,6 +1,6 @@
+#!mainFile "../../aramMain.opy"
 #!optimizeStrict
 
-#!mainFile "../../aramMain.opy"
 
 playervar brig_repair_pack_state
 #!defineMember repair_pack_pending brig_repair_pack_state[0]

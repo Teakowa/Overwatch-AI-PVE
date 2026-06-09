@@ -1,3 +1,4 @@
+#!mainFile "../../main.opy"
 #!optimizeStrict
 
 rule "[Ana]: Damage Full Health Allies So Nano Can Heal":

@@ -1,3 +1,4 @@
+#!mainFile "../../main.opy"
 #!optimizeStrict
 
 rule "[widowmaker/init.opy]: Detect switch to Widowmaker":

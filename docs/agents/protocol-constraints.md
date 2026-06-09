@@ -21,12 +21,17 @@
 
 - 规则命名保持现有风格（`[module]: action`）。
 
+### R-PROTO-REPO-WIDE-MAINFILE
+
+- 被 `src/main.opy` 或 `src/aramMain.opy` include 到的非入口 `.opy` 模块，必须声明且只声明一次 `#!mainFile`，并放在文件第一行。
+- 仅被 ARAM 入口引用的模块指向 `aramMain.opy`；其余模块统一指向 `main.opy`，包括同时被两个入口复用的共享模块。
+
 ### 公共/模式侧边界
 
 - 只有跨模式共享的子程序进入 `src/modules/prelude/subroutine.opy`。
 - 模式独占子程序与 `setThirdPerson` 这类 ARAM 自留实现，不要求进入统一协议。
 - 只有跨英雄或跨基础设施共享的 `globalvar` / `playervar` 才留在 `src/modules/prelude/*.opy`。
-- 英雄私有变量允许下沉到模式局部文件，但声明文件必须带 `#!mainFile`，且不能在同一入口的 include 闭包里重复声明同名变量。
+- 英雄私有变量允许下沉到模式局部文件，但声明文件仍受仓库级 `#!mainFile` 约束，且不能在同一入口的 include 闭包里重复声明同名变量。
 
 ### R-PROTO-SETTINGS-FIRST
 

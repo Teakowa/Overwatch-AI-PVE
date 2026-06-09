@@ -1,3 +1,4 @@
+#!mainFile "aramMain.opy"
 #!include "modules/bootstrap/aram-extra-hero-pool.opy"
 #!include "modules/bootstrap/aram-player-lifecycle-and-reset.opy"
 
