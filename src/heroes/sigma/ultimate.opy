@@ -2,7 +2,7 @@
 #!optimizeStrict
 
 rule "[Sigma]: ult damage":
-    @Event playerDealtDamage
+    @Event playerDealtKnockback
     @Hero sigma
     @Condition eventAbility == Button.ULTIMATE
     @Condition eventDamage > 75

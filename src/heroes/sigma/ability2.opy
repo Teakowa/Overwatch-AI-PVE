@@ -2,7 +2,7 @@
 #!optimizeStrict
 
 rule "[Sigma]: Accretion knockdown":
-    @Event playerDealtDamage
+    @Event playerDealtKnockback
     @Hero sigma
     @Condition eventAbility == Button.ABILITY_2
     @Condition victim.hasStatus(Status.KNOCKED_DOWN) == true
