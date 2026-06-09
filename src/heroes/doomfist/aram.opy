@@ -1,6 +1,9 @@
 #!mainFile "../../aramMain.opy"
 #!optimizeStrict
 
+playervar doom_buff
+playervar doom_buff_hud
+
 rule "[Doomfist] Seismic Slam upper":
     @Event playerTookDamage
     @Condition attacker.getHero() == Hero.DOOMFIST

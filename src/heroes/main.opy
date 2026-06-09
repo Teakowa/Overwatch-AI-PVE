@@ -54,6 +54,9 @@
 #!include "mercy/rules.opy"
 #!include "vendetta/rules.opy"
 
+#!include "../utilities/reset_statuses.opy"
+#!include "../utilities/reset_hero.opy"
+#!include "../modules/bootstrap/player-lifecycle-and-reset.opy"
 #!include "../modules/hero_init/delimiter-begin.opy"
 #!include "init.shared.opy"
 #!include "../modules/hero_init/delimiter-end.opy"

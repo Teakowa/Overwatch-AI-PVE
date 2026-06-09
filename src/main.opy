@@ -18,8 +18,6 @@
 #!include "modules/bootstrap/anti-crash.opy"
 #!include "modules/bootstrap/blacklist.opy"
 #!include "modules/bootstrap/safety-blacklist-ban.opy"
-#!include "modules/bootstrap/player-local-vars.opy"
-#!include "modules/bootstrap/player-lifecycle-and-reset.opy"
 #!include "main_mode_profile.opy"
 
 # Utilities: shared subroutines and helpers
@@ -28,11 +26,9 @@
 #!include "utilities/clear_custom_hp.opy"
 #!include "utilities/reset_frenemies.opy"
 #!include "utilities/reset_stats.opy"
-#!include "utilities/reset_statuses.opy"
 #!include "utilities/execute_uppercut.opy"
 #!include "utilities/enable_all_abilities.opy"
 #!include "utilities/disable_all_abilities.opy"
-#!include "utilities/reset_hero.opy"
 #!include "utilities/remove_tank_passive.opy"
 #!include "utilities/bot_aim2target.opy"
 

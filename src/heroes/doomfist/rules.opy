@@ -1,6 +1,9 @@
 #!mainFile "../../main.opy"
 #!optimizeStrict
 
+playervar doom_buff
+playervar doom_buff_hud
+
 rule "[Doomfist] Seismic Slam upper":
     @Event playerDealtDamage
     @Hero doomfist

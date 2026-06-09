@@ -1,6 +1,5 @@
 #!mainFile "aramMain.opy"
 #!include "modules/bootstrap/aram-extra-hero-pool.opy"
-#!include "modules/bootstrap/aram-player-lifecycle-and-reset.opy"
 
 #!include "modules/ai/core/core-global-and-targeting.opy"
 #!include "modules/ai/movement/movement.opy"
@@ -52,5 +51,8 @@
 #!include "heroes/anran/aram.opy"
 #!include "heroes/lucio/rules.opy"
 #!include "heroes/sierra/rules.opy"
+#!include "utilities/reset_statuses.opy"
+#!include "utilities/reset_hero.opy"
+#!include "modules/bootstrap/aram-player-lifecycle-and-reset.opy"
 # !include "modules/debug/changelog.opy"
 # !include "utilities/changelog_text.opy"

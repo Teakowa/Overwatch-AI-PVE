@@ -1,6 +1,7 @@
 #!mainFile "../../aramMain.opy"
 #!optimizeStrict
 
+playervar reaper_buff
 #!defineMember reaper_soul_count reaper_buff[0]
 #!defineMember reaper_effect_hud reaper_buff[1]
 #!defineMember reaper_soul_hud   reaper_buff[2]

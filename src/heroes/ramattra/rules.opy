@@ -4,6 +4,8 @@
 #!optimizeStrict
 
 
+playervar ram_block_damage
+playervar ram_block_damage_hud
 playervar ram_dmg_reduc
 
 

@@ -1,6 +1,9 @@
 #!mainFile "../../aramMain.opy"
 #!optimizeStrict
 
+playervar sigma_hyperspheres
+playervar sigma_hyperspheres_hud
+
 rule "[Sigma]: Hyperspheres Layer Damage":
     @Event playerDealtDamage
     @Hero sigma

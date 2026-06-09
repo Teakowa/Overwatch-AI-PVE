@@ -1,6 +1,7 @@
 #!mainFile "../../aramMain.opy"
 #!optimizeStrict
 
+playervar freja_buff
 #!defineMember freja_mark_count      freja_buff[0]
 #!defineMember freja_mark_snapshot   freja_buff[1]
 #!defineMember freja_air_hud         freja_buff[2]

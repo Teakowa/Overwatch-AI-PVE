@@ -202,19 +202,15 @@ async function main(): Promise<void> {
       "modules/bootstrap/anti-crash.opy",
       "modules/bootstrap/blacklist.opy",
       "modules/bootstrap/safety-blacklist-ban.opy",
-      "modules/bootstrap/player-local-vars.opy",
-      "modules/bootstrap/player-lifecycle-and-reset.opy",
       "main_mode_profile.opy",
       "utilities/knockback.opy",
       "utilities/apply_custom_hp.opy",
       "utilities/clear_custom_hp.opy",
       "utilities/reset_frenemies.opy",
       "utilities/reset_stats.opy",
-      "utilities/reset_statuses.opy",
       "utilities/execute_uppercut.opy",
       "utilities/enable_all_abilities.opy",
       "utilities/disable_all_abilities.opy",
-      "utilities/reset_hero.opy",
       "utilities/remove_tank_passive.opy",
       "utilities/bot_aim2target.opy",
       "modules/ai/delimiter-begin.opy",
@@ -249,6 +245,41 @@ async function main(): Promise<void> {
     reporter.pass("Hero init delimiter includes are ordered in src/heroes/main.opy");
   } else {
     reporter.fail("Hero init delimiter include boundaries are broken in src/heroes/main.opy");
+  }
+
+  const heroesMainIncludes = parseIncludes(heroesMainLines).map((item) => item.path);
+  const heroResetSequence = [
+    "../utilities/reset_statuses.opy",
+    "../utilities/reset_hero.opy",
+    "../modules/bootstrap/player-lifecycle-and-reset.opy",
+    "../modules/hero_init/delimiter-begin.opy",
+  ];
+  const heroResetStart = heroesMainIncludes.indexOf(heroResetSequence[0]!);
+  if (
+    heroResetStart >= 0 &&
+    heroResetSequence.every((entry, index) => heroesMainIncludes[heroResetStart + index] === entry)
+  ) {
+    reporter.pass("heroes/main reset late-binding order preserved");
+  } else {
+    reporter.fail("heroes/main reset late-binding order is broken");
+  }
+
+  const aramOverridesFile = resolveRepo("src/aram_overrides.opy");
+  const aramOverridesLines = await readLines(aramOverridesFile);
+  const aramOverridesIncludes = parseIncludes(aramOverridesLines).map((item) => item.path);
+  const aramResetSequence = [
+    "utilities/reset_statuses.opy",
+    "utilities/reset_hero.opy",
+    "modules/bootstrap/aram-player-lifecycle-and-reset.opy",
+  ];
+  const aramResetStart = aramOverridesIncludes.indexOf(aramResetSequence[0]!);
+  if (
+    aramResetStart >= 0 &&
+    aramResetSequence.every((entry, index) => aramOverridesIncludes[aramResetStart + index] === entry)
+  ) {
+    reporter.pass("aram_overrides reset late-binding order preserved");
+  } else {
+    reporter.fail("aram_overrides reset late-binding order is broken");
   }
 
   const srcLines = (await fs.readFile(resolveRepo("src"), "utf8").catch(() => "")).split(/\r?\n/);
