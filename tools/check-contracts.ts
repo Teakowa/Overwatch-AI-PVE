@@ -202,6 +202,7 @@ async function main(): Promise<void> {
       "modules/bootstrap/anti-crash.opy",
       "modules/bootstrap/blacklist.opy",
       "modules/bootstrap/safety-blacklist-ban.opy",
+      "modules/bootstrap/player-local-vars.opy",
       "modules/bootstrap/player-lifecycle-and-reset.opy",
       "main_mode_profile.opy",
       "utilities/knockback.opy",

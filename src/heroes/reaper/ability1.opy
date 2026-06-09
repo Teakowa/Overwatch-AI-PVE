@@ -7,8 +7,8 @@ rule "[Reaper]: Ability 1 Wraith Form cd":
     @Condition eventPlayer.isUsingAbility1() == true
 
     waitUntil(not eventPlayer.isUsingAbility1(), 3.016)
-    eventPlayer.setAbilityCooldown(Button.ABILITY_1, eventPlayer.getAbilityCooldown(Button.ABILITY_1) - (50 * ReaperBuff[1] if eventPlayer.reaper_buff[0] > 50 else eventPlayer.reaper_buff[0] * ReaperBuff[1]))
-    eventPlayer.dmg_amplification += 150 if ReaperBuff[2] + eventPlayer.reaper_buff[0] * ReaperBuff[3] >= 150 else ReaperBuff[2] + eventPlayer.reaper_buff[0] * ReaperBuff[3]
+    eventPlayer.setAbilityCooldown(Button.ABILITY_1, eventPlayer.getAbilityCooldown(Button.ABILITY_1) - (50 * ReaperBuff[1] if eventPlayer.reaper_soul_count > 50 else eventPlayer.reaper_soul_count * ReaperBuff[1]))
+    eventPlayer.dmg_amplification += 150 if ReaperBuff[2] + eventPlayer.reaper_soul_count * ReaperBuff[3] >= 150 else ReaperBuff[2] + eventPlayer.reaper_soul_count * ReaperBuff[3]
     wait(3)
     #chaseOverTime(eventPlayer.dmg_amplification, 0, 3, ChaseTimeReeval.NONE)
     eventPlayer.dmg_amplification = 0
@@ -30,9 +30,9 @@ rule "[Reaper]: Ability 1 Wraith Form dmg increase set & hud":
     @Hero reaper
     @Condition eventPlayer.dmg_amplification != 0
 
-    destroyHudText(eventPlayer.reaper_buff[1])
+    destroyHudText(eventPlayer.reaper_effect_hud)
     hudText(eventPlayer, null, " \r\n", "伤害增幅：{0}%".format(ceil(eventPlayer.dmg_amplification)), HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
-    eventPlayer.reaper_buff[1] = getLastCreatedText()
+    eventPlayer.reaper_effect_hud = getLastCreatedText()
     waitUntil(eventPlayer.dmg_amplification == 0 and eventPlayer.isDead(), 3.5)
-    destroyHudText(eventPlayer.reaper_buff[1])
-    eventPlayer.reaper_buff[1] = 0
+    destroyHudText(eventPlayer.reaper_effect_hud)
+    eventPlayer.reaper_effect_hud = 0

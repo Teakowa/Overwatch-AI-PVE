@@ -1,20 +1,26 @@
 #!mainFile "../../aramMain.opy"
 #!optimizeStrict
 
+#!defineMember freja_mark_count      freja_buff[0]
+#!defineMember freja_mark_snapshot   freja_buff[1]
+#!defineMember freja_air_hud         freja_buff[2]
+#!defineMember freja_target_mark_hud freja_buff[3]
+#!defineMember freja_self_mark_hud   freja_buff[4]
+
 rule "[Freja]: Revdraw Crossbow Stack":
     @Event playerDealtDamage
     @Hero freja
     @Condition eventAbility == Button.PRIMARY_FIRE
     @Condition eventPlayer.hasStatus(Status.INVINCIBLE) != true
 
-    victim.freja_buff[0]++
+    victim.freja_mark_count++
 
 rule "[Freja]: Revdraw Crossbow Stack":
     @Event playerReceivedKnockback
     @Condition attacker.getHero() == Hero.FREJA
     @Condition eventAbility == Button.ULTIMATE
 
-    victim.freja_buff[0] += 40
+    victim.freja_mark_count += 40
     wait(5)
 
 rule "[Freja]: Take Aim Damage":
@@ -23,32 +29,32 @@ rule "[Freja]: Take Aim Damage":
     @Condition eventAbility == Button.SECONDARY_FIRE
     @Condition (victim.hasStatus(Status.INVINCIBLE) or victim.hasStatus(Status.UNKILLABLE) or victim.hasStatus(Status.PHASED_OUT)) == false
     @Condition victim.has_nano != true
-    @Condition victim.freja_buff[0] > 0
+    @Condition victim.freja_mark_count > 0
 
     wait(0.5, Wait.ABORT_WHEN_FALSE)
     playEffect(getAllPlayers(), DynamicEffect.BAD_EXPLOSION, Color.BLUE, victim, 0.8)
     playEffect(getAllPlayers(), DynamicEffect.EXPLOSION_SOUND, Color.BLUE, victim, 10)
-    damage(victim, attacker, FrejaBuff[0] * victim.freja_buff[0] + victim.getMaxHealth().scaledBy(FrejaBuff[1]))
-    victim.freja_buff[0] = 0
-    victim.freja_buff[1] = 0
+    damage(victim, attacker, FrejaBuff[0] * victim.freja_mark_count + victim.getMaxHealth().scaledBy(FrejaBuff[1]))
+    victim.freja_mark_count = 0
+    victim.freja_mark_snapshot = 0
 
 rule "[Freja]: HUD & Reset":
     @Event eachPlayer
-    @Condition eventPlayer.freja_buff[0] > 0
+    @Condition eventPlayer.freja_mark_count > 0
 
-    if eventPlayer.freja_buff[3] != 0:
+    if eventPlayer.freja_target_mark_hud != 0:
         goto lbl_0
-    hudText(eventPlayer.reset_pvar[11], null, " \r\n", "  {0} 狩猎印记： {1}".format(heroIcon(eventPlayer.getHero()), eventPlayer.freja_buff[0]), HudPosition.LEFT, 1, null, null, rgb(255, 255, 255, 200), HudReeval.STRING)
-    eventPlayer.freja_buff[3] = getLastCreatedText()
+    hudText(eventPlayer.reset_pvar[11], null, " \r\n", "  {0} 狩猎印记： {1}".format(heroIcon(eventPlayer.getHero()), eventPlayer.freja_mark_count), HudPosition.LEFT, 1, null, null, rgb(255, 255, 255, 200), HudReeval.STRING)
+    eventPlayer.freja_target_mark_hud = getLastCreatedText()
     lbl_0:
-    eventPlayer.freja_buff[1] = eventPlayer.freja_buff[0]
+    eventPlayer.freja_mark_snapshot = eventPlayer.freja_mark_count
     wait(15)
-    if eventPlayer.freja_buff[0] > eventPlayer.freja_buff[1]:
+    if eventPlayer.freja_mark_count > eventPlayer.freja_mark_snapshot:
         loop()
-    eventPlayer.freja_buff[0] = 0
-    eventPlayer.freja_buff[1] = 0
-    destroyHudText(eventPlayer.freja_buff[3])
-    eventPlayer.freja_buff[3] = 0
+    eventPlayer.freja_mark_count = 0
+    eventPlayer.freja_mark_snapshot = 0
+    destroyHudText(eventPlayer.freja_target_mark_hud)
+    eventPlayer.freja_target_mark_hud = 0
 
 rule "[Freja]: Ex":
     @Event playerDealtKnockback
@@ -74,10 +80,10 @@ rule "[Freja]: Dmg. reduction":
 
     eventPlayer.setDamageReceived(FREJA_ARAM_DAMAGE_RECEIVED)
     hudText(eventPlayer, null, " \r\n", "受到伤害减免：{0}%".format(25), HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
-    eventPlayer.freja_buff[2] = getLastCreatedText()
+    eventPlayer.freja_air_hud = getLastCreatedText()
     waitUntil(not eventPlayer.isInAir() and eventPlayer.isOnGround(), 99999)
-    destroyHudText(eventPlayer.freja_buff[2])
-    eventPlayer.freja_buff[2] = 0
+    destroyHudText(eventPlayer.freja_air_hud)
+    eventPlayer.freja_air_hud = 0
     eventPlayer.setDamageReceived(100)
 
 rule "[Freja]: set Projectile speed":

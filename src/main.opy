@@ -18,6 +18,7 @@
 #!include "modules/bootstrap/anti-crash.opy"
 #!include "modules/bootstrap/blacklist.opy"
 #!include "modules/bootstrap/safety-blacklist-ban.opy"
+#!include "modules/bootstrap/player-local-vars.opy"
 #!include "modules/bootstrap/player-lifecycle-and-reset.opy"
 #!include "main_mode_profile.opy"
 

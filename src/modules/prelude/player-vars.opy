@@ -14,8 +14,6 @@ playervar extra_hero
 playervar mov_speed_penalty
 playervar mov_speed_buff
 playervar orisa_buff
-playervar ram_block_damage
-playervar ram_block_damage_hud
 playervar taunt
 playervar mauga_berserker_soul
 playervar brigitte_buff
@@ -25,13 +23,7 @@ playervar wuyang_buff
 playervar ChangelogText1
 playervar ChangelogText2
 playervar hazard_buff
-playervar reaper_buff
 playervar zarya_buff
-playervar sigma_hyperspheres_hud
-playervar sigma_hyperspheres
-playervar doom_buff
-playervar doom_buff_hud
-playervar freja_buff
 playervar heart_steel
 playervar has_nano
 playervar dmg_amplification
