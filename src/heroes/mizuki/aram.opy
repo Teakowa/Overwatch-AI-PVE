@@ -1,4 +1,4 @@
-#!mainFile "../../main.opy"
+#!mainFile "../../aramMain.opy"
 #!optimizeStrict
 
 #!include "secondary.opy"
