@@ -45,7 +45,7 @@ rule "[Doomfist]: block HUD":
     #destroyHudText(eventPlayer.doom_buff_hud)
 
 rule "[Doomfist] The Best Defense get armor":
-    @Event playerTookDamage
+    @Event playerDealtDamage
     @Condition attacker.getHero() == Hero.DOOMFIST
     @Condition eventAbility in [Button.SECONDARY_FIRE, Button.ABILITY_1, Button.ULTIMATE] == true
 
@@ -56,7 +56,7 @@ rule "[Doomfist] The Best Defense get armor":
     lbl_0:
     attacker.addHealthPool(Health.ARMOR, attacker.heart_steel[1], false, false)
     attacker.heart_steel[0] = getLastCreatedHealthPool()
-    wait(WAIT_SHORT_FRAME)
+    wait(1)
 
 rule "[Doomfist] remove The Best Defense armor":
     @Event eachPlayer
