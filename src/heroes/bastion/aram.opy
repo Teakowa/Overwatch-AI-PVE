@@ -3,6 +3,8 @@
 
 # bastion aram-only artillery
 
+#!include "ability1.opy"
+
 rule "[Bastion]: Configuration: Artillery":
     @Event playerDealtDamage
     @Hero bastion
