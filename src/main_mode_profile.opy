@@ -1,8 +1,5 @@
 #!mainFile "main.opy"
-#
-# Main mode profile macros consumed by shared reset utilities.
-# Keep this file main-only to avoid macro redefinition in ARAM.
-#
+# Main reset profile for shared utilities.
 
 macro RESET_DISABLE_ALL_ABILITIES_EXTRA():
     pass

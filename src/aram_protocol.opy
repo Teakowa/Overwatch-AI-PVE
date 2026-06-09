@@ -1,5 +1,5 @@
 #!mainFile "aramMain.opy"
-# Reset Utility Behavior Profile (ARAM)
+# ARAM reset profile for shared utilities.
 
 macro RESET_DISABLE_ALL_ABILITIES_EXTRA():
     eventPlayer.disallowButton(Button.PRIMARY_FIRE)
