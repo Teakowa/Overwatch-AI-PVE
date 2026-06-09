@@ -4,31 +4,7 @@
 playervar doom_buff
 playervar doom_buff_hud
 
-rule "[Doomfist] Seismic Slam upper":
-    @Event playerDealtDamage
-    @Hero doomfist
-    @Condition eventAbility == Button.ABILITY_1
-    @Condition eventAbility == Button.ABILITY_1
-    @Condition victim.unaffected != true
-    @Condition (victim.getHero() == Hero.ORISA and (victim.isUsingAbility1() or victim.isUsingUltimate())) == false
-    @Condition (victim.getHero() == Hero.MAUGA and victim.isUsingAbility1()) == false
 
-    eventPlayer.doom_buff += 25
-    eventPlayer.hudText = "{0}".format(floor(eventPlayer.doom_buff))
-    victim.applyImpulse(Vector.UP, DOOMFIST_RULES_UPWARD_IMPULSE, Relativity.TO_PLAYER)
-    victim.applyImpulse(worldVector(Vector.BACKWARD, attacker, Transform.ROTATION), DOOMFIST_RULES_BACKWARD_IMPULSE, Relativity.TO_WORLD)
-    victim.startForcingThrottle(0, 0, 0, 0, 0, 0)
-    waitUntil(victim.isOnGround() or victim.hasStatus(Status.PHASED_OUT), 1.2)
-    victim.stopForcingThrottle()
-
-rule "[Doomfist]: Power Block Damage":
-    @Event playerDealtDamage
-    @Hero doomfist
-    @Condition eventAbility == Button.SECONDARY_FIRE
-    @Condition eventPlayer.doom_buff != 0
-
-    damage(victim, attacker, eventPlayer.doom_buff)
-    eventPlayer.doom_buff = 0
 
 rule "[Doomfist]: block HUD":
     @Event eachPlayer
@@ -71,5 +47,8 @@ rule "[Doomfist] remove The Best Defense armor":
     wait(WAIT_SHORT_FRAME)
     if ruleCondition:
         loop()
+
+#!include "ability1.opy"
+#!include "secondary.opy"
 #!include "ability2.opy"
 #!include "ultimate.opy"
