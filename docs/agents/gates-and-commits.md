@@ -17,9 +17,11 @@
 - `pnpm install --frozen-lockfile`
 - `pnpm run build`
 - `pnpm run build:release`
+- `pnpm run build:release:all`
 - `pnpm run build:aram`
 - `pnpm run perf:scan`
 - `pnpm run perf:scan:strict`
+- `pnpm run tool:bump-version`
 - `tools/check-contracts.ts`
 - `tools/check-contracts.ts --build`
 - `tools/check-contracts.ts --strict-hero-init`
@@ -31,6 +33,14 @@
 - `tools/changelog-sync.ts --from-diff --strict-coverage --strict-language --strict-settings-sync`
 - `tools/module-metrics-sync.ts`
 - `tools/module-metrics-sync.ts --check`
+
+### Release 语义
+
+- 版本源：`src/version.opy`
+- 版本格式：`YY.MMDD.N`
+- Release 触发：push 到 `main`
+- Release 跳过：commit message 包含 `[skip release]`
+- Release 产物：`build/main.ow` 与 `build/aram.ow`
 
 ### 建议门禁顺序
 

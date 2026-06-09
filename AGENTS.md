@@ -62,9 +62,16 @@ Use these as the only canonical policy sources:
 - Build/perf script surface:
   - `pnpm run build`
   - `pnpm run build:release`
+  - `pnpm run build:release:all`
   - `pnpm run build:aram`
   - `pnpm run perf:scan`
   - `pnpm run perf:scan:strict`
+
+- Release helpers:
+  - `pnpm run tool:bump-version`
+  - Release trigger: push to `main` (workflow auto-runs `pnpm run tool:bump-version`, builds `build/main.ow` and `build/aram.ow`, tags `v{VERSION}`, and publishes GitHub Release)
+  - Release freshness guard: workflow skips stale runs when `github.sha` is not current `origin/main` head.
+  - Release skip guard: include `[skip release]` in a `main` commit message to bypass release workflow.
 
 - Contract and ARAM guards:
   - `tools/check-contracts.ts`

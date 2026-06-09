@@ -4,9 +4,11 @@
   "scripts": {
     "build": "overpy compile -i src/main.opy --root src -o workshop.ow -l zh-CN",
     "build:release": "mkdir -p build && overpy compile -i src/main.opy --root src -l zh-CN -o build/main.ow",
+    "build:release:all": "pnpm run build:release && pnpm run build:aram",
     "build:aram": "mkdir -p build && overpy compile -i src/aramMain.opy --root src -l zh-CN -o build/aram.ow",
     "perf:scan": "node tools/perf-loop-scan.mjs src",
     "perf:scan:strict": "node tools/perf-loop-scan.mjs --strict src",
+    "tool:bump-version": "tsx tools/bump-version.ts",
     "tool:check-contracts": "tsx tools/check-contracts.ts",
     "tool:check-aram-overrides-duplicates": "tsx tools/check-aram-overrides-duplicates.ts",
     "tool:hero-pipeline": "tsx tools/hero-pipeline.ts",

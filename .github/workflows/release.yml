@@ -2,36 +2,193 @@ name: Build and Release
 
 on:
   push:
-    tags:
-      - 'v*'
+    branches:
+      - main
+    paths-ignore:
+      - docs/**
+      - '**/*.md'
+      - .github/**
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref_name }}
+  cancel-in-progress: false
 
 permissions:
   contents: write
 
 jobs:
   release:
+    if: ${{ !contains(github.event.head_commit.message, '[skip release]') }}
     runs-on: ubuntu-latest
+    env:
+      TZ: Asia/Singapore
 
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Ensure run is on current main head
+        id: freshness
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          latest_main_sha="$(git rev-parse origin/main)"
+          if [[ "${latest_main_sha}" != "${GITHUB_SHA}" ]]; then
+            echo "should_run=false" >> "$GITHUB_OUTPUT"
+            echo "Skip release flow: this run is for ${GITHUB_SHA}, but origin/main is ${latest_main_sha}"
+            exit 0
+          fi
+          echo "should_run=true" >> "$GITHUB_OUTPUT"
+          echo "Release flow continues on latest main head: ${GITHUB_SHA}"
 
       - name: Setup pnpm
+        if: steps.freshness.outputs.should_run == 'true'
         uses: pnpm/action-setup@v5
 
       - name: Setup Node.js
+        if: steps.freshness.outputs.should_run == 'true'
         uses: actions/setup-node@v6
         with:
+          node-version: 22
           cache: pnpm
 
       - name: Install dependencies
+        if: steps.freshness.outputs.should_run == 'true'
         run: pnpm install --frozen-lockfile
 
-      - name: Build workshop outputs
-        run: pnpm run build:release
+      - name: Bump version
+        if: steps.freshness.outputs.should_run == 'true'
+        id: bump
+        shell: bash
+        run: |
+          set -euo pipefail
+          old_version="$(sed -n 's/^#!define VERSION "\(.*\)"$/\1/p' src/version.opy | head -n1)"
+          pnpm run tool:bump-version
+          new_version="$(sed -n 's/^#!define VERSION "\(.*\)"$/\1/p' src/version.opy | head -n1)"
 
-      - name: Upload workshop files to GitHub Release
-        uses: softprops/action-gh-release@v3
-        with:
-          files: |
-            build/main.ow
+          if [[ -z "${old_version}" || -z "${new_version}" ]]; then
+            echo "Failed to parse VERSION from src/version.opy" >&2
+            exit 1
+          fi
+
+          echo "old_version=${old_version}" >> "$GITHUB_OUTPUT"
+          echo "new_version=${new_version}" >> "$GITHUB_OUTPUT"
+
+          if [[ "${old_version}" == "${new_version}" ]]; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+          echo "Version bump: ${old_version} -> ${new_version}"
+
+      - name: Commit bumped version back to main
+        if: steps.freshness.outputs.should_run == 'true' && steps.bump.outputs.changed == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/version.opy README.md
+          git commit -m "chore(release): bump ${{ steps.bump.outputs.new_version }} [skip release]"
+          git push origin HEAD:main
+
+      - name: Resolve release tag
+        if: steps.freshness.outputs.should_run == 'true'
+        id: release_meta
+        shell: bash
+        run: |
+          set -euo pipefail
+          version="${{ steps.bump.outputs.new_version }}"
+          tag="v${version}"
+          echo "version=${version}" >> "$GITHUB_OUTPUT"
+          echo "tag=${tag}" >> "$GITHUB_OUTPUT"
+          echo "Release tag: ${tag}"
+
+      - name: Build workshop outputs
+        if: steps.freshness.outputs.should_run == 'true'
+        run: pnpm run build:release:all
+
+      - name: Ensure git tag exists
+        if: steps.freshness.outputs.should_run == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          tag="${{ steps.release_meta.outputs.tag }}"
+          if git ls-remote --exit-code --tags origin "refs/tags/${tag}" >/dev/null 2>&1; then
+            echo "Tag already exists on origin: ${tag}"
+            exit 0
+          fi
+          git tag "${tag}"
+          git push origin "${tag}"
+          echo "Created and pushed tag: ${tag}"
+
+      - name: Generate custom release notes
+        if: steps.freshness.outputs.should_run == 'true'
+        id: notes
+        shell: bash
+        run: |
+          set -euo pipefail
+          current_tag="${{ steps.release_meta.outputs.tag }}"
+          previous_tag="$(git describe --tags --abbrev=0 "${current_tag}^" 2>/dev/null || true)"
+          if [[ -n "${previous_tag}" ]]; then
+            commit_range="${previous_tag}..${current_tag}"
+          else
+            commit_range="${current_tag}"
+          fi
+
+          notes_file="release-notes.md"
+          {
+            echo "Automated release build from \`main\`."
+            echo
+            echo "## What's Changed"
+
+            line_count=0
+            while IFS=$'\t' read -r short_sha subject author; do
+              if [[ -z "${short_sha}" ]]; then
+                continue
+              fi
+              if [[ "${subject}" =~ ^chore\(release\):\ bump\ .*\ \[skip\ release\]$ ]]; then
+                continue
+              fi
+              if [[ "${subject}" =~ ^(.*)\ \(\#([0-9]+)\)$ ]]; then
+                pr_title="${BASH_REMATCH[1]}"
+                pr_number="${BASH_REMATCH[2]}"
+                echo "- #${pr_number} ${pr_title} (@${author})"
+              else
+                echo "- ${short_sha} ${subject} (@${author})"
+              fi
+              line_count=$((line_count + 1))
+            done < <(git log --pretty=format:'%h%x09%s%x09%an' "${commit_range}")
+
+            if [[ "${line_count}" -eq 0 ]]; then
+              echo "- No user-facing changes in this release window."
+            fi
+          } > "${notes_file}"
+
+          echo "body_path=${notes_file}" >> "$GITHUB_OUTPUT"
+          echo "Generated ${notes_file} from range: ${commit_range}"
+
+      - name: Publish GitHub Release with build artifacts
+        if: steps.freshness.outputs.should_run == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          tag="${{ steps.release_meta.outputs.tag }}"
+          notes_file="${{ steps.notes.outputs.body_path }}"
+          gh release create "${tag}" --title "${tag}" --notes-file "${notes_file}" build/main.ow build/aram.ow
+
+      - name: Release summary
+        if: steps.freshness.outputs.should_run == 'true'
+        shell: bash
+        run: |
+          echo "Version bump: ${{ steps.bump.outputs.old_version }} -> ${{ steps.bump.outputs.new_version }}"
+          echo "Release tag: ${{ steps.release_meta.outputs.tag }}"
+          echo "Uploaded artifacts:"
+          echo "- build/main.ow"
+          echo "- build/aram.ow"

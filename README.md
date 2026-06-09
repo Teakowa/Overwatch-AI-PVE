@@ -1,6 +1,8 @@
-![](https://img.shields.io/static/v1?label=Version&message=2102.20.1&color=blue&style=flat-square)
+![](https://img.shields.io/static/v1?label=Version&message=26.0610.1&color=blue&style=flat-square)
 
 一个拥有 ~~OWL~~ 百强水平的困难人机，采用竞技规则，AI 支持多种阵容。
+
+当前 release 由 push 到 `main` 自动触发，版本源为 `src/version.opy`。
 
 ## 开发文档
 
