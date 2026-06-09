@@ -17,9 +17,9 @@ rule "[Genji] Dragonblade Execution players less 10% HP expectancy":
     @Hero genji
     @Condition eventAbility == Button.ABILITY_1
     @Condition victim.zarya_buff[1] == null
-    @Condition (victim.hasStatus(Status.INVINCIBLE) or victim.hasStatus(Status.UNKILLABLE) or victim.hasStatus(Status.PHASED_OUT)) == false
+    @Condition victim.untargetable() != true
     @Condition victim.has_nano != true
-    @Condition victim.getHealth().isAtMostPercentOf(10, victim.getMaxHealth())
+    @Condition victim.healthAtMostPercent(10)
 
     damage(victim, attacker, SojournBuff[1])
 

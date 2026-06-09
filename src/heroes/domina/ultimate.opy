@@ -9,7 +9,7 @@ rule "[Domina]: Ultimate":
     #@Condition eventAbility != Button.ABILITY_1
 
     #waitUntil(victim.hasStatus(Status.KNOCKED_DOWN), 0.5)
-    waitUntil(victim.getHealth().isAtMostPercentOf(20, victim.getMaxHealth()), 5)
-    if victim.getHealth().isAtMostPercentOf(20, victim.getMaxHealth()):
+    waitUntil(victim.healthAtMostPercent(20), 5)
+    if victim.healthAtMostPercent(20):
         damage(victim, attacker, DOMINA_ULTIMATE_EXECUTE_DAMAGE)
     wait(1)

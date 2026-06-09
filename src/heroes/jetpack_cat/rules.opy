@@ -19,7 +19,7 @@ rule "[JetpackCat]: Claws Out melee stun":
     @Condition eventAbility == Button.MELEE
     @Condition victim.getTeam() != attacker.getTeam()
     @Condition victim.unaffected != true
-    @Condition (victim.hasStatus(Status.INVINCIBLE) or victim.hasStatus(Status.UNKILLABLE) or victim.hasStatus(Status.PHASED_OUT)) == false
+    @Condition victim.untargetable() != true
 
     victim.setStatusEffect(attacker, Status.STUNNED, JETPACK_CAT_RULES_STUNNED_DURATION)
     heal(eventPlayer, eventPlayer, 25 + eventDamage)

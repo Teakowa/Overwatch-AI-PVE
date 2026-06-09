@@ -26,6 +26,18 @@ macro Number.isAtMostPercentOf(p, base):
 macro Number.isAbovePercentOf(p, base):
     self > base.percentOf(p)
 
+macro Player.maxHealthPercent(percent):
+    self.getMaxHealth().percentOf(percent)
+
+macro Player.healthAtMostPercent(percent):
+    self.getHealth().isAtMostPercentOf(percent, self.getMaxHealth())
+
+macro Player.healthAbovePercent(percent):
+    self.getHealth().isAbovePercentOf(percent, self.getMaxHealth())
+
+macro Player.untargetable():
+    self.hasStatus(Status.INVINCIBLE) or self.hasStatus(Status.UNKILLABLE) or self.hasStatus(Status.PHASED_OUT)
+
 macro Array.first():
     self[0]
 

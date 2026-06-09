@@ -34,7 +34,7 @@ rule "[JetpackCat]: Catnapper bonus max health damage":
     @Hero jetpackCat
     @Condition eventAbility == Button.ULTIMATE
     @Condition victim.getTeam() != attacker.getTeam()
-    @Condition (victim.hasStatus(Status.INVINCIBLE) or victim.hasStatus(Status.UNKILLABLE) or victim.hasStatus(Status.PHASED_OUT)) == false
+    @Condition victim.untargetable() != true
 
     damage(victim, attacker, victim.getMaxHealth().scaledBy(JETPACK_CAT_ARAM_HEALTH_SCALAR))
 
@@ -56,7 +56,7 @@ rule "[JetpackCat]: Claws Out melee stun":
     @Condition eventAbility == Button.MELEE
     @Condition victim.getTeam() != attacker.getTeam()
     @Condition victim.unaffected != true
-    @Condition (victim.hasStatus(Status.INVINCIBLE) or victim.hasStatus(Status.UNKILLABLE) or victim.hasStatus(Status.PHASED_OUT)) == false
+    @Condition victim.untargetable() != true
 
     victim.setStatusEffect(attacker, Status.STUNNED, JETPACK_CAT_ARAM_STUNNED_DURATION)
     heal(eventPlayer, eventPlayer, 25 + eventDamage)

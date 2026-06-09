@@ -18,8 +18,8 @@ rule "[Sojourn] Execution players less 10% HP expectancy":
     @Condition SojournBuff[0] != 0
     @Condition (eventAbility == Button.SECONDARY_FIRE or eventAbility == Button.ULTIMATE) == true
     @Condition victim.zarya_buff[1] == null
-    @Condition (victim.hasStatus(Status.INVINCIBLE) or victim.hasStatus(Status.UNKILLABLE) or victim.hasStatus(Status.PHASED_OUT)) == false
+    @Condition victim.untargetable() != true
     @Condition victim.has_nano != true
-    @Condition victim.getHealth().isAtMostPercentOf(SojournBuff[0] * 100, victim.getMaxHealth())
+    @Condition victim.healthAtMostPercent(SojournBuff[0] * 100)
 
     damage(victim, attacker, SojournBuff[1])

@@ -10,4 +10,4 @@ rule "[Baptiste]: headshot damage":
     @Condition eventWasCriticalHit == true
     @Condition eventAbility == Button.PRIMARY_FIRE
 
-    damage(victim, attacker, ceil(eventDamage + victim.getMaxHealth().percentOf(6)))
+    damage(victim, attacker, ceil(eventDamage + victim.maxHealthPercent(6)))

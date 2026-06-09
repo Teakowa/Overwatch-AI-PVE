@@ -16,6 +16,6 @@ rule "[JetpackCat]: Catnapper bonus max health damage":
     @Hero jetpackCat
     @Condition eventAbility == Button.ULTIMATE
     @Condition victim.getTeam() != attacker.getTeam()
-    @Condition (victim.hasStatus(Status.INVINCIBLE) or victim.hasStatus(Status.UNKILLABLE) or victim.hasStatus(Status.PHASED_OUT)) == false
+    @Condition victim.untargetable() != true
 
     damage(victim, attacker, victim.getMaxHealth().scaledBy(JETPACK_CAT_ULTIMATE_HEALTH_SCALAR))
