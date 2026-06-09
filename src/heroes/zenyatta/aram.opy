@@ -30,7 +30,7 @@ rule "[Zenyatta] remove Snap Kick hp":
 
 rule "[Zenyatta] Snap Kick (enemy)":
     @Event playerReceivedKnockback
-    @Condition attacker.getHero() == Hero.ZENYATTA == true
+    @Condition isHero(attacker, Hero.ZENYATTA)
     @Condition eventAbility == Button.MELEE
 
     heal(attacker, attacker, victim.getMaxHealth().scaledBy(ZENYATTA_ARAM_HEALTH_SCALAR))

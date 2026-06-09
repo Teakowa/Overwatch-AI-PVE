@@ -18,7 +18,7 @@ rule "[Freja]: Revdraw Crossbow Stack":
 
 rule "[Freja]: Revdraw Crossbow Stack":
     @Event playerReceivedKnockback
-    @Condition attacker.getHero() == Hero.FREJA
+    @Condition isHero(attacker, Hero.FREJA)
     @Condition eventAbility == Button.ULTIMATE
 
     victim.freja_mark_count += 40

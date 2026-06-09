@@ -21,7 +21,7 @@ rule "[Ana]: Damage Full Health Allies So Nano Can Heal":
 rule "Has Nano":
     @Event playerReceivedHealing
     @Condition eventAbility == Button.ULTIMATE
-    @Condition healer.getHero() == Hero.ANA
+    @Condition isHero(healer, Hero.ANA)
     @Condition eventPlayer.has_nano != true
 
     eventPlayer.has_nano = true
@@ -32,7 +32,7 @@ rule "[Ana] Nano Boost Healing":
     @Event playerDealtHealing
     @Hero ana
     @Condition eventAbility == Button.ULTIMATE
-    @Condition healer.getHero() == Hero.ANA == true
+    @Condition isHero(healer, Hero.ANA)
     @Condition eventPlayer.has_nano == true
 
     heal(healee, healer, ANA_ARAM_NANO_HEAL)

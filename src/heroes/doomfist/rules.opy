@@ -22,7 +22,7 @@ rule "[Doomfist]: block HUD":
 
 rule "[Doomfist] The Best Defense get armor":
     @Event playerDealtDamage
-    @Condition attacker.getHero() == Hero.DOOMFIST
+    @Condition isHero(attacker, Hero.DOOMFIST)
     @Condition eventAbility in [Button.SECONDARY_FIRE, Button.ABILITY_1, Button.ULTIMATE] == true
 
     attacker.heart_steel[1] += 50

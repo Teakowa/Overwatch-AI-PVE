@@ -6,7 +6,7 @@ playervar doom_buff_hud
 
 rule "[Doomfist] Seismic Slam upper":
     @Event playerTookDamage
-    @Condition attacker.getHero() == Hero.DOOMFIST
+    @Condition isHero(attacker, Hero.DOOMFIST)
     @Condition eventAbility in [Button.SECONDARY_FIRE, Button.ABILITY_1, Button.ULTIMATE] == true
     @Disabled
 

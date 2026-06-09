@@ -40,7 +40,7 @@ rule "[utilities/reset]: reset when died":
 rule "[reset.opy]: Reinitialize hero on new round":
     @Event eachPlayer
     @Condition isMatchBetweenRounds() == true
-    @Condition eventPlayer.getHero() != Hero.SOMBRA
+    @Condition not isHero(eventPlayer, Hero.SOMBRA)
 
     eventPlayer.extra_hero = true
     eventPlayer.aram_extra_pool_applied = false

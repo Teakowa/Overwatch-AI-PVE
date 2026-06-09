@@ -60,7 +60,7 @@ rule "[Brigitte]Rally provides permanent armor to allies":
     @Team 2
     @Condition getPlayersOnHero(Hero.BRIGITTE, eventPlayer.getTeam()).isUsingUltimate() == true
     @Condition distance(eventPlayer, getPlayersOnHero(Hero.BRIGITTE, eventPlayer.getTeam())) <= 8.5
-    @Condition eventPlayer.getHero() != Hero.BRIGITTE
+    @Condition not isHero(eventPlayer, Hero.BRIGITTE)
     @Condition len(eventPlayer.brig_rally_armor_id) < 9
     @Disabled
 

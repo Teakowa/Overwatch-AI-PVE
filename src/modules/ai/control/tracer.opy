@@ -58,10 +58,9 @@ rule "[AI/control]: Tracer Recall (Remove Pluse Bomb)":
     @Team 1
     @Hero tracer
     @Condition eventAbility == Button.ABILITY_2
-    @Condition attacker.getHero() == Hero.TRACER == true
+    @Condition isHero(attacker, Hero.TRACER)
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) == 0
     
     eventPlayer.forceButtonPress(Button.ABILITY_2)
     wait(max(getAverageServerLoad() / 1000, 0.1))
-
 

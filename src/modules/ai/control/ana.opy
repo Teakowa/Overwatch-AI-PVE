@@ -34,7 +34,7 @@ rule "[AI/control]: Ana Sleep Drat Counter":
     #botAim2Target()
     #eventPlayer.startFacing(updateEveryFrame(directionTowards(eventPlayer.getEyePosition(), eventPlayer.botTarget.getPosition() + eventPlayer.botTarget.getVelocity() * distance(eventPlayer.getEyePosition(), eventPlayer.botTarget.getPosition()) / ProjectileSpeed[eventPlayer.heroNum])), 10000)
     eventPlayer.setProjectileSpeed(125)
-    if eventPlayer.botTarget.getHero() == Hero.GENJI:
+    if isHero(eventPlayer.botTarget, Hero.GENJI):
         waitUntil(eventPlayer.botTarget.isUsingAbility1(), 0.096)
         eventPlayer.setFacing(directionTowards(eventPlayer.getEyePosition(), eventPlayer.botTarget.getEyePosition()), Relativity.TO_WORLD)
     eventPlayer.forceButtonPress(Button.ABILITY_1)
@@ -43,6 +43,5 @@ rule "[AI/control]: Ana Sleep Drat Counter":
     eventPlayer.stopFacing()
     eventPlayer.setProjectileSpeed(100)
     eventPlayer.botTarget = null
-
 
 

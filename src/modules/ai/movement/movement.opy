@@ -25,9 +25,9 @@ rule "[AI/Movement]: Strafing":
     @Event eachPlayer
     @Team 1
     @Condition eventPlayer.isAlive() == true
-    @Condition eventPlayer.getHero() != Hero.ILLARI
-    @Condition eventPlayer.getHero() != Hero.ECHO
-    @Condition eventPlayer.getHero() != Hero.GENJI
+    @Condition not isHero(eventPlayer, Hero.ILLARI)
+    @Condition not isHero(eventPlayer, Hero.ECHO)
+    @Condition not isHero(eventPlayer, Hero.GENJI)
     @Condition len(getPlayersInRadius(eventPlayer, 22, getOppositeTeam(eventPlayer.getTeam()))) > 0
     
     eventPlayer.startThrottleInDirection(random.choice([Vector.LEFT, Vector.RIGHT]), 1, Relativity.TO_PLAYER)
@@ -63,7 +63,7 @@ rule "[AI/Movement]: Jump Crouch":
     if random.randint(1, 100) <= 33:
         goto lbl_0
     eventPlayer.startForcingButton(Button.CROUCH)
-    if eventPlayer.getHero() != Hero.BAPTISTE:
+    if not isHero(eventPlayer, Hero.BAPTISTE):
         goto lbl_1
     wait(random.uniform(0.25, 0.3))
     eventPlayer.forceButtonPress(Button.JUMP)
@@ -76,7 +76,7 @@ rule "[AI/Movement]: Jump Crouch":
     if eventPlayer.getHero() == Hero.WIDOWMAKER and eventPlayer.isFiringSecondaryFire():
         goto lbl_3
     eventPlayer.forceButtonPress(Button.JUMP)
-    if eventPlayer.getHero() == Hero.HANZO:
+    if isHero(eventPlayer, Hero.HANZO):
         wait(0.5)
         eventPlayer.forceButtonPress(Button.JUMP)
     lbl_2:

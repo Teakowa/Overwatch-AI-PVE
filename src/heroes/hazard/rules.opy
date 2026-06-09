@@ -9,7 +9,7 @@ playervar hazard_hp_id
 rule "[Hazard]: Spike Guard cd":
     @Event playerDealtDamage
     @Hero hazard
-    @Condition attacker.getHero() == Hero.HAZARD
+    @Condition isHero(attacker, Hero.HAZARD)
     @Condition eventAbility == Button.SECONDARY_FIRE
     @Condition HazardBuff[0] != 0
 

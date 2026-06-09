@@ -18,7 +18,7 @@ rule "[Zenyatta]: headshot damage":
 rule "[Zenyatta] Snap Kick (enemy)":
     @Event playerTookDamage
     @Condition eventAbility == Button.MELEE
-    @Condition attacker.getHero() == Hero.ZENYATTA == true
+    @Condition isHero(attacker, Hero.ZENYATTA)
 
     eventPlayer.KnockbackDirection = directionFromAngles(attacker.getHorizontalFacingAngle(), -10)
     eventPlayer.startForcingThrottle(0, 0, 0, 0, 0, 0.5)

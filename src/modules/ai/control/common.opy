@@ -19,7 +19,7 @@ rule "[AI]: Target in line of sight":
     if len(eventPlayer.botTemp) > 1:
         eventPlayer.botTemp = sorted(eventPlayer.botTemp, lambda player: player.getHealth() * distance(eventPlayer, player))
         wait()
-    eventPlayer.botTarget = eventPlayer.botTemp.frist()
+    eventPlayer.botTarget = eventPlayer.botTemp.first()
     lbl_0:
     wait(max(getAverageServerLoad() / 1000, 0.512))
     if ruleCondition:
@@ -37,4 +37,3 @@ rule "[AI]: Target increase aim to prep for flicking to a target entering range"
     @Condition eventPlayer.botTarget != null
     
     botAim2Target()
-

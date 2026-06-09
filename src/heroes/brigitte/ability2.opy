@@ -13,7 +13,7 @@ rule "【布丽吉塔】恢复包选中目标":
 rule "【布丽吉塔】恢复包提供护甲":
     @Event eachPlayer
     @Condition Brigitte[1] != 0
-    @Condition eventPlayer.getHero() != Hero.BRIGITTE
+    @Condition not isHero(eventPlayer, Hero.BRIGITTE)
     @Condition (eventPlayer.isAlive() and eventPlayer.repair_pack_pending) == true
 
     eventPlayer.repair_pack_pending = false

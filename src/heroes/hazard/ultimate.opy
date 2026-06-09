@@ -5,7 +5,7 @@ rule "[Hazard]: stun Downpour":
     @Event playerTookDamage
     @Condition HazardBuff[10] == true
     @Condition eventAbility == Button.ULTIMATE
-    @Condition attacker.getHero() == Hero.HAZARD
+    @Condition isHero(attacker, Hero.HAZARD)
     @Condition attacker.getUltCharge() < HazardBuff[11] * 6
     @Disabled
 

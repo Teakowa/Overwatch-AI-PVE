@@ -18,7 +18,7 @@ rule "[widowmaker.opy]: Infra-Sight headshot":
 rule "[widowmaker.opy]: Revert sniper damage falloff":
     @Event playerDealtDamage
     @Hero widowmaker
-    @Condition eventPlayer.getHero() == Hero.WIDOWMAKER == true
+    @Condition isHero(eventPlayer, Hero.WIDOWMAKER)
     @Condition eventPlayer.isFiringSecondaryFire() == true
     @Condition eventPlayer.isFiringPrimaryFire() == true
     @Condition eventAbility == Button.PRIMARY_FIRE

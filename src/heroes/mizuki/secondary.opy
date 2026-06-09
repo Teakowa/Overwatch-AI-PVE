@@ -1,11 +1,10 @@
-
 #!mainFile "../../main.opy"
 
 #!optimizeStrict
 
 rule "[Mizuki]: Soul Hat bonus heal and cooldown refund":
     @Event playerReceivedHealing
-	@Condition healer.getHero() == Hero.MIZUKI
+	@Condition isHero(healer, Hero.MIZUKI)
     @Condition eventAbility == Button.SECONDARY_FIRE
     @Condition healee != healer
 

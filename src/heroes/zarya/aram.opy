@@ -13,7 +13,7 @@ rule "[Zarya]: Projected Barrier Target":
 
 rule "[Zarya]: Projected Barrier Shields":
     @Event eachPlayer
-    @Condition eventPlayer.getHero() != Hero.ZARYA
+    @Condition not isHero(eventPlayer, Hero.ZARYA)
     @Condition (eventPlayer.isAlive() and eventPlayer.zarya_barrier_shields[0]) == true
 
     if eventPlayer.mauga_berserker_soul == true:
@@ -36,7 +36,7 @@ rule "[Zarya]: will to win":
     @Hero zarya
     @Condition eventPlayer.reset_pvar[0] == false
     @Condition eventPlayer.isInSpawnRoom() != true
-    @Condition eventPlayer.getHero() == Hero.ZARYA
+    @Condition isHero(eventPlayer, Hero.ZARYA)
     @Condition ZaryaBuff[2] == true
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.zarya_buff[0] == true
