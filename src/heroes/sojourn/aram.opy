@@ -8,9 +8,9 @@ rule "[Sojourn] Overclock Buff":
     @Hero sojourn
     @Condition eventPlayer.isUsingUltimate() == true
 
-    SojournBuff[0] += 0.05
+    SojournBuff[0] += 5
     waitUntil(not eventPlayer.isUsingUltimate(), 10)
-    SojournBuff[0] -= 0.05
+    SojournBuff[0] -= 5
 
 rule "[Sojourn] Execution players less 10% HP expectancy":
     @Event playerDealtDamage
@@ -20,6 +20,6 @@ rule "[Sojourn] Execution players less 10% HP expectancy":
     @Condition victim.zarya_buff[1] == null
     @Condition victim.untargetable() != true
     @Condition victim.has_nano != true
-    @Condition victim.healthAtMostPercent(SojournBuff[0] * 100)
+    @Condition victim.healthAtMostPercent(SojournBuff[0])
 
     damage(victim, attacker, SojournBuff[1])

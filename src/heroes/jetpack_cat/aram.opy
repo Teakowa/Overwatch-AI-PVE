@@ -36,7 +36,7 @@ rule "[JetpackCat]: Catnapper bonus max health damage":
     @Condition victim.getTeam() != attacker.getTeam()
     @Condition victim.untargetable() != true
 
-    damage(victim, attacker, victim.getMaxHealth().scaledBy(JETPACK_CAT_ARAM_HEALTH_SCALAR))
+    damage(victim, attacker, victim.maxHealthPercent(JETPACK_CAT_ARAM_MAX_HEALTH_PERCENT))
 
 rule "[JetpackCat]: Frenetic Flight fuel regeneration":
     @Event eachPlayer

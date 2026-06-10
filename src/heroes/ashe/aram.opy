@@ -10,7 +10,7 @@ rule "[Ashe]: Dynamite Damage":
     @Condition attacker != victim
 
     victim.burn_stack += 3
-    # damage(victim, attacker, victim.getMaxHealth() * ASHE_ARAM_HEALTH_SCALAR)
-    victim.startDamageOverTime(attacker, ASHE_ARAM_DOT_DURATION, victim.maxHealthPercent(12.5))
+    # damage(victim, attacker, victim.maxHealthPercent(ASHE_ARAM_MAX_HEALTH_PERCENT))
+    victim.startDamageOverTime(attacker, ASHE_ARAM_DOT_DURATION, victim.maxHealthPercent(ASHE_ARAM_MAX_HEALTH_PERCENT))
     attacker.setAbilityCooldown(Button.ABILITY_2, attacker.getAbilityCooldown(Button.ABILITY_2).percentOf(50))
     wait(3)

@@ -62,7 +62,7 @@ rule "[Freja]: Ex":
     @Condition (victim.hasStatus(Status.INVINCIBLE) or victim.hasStatus(Status.UNKILLABLE) or victim.hasStatus(Status.PHASED_OUT) or not victim.has_nano) == false
     #@Condition victim.freja_mark_count > 0
 
-    if not victim.isAlive() or victim.healthAbovePercent(FrejaBuff[2] * 100):
+    if not victim.isAlive() or victim.healthAbovePercent(FrejaBuff[2]):
         goto lbl_0
     damage(victim, attacker, FREJA_RULES_EXECUTE_DAMAGE)
     smallMessage(eventPlayer, "  斩杀： {0} ".format(heroIcon(victim.getHero())))

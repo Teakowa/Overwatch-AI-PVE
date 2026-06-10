@@ -66,7 +66,7 @@ rule "[Soldier: 76]: 辅助攻击燃烧":
 
     victim.setStatusEffect(attacker, Status.BURNING, S76Buff[4])
     victim.burn_stack += S76Buff[4]
-    damage(victim, attacker, attacker.getMaxHealth().scaledBy(S76Buff[3]))
+    damage(victim, attacker, attacker.maxHealthPercent(S76Buff[3]))
 
 rule "[Soldier: 76]: 治疗":
     @Event eachPlayer
@@ -75,7 +75,7 @@ rule "[Soldier: 76]: 治疗":
     @Condition eventPlayer.isAlive() == true
 
     wait(0.16, Wait.ABORT_WHEN_FALSE)
-    heal(eventPlayer, eventPlayer, eventPlayer.getMaxHealth().scaledBy(SOLDIER76_ARAM_HEALTH_SCALAR))
+    heal(eventPlayer, eventPlayer, eventPlayer.maxHealthPercent(SOLDIER76_ARAM_MAX_HEALTH_PERCENT))
 
 rule "[Soldier: 76]: fly":
     @Event eachPlayer

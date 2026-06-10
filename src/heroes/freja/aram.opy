@@ -35,7 +35,7 @@ rule "[Freja]: Take Aim Damage":
     wait(0.5, Wait.ABORT_WHEN_FALSE)
     playEffect(getAllPlayers(), DynamicEffect.BAD_EXPLOSION, Color.BLUE, victim, 0.8)
     playEffect(getAllPlayers(), DynamicEffect.EXPLOSION_SOUND, Color.BLUE, victim, 10)
-    damage(victim, attacker, FrejaBuff[0] * victim.freja_mark_count + victim.getMaxHealth().scaledBy(FrejaBuff[1]))
+    damage(victim, attacker, FrejaBuff[0] * victim.freja_mark_count + victim.maxHealthPercent(FrejaBuff[1]))
     victim.freja_mark_count = 0
     victim.freja_mark_snapshot = 0
 
@@ -66,7 +66,7 @@ rule "[Freja]: Ex":
     @Condition victim.untargetable() != true
     @Condition victim.has_nano != true
 
-    if not victim.isAlive() or victim.healthAbovePercent(FrejaBuff[2] * 100):
+    if not victim.isAlive() or victim.healthAbovePercent(FrejaBuff[2]):
         goto lbl_0
     damage(victim, attacker, FREJA_ARAM_EXECUTE_DAMAGE)
     smallMessage(eventPlayer, "  斩杀： {0} ".format(heroIcon(victim.getHero())))

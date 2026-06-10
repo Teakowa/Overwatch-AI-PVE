@@ -18,4 +18,4 @@ rule "[JetpackCat]: Catnapper bonus max health damage":
     @Condition victim.getTeam() != attacker.getTeam()
     @Condition victim.untargetable() != true
 
-    damage(victim, attacker, victim.getMaxHealth().scaledBy(JETPACK_CAT_ULTIMATE_HEALTH_SCALAR))
+    damage(victim, attacker, victim.maxHealthPercent(JETPACK_CAT_ULTIMATE_MAX_HEALTH_PERCENT))

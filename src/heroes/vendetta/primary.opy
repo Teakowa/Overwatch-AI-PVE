@@ -15,7 +15,7 @@ rule "[Vendetta]: Palatine Fang":
         goto lbl_1
     eventPlayer.setAbilityCooldown(Button.ABILITY_2, eventPlayer.getAbilityCooldown(Button.ABILITY_2) - 1)
     lbl_1:
-    damage(victim, attacker, victim.getMaxHealth().scaledBy(VendettaBuff[0]) if victim.getHealthOfType(Health.ARMOR) == 0 else victim.getMaxHealth().scaledBy(VendettaBuff[1]))
+    damage(victim, attacker, victim.maxHealthPercent(VendettaBuff[0]) if victim.getHealthOfType(Health.ARMOR) == 0 else victim.maxHealthPercent(VendettaBuff[1]))
     wait()
-    heal(eventPlayer, eventPlayer, eventPlayer.getMaxHealth().scaledBy(VendettaBuff[6]))
+    heal(eventPlayer, eventPlayer, eventPlayer.maxHealthPercent(VendettaBuff[6]))
     wait(0.032)

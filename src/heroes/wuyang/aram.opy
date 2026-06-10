@@ -11,4 +11,4 @@ rule "[Wuyang]: ult dmg":
     @Hero wuyang
     @Condition eventAbility == Button.ULTIMATE
     
-    damage(victim, attacker, victim.getMaxHealth().scaledBy(WUYANG_ARAM_HEALTH_SCALAR))
+    damage(victim, attacker, victim.maxHealthPercent(WUYANG_ARAM_MAX_HEALTH_PERCENT))

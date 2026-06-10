@@ -9,7 +9,7 @@ rule "[Genji] Dragonblade Healing":
     @Condition eventAbility == Button.ULTIMATE
 
     heal(eventPlayer, eventPlayer, eventDamage)
-    damage(victim, attacker, eventPlayer.getMaxHealth().scaledBy(GENJI_ARAM_HEALTH_SCALAR))
+    damage(victim, attacker, eventPlayer.maxHealthPercent(GENJI_ARAM_MAX_HEALTH_PERCENT))
     wait(0.16)
 
 rule "[Genji] Dragonblade Execution players less 10% HP expectancy":
