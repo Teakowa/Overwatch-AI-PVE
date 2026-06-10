@@ -1,0 +1,5 @@
+#!mainFile "../../main.opy"
+
+macro INIT_HANZO_WORKSHOP_SETTINGS():
+    HanzoBuff[0] = createWorkshopSettingInt("英雄：半藏", "暴击额外伤害", HANZO_HEADSHOT_BONUS_DAMAGE_DEFAULT, HANZO_HEADSHOT_BONUS_DAMAGE_MIN, HANZO_HEADSHOT_BONUS_DAMAGE_MAX, 107)
+

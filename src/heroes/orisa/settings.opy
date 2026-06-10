@@ -1,0 +1,7 @@
+#!mainFile "../../main.opy"
+
+macro INIT_ORISA_WORKSHOP_SETTINGS():
+    Orisa_Fortify[0] = createWorkshopSettingInt("英雄：奥丽莎", "强固防御：获得的临时护甲", ORISA_FORTIFY_OVERHEALTH_DEFAULT, ORISA_FORTIFY_OVERHEALTH_MIN, ORISA_FORTIFY_OVERHEALTH_MAX, 50)
+    Orisa_Fortify[1] = createWorkshopSettingInt("英雄：奥丽莎", "强固防御：反弹伤害比例", ORISA_FORTIFY_RICOCHET_PERCENT_DEFAULT, ORISA_FORTIFY_RICOCHET_PERCENT_MIN, ORISA_FORTIFY_RICOCHET_PERCENT_MAX, 51)
+    Orisa_Fortify[2] = createWorkshopSettingInt("英雄：奥丽莎", "能量标枪：使敌人减速 %", ORISA_JAVELIN_SLOW_PERCENT_DEFAULT, ORISA_JAVELIN_SLOW_PERCENT_MIN, ORISA_JAVELIN_SLOW_PERCENT_MAX, 31)
+

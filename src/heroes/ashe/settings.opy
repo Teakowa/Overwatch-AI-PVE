@@ -1,0 +1,5 @@
+#!mainFile "../../main.opy"
+
+macro INIT_ASHE_WORKSHOP_SETTINGS():
+    HeadshotDamage[1] = createWorkshopSettingFloat("暴击倍率", "艾什：暴击倍率", ASHE_HEADSHOT_MULTIPLIER_PERCENT_DEFAULT, ASHE_HEADSHOT_MULTIPLIER_PERCENT_MIN, ASHE_HEADSHOT_MULTIPLIER_PERCENT_MAX, 107) / 100
+

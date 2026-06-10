@@ -1,0 +1,5 @@
+#!mainFile "../../main.opy"
+
+macro INIT_ILLARI_WORKSHOP_SETTINGS():
+    IllariBuff = createWorkshopSettingFloat("英雄：伊拉锐", "桎梏灼日 额外伤害增幅 %", ILLARI_CAPTIVE_SUN_DAMAGE_AMP_PERCENT_DEFAULT, ILLARI_CAPTIVE_SUN_DAMAGE_AMP_PERCENT_MIN, ILLARI_CAPTIVE_SUN_DAMAGE_AMP_PERCENT_MAX, 118)
+

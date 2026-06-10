@@ -1,0 +1,6 @@
+#!mainFile "../../main.opy"
+
+macro INIT_SOLDIER76_WORKSHOP_SETTINGS():
+    S76Buff[0] = createWorkshopSettingInt("英雄：士兵 76", "辅助攻击：燃烧持续时间", SOLDIER76_HELIX_BURN_DURATION_DEFAULT, SOLDIER76_HELIX_BURN_DURATION_MIN, SOLDIER76_HELIX_BURN_DURATION_MAX, 124)
+    S76Buff[1] = createWorkshopSettingInt("英雄：士兵 76", "辅助攻击：额外伤害", SOLDIER76_HELIX_BONUS_DAMAGE_DEFAULT, SOLDIER76_HELIX_BONUS_DAMAGE_MIN, SOLDIER76_HELIX_BONUS_DAMAGE_MAX, 125)
+

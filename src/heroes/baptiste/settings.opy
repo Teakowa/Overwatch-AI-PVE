@@ -1,0 +1,5 @@
+#!mainFile "../../main.opy"
+
+macro INIT_BAPTISTE_WORKSHOP_SETTINGS():
+    BaptisteBuff[0] = createWorkshopSettingInt("英雄：巴蒂斯特", "暴击额外伤害", BAPTISTE_HEADSHOT_BONUS_DAMAGE_DEFAULT, BAPTISTE_HEADSHOT_BONUS_DAMAGE_MIN, BAPTISTE_HEADSHOT_BONUS_DAMAGE_MAX, 110)
+

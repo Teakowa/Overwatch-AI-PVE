@@ -1,0 +1,5 @@
+#!mainFile "../../main.opy"
+
+macro INIT_SOMBRA_WORKSHOP_SETTINGS():
+    SombraBuff[0] = createWorkshopSettingInt("英雄：黑影", "黑客入侵减少治疗量 %", SOMBRA_HACK_HEAL_REDUCTION_PERCENT_DEFAULT, SOMBRA_HACK_HEAL_REDUCTION_PERCENT_MIN, SOMBRA_HACK_HEAL_REDUCTION_PERCENT_MAX, 111)
+

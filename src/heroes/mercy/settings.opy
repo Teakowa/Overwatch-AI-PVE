@@ -1,0 +1,5 @@
+#!mainFile "../../main.opy"
+
+macro INIT_MERCY_WORKSHOP_SETTINGS():
+    MercyBuff[0] = createWorkshopSettingInt("英雄：天使", "女武神：伤害减免", MERCY_VALKYRIE_DAMAGE_REDUCTION_DEFAULT, MERCY_VALKYRIE_DAMAGE_REDUCTION_MIN, MERCY_VALKYRIE_DAMAGE_REDUCTION_MAX, 40)
+
