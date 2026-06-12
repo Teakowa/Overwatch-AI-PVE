@@ -6,8 +6,8 @@
 rule "[Baptiste]: headshot damage":
     @Event playerDealtDamage
     @Hero baptiste
-    # @Condition HeadshotDamage[4] > 1
+    @Condition HeadshotDamage[4] > 0
     @Condition eventWasCriticalHit == true
     @Condition eventAbility == Button.PRIMARY_FIRE
 
-    damage(victim, attacker, ceil(eventDamage + victim.maxHealthPercent(6)))
+    damage(victim, attacker, ceil(eventDamage + victim.maxHealthPercent(HeadshotDamage[4])))

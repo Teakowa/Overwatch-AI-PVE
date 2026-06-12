@@ -7,4 +7,4 @@ rule "[Echo] Duplicate fast ultimate charge":
     @Condition eventPlayer.isDuplicatingAHero() == true
     @Condition eventPlayer.getUltCharge() < 50 == true
 
-    eventPlayer.setUltCharge(10)
+    eventPlayer.setUltCharge(EchoBuff[1])

@@ -1,32 +1,7 @@
 #!mainFile "../../aramMain.opy"
 #!optimizeStrict
 
-#!include "../../heroes/brigitte/settings.aram.opy"
-#!include "../../heroes/mercy/settings.opy"
-#!include "../../heroes/hazard/settings.aram.opy"
-#!include "../../heroes/orisa/settings.aram.opy"
-#!include "../../heroes/genji/settings.opy"
-#!include "../../heroes/zenyatta/settings.opy"
-#!include "../../heroes/ramattra/settings.aram.opy"
-#!include "../../heroes/ana/settings.aram.opy"
-#!include "../../heroes/sojourn/settings.opy"
-#!include "../../heroes/sombra/settings.opy"
-#!include "../../heroes/tracer/settings.opy"
-#!include "../../heroes/zarya/settings.aram.opy"
-#!include "../../heroes/illari/settings.opy"
-#!include "../../heroes/reaper/settings.opy"
-#!include "../../heroes/mauga/settings.opy"
-#!include "../../heroes/soldier76/settings.aram.opy"
-#!include "../../heroes/sigma/settings.aram.opy"
-#!include "../../heroes/juno/settings.opy"
-#!include "../../heroes/doomfist/settings.opy"
-#!include "../../heroes/freja/settings.opy"
-#!include "../../heroes/wuyang/settings.opy"
-#!include "../../heroes/hanzo/settings.aram.opy"
-#!include "../../heroes/baptiste/settings.aram.opy"
-#!include "../../heroes/ashe/settings.opy"
-#!include "../../heroes/kiriko/settings.opy"
-#!include "../../heroes/vendetta/settings.opy"
+#!include "../../heroes/settings.aram.opy"
 
 rule "Initialize Hero Ability Settings":
     INIT_BRIGITTE_WORKSHOP_SETTINGS()
@@ -55,3 +30,26 @@ rule "Initialize Hero Ability Settings":
     INIT_ASHE_WORKSHOP_SETTINGS()
     INIT_KIRIKO_WORKSHOP_SETTINGS()
     INIT_VENDETTA_WORKSHOP_SETTINGS()
+    INIT_CASSIDY_WORKSHOP_SETTINGS()
+    INIT_LUCIO_WORKSHOP_SETTINGS()
+    INIT_JUNKRAT_WORKSHOP_SETTINGS()
+    INIT_MOIRA_WORKSHOP_SETTINGS()
+    INIT_REINHARDT_WORKSHOP_SETTINGS()
+    INIT_VENTURE_WORKSHOP_SETTINGS()
+    INIT_WRECKING_BALL_WORKSHOP_SETTINGS()
+    INIT_ANRAN_WORKSHOP_SETTINGS()
+    INIT_BASTION_WORKSHOP_SETTINGS()
+    INIT_DOMINA_WORKSHOP_SETTINGS()
+    INIT_ECHO_WORKSHOP_SETTINGS()
+    INIT_EMRE_WORKSHOP_SETTINGS()
+    INIT_JETPACK_CAT_WORKSHOP_SETTINGS()
+    INIT_JUNKER_QUEEN_WORKSHOP_SETTINGS()
+    INIT_LIFEWEAVER_WORKSHOP_SETTINGS()
+    INIT_MEI_WORKSHOP_SETTINGS()
+    INIT_MIZUKI_WORKSHOP_SETTINGS()
+    INIT_PHARAH_WORKSHOP_SETTINGS()
+    INIT_ROADHOG_WORKSHOP_SETTINGS()
+    INIT_SIERRA_WORKSHOP_SETTINGS()
+    INIT_TORBJORN_WORKSHOP_SETTINGS()
+    INIT_WIDOWMAKER_WORKSHOP_SETTINGS()
+    INIT_WINSTON_WORKSHOP_SETTINGS()

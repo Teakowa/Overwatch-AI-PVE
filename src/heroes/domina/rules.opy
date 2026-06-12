@@ -6,7 +6,7 @@ rule "[Domina]: Primary File":
     @Hero domina
     @Condition eventAbility == null
     
-    damage(victim, attacker, victim.maxHealthPercent(DOMINA_RULES_MAX_HEALTH_PERCENT))
+    damage(victim, attacker, victim.maxHealthPercent(DominaBuff[0]))
     eventPlayer.setAbilityCooldown(Button.SECONDARY_FIRE, eventPlayer.getAbilityCooldown(Button.SECONDARY_FIRE) - 1)
     wait(1)
 

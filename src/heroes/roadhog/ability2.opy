@@ -8,7 +8,7 @@ rule "[Roadhog]: Breather":
     @Condition eventPlayer.isUsingAbility2() == true
     @Condition eventPlayer.getNormalizedHealth() < 1
 
-    heal(getLivingPlayers(eventPlayer.getTeam()), eventPlayer, ROADHOG_ABILITY2_HEAL)
+    heal(getLivingPlayers(eventPlayer.getTeam()), eventPlayer, RoadhogBuff[0])
     wait(1)
     if ruleCondition:
         loop()

@@ -6,7 +6,6 @@ playervar hack_timer
 playervar sombra_buff
 playervar healing_increase
 playervar healing_decrease
-playervar vendetta_hud
 
 rule "[Sombra]: AI Auto use Translocator":
     @Event eachPlayer
@@ -22,7 +21,6 @@ rule "[Sombra]: AI Auto use Translocator":
 rule "[Sombra]: Apply OW1 hack on top of OW2 hack":
     @Event eachPlayer
     @Condition eventPlayer.hasStatus(Status.HACKED) == true
-    @Condition eventPlayer.vendetta_hud != true
 
     stopChasingVariable(eventPlayer.hack_timer)
     eventPlayer.setStatusEffect(eventPlayer.reset_pvar[6], Status.HACKED, 4 if eventPlayer.getTeam() == Team.1 else 6)

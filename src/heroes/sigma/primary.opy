@@ -6,7 +6,7 @@ rule "[Sigma]: Hyperspheres Layer Damage":
     @Event playerDealtKnockback
     @Hero sigma
     @Condition SigmaBuff[0] != 0
-    @Condition eventPlayer.sigma_hyperspheres < SigmaBuff[1]
+    @Condition eventPlayer.sigma_hyperspheres < 3
     @Condition eventAbility == Button.PRIMARY_FIRE
 
     eventPlayer.sigma_hyperspheres++
@@ -17,7 +17,7 @@ rule "[Sigma]: Hyperspheres Layer Damage":
     @Event playerDealtKnockback
     @Hero sigma
     @Condition SigmaBuff[0] != 0
-    @Condition eventPlayer.sigma_hyperspheres == SigmaBuff[1]
+    @Condition eventPlayer.sigma_hyperspheres == 3
     @Condition eventAbility == Button.PRIMARY_FIRE
 
     eventPlayer.sigma_hyperspheres = 0

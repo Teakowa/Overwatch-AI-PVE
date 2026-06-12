@@ -3,7 +3,6 @@
 
 
 playervar hack_timer
-playervar vendetta_hud
 
 rule "[Sombra]: kiil reset cooldown":
     @Event playerEarnedElimination
@@ -18,7 +17,6 @@ rule "[Sombra]: kiil reset cooldown":
 rule "[Sombra]: Apply OW1 hack on top of OW2 hack":
     @Event eachPlayer
     @Condition eventPlayer.hasStatus(Status.HACKED) == true
-    @Condition eventPlayer.vendetta_hud != true
 
     stopChasingVariable(eventPlayer.hack_timer)
     eventPlayer.setStatusEffect(eventPlayer.reset_pvar[6], Status.HACKED, SOMBRA_ARAM_HACKED_DURATION)

@@ -7,7 +7,7 @@ rule "[Roadhog]: Hogdrogen Exposure":
     @Condition eventPlayer.isFiringSecondaryFire() == true
     @Condition eventAbility == Button.SECONDARY_FIRE
 
-    heal(healee, healer, ROADHOG_ARAM_SECONDARY_FIRE_HEAL)
+    heal(healee, healer, RoadhogBuff[1])
     wait(0.5)
 
 rule "[Roadhog]: Breather":
@@ -17,7 +17,7 @@ rule "[Roadhog]: Breather":
     @Condition eventPlayer.isUsingAbility2() == true
     @Condition eventPlayer.getNormalizedHealth() < 1
 
-    heal(getLivingPlayers(eventPlayer.getTeam()), eventPlayer, ROADHOG_ARAM_ABILITY2_HEAL)
+    heal(getLivingPlayers(eventPlayer.getTeam()), eventPlayer, RoadhogBuff[0])
     wait(0.65)
     if ruleCondition:
         loop()

@@ -10,4 +10,4 @@ rule "[widowmaker.opy]: Infra-Sight headshot x3":
     @Condition eventPlayer.isFiringPrimaryFire() == true
     @Condition eventAbility == Button.PRIMARY_FIRE
 
-    damage(victim, attacker, (3 / 2.5 - 1) * eventDamage)
+    damage(victim, attacker, (WidowmakerBuff[0] / 2.5 - 1) * eventDamage)

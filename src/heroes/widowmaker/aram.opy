@@ -12,7 +12,7 @@ rule "[widowmaker.opy]: Infra-Sight headshot":
 
     if eventWasCriticalHit != true:
         goto lbl_0
-    damage(victim, attacker, victim.maxHealthPercent(90 if eventPlayer.isUsingUltimate() == true else 50))
+    damage(victim, attacker, victim.maxHealthPercent(WidowmakerBuff[1] if eventPlayer.isUsingUltimate() == true else WidowmakerBuff[0]))
     lbl_0:
 
 rule "[widowmaker.opy]: Revert sniper damage falloff":

@@ -3,8 +3,8 @@
 rule "[Hanzo]: headshot damage":
     @Event playerDealtDamage
     @Hero hanzo
-    # @Condition HeadshotDamage[3] > 2
+    @Condition HeadshotDamage[3] > 0
     @Condition eventWasCriticalHit == true
 
-    damage(victim, attacker, ceil(victim.maxHealthPercent(8)))
+    damage(victim, attacker, ceil(victim.maxHealthPercent(HeadshotDamage[3])))
     wait()

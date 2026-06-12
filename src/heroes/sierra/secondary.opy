@@ -25,7 +25,7 @@ rule "[Sierra]: secondary target damage amp":
 
     if eventPlayer.dmg_amplification != null:
         stopDamageModification(eventPlayer.dmg_amplification)
-    startDamageModification([eventPlayer.sierra_buff], eventPlayer, 150, DamageReeval.RECEIVERS_AND_DAMAGERS)
+    startDamageModification([eventPlayer.sierra_buff], eventPlayer, SierraBuff[1], DamageReeval.RECEIVERS_AND_DAMAGERS)
     eventPlayer.dmg_amplification = getLastDamageModification()
     wait(3)
     if ruleCondition:

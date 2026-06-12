@@ -8,7 +8,7 @@ rule "[Torbjörn]: Forge Hammer":
     @Hero torbjorn
     @Condition (eventPlayer.isInAlternateForm() and eventPlayer.getCurrentWeapon() == 2) == true
 
-    eventPlayer.setDamageDealt(TORBJORN_ARAM_DAMAGE_DEALT)
+    eventPlayer.setDamageDealt(TorbjornBuff[0])
     waitUntil(not (eventPlayer.isInAlternateForm() and eventPlayer.getCurrentWeapon() == 2), 999999986991104)
     eventPlayer.setDamageDealt(100)
     wait(1)

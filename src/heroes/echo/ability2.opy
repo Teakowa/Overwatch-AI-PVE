@@ -8,6 +8,6 @@ rule "[Echo]: Focusing Beam Damage":
     @Condition eventPlayer.isUsingAbility2() == true
 
     wait(1, Wait.ABORT_WHEN_FALSE)
-    eventPlayer.setDamageDealt(ECHO_ABILITY2_DAMAGE_DEALT)
+    eventPlayer.setDamageDealt(EchoBuff[0])
     waitUntil(not eventPlayer.isUsingAbility2(), 2)
     eventPlayer.setDamageDealt(100)

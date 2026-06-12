@@ -9,7 +9,7 @@ rule "[Mei]: Endothermic Blaster":
     @Condition eventWasCriticalHit == true
     @Condition eventAbility == Button.SECONDARY_FIRE
 
-    victim.setStatusEffect(attacker, Status.FROZEN, MEI_ARAM_FROZEN_DURATION)
+    victim.setStatusEffect(attacker, Status.FROZEN, MeiBuff[0])
     wait(0.2)
 # mei aram-only ice move
 
@@ -19,7 +19,7 @@ rule "[Mei]: Ice move":
     @Condition eventPlayer.isUsingAbility1() == true
     @Condition eventPlayer.isHoldingButton(Button.JUMP) == true
 
-    eventPlayer.applyImpulse(eventPlayer.getFacingDirection(), MEI_ARAM_IMPULSE, Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
+    eventPlayer.applyImpulse(eventPlayer.getFacingDirection(), MeiBuff[1], Relativity.TO_WORLD, Impulse.CANCEL_CONTRARY_MOTION)
     wait()
     if ruleCondition:
         loop()

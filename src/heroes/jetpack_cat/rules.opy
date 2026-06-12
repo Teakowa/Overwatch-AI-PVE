@@ -21,7 +21,7 @@ rule "[JetpackCat]: Claws Out melee stun":
     @Condition victim.unaffected != true
     @Condition victim.untargetable() != true
 
-    victim.setStatusEffect(attacker, Status.STUNNED, JETPACK_CAT_RULES_STUNNED_DURATION)
+    victim.setStatusEffect(attacker, Status.STUNNED, JetpackCatBuff[3])
     heal(eventPlayer, eventPlayer, 25 + eventDamage)
 
 #!include "ability1.opy"

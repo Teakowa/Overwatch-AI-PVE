@@ -14,6 +14,6 @@ rule "[Lifeweaver]: Life Grip Healing":
         goto lbl_0
     resetStatuses()
     lbl_0:
-    heal(healee, healer, healee.getMaxHealth())
-    healee.setMoveSpeed(130)
+    heal(healee, healer, healee.maxHealthPercent(LifeweaverBuff[0]))
+    healee.setMoveSpeed(LifeweaverBuff[1])
     wait(2.6)

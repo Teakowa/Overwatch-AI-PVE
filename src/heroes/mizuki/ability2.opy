@@ -7,7 +7,7 @@ rule "[Mizuki]: Soul Chain weakens target":
     @Condition eventAbility == Button.ABILITY_2
     @Condition victim.getTeam() != attacker.getTeam()
 
-	victim.setStatusEffect(attacker, Status.ROOTED, MIZUKI_ABILITY2_ROOTED_DURATION)
+	victim.setStatusEffect(attacker, Status.ROOTED, MizukiBuff[1])
     victim.setDamageDealt(MIZUKI_ABILITY2_DAMAGE_DEALT)
     victim.setDamageReceived(MIZUKI_ABILITY2_DAMAGE_RECEIVED)
     victim.setHealingReceived(MIZUKI_ABILITY2_HEALING_RECEIVED)

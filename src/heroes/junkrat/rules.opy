@@ -7,9 +7,9 @@ rule "[Junkrat]: arsonist":
     #@Condition victim.hasStatus(Status.BURNING) == false
     @Condition eventAbility != Button.MELEE
 
-    victim.setStatusEffect(attacker, Status.BURNING, JUNKRAT_RULES_BURNING_DURATION)
+    victim.setStatusEffect(attacker, Status.BURNING, JunkratBuff[0])
     if victim.hasStatus(Status.BURNING) != true:
         goto lbl_0
-    damage(victim, attacker, victim.getHealth() * JUNKRAT_RULES_HEALTH_SCALAR)
+    damage(victim, attacker, victim.getHealth() * JunkratBuff[1])
     lbl_0:
     wait(1)

@@ -11,5 +11,5 @@ rule "[Domina]: Ultimate":
     #waitUntil(victim.hasStatus(Status.KNOCKED_DOWN), 0.5)
     waitUntil(victim.healthAtMostPercent(20), 5)
     if victim.healthAtMostPercent(20):
-        damage(victim, attacker, DOMINA_ULTIMATE_EXECUTE_DAMAGE)
+        damage(victim, attacker, DominaBuff[1])
     wait(1)

@@ -7,6 +7,6 @@ rule "[Mizuki]: Substitute Doll clears negative statuses":
     @Condition eventPlayer.isUsingAbility1() == true
 
 	resetStatuses()
-	eventPlayer.setStatusEffect(eventPlayer, Status.INVINCIBLE, MIZUKI_ABILITY1_INVINCIBLE_DURATION)
-	eventPlayer.setStatusEffect(eventPlayer, Status.PHASED_OUT, MIZUKI_ABILITY1_PHASED_OUT_DURATION)
+	eventPlayer.setStatusEffect(eventPlayer, Status.INVINCIBLE, MizukiBuff[0])
+	eventPlayer.setStatusEffect(eventPlayer, Status.PHASED_OUT, MizukiBuff[0])
 	wait(1.8)

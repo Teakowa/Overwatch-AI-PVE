@@ -15,7 +15,7 @@ rule "[Burn]: stack while burning":
             loop()
         goto lbl_0
     eventPlayer.burn_stack += 1
-    heal(eventPlayer.reset_pvar.first(), null, ceil(25 + eventPlayer.burn_stack * ANRAN_BURN_STACK_HEAL_PER_SECOND))
+    heal(eventPlayer.reset_pvar.first(), null, ceil(25 + eventPlayer.burn_stack * AnranBuff[1]))
     wait(1)
     if ruleCondition:
         loop()

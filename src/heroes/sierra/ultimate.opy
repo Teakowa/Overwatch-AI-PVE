@@ -6,6 +6,6 @@ rule "[Sierra]: ultmate stun":
     @Hero sierra
     @Condition eventAbility == Button.ULTIMATE
 
-    victim.setStatusEffect(eventPlayer, Status.KNOCKED_DOWN, SIERRA_ULTIMATE_KNOCKED_DOWN_DURATION)
+    victim.setStatusEffect(eventPlayer, Status.KNOCKED_DOWN, SierraBuff[2])
     damage(victim, attacker, eventDamage / SIERRA_ULTIMATE_EVENT_DAMAGE_DIVISOR)
     wait(1.5)

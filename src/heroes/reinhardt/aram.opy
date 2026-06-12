@@ -39,7 +39,7 @@ rule "[Reinhardt]: Crusaders stand":
 
     bigMessage(eventPlayer, "  十字军坚定")
     smallMessage(eventPlayer, "  {0} 无视击退".format(iconString(Icon.FLAG)))
-    eventPlayer.addHealthPool(Health.NORMAL, REINHARDT_ARAM_NORMAL_HEALTH_POOL_AMOUNT, false, false)
+    eventPlayer.addHealthPool(Health.NORMAL, ReinhardtBuff[0], false, false)
     eventPlayer.setKnockbackReceived(0)
     waitUntil(not eventPlayer.reinhardt_buff, 8)
     eventPlayer.setKnockbackReceived(100)

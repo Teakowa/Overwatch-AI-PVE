@@ -7,6 +7,6 @@ rule "[JetpackCat]: Purr cleanses negative statuses":
     @Condition eventPlayer.isUsingAbility2() == true
 
     resetStatuses()
-    eventPlayer.setStatusEffect(eventPlayer, Status.INVINCIBLE, JETPACK_CAT_ABILITY2_INVINCIBLE_DURATION)
-    eventPlayer.setStatusEffect(eventPlayer, Status.PHASED_OUT, JETPACK_CAT_ABILITY2_PHASED_OUT_DURATION)
+    eventPlayer.setStatusEffect(eventPlayer, Status.INVINCIBLE, JetpackCatBuff[1])
+    eventPlayer.setStatusEffect(eventPlayer, Status.PHASED_OUT, JetpackCatBuff[1])
     wait(3)
