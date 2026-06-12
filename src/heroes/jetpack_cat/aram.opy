@@ -36,7 +36,7 @@ rule "[JetpackCat]: Catnapper bonus max health damage":
     @Condition victim.getTeam() != attacker.getTeam()
     @Condition victim.untargetable() != true
 
-    damage(victim, attacker, victim.maxHealthPercent(JetpackCatBuff[2]))
+    damage(victim, attacker, victim.maxHealthPercent(JetpackCatBuff[1]))
 
 rule "[JetpackCat]: Frenetic Flight fuel regeneration":
     @Event eachPlayer
@@ -58,5 +58,5 @@ rule "[JetpackCat]: Claws Out melee stun":
     @Condition victim.unaffected != true
     @Condition victim.untargetable() != true
 
-    victim.setStatusEffect(attacker, Status.STUNNED, JetpackCatBuff[3])
+    victim.setStatusEffect(attacker, Status.STUNNED, JetpackCatBuff[2])
     heal(eventPlayer, eventPlayer, 25 + eventDamage)

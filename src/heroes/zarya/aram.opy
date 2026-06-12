@@ -37,7 +37,7 @@ rule "[Zarya]: will to win":
     @Condition eventPlayer.reset_pvar[0] == false
     @Condition eventPlayer.isInSpawnRoom() != true
     @Condition isHero(eventPlayer, Hero.ZARYA)
-    @Condition ZaryaBuff[2] == true
+    @Condition ZaryaBuff[1] == true
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.zarya_buff[0] == true
     @Condition eventPlayer.healthAtMostPercent(30)
@@ -48,7 +48,7 @@ rule "[Zarya]: will to win":
     eventPlayer.setStatusEffect(null, Status.PHASED_OUT, ZARYA_ARAM_PHASED_OUT_DURATION)
     eventPlayer.setAbilityCooldown(Button.ABILITY_1, 0)
     eventPlayer.setAbilityCooldown(Button.ABILITY_2, 0)
-    heal(eventPlayer, eventPlayer, ZaryaBuff[3] * ZaryaBuff[4])
+    heal(eventPlayer, eventPlayer, ZaryaBuff[2] * ZaryaBuff[3])
     eventPlayer.zarya_buff[1] = true
     wait(15)
     eventPlayer.zarya_buff[0] = false

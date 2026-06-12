@@ -22,7 +22,7 @@ rule "[Ramattra] ult speed":
     @Condition eventPlayer.isUsingUltimate() == true
 
     eventPlayer.mov_speed_buff += Ram_Annihilation[3]
-    eventPlayer.setDamageDealt(100 + Ram_Annihilation[5])
+    eventPlayer.setDamageDealt(100 + Ram_Annihilation[2])
     eventPlayer.setDamageReceived(100 - Ram_Annihilation[4])
     eventPlayer.setMoveSpeed(100 + eventPlayer.mov_speed_buff - eventPlayer.mov_speed_penalty)
     eventPlayer.setKnockbackReceived(RAMATTRA_ARAM_KNOCKBACK_RECEIVED)

@@ -19,7 +19,7 @@ rule "[Ramattra] ult speed":
     if abs(eventPlayer.mov_speed_buff) < abs(Ram_Annihilation[3]):
         eventPlayer.mov_speed_buff = Ram_Annihilation[3]
         applySignedMoveSpeed()
-    eventPlayer.setDamageDealt(100 + Ram_Annihilation[5])
+    eventPlayer.setDamageDealt(100 + Ram_Annihilation[2])
     eventPlayer.setDamageReceived(100 - Ram_Annihilation[4])
     eventPlayer.setKnockbackReceived(RAMATTRA_ULTIMATE_KNOCKBACK_RECEIVED)
     waitUntil(not eventPlayer.isUsingUltimate() or eventPlayer.isDead(), Math.INFINITY)
