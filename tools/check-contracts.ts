@@ -207,6 +207,7 @@ async function main(): Promise<void> {
       "utilities/apply_custom_hp.opy",
       "utilities/clear_custom_hp.opy",
       "utilities/reset_frenemies.opy",
+      "utilities/hero_switch.opy",
       "utilities/reset_stats.opy",
       "utilities/execute_uppercut.opy",
       "utilities/enable_all_abilities.opy",
@@ -428,9 +429,24 @@ async function main(): Promise<void> {
   }
 
   const resetLines = await readLines(resolveRepo("src/utilities/reset_frenemies.opy"));
-  const stableSlots = [1, 3, 4, 5, 6, 7, 9, 11, 12, 13, 14, 15, 16];
-  for (const slot of stableSlots) {
-    const count = resetLines.filter((line) => line.includes(`eventPlayer.reset_pvar[${slot}] =`)).length;
+  const stableSlotMembers = new Map<number, string>([
+    [1, "_friendly_brigitte_reference"],
+    [3, "_friendly_kiriko_reference"],
+    [4, "_friendly_sombra_reference"],
+    [5, "_enemy_ramattra_reference"],
+    [6, "_enemy_sombra_reference"],
+    [7, "_enemy_ana_reference"],
+    [8, "_enemy_anran_reference"],
+    [9, "_enemy_hanzo_reference"],
+    [11, "_enemy_freja_reference"],
+    [12, "_friendly_baptiste_reference"],
+    [13, "_friendly_wuyang_reference"],
+    [14, "_enemy_wuyang_reference"],
+    [15, "_team_front_anchor"],
+    [16, "_team_back_anchor"],
+  ]);
+  for (const [slot, member] of stableSlotMembers.entries()) {
+    const count = resetLines.filter((line) => line.includes(`eventPlayer.${member} =`)).length;
     if (count === 1) {
       reporter.pass(`reset slot mapping present once: reset_pvar[${slot}]`);
     } else {
@@ -475,13 +491,13 @@ async function main(): Promise<void> {
     for (const sourceFile of sourceFiles) {
       const lines = await readLines(sourceFile);
       ruleCount += lines.filter((line) => line.startsWith('rule "')).length;
-      trueCount += lines.filter((line) => line.includes("eventPlayer.reset_pvar[0] = true")).length;
-      falseCount += lines.filter((line) => line.includes("eventPlayer.reset_pvar[0] = false")).length;
+      trueCount += lines.filter((line) => line.includes("eventPlayer._reset_requested = true")).length;
+      falseCount += lines.filter((line) => line.includes("eventPlayer._reset_requested = false")).length;
       resetHeroCount += lines.filter((line) => line.includes("resetHero()")).length;
       condCount += lines.filter(
         (line) =>
-          line.includes("@Condition eventPlayer.reset_pvar[0] != false") ||
-          line.includes("@Condition eventPlayer.reset_pvar[0] == true"),
+          line.includes("@Condition eventPlayer._reset_requested != false") ||
+          line.includes("@Condition eventPlayer._reset_requested == true"),
       ).length;
     }
 
@@ -491,14 +507,14 @@ async function main(): Promise<void> {
       reporter.fail(`${heroName}.init should include Detect + Initialize rules (rule count=${ruleCount})`);
     }
     if (trueCount >= 1) {
-      reporter.pass(`${heroName}.init sets reset_pvar[0] = true`);
+      reporter.pass(`${heroName}.init sets _reset_requested = true`);
     } else {
-      reporter.fail(`${heroName}.init missing reset_pvar[0] = true trigger`);
+      reporter.fail(`${heroName}.init missing _reset_requested = true trigger`);
     }
     if (falseCount >= 1) {
-      reporter.pass(`${heroName}.init resets reset_pvar[0] = false`);
+      reporter.pass(`${heroName}.init resets _reset_requested = false`);
     } else {
-      reporter.fail(`${heroName}.init missing reset_pvar[0] = false reset`);
+      reporter.fail(`${heroName}.init missing _reset_requested = false reset`);
     }
     if (resetHeroCount >= 1) {
       reporter.pass(`${heroName}.init calls resetHero() in initialization`);
@@ -506,11 +522,11 @@ async function main(): Promise<void> {
       reporter.fail(`${heroName}.init missing resetHero() call`);
     }
     if (condCount >= 1) {
-      reporter.pass(`${heroName}.init gates initialize rule with reset_pvar[0] condition`);
+      reporter.pass(`${heroName}.init gates initialize rule with _reset_requested condition`);
     } else if (args.strictHeroInit) {
-      reporter.fail(`${heroName}.init missing initialize gating condition on reset_pvar[0]`);
+      reporter.fail(`${heroName}.init missing initialize gating condition on _reset_requested`);
     } else {
-      reporter.warn(`${heroName}.init missing initialize gating condition on reset_pvar[0]`);
+      reporter.warn(`${heroName}.init missing initialize gating condition on _reset_requested`);
     }
   }
 

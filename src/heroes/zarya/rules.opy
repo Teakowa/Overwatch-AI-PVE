@@ -7,7 +7,7 @@ playervar zarya_barrier_shields
 rule "[Zarya]: will to win":
     @Event eachPlayer
     @Hero zarya
-    @Condition eventPlayer.reset_pvar[0] == false
+    @Condition eventPlayer._reset_requested == false
     @Condition eventPlayer.isInSpawnRoom() != true
     @Condition isHero(eventPlayer, Hero.ZARYA)
     @Condition ZaryaBuff[0] == true

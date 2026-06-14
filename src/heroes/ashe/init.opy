@@ -3,18 +3,20 @@
 
 rule "[Ashe]: Detect switch to Ashe":
     @Event eachPlayer
+    @Condition shouldDetectHeroInit(eventPlayer, eventPlayer.getCurrentHero())
     @Hero ashe
 
-    eventPlayer.reset_pvar[0] = true
+    eventPlayer._last_hero_played = eventPlayer.getCurrentHero()
+    eventPlayer._reset_requested = true
 
 rule "[Ashe] Initialize":
     @Event eachPlayer
     @Hero ashe
-    @Condition eventPlayer.reset_pvar[0] != false
+    @Condition eventPlayer._reset_requested != false
 
     resetHero()
     if eventPlayer.getTeam() != Team.1:
         goto lbl_0
     eventPlayer.startForcingName(random.choice(["张三的绯闻女友", "KAI了", "ANS", "Bob摩西"]))
     lbl_0:
-    eventPlayer.reset_pvar[0] = false
+    eventPlayer._reset_requested = false

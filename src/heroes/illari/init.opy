@@ -3,15 +3,17 @@
 
 rule "[Illari]: Detect switch to Illari":
     @Event eachPlayer
+    @Condition shouldDetectHeroInit(eventPlayer, eventPlayer.getCurrentHero())
     @Hero illari
 
-    eventPlayer.reset_pvar[0] = true
+    eventPlayer._last_hero_played = eventPlayer.getCurrentHero()
+    eventPlayer._reset_requested = true
 
 rule "[Illari] Initialize":
     @Event eachPlayer
     @Hero illari
-    @Condition eventPlayer.reset_pvar[0] != false
+    @Condition eventPlayer._reset_requested != false
 
     resetHero()
     eventPlayer.reset_pvar[6].reset_pvar[9] = eventPlayer
-    eventPlayer.reset_pvar[0] = false
+    eventPlayer._reset_requested = false

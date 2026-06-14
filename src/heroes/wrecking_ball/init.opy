@@ -3,15 +3,17 @@
 
 rule "[Wrecking Ball]: Detect switch to Wrecking Ball":
     @Event eachPlayer
+    @Condition shouldDetectHeroInit(eventPlayer, eventPlayer.getCurrentHero())
     @Hero wreckingBall
 
-    eventPlayer.reset_pvar[0] = true
+    eventPlayer._last_hero_played = eventPlayer.getCurrentHero()
+    eventPlayer._reset_requested = true
 
 rule "[Wrecking Ball] Initialize":
     @Event eachPlayer
     @Hero wreckingBall
-    @Condition eventPlayer.reset_pvar[0] != false
+    @Condition eventPlayer._reset_requested != false
 
     resetHero()
     #removeTankPassive()
-    eventPlayer.reset_pvar[0] = false
+    eventPlayer._reset_requested = false

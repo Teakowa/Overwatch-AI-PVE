@@ -3,14 +3,16 @@
 
 rule "[Orisa]: Detect switch to Orisa":
     @Event eachPlayer
+    @Condition shouldDetectHeroInit(eventPlayer, eventPlayer.getCurrentHero())
     @Hero orisa
 
-    eventPlayer.reset_pvar[0] = true
+    eventPlayer._last_hero_played = eventPlayer.getCurrentHero()
+    eventPlayer._reset_requested = true
 
 rule "[Orisa] Initialize":
     @Event eachPlayer
     @Hero orisa
-    @Condition eventPlayer.reset_pvar[0] != false
+    @Condition eventPlayer._reset_requested != false
 
     resetHero()
     #removeTankPassive()
@@ -18,4 +20,4 @@ rule "[Orisa] Initialize":
         goto lbl_0
     eventPlayer.startForcingName(random.choice(["命运羊驼", "美羊羊", "唯一真神", "标枪摩西", "小米Su7 Ultra"]))
     lbl_0:
-    eventPlayer.reset_pvar[0] = false
+    eventPlayer._reset_requested = false

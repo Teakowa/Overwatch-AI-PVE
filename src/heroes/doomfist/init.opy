@@ -3,14 +3,16 @@
 
 rule "[Doomfist]: Detect switch to Doomfist":
     @Event eachPlayer
+    @Condition shouldDetectHeroInit(eventPlayer, eventPlayer.getCurrentHero())
     @Hero doomfist
 
-    eventPlayer.reset_pvar[0] = true
+    eventPlayer._last_hero_played = eventPlayer.getCurrentHero()
+    eventPlayer._reset_requested = true
 
 rule "[Doomfist] Initialize":
     @Event eachPlayer
     @Hero doomfist
-    @Condition eventPlayer.reset_pvar[0] != false
+    @Condition eventPlayer._reset_requested != false
 
     resetHero()
     #removeTankPassive()
@@ -20,4 +22,4 @@ rule "[Doomfist] Initialize":
     lbl_0:
     getPlayers(eventPlayer.getTeam()).reset_pvar[2] = eventPlayer
     getPlayers(getOppositeTeam(eventPlayer.getTeam())).reset_pvar[5] = eventPlayer
-    eventPlayer.reset_pvar[0] = false
+    eventPlayer._reset_requested = false

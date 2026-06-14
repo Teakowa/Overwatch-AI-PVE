@@ -3,14 +3,16 @@
 
 rule "[Ramattra]: Detect switch to Ramattra":
     @Event eachPlayer
+    @Condition shouldDetectHeroInit(eventPlayer, eventPlayer.getCurrentHero())
     @Hero ramattra
 
-    eventPlayer.reset_pvar[0] = true
+    eventPlayer._last_hero_played = eventPlayer.getCurrentHero()
+    eventPlayer._reset_requested = true
 
 rule "[Ramattra] Initialize":
     @Event eachPlayer
     @Hero ramattra
-    @Condition eventPlayer.reset_pvar[0] != false
+    @Condition eventPlayer._reset_requested != false
 
     resetHero()
     #removeTankPassive()
@@ -18,4 +20,4 @@ rule "[Ramattra] Initialize":
         goto lbl_0
     eventPlayer.startForcingName(random.choice(["我 扛 不 住 辣", "鲑鱼大帝", "Suffer as i have!", "抱头摩西", "痛苦摩西"]))
     lbl_0:
-    eventPlayer.reset_pvar[0] = false
+    eventPlayer._reset_requested = false

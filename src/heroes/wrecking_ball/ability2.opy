@@ -9,5 +9,5 @@ rule "[Wrecking Ball] Disable Adaptive Shield for allies":
     @Disabled
 
     eventPlayer.disallowButton(Button.ABILITY_2)
-    waitUntil(not eventPlayer.isUsingAbility2() or eventPlayer.reset_pvar[0] != false, 7)
+    waitUntil(not eventPlayer.isUsingAbility2() or eventPlayer._reset_requested != false, 7)
     eventPlayer.allowButton(Button.ABILITY_2)

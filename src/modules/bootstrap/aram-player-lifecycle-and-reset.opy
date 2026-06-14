@@ -46,16 +46,10 @@ rule "[reset.opy]: Reinitialize hero on new round":
     eventPlayer.aram_extra_pool_applied = false
     waitUntil(not isMatchBetweenRounds(), Math.INFINITY)
     wait(eventPlayer.getSlot() * 10 + getAverageServerLoad() / 100)
-    resetHero()
-    logToInspector("called init after new round (aram throttled)")
-
-rule "[utilities/hero_setup.opy]: Reset and initialize hero on hero switch":
-    @Event eachPlayer
-    @Condition eventPlayer.reset_pvar[0] != false
-
     eventPlayer.ram_block_damage = 0
     eventPlayer.sigma_hyperspheres = 0
-    resetHero()
+    eventPlayer._reset_requested = true
+    logToInspector("queued init after new round (aram throttled)")
 
 def applySignedMoveSpeed():
     @Name "[utilities/move_speed.opy]: applySignedMoveSpeed()"

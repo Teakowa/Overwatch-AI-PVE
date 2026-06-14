@@ -3,14 +3,16 @@
 
 rule "[Echo]: Detect switch to Echo":
     @Event eachPlayer
+    @Condition shouldDetectHeroInit(eventPlayer, eventPlayer.getCurrentHero())
     @Hero echo
 
-    eventPlayer.reset_pvar[0] = true
+    eventPlayer._last_hero_played = eventPlayer.getCurrentHero()
+    eventPlayer._reset_requested = true
 
 rule "[Echo] Initialize":
     @Event eachPlayer
     @Hero echo
-    @Condition eventPlayer.reset_pvar[0] != false
+    @Condition eventPlayer._reset_requested != false
 
     resetHero()
-    eventPlayer.reset_pvar[0] = false
+    eventPlayer._reset_requested = false

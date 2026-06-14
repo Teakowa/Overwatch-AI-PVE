@@ -25,6 +25,7 @@
 #!include "utilities/apply_custom_hp.opy"
 #!include "utilities/clear_custom_hp.opy"
 #!include "utilities/reset_frenemies.opy"
+#!include "utilities/hero_switch.opy"
 #!include "utilities/reset_stats.opy"
 #!include "utilities/execute_uppercut.opy"
 #!include "utilities/enable_all_abilities.opy"

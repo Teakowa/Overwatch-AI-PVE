@@ -3,14 +3,16 @@
 
 rule "[Mizuki/init.opy]: Detect switch to Mizuki":
     @Event eachPlayer
+    @Condition shouldDetectHeroInit(eventPlayer, eventPlayer.getCurrentHero())
     @Hero mizuki
 
-    eventPlayer.reset_pvar[0] = true
+    eventPlayer._last_hero_played = eventPlayer.getCurrentHero()
+    eventPlayer._reset_requested = true
 
 rule "[Mizuki/init.opy]: Initialize Mizuki":
     @Event eachPlayer
     @Hero mizuki
-    @Condition eventPlayer.reset_pvar[0] != false
+    @Condition eventPlayer._reset_requested != false
 
     resetHero()
-    eventPlayer.reset_pvar[0] = false
+    eventPlayer._reset_requested = false

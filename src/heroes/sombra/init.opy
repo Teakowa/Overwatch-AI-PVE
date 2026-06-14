@@ -3,14 +3,16 @@
 
 rule "[Sombra]: Detect switch to Sombra":
     @Event eachPlayer
+    @Condition shouldDetectHeroInit(eventPlayer, eventPlayer.getCurrentHero())
     @Hero sombra
 
-    eventPlayer.reset_pvar[0] = true
+    eventPlayer._last_hero_played = eventPlayer.getCurrentHero()
+    eventPlayer._reset_requested = true
 
 rule "[Sombra] Initialize":
     @Event eachPlayer
     @Hero sombra
-    @Condition eventPlayer.reset_pvar[0] != false
+    @Condition eventPlayer._reset_requested != false
 
     resetHero()
     if eventPlayer.getTeam() != Team.1:
@@ -19,4 +21,4 @@ rule "[Sombra] Initialize":
     lbl_0:
     getPlayers(eventPlayer.getTeam()).reset_pvar[4] = eventPlayer
     getPlayers(getOppositeTeam(eventPlayer.getTeam())).reset_pvar[7] = eventPlayer
-    eventPlayer.reset_pvar[0] = false
+    eventPlayer._reset_requested = false

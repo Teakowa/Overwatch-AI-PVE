@@ -3,14 +3,16 @@
 
 rule "[symmetra/init.opy]: Detect switch to Symmetra":
     @Event eachPlayer
+    @Condition shouldDetectHeroInit(eventPlayer, eventPlayer.getCurrentHero())
     @Hero symmetra
 
-    eventPlayer.reset_pvar[0] = true
+    eventPlayer._last_hero_played = eventPlayer.getCurrentHero()
+    eventPlayer._reset_requested = true
 
 rule "[symmetra/init.opy]: Initialize Symmetra":
     @Event eachPlayer
     @Hero symmetra
-    @Condition eventPlayer.reset_pvar[0] != false
+    @Condition eventPlayer._reset_requested != false
 
     resetHero()
     if eventPlayer.getTeam() != Team.1:
@@ -18,4 +20,4 @@ rule "[symmetra/init.opy]: Initialize Symmetra":
     eventPlayer.startForcingName(random.choice(["性♂感荷官在线烫头", "绿洲城首家赌场", "麻豆传媒摄影师", "烫头摩西"]))
     lbl_0:
     getPlayers(eventPlayer.getTeam()).reset_pvar[3] = eventPlayer
-    eventPlayer.reset_pvar[0] = false
+    eventPlayer._reset_requested = false

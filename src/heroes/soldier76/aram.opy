@@ -98,7 +98,7 @@ rule "[Soldier: 76]: 替代射击":
     eventPlayer.disallowButton(Button.PRIMARY_FIRE)
     eventPlayer.setPrimaryFireEnabled(false)
     eventPlayer.setDamageDealt(100 + eventPlayer.dmg_amplification)
-    waitUntil(not eventPlayer.isUsingUltimate() or eventPlayer.reset_pvar[0] != false, 8)
+    waitUntil(not eventPlayer.isUsingUltimate() or eventPlayer._reset_requested != false, 8)
     eventPlayer.setDamageDealt(100)
     eventPlayer.allowButton(Button.PRIMARY_FIRE)
     eventPlayer.setPrimaryFireEnabled(true)

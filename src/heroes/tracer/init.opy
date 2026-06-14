@@ -3,14 +3,16 @@
 
 rule "[tracer/init.opy]: Detect switch to Tracer":
     @Event eachPlayer
+    @Condition shouldDetectHeroInit(eventPlayer, eventPlayer.getCurrentHero())
     @Hero tracer
 
-    eventPlayer.reset_pvar[0] = true
+    eventPlayer._last_hero_played = eventPlayer.getCurrentHero()
+    eventPlayer._reset_requested = true
 
 rule "[tracer/init.opy]: Initialize Tracer":
     @Event eachPlayer
     @Hero tracer
-    @Condition eventPlayer.reset_pvar[0] != false
+    @Condition eventPlayer._reset_requested != false
 
     resetHero()
     eventPlayer.setAbilityCooldown(Button.ABILITY_2, 8)
@@ -18,4 +20,4 @@ rule "[tracer/init.opy]: Initialize Tracer":
         goto lbl_0
     eventPlayer.startForcingName(random.choice(["跳跳熊", "FLETA", "EVAEL", "炸弹摩西", "瞬移摩西"]))
     lbl_0:
-    eventPlayer.reset_pvar[0] = false
+    eventPlayer._reset_requested = false

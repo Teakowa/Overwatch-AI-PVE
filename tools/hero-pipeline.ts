@@ -380,26 +380,26 @@ async function auditHero(slug: string, args: Args, reporter: Reporter): Promise<
   for (const filePath of sourceFiles) {
     const lines = await readLines(filePath);
     ruleCount += lines.filter((line) => line.startsWith('rule "')).length;
-    trueCount += countOccurrences(lines, "eventPlayer.reset_pvar[0] = true");
-    falseCount += countOccurrences(lines, "eventPlayer.reset_pvar[0] = false");
+    trueCount += countOccurrences(lines, "eventPlayer._reset_requested = true");
+    falseCount += countOccurrences(lines, "eventPlayer._reset_requested = false");
     resetHeroCount += countOccurrences(lines, "resetHero()");
     condCount += lines.filter(
       (line) =>
-        line.includes("@Condition eventPlayer.reset_pvar[0] != false") ||
-        line.includes("@Condition eventPlayer.reset_pvar[0] == true"),
+        line.includes("@Condition eventPlayer._reset_requested != false") ||
+        line.includes("@Condition eventPlayer._reset_requested == true"),
     ).length;
   }
 
   ruleCount >= 2 ? reporter.pass(`detect/initialize pair likely present (rule count=${ruleCount})`) : reporter.fail(`expected at least 2 rules in hero_init file (got ${ruleCount})`);
-  trueCount >= 1 ? reporter.pass("init detect trigger exists: reset_pvar[0] = true") : reporter.fail("missing detect trigger: reset_pvar[0] = true");
+  trueCount >= 1 ? reporter.pass("init detect trigger exists: _reset_requested = true") : reporter.fail("missing detect trigger: _reset_requested = true");
   resetHeroCount >= 1 ? reporter.pass("init reset chain exists: resetHero()") : reporter.fail("missing resetHero() in hero init");
-  falseCount >= 1 ? reporter.pass("init clear trigger exists: reset_pvar[0] = false") : reporter.fail("missing reset clear: reset_pvar[0] = false");
+  falseCount >= 1 ? reporter.pass("init clear trigger exists: _reset_requested = false") : reporter.fail("missing reset clear: _reset_requested = false");
   if (condCount >= 1) {
-    reporter.pass("initialize gating condition exists for reset_pvar[0]");
+    reporter.pass("initialize gating condition exists for _reset_requested");
   } else if (args.strictInitGate) {
-    reporter.fail("missing initialize gating condition for reset_pvar[0]");
+    reporter.fail("missing initialize gating condition for _reset_requested");
   } else {
-    reporter.warn("missing initialize gating condition for reset_pvar[0]");
+    reporter.warn("missing initialize gating condition for _reset_requested");
   }
 
   const initLines = await readLines(initFile);
@@ -408,9 +408,9 @@ async function auditHero(slug: string, args: Args, reporter: Reporter): Promise<
   const heroConst = normalizeConstFromTag(heroTag);
 
   const resetLine = firstMatchLine(initLines, "resetHero()");
-  const falseLine = firstMatchLine(initLines, "eventPlayer.reset_pvar[0] = false");
+  const falseLine = firstMatchLine(initLines, "eventPlayer._reset_requested = false");
   if (resetLine && falseLine) {
-    falseLine > resetLine ? reporter.pass("init clear happens after resetHero()") : reporter.fail("reset_pvar[0] = false appears before resetHero()");
+    falseLine > resetLine ? reporter.pass("init clear happens after resetHero()") : reporter.fail("_reset_requested = false appears before resetHero()");
   }
 
   const knownSlots = new Set([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13, 14, 15, 16]);

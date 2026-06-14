@@ -32,10 +32,10 @@ rule "[Ramattra]: block HUD":
     @Hero ramattra
     @Condition eventPlayer.isInSpawnRoom() != true
     @Condition (eventPlayer.isUsingAbility1() or eventPlayer.isUsingUltimate()) == true
-    @Condition eventPlayer.reset_pvar[0] == false
+    @Condition eventPlayer._reset_requested == false
     @Condition eventPlayer.ram_block_damage > 0
 
     #hudText(eventPlayer, null, "\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r", "{0}/{1}".format(floor(eventPlayer.ram_block_damage), Ram_Annihilation[0]), HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
     #eventPlayer.ram_block_damage_hud = getLastCreatedText()
-    waitUntil(eventPlayer.ram_block_damage == 0 or eventPlayer.reset_pvar[0] or eventPlayer.isInSpawnRoom(), Math.INFINITY)
+    waitUntil(eventPlayer.ram_block_damage == 0 or eventPlayer._reset_requested or eventPlayer.isInSpawnRoom(), Math.INFINITY)
     eventPlayer.hudText = ""

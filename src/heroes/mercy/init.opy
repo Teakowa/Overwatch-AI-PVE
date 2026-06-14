@@ -3,14 +3,16 @@
 
 rule "[mercy/init.opy]: Detect switch to Mercy":
     @Event eachPlayer
+    @Condition shouldDetectHeroInit(eventPlayer, eventPlayer.getCurrentHero())
     @Hero mercy
 
-    eventPlayer.reset_pvar[0] = true
+    eventPlayer._last_hero_played = eventPlayer.getCurrentHero()
+    eventPlayer._reset_requested = true
 
 rule "[mercy/init.opy]: Initialize Mercy":
     @Event eachPlayer
     @Hero mercy
-    @Condition eventPlayer.reset_pvar[0] != false
+    @Condition eventPlayer._reset_requested != false
 
     resetHero()
     eventPlayer.setMaxAmmo(0, 20)
@@ -20,4 +22,4 @@ rule "[mercy/init.opy]: Initialize Mercy":
     eventPlayer.startForcingName(random.choice(["摩西", "拉使", "国服摩西请战", "我 有 恋 尸 癖", "慈 悲 十 三 摩", "食 尸 鬼"]))
     lbl_0:
     eventPlayer.reset_pvar[6].reset_pvar[9] = eventPlayer
-    eventPlayer.reset_pvar[0] = false
+    eventPlayer._reset_requested = false

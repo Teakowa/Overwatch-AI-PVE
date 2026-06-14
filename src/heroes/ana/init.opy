@@ -3,14 +3,16 @@
 
 rule "[Ana]: Detect switch to Ana":
     @Event eachPlayer
+    @Condition shouldDetectHeroInit(eventPlayer, eventPlayer.getCurrentHero())
     @Hero ana
 
-    eventPlayer.reset_pvar[0] = true
+    eventPlayer._last_hero_played = eventPlayer.getCurrentHero()
+    eventPlayer._reset_requested = true
 
 rule "[Ana] Initialize":
     @Event eachPlayer
     @Hero ana
-    @Condition eventPlayer.reset_pvar[0] != false
+    @Condition eventPlayer._reset_requested != false
 
     resetHero()
     if eventPlayer.getTeam() != Team.1:
@@ -19,4 +21,4 @@ rule "[Ana] Initialize":
     eventPlayer.heroNum = BotHeroArray.index(eventPlayer.getHero())
     lbl_0:
     eventPlayer.reset_pvar[6].reset_pvar[9] = eventPlayer
-    eventPlayer.reset_pvar[0] = false
+    eventPlayer._reset_requested = false

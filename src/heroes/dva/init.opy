@@ -3,16 +3,18 @@
 
 rule "[D.Va]: Detect switch to D.Va":
     @Event eachPlayer
+    @Condition shouldDetectHeroInit(eventPlayer, eventPlayer.getCurrentHero())
     @Hero dva
     @Condition eventPlayer.isInAlternateForm() == false
 
-    eventPlayer.reset_pvar[0] = true
+    eventPlayer._last_hero_played = eventPlayer.getCurrentHero()
+    eventPlayer._reset_requested = true
 
 rule "[D.Va] Initialize":
     @Event eachPlayer
     @Hero dva
-    @Condition eventPlayer.reset_pvar[0] != false
+    @Condition eventPlayer._reset_requested != false
 
     resetHero()
     #removeTankPassive()
-    eventPlayer.reset_pvar[0] = false
+    eventPlayer._reset_requested = false

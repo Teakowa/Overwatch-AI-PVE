@@ -36,3 +36,4 @@ playervar ow1_scoped_damage_falloff_scalar
 playervar expected_scoped_damage
 playervar aram_extra_pool_applied
 playervar burn_stack
+playervar hero_switch_pvar

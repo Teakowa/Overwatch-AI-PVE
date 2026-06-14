@@ -3,14 +3,16 @@
 
 rule "[Brigitte]: Detect switch to Brigitte":
     @Event eachPlayer
+    @Condition shouldDetectHeroInit(eventPlayer, eventPlayer.getCurrentHero())
     @Hero brigitte
 
-    eventPlayer.reset_pvar[0] = true
+    eventPlayer._last_hero_played = eventPlayer.getCurrentHero()
+    eventPlayer._reset_requested = true
 
 rule "[Brigitte] Initialize":
     @Event eachPlayer
     @Hero brigitte
-    @Condition eventPlayer.reset_pvar[0] != false
+    @Condition eventPlayer._reset_requested != false
 
     resetHero()
     if eventPlayer.getTeam() != Team.1:
@@ -18,4 +20,4 @@ rule "[Brigitte] Initialize":
     eventPlayer.startForcingName(random.choice(["那个女人", "炖鸡摩西", "持盾摩西", "贴膜摩西", "护 娜 十 三 锤", "泰格"]))
     lbl_0:
     getPlayers(eventPlayer.getTeam()).reset_pvar[1] = eventPlayer
-    eventPlayer.reset_pvar[0] = false
+    eventPlayer._reset_requested = false
