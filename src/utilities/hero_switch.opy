@@ -1,4 +1,4 @@
-#!mainFile "../main.opy"
+#!mainFile "../aramMain.opy"
 
 #!defineMember _last_hero_played hero_switch_pvar[0]
 #!defineMember _hero_switch_pending hero_switch_pvar[1]

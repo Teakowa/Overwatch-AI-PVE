@@ -153,6 +153,32 @@ function toDirectivePath(filePath: string, targetFile: string): string {
   return path.relative(path.dirname(filePath), targetFile).split(path.sep).join("/");
 }
 
+const sharedAramMainFileExceptions = new Set<string>([
+  "src/heroes/domina/rules.opy",
+  "src/heroes/echo/rules.opy",
+  "src/heroes/lucio/rules.opy",
+  "src/heroes/sierra/rules.opy",
+  "src/modules/ai/control/common.opy",
+  "src/modules/ai/control/heroes.opy",
+  "src/modules/ai/core/core-global-and-targeting.opy",
+  "src/modules/ai/delimiter-begin.opy",
+  "src/modules/ai/delimiter-end.opy",
+  "src/modules/ai/movement/movement.opy",
+  "src/modules/bootstrap/blacklist.opy",
+  "src/utilities/bot_aim2target.opy",
+  "src/utilities/clear_custom_hp.opy",
+  "src/utilities/disable_all_abilities.opy",
+  "src/utilities/enable_all_abilities.opy",
+  "src/utilities/hero_switch.opy",
+  "src/utilities/knockback.opy",
+  "src/utilities/macros.opy",
+  "src/utilities/remove_tank_passive.opy",
+  "src/utilities/reset_frenemies.opy",
+  "src/utilities/reset_hero.opy",
+  "src/utilities/reset_stats.opy",
+  "src/utilities/reset_statuses.opy",
+]);
+
 function duplicateNames(values: string[]): string[] {
   const seen = new Set<string>();
   const dupes = new Set<string>();
@@ -371,10 +397,12 @@ async function main(): Promise<void> {
   for (const [filePath, owners] of [...moduleOwners.entries()].sort((a, b) => a[0].localeCompare(b[0]))) {
     const lines = await readLines(filePath);
     const directive = inspectMainFileDirective(lines);
+    const relPath = path.relative(repoRoot, filePath);
     const expectedTarget = owners.size === 1 && owners.has("aram")
       ? toDirectivePath(filePath, resolveRepo("src/aramMain.opy"))
+      : sharedAramMainFileExceptions.has(relPath)
+      ? toDirectivePath(filePath, resolveRepo("src/aramMain.opy"))
       : toDirectivePath(filePath, resolveRepo("src/main.opy"));
-    const relPath = path.relative(repoRoot, filePath);
 
     if (directive.count !== 1) {
       reporter.fail(`module mainFile count invalid: ${relPath} (count=${directive.count})`);

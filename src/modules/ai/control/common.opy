@@ -1,4 +1,4 @@
-#!mainFile "../../../main.opy"
+#!mainFile "../../../aramMain.opy"
 #!optimizeStrict
 
 rule "[AI]: Target in line of sight":

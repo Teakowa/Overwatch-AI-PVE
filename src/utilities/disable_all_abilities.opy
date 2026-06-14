@@ -1,4 +1,4 @@
-#!mainFile "../main.opy"
+#!mainFile "../aramMain.opy"
 def disableAllAbilities():
     @Name "[utilities/reset.opy]: disableAllAbilities()"
     

@@ -1,4 +1,4 @@
-#!mainFile "../main.opy"
+#!mainFile "../aramMain.opy"
 
 # Source: https://github.com/Overwatch-1-Emulator/ow1-emulator/blob/staging/src/utilities/macro_functions.opy
 

@@ -1,4 +1,4 @@
-#!mainFile "../main.opy"
+#!mainFile "../aramMain.opy"
 def removeTankPassive():
     @Name "[passives/tank/knockback.opy]: removeTankPassive()"
 

@@ -1,4 +1,4 @@
-#!mainFile "../../../main.opy"
+#!mainFile "../../../aramMain.opy"
 #!include "tracer.opy"
 #!include "reaper.opy"
 #!include "genji.opy"
