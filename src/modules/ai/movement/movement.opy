@@ -1,4 +1,4 @@
-#!mainFile "../../../aramMain.opy"
+#!mainFile "../../../main.opy"
 #!optimizeStrict
 
 rule "[AI/Movement]: Movement":

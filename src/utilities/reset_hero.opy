@@ -1,4 +1,4 @@
-#!mainFile "../aramMain.opy"
+#!mainFile "../main.opy"
 def resetHero():
     @Name "[utilities/reset.opy]: resetHero()"
     

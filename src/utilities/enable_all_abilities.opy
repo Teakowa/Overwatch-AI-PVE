@@ -1,4 +1,4 @@
-#!mainFile "../aramMain.opy"
+#!mainFile "../main.opy"
 def enableAllAbilities():
     @Name "[utilities/reset.opy]: enableAllAbilities()"
     
@@ -21,3 +21,4 @@ def enableAllAbilities():
     eventPlayer.setJumpEnabled(true)
     eventPlayer.setCrouchEnabled(true)
     eventPlayer.setReloadEnabled(true)
+

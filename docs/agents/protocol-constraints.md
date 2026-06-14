@@ -24,8 +24,7 @@
 ### R-PROTO-REPO-WIDE-MAINFILE
 
 - 被 `src/main.opy` 或 `src/aramMain.opy` include 到的非入口 `.opy` 模块，必须声明且只声明一次 `#!mainFile`，并放在文件第一行。
-- 仅被 ARAM 入口引用的模块指向 `aramMain.opy`；其余模块默认指向 `main.opy`。
-- 例外：被 `src/aramMain.opy` 或 `src/aram_overrides.opy` 直接复用的 ARAM 共享叶子，可以显式指向 `aramMain.opy`。当前例外范围限于 ARAM 直连共享 utilities、`modules/bootstrap/blacklist.opy`、AI 直连骨架文件，以及 `echo` / `domina` / `lucio` / `sierra` 的规则入口。
+- 仅被 ARAM 入口引用的模块指向 `aramMain.opy`；其余模块统一指向 `main.opy`，包括同时被两个入口复用的共享模块。
 
 ### 公共/模式侧边界
 

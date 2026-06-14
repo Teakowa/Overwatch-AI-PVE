@@ -1,4 +1,4 @@
-#!mainFile "../aramMain.opy"
+#!mainFile "../main.opy"
 def clearCustomHp():
     @Name "[utilities/custom_hp.opy]: clearCustomHp()"
     

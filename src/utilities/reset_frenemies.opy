@@ -1,4 +1,4 @@
-#!mainFile "../aramMain.opy"
+#!mainFile "../main.opy"
 #!optimizeStrict
 
 #!defineMember _reset_requested reset_pvar[0]

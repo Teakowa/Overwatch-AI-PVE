@@ -1,4 +1,4 @@
-#!mainFile "../aramMain.opy"
+#!mainFile "../main.opy"
 def resetStatuses():
     @Name "[utilities/reset.opy]: resetStatuses()"
     
