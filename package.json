@@ -23,7 +23,7 @@
     "overpy": "^9.6.10"
   },
   "devDependencies": {
-    "@types/node": "^25.9.2",
+    "@types/node": "^25.9.3",
     "tsx": "^4.20.6",
     "typescript": "^5.8.3"
   }
