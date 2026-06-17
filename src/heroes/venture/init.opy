@@ -17,6 +17,7 @@ rule "[venture/init.opy]: Initialize venture":
     resetHero()
     if eventPlayer.getTeam() != Team.1:
         goto lbl_0
+    eventPlayer.heroNum = BotHeroArray.index(eventPlayer.getHero())
     eventPlayer.startForcingName(random.choice(["钻地摩西", "丁真摩西"]))
     lbl_0:
     eventPlayer._reset_requested = false

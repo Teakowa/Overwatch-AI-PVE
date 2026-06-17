@@ -4,6 +4,8 @@
 
 def botAim2Target():
     @Name "[AI/global]: botAim2Target"
-    
-    eventPlayer.startFacing(directionTowards(eventPlayer + Vector.UP * distance(eventPlayer, eventPlayer.getEyePosition()) + worldVector(vect(0, 0, 0), eventPlayer, Transform.ROTATION), eventPlayer.botTarget.getEyePosition()), 10000)
 
+    if eventPlayer.getHero() in [Hero.FREJA, Hero.VENTURE, Hero.PHARAH, Hero.HAZARD] and eventPlayer.heroNum < len(ProjectileSpeed) and ProjectileSpeed[eventPlayer.heroNum] < 100000000 and not eventPlayer.isHoldingButton(Button.SECONDARY_FIRE) and not eventPlayer.isUsingAbility1() and not eventPlayer.isUsingAbility2() and not eventPlayer.isUsingUltimate():
+        eventPlayer.startFacing(directionTowards(eventPlayer + Vector.UP * distance(eventPlayer, eventPlayer.getEyePosition()) + worldVector(vect(0, 0, 0), eventPlayer, Transform.ROTATION), eventPlayer.botTarget.getEyePosition() + eventPlayer.botTarget.getVelocity() * distance(eventPlayer.getEyePosition(), eventPlayer.botTarget.getEyePosition()) / ProjectileSpeed[eventPlayer.heroNum]), 10000)
+        return
+    eventPlayer.startFacing(directionTowards(eventPlayer + Vector.UP * distance(eventPlayer, eventPlayer.getEyePosition()) + worldVector(vect(0, 0, 0), eventPlayer, Transform.ROTATION), eventPlayer.botTarget.getEyePosition()), 10000)
