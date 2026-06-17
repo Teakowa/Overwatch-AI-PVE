@@ -1,3 +1,4 @@
+#!mainFile "../../main.opy"
 #!optimizeStrict
 
 rule "[Global][Debug]Auto Ultimate Gain":
