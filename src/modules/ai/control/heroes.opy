@@ -19,3 +19,4 @@
 #!include "anran.opy"
 #!include "domina.opy"
 #!include "sierra.opy"
+#!include "shion.opy"
