@@ -46,31 +46,12 @@ rule "[Shion]: Full stack buff":
     eventPlayer.setDamageDealt(100 + ShionBuff[1])
     eventPlayer.setDamageReceived(100 - ShionBuff[2])
     if eventPlayer.getTeam() == Team.2:
-        eventPlayer.hudText = "死怨：狂势激活 | 伤害+{0}% | 减伤{1}%".format(ShionBuff[1], ShionBuff[2])
+        eventPlayer.hudText = "狂势 | {0}% 增伤 | {1}% 减伤".format(ShionBuff[1], ShionBuff[2])
     wait(8)
     eventPlayer.shion_buff_active = false
     eventPlayer.setDamageDealt(100)
     eventPlayer.setDamageReceived(100)
     eventPlayer.hudText = ""
 
-rule "[Shion]: Execution kill window":
-    @Event playerDealtDamage
-    @Hero shion
-    @Condition eventPlayer.isAlive() == true
-    @Condition eventAbility == Button.SECONDARY_FIRE
-
-    eventPlayer.shion_execution_kill_window = true
-    wait(0.6)
-    eventPlayer.shion_execution_kill_window = false
-
-rule "[Shion]: Execution kill reset cooldown":
-    @Event playerEarnedElimination
-    @Hero shion
-    @Condition ShionBuff[3] == true
-    @Condition eventPlayer.isAlive() == true
-    @Condition eventPlayer.shion_execution_kill_window == true
-    @Condition eventPlayer.getAbilityCooldown(Button.SECONDARY_FIRE) > 0
-
-    eventPlayer.setAbilityCooldown(Button.SECONDARY_FIRE, 0)
-
+#!include "secondary.opy"
 #!include "ultimate.opy"
