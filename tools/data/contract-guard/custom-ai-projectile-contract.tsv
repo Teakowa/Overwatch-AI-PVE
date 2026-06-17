@@ -1,0 +1,13 @@
+hero	aim_mode	shared_projectile_speed	fandom_primary_projectile_speed	note
+Hero.FREJA	predictive	625	125	repo shared speed tracks 125 m/s Revdraw Crossbow baseline with 500 percent local override
+Hero.VENTURE	predictive	50	50	shared speed matches Smart Excavator primary projectile baseline
+Hero.PHARAH	predictive	40	40	shared speed matches Rocket Launcher primary projectile baseline
+Hero.ILLARI	direct	100000000		direct aim hero; primary is hitscan and shared table keeps sentinel
+Hero.JUNO	direct	100000000		direct aim hero; primary is hitscan and shared table keeps sentinel
+Hero.HAZARD	predictive	140	140	shared speed matches Bonespur primary projectile baseline
+Hero.VENDETTA	direct	100000000		direct aim hero; shared table keeps sentinel
+Hero.EMRE	direct	100000000		direct aim hero; shared table keeps sentinel
+Hero.ANRAN	predictive	90	90	shared speed matches Zhuque Fans primary projectile baseline
+Hero.DOMINA	direct	100000000		direct aim hero; shared table keeps sentinel
+Hero.SIERRA	direct	100000000		direct aim hero; shared table keeps sentinel
+Hero.SHION	direct	100000000		direct aim hero; shared table keeps sentinel

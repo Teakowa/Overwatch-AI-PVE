@@ -79,6 +79,23 @@ async function parseProtocolMapping(filePath: string): Promise<Array<{ kind: str
     });
 }
 
+async function parseCustomAiProjectileContract(filePath: string): Promise<Array<Record<string, string>>> {
+  const lines = (await fs.readFile(filePath, "utf8")).split(/\r?\n/).filter(Boolean);
+  const [headerLine, ...dataLines] = lines;
+  if (!headerLine) {
+    throw new Error("custom-ai projectile contract file is empty");
+  }
+  const headers = headerLine.split("\t");
+  return dataLines.map((line) => {
+    const values = line.split("\t");
+    const row: Record<string, string> = {};
+    for (let index = 0; index < headers.length; index += 1) {
+      row[headers[index]!] = values[index] ?? "";
+    }
+    return row;
+  });
+}
+
 async function extractDeclarations(
   filePath: string,
   kind: DeclarationKind,
@@ -197,45 +214,6 @@ function extractPredictiveAimHeroes(lines: string[]): string[] {
     .split(",")
     .map((value) => value.trim())
     .filter(Boolean);
-}
-
-function extractDefines(lines: string[]): Map<string, string> {
-  const defines = new Map<string, string>();
-  for (const line of lines) {
-    const match = line.match(/^#!define\s+([A-Z0-9_]+)\s+(.+)$/);
-    if (!match) {
-      continue;
-    }
-    defines.set(match[1]!, match[2]!.trim());
-  }
-  return defines;
-}
-
-function evaluateDefine(name: string, defines: Map<string, string>, cache = new Map<string, number>()): number {
-  if (cache.has(name)) {
-    return cache.get(name)!;
-  }
-  const raw = defines.get(name);
-  if (!raw) {
-    throw new Error(`Missing define: ${name}`);
-  }
-  const numeric = Number(raw);
-  if (!Number.isNaN(numeric)) {
-    cache.set(name, numeric);
-    return numeric;
-  }
-
-  const expanded = raw.replace(/\b[A-Z][A-Z0-9_]*\b/g, (token) => String(evaluateDefine(token, defines, cache)));
-  if (!/^[0-9+\-*/().\s]+$/.test(expanded)) {
-    throw new Error(`Unsupported define expression for ${name}: ${raw}`);
-  }
-
-  const value = Function(`"use strict"; return (${expanded});`)() as number;
-  if (typeof value !== "number" || Number.isNaN(value)) {
-    throw new Error(`Failed to evaluate define: ${name}`);
-  }
-  cache.set(name, value);
-  return value;
 }
 
 async function main(): Promise<void> {
@@ -467,7 +445,12 @@ async function main(): Promise<void> {
 
   const predictiveAimFile = resolveRepo("src/utilities/bot_aim2target.opy");
   const predictiveAimHeroes = extractPredictiveAimHeroes(await readLines(predictiveAimFile));
-  const expectedPredictiveAimHeroes = ["Hero.FREJA", "Hero.VENTURE", "Hero.PHARAH", "Hero.HAZARD", "Hero.ANRAN"];
+  const projectileContractFile = resolveRepo("tools/data/contract-guard/custom-ai-projectile-contract.tsv");
+  const projectileContractRows = await parseCustomAiProjectileContract(projectileContractFile);
+  reporter.pass("custom-ai projectile contract data file found");
+  const expectedPredictiveAimHeroes = projectileContractRows
+    .filter((row) => row.aim_mode === "predictive")
+    .map((row) => row.hero);
   if (predictiveAimHeroes.join("|") === expectedPredictiveAimHeroes.join("|")) {
     reporter.pass("predictive aim hero list matches the current shared ProjectileSpeed contract");
   } else {
@@ -478,16 +461,11 @@ async function main(): Promise<void> {
 
   const botHeroIndex = new Map(mainSyncArrays.get("BotHeroArray")!.map((hero, index) => [hero, index]));
   const projectileSpeeds = mainSyncArrays.get("ProjectileSpeed")!;
-  const defaultDefines = extractDefines(await readLines(resolveRepo("src/constants/ow2_hero_defaults.opy")));
-  const balanceDefines = extractDefines(await readLines(resolveRepo("src/constants/hero_balance_constants.opy")));
-  const projectileDefineScope = new Map([...defaultDefines.entries(), ...balanceDefines.entries()]);
-  const expectedPredictiveProjectileSpeeds = new Map<string, number>([
-    ["Hero.PHARAH", evaluateDefine("OW2_PHARAH_ROCKET_SPEED", projectileDefineScope)],
-    ["Hero.VENTURE", evaluateDefine("OW2_VENTURE_SMART_EXCAVATOR_PROJECTILE_SPEED", projectileDefineScope)],
-    ["Hero.HAZARD", evaluateDefine("OW2_HAZARD_BONESPUR_PROJECTILE_SPEED", projectileDefineScope)],
-    ["Hero.ANRAN", evaluateDefine("OW2_ANRAN_ZHUQUE_FANS_PROJECTILE_SPEED", projectileDefineScope)],
-    ["Hero.FREJA", evaluateDefine("FREJA_SHARED_PROJECTILE_SPEED", projectileDefineScope)],
-  ]);
+  const expectedPredictiveProjectileSpeeds = new Map<string, number>(
+    projectileContractRows
+      .filter((row) => row.aim_mode === "predictive")
+      .map((row) => [row.hero, Number(row.shared_projectile_speed)]),
+  );
 
   for (const hero of expectedPredictiveAimHeroes) {
     const index = botHeroIndex.get(hero);
@@ -515,7 +493,9 @@ async function main(): Promise<void> {
     }
   }
 
-  const directAimHeroes = customAiHeroes.filter((hero) => !expectedPredictiveAimHeroes.includes(hero));
+  const directAimHeroes = projectileContractRows
+    .filter((row) => row.aim_mode === "direct")
+    .map((row) => row.hero);
   for (const hero of directAimHeroes) {
     const index = botHeroIndex.get(hero);
     if (index === undefined) {
@@ -527,6 +507,15 @@ async function main(): Promise<void> {
     } else {
       reporter.fail(`direct aim CustomAI hero unexpectedly uses predictive ProjectileSpeed: ${hero}`);
     }
+  }
+
+  const contractHeroes = projectileContractRows.map((row) => row.hero);
+  if (customAiHeroes.join("|") === contractHeroes.join("|")) {
+    reporter.pass("custom-ai projectile contract file covers the current CustomAIArray in order");
+  } else {
+    reporter.fail(
+      `custom-ai projectile contract file drifted from CustomAIArray (contract=${contractHeroes.join(", ")} customAi=${customAiHeroes.join(", ")})`,
+    );
   }
 
   for (const kind of ["globalvar", "playervar", "subroutine"] as const) {
