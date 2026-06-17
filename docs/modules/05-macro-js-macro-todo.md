@@ -26,7 +26,7 @@
 - [ ] 抽取通用公式宏（如 falloff/clamp 计算，减少重复数学表达式）。（status: in_progress）
 - [ ] 引入第一个 JS macro（建议先做黑名单数据生成，低玩法风险）。（status: todo）
 - [ ] 评估 Changelog 是否进入 JS macro（复杂度高，放第二阶段，可延期）。（status: todo）
-- [ ] 同步更新文档（`03-module-contracts.md`、`04-current-implementation-summary.md`）。（status: todo）
+- [ ] 同步更新文档（`docs/agents/*` canonical 规则、`01-main-opy-architecture.md`、必要时附录索引）。（status: todo）
 
 ## 2. 推荐执行顺序
 

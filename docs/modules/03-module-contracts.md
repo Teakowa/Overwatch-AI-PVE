@@ -1,72 +1,23 @@
-# 03. 模块契约与稳定性协议
+# 03. 模块契约导览
 
-本文档定义模块化后的“不可随意变更”约定。
+本文档不再重复规则正文，只负责把“该去哪个 canonical 文档找哪类约束”讲清楚，并补充少量仓库内的阅读提示。
 
-## 规范来源迁移说明（Canonical）
+## 1. Canonical 入口
 
-- 本文档用于历史背景与实现注释，不再作为规则 canonical 来源。
-- 协议类规范请以 `docs/agents/*` 为准：
-  - `docs/agents/protocol-constraints.md`（索引、命名、`@Disabled`）
-  - `docs/agents/hero-init-contract.md`（Hero Init Detect/Initialize）
-  - `docs/agents/performance-stability.md`（性能与 Anti Crash）
-  - `docs/agents/gates-and-commits.md`（门禁与提交）
+- 入口顺序与主入口边界：`docs/agents/main-contract.md`
+- 变量索引、分隔规则名、`#!mainFile` 与 `@Disabled`：`docs/agents/protocol-constraints.md`
+- Hero Init Detect / Initialize：`docs/agents/hero-init-contract.md`
+- 高频规则、Anti Crash 与性能边界：`docs/agents/performance-stability.md`
+- 提交门禁与检查顺序：`docs/agents/gates-and-commits.md`
 
-## 1. 变量索引协议（硬约束）
+## 2. 仓库内阅读提示
 
-- `globalvar` 索引不可重排
-- `playervar` 索引不可重排
-- `subroutine` 索引不可重排
+- `reset_pvar` 的稳定语义属于协议面，变更前先查 `docs/agents/protocol-constraints.md`，再回到 hero / reset 实现核对真实读写点
+- Hero 初始化链路的代码阅读顺序通常是：`heroes/main.opy` -> 对应 hero init 文件 -> `resetHero()` 相关 utilities -> canonical Hero Init contract
+- 如果一个问题同时涉及 include 顺序与模式拆分，优先把 `src/main.opy` / `src/aramMain.opy` 当成真实执行面，`_index.opy` 仅作为顺序源辅助理解
 
-新增变量优先使用空闲索引，仅追加。
+## 3. 何时同步文档
 
-## 2. 分隔规则协议（硬约束）
-
-以下规则名和相对顺序必须保留：
-
-- `Initialize AI Scripts`
-- `Initialize AI Scripts End`
-- `Initialize Heroes`
-- `Initialize Heors End`
-
-## 3. `reset_pvar` 槽位协议（关键）
-
-稳定语义槽位：
-
-- `reset_pvar[0]`: 英雄初始化触发开关
-- `reset_pvar[1]`: 己方 Brigitte
-- `reset_pvar[3]`: 己方 Kiriko
-- `reset_pvar[4]`: 己方 Sombra
-- `reset_pvar[5]`: 敌方 Ramattra
-- `reset_pvar[6]`: 敌方 Sombra
-- `reset_pvar[7]`: 敌方 Ana
-- `reset_pvar[9]`: 敌方 Hanzo
-- `reset_pvar[11]`: 敌方 Freja
-- `reset_pvar[12]`: 己方 Baptiste
-- `reset_pvar[13]`: 己方 Wuyang
-- `reset_pvar[14]`: 敌方 Wuyang
-- `reset_pvar[15]`: 本队 0 号位
-- `reset_pvar[16]`: 本队 5 号位
-
-## 4. Hero Init 协议
-
-遵循 Detect/Initialize 双规则模型：
-
-1. Detect: 命中英雄后 `eventPlayer.reset_pvar[0] = true`
-2. Initialize:
-   - 条件 `eventPlayer.reset_pvar[0] != false`
-   - 执行 `resetHero()`
-   - 应用英雄初始状态
-   - 最后写回 `eventPlayer.reset_pvar[0] = false`
-
-## 5. 性能与稳定性协议
-
-- 高频 `eachPlayer` 规则保持节流（`wait` / `waitUntil`）
-- 先廉价条件后昂贵条件（LoS、排序、全局搜索）
-- `Anti Crash` 链路不可弱化
-- `@Disabled` 规则默认保留，不可因“清理”而移除
-
-## 6. 构建协议
-
-- 本地构建：`pnpm run build`
-- 发行构建：`pnpm run build:release`
-- OverPy 版本由 `package.json` 锁定
+- 改了规则约束：更新 `docs/agents/*`
+- 改了架构阅读路径：更新 `docs/modules/01-main-opy-architecture.md`
+- 改了文件分布或聚合入口：更新 `docs/modules/appendix-src-file-index.md`

@@ -94,9 +94,7 @@ async function main(): Promise<void> {
   const args = parseArgs(process.argv.slice(2));
   const reporter = new Reporter();
   const docsTargets = [
-    "docs/modules/01-main-opy-architecture.md",
     "docs/modules/02-modular-split-plan.md",
-    "docs/modules/04-current-implementation-summary.md",
     "docs/modules/appendix-src-file-index.md",
   ];
 
@@ -160,27 +158,6 @@ async function main(): Promise<void> {
     let content = await fs.readFile(fullPath, "utf8");
     content = content.replaceAll("subroutine-names.opy", "subroutine.opy");
 
-    if (target.endsWith("01-main-opy-architecture.md")) {
-      content = replaceIfPresent(content, /^- 规则数：`[0-9]+`$/m, `- 规则数：\`${metrics.totalRules}\``).content;
-      content = replaceIfPresent(content, /^- `globalvar`：`[0-9]+`$/m, `- \`globalvar\`：\`${metrics.globalvarTotal}\``).content;
-      content = replaceIfPresent(content, /^- `playervar`：`[0-9]+`$/m, `- \`playervar\`：\`${metrics.playervarTotal}\``).content;
-      content = replaceIfPresent(content, /^- `subroutine` 声明：`[0-9]+`$/m, `- \`subroutine\` 声明：\`${metrics.subroutineTotal}\``).content;
-      content = replaceIfPresent(content, /^- `def` 子程序实现：`[0-9]+`$/m, `- \`def\` 子程序实现：\`${metrics.defTotal}\``).content;
-      content = replaceIfPresent(content, /^- `@Disabled` 规则：`[0-9]+`$/m, `- \`@Disabled\` 规则：\`${metrics.disabledTotal}\``).content;
-    }
-    if (target.endsWith("04-current-implementation-summary.md")) {
-      content = replaceIfPresent(content, /^- `rule` 总数：`[0-9]+`$/m, `- \`rule\` 总数：\`${metrics.totalRules}\``).content;
-      content = replaceIfPresent(content, /^- `globalvar`：`[0-9]+`$/m, `- \`globalvar\`：\`${metrics.globalvarTotal}\``).content;
-      content = replaceIfPresent(content, /^- `playervar`：`[0-9]+`$/m, `- \`playervar\`：\`${metrics.playervarTotal}\``).content;
-      content = replaceIfPresent(content, /^- `subroutine` 声明：`[0-9]+`$/m, `- \`subroutine\` 声明：\`${metrics.subroutineTotal}\``).content;
-      content = replaceIfPresent(content, /^- `def` 子程序实现：`[0-9]+`$/m, `- \`def\` 子程序实现：\`${metrics.defTotal}\``).content;
-      content = replaceIfPresent(content, /^- `@Disabled`：`[0-9]+`$/m, `- \`@Disabled\`：\`${metrics.disabledTotal}\``).content;
-      content = replaceIfPresent(content, /^- `bootstrap`：`[0-9]+` 条规则 \+ `[0-9]+` 个 `def`$/m, `- \`bootstrap\`：\`${metrics.bootstrapRules}\` 条规则 + \`${metrics.bootstrapDefs}\` 个 \`def\``).content;
-      content = replaceIfPresent(content, /^- `ai`：`[0-9]+` 条规则 \+ `[0-9]+` 个 `def`.*$/m, `- \`ai\`：\`${metrics.aiRules}\` 条规则 + \`${metrics.aiDefs}\` 个 \`def\`（\`botAim2Target()\`）`).content;
-      content = replaceIfPresent(content, /^- `hero_rules`：`[0-9]+` 条规则 \+ `[0-9]+` 个 `def`.*$/m, `- \`hero_rules\`：\`${metrics.heroRulesRules}\` 条规则 + \`${metrics.heroRulesDefs}\` 个 \`def\`（\`Knockback()\`）`).content;
-      content = replaceIfPresent(content, /^- `hero_init`：`[0-9]+` 条规则（.*$/m, `- \`hero_init\`：\`${metrics.heroInitRules}\` 条规则（\`heroes/* + extras/* + delimiters\`）`).content;
-      content = replaceIfPresent(content, /^- `debug`：`[0-9]+` 条规则 \+ `[0-9]+` 个 `def`.*$/m, `- \`debug\`：\`${metrics.debugRules}\` 条规则 + \`${metrics.debugDefs}\` 个 \`def\`（\`changelogText()\`）`).content;
-    }
     if (target.endsWith("appendix-src-file-index.md")) {
       content = replaceIfPresent(content, /^- `rule` 总数应保持 `[0-9]+`$/m, `- \`rule\` 总数应保持 \`${metrics.totalRules}\``).content;
     }

@@ -51,12 +51,3 @@
 ## 7. Debug
 
 当前 main 不再显式 include `src/modules/debug/*`。
-
-## 8. 关键不变量检查点
-
-- 分隔规则名应保持不变：
-  - `Initialize AI Scripts`
-  - `Initialize AI Scripts End`
-  - `Initialize Heroes`
-  - `Initialize Heors End`
-- `globalvar/playervar/subroutine` 索引不可重排

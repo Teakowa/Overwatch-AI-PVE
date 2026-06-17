@@ -1,103 +1,58 @@
 # 01. `src/main.opy` 代码逻辑总览
 
-本文档基于当前模块化结构整理，目标是帮助协作者理解编排顺序、运行链路与维护边界。
+本文档只负责回答两个问题：主入口如何组织当前代码，以及阅读源码时先看哪里。硬约束与提交门禁统一以 `docs/agents/*` 为准。
 
-## 规范来源迁移说明（Canonical）
+## 规范来源
 
-- 本文档用于架构理解与背景说明，不再作为规则 canonical 来源。
-- `src/main.opy` 结构与分隔规则以 `docs/agents/main-contract.md` 为准：
-  - `R-MAIN-TOP-ORDER`
-  - `R-MAIN-INCLUDE-ORDER`
-  - `R-MAIN-NO-INDEX-INCLUDE`
-  - `R-MAIN-CONSTANTS-BEFORE-PRELUDE`
-  - `R-MAIN-SECTION-DELIMITERS`
-- 变量与命名等通用约束以 `docs/agents/protocol-constraints.md` 为准。
+- 入口顺序、分隔规则与 `#!mainFile` 相关约束：`docs/agents/main-contract.md`
+- 协议、索引与命名约束：`docs/agents/protocol-constraints.md`
+- Hero Init 约束：`docs/agents/hero-init-contract.md`
+- 性能与 Anti Crash 约束：`docs/agents/performance-stability.md`
 
-## 1. 快速事实
+## 1. 当前入口角色
 
-- 主入口：`src/main.opy`（manifest）
-- 文档不再维护静态数量统计（`rule/globalvar/playervar/subroutine/def/@Disabled`），避免与源码漂移
+- 主入口：`src/main.opy`
+- 角色：扁平 manifest，显式列出常量、prelude、bootstrap、utilities、AI 与 hero surface
+- 顺序源：`src/modules/*/_index.opy` 仍保留给维护与校验使用，但不是主入口直接 include 的执行面
 
-## 2. 顶层结构顺序（硬约束）
+## 2. 入口阅读路径
 
-入口 `src/main.opy` 按以下顺序 include：
+阅读 `src/main.opy` 时，可按下面的心智顺序理解：
 
-1. `constants/player_constants.opy`（集中维护跨模块复用常量）
-2. `modules/prelude/settings.opy`
-3. `modules/prelude/global-vars.opy`
-4. `modules/prelude/player-vars.opy`
-5. `modules/prelude/subroutine.opy`
-6. `#!optimizeStrict`
-7. `#!postCompileHook "post-compile-hook.js"`
-8. `modules/bootstrap/*`
-9. `utilities/*`
-10. `modules/ai/*`
-11. `modules/hero_rules/*`
-12. `modules/hero_init/*`
-13. `modules/debug/*`
+1. `utilities/macros.opy` 与 `constants/player_constants.opy`
+2. `modules/prelude/*.opy`
+3. `modules/bootstrap/*` 与 `main_mode_profile.opy`
+4. `utilities/*`
+5. `modules/ai/*`
+6. `heroes/main.opy`
 
-说明：`src/main.opy` 不直接 include `*_index.opy`，但模块目录中的 `_index.opy` 仍作为顺序源用于契约校验。
+这条路径描述的是“先看哪里”，不是额外规则定义；真实硬约束请直接查看 canonical agent docs。
 
-## 3. 关键分隔规则（保留）
+## 3. 运行链路
 
-- `Initialize AI Scripts`
-- `Initialize AI Scripts End`
-- `Initialize Heroes`
-- `Initialize Heors End`（保留现有拼写）
+### 3.1 Bootstrap
 
-## 4. 运行链路
+- 负责模式与设置初始化、稳定性保护、准入控制，以及玩家生命周期入口
+- `main_mode_profile.opy` 放在 bootstrap 后段，承接主模式专属 profile 配置
 
-### 4.1 启动与全局设置（bootstrap）
+### 3.2 Utilities
 
-- 版权/协作者文案初始化
-- Anti Crash 设置项
-- 全局模式与 AI 参数数组初始化
-- 英雄设置项（Workshop Settings）初始化
+- 放共享子程序与状态清理工具
+- `resetHero()`、`resetStats()`、`resetStatuses()`、`resetFrenemies()` 与自定义生命值工具都在这里组成复位工具链
 
-### 4.2 稳定性与准入（bootstrap）
+### 3.3 AI
 
-- Anti Crash 触发与恢复
-- Blacklist 初始化与踢出
-- Hero BAN 与可选英雄列表覆盖
+- `modules/ai/` 按 `core`、`movement`、`control` 分层
+- 负责目标选择、移动、视角与技能控制
 
-### 4.3 玩家生命周期与 reset 工具链（bootstrap）
+### 3.4 Hero Surface
 
-- 默认复活时间
-- 死亡重置
-- 回合切换重置
-- 核心子程序：
-  - `resetHero()`
-  - `resetStats()`
-  - `resetStatuses()`
-  - `resetFrenemies()`
-  - `applyCustomHp()` / `clearCustomHp()`
+- `heroes/main.opy` 是当前英雄玩法与初始化的聚合入口
+- 该层继续分发到 hero rules、hero init 与共享英雄片段；阅读英雄逻辑时优先从这里下钻
 
-### 4.4 AI 主逻辑（ai）
+## 4. 阅读建议
 
-- dummy 生成与全局 AI 参数
-- 目标选择与朝向
-- 移动（走位、跳蹲、速度恢复）
-- 按英雄分组的控制规则（PRIMARY/SECONDARY/ABILITY/ULT）
-- 当前以 `ai/core`、`ai/movement`、`ai/control` 分层编排，便于按职责扩展。
-
-### 4.5 英雄行为改动（hero_rules）
-
-- 主玩法增强区，包含伤害、状态、CD、HUD、联动逻辑
-- 当前按连续片段拆到 `hero_rules/heroes/*.opy`，以保持原执行顺序
-
-### 4.6 英雄初始化（hero_init）
-
-- Detect/Initialize 双规则模式
-- 额外规则（如 widow/cassidy falloff、echo duplicate、disabled health table）放入 `hero_init/extras/`
-
-### 4.7 调试与展示（debug）
-
-- `[Global][Debug]Auto Ultimate Gain`
-- `Changelog` 与 `changelogText()`
-
-## 5. 维护建议
-
-1. 默认不调整规则顺序。
-2. 不改变量索引协议。
-3. `@Disabled` 规则仅在确认需要时启用。
-4. 影响 `reset_pvar` 槽位语义时必须同步更新契约文档。
+- 想看入口编排：先读 `src/main.opy`，再看 `docs/agents/main-contract.md`
+- 想看 reset / hero init 协作：先读 bootstrap 和 utilities，再看 `docs/agents/hero-init-contract.md`
+- 想看玩法改动：从 `heroes/main.opy` 进入对应英雄目录
+- 想看文件分布：配合 `appendix-src-file-index.md` 使用

@@ -73,7 +73,6 @@
 - 波次报告已清理，关键信息已折叠进 `Condensed Iteration Summary`。
 - Baseline-only 保留文档：
   - `docs/reports/aram-vs-main-verification.md`
-  - `docs/reports/module-metrics-sync-20260302-201115.md`
 
 ## Latest Completed Iteration (H9 Wave-A/B/C: Strict Gate Stabilization + Maintenance Transition)
 

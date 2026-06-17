@@ -69,7 +69,7 @@ src/
 
 ## 5. 验收门禁
 
-- 规则总数维持 `124`
+- 规则总数维持 `127`
 - 变量/子程序索引协议不变
 - `@Disabled` 规则不丢失
 - `src/main.opy` 维持 `constants -> prelude 四文件 -> optimizeStrict -> 模块区扁平 include` 顺序

@@ -4,13 +4,12 @@
 
 ## 推荐阅读顺序
 
-1. [04-current-implementation-summary.md](./04-current-implementation-summary.md)
-2. [01-main-opy-architecture.md](./01-main-opy-architecture.md)
-3. [02-modular-split-plan.md](./02-modular-split-plan.md)
-4. [03-module-contracts.md](./03-module-contracts.md)
+1. [01-main-opy-architecture.md](./01-main-opy-architecture.md)
+2. [03-module-contracts.md](./03-module-contracts.md)
+3. [appendix-src-file-index.md](./appendix-src-file-index.md)
+4. [02-modular-split-plan.md](./02-modular-split-plan.md)
 5. [05-macro-js-macro-todo.md](./05-macro-js-macro-todo.md)
-6. [appendix-src-file-index.md](./appendix-src-file-index.md)
-7. [10-references-workshop-codes.md](./10-references-workshop-codes.md)
+6. [10-references-workshop-codes.md](./10-references-workshop-codes.md)
 
 ## 相关参考（同级 `docs/`）
 
@@ -22,5 +21,5 @@
 ## 维护约定
 
 - 新增玩法逻辑时，优先在对应模块文件中追加。
-- 涉及执行顺序、变量索引、分隔规则变更时，必须同步更新 `03-module-contracts.md` 与附录。
+- 涉及执行顺序、变量索引、分隔规则等规则面变更时，必须同步更新 `docs/agents/*`；涉及阅读路径或文件分布变化时，再同步本目录文档。
 - `_index.opy` 用于维护模块顺序源并供契约校验使用；`src/main.opy` 不直接 include `*_index.opy`。
