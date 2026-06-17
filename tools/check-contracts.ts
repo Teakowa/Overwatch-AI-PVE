@@ -184,6 +184,21 @@ function heroConstantToFolderName(heroConstant: string): string {
   return heroConstant.replace(/^Hero\./, "").toLowerCase();
 }
 
+function extractPredictiveAimHeroes(lines: string[]): string[] {
+  const predictiveLine = lines.find((line) => line.includes("eventPlayer.getHero() in [") && line.includes("ProjectileSpeed[eventPlayer.heroNum]"));
+  if (!predictiveLine) {
+    throw new Error("Missing predictive aim hero list in bot_aim2target.opy");
+  }
+  const match = predictiveLine.match(/eventPlayer\.getHero\(\) in \[(.*)\] and eventPlayer\.heroNum < len\(ProjectileSpeed\)/);
+  if (!match) {
+    throw new Error("Unable to parse predictive aim hero list in bot_aim2target.opy");
+  }
+  return match[1]!
+    .split(",")
+    .map((value) => value.trim())
+    .filter(Boolean);
+}
+
 async function main(): Promise<void> {
   const args = parseArgs(process.argv.slice(2));
   const reporter = new Reporter();
@@ -408,6 +423,46 @@ async function main(): Promise<void> {
       reporter.pass(`${heroFolder}.init assigns heroNum from BotHeroArray`);
     } else {
       reporter.fail(`${heroFolder}.init missing heroNum assignment from BotHeroArray`);
+    }
+  }
+
+  const predictiveAimFile = resolveRepo("src/utilities/bot_aim2target.opy");
+  const predictiveAimHeroes = extractPredictiveAimHeroes(await readLines(predictiveAimFile));
+  const expectedPredictiveAimHeroes = ["Hero.FREJA", "Hero.VENTURE", "Hero.PHARAH", "Hero.HAZARD", "Hero.ANRAN"];
+  if (predictiveAimHeroes.join("|") === expectedPredictiveAimHeroes.join("|")) {
+    reporter.pass("predictive aim hero list matches the current shared ProjectileSpeed contract");
+  } else {
+    reporter.fail(
+      `predictive aim hero list drifted (actual=${predictiveAimHeroes.join(", ")} expected=${expectedPredictiveAimHeroes.join(", ")})`,
+    );
+  }
+
+  const botHeroIndex = new Map(mainSyncArrays.get("BotHeroArray")!.map((hero, index) => [hero, index]));
+  const projectileSpeeds = mainSyncArrays.get("ProjectileSpeed")!;
+  for (const hero of expectedPredictiveAimHeroes) {
+    const index = botHeroIndex.get(hero);
+    if (index === undefined) {
+      reporter.fail(`predictive aim hero missing from BotHeroArray: ${hero}`);
+      continue;
+    }
+    if (projectileSpeeds[index] !== "100000000") {
+      reporter.pass(`predictive aim hero uses non-sentinel ProjectileSpeed: ${hero}`);
+    } else {
+      reporter.fail(`predictive aim hero still uses sentinel ProjectileSpeed: ${hero}`);
+    }
+  }
+
+  const directAimHeroes = customAiHeroes.filter((hero) => !expectedPredictiveAimHeroes.includes(hero));
+  for (const hero of directAimHeroes) {
+    const index = botHeroIndex.get(hero);
+    if (index === undefined) {
+      reporter.fail(`direct aim CustomAI hero missing from BotHeroArray: ${hero}`);
+      continue;
+    }
+    if (projectileSpeeds[index] === "100000000") {
+      reporter.pass(`direct aim CustomAI hero keeps sentinel ProjectileSpeed: ${hero}`);
+    } else {
+      reporter.fail(`direct aim CustomAI hero unexpectedly uses predictive ProjectileSpeed: ${hero}`);
     }
   }
 
