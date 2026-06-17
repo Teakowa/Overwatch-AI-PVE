@@ -30,7 +30,8 @@ rule "[Shion]: Damage stack":
     @Condition eventPlayer.shion_stack_gate != true
 
     eventPlayer.shion_stack_count += 1
-    eventPlayer.hudText = "狂势：{0} 层".format(eventPlayer.shion_stack_count)
+	if eventPlayer.getTeam() == Team.2:
+		eventPlayer.hudText = "狂势：{0} 层".format(eventPlayer.shion_stack_count)
     eventPlayer.shion_stack_gate = true
     waitUntil(eventPlayer.isDead() or eventPlayer._reset_requested != false, 0.5)
     eventPlayer.shion_stack_gate = false
@@ -73,7 +74,7 @@ rule "[Shion]: Full stack buff":
     eventPlayer.setDamageDealt(100 + ShionBuff[1])
     eventPlayer.setDamageReceived(100 - ShionBuff[2])
     if eventPlayer.getTeam() == Team.2:
-        eventPlayer.hudText = "狂势已激活 | {0}% 增伤 | {1}% 减伤 | 参与击杀回复{2}%生命".format(ShionBuff[1], ShionBuff[2], ShionBuff[5])
+        eventPlayer.hudText = "狂势已激活 | {0}% 增伤 | {1}% 减伤 | 击杀回复{2}%生命值".format(ShionBuff[1], ShionBuff[2], ShionBuff[5])
     waitUntil(eventPlayer.isDead() or eventPlayer._reset_requested != false or eventPlayer.shion_buff_active == false, 8)
     eventPlayer.shion_buff_active = false
     eventPlayer.setDamageDealt(100)
