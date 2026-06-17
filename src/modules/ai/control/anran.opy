@@ -66,7 +66,7 @@ rule "[AI/control]: Anran Ultimate":
     @Condition eventPlayer.botTarget.hasStatus(Status.BURNING) == true
 
     waitUntil(
-        eventPlayer.botTarget != null and eventPlayer.botTarget.isAlive() == true and distance(eventPlayer.getPosition() * vect(1, 0, 1), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) <= 12,
+        eventPlayer.botTarget.isAlive() == true and distance(eventPlayer.getPosition() * vect(1, 0, 1), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) <= 12,
         4
     )
     eventPlayer.forceButtonPress(Button.ULTIMATE)
