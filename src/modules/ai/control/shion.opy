@@ -113,6 +113,7 @@ rule "[AI/control]: Shion Ultimate":
     @Condition eventPlayer.isDummy() != false
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.hasSpawned() == true
+	@Condition eventPlayer.isUsingUltimate() != true
     @Condition eventPlayer.getUltCharge() == 100
     @Condition eventPlayer.botTarget != null
     @Condition eventPlayer.botTarget.isAlive() == true
