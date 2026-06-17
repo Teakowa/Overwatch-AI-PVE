@@ -5,6 +5,7 @@ playervar shion_buff
 #!defineMember shion_stack_count            shion_buff[0]
 #!defineMember shion_stack_gate             shion_buff[1]
 #!defineMember shion_buff_active            shion_buff[2]
+#!defineMember shion_stack_timeout_snapshot shion_buff[3]
 
 rule "[Shion]: State clear on death":
     @Event playerDied
@@ -12,6 +13,7 @@ rule "[Shion]: State clear on death":
     eventPlayer.shion_stack_count = 0
     eventPlayer.shion_stack_gate = false
     eventPlayer.shion_buff_active = false
+    eventPlayer.shion_stack_timeout_snapshot = 0
     eventPlayer.setDamageDealt(100)
 
 rule "[Shion]: Damage stack":
@@ -27,6 +29,24 @@ rule "[Shion]: Damage stack":
     eventPlayer.shion_stack_gate = true
     waitUntil(eventPlayer.isDead() or eventPlayer._reset_requested != false, 0.5)
     eventPlayer.shion_stack_gate = false
+
+rule "[Shion]: Stack timeout clear":
+    @Event eachPlayer
+    @Hero shion
+    @Condition eventPlayer.shion_stack_count != 0
+    @Condition eventPlayer.shion_buff_active != true
+    @Condition eventPlayer.shion_stack_timeout_snapshot == 0
+
+    eventPlayer.shion_stack_timeout_snapshot = eventPlayer.shion_stack_count
+    wait(2)
+    if eventPlayer.isDead() or eventPlayer._reset_requested != false or eventPlayer.shion_buff_active == true:
+        eventPlayer.shion_stack_timeout_snapshot = 0
+    elif eventPlayer.shion_stack_count > eventPlayer.shion_stack_timeout_snapshot:
+        eventPlayer.shion_stack_timeout_snapshot = 0
+        loop()
+    else:
+        eventPlayer.shion_stack_count = 0
+        eventPlayer.shion_stack_timeout_snapshot = 0
 
 rule "[Shion]: Full stack buff":
     @Event eachPlayer
