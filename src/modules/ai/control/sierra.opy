@@ -68,22 +68,6 @@ rule "[AI/control]: Sierra Ability 1":
     if ruleCondition:
         loop()
 
-rule "[AI/control]: Emre Ability 2":
-    @Event eachPlayer
-    @Team 1
-    @Hero emre
-    @Condition eventPlayer.isDummy() != false
-    @Condition eventPlayer.hasSpawned() == true
-    @Condition eventPlayer.isAlive() == true
-    @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) != true
-    @Condition eventPlayer.botTarget != null
-    @Condition eventPlayer.botTarget.isAlive() == true
-    @Condition isInLoS(eventPlayer, eventPlayer.botTarget) == true
-
-    eventPlayer.startForcingButton(Button.ABILITY_2)
-    wait(1)
-    eventPlayer.stopForcingButton(Button.ABILITY_2)
-
 rule "[AI/control]: Sierra Ultimate":
     @Event eachPlayer
     @Team 1
