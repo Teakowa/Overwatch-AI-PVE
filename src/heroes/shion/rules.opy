@@ -25,7 +25,7 @@ rule "[Shion]: Damage stack":
 
     eventPlayer.shion_stack_count += 1
     eventPlayer.shion_stack_gate = true
-    waitUntil(eventPlayer.isDead() or eventPlayer._reset_requested != false, 0.25)
+    waitUntil(eventPlayer.isDead() or eventPlayer._reset_requested != false, 0.5)
     eventPlayer.shion_stack_gate = false
 
 rule "[Shion]: Full stack buff":
