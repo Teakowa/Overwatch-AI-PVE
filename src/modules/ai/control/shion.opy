@@ -26,14 +26,17 @@ rule "[AI/control]: Shion Secondary":
     @Team 1
     @Hero shion
     @Condition eventPlayer.isDummy() != false
-    @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.getAbilityCooldown(Button.SECONDARY_FIRE) == 0
     @Condition eventPlayer.botTarget != null
     @Condition eventPlayer.botTarget.isAlive() == true
     @Condition isInLoS(eventPlayer, eventPlayer.botTarget) == true
-    @Condition distance(eventPlayer.getPosition() * vect(1, 0, 1), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) <= 14 or eventPlayer.botTarget.getNormalizedHealth() <= 0.55
 
+    waitUntil(
+        eventPlayer.botTarget != null and eventPlayer.botTarget.isAlive() == true and isInLoS(eventPlayer, eventPlayer.botTarget) == true and (eventPlayer.botTarget.getNormalizedHealth() <= 0.55 or distance(eventPlayer.getPosition() * vect(1, 0, 1), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) <= 14),
+        0.35
+    )
     eventPlayer.startForcingButton(Button.SECONDARY_FIRE)
     wait(0.3)
     eventPlayer.stopForcingButton(Button.SECONDARY_FIRE)
@@ -46,14 +49,17 @@ rule "[AI/control]: Shion Ability 1":
     @Team 1
     @Hero shion
     @Condition eventPlayer.isDummy() != false
-    @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) == 0
     @Condition eventPlayer.botTarget != null
     @Condition eventPlayer.botTarget.isAlive() == true
     @Condition isInLoS(eventPlayer, eventPlayer.botTarget) == true
-    @Condition eventPlayer.getNormalizedHealth() < 0.45 or distance(eventPlayer.getPosition() * vect(1, 0, 1), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) <= 8
 
+    waitUntil(
+        eventPlayer.getNormalizedHealth() < 0.45 or (eventPlayer.botTarget != null and eventPlayer.botTarget.isAlive() == true and isInLoS(eventPlayer, eventPlayer.botTarget) == true and distance(eventPlayer.getPosition() * vect(1, 0, 1), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) <= 8),
+        0.35
+    )
     eventPlayer.startForcingButton(Button.ABILITY_1)
     wait(max(getAverageServerLoad() / 1000, WAIT_AI_THROTTLE_MIN))
     eventPlayer.stopForcingButton(Button.ABILITY_1)
@@ -65,15 +71,17 @@ rule "[AI/control]: Shion Ability 2":
     @Team 1
     @Hero shion
     @Condition eventPlayer.isDummy() != false
-    @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) == 0
     @Condition eventPlayer.botTarget != null
     @Condition eventPlayer.botTarget.isAlive() == true
     @Condition isInLoS(eventPlayer, eventPlayer.botTarget) == true
-    @Condition distance(eventPlayer.getPosition() * vect(1, 0, 1), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) >= 7
-    @Condition distance(eventPlayer.getPosition() * vect(1, 0, 1), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) <= 20
 
+    waitUntil(
+        eventPlayer.botTarget != null and eventPlayer.botTarget.isAlive() == true and isInLoS(eventPlayer, eventPlayer.botTarget) == true and distance(eventPlayer.getPosition() * vect(1, 0, 1), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) >= 7 and distance(eventPlayer.getPosition() * vect(1, 0, 1), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) <= 20,
+        0.5
+    )
     eventPlayer.startForcingButton(Button.ABILITY_2)
     wait(0.75)
     eventPlayer.stopForcingButton(Button.ABILITY_2)
@@ -88,8 +96,8 @@ rule "[AI/control]: Shion Ultimate":
     @Team 1
     @Hero shion
     @Condition eventPlayer.isDummy() != false
-    @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.getUltCharge() == 100
     @Condition eventPlayer.botTarget != null
     @Condition eventPlayer.botTarget.isAlive() == true
