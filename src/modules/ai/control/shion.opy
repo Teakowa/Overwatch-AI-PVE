@@ -33,11 +33,13 @@ rule "[AI/control]: Shion Secondary":
     @Condition eventPlayer.botTarget.isAlive() == true
     @Condition isInLoS(eventPlayer, eventPlayer.botTarget) == true
 
-    waitUntil(
-        eventPlayer.botTarget != null and eventPlayer.botTarget.isAlive() == true and isInLoS(eventPlayer, eventPlayer.botTarget) == true and (eventPlayer.botTarget.getNormalizedHealth() <= 0.55 or distance(eventPlayer.getPosition() * vect(1, 0, 1), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) <= 14),
-        0.35
-    )
-    if not (eventPlayer.botTarget != null and eventPlayer.botTarget.isAlive() == true and isInLoS(eventPlayer, eventPlayer.botTarget) == true and (eventPlayer.botTarget.getNormalizedHealth() <= 0.55 or distance(eventPlayer.getPosition() * vect(1, 0, 1), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) <= 14)):
+    if eventPlayer.botTarget == null:
+        goto lbl_0
+    if eventPlayer.botTarget.isAlive() != true:
+        goto lbl_0
+    if isInLoS(eventPlayer, eventPlayer.botTarget) != true:
+        goto lbl_0
+    if eventPlayer.botTarget.getNormalizedHealth() > 0.55 and distance(eventPlayer.getPosition() * vect(1, 0, 1), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) > 14:
         goto lbl_0
     eventPlayer.startForcingButton(Button.SECONDARY_FIRE)
     wait(0.3)
@@ -59,12 +61,15 @@ rule "[AI/control]: Shion Ability 1":
     @Condition eventPlayer.botTarget.isAlive() == true
     @Condition isInLoS(eventPlayer, eventPlayer.botTarget) == true
 
-    waitUntil(
-        eventPlayer.getNormalizedHealth() < 0.45 or (eventPlayer.botTarget != null and eventPlayer.botTarget.isAlive() == true and isInLoS(eventPlayer, eventPlayer.botTarget) == true and distance(eventPlayer.getPosition() * vect(1, 0, 1), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) <= 8),
-        0.35
-    )
-    if not (eventPlayer.getNormalizedHealth() < 0.45 or (eventPlayer.botTarget != null and eventPlayer.botTarget.isAlive() == true and isInLoS(eventPlayer, eventPlayer.botTarget) == true and distance(eventPlayer.getPosition() * vect(1, 0, 1), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) <= 8)):
-        goto lbl_0
+    if eventPlayer.getNormalizedHealth() >= 0.45:
+        if eventPlayer.botTarget == null:
+            goto lbl_0
+        if eventPlayer.botTarget.isAlive() != true:
+            goto lbl_0
+        if isInLoS(eventPlayer, eventPlayer.botTarget) != true:
+            goto lbl_0
+        if distance(eventPlayer.getPosition() * vect(1, 0, 1), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) > 8:
+            goto lbl_0
     eventPlayer.startForcingButton(Button.ABILITY_1)
     wait(max(getAverageServerLoad() / 1000, WAIT_AI_THROTTLE_MIN))
     eventPlayer.stopForcingButton(Button.ABILITY_1)
@@ -84,11 +89,15 @@ rule "[AI/control]: Shion Ability 2":
     @Condition eventPlayer.botTarget.isAlive() == true
     @Condition isInLoS(eventPlayer, eventPlayer.botTarget) == true
 
-    waitUntil(
-        eventPlayer.botTarget != null and eventPlayer.botTarget.isAlive() == true and isInLoS(eventPlayer, eventPlayer.botTarget) == true and distance(eventPlayer.getPosition() * vect(1, 0, 1), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) >= 7 and distance(eventPlayer.getPosition() * vect(1, 0, 1), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) <= 20,
-        0.5
-    )
-    if not (eventPlayer.botTarget != null and eventPlayer.botTarget.isAlive() == true and isInLoS(eventPlayer, eventPlayer.botTarget) == true and distance(eventPlayer.getPosition() * vect(1, 0, 1), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) >= 7 and distance(eventPlayer.getPosition() * vect(1, 0, 1), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) <= 20):
+    if eventPlayer.botTarget == null:
+        goto lbl_0
+    if eventPlayer.botTarget.isAlive() != true:
+        goto lbl_0
+    if isInLoS(eventPlayer, eventPlayer.botTarget) != true:
+        goto lbl_0
+    if distance(eventPlayer.getPosition() * vect(1, 0, 1), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) < 7:
+        goto lbl_0
+    if distance(eventPlayer.getPosition() * vect(1, 0, 1), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) > 20:
         goto lbl_0
     eventPlayer.startForcingButton(Button.ABILITY_2)
     wait(0.75)
