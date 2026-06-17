@@ -95,15 +95,12 @@ rule "[AI/control]: Shion Ability 2":
         goto lbl_0
     if isInLoS(eventPlayer, eventPlayer.botTarget) != true:
         goto lbl_0
-    if distance(eventPlayer.getPosition() * vect(1, 0, 1), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) < 7:
-        goto lbl_0
-    if distance(eventPlayer.getPosition() * vect(1, 0, 1), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) > 20:
-        goto lbl_0
     eventPlayer.startForcingButton(Button.ABILITY_2)
     wait(0.75)
+    # eventPlayer.stopForcingButton(Button.ABILITY_2)
+    wait(random.uniform(1.67, 3))
+    # eventPlayer.forceButtonPress(Button.ABILITY_2)
     eventPlayer.stopForcingButton(Button.ABILITY_2)
-    wait(max(getAverageServerLoad() / 1000, 0.35))
-    eventPlayer.forceButtonPress(Button.ABILITY_2)
     lbl_0:
     wait(max(getAverageServerLoad() / 1000, 0.5))
 
