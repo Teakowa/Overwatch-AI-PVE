@@ -15,5 +15,9 @@ rule "[Illari] Initialize":
     @Condition eventPlayer._reset_requested != false
 
     resetHero()
+    if eventPlayer.getTeam() != Team.1:
+        goto lbl_0
+    eventPlayer.heroNum = BotHeroArray.index(eventPlayer.getHero())
+    lbl_0:
     eventPlayer.reset_pvar[6].reset_pvar[9] = eventPlayer
     eventPlayer._reset_requested = false

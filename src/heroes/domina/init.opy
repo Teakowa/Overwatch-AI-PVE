@@ -15,4 +15,8 @@ rule "[Domina/init.opy]: Initialize Domina":
     @Condition eventPlayer._reset_requested != false
 
     resetHero()
+    if eventPlayer.getTeam() != Team.1:
+        goto lbl_0
+    eventPlayer.heroNum = BotHeroArray.index(eventPlayer.getHero())
+    lbl_0:
     eventPlayer._reset_requested = false

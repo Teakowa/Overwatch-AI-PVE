@@ -165,6 +165,25 @@ function duplicateNames(values: string[]): string[] {
   return [...dupes].sort((a, b) => a.localeCompare(b));
 }
 
+function extractAssignedArray(lines: string[], name: string): string[] {
+  const line = lines.find((entry) => entry.trim().startsWith(`${name} = [`));
+  if (!line) {
+    throw new Error(`Missing ${name} assignment`);
+  }
+  const match = line.match(/=\s*\[(.*)\]\s*$/);
+  if (!match) {
+    throw new Error(`Unable to parse ${name} assignment`);
+  }
+  return match[1]!
+    .split(",")
+    .map((value) => value.trim())
+    .filter(Boolean);
+}
+
+function heroConstantToFolderName(heroConstant: string): string {
+  return heroConstant.replace(/^Hero\./, "").toLowerCase();
+}
+
 async function main(): Promise<void> {
   const args = parseArgs(process.argv.slice(2));
   const reporter = new Reporter();
@@ -333,6 +352,64 @@ async function main(): Promise<void> {
     playervar: resolveRepo("src/modules/prelude/player-vars.opy"),
     subroutine: resolveRepo("src/modules/prelude/subroutine.opy"),
   } as const;
+
+  const mainBootstrapFile = resolveRepo("src/modules/bootstrap/init-and-settings.opy");
+  const aramBootstrapFile = resolveRepo("src/modules/bootstrap/aram-mode-settings.opy");
+  const mainBootstrapLines = await readLines(mainBootstrapFile);
+  const aramBootstrapLines = await readLines(aramBootstrapFile);
+  const syncArrayNames = ["FalloffMin", "ProjectileSpeed", "BotHeroArray"] as const;
+  const mainSyncArrays = new Map<typeof syncArrayNames[number], string[]>();
+  const aramSyncArrays = new Map<typeof syncArrayNames[number], string[]>();
+
+  for (const arrayName of syncArrayNames) {
+    const mainValues = extractAssignedArray(mainBootstrapLines, arrayName);
+    const aramValues = extractAssignedArray(aramBootstrapLines, arrayName);
+    mainSyncArrays.set(arrayName, mainValues);
+    aramSyncArrays.set(arrayName, aramValues);
+
+    if (mainValues.length === aramValues.length) {
+      reporter.pass(`${arrayName} length matches between main and aram bootstrap`);
+    } else {
+      reporter.fail(`${arrayName} length mismatch between main and aram bootstrap (main=${mainValues.length} aram=${aramValues.length})`);
+    }
+
+    if (mainValues.join("|") === aramValues.join("|")) {
+      reporter.pass(`${arrayName} values match between main and aram bootstrap`);
+    } else {
+      reporter.fail(`${arrayName} values mismatch between main and aram bootstrap`);
+    }
+  }
+
+  const syncedLength = mainSyncArrays.get("BotHeroArray")!.length;
+  if (
+    mainSyncArrays.get("FalloffMin")!.length === syncedLength &&
+    mainSyncArrays.get("ProjectileSpeed")!.length === syncedLength
+  ) {
+    reporter.pass(`shared hero tables stay length-synchronized in main bootstrap (${syncedLength} entries)`);
+  } else {
+    reporter.fail("shared hero tables are not length-synchronized in main bootstrap");
+  }
+
+  const customAiHeroes = extractAssignedArray(mainBootstrapLines, "CustomAIArray");
+  const botHeroSet = new Set(mainSyncArrays.get("BotHeroArray")!);
+  const missingCustomAiHeroes = customAiHeroes.filter((hero) => !botHeroSet.has(hero));
+  if (missingCustomAiHeroes.length === 0) {
+    reporter.pass("every CustomAI hero is present in BotHeroArray");
+  } else {
+    reporter.fail(`CustomAI heroes missing from BotHeroArray: ${missingCustomAiHeroes.join(", ")}`);
+  }
+
+  for (const heroConstant of customAiHeroes) {
+    const heroFolder = heroConstantToFolderName(heroConstant);
+    const initFile = resolveRepo("src/heroes", heroFolder, "init.opy");
+    const initLines = await readLines(initFile);
+    const assignmentCount = initLines.filter((line) => line.includes("eventPlayer.heroNum = BotHeroArray.index(eventPlayer.getHero())")).length;
+    if (assignmentCount >= 1) {
+      reporter.pass(`${heroFolder}.init assigns heroNum from BotHeroArray`);
+    } else {
+      reporter.fail(`${heroFolder}.init missing heroNum assignment from BotHeroArray`);
+    }
+  }
 
   for (const kind of ["globalvar", "playervar", "subroutine"] as const) {
     const declarations = await extractDeclarations(declarationFiles[kind], kind);

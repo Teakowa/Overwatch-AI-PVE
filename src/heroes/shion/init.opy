@@ -15,6 +15,10 @@ rule "[Shion/init.opy]: Initialize Shion":
     @Condition eventPlayer._reset_requested != false
 
     resetHero()
+    if eventPlayer.getTeam() != Team.1:
+        goto lbl_0
+    eventPlayer.heroNum = BotHeroArray.index(eventPlayer.getHero())
+    lbl_0:
     eventPlayer.shion_buff[0] = 0
     eventPlayer.shion_buff[1] = false
     eventPlayer.shion_buff[2] = false

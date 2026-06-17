@@ -17,6 +17,7 @@ rule "[Vendetta/init.opy]: Initialize Vendetta":
     resetHero()
     if eventPlayer.getTeam() != Team.1:
         goto lbl_0
+    eventPlayer.heroNum = BotHeroArray.index(eventPlayer.getHero())
     eventPlayer.startForcingName(random.choice(["大剑摩西", "一刀摩西"]))
     lbl_0:
     eventPlayer._reset_requested = false

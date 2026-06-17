@@ -17,6 +17,7 @@ rule "[Emre/init.opy]: Initialize Emre":
     resetHero()
     if eventPlayer.getTeam() != Team.1:
         goto lbl_0
+    eventPlayer.heroNum = BotHeroArray.index(eventPlayer.getHero())
     eventPlayer.startForcingName(random.choice(["不是M", "天眼摩西", "丢雷摩西"]))
     lbl_0:
     eventPlayer._reset_requested = false
