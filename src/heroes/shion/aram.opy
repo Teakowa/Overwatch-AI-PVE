@@ -7,19 +7,14 @@ playervar shion_buff
 #!defineMember shion_buff_active            shion_buff[2]
 #!defineMember shion_execution_kill_window  shion_buff[3]
 
-rule "[Shion]: State reset":
-    @Event eachPlayer
+rule "[Shion]: State clear on death":
+    @Event playerDied
     @Hero shion
-    @Condition (eventPlayer._reset_requested != false or eventPlayer.isDead()) == true
-    @Condition (eventPlayer.shion_stack_count != 0 or eventPlayer.shion_stack_gate == true or eventPlayer.shion_buff_active == true or eventPlayer.shion_execution_kill_window == true) == true
-
     eventPlayer.shion_stack_count = 0
     eventPlayer.shion_stack_gate = false
     eventPlayer.shion_buff_active = false
     eventPlayer.shion_execution_kill_window = false
     eventPlayer.setDamageDealt(100)
-    eventPlayer.setDamageReceived(100)
-    eventPlayer.hudText = ""
 
 rule "[Shion]: Damage stack":
     @Event playerDealtDamage
@@ -32,7 +27,7 @@ rule "[Shion]: Damage stack":
 
     eventPlayer.shion_stack_count += 1
     eventPlayer.shion_stack_gate = true
-    wait(0.25)
+    waitUntil(eventPlayer.isDead() or eventPlayer._reset_requested != false, 0.25)
     eventPlayer.shion_stack_gate = false
 
 rule "[Shion]: Full stack buff":

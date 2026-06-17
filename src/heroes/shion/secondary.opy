@@ -8,7 +8,7 @@ rule "[Shion]: Execution kill window":
     @Condition eventAbility == Button.SECONDARY_FIRE
 
     eventPlayer.shion_execution_kill_window = true
-    wait(0.6)
+    waitUntil(eventPlayer.isDead() or eventPlayer._reset_requested != false, 0.6)
     eventPlayer.shion_execution_kill_window = false
 
 rule "[Shion]: Execution kill reset cooldown":
