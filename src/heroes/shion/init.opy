@@ -18,6 +18,8 @@ rule "[Shion/init.opy]: Initialize Shion":
     eventPlayer.shion_buff[0] = 0
     eventPlayer.shion_buff[1] = false
     eventPlayer.shion_buff[2] = false
-    eventPlayer.shion_buff[3] = false
+    eventPlayer.shion_buff[3] = 0
+    eventPlayer.shion_buff[4] = false
     eventPlayer.setDamageDealt(100)
+    eventPlayer.setDamageReceived(100)
     eventPlayer._reset_requested = false

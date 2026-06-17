@@ -6,6 +6,7 @@ playervar shion_buff
 #!defineMember shion_stack_gate             shion_buff[1]
 #!defineMember shion_buff_active            shion_buff[2]
 #!defineMember shion_stack_timeout_snapshot shion_buff[3]
+#!defineMember shion_execution_kill_window  shion_buff[4]
 
 rule "[Shion]: State clear on death":
     @Event playerDied
@@ -14,7 +15,9 @@ rule "[Shion]: State clear on death":
     eventPlayer.shion_stack_gate = false
     eventPlayer.shion_buff_active = false
     eventPlayer.shion_stack_timeout_snapshot = 0
+    eventPlayer.shion_execution_kill_window = false
     eventPlayer.setDamageDealt(100)
+    eventPlayer.setDamageReceived(100)
     eventPlayer.hudText = ""
 
 rule "[Shion]: Damage stack":
@@ -49,6 +52,15 @@ rule "[Shion]: Stack timeout clear":
     else:
         eventPlayer.shion_stack_count = 0
         eventPlayer.shion_stack_timeout_snapshot = 0
+        eventPlayer.hudText = ""
+
+rule "[Shion]: Full stack elimination heal":
+    @Event playerEarnedElimination
+    @Hero shion
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.shion_buff_active == true
+
+    heal(eventPlayer, eventPlayer, eventPlayer.maxHealthPercent(ShionBuff[5]))
 
 rule "[Shion]: Full stack buff":
     @Event eachPlayer
@@ -61,8 +73,8 @@ rule "[Shion]: Full stack buff":
     eventPlayer.setDamageDealt(100 + ShionBuff[1])
     eventPlayer.setDamageReceived(100 - ShionBuff[2])
     if eventPlayer.getTeam() == Team.2:
-        eventPlayer.hudText = "狂势已激活 | {0}% 增伤 | {1}% 减伤".format(ShionBuff[1], ShionBuff[2])
-    waitUntil(eventPlayer.shion_stack_count == 0 or eventPlayer.isDead() or eventPlayer.shion_buff_active == false, 8)
+        eventPlayer.hudText = "狂势已激活 | {0}% 增伤 | {1}% 减伤 | 参与击杀回复{2}%生命".format(ShionBuff[1], ShionBuff[2], ShionBuff[5])
+    waitUntil(eventPlayer.isDead() or eventPlayer._reset_requested != false or eventPlayer.shion_buff_active == false, 8)
     eventPlayer.shion_buff_active = false
     eventPlayer.setDamageDealt(100)
     eventPlayer.setDamageReceived(100)

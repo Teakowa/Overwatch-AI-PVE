@@ -6,3 +6,4 @@ macro INIT_SHION_WORKSHOP_SETTINGS():
     ShionBuff[2] = createWorkshopSettingInt("英雄：死怨", "狂势（被动）满层增益：伤害减免 %", 55, 0, 90, 190)
     ShionBuff[3] = createWorkshopSettingBool("英雄：死怨", "交叉枪决：击杀后重置冷却", true, 191)
     ShionBuff[4] = createWorkshopSettingInt("英雄：死怨", "杀戮狂宴：击杀返还终极充能 %", 100, 0, 100, 192)
+    ShionBuff[5] = createWorkshopSettingInt("英雄：死怨", "交叉枪决：斩杀阈值 %", 12, 0, 40, 193)
