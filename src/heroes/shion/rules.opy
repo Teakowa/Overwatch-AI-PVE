@@ -5,7 +5,6 @@ playervar shion_buff
 #!defineMember shion_stack_count            shion_buff[0]
 #!defineMember shion_stack_gate             shion_buff[1]
 #!defineMember shion_buff_active            shion_buff[2]
-#!defineMember shion_execution_kill_window  shion_buff[3]
 
 rule "[Shion]: State clear on death":
     @Event playerDied
@@ -13,7 +12,6 @@ rule "[Shion]: State clear on death":
     eventPlayer.shion_stack_count = 0
     eventPlayer.shion_stack_gate = false
     eventPlayer.shion_buff_active = false
-    eventPlayer.shion_execution_kill_window = false
     eventPlayer.setDamageDealt(100)
 
 rule "[Shion]: Damage stack":
