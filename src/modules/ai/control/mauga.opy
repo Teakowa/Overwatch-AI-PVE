@@ -16,7 +16,7 @@ rule "[AI/control]: Mauga Secondary":
         eventPlayer.botTarget.isAlive() != true or
         distance(eventPlayer.getPosition(), eventPlayer.botTarget) > 10 or
         len(getPlayersInRadius(eventPlayer, 10, getOppositeTeam(eventPlayer.getTeam()), LosCheck.SURFACES)) == 0,
-        99999
+        Math.INFINITY
     )
     eventPlayer.stopForcingButton(Button.SECONDARY_FIRE)
 
