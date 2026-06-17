@@ -77,6 +77,7 @@ rule "[AI/control]: Freja Ammo":
     @Hero freja
     @Condition eventPlayer.getAmmo() <= 1
     #@Condition (eventPlayer.isUsingAbility1() or eventPlayer.isUsingAbility2() or eventPlayer.isUsingUltimate()) == true
+    @Disabled
     
     eventPlayer.setAmmo(0, eventPlayer.getMaxAmmo())
 
