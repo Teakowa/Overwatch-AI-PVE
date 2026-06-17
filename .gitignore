@@ -27,3 +27,6 @@ node_modules/
 .pnpm-store
 
 docs/参考脚本
+
+# Local planning scratch files
+.local/
