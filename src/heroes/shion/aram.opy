@@ -6,19 +6,17 @@ playervar shion_buff
 #!defineMember shion_stack_gate             shion_buff[1]
 #!defineMember shion_buff_active            shion_buff[2]
 #!defineMember shion_execution_kill_window  shion_buff[3]
-#!defineMember shion_ult_refund_armed       shion_buff[4]
 
 rule "[Shion]: State reset":
     @Event eachPlayer
     @Hero shion
     @Condition (eventPlayer._reset_requested != false or eventPlayer.isDead()) == true
-    @Condition (eventPlayer.shion_stack_count != 0 or eventPlayer.shion_stack_gate == true or eventPlayer.shion_buff_active == true or eventPlayer.shion_execution_kill_window == true or eventPlayer.shion_ult_refund_armed == true) == true
+    @Condition (eventPlayer.shion_stack_count != 0 or eventPlayer.shion_stack_gate == true or eventPlayer.shion_buff_active == true or eventPlayer.shion_execution_kill_window == true) == true
 
     eventPlayer.shion_stack_count = 0
     eventPlayer.shion_stack_gate = false
     eventPlayer.shion_buff_active = false
     eventPlayer.shion_execution_kill_window = false
-    eventPlayer.shion_ult_refund_armed = false
     eventPlayer.setDamageDealt(100)
     eventPlayer.setDamageReceived(100)
     eventPlayer.hudText = ""
@@ -75,21 +73,11 @@ rule "[Shion]: Execution kill reset cooldown":
 
     eventPlayer.setAbilityCooldown(Button.SECONDARY_FIRE, 0)
 
-rule "[Shion]: Ultimate kill charge refund tracking":
-    @Event eachPlayer
-    @Hero shion
-    @Condition eventPlayer.isUsingUltimate() == true
-    @Condition eventPlayer.shion_ult_refund_armed != true
-
-    eventPlayer.shion_ult_refund_armed = true
-    waitUntil(not eventPlayer.isUsingUltimate() or eventPlayer.isDead() or eventPlayer._reset_requested != false, 30)
-    eventPlayer.shion_ult_refund_armed = false
-
 rule "[Shion]: Ultimate kill charge refund":
     @Event playerEarnedElimination
     @Hero shion
     @Condition eventPlayer.isAlive() == true
-    @Condition eventPlayer.shion_ult_refund_armed == true
+    @Condition eventPlayer.isUsingUltimate() == true
     @Condition eventPlayer.getUltCharge() < 100
 
     eventPlayer.setUltCharge(min(100, eventPlayer.getUltCharge() + ShionBuff[4]))
