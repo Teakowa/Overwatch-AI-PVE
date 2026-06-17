@@ -46,6 +46,7 @@
 #!include "pharah/settings.aram.opy"
 #!include "roadhog/settings.aram.opy"
 #!include "sierra/settings.opy"
+#!include "shion/settings.aram.opy"
 #!include "torbjorn/settings.aram.opy"
 #!include "widowmaker/settings.aram.opy"
 #!include "winston/settings.aram.opy"

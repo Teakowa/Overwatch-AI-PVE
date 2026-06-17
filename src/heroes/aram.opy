@@ -5,6 +5,7 @@
 #!include "mercy/init.opy"
 #!include "hanzo/init.opy"
 #!include "freja/init.opy"
+#!include "shion/init.opy"
 #!include "torbjorn/init.opy"
 #!include "venture/init.opy"
 #!include "vendetta/init.opy"

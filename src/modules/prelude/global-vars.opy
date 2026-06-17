@@ -65,3 +65,4 @@ globalvar SierraBuff
 globalvar TorbjornBuff
 globalvar WidowmakerBuff
 globalvar WinstonBuff
+globalvar ShionBuff

@@ -38,6 +38,7 @@
 #!include "heroes/junkrat/aram.opy"
 #!include "heroes/juno/aram.opy"
 #!include "heroes/freja/aram.opy"
+#!include "heroes/shion/aram.opy"
 #!include "heroes/torbjorn/aram.opy"
 #!include "heroes/bastion/aram.opy"
 #!include "heroes/roadhog/aram.opy"

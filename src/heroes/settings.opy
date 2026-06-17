@@ -43,5 +43,6 @@
 #!include "mizuki/settings.opy"
 #!include "roadhog/settings.opy"
 #!include "sierra/settings.opy"
+#!include "shion/settings.opy"
 #!include "widowmaker/settings.opy"
 #!include "winston/settings.opy"

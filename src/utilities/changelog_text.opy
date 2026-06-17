@@ -84,6 +84,8 @@ def changelogText():
         eventPlayer.changelog_body = "\r\n●{0}\r\n*造成伤害 +30%\r\n{1} 生物力场\r\n  冷却时间降低至15秒\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), abilityIconString(eventPlayer.getHero(), Button.ABILITY_1))
     elif eventPlayer.getHero() == Hero.FREJA:
         eventPlayer.changelog_body = "\r\n●{0}\r\n*造成伤害 +30%\r\n*受到伤害 -30%\r\n{1} 狩猎者 造成伤害时给敌方施加“狩猎”印记\r\n{2} 瞄准射击 爆炸造成20 × 印记层数 额外伤害\r\n  引爆后敌方生命值低于20%则将其斩杀\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), abilityIconString(eventPlayer.getHero(), Button.PRIMARY_FIRE), abilityIconString(eventPlayer.getHero(), Button.SECONDARY_FIRE))
+    elif eventPlayer.getHero() == Hero.SHION:
+        eventPlayer.changelog_body = "\r\n●{0}\r\n*造成伤害时自我叠层 满层后8秒内 造成伤害 +{1}% 受到伤害 -{2}%\r\n{3} Execution 完成击杀后重置冷却\r\n{4} 终极期间每次击杀返还 {5}% 终极充能\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), ShionBuff[1], ShionBuff[2], abilityIconString(eventPlayer.getHero(), Button.SECONDARY_FIRE), abilityIconString(eventPlayer.getHero(), Button.ULTIMATE), ShionBuff[4])
     elif eventPlayer.getHero() == Hero.SYMMETRA:
         eventPlayer.changelog_body = "\r\n●{0}\r\n*造成伤害 -40%\r\n*受到伤害 +20%\r\n{1}\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), abilityIconString(eventPlayer.getHero(), Button.ABILITY_1))
     elif eventPlayer.getHero() == Hero.TORBJORN:
