@@ -44,7 +44,7 @@ def changelogText():
     elif eventPlayer.getHero() == Hero.ZARYA:
         eventPlayer.changelog_body = "\r\n●{0}\r\n*造成伤害 +30%\r\n*受到伤害 -30%\r\n*粒子屏障 冷却时间降低至8秒\r\n*投射屏障 为目标提供3秒{1}点临时生命值\r\n*重力喷涌\r\n  使敌人减速\r\n  充能速度提高8%\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), ZaryaBuff[0])
     elif eventPlayer.getHero() == Hero.HAZARD:
-        eventPlayer.changelog_body = "\r\n{0}\r\n{1}\r\n{2}\n\n※※离开重生室隐藏".format("●{0}\r\n*造成伤害 +20%\r\n*受到伤害 -40%".format(eventPlayer.getHero()), "*尖刺护体 受到伤害获得{0}%终极技能充能并回复HP".format(HazardBuff[1]), "{0}".format("*千针雨 不再根据伤害获得能量"))
+        eventPlayer.changelog_body = "\r\n{0}\r\n{1}\r\n{2}\n\n※※离开重生室隐藏".format("●{0}\r\n*造成伤害 +25%\r\n*受到伤害 -45%".format(eventPlayer.getHero()), "*尖刺护体 基于受到伤害造成额外伤害\r\n  并在格挡期间获得{0}%终极技能充能和生命值回复".format(HazardBuff[1]), "{0}".format("*千针雨 不再根据伤害获得能量"))
     elif eventPlayer.getHero() == Hero.DOMINA:
         eventPlayer.changelog_body = "\r\n●{0}\r\n*造成伤害 +{1}%\r\n*受到伤害 -{2}%\r\n*屏障阵列 冷却时间降低至{3}秒\r\n*音速斥力场 冷却时间调整为{4}秒\r\n  命中击退目标造成{5}%减速{6}秒并击晕{7}秒\r\n*爆能水晶 命中敌人造成{5}%减速{6}秒\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), DOMINA_DAMAGE_DEALT_PERCENT - 100, 100 - DOMINA_PLAYER_DAMAGE_RECEIVED_PERCENT, DOMINA_BARRIER_ARRAY_COOLDOWN, DOMINA_SONIC_REPULSORS_COOLDOWN, DOMINA_SLOW_PERCENT, DOMINA_SLOW_DURATION, DOMINA_SONIC_STUN_DURATION)
     elif eventPlayer.getHero() == Hero.ANRAN:
@@ -54,7 +54,7 @@ def changelogText():
     elif eventPlayer.getHero() == Hero.MIZUKI:
         eventPlayer.changelog_body = "\r\n●{0}\r\n*造成伤害+35%\r\n*受到伤害 -20%\r\n{1} 疗魂斗笠 额外治疗队友25%最大生命值 返还0.5秒cd\r\n{2} 替魂纸人 清除负面状态\r\n{3} 缚魂锁链 使敌人虚弱\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), abilityIconString(eventPlayer.getHero(), Button.SECONDARY_FIRE), abilityIconString(eventPlayer.getHero(), Button.ABILITY_1), abilityIconString(eventPlayer.getHero(), Button.ABILITY_2))
     elif eventPlayer.getHero() == Hero.JETPACK_CAT:
-        eventPlayer.changelog_body = "\r\n●{0}\r\n*造成伤害 +35%\r\n*受到伤害 -40%\r\n*造成治疗 +50%\r\n{1} 救生索 受到伤害额外 -35%\r\n{2} 呼噜噜 施放时清除负面状态\r\n{3} 猫猫劫 受到伤害额外 -75%\r\n  对目标造成50%最大生命值伤害\r\n*近战造成0.5秒击晕\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), abilityIconString(eventPlayer.getHero(), Button.ABILITY_1), abilityIconString(eventPlayer.getHero(), Button.ABILITY_2), abilityIconString(eventPlayer.getHero(), Button.ULTIMATE))
+        eventPlayer.changelog_body = "\r\n●{0}\r\n*造成伤害 +35%\r\n*受到伤害 -40%\r\n*造成治疗 +50%\r\n{1} 救生索 受到伤害额外 -35%\r\n{2} 呼噜噜 施放时清除负面状态，并短暂进入无敌和虚化\r\n{3} 猫猫劫 受到伤害额外 -75%\r\n  对目标造成50%最大生命值伤害\r\n*近战造成1.2秒击晕\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), abilityIconString(eventPlayer.getHero(), Button.ABILITY_1), abilityIconString(eventPlayer.getHero(), Button.ABILITY_2), abilityIconString(eventPlayer.getHero(), Button.ULTIMATE))
     elif eventPlayer.getHero() == Hero.ASHE:
         eventPlayer.changelog_body = "\r\n●{0}\r\n*造成伤害 +35%\r\n*毒蛇\r\n  弹药增加至 15 发\r\n  暴击倍率提高至 ×{1}\r\n  完成击杀后恢复全部子弹\r\n*延时雷管\r\n  冷却时间降低至8秒\r\n*短筒猎枪\r\n  冷却时间降低至8秒\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), HeadshotDamage[1])
     elif eventPlayer.getHero() == Hero.SOMBRA:
@@ -65,7 +65,7 @@ def changelogText():
     elif eventPlayer.getHero() == Hero.GENJI:
         eventPlayer.changelog_body = "\r\n●{0}\r\n*造成伤害 +45%\r\n*受到伤害 -50%\r\n*造成击杀后恢复50HP\r\n*影 使下一次近身攻击100%暴击\r\n*闪 冷却时间降低至6秒 持续期间免疫伤害\r\n*龙刃 持续时间增加至8秒\r\n  造成伤害+{1}% 受到伤害 -10%\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), Genji[1])
     elif eventPlayer.getHero() == Hero.HANZO:
-        eventPlayer.changelog_body = "\r\n●{0}\r\n*造成伤害 +30%\r\n*弹道速度+35%\r\n*暴击额外伤害 +{1}\r\n*岚 冷却时间降低至7秒\r\n*音 冷却时间降低至9秒\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), HanzoBuff[0])
+        eventPlayer.changelog_body = "\r\n●{0}\r\n*造成伤害 +25%\r\n*弹道速度+35%\r\n*暴击额外伤害 +{1}\r\n*岚 冷却时间降低至7秒\r\n*音 冷却时间降低至9秒\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), HanzoBuff[0])
     elif eventPlayer.getHero() == Hero.JUNKRAT:
         eventPlayer.changelog_body = "\r\n●{0}\r\n*造成伤害 -5%\r\n*受到伤害 +30%\r\n*所有击退效果-50%\r\n{1} 震荡地雷\r\n  冷却时间增加至10秒\r\n{2} 炸弹轮胎\r\n  充能速度降低30%\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), abilityIconString(eventPlayer.getHero(), Button.ABILITY_1), abilityIconString(eventPlayer.getHero(), Button.ULTIMATE))
     elif eventPlayer.getHero() == Hero.MEI:
@@ -83,7 +83,7 @@ def changelogText():
     elif eventPlayer.getHero() == Hero.SOLDIER:
         eventPlayer.changelog_body = "\r\n●{0}\r\n*造成伤害 +30%\r\n{1} 生物力场\r\n  冷却时间降低至15秒\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), abilityIconString(eventPlayer.getHero(), Button.ABILITY_1))
     elif eventPlayer.getHero() == Hero.FREJA:
-        eventPlayer.changelog_body = "\r\n●{0}\r\n*造成伤害 +30%\r\n*受到伤害 -30%\r\n{1} 狩猎者 造成伤害时给敌方施加“狩猎”印记\r\n{2} 瞄准射击 爆炸造成20 × 印记层数 额外伤害\r\n  引爆后敌方生命值低于20%则将其斩杀\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), abilityIconString(eventPlayer.getHero(), Button.PRIMARY_FIRE), abilityIconString(eventPlayer.getHero(), Button.SECONDARY_FIRE))
+        eventPlayer.changelog_body = "\r\n●{0}\r\n*造成伤害 +10%\r\n*受到伤害 -10%\r\n{1} 狩猎者 造成伤害时给敌方施加“狩猎”印记\r\n{2} 瞄准射击 爆炸造成20 × 印记层数 额外伤害\r\n  引爆后敌方生命值低于20%则将其斩杀\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), abilityIconString(eventPlayer.getHero(), Button.PRIMARY_FIRE), abilityIconString(eventPlayer.getHero(), Button.SECONDARY_FIRE))
     elif eventPlayer.getHero() == Hero.SHION:
         eventPlayer.changelog_body = "\r\n●{0}\r\n*造成伤害时自我叠层 满层后8秒内 造成伤害 +{1}% 受到伤害 -{2}%\r\n{3} 交叉枪决 完成击杀后重置冷却\r\n{4} 终极期间每次击杀返还 {5}% 终极充能\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), ShionBuff[1], ShionBuff[2], abilityIconString(eventPlayer.getHero(), Button.SECONDARY_FIRE), abilityIconString(eventPlayer.getHero(), Button.ULTIMATE), ShionBuff[4])
     elif eventPlayer.getHero() == Hero.SIERRA:
@@ -105,7 +105,7 @@ def changelogText():
     elif eventPlayer.getHero() == Hero.BRIGITTE:
         eventPlayer.changelog_body = "\r\n●{0}\r\n*造成伤害 +25%\r\n*造成治疗 +45%\r\n*受到伤害 -57%\r\n*恢复包 提供永久护甲\r\n*能量盾击 可穿透屏障击晕敌人\r\n*集结号令 持续期间逐步提高自身伤害减免\n\n".format(eventPlayer.getHero())
     elif eventPlayer.getHero() == Hero.ILLARI:
-        eventPlayer.changelog_body = "\r\n●{0}\r\n*造成伤害 +60%\r\n*弹道速度提高500%\r\n*治疗光塔 冷却时间降低50%\r\n*桎梏灼日\r\n  造成额外最大生命值伤害\r\n  充能速度降低10%\n\n※※离开重生室隐藏".format(eventPlayer.getHero())
+        eventPlayer.changelog_body = "\r\n●{0}\r\n*造成伤害 +60%\r\n*受到伤害 +5%\r\n*阳光能量回复速度 +25%\r\n*治疗光塔 冷却时间降低50%\r\n*桎梏灼日\r\n  基于附近友军数量造成额外最大生命值伤害\n\n※※离开重生室隐藏".format(eventPlayer.getHero())
     elif eventPlayer.getHero() == Hero.KIRIKO:
         eventPlayer.changelog_body = "\r\n●{0}\r\n*造成伤害 +25%\r\n{1}\r\n{2}\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), "暴击倍率提高至 ×{0}".format(HeadshotDamage[2] + 1), "{0} 瞬 最远距离提高至 105 米\r\n{1} 铃 冷却时间降低至 10 秒\r\n  无敌时间提高至 1.8 秒".format(abilityIconString(eventPlayer.getHero(), Button.ABILITY_1), abilityIconString(eventPlayer.getHero(), Button.ABILITY_2)))
     elif eventPlayer.getHero() == Hero.LIFEWEAVER:
