@@ -222,6 +222,7 @@ async function main(): Promise<void> {
       "modules/ai/delimiter-end.opy",
       "heroes/main.opy",
       "modules/debug/changelog.opy",
+      "utilities/changelog_text.opy",
     ];
     const before = mainIncludes.filter((item) => item.line < optimizeLine).map((item) => item.path);
     const after = mainIncludes.filter((item) => item.line > optimizeLine).map((item) => item.path);

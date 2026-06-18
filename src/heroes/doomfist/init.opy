@@ -23,7 +23,4 @@ rule "[Doomfist] Initialize":
     getPlayers(eventPlayer.getTeam()).reset_pvar[2] = eventPlayer
     getPlayers(getOppositeTeam(eventPlayer.getTeam())).reset_pvar[5] = eventPlayer
     eventPlayer._reset_requested = false
-    if eventPlayer.getTeam() == Team.2:
-        wait(WAIT_SHORT_FRAME)
-        if eventPlayer.getCurrentHero() == Hero.DOOMFIST:
-            eventPlayer.changelog_body = "\r\n●{0}\r\n*造成伤害 +15%\r\n*受到伤害 -35%\r\n*裂地重拳\r\n 将敌人击飞拉近并使其失控\r\n*悍猛格挡 吸收伤害，最多存储{2}点\r\n*火箭重拳 附带存储的全部伤害 对目标造成额外伤害\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), DoomBuff[0], floor(DoomBuff[1]))
+

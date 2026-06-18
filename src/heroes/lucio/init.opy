@@ -20,7 +20,4 @@ rule "[Lucio] Initialize":
     eventPlayer.startForcingName(random.choice(["巴西拳王", "喇叭摩西", "轮滑摩西"]))
     lbl_0:
     eventPlayer._reset_requested = false
-    if eventPlayer.getTeam() == Team.2:
-        wait(WAIT_SHORT_FRAME)
-        if eventPlayer.getCurrentHero() == Hero.LUCIO:
-            eventPlayer.changelog_body = "\r\n●{0}\r\n*造成伤害 +20%\r\n*造成治疗 +30%\r\n*受到伤害 -30%\r\n*音波命中时为附近友军回复{1}生命值\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), LucioBuff[0])
+

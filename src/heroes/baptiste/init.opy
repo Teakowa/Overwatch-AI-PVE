@@ -25,7 +25,4 @@ rule "[Baptiste] Initialize":
     lbl_0:
     eventPlayer.reset_pvar[6].reset_pvar[9] = eventPlayer
     eventPlayer._reset_requested = false
-    if eventPlayer.getTeam() == Team.2:
-        wait(WAIT_SHORT_FRAME)
-        if eventPlayer.getCurrentHero() == Hero.BAPTISTE:
-            eventPlayer.changelog_body = "\r\n●{0}\r\n*造成伤害 +50%\r\n*暴击额外伤害 +{1}\r\n*维生力场\r\n  冷却时间降低至约10.5秒\r\n*增幅矩阵\r\n  持续时间提高至 15 秒\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), BaptisteBuff[0])
+

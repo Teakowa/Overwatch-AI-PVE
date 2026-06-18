@@ -20,7 +20,4 @@ rule "[Junkrat] Initialize":
     eventPlayer.startForcingName(random.choice(["拉 史 大 王", "拉 史 摩 西", "鼠鼠摩西", "鸭脖摩西", "夹子摩西"]))
     lbl_0:
     eventPlayer._reset_requested = false
-    if eventPlayer.getTeam() == Team.2:
-        wait(WAIT_SHORT_FRAME)
-        if eventPlayer.getCurrentHero() == Hero.JUNKRAT:
-            eventPlayer.changelog_body = "\r\n●{0}\r\n*造成伤害 -5%\r\n*受到伤害 +30%\r\n*所有击退效果-50%\r\n*攻击点燃敌人并额外造成5%当前生命值伤害\r\n{2} 炸弹轮胎\r\n  充能速度降低30%\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), abilityIconString(eventPlayer.getHero(), Button.ABILITY_1), abilityIconString(eventPlayer.getHero(), Button.ULTIMATE))
+

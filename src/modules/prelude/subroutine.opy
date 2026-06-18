@@ -10,7 +10,6 @@ subroutine resetStatuses
 subroutine executeUppercut
 subroutine enableAllAbilities
 subroutine disableAllAbilities
-subroutine changelogText
 subroutine resetHero
 subroutine removeTankPassive
 subroutine botAim2Target

@@ -20,7 +20,4 @@ rule "[hanzo/init.opy]: Initialize Hanzo":
     eventPlayer.startForcingName(random.choice(["ANS", "吃矢不忘拉矢人", "拉矢摩西", "贩箭摩西"]))
     lbl_0:
     eventPlayer._reset_requested = false
-    if eventPlayer.getTeam() == Team.2:
-        wait(WAIT_SHORT_FRAME)
-        if eventPlayer.getCurrentHero() == Hero.HANZO:
-            eventPlayer.changelog_body = "\r\n●{0}\r\n*造成伤害 +25%\r\n*弹道速度+35%\r\n*暴击额外伤害 +{1}\r\n*岚 冷却时间降低至7秒\r\n*音 冷却时间降低至9秒\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), HanzoBuff[0])
+

@@ -20,7 +20,4 @@ rule "[venture/init.opy]: Initialize venture":
     eventPlayer.startForcingName(random.choice(["钻地摩西", "丁真摩西"]))
     lbl_0:
     eventPlayer._reset_requested = false
-    if eventPlayer.getTeam() == Team.2:
-        wait(WAIT_SHORT_FRAME)
-        if eventPlayer.getCurrentHero() == Hero.VENTURE:
-            eventPlayer.changelog_body = "\r\n●{0}\r\n*造成伤害 +40%\r\n*受到伤害 -30%\r\n钻地  \r\n  持续时间 +300%\r\n  移动速度 +156%\r\n钻头突刺 冷却时间 -25%\n\n※※离开重生室隐藏".format(eventPlayer.getHero())
+

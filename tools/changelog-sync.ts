@@ -3,9 +3,10 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { Reporter } from "./lib/report.js";
-import { existsSync, gitDiffNameOnly, readLines, repoRoot, resolveRepo, tryCommand } from "./lib/runtime.js";
+import { existsSync, gitDiffNameOnly, repoRoot, resolveRepo, tryCommand } from "./lib/runtime.js";
 
 const changelogHudPath = "src/modules/debug/changelog.opy";
+const changelogTablePath = "src/utilities/changelog_text.opy";
 
 type Args = {
   requestedHeroes: string[];
@@ -96,6 +97,13 @@ function slugFromConst(value: string): string {
   return value.toLowerCase();
 }
 
+function constFromSlug(value: string): string {
+  if (value === "soldier76") return "SOLDIER";
+  if (value === "wrecking_ball") return "WRECKING_BALL";
+  if (value === "junker_queen") return "JUNKER_QUEEN";
+  return value.toUpperCase();
+}
+
 function slugToSettingsKey(value: string): string {
   if (value === "wrecking_ball") return "wreckingBall";
   if (value === "junker_queen") return "junkerQueen";
@@ -104,20 +112,33 @@ function slugToSettingsKey(value: string): string {
   return `${head}${rest.map((part) => `${part[0]!.toUpperCase()}${part.slice(1)}`).join("")}`;
 }
 
-function constFromSlug(value: string): string {
-  if (value === "soldier76") return "SOLDIER";
-  if (value === "wrecking_ball") return "WRECKING_BALL";
-  if (value === "junker_queen") return "JUNKER_QUEEN";
-  return value.toUpperCase();
+function extractChangelogMappings(text: string): Map<string, number[]> {
+  const mappings = new Map<string, number[]>();
+  for (const match of text.matchAll(/Hero\.([A-Z_]+):\s*ChangelogBodyTable\[(\d+)\]/g)) {
+    const heroConst = match[1]!;
+    const index = Number(match[2]!);
+    const values = mappings.get(heroConst) ?? [];
+    values.push(index);
+    mappings.set(heroConst, values);
+  }
+  return mappings;
 }
 
-function heroInitPath(slug: string): string {
-  return resolveRepo("src/heroes", slug, "init.opy");
+function extractAssignedChangelogIndices(text: string): Set<number> {
+  const indices = new Set<number>();
+  for (const match of text.matchAll(/ChangelogBodyTable\[(\d+)\]\s*=/g)) {
+    indices.add(Number(match[1]!));
+  }
+  return indices;
 }
 
-async function countHeroChangelogCoverage(slug: string): Promise<number> {
-  const initText = await fs.readFile(heroInitPath(slug), "utf8");
-  return (initText.match(/eventPlayer\.changelog_body\s*=/g) ?? []).length;
+function countHeroChangelogCoverage(slug: string, mappings: Map<string, number[]>): number {
+  return mappings.get(constFromSlug(slug))?.length ?? 0;
+}
+
+function resolveHeroChangelogIndex(slug: string, mappings: Map<string, number[]>): number | null {
+  const indices = mappings.get(constFromSlug(slug)) ?? [];
+  return indices.length === 1 ? indices[0]! : null;
 }
 
 function addTargetHero(targets: Set<string>, raw: string): void {
@@ -170,7 +191,7 @@ async function collectSettingsCooldownCluesForHero(slug: string, range: string):
 
 async function collectDiffCluesForHero(slug: string, range: string): Promise<string[]> {
   const constName = constFromSlug(slug);
-      const changedFiles = gitDiffNameOnly(range, ["src/heroes", "src/modules/prelude/settings.opy", changelogHudPath]);
+  const changedFiles = gitDiffNameOnly(range, ["src/heroes", "src/modules/prelude/settings.opy", changelogHudPath, changelogTablePath]);
   const clues = new Set<string>();
   for (const filePath of changedFiles) {
     if (filePath === "src/modules/prelude/settings.opy") {
@@ -202,7 +223,14 @@ async function collectDiffCluesForHero(slug: string, range: string): Promise<str
   return [...clues].slice(0, 10);
 }
 
-async function renderReport(reportPath: string, reporter: Reporter, heroes: string[], diffRange: string): Promise<void> {
+async function renderReport(
+  reportPath: string,
+  reporter: Reporter,
+  heroes: string[],
+  diffRange: string,
+  mappings: Map<string, number[]>,
+  assignedIndices: Set<number>,
+): Promise<void> {
   const lines: string[] = [
     "# Changelog Sync Report",
     "",
@@ -215,10 +243,17 @@ async function renderReport(reportPath: string, reporter: Reporter, heroes: stri
     "## Coverage",
   ];
   for (const hero of heroes) {
-    const count = await countHeroChangelogCoverage(hero);
-    if (count === 1) lines.push(`- [OK] ${hero}: changelog_body assignment exists in init.opy`);
-    else if (count > 1) lines.push(`- [WARN] ${hero}: changelog_body assignment duplicated in init.opy (${count})`);
-    else lines.push(`- [WARN] ${hero}: changelog_body assignment missing in init.opy`);
+    const count = countHeroChangelogCoverage(hero, mappings);
+    const index = resolveHeroChangelogIndex(hero, mappings);
+    if (count === 1 && index !== null && assignedIndices.has(index)) {
+      lines.push(`- [OK] ${hero}: central changelog mapping/body table exists (index=${index})`);
+    } else if (count > 1) {
+      lines.push(`- [WARN] ${hero}: central changelog mapping duplicated in HUD (${count})`);
+    } else if (count === 1) {
+      lines.push(`- [WARN] ${hero}: central changelog body table index missing for mapped hero (index=${index})`);
+    } else {
+      lines.push(`- [WARN] ${hero}: central changelog mapping missing in HUD`);
+    }
   }
   lines.push("", "## Pending Player-Facing Changelog Items");
   for (const hero of heroes) {
@@ -251,11 +286,20 @@ async function main(): Promise<void> {
     addTargetHero(targetHeroes, hero);
   }
   if (args.useFromDiff) {
-    const changedFiles = gitDiffNameOnly(args.diffRange, ["src/heroes", "src/modules/prelude/settings.opy", changelogHudPath]);
+    const changedFiles = gitDiffNameOnly(args.diffRange, ["src/heroes", "src/modules/prelude/settings.opy", changelogHudPath, changelogTablePath]);
     for (const filePath of changedFiles) {
       const heroMatch = filePath.match(/^src\/heroes\/([^/]+)\/.+\.opy$/);
       if (heroMatch) {
         addTargetHero(targetHeroes, heroMatch[1]!);
+      }
+      if (filePath === changelogHudPath || filePath === changelogTablePath) {
+        const diff = tryCommand("git", ["diff", "--unified=0", args.diffRange, "--", filePath], repoRoot);
+        for (const line of diff.split("\n")) {
+          const match = line.match(/Hero\.([A-Z_]+)/);
+          if (match) {
+            addTargetHero(targetHeroes, slugFromConst(match[1]!));
+          }
+        }
       }
       if (filePath === "src/modules/prelude/settings.opy") {
         const diff = tryCommand("git", ["diff", "--unified=3", args.diffRange, "--", filePath], repoRoot);
@@ -279,12 +323,13 @@ async function main(): Promise<void> {
   }
 
   const reporter = new Reporter();
-  const changelogText = (
-    await Promise.all([
-      fs.readFile(resolveRepo(changelogHudPath), "utf8"),
-      ...heroes.map((hero) => fs.readFile(heroInitPath(hero), "utf8")),
-    ])
-  ).join("\n");
+  const [hudText, tableText] = await Promise.all([
+    fs.readFile(resolveRepo(changelogHudPath), "utf8"),
+    fs.readFile(resolveRepo(changelogTablePath), "utf8"),
+  ]);
+  const changelogText = `${hudText}\n${tableText}`;
+  const mappings = extractChangelogMappings(hudText);
+  const assignedIndices = extractAssignedChangelogIndices(tableText);
   console.log(`Running ow-changelog-sync from: ${repoRoot}`);
   console.log(`Target heroes: ${heroes.join(" ")}`);
 
@@ -298,10 +343,23 @@ async function main(): Promise<void> {
   }
 
   for (const hero of heroes) {
-    const coverageCount = await countHeroChangelogCoverage(hero);
-    if (coverageCount === 1) reporter.pass(`coverage OK for ${hero} (init changelog_body)`);
-    else if (coverageCount > 1) args.strictCoverage ? reporter.fail(`coverage duplicated for ${hero} (init changelog_body, count=${coverageCount})`) : reporter.warn(`coverage duplicated for ${hero} (init changelog_body, count=${coverageCount})`);
-    else args.strictCoverage ? reporter.fail(`coverage missing for ${hero} (init changelog_body)`) : reporter.warn(`coverage missing for ${hero} (init changelog_body)`);
+    const coverageCount = countHeroChangelogCoverage(hero, mappings);
+    const changelogIndex = resolveHeroChangelogIndex(hero, mappings);
+    if (coverageCount === 1 && changelogIndex !== null && assignedIndices.has(changelogIndex)) {
+      reporter.pass(`coverage OK for ${hero} (central changelog mapping/body table, index=${changelogIndex})`);
+    } else if (coverageCount > 1) {
+      args.strictCoverage
+        ? reporter.fail(`coverage duplicated for ${hero} (central changelog HUD mapping, count=${coverageCount})`)
+        : reporter.warn(`coverage duplicated for ${hero} (central changelog HUD mapping, count=${coverageCount})`);
+    } else if (coverageCount === 1) {
+      args.strictCoverage
+        ? reporter.fail(`coverage broken for ${hero} (HUD mapping exists but ChangelogBodyTable[${changelogIndex}] assignment missing)`)
+        : reporter.warn(`coverage broken for ${hero} (HUD mapping exists but ChangelogBodyTable[${changelogIndex}] assignment missing)`);
+    } else {
+      args.strictCoverage
+        ? reporter.fail(`coverage missing for ${hero} (central changelog HUD mapping)`)
+        : reporter.warn(`coverage missing for ${hero} (central changelog HUD mapping)`);
+    }
 
     const clues = await collectDiffCluesForHero(hero, args.diffRange);
     if (clues.length > 0) {
@@ -315,19 +373,23 @@ async function main(): Promise<void> {
 
     const cooldownClues = await collectSettingsCooldownCluesForHero(hero, args.diffRange);
     if (cooldownClues.length > 0) {
-      const heroInitRelPath = `src/heroes/${hero}/init.opy`;
-      const heroInitText = await fs.readFile(heroInitPath(hero), "utf8");
-      const changelogDiff = tryCommand("git", ["diff", "--unified=3", args.diffRange, "--", heroInitRelPath], repoRoot);
-      if (!heroInitText.includes("eventPlayer.changelog_body =")) {
+      if (changelogIndex === null) {
         args.strictSettingsSync
-          ? reporter.fail(`settings cooldown changed for ${hero}, but init changelog_body assignment not found`)
-          : reporter.warn(`settings cooldown changed for ${hero}, but init changelog_body assignment not found`);
-      } else if (changelogDiff.includes("eventPlayer.changelog_body =")) {
-        reporter.pass(`settings cooldown sync OK for ${hero} (init changelog_body updated in diff)`);
+          ? reporter.fail(`settings cooldown changed for ${hero}, but central changelog mapping not found`)
+          : reporter.warn(`settings cooldown changed for ${hero}, but central changelog mapping not found`);
+      } else if (!assignedIndices.has(changelogIndex)) {
+        args.strictSettingsSync
+          ? reporter.fail(`settings cooldown changed for ${hero}, but ChangelogBodyTable[${changelogIndex}] assignment not found`)
+          : reporter.warn(`settings cooldown changed for ${hero}, but ChangelogBodyTable[${changelogIndex}] assignment not found`);
       } else {
-        args.strictSettingsSync
-          ? reporter.fail(`settings cooldown changed for ${hero}, but init changelog_body was not updated in diff`)
-          : reporter.warn(`settings cooldown changed for ${hero}, but init changelog_body was not updated in diff`);
+        const changelogDiff = tryCommand("git", ["diff", "--unified=3", args.diffRange, "--", changelogTablePath], repoRoot);
+        if (changelogDiff.includes(`ChangelogBodyTable[${changelogIndex}] =`)) {
+          reporter.pass(`settings cooldown sync OK for ${hero} (central changelog body table updated in diff, index=${changelogIndex})`);
+        } else {
+          args.strictSettingsSync
+            ? reporter.fail(`settings cooldown changed for ${hero}, but ChangelogBodyTable[${changelogIndex}] was not updated in diff`)
+            : reporter.warn(`settings cooldown changed for ${hero}, but ChangelogBodyTable[${changelogIndex}] was not updated in diff`);
+        }
       }
     }
   }
@@ -337,7 +399,7 @@ async function main(): Promise<void> {
       args.reportPath !== null
         ? resolveRepo(args.reportPath)
         : resolveRepo(`docs/reports/changelog-sync-${new Date().toISOString().replace(/[:.]/g, "-")}.md`);
-    await renderReport(reportPath, reporter, heroes, args.diffRange);
+    await renderReport(reportPath, reporter, heroes, args.diffRange, mappings, assignedIndices);
     const reportText = await fs.readFile(reportPath, "utf8");
     const reportBanned = containsBannedTeamWording(reportText);
     if (reportBanned.length === 0) {

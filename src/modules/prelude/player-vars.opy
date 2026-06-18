@@ -20,7 +20,6 @@ playervar brigitte_buff
 playervar zarya_graviton_buff
 playervar KnockbackDirection
 playervar wuyang_buff
-playervar changelog_body
 playervar hazard_buff
 playervar zarya_buff
 playervar heart_steel
@@ -36,3 +35,4 @@ playervar expected_scoped_damage
 playervar aram_extra_pool_applied
 playervar burn_stack
 playervar hero_switch_pvar
+

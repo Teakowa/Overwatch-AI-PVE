@@ -23,7 +23,4 @@ rule "[widowmaker/init.opy]: Initialize Widowmaker":
     lbl_0:
     eventPlayer.reset_pvar[6].reset_pvar[9] = eventPlayer
     eventPlayer._reset_requested = false
-    if eventPlayer.getTeam() == Team.2:
-        wait(WAIT_SHORT_FRAME)
-        if eventPlayer.getCurrentHero() == Hero.WIDOWMAKER:
-            eventPlayer.changelog_body = "\r\n●{0}\r\n*造成伤害 +35%\r\n*受到伤害 +15%\r\n*移除开镜伤害衰减\n\n※※离开重生室隐藏".format(eventPlayer.getHero())
+

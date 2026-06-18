@@ -21,7 +21,4 @@ rule "[tracer/init.opy]: Initialize Tracer":
     eventPlayer.startForcingName(random.choice(["跳跳熊", "FLETA", "EVAEL", "炸弹摩西", "瞬移摩西"]))
     lbl_0:
     eventPlayer._reset_requested = false
-    if eventPlayer.getTeam() == Team.2:
-        wait(WAIT_SHORT_FRAME)
-        if eventPlayer.getCurrentHero() == Hero.TRACER:
-            eventPlayer.changelog_body = "\r\n●{0}\r\n*造成伤害 +60%\r\n*受到伤害 -65%\r\n*回溯 立刻回复50生命值\r\n  回溯期间完成击杀时回满闪现并重置回溯冷却\r\n*重生 阵亡后立刻重生\r\n*脉冲炸弹 充能速度 +60%\n\n※※离开重生室隐藏".format(eventPlayer.getHero())
+

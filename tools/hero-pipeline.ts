@@ -7,6 +7,9 @@ import { spawnSync } from "node:child_process";
 import { Reporter } from "./lib/report.js";
 import { gitDiffNameOnly, readLines, repoRoot, resolveRepo, runCommand, tryCommand } from "./lib/runtime.js";
 
+const changelogHudPath = "src/modules/debug/changelog.opy";
+const changelogTablePath = "src/utilities/changelog_text.opy";
+
 type Args = {
   requestHeroes: string[];
   useFromDiff: boolean;
@@ -109,6 +112,39 @@ function normalizeConstFromTag(tag: string): string {
   return upper;
 }
 
+function slugFromConst(value: string): string {
+  if (value === "SOLDIER") {
+    return "soldier76";
+  }
+  if (value === "WRECKING_BALL") {
+    return "wrecking_ball";
+  }
+  if (value === "JUNKER_QUEEN") {
+    return "junker_queen";
+  }
+  return value.toLowerCase();
+}
+
+function extractChangelogMappings(text: string): Map<string, number[]> {
+  const mappings = new Map<string, number[]>();
+  for (const match of text.matchAll(/Hero\.([A-Z_]+):\s*ChangelogBodyTable\[(\d+)\]/g)) {
+    const heroConst = match[1]!;
+    const index = Number(match[2]!);
+    const values = mappings.get(heroConst) ?? [];
+    values.push(index);
+    mappings.set(heroConst, values);
+  }
+  return mappings;
+}
+
+function extractAssignedChangelogIndices(text: string): Set<number> {
+  const indices = new Set<number>();
+  for (const match of text.matchAll(/ChangelogBodyTable\[(\d+)\]\s*=/g)) {
+    indices.add(Number(match[1]!));
+  }
+  return indices;
+}
+
 function expectedOwnerForSlot(slot: number): string {
   return (
     {
@@ -127,9 +163,24 @@ function expectedTeamForSlot(slot: number): string {
 }
 
 function collectHeroesFromDiff(range: string): string[] {
-  return gitDiffNameOnly(range, ["src/heroes"])
-    .map((filePath) => filePath.match(/^src\/heroes\/([^/]+)\/.+\.opy$/)?.[1] ?? "")
-    .filter(Boolean)
+  const heroes = new Set<string>();
+  for (const filePath of gitDiffNameOnly(range, ["src/heroes", changelogHudPath, changelogTablePath])) {
+    const heroSlug = filePath.match(/^src\/heroes\/([^/]+)\/.+\.opy$/)?.[1] ?? "";
+    if (heroSlug) {
+      heroes.add(heroSlug);
+      continue;
+    }
+    if (filePath === changelogHudPath || filePath === changelogTablePath) {
+      const diff = tryCommand("git", ["diff", "--unified=0", range, "--", filePath], repoRoot);
+      for (const line of diff.split("\n")) {
+        const match = line.match(/Hero\.([A-Z_]+)/);
+        if (match) {
+          heroes.add(slugFromConst(match[1]!));
+        }
+      }
+    }
+  }
+  return [...heroes]
     .filter((slug, index, values) => values.indexOf(slug) === index)
     .filter((slug) => spawnSync("test", ["-f", resolveRepo("src/heroes", slug, "init.opy")]).status === 0)
     .sort((a, b) => a.localeCompare(b));
@@ -328,6 +379,12 @@ async function generateReviewReportTemplate(
 async function auditHero(slug: string, args: Args, reporter: Reporter): Promise<void> {
   const initFile = resolveRepo("src/heroes", slug, "init.opy");
   const detectFile = resolveRepo("src/heroes", slug, "init-detect.opy");
+  const [changelogHudText, changelogTableText] = await Promise.all([
+    fs.readFile(resolveRepo(changelogHudPath), "utf8"),
+    fs.readFile(resolveRepo(changelogTablePath), "utf8"),
+  ]);
+  const changelogMappings = extractChangelogMappings(changelogHudText);
+  const changelogAssignedIndices = extractAssignedChangelogIndices(changelogTableText);
   const heroesMain = await readLines(resolveRepo("src/heroes/main.opy"));
   const heroesAram = await readLines(resolveRepo("src/heroes/aram.opy"));
   const currentHeroDir = resolveRepo("src/heroes", slug);
@@ -483,13 +540,18 @@ async function auditHero(slug: string, args: Args, reporter: Reporter): Promise<
     reporter.warn(`no hero_rules touchpoint detected for ${slug}`);
   }
 
-  const changelogCount = initLines.filter((line) => line.includes("eventPlayer.changelog_body =")).length;
-  if (changelogCount >= 1) {
-    reporter.pass(`changelog assignment exists for ${slug}.init`);
-  } else if (args.strictChangelog) {
-    reporter.fail(`missing changelog assignment for ${slug}.init`);
+  const changelogIndices = changelogMappings.get(heroConst) ?? [];
+  if (changelogIndices.length === 1 && changelogAssignedIndices.has(changelogIndices[0]!)) {
+    reporter.pass(`central changelog mapping/body table exists for ${slug} (index=${changelogIndices[0]})`);
+  } else if (changelogIndices.length > 1) {
+    const message = `duplicated central changelog mapping for ${slug} (count=${changelogIndices.length})`;
+    args.strictChangelog ? reporter.fail(message) : reporter.warn(message);
+  } else if (changelogIndices.length === 1) {
+    const message = `missing ChangelogBodyTable[${changelogIndices[0]}] assignment for ${slug}`;
+    args.strictChangelog ? reporter.fail(message) : reporter.warn(message);
   } else {
-    reporter.warn(`missing changelog assignment for ${slug}.init`);
+    const message = `missing central changelog mapping for ${slug}`;
+    args.strictChangelog ? reporter.fail(message) : reporter.warn(message);
   }
 }
 
