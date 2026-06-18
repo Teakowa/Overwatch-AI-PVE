@@ -330,7 +330,6 @@ async function auditHero(slug: string, args: Args, reporter: Reporter): Promise<
   const detectFile = resolveRepo("src/heroes", slug, "init-detect.opy");
   const heroesMain = await readLines(resolveRepo("src/heroes/main.opy"));
   const heroesAram = await readLines(resolveRepo("src/heroes/aram.opy"));
-  const changelogFile = await readLines(resolveRepo("src/modules/debug/changelog.opy"));
   const currentHeroDir = resolveRepo("src/heroes", slug);
 
   console.log();
@@ -484,13 +483,13 @@ async function auditHero(slug: string, args: Args, reporter: Reporter): Promise<
     reporter.warn(`no hero_rules touchpoint detected for ${slug}`);
   }
 
-  const changelogCount = changelogFile.filter((line) => line.includes(`eventPlayer.getHero() == Hero.${heroConst}`)).length;
+  const changelogCount = initLines.filter((line) => line.includes("eventPlayer.changelog_body =")).length;
   if (changelogCount >= 1) {
-    reporter.pass(`changelog branch exists for Hero.${heroConst}`);
+    reporter.pass(`changelog assignment exists for ${slug}.init`);
   } else if (args.strictChangelog) {
-    reporter.fail(`missing changelog branch for Hero.${heroConst}`);
+    reporter.fail(`missing changelog assignment for ${slug}.init`);
   } else {
-    reporter.warn(`missing changelog branch for Hero.${heroConst}`);
+    reporter.warn(`missing changelog assignment for ${slug}.init`);
   }
 }
 

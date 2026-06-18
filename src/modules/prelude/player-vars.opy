@@ -22,6 +22,7 @@ playervar KnockbackDirection
 playervar wuyang_buff
 playervar ChangelogText1
 playervar ChangelogText2
+#!defineMember changelog_body ChangelogText1[0]
 playervar hazard_buff
 playervar zarya_buff
 playervar heart_steel

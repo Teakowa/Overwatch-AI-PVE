@@ -5,7 +5,7 @@ import path from "node:path";
 import { Reporter } from "./lib/report.js";
 import { existsSync, gitDiffNameOnly, readLines, repoRoot, resolveRepo, tryCommand } from "./lib/runtime.js";
 
-const changelogContentPath = "src/utilities/changelog_text.opy";
+const changelogHudPath = "src/modules/debug/changelog.opy";
 
 type Args = {
   requestedHeroes: string[];
@@ -111,6 +111,15 @@ function constFromSlug(value: string): string {
   return value.toUpperCase();
 }
 
+function heroInitPath(slug: string): string {
+  return resolveRepo("src/heroes", slug, "init.opy");
+}
+
+async function countHeroChangelogCoverage(slug: string): Promise<number> {
+  const initText = await fs.readFile(heroInitPath(slug), "utf8");
+  return (initText.match(/eventPlayer\.changelog_body\s*=/g) ?? []).length;
+}
+
 function addTargetHero(targets: Set<string>, raw: string): void {
   const slug = normalizeTagToSlug(raw);
   if (slug && existsSync(resolveRepo("src/heroes", slug, "init.opy"))) {
@@ -161,7 +170,7 @@ async function collectSettingsCooldownCluesForHero(slug: string, range: string):
 
 async function collectDiffCluesForHero(slug: string, range: string): Promise<string[]> {
   const constName = constFromSlug(slug);
-  const changedFiles = gitDiffNameOnly(range, ["src/heroes", "src/modules/prelude/settings.opy", changelogContentPath]);
+      const changedFiles = gitDiffNameOnly(range, ["src/heroes", "src/modules/prelude/settings.opy", changelogHudPath]);
   const clues = new Set<string>();
   for (const filePath of changedFiles) {
     if (filePath === "src/modules/prelude/settings.opy") {
@@ -205,13 +214,11 @@ async function renderReport(reportPath: string, reporter: Reporter, heroes: stri
     "",
     "## Coverage",
   ];
-  const changelogLines = await readLines(resolveRepo(changelogContentPath));
   for (const hero of heroes) {
-    const constName = constFromSlug(hero);
-    const count = changelogLines.filter((line) => line.includes(`eventPlayer.getHero() == Hero.${constName}`)).length;
-    if (count === 1) lines.push(`- [OK] ${hero}: Hero.${constName} branch exists`);
-    else if (count > 1) lines.push(`- [WARN] ${hero}: Hero.${constName} branch duplicated (${count})`);
-    else lines.push(`- [WARN] ${hero}: Hero.${constName} branch missing`);
+    const count = await countHeroChangelogCoverage(hero);
+    if (count === 1) lines.push(`- [OK] ${hero}: changelog_body assignment exists in init.opy`);
+    else if (count > 1) lines.push(`- [WARN] ${hero}: changelog_body assignment duplicated in init.opy (${count})`);
+    else lines.push(`- [WARN] ${hero}: changelog_body assignment missing in init.opy`);
   }
   lines.push("", "## Pending Player-Facing Changelog Items");
   for (const hero of heroes) {
@@ -244,7 +251,7 @@ async function main(): Promise<void> {
     addTargetHero(targetHeroes, hero);
   }
   if (args.useFromDiff) {
-    const changedFiles = gitDiffNameOnly(args.diffRange, ["src/heroes", "src/modules/prelude/settings.opy", changelogContentPath]);
+    const changedFiles = gitDiffNameOnly(args.diffRange, ["src/heroes", "src/modules/prelude/settings.opy", changelogHudPath]);
     for (const filePath of changedFiles) {
       const heroMatch = filePath.match(/^src\/heroes\/([^/]+)\/.+\.opy$/);
       if (heroMatch) {
@@ -272,8 +279,12 @@ async function main(): Promise<void> {
   }
 
   const reporter = new Reporter();
-  const changelogPath = resolveRepo(changelogContentPath);
-  const changelogText = await fs.readFile(changelogPath, "utf8");
+  const changelogText = (
+    await Promise.all([
+      fs.readFile(resolveRepo(changelogHudPath), "utf8"),
+      ...heroes.map((hero) => fs.readFile(heroInitPath(hero), "utf8")),
+    ])
+  ).join("\n");
   console.log(`Running ow-changelog-sync from: ${repoRoot}`);
   console.log(`Target heroes: ${heroes.join(" ")}`);
 
@@ -286,13 +297,11 @@ async function main(): Promise<void> {
     reporter.pass("changelog content does not use Team 1/Team 2 wording");
   }
 
-  const changelogLines = changelogText.split(/\r?\n/);
   for (const hero of heroes) {
-    const constName = constFromSlug(hero);
-    const coverageCount = changelogLines.filter((line) => line.includes(`eventPlayer.getHero() == Hero.${constName}`)).length;
-    if (coverageCount === 1) reporter.pass(`coverage OK for ${hero} (Hero.${constName})`);
-    else if (coverageCount > 1) args.strictCoverage ? reporter.fail(`coverage duplicated for ${hero} (Hero.${constName}, count=${coverageCount})`) : reporter.warn(`coverage duplicated for ${hero} (Hero.${constName}, count=${coverageCount})`);
-    else args.strictCoverage ? reporter.fail(`coverage missing for ${hero} (Hero.${constName})`) : reporter.warn(`coverage missing for ${hero} (Hero.${constName})`);
+    const coverageCount = await countHeroChangelogCoverage(hero);
+    if (coverageCount === 1) reporter.pass(`coverage OK for ${hero} (init changelog_body)`);
+    else if (coverageCount > 1) args.strictCoverage ? reporter.fail(`coverage duplicated for ${hero} (init changelog_body, count=${coverageCount})`) : reporter.warn(`coverage duplicated for ${hero} (init changelog_body, count=${coverageCount})`);
+    else args.strictCoverage ? reporter.fail(`coverage missing for ${hero} (init changelog_body)`) : reporter.warn(`coverage missing for ${hero} (init changelog_body)`);
 
     const clues = await collectDiffCluesForHero(hero, args.diffRange);
     if (clues.length > 0) {
@@ -306,17 +315,19 @@ async function main(): Promise<void> {
 
     const cooldownClues = await collectSettingsCooldownCluesForHero(hero, args.diffRange);
     if (cooldownClues.length > 0) {
-      const changelogDiff = tryCommand("git", ["diff", "--unified=3", args.diffRange, "--", changelogPath], repoRoot);
-      if (!changelogText.includes(`eventPlayer.getHero() == Hero.${constName}`)) {
+      const heroInitRelPath = `src/heroes/${hero}/init.opy`;
+      const heroInitText = await fs.readFile(heroInitPath(hero), "utf8");
+      const changelogDiff = tryCommand("git", ["diff", "--unified=3", args.diffRange, "--", heroInitRelPath], repoRoot);
+      if (!heroInitText.includes("eventPlayer.changelog_body =")) {
         args.strictSettingsSync
-          ? reporter.fail(`settings cooldown changed for ${hero}, but changelog branch Hero.${constName} not found`)
-          : reporter.warn(`settings cooldown changed for ${hero}, but changelog branch Hero.${constName} not found`);
-      } else if (changelogDiff.includes(`Hero.${constName}`)) {
-        reporter.pass(`settings cooldown sync OK for ${hero} (changelog branch updated in diff)`);
+          ? reporter.fail(`settings cooldown changed for ${hero}, but init changelog_body assignment not found`)
+          : reporter.warn(`settings cooldown changed for ${hero}, but init changelog_body assignment not found`);
+      } else if (changelogDiff.includes("eventPlayer.changelog_body =")) {
+        reporter.pass(`settings cooldown sync OK for ${hero} (init changelog_body updated in diff)`);
       } else {
         args.strictSettingsSync
-          ? reporter.fail(`settings cooldown changed for ${hero}, but changelog branch was not updated in diff`)
-          : reporter.warn(`settings cooldown changed for ${hero}, but changelog branch was not updated in diff`);
+          ? reporter.fail(`settings cooldown changed for ${hero}, but init changelog_body was not updated in diff`)
+          : reporter.warn(`settings cooldown changed for ${hero}, but init changelog_body was not updated in diff`);
       }
     }
   }

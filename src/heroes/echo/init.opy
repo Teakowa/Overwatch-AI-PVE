@@ -15,4 +15,6 @@ rule "[Echo] Initialize":
     @Condition eventPlayer._reset_requested != false
 
     resetHero()
+    if eventPlayer.getTeam() == Team.2:
+        eventPlayer.changelog_body = "\r\n●{0}\r\n*造成伤害 +35%\r\n*受到伤害 -30%\r\n*聚焦光束 持续期间伤害提高{1}%\r\n*人格复制期间终极充能最低保留{2}%\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), EchoBuff[0], EchoBuff[1])
     eventPlayer._reset_requested = false
