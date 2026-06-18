@@ -125,24 +125,13 @@ function slugFromConst(value: string): string {
   return value.toLowerCase();
 }
 
-function extractChangelogMappings(text: string): Map<string, number[]> {
-  const mappings = new Map<string, number[]>();
-  for (const match of text.matchAll(/Hero\.([A-Z_]+):\s*ChangelogBodyTable\[(\d+)\]/g)) {
+function extractHeroChangelogAssignments(text: string): Map<string, number> {
+  const counts = new Map<string, number>();
+  for (const match of text.matchAll(/ChangelogBodyTable\[Hero\.([A-Z_]+)\]\s*=/g)) {
     const heroConst = match[1]!;
-    const index = Number(match[2]!);
-    const values = mappings.get(heroConst) ?? [];
-    values.push(index);
-    mappings.set(heroConst, values);
+    counts.set(heroConst, (counts.get(heroConst) ?? 0) + 1);
   }
-  return mappings;
-}
-
-function extractAssignedChangelogIndices(text: string): Set<number> {
-  const indices = new Set<number>();
-  for (const match of text.matchAll(/ChangelogBodyTable\[(\d+)\]\s*=/g)) {
-    indices.add(Number(match[1]!));
-  }
-  return indices;
+  return counts;
 }
 
 function expectedOwnerForSlot(slot: number): string {
@@ -170,10 +159,10 @@ function collectHeroesFromDiff(range: string): string[] {
       heroes.add(heroSlug);
       continue;
     }
-    if (filePath === changelogHudPath || filePath === changelogTablePath) {
+    if (filePath === changelogTablePath) {
       const diff = tryCommand("git", ["diff", "--unified=0", range, "--", filePath], repoRoot);
       for (const line of diff.split("\n")) {
-        const match = line.match(/Hero\.([A-Z_]+)/);
+        const match = line.match(/ChangelogBodyTable\[Hero\.([A-Z_]+)\]\s*=/);
         if (match) {
           heroes.add(slugFromConst(match[1]!));
         }
@@ -379,12 +368,7 @@ async function generateReviewReportTemplate(
 async function auditHero(slug: string, args: Args, reporter: Reporter): Promise<void> {
   const initFile = resolveRepo("src/heroes", slug, "init.opy");
   const detectFile = resolveRepo("src/heroes", slug, "init-detect.opy");
-  const [changelogHudText, changelogTableText] = await Promise.all([
-    fs.readFile(resolveRepo(changelogHudPath), "utf8"),
-    fs.readFile(resolveRepo(changelogTablePath), "utf8"),
-  ]);
-  const changelogMappings = extractChangelogMappings(changelogHudText);
-  const changelogAssignedIndices = extractAssignedChangelogIndices(changelogTableText);
+  const changelogAssignments = extractHeroChangelogAssignments(await fs.readFile(resolveRepo(changelogTablePath), "utf8"));
   const heroesMain = await readLines(resolveRepo("src/heroes/main.opy"));
   const heroesAram = await readLines(resolveRepo("src/heroes/aram.opy"));
   const currentHeroDir = resolveRepo("src/heroes", slug);
@@ -540,17 +524,14 @@ async function auditHero(slug: string, args: Args, reporter: Reporter): Promise<
     reporter.warn(`no hero_rules touchpoint detected for ${slug}`);
   }
 
-  const changelogIndices = changelogMappings.get(heroConst) ?? [];
-  if (changelogIndices.length === 1 && changelogAssignedIndices.has(changelogIndices[0]!)) {
-    reporter.pass(`central changelog mapping/body table exists for ${slug} (index=${changelogIndices[0]})`);
-  } else if (changelogIndices.length > 1) {
-    const message = `duplicated central changelog mapping for ${slug} (count=${changelogIndices.length})`;
-    args.strictChangelog ? reporter.fail(message) : reporter.warn(message);
-  } else if (changelogIndices.length === 1) {
-    const message = `missing ChangelogBodyTable[${changelogIndices[0]}] assignment for ${slug}`;
+  const changelogCount = changelogAssignments.get(heroConst) ?? 0;
+  if (changelogCount === 1) {
+    reporter.pass(`central changelog body assignment exists for ${slug}`);
+  } else if (changelogCount > 1) {
+    const message = `duplicated central changelog body assignment for ${slug} (count=${changelogCount})`;
     args.strictChangelog ? reporter.fail(message) : reporter.warn(message);
   } else {
-    const message = `missing central changelog mapping for ${slug}`;
+    const message = `missing central changelog body assignment for ${slug}`;
     args.strictChangelog ? reporter.fail(message) : reporter.warn(message);
   }
 }

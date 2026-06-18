@@ -112,33 +112,17 @@ function slugToSettingsKey(value: string): string {
   return `${head}${rest.map((part) => `${part[0]!.toUpperCase()}${part.slice(1)}`).join("")}`;
 }
 
-function extractChangelogMappings(text: string): Map<string, number[]> {
-  const mappings = new Map<string, number[]>();
-  for (const match of text.matchAll(/Hero\.([A-Z_]+):\s*ChangelogBodyTable\[(\d+)\]/g)) {
+function extractHeroChangelogAssignments(text: string): Map<string, number> {
+  const counts = new Map<string, number>();
+  for (const match of text.matchAll(/ChangelogBodyTable\[Hero\.([A-Z_]+)\]\s*=/g)) {
     const heroConst = match[1]!;
-    const index = Number(match[2]!);
-    const values = mappings.get(heroConst) ?? [];
-    values.push(index);
-    mappings.set(heroConst, values);
+    counts.set(heroConst, (counts.get(heroConst) ?? 0) + 1);
   }
-  return mappings;
+  return counts;
 }
 
-function extractAssignedChangelogIndices(text: string): Set<number> {
-  const indices = new Set<number>();
-  for (const match of text.matchAll(/ChangelogBodyTable\[(\d+)\]\s*=/g)) {
-    indices.add(Number(match[1]!));
-  }
-  return indices;
-}
-
-function countHeroChangelogCoverage(slug: string, mappings: Map<string, number[]>): number {
-  return mappings.get(constFromSlug(slug))?.length ?? 0;
-}
-
-function resolveHeroChangelogIndex(slug: string, mappings: Map<string, number[]>): number | null {
-  const indices = mappings.get(constFromSlug(slug)) ?? [];
-  return indices.length === 1 ? indices[0]! : null;
+function countHeroChangelogCoverage(slug: string, assignments: Map<string, number>): number {
+  return assignments.get(constFromSlug(slug)) ?? 0;
 }
 
 function addTargetHero(targets: Set<string>, raw: string): void {
@@ -228,8 +212,7 @@ async function renderReport(
   reporter: Reporter,
   heroes: string[],
   diffRange: string,
-  mappings: Map<string, number[]>,
-  assignedIndices: Set<number>,
+  assignments: Map<string, number>,
 ): Promise<void> {
   const lines: string[] = [
     "# Changelog Sync Report",
@@ -243,16 +226,13 @@ async function renderReport(
     "## Coverage",
   ];
   for (const hero of heroes) {
-    const count = countHeroChangelogCoverage(hero, mappings);
-    const index = resolveHeroChangelogIndex(hero, mappings);
-    if (count === 1 && index !== null && assignedIndices.has(index)) {
-      lines.push(`- [OK] ${hero}: central changelog mapping/body table exists (index=${index})`);
+    const count = countHeroChangelogCoverage(hero, assignments);
+    if (count === 1) {
+      lines.push(`- [OK] ${hero}: central changelog body assignment exists`);
     } else if (count > 1) {
-      lines.push(`- [WARN] ${hero}: central changelog mapping duplicated in HUD (${count})`);
-    } else if (count === 1) {
-      lines.push(`- [WARN] ${hero}: central changelog body table index missing for mapped hero (index=${index})`);
+      lines.push(`- [WARN] ${hero}: central changelog body assignment duplicated (${count})`);
     } else {
-      lines.push(`- [WARN] ${hero}: central changelog mapping missing in HUD`);
+      lines.push(`- [WARN] ${hero}: central changelog body assignment missing`);
     }
   }
   lines.push("", "## Pending Player-Facing Changelog Items");
@@ -292,10 +272,10 @@ async function main(): Promise<void> {
       if (heroMatch) {
         addTargetHero(targetHeroes, heroMatch[1]!);
       }
-      if (filePath === changelogHudPath || filePath === changelogTablePath) {
+      if (filePath === changelogTablePath) {
         const diff = tryCommand("git", ["diff", "--unified=0", args.diffRange, "--", filePath], repoRoot);
         for (const line of diff.split("\n")) {
-          const match = line.match(/Hero\.([A-Z_]+)/);
+          const match = line.match(/ChangelogBodyTable\[Hero\.([A-Z_]+)\]\s*=/);
           if (match) {
             addTargetHero(targetHeroes, slugFromConst(match[1]!));
           }
@@ -323,13 +303,9 @@ async function main(): Promise<void> {
   }
 
   const reporter = new Reporter();
-  const [hudText, tableText] = await Promise.all([
-    fs.readFile(resolveRepo(changelogHudPath), "utf8"),
-    fs.readFile(resolveRepo(changelogTablePath), "utf8"),
-  ]);
+  const [hudText, tableText] = await Promise.all([fs.readFile(resolveRepo(changelogHudPath), "utf8"), fs.readFile(resolveRepo(changelogTablePath), "utf8")]);
   const changelogText = `${hudText}\n${tableText}`;
-  const mappings = extractChangelogMappings(hudText);
-  const assignedIndices = extractAssignedChangelogIndices(tableText);
+  const assignments = extractHeroChangelogAssignments(tableText);
   console.log(`Running ow-changelog-sync from: ${repoRoot}`);
   console.log(`Target heroes: ${heroes.join(" ")}`);
 
@@ -343,22 +319,17 @@ async function main(): Promise<void> {
   }
 
   for (const hero of heroes) {
-    const coverageCount = countHeroChangelogCoverage(hero, mappings);
-    const changelogIndex = resolveHeroChangelogIndex(hero, mappings);
-    if (coverageCount === 1 && changelogIndex !== null && assignedIndices.has(changelogIndex)) {
-      reporter.pass(`coverage OK for ${hero} (central changelog mapping/body table, index=${changelogIndex})`);
+    const coverageCount = countHeroChangelogCoverage(hero, assignments);
+    if (coverageCount === 1) {
+      reporter.pass(`coverage OK for ${hero} (central changelog body assignment)`);
     } else if (coverageCount > 1) {
       args.strictCoverage
-        ? reporter.fail(`coverage duplicated for ${hero} (central changelog HUD mapping, count=${coverageCount})`)
-        : reporter.warn(`coverage duplicated for ${hero} (central changelog HUD mapping, count=${coverageCount})`);
-    } else if (coverageCount === 1) {
-      args.strictCoverage
-        ? reporter.fail(`coverage broken for ${hero} (HUD mapping exists but ChangelogBodyTable[${changelogIndex}] assignment missing)`)
-        : reporter.warn(`coverage broken for ${hero} (HUD mapping exists but ChangelogBodyTable[${changelogIndex}] assignment missing)`);
+        ? reporter.fail(`coverage duplicated for ${hero} (central changelog body assignment, count=${coverageCount})`)
+        : reporter.warn(`coverage duplicated for ${hero} (central changelog body assignment, count=${coverageCount})`);
     } else {
       args.strictCoverage
-        ? reporter.fail(`coverage missing for ${hero} (central changelog HUD mapping)`)
-        : reporter.warn(`coverage missing for ${hero} (central changelog HUD mapping)`);
+        ? reporter.fail(`coverage missing for ${hero} (central changelog body assignment)`)
+        : reporter.warn(`coverage missing for ${hero} (central changelog body assignment)`);
     }
 
     const clues = await collectDiffCluesForHero(hero, args.diffRange);
@@ -373,22 +344,23 @@ async function main(): Promise<void> {
 
     const cooldownClues = await collectSettingsCooldownCluesForHero(hero, args.diffRange);
     if (cooldownClues.length > 0) {
-      if (changelogIndex === null) {
+      const heroConst = constFromSlug(hero);
+      if (coverageCount === 0) {
         args.strictSettingsSync
-          ? reporter.fail(`settings cooldown changed for ${hero}, but central changelog mapping not found`)
-          : reporter.warn(`settings cooldown changed for ${hero}, but central changelog mapping not found`);
-      } else if (!assignedIndices.has(changelogIndex)) {
+          ? reporter.fail(`settings cooldown changed for ${hero}, but central changelog body assignment not found`)
+          : reporter.warn(`settings cooldown changed for ${hero}, but central changelog body assignment not found`);
+      } else if (coverageCount > 1) {
         args.strictSettingsSync
-          ? reporter.fail(`settings cooldown changed for ${hero}, but ChangelogBodyTable[${changelogIndex}] assignment not found`)
-          : reporter.warn(`settings cooldown changed for ${hero}, but ChangelogBodyTable[${changelogIndex}] assignment not found`);
+          ? reporter.fail(`settings cooldown changed for ${hero}, but central changelog body assignment is duplicated`)
+          : reporter.warn(`settings cooldown changed for ${hero}, but central changelog body assignment is duplicated`);
       } else {
         const changelogDiff = tryCommand("git", ["diff", "--unified=3", args.diffRange, "--", changelogTablePath], repoRoot);
-        if (changelogDiff.includes(`ChangelogBodyTable[${changelogIndex}] =`)) {
-          reporter.pass(`settings cooldown sync OK for ${hero} (central changelog body table updated in diff, index=${changelogIndex})`);
+        if (changelogDiff.includes(`ChangelogBodyTable[Hero.${heroConst}] =`)) {
+          reporter.pass(`settings cooldown sync OK for ${hero} (central changelog body updated in diff)`);
         } else {
           args.strictSettingsSync
-            ? reporter.fail(`settings cooldown changed for ${hero}, but ChangelogBodyTable[${changelogIndex}] was not updated in diff`)
-            : reporter.warn(`settings cooldown changed for ${hero}, but ChangelogBodyTable[${changelogIndex}] was not updated in diff`);
+            ? reporter.fail(`settings cooldown changed for ${hero}, but ChangelogBodyTable[Hero.${heroConst}] was not updated in diff`)
+            : reporter.warn(`settings cooldown changed for ${hero}, but ChangelogBodyTable[Hero.${heroConst}] was not updated in diff`);
         }
       }
     }
@@ -399,7 +371,7 @@ async function main(): Promise<void> {
       args.reportPath !== null
         ? resolveRepo(args.reportPath)
         : resolveRepo(`docs/reports/changelog-sync-${new Date().toISOString().replace(/[:.]/g, "-")}.md`);
-    await renderReport(reportPath, reporter, heroes, args.diffRange, mappings, assignedIndices);
+    await renderReport(reportPath, reporter, heroes, args.diffRange, assignments);
     const reportText = await fs.readFile(reportPath, "utf8");
     const reportBanned = containsBannedTeamWording(reportText);
     if (reportBanned.length === 0) {
