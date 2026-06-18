@@ -119,6 +119,7 @@ rule "[AI/control]: Shion Ultimate":
     @Condition eventPlayer.botTarget.isAlive() == true
     @Condition isInLoS(eventPlayer, eventPlayer.botTarget) == true
 
+	wait(random.uniform(0.16, 1), Wait.ABORT_WHEN_FALSE)
     waitUntil(
         eventPlayer.botTarget != null and eventPlayer.botTarget.isAlive() == true and isInLoS(eventPlayer, eventPlayer.botTarget) == true and distance(eventPlayer.getPosition() * vect(1, 0, 1), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) <= 14,
         Math.INFINITY
