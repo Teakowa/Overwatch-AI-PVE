@@ -40,9 +40,9 @@ rule "[Mauga]: Berserker Soul Ability":
     wait(WAIT_SHORT_FRAME)
     eventPlayer.setHealth(eventPlayer.getMaxHealth())
     wait(WAIT_SHORT_FRAME)
-    eventPlayer.startDamageOverTime(null, MAUGA_RULES_DOT_DURATION, eventPlayer.maxHealthPercent(MaugaBuff[6]))
+    eventPlayer.startDamageOverTime(null, Math.INFINITY, eventPlayer.maxHealthPercent(MaugaBuff[6]))
     eventPlayer.mauga_berserker_soul_id[1] = getLastDamageOverTimeId()
-    waitUntil(not eventPlayer.mauga_berserker_soul or eventPlayer.isDead(), 9999)
+    waitUntil(not eventPlayer.mauga_berserker_soul or eventPlayer.isDead(), Math.INFINITY)
     eventPlayer.dmg_amplification = 0
     eventPlayer.dmg_reduction = 0
     stopDamageOverTime(eventPlayer.mauga_berserker_soul_id[1])
