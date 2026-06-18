@@ -36,10 +36,12 @@ rule "[reset.opy]: Reinitialize hero on new round":
     @Condition isMatchBetweenRounds() == true
     @Condition not isHero(eventPlayer, Hero.SOMBRA)
 
-    waitUntil(not isMatchBetweenRounds(), 10)
-    wait(eventPlayer.getSlot() * 1 + getAverageServerLoad() / 100)
+    resetCombatState()
+    resetStatuses()
+    waitUntil(not isMatchBetweenRounds(), Math.INFINITY)
+    wait(eventPlayer.getSlot() * 10 + getAverageServerLoad() / 100)
     eventPlayer._reset_requested = true
-    logToInspector("queued init after new round")
+    logToInspector("queued init after new round (main throttled)")
 
 def applySignedMoveSpeed():
     @Name "[utilities/move_speed.opy]: applySignedMoveSpeed()"
