@@ -5,6 +5,8 @@ import path from "node:path";
 import { Reporter } from "./lib/report.js";
 import { existsSync, gitDiffNameOnly, readLines, repoRoot, resolveRepo, tryCommand } from "./lib/runtime.js";
 
+const changelogContentPath = "src/utilities/changelog_text.opy";
+
 type Args = {
   requestedHeroes: string[];
   useFromDiff: boolean;
@@ -159,7 +161,7 @@ async function collectSettingsCooldownCluesForHero(slug: string, range: string):
 
 async function collectDiffCluesForHero(slug: string, range: string): Promise<string[]> {
   const constName = constFromSlug(slug);
-  const changedFiles = gitDiffNameOnly(range, ["src/heroes", "src/modules/prelude/settings.opy", "src/modules/debug/changelog.opy"]);
+  const changedFiles = gitDiffNameOnly(range, ["src/heroes", "src/modules/prelude/settings.opy", changelogContentPath]);
   const clues = new Set<string>();
   for (const filePath of changedFiles) {
     if (filePath === "src/modules/prelude/settings.opy") {
@@ -203,7 +205,7 @@ async function renderReport(reportPath: string, reporter: Reporter, heroes: stri
     "",
     "## Coverage",
   ];
-  const changelogLines = await readLines(resolveRepo("src/modules/debug/changelog.opy"));
+  const changelogLines = await readLines(resolveRepo(changelogContentPath));
   for (const hero of heroes) {
     const constName = constFromSlug(hero);
     const count = changelogLines.filter((line) => line.includes(`eventPlayer.getHero() == Hero.${constName}`)).length;
@@ -242,7 +244,7 @@ async function main(): Promise<void> {
     addTargetHero(targetHeroes, hero);
   }
   if (args.useFromDiff) {
-    const changedFiles = gitDiffNameOnly(args.diffRange, ["src/heroes", "src/modules/prelude/settings.opy", "src/modules/debug/changelog.opy"]);
+    const changedFiles = gitDiffNameOnly(args.diffRange, ["src/heroes", "src/modules/prelude/settings.opy", changelogContentPath]);
     for (const filePath of changedFiles) {
       const heroMatch = filePath.match(/^src\/heroes\/([^/]+)\/.+\.opy$/);
       if (heroMatch) {
@@ -270,7 +272,7 @@ async function main(): Promise<void> {
   }
 
   const reporter = new Reporter();
-  const changelogPath = resolveRepo("src/modules/debug/changelog.opy");
+  const changelogPath = resolveRepo(changelogContentPath);
   const changelogText = await fs.readFile(changelogPath, "utf8");
   console.log(`Running ow-changelog-sync from: ${repoRoot}`);
   console.log(`Target heroes: ${heroes.join(" ")}`);
