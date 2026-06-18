@@ -99,11 +99,11 @@ def changelogText():
     elif eventPlayer.getHero() == Hero.WIDOWMAKER:
         eventPlayer.changelog_body = "\r\n●{0}\r\n*造成伤害 +35%\r\n*受到伤害 +15%\r\n*移除开镜伤害衰减\n\n※※离开重生室隐藏".format(eventPlayer.getHero())
     elif eventPlayer.getHero() == Hero.ANA:
-        eventPlayer.changelog_body = "\r\n●{0}\r\n*造成伤害 +15%\r\n*造成治疗 +50%\r\n*生物手雷\r\n  使敌方燃烧 每秒造成{1}%最大生命值伤害\r\n*麻醉镖\r\n  冷却时间降低至约8.5秒\r\n*纳米激素\r\n  治疗目标全部已损失生命值\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), Ana_GrenadeDamage)
+        eventPlayer.changelog_body = "\r\n●{0}\r\n*造成伤害 +15%\r\n*造成治疗 +22%\r\n*生物手雷\r\n  使敌方燃烧 每秒造成{1}%最大生命值伤害\r\n*麻醉镖\r\n  冷却时间降低至10秒\r\n*纳米激素\r\n  治疗目标全部已损失生命值\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), Ana_GrenadeDamage)
     elif eventPlayer.getHero() == Hero.BAPTISTE:
         eventPlayer.changelog_body = "\r\n●{0}\r\n*造成伤害 +50%\r\n*暴击额外伤害 +{1}\r\n*维生力场\r\n  冷却时间降低至约10.5秒\r\n*增幅矩阵\r\n  持续时间提高至 15 秒\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), BaptisteBuff[0])
     elif eventPlayer.getHero() == Hero.BRIGITTE:
-        eventPlayer.changelog_body = "\r\n●{0}\r\n*造成伤害 +25%\r\n*造成治疗 +45%\r\n*受到伤害 -57%\r\n*恢复包 提供永久护甲\r\n*能量盾击 可穿透屏障击晕敌人\r\n*集结号令 持续期间逐步提高自身伤害减免\n\n".format(eventPlayer.getHero())
+        eventPlayer.changelog_body = "\r\n●{0}\r\n*造成伤害 +25%\r\n*造成治疗+10%\r\n*受到伤害 -57%\r\n*恢复包 提供永久护甲\r\n*能量盾击 可穿透屏障击晕敌人\r\n*集结号令 为自身提供额外临时护甲\n\n".format(eventPlayer.getHero())
     elif eventPlayer.getHero() == Hero.ILLARI:
         eventPlayer.changelog_body = "\r\n●{0}\r\n*造成伤害 +60%\r\n*受到伤害 +5%\r\n*阳光能量回复速度 +25%\r\n*治疗光塔 冷却时间降低50%\r\n*桎梏灼日\r\n  基于附近友军数量造成额外最大生命值伤害\n\n※※离开重生室隐藏".format(eventPlayer.getHero())
     elif eventPlayer.getHero() == Hero.KIRIKO:
