@@ -38,11 +38,11 @@ def changelogText():
     elif eventPlayer.getHero() == Hero.SIGMA:
         eventPlayer.changelog_body = "\r\n●{0}\r\n*造成伤害 +25%\r\n*受到伤害 -25%\r\n*超能之球 每3次攻击强化下一次攻击 附带自身当前生命值{1}%伤害（不含临时生命值）\r\n*实验屏障 充能速度提高\r\n*引力乱流 最大生命值伤害增加至 75%\n\n※离开重生室隐藏".format(eventPlayer.getHero(), SigmaBuff[0] * 100)
     elif eventPlayer.getHero() == Hero.WINSTON:
-        eventPlayer.changelog_body = "\r\n●{0}\r\n*受到伤害 -35%\r\n*造成伤害 +10%\r\n{2} 屏障发射器\r\n  冷却时间降低至11秒\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), abilityIconString(eventPlayer.getHero(), Button.PRIMARY_FIRE), abilityIconString(eventPlayer.getHero(), Button.ABILITY_2))
+        eventPlayer.changelog_body = "\r\n●{0}\r\n*受到伤害 -35%\r\n*造成伤害 +10%\r\n{1} 特斯拉炮-集束电击\r\n  额外造成目标最大生命值{2}%伤害\r\n  并回复等量生命值\r\n{3} 屏障发射器\r\n  冷却时间降低至约12秒\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), abilityIconString(eventPlayer.getHero(), Button.SECONDARY_FIRE), WinstonBuff[0], abilityIconString(eventPlayer.getHero(), Button.ABILITY_2))
     elif eventPlayer.getHero() == Hero.WRECKING_BALL:
         eventPlayer.changelog_body = "\r\n●{0}\r\n*造成伤害 +35%\r\n*受到伤害 -15%\r\n*工程抓钩\r\n  冷却时间降低至4秒\r\n  在重生室中无冷却时间\r\n*感应护盾 冷却时间降低至12秒\r\n*重力坠击 冷却时间降低至6秒\n\n※※离开重生室隐藏".format(eventPlayer.getHero())
     elif eventPlayer.getHero() == Hero.ZARYA:
-        eventPlayer.changelog_body = "\r\n●{0}\r\n*造成伤害 +30%\r\n*受到伤害 -30%\r\n*粒子屏障 冷却时间降低至8秒\r\n*投射屏障 为目标提供3秒{1}点临时生命值\r\n*重力喷涌\r\n  使敌人减速\r\n  充能速度提高8%\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), ZaryaBuff[0])
+        eventPlayer.changelog_body = "\r\n●{0}\r\n*造成伤害 +35%\r\n*受到伤害 -25%\r\n*胜利意志\r\n  生命值低于30%时触发\r\n  获得1秒无敌并重置两个屏障冷却\r\n  回复{1}生命值，每回合仅触发一次\r\n{2} 粒子屏障\r\n  冷却时间降低至约8.9秒\r\n{3} 投射屏障\r\n  为目标提供3秒50点临时生命值\r\n*重力喷涌\r\n  使敌人减速\r\n  充能速度提高8%\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), ZaryaBuff[1] * ZaryaBuff[2], abilityIconString(eventPlayer.getHero(), Button.ABILITY_1), abilityIconString(eventPlayer.getHero(), Button.ABILITY_2))
     elif eventPlayer.getHero() == Hero.HAZARD:
         eventPlayer.changelog_body = "\r\n{0}\r\n{1}\r\n{2}\n\n※※离开重生室隐藏".format("●{0}\r\n*造成伤害 +25%\r\n*受到伤害 -45%".format(eventPlayer.getHero()), "*尖刺护体 基于受到伤害造成额外伤害\r\n  并在格挡期间获得{0}%终极技能充能和生命值回复".format(HazardBuff[1]), "{0}".format("*千针雨 不再根据伤害获得能量"))
     elif eventPlayer.getHero() == Hero.DOMINA:
@@ -89,13 +89,13 @@ def changelogText():
     elif eventPlayer.getHero() == Hero.SIERRA:
         eventPlayer.changelog_body = "\r\n●{0}\r\n*造成伤害 +35%\r\n*受到伤害 -25%\r\n{1} 重构力场 每0.5秒回复25生命值\r\n{2} 标记次级火力 命中后回满弹药\r\n  使目标承受你的伤害提高{3}%\r\n  造成击杀后冷却缩短至0.5秒\r\n{4} 终极技能 击倒敌人{5}秒并造成额外伤害\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), abilityIconString(eventPlayer.getHero(), Button.ABILITY_1), abilityIconString(eventPlayer.getHero(), Button.SECONDARY_FIRE), SierraBuff[1] - 100, abilityIconString(eventPlayer.getHero(), Button.ULTIMATE), SierraBuff[2])
     elif eventPlayer.getHero() == Hero.SYMMETRA:
-        eventPlayer.changelog_body = "\r\n●{0}\r\n*造成伤害 -40%\r\n*受到伤害 +20%\r\n{1}\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), abilityIconString(eventPlayer.getHero(), Button.ABILITY_1))
+        eventPlayer.changelog_body = "\r\n●{0}\r\n*造成伤害 -5%\r\n{1} 冷却时间降低至约8秒\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), abilityIconString(eventPlayer.getHero(), Button.ABILITY_2))
     elif eventPlayer.getHero() == Hero.TORBJORN:
         eventPlayer.changelog_body = "\r\n●{0}\r\n*造成伤害 -20%\r\n{2} 熔火核心\r\n  充能速度降低30%\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), abilityIconString(eventPlayer.getHero(), Button.PRIMARY_FIRE), abilityIconString(eventPlayer.getHero(), Button.ULTIMATE))
     elif eventPlayer.getHero() == Hero.BASTION:
         eventPlayer.changelog_body = "\r\n●{0}\r\n*造成伤害 +25%\r\n*受到伤害 -30%\r\n{1} 强攻模式\r\n  移动速度 +200%\r\n{2} A-36战术榴弹\r\n  冷却时间降低至6秒\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), abilityIconString(eventPlayer.getHero(), Button.ABILITY_1), abilityIconString(eventPlayer.getHero(), Button.SECONDARY_FIRE))
     elif eventPlayer.getHero() == Hero.TRACER:
-        eventPlayer.changelog_body = "\r\n●{0}\r\n*造成伤害 +60%\r\n*受到伤害 -65%\r\n*击杀后回复所有状态\r\n*回溯 CD降低 2秒内回复50HP\r\n*重生 阵亡后立刻重生\r\n*脉冲炸弹 充能速度 +30%\n\n※※离开重生室隐藏".format(eventPlayer.getHero())
+        eventPlayer.changelog_body = "\r\n●{0}\r\n*造成伤害 +60%\r\n*受到伤害 -65%\r\n*回溯 立刻回复50生命值\r\n  回溯期间完成击杀时回满闪现并重置回溯冷却\r\n*重生 阵亡后立刻重生\r\n*脉冲炸弹 充能速度 +60%\n\n※※离开重生室隐藏".format(eventPlayer.getHero())
     elif eventPlayer.getHero() == Hero.WIDOWMAKER:
         eventPlayer.changelog_body = "\r\n●{0}\r\n*造成伤害 +35%\r\n*受到伤害 +15%\r\n*移除开镜伤害衰减\n\n※※离开重生室隐藏".format(eventPlayer.getHero())
     elif eventPlayer.getHero() == Hero.ANA:
@@ -115,10 +115,10 @@ def changelogText():
     elif eventPlayer.getHero() == Hero.MERCY:
         eventPlayer.changelog_body = "\r\n●{0}\r\n*造成治疗 +35%\r\n*换弹可立即治疗目标25生命值\r\n*女武神\r\n  受到伤害 -{1}%\r\n  持续期间重生无冷却时间\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), MercyBuff[0])
     elif eventPlayer.getHero() == Hero.ZENYATTA:
-        eventPlayer.changelog_body = "\r\n●{0}\r\n*造成伤害 +60%\r\n*受到伤害+5%\r\n  暴击倍率提高至 ×{1}\r\n* 蹬 将禅雅塔向相反方向击飞\r\n* 圣 治疗量提高至400/s 移速+25%\r\n  无法被命中 免疫所有控制\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), 1 + HeadshotDamage[0])
+        eventPlayer.changelog_body = "\r\n●{0}\r\n*造成伤害 +60%\r\n*法球飞行速度 +25%\r\n*暴击倍率提高至 ×{1}\r\n*蹬 会将敌人击退，并让禅雅塔向反方向弹开\r\n*圣 治疗量提高至400/s 移速+25%\r\n  无法被命中 免疫所有控制\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), 1 + HeadshotDamage[0])
     elif eventPlayer.getHero() == Hero.MOIRA:
         eventPlayer.changelog_body = "\r\n{0}\r\n{1}\r\n{2}\n\n※※离开重生室隐藏".format("●{0}\r\n 受到伤害-10%\r\n造成治疗+60%".format(eventPlayer.getHero()), "{0} 技能期间回复45%已损失生命值".format(abilityIconString(eventPlayer.getHero(), Button.ABILITY_1)), "")
     elif eventPlayer.getHero() == Hero.VENDETTA:
         eventPlayer.changelog_body = "\r\n●{0}\r\n*造成伤害 +35%\r\n*受到伤害-45%\r\n{1}\r\n{2}\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), "{0} 暴击额外其{1}%最大生命值伤害，并回复{2}最大生命值".format(abilityIconString(eventPlayer.getHero(), Button.PRIMARY_FIRE), VendettaBuff[0] * 100, VendettaBuff[6] * 100), "{0}\r\n{1}\r\n{2}".format("{0} 每命中一名敌人回复{1}%已损失生命值".format(abilityIconString(eventPlayer.getHero(), Button.ABILITY_1), VendettaBuff[2] * 100), "{0} 使敌人沉默，持续期间不可阻挡".format(abilityIconString(eventPlayer.getHero(), Button.ABILITY_2)), "{0} 击倒敌人，生命值低于{1}%的敌人将被斩杀".format(abilityIconString(eventPlayer.getHero(), Button.ULTIMATE), VendettaBuff[5] * 100)))
     elif eventPlayer.getHero() == Hero.WUYANG:
-        eventPlayer.changelog_body = "\r\n●{0}\r\n*主攻击命中额外造成目标最大生命值8%伤害\r\n  并使{1}冷却缩短1秒\r\n{2} 飞流步 每秒回复{3}生命值\r\n  持续期间受到伤害 -{4}%\r\n{1} 对同一目标叠加2次后冻结{5}秒\r\n{6} 命中友方时将其治疗至满生命值\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), abilityIconString(eventPlayer.getHero(), Button.ABILITY_2), abilityIconString(eventPlayer.getHero(), Button.ABILITY_1), WuyangBuff[2], WuyangBuff[3], WUYANG_ABILITY2_FROZEN_DURATION, abilityIconString(eventPlayer.getHero(), Button.ULTIMATE))
+        eventPlayer.changelog_body = "\r\n●{0}\r\n*主攻击命中额外造成目标最大生命值8%伤害\r\n  并使{1}冷却缩短1秒\r\n{2} 飞流步\r\n  使用时回复{3}生命值\r\n  持续期间受到伤害 -{4}%\r\n{1} 对同一目标叠加2次后冻结{5}秒\r\n{6} 命中友方时将其治疗至满生命值\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), abilityIconString(eventPlayer.getHero(), Button.ABILITY_2), abilityIconString(eventPlayer.getHero(), Button.ABILITY_1), 4.5 * WuyangBuff[2], WuyangBuff[3], WUYANG_ABILITY2_FROZEN_DURATION, abilityIconString(eventPlayer.getHero(), Button.ULTIMATE))
