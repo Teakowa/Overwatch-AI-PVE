@@ -1,18 +1,27 @@
 ![](https://img.shields.io/static/v1?label=Version&message=26.0610.1&color=blue&style=flat-square)
 
-一个拥有 ~~OWL~~ 百强水平的困难人机，采用竞技规则，AI 支持多种阵容。
+这是一个基于 Overwatch 2 Workshop / OverPy 的 PvE 项目：玩家在竞技规则框架下对抗高强度 AI，项目长期包含大量英雄、技能、节奏与模式改造。
+
+当前有两个主要玩法面：
+
+- 常规赛：`src/main.opy`
+- 随机大乱斗：`src/aramMain.opy`
 
 当前 release 由 push 到 `main` 自动触发，版本源为 `src/version.opy`。
 
 ## 开发文档
 
 - [模块文档入口](./docs/modules/README.md)
-- [`src/main.opy` 代码逻辑总览](./docs/modules/01-main-opy-architecture.md)
+- [`src/main.opy` 代码逻辑总览（常规赛）](./docs/modules/01-main-opy-architecture.md)
 - [模块契约导览](./docs/modules/03-module-contracts.md)
 - [`src/main.opy` 附录索引（行号）](./docs/modules/appendix-src-file-index.md)
+- [ARAM / Main 对照与验证](./docs/reports/aram-vs-main-verification.md)
+- [ChatGPT Web Project 背景说明](./docs/workflows/chatgpt-web-game-design.md)
 
 ## 模式
 
+- 常规赛
+- 随机大乱斗
 - 占领要点
 - 攻击/护送
 - 攻防作战
