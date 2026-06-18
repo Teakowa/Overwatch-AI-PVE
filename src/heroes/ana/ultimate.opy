@@ -7,7 +7,7 @@ rule "[Ana]: Damage Full Health Allies So Nano Can Heal":
     @Condition eventPlayer.getUltCharge() == 100
 
     waitUntil(eventPlayer.getUltCharge() == 0, 99999)
-    eventPlayer.nano_full_health = [i for i in eventPlayer.getPlayerClosestToReticle(eventPlayer.getTeam()) if i.getHealth() >= i.getMaxHealth()]
+    eventPlayer.nano_full_health = [i for i in eventPlayer.getRealPlayerClosestToReticle(eventPlayer.getTeam()) if i.getHealth() >= i.getMaxHealth()]
     damage(eventPlayer.nano_full_health, null, 0.05)
     wait(0.216)
     heal(eventPlayer.nano_full_health, null, ANA_ULTIMATE_FULL_HEALTH_HEAL)

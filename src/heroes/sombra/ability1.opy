@@ -12,7 +12,7 @@ rule "[Sombra] TP to Support":
     @Condition (eventPlayer.reset_pvar[9][0].isAlive() and not eventPlayer.reset_pvar[9][0].isInSpawnRoom()) == true
     @Condition (not eventPlayer.isOnObjective() or not eventPlayer.isInSpawnRoom()) == true
     @Condition distance(eventPlayer, eventPlayer.reset_pvar[9][0]) >= 5.5
-    @Condition distance(getClosestPlayer(eventPlayer, eventPlayer.getTeam()), eventPlayer.reset_pvar[9][0]) <= 30
+    @Condition distance(getRealClosestPlayer(eventPlayer, eventPlayer.getTeam()), eventPlayer.reset_pvar[9][0]) <= 30
 
     wait(2, Wait.ABORT_WHEN_FALSE)
     eventPlayer.teleport(nearestWalkablePosition(eventPlayer.reset_pvar[9][0] - worldVector(vect(0, 0, -7), eventPlayer, Transform.ROTATION)))

@@ -14,7 +14,7 @@ rule "[Sombra]: AI Auto use Translocator":
     @Condition eventPlayer.isInSpawnRoom() != true
     @Condition (eventPlayer.isAlive() and eventPlayer.getAbilityCooldown(Button.ABILITY_2) == 0) == true
     @Condition distance(eventPlayer, eventPlayer.reset_pvar[9][0]) >= 5.5
-    @Condition distance(getClosestPlayer(eventPlayer, eventPlayer.getTeam()), eventPlayer.reset_pvar[9][0]) <= 30
+    @Condition distance(getRealClosestPlayer(eventPlayer, eventPlayer.getTeam()), eventPlayer.reset_pvar[9][0]) <= 30
 
     eventPlayer.forceButtonPress(Button.ABILITY_2)
 
