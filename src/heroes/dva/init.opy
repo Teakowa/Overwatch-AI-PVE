@@ -17,6 +17,8 @@ rule "[D.Va] Initialize":
 
     resetHero()
     #removeTankPassive()
-    if eventPlayer.getTeam() == Team.2:
-        eventPlayer.changelog_body = "\r\n●\"{0}\"\r\n*造成伤害 +35%\r\n*受到伤害 -25%\r\n{1} 防御矩阵\r\n持续时间提高至约2.7秒\r\n 充能速度提高100%\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), abilityIconString(eventPlayer.getHero(), Button.SECONDARY_FIRE))
     eventPlayer._reset_requested = false
+    if eventPlayer.getTeam() == Team.2:
+        wait(WAIT_SHORT_FRAME)
+        if eventPlayer.getCurrentHero() == Hero.DVA:
+            eventPlayer.changelog_body = "\r\n●\"{0}\"\r\n*造成伤害 +35%\r\n*受到伤害 -25%\r\n{1} 防御矩阵\r\n持续时间提高至约2.7秒\r\n 充能速度提高100%\n\n※※离开重生室隐藏".format(eventPlayer.getHero(), abilityIconString(eventPlayer.getHero(), Button.SECONDARY_FIRE))
