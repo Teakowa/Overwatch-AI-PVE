@@ -60,7 +60,6 @@
 #!include "../utilities/reset_hero.opy"
 #!include "../modules/bootstrap/player-lifecycle-and-reset.opy"
 #!include "../modules/hero_init/delimiter-begin.opy"
-#!include "../modules/hero_init/subroutines.opy"
 #!include "../modules/hero_init/dispatcher.opy"
 #!include "reaper/init.opy"
 #!include "tracer/init.opy"

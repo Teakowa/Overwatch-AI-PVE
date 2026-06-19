@@ -393,8 +393,8 @@ async function auditHero(slug: string, args: Args, reporter: Reporter): Promise<
   const changelogAssignments = extractHeroChangelogAssignments(await fs.readFile(resolveRepo(changelogTablePath), "utf8"));
   const heroesMain = await readLines(resolveRepo("src/heroes/main.opy"));
   const heroesAram = await readLines(resolveRepo("src/heroes/aram.opy"));
-  const heroInitSubroutines = await readLines(resolveRepo("src/modules/hero_init/subroutines.opy"));
   const heroInitDispatcher = await readLines(resolveRepo("src/modules/hero_init/dispatcher.opy"));
+  const heroInitSubroutines = heroInitDispatcher;
   const currentHeroDir = resolveRepo("src/heroes", slug);
 
   console.log();
@@ -439,18 +439,16 @@ async function auditHero(slug: string, args: Args, reporter: Reporter): Promise<
   ).length;
   const localDetectMacroCount = countOccurrences(initLines, "shouldDetectHeroInit(");
   const subroutineDeclCount = countOccurrences(heroInitSubroutines, `subroutine ${expectedDefName}`);
-  const dispatcherConditionCount = heroInitDispatcher.filter((line) =>
-    line.includes(`eventPlayer._hero_setup_hero == Hero.${heroConst}`),
-  ).length;
+  const dispatcherConditionCount = heroInitDispatcher.filter((line) => line.includes(`case Hero.${heroConst}:`)).length;
   const dispatcherCallCount = countOccurrences(heroInitDispatcher, `${expectedDefName}()`);
   const dispatcherResetLine = firstMatchLine(heroInitDispatcher, "resetHero()");
   const dispatcherClearLine = firstMatchLine(heroInitDispatcher, "eventPlayer._reset_requested = false");
   const dispatcherGateCount = heroInitDispatcher.filter(
     (line) =>
-      line.includes("@Condition eventPlayer._hero_switch_pending == true") ||
+      line.includes("@Condition eventPlayer.call_init == true") ||
       line.includes("@Condition eventPlayer.hasSpawned() == true") ||
       line.includes("@Condition eventPlayer._reset_requested != false") ||
-      line.includes("@Condition eventPlayer.getCurrentHero() == eventPlayer._hero_setup_hero"),
+      line.includes("@Condition eventPlayer.getCurrentHero() == eventPlayer.init_hero"),
   ).length;
 
   defCount === 1 ? reporter.pass(`hero init subroutine exists: ${expectedDefName}`) : reporter.fail(`hero init subroutine missing/duplicated: ${expectedDefName} (count=${defCount})`);

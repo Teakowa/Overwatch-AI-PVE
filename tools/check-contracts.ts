@@ -286,7 +286,6 @@ async function main(): Promise<void> {
     "../utilities/reset_hero.opy",
     "../modules/bootstrap/player-lifecycle-and-reset.opy",
     "../modules/hero_init/delimiter-begin.opy",
-    "../modules/hero_init/subroutines.opy",
     "../modules/hero_init/dispatcher.opy",
   ];
   const heroResetStart = heroesMainIncludes.indexOf(heroResetSequence[0]!);
@@ -302,7 +301,7 @@ async function main(): Promise<void> {
   const heroesAramFile = resolveRepo("src/heroes/aram.opy");
   const heroesAramLines = await readLines(heroesAramFile);
   const heroesAramIncludes = parseIncludes(heroesAramLines).map((item) => item.path);
-  const aramInitSequence = ["../modules/hero_init/subroutines.opy", "../modules/hero_init/dispatcher.opy"];
+  const aramInitSequence = ["../modules/hero_init/dispatcher.opy"];
   if (aramInitSequence.every((entry, index) => heroesAramIncludes[index] === entry)) {
     reporter.pass("src/heroes/aram.opy hero init dispatcher order preserved");
   } else {
@@ -364,22 +363,20 @@ async function main(): Promise<void> {
     }
   }
 
-  const heroInitSubroutinesFile = resolveRepo("src/modules/hero_init/subroutines.opy");
-  const heroInitSubroutinesLines = await readLines(heroInitSubroutinesFile);
-  const heroInitSubroutines = extractDeclarationsFromLines(heroInitSubroutinesLines, "subroutine");
   const heroInitDispatcherFile = resolveRepo("src/modules/hero_init/dispatcher.opy");
   const heroInitDispatcherLines = await readLines(heroInitDispatcherFile);
+  const heroInitSubroutines = extractDeclarationsFromLines(heroInitDispatcherLines, "subroutine");
   const dispatcherInitRuleCount = countExactRuleName(heroInitDispatcherLines, "[hero_init/dispatcher.opy]: initialize hero");
   const dispatcherDispatchDefCount = heroInitDispatcherLines.filter((line) => line === "def heroInitDispatcher():").length;
   const dispatcherResetLine = heroInitDispatcherLines.findIndex((line) => line.includes("resetHero()"));
   const dispatcherClearLine = heroInitDispatcherLines.findIndex((line) => line.includes("eventPlayer._reset_requested = false"));
-  const dispatcherPendingClearCount = heroInitDispatcherLines.filter((line) => line.includes("eventPlayer._hero_switch_pending = false")).length;
-  const dispatcherLastHeroCount = heroInitDispatcherLines.filter((line) => line.includes("eventPlayer._last_hero_played = eventPlayer._hero_setup_hero")).length;
-  const dispatcherQueueGateCount = heroInitDispatcherLines.filter((line) => line.includes("@Condition eventPlayer._hero_switch_pending == true")).length;
+  const dispatcherPendingClearCount = heroInitDispatcherLines.filter((line) => line.includes("eventPlayer.call_init = false")).length;
+  const dispatcherLastHeroCount = heroInitDispatcherLines.filter((line) => line.includes("eventPlayer._last_hero_played = eventPlayer.init_hero")).length;
+  const dispatcherQueueGateCount = heroInitDispatcherLines.filter((line) => line.includes("@Condition eventPlayer.call_init == true")).length;
   const dispatcherSpawnGateCount = heroInitDispatcherLines.filter((line) => line.includes("@Condition eventPlayer.hasSpawned() == true")).length;
   const dispatcherResetGateCount = heroInitDispatcherLines.filter((line) => line.includes("@Condition eventPlayer._reset_requested != false")).length;
   const dispatcherHeroMatchGateCount = heroInitDispatcherLines.filter((line) =>
-    line.includes("@Condition eventPlayer.getCurrentHero() == eventPlayer._hero_setup_hero"),
+    line.includes("@Condition eventPlayer.getCurrentHero() == eventPlayer.init_hero"),
   ).length;
 
   if (heroInitSubroutines.filter((name) => name === "heroInitDispatcher").length === 1) {
@@ -570,9 +567,7 @@ async function main(): Promise<void> {
         line.includes("@Condition eventPlayer._reset_requested == true"),
     ).length;
     const localDetectMacroCount = initLines.filter((line) => line.includes("shouldDetectHeroInit(")).length;
-    const dispatcherConditionCount = heroInitDispatcherLines.filter((line) =>
-      line.includes(`eventPlayer._hero_setup_hero == Hero.${expectedHeroConst}`),
-    ).length;
+    const dispatcherConditionCount = heroInitDispatcherLines.filter((line) => line.includes(`case Hero.${expectedHeroConst}:`)).length;
     const dispatcherCallCount = heroInitDispatcherLines.filter((line) => line.includes(`${expectedDefName}()`)).length;
 
     if (defCount === 1) {

@@ -1,6 +1,5 @@
 #!mainFile "../aramMain.opy"
 
-#!include "../modules/hero_init/subroutines.opy"
 #!include "../modules/hero_init/dispatcher.opy"
 #!include "reaper/init.opy"
 #!include "tracer/init.opy"

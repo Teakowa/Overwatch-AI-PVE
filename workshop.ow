@@ -7508,161 +7508,165 @@
         heroInitDispatcher;
     }
     动作 {
-        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(死神)));
-            调用子程序(heroInitReaper);
-        End;
-        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(猎空)));
-            调用子程序(heroInitTracer);
-        End;
-        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(天使)));
-            调用子程序(heroInitMercy);
-        End;
-        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(半藏)));
-            调用子程序(heroInitHanzo);
-        End;
-        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(弗蕾娅)));
-            调用子程序(heroInitFreja);
-        End;
-        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(Shion)));
-            调用子程序(heroInitShion);
-        End;
-        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(托比昂)));
-            调用子程序(heroInitTorbjorn);
-        End;
-        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(探奇)));
-            调用子程序(heroInitVenture);
-        End;
-        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(斩仇)));
-            调用子程序(heroInitVendetta);
-        End;
-        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(无漾)));
-            调用子程序(heroInitWuyang);
-        End;
-        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(莱因哈特)));
-            调用子程序(heroInitReinhardt);
-        End;
-        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(骇灾)));
-            调用子程序(heroInitHazard);
-        End;
-        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(金驭)));
-            调用子程序(heroInitDomina);
-        End;
-        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(安燃)));
-            调用子程序(heroInitAnran);
-        End;
-        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(埃姆雷)));
-            调用子程序(heroInitEmre);
-        End;
-        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(瑞稀)));
-            调用子程序(heroInitMizuki);
-        End;
-        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(飞天猫)));
-            调用子程序(heroInitJetpackCat);
-        End;
-        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(法老之鹰)));
-            调用子程序(heroInitPharah);
-        End;
-        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(温斯顿)));
-            调用子程序(heroInitWinston);
-        End;
-        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(黑百合)));
-            调用子程序(heroInitWidowmaker);
-        End;
-        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(堡垒)));
-            调用子程序(heroInitBastion);
-        End;
-        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(秩序之光)));
-            调用子程序(heroInitSymmetra);
-        End;
-        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(禅雅塔)));
-            调用子程序(heroInitZenyatta);
-        End;
-        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(源氏)));
-            调用子程序(heroInitGenji);
-        End;
-        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(路霸)));
-            调用子程序(heroInitRoadhog);
-        End;
-        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(卡西迪)));
-            调用子程序(heroInitCassidy);
-        End;
-        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(狂鼠)));
-            调用子程序(heroInitJunkrat);
-        End;
-        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(查莉娅)));
-            调用子程序(heroInitZarya);
-        End;
-        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(士兵：76)));
-            调用子程序(heroInitSoldier76);
-        End;
-        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(卢西奥)));
-            调用子程序(heroInitLucio);
-        End;
-        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(D.Va)));
-            调用子程序(heroInitDva);
-        End;
-        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(美)));
-            调用子程序(heroInitMei);
-        End;
-        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(黑影)));
-            调用子程序(heroInitSombra);
-        End;
-        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(安娜)));
-            调用子程序(heroInitAna);
-        End;
-        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(奥丽莎)));
-            调用子程序(heroInitOrisa);
-        End;
-        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(布丽吉塔)));
-            调用子程序(heroInitBrigitte);
-        End;
-        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(莫伊拉)));
-            调用子程序(heroInitMoira);
-        End;
-        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(破坏球)));
-            调用子程序(heroInitWreckingBall);
-        End;
-        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(索杰恩)));
-            调用子程序(heroInitSojourn);
-        End;
-        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(艾什)));
-            调用子程序(heroInitAshe);
-        End;
-        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(回声)));
-            调用子程序(heroInitEcho);
-        End;
-        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(巴蒂斯特)));
-            调用子程序(heroInitBaptiste);
-        End;
-        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(雾子)));
-            调用子程序(heroInitKiriko);
-        End;
-        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(渣客女王)));
-            调用子程序(heroInitJunkerQueen);
-        End;
-        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(西拉)));
-            调用子程序(heroInitSierra);
-        End;
-        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(西格玛)));
-            调用子程序(heroInitSigma);
-        End;
-        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(拉玛刹)));
-            调用子程序(heroInitRamattra);
-        End;
-        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(朱诺)));
-            调用子程序(heroInitJuno);
-        End;
-        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(末日铁拳)));
-            调用子程序(heroInitDoomfist);
-        End;
-        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(生命之梭)));
-            调用子程序(heroInitLifeweaver);
-        End;
-        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(毛加)));
-            调用子程序(heroInitMauga);
-        End;
-        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(伊拉锐)));
-            调用子程序(heroInitIllari);
+        If(真);
+            跳过(数组中的值(数组(104, 0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64, 66, 68, 70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98, 100, 102), 加(1, 数组值的索引(数组(英雄(死神), 英雄(猎空), 英雄(天使), 英雄(半藏), 英雄(弗蕾娅), 英雄(Shion), 英雄(托比昂), 英雄(探奇), 英雄(斩仇), 英雄(无漾), 英雄(莱因哈特), 英雄(骇灾), 英雄(金驭), 英雄(安燃), 英雄(埃姆雷), 英雄(瑞稀), 英雄(飞天猫), 英雄(法老之鹰), 英雄(温斯顿), 英雄(黑百合), 英雄(堡垒), 英雄(秩序之光), 英雄(禅雅塔), 英雄(源氏), 英雄(路霸), 英雄(卡西迪), 英雄(狂鼠), 英雄(查莉娅), 英雄(士兵：76), 英雄(卢西奥), 英雄(D.Va), 英雄(美), 英雄(黑影), 英雄(安娜), 英雄(奥丽莎), 英雄(布丽吉塔), 英雄(莫伊拉), 英雄(破坏球), 英雄(索杰恩), 英雄(艾什), 英雄(回声), 英雄(巴蒂斯特), 英雄(雾子), 英雄(渣客女王), 英雄(西拉), 英雄(西格玛), 英雄(拉玛刹), 英雄(朱诺), 英雄(末日铁拳), 英雄(生命之梭), 英雄(毛加), 英雄(伊拉锐)), 数组中的值((事件玩家).hero_switch_pvar, 2)))));
+        //__label_switch_2_0__:
+        调用子程序(heroInitReaper);
+        Else;
+        //__label_switch_2_1__:
+        调用子程序(heroInitTracer);
+        Else;
+        //__label_switch_2_2__:
+        调用子程序(heroInitMercy);
+        Else;
+        //__label_switch_2_3__:
+        调用子程序(heroInitHanzo);
+        Else;
+        //__label_switch_2_4__:
+        调用子程序(heroInitFreja);
+        Else;
+        //__label_switch_2_5__:
+        调用子程序(heroInitShion);
+        Else;
+        //__label_switch_2_6__:
+        调用子程序(heroInitTorbjorn);
+        Else;
+        //__label_switch_2_7__:
+        调用子程序(heroInitVenture);
+        Else;
+        //__label_switch_2_8__:
+        调用子程序(heroInitVendetta);
+        Else;
+        //__label_switch_2_9__:
+        调用子程序(heroInitWuyang);
+        Else;
+        //__label_switch_2_10__:
+        调用子程序(heroInitReinhardt);
+        Else;
+        //__label_switch_2_11__:
+        调用子程序(heroInitHazard);
+        Else;
+        //__label_switch_2_12__:
+        调用子程序(heroInitDomina);
+        Else;
+        //__label_switch_2_13__:
+        调用子程序(heroInitAnran);
+        Else;
+        //__label_switch_2_14__:
+        调用子程序(heroInitEmre);
+        Else;
+        //__label_switch_2_15__:
+        调用子程序(heroInitMizuki);
+        Else;
+        //__label_switch_2_16__:
+        调用子程序(heroInitJetpackCat);
+        Else;
+        //__label_switch_2_17__:
+        调用子程序(heroInitPharah);
+        Else;
+        //__label_switch_2_18__:
+        调用子程序(heroInitWinston);
+        Else;
+        //__label_switch_2_19__:
+        调用子程序(heroInitWidowmaker);
+        Else;
+        //__label_switch_2_20__:
+        调用子程序(heroInitBastion);
+        Else;
+        //__label_switch_2_21__:
+        调用子程序(heroInitSymmetra);
+        Else;
+        //__label_switch_2_22__:
+        调用子程序(heroInitZenyatta);
+        Else;
+        //__label_switch_2_23__:
+        调用子程序(heroInitGenji);
+        Else;
+        //__label_switch_2_24__:
+        调用子程序(heroInitRoadhog);
+        Else;
+        //__label_switch_2_25__:
+        调用子程序(heroInitCassidy);
+        Else;
+        //__label_switch_2_26__:
+        调用子程序(heroInitJunkrat);
+        Else;
+        //__label_switch_2_27__:
+        调用子程序(heroInitZarya);
+        Else;
+        //__label_switch_2_28__:
+        调用子程序(heroInitSoldier76);
+        Else;
+        //__label_switch_2_29__:
+        调用子程序(heroInitLucio);
+        Else;
+        //__label_switch_2_30__:
+        调用子程序(heroInitDva);
+        Else;
+        //__label_switch_2_31__:
+        调用子程序(heroInitMei);
+        Else;
+        //__label_switch_2_32__:
+        调用子程序(heroInitSombra);
+        Else;
+        //__label_switch_2_33__:
+        调用子程序(heroInitAna);
+        Else;
+        //__label_switch_2_34__:
+        调用子程序(heroInitOrisa);
+        Else;
+        //__label_switch_2_35__:
+        调用子程序(heroInitBrigitte);
+        Else;
+        //__label_switch_2_36__:
+        调用子程序(heroInitMoira);
+        Else;
+        //__label_switch_2_37__:
+        调用子程序(heroInitWreckingBall);
+        Else;
+        //__label_switch_2_38__:
+        调用子程序(heroInitSojourn);
+        Else;
+        //__label_switch_2_39__:
+        调用子程序(heroInitAshe);
+        Else;
+        //__label_switch_2_40__:
+        调用子程序(heroInitEcho);
+        Else;
+        //__label_switch_2_41__:
+        调用子程序(heroInitBaptiste);
+        Else;
+        //__label_switch_2_42__:
+        调用子程序(heroInitKiriko);
+        Else;
+        //__label_switch_2_43__:
+        调用子程序(heroInitJunkerQueen);
+        Else;
+        //__label_switch_2_44__:
+        调用子程序(heroInitSierra);
+        Else;
+        //__label_switch_2_45__:
+        调用子程序(heroInitSigma);
+        Else;
+        //__label_switch_2_46__:
+        调用子程序(heroInitRamattra);
+        Else;
+        //__label_switch_2_47__:
+        调用子程序(heroInitJuno);
+        Else;
+        //__label_switch_2_48__:
+        调用子程序(heroInitDoomfist);
+        Else;
+        //__label_switch_2_49__:
+        调用子程序(heroInitLifeweaver);
+        Else;
+        //__label_switch_2_50__:
+        调用子程序(heroInitMauga);
+        Else;
+        //__label_switch_2_51__:
+        调用子程序(heroInitIllari);
+        Else;
+        //__label_switch_2_default__:
         End;
     }
 }

@@ -40,8 +40,8 @@ rule "[reset.opy]: Reinitialize hero on new round":
     resetStatuses()
     waitUntil(not isMatchBetweenRounds(), Math.INFINITY)
     wait(eventPlayer.getSlot() * 10 + getAverageServerLoad() / 100)
-    eventPlayer._hero_setup_hero = eventPlayer.getCurrentHero()
-    eventPlayer._hero_switch_pending = true
+    eventPlayer.init_hero = eventPlayer.getCurrentHero()
+    eventPlayer.call_init = true
     eventPlayer._reset_requested = true
     logToInspector("queued init after new round (main throttled)")
 
