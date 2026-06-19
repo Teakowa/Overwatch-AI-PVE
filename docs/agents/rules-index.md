@@ -19,11 +19,11 @@
 | R-PROTO-REPO-WIDE-MAINFILE | docs/agents/protocol-constraints.md | #r-proto-repo-wide-mainfile | 改 `.opy` 模块入口声明或 LSP 模块解析 | repo-maintainers |
 | R-PROTO-SETTINGS-FIRST | docs/agents/protocol-constraints.md | #r-proto-settings-first | 改英雄通用数值策略 | repo-maintainers |
 | R-PROTO-NO-FILENAME-ORDER-HACK | docs/agents/protocol-constraints.md | #r-proto-no-filename-order-hack | 变更模块文件命名 | repo-maintainers |
-| R-HINIT-DETECT-SET-RESET-FLAG | docs/agents/hero-init-contract.md | #r-hinit-detect-set-reset-flag | 新增/改 hero init detect | repo-maintainers |
-| R-HINIT-INIT-GUARD | docs/agents/hero-init-contract.md | #r-hinit-init-guard | 新增/改 hero init initialize | repo-maintainers |
+| R-HINIT-DETECT-SET-RESET-FLAG | docs/agents/hero-init-contract.md | #r-hinit-detect-set-reset-flag | 新增/改共享 hero init queue/detect | repo-maintainers |
+| R-HINIT-INIT-GUARD | docs/agents/hero-init-contract.md | #r-hinit-init-guard | 新增/改共享 hero init initialize dispatcher | repo-maintainers |
 | R-HINIT-CALL-RESET-HERO | docs/agents/hero-init-contract.md | #r-hinit-call-reset-hero | 初始化链路改动 | repo-maintainers |
-| R-HINIT-APPLY-INITIAL-STATE | docs/agents/hero-init-contract.md | #r-hinit-apply-initial-state | 初始化属性写入 | repo-maintainers |
-| R-HINIT-CLEAR-RESET-FLAG | docs/agents/hero-init-contract.md | #r-hinit-clear-reset-flag | 初始化收尾 | repo-maintainers |
+| R-HINIT-APPLY-INITIAL-STATE | docs/agents/hero-init-contract.md | #r-hinit-apply-initial-state | 英雄 init subroutine 属性写入 | repo-maintainers |
+| R-HINIT-CLEAR-RESET-FLAG | docs/agents/hero-init-contract.md | #r-hinit-clear-reset-flag | 共享 initialize 收尾 | repo-maintainers |
 | R-PERF-THROTTLE-HIGH-FREQ | docs/agents/performance-stability.md | #r-perf-throttle-high-freq | 高频规则改动 | repo-maintainers |
 | R-PERF-CHEAP-FIRST-CONDITIONS | docs/agents/performance-stability.md | #r-perf-cheap-first-conditions | 条件链改动 | repo-maintainers |
 | R-PERF-USE-PLAYER-FILTER | docs/agents/performance-stability.md | #r-perf-use-player-filter | 英雄/槽位筛选改动 | repo-maintainers |

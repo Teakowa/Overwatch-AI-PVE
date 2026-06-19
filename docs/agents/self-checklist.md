@@ -10,7 +10,7 @@
 
 ### R-CHECK-HERO-INIT-CHAIN
 
-3. 英雄改动是否覆盖 init Detect/Initialize、reset 清理与必要 changelog/HUD？
+3. 英雄改动是否覆盖共享 init dispatcher、reset 清理、英雄 init subroutine 接线与必要 changelog/HUD？
 
 ### R-CHECK-NO-WAITLESS-LOOP
 

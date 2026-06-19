@@ -1,19 +1,7 @@
 #!mainFile "../../main.opy"
 #!optimizeStrict
 
-rule "[Domina/init.opy]: Detect switch to Domina":
-    @Event eachPlayer
-    @Condition shouldDetectHeroInit(eventPlayer, eventPlayer.getCurrentHero())
-    @Hero domina
+def heroInitDomina():
+    @Name "[domina/init.opy]: heroInitDomina()"
 
-    eventPlayer._last_hero_played = eventPlayer.getCurrentHero()
-    eventPlayer._reset_requested = true
-
-rule "[Domina/init.opy]: Initialize Domina":
-    @Event eachPlayer
-    @Hero domina
-    @Condition eventPlayer._reset_requested != false
-
-    resetHero()
-    eventPlayer._reset_requested = false
-
+    pass

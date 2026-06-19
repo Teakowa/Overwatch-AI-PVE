@@ -1,20 +1,9 @@
 #!mainFile "../../main.opy"
 #!optimizeStrict
 
-rule "[Doomfist]: Detect switch to Doomfist":
-    @Event eachPlayer
-    @Condition shouldDetectHeroInit(eventPlayer, eventPlayer.getCurrentHero())
-    @Hero doomfist
+def heroInitDoomfist():
+    @Name "[doomfist/init.opy]: heroInitDoomfist()"
 
-    eventPlayer._last_hero_played = eventPlayer.getCurrentHero()
-    eventPlayer._reset_requested = true
-
-rule "[Doomfist] Initialize":
-    @Event eachPlayer
-    @Hero doomfist
-    @Condition eventPlayer._reset_requested != false
-
-    resetHero()
     #removeTankPassive()
     if eventPlayer.getTeam() != Team.1:
         goto lbl_0
@@ -22,5 +11,3 @@ rule "[Doomfist] Initialize":
     lbl_0:
     getPlayers(eventPlayer.getTeam()).reset_pvar[2] = eventPlayer
     getPlayers(getOppositeTeam(eventPlayer.getTeam())).reset_pvar[5] = eventPlayer
-    eventPlayer._reset_requested = false
-

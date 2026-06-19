@@ -1,20 +1,9 @@
 #!mainFile "../../main.opy"
 #!optimizeStrict
 
-rule "[Baptiste]: Detect switch to Baptiste":
-    @Event eachPlayer
-    @Condition shouldDetectHeroInit(eventPlayer, eventPlayer.getCurrentHero())
-    @Hero baptiste
+def heroInitBaptiste():
+    @Name "[baptiste/init.opy]: heroInitBaptiste()"
 
-    eventPlayer._last_hero_played = eventPlayer.getCurrentHero()
-    eventPlayer._reset_requested = true
-
-rule "[Baptiste] Initialize":
-    @Event eachPlayer
-    @Hero baptiste
-    @Condition eventPlayer._reset_requested != false
-
-    resetHero()
     eventPlayer.setMaxAmmo(0, 45)
     eventPlayer.setAmmo(0, eventPlayer.getMaxAmmo())
     eventPlayer.setMaxAmmo(1, 25)
@@ -24,5 +13,3 @@ rule "[Baptiste] Initialize":
     eventPlayer.startForcingName(random.choice(["大 76", "Kai了", "天使", "飞饼摩西", "锁头摩西"]))
     lbl_0:
     eventPlayer.reset_pvar[6].reset_pvar[9] = eventPlayer
-    eventPlayer._reset_requested = false
-

@@ -165,6 +165,36 @@ function duplicateNames(values: string[]): string[] {
   return [...dupes].sort((a, b) => a.localeCompare(b));
 }
 
+function pascalFromSlug(slug: string): string {
+  return slug
+    .split("_")
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join("");
+}
+
+function heroInitFunctionName(slug: string): string {
+  return `heroInit${pascalFromSlug(slug)}`;
+}
+
+function heroTagFromSlug(slug: string): string {
+  switch (slug) {
+    case "jetpack_cat":
+      return "jetpackCat";
+    case "junker_queen":
+      return "junkerQueen";
+    case "soldier76":
+      return "soldier";
+    case "wrecking_ball":
+      return "wreckingBall";
+    default:
+      return slug;
+  }
+}
+
+function heroConstFromSlug(slug: string): string {
+  return heroTagFromSlug(slug).replace(/([a-z0-9])([A-Z])/g, "$1_$2").toUpperCase();
+}
+
 async function main(): Promise<void> {
   const args = parseArgs(process.argv.slice(2));
   const reporter = new Reporter();
@@ -256,6 +286,8 @@ async function main(): Promise<void> {
     "../utilities/reset_hero.opy",
     "../modules/bootstrap/player-lifecycle-and-reset.opy",
     "../modules/hero_init/delimiter-begin.opy",
+    "../modules/hero_init/subroutines.opy",
+    "../modules/hero_init/shared.opy",
   ];
   const heroResetStart = heroesMainIncludes.indexOf(heroResetSequence[0]!);
   if (
@@ -270,7 +302,13 @@ async function main(): Promise<void> {
   const heroesAramFile = resolveRepo("src/heroes/aram.opy");
   const heroesAramLines = await readLines(heroesAramFile);
   const heroesAramIncludes = parseIncludes(heroesAramLines).map((item) => item.path);
-  if (heroesAramIncludes.length > 0) {
+  const aramInitSequence = ["../modules/hero_init/subroutines.opy", "../modules/hero_init/shared.opy"];
+  if (aramInitSequence.every((entry, index) => heroesAramIncludes[index] === entry)) {
+    reporter.pass("src/heroes/aram.opy shared hero init dispatcher order preserved");
+  } else {
+    reporter.fail("src/heroes/aram.opy shared hero init dispatcher order is broken");
+  }
+  if (heroesAramIncludes.length > aramInitSequence.length) {
     reporter.pass("src/heroes/aram.opy includes hero init files");
   } else {
     reporter.fail("src/heroes/aram.opy is missing hero init includes");
@@ -324,6 +362,55 @@ async function main(): Promise<void> {
     } else {
       reporter.fail(`delimiter rule missing/duplicated: ${name} (count=${count})`);
     }
+  }
+
+  const heroInitSubroutinesFile = resolveRepo("src/modules/hero_init/subroutines.opy");
+  const heroInitSubroutinesLines = await readLines(heroInitSubroutinesFile);
+  const heroInitSubroutines = extractDeclarationsFromLines(heroInitSubroutinesLines, "subroutine");
+  const heroInitSharedFile = resolveRepo("src/modules/hero_init/shared.opy");
+  const heroInitSharedLines = await readLines(heroInitSharedFile);
+  const sharedInitRuleCount = countExactRuleName(heroInitSharedLines, "[hero_init/shared.opy]: initialize hero");
+  const sharedDispatchDefCount = heroInitSharedLines.filter((line) => line === "def heroInitDispatcher():").length;
+  const sharedResetLine = heroInitSharedLines.findIndex((line) => line.includes("resetHero()"));
+  const sharedClearLine = heroInitSharedLines.findIndex((line) => line.includes("eventPlayer._reset_requested = false"));
+  const sharedPendingClearCount = heroInitSharedLines.filter((line) => line.includes("eventPlayer._hero_switch_pending = false")).length;
+  const sharedLastHeroCount = heroInitSharedLines.filter((line) => line.includes("eventPlayer._last_hero_played = eventPlayer._hero_setup_hero")).length;
+  const sharedQueueGateCount = heroInitSharedLines.filter((line) => line.includes("@Condition eventPlayer._hero_switch_pending == true")).length;
+  const sharedSpawnGateCount = heroInitSharedLines.filter((line) => line.includes("@Condition eventPlayer.hasSpawned() == true")).length;
+  const sharedResetGateCount = heroInitSharedLines.filter((line) => line.includes("@Condition eventPlayer._reset_requested != false")).length;
+  const sharedHeroMatchGateCount = heroInitSharedLines.filter((line) =>
+    line.includes("@Condition eventPlayer.getCurrentHero() == eventPlayer._hero_setup_hero"),
+  ).length;
+
+  if (heroInitSubroutines.filter((name) => name === "heroInitDispatcher").length === 1) {
+    reporter.pass("hero init subroutine declarations include heroInitDispatcher exactly once");
+  } else {
+    reporter.fail("hero init subroutine declarations should include heroInitDispatcher exactly once");
+  }
+  if (sharedDispatchDefCount === 1) {
+    reporter.pass("hero init shared file defines heroInitDispatcher exactly once");
+  } else {
+    reporter.fail(`hero init shared file should define heroInitDispatcher exactly once (count=${sharedDispatchDefCount})`);
+  }
+  if (sharedInitRuleCount === 1) {
+    reporter.pass("hero init shared file defines one initialize rule");
+  } else {
+    reporter.fail(`hero init shared file should define one initialize rule (count=${sharedInitRuleCount})`);
+  }
+  if (sharedQueueGateCount === 1 && sharedSpawnGateCount === 1 && sharedResetGateCount === 1 && sharedHeroMatchGateCount === 1) {
+    reporter.pass("hero init shared initialize rule gate contract preserved");
+  } else {
+    reporter.fail("hero init shared initialize rule gating contract is broken");
+  }
+  if (sharedPendingClearCount === 1 && sharedLastHeroCount === 1) {
+    reporter.pass("hero init shared initialize rule clears pending state and updates last hero");
+  } else {
+    reporter.fail("hero init shared initialize rule missing pending clear or last hero update");
+  }
+  if (sharedResetLine >= 0 && sharedClearLine > sharedResetLine) {
+    reporter.pass("hero init shared initialize rule clears reset flag after resetHero()");
+  } else {
+    reporter.fail("hero init shared initialize rule must clear _reset_requested after resetHero()");
   }
 
   const protocolFile = resolveRepo("tools/data/contract-guard/protocol-indexes.tsv");
@@ -469,66 +556,71 @@ async function main(): Promise<void> {
       continue;
     }
 
-    const detectFile = resolveRepo("src/heroes", heroName, "init-detect.opy");
-    const sourceFiles = [initFile];
-    try {
-      await fs.access(detectFile);
-      sourceFiles.push(detectFile);
-      const initLines = await readLines(initFile);
-      const detectIncludeCount = initLines.filter((line) => line.includes('#!include "init-detect.opy"')).length;
-      if (detectIncludeCount === 1) {
-        reporter.pass(`${heroName}.init includes init-detect.opy exactly once`);
-      } else {
-        reporter.fail(`${heroName}.init should include init-detect.opy exactly once (count=${detectIncludeCount})`);
-      }
-    } catch {
-      // no detect file
-    }
+    const initLines = await readLines(initFile);
+    const expectedDefName = heroInitFunctionName(heroName);
+    const expectedHeroConst = heroConstFromSlug(heroName);
+    const defCount = initLines.filter((line) => line === `def ${expectedDefName}():`).length;
+    const ruleCount = initLines.filter((line) => line.startsWith('rule "')).length;
+    const trueCount = initLines.filter((line) => line.includes("eventPlayer._reset_requested = true")).length;
+    const falseCount = initLines.filter((line) => line.includes("eventPlayer._reset_requested = false")).length;
+    const resetHeroCount = initLines.filter((line) => line.includes("resetHero()")).length;
+    const condCount = initLines.filter(
+      (line) =>
+        line.includes("@Condition eventPlayer._reset_requested != false") ||
+        line.includes("@Condition eventPlayer._reset_requested == true"),
+    ).length;
+    const localDetectMacroCount = initLines.filter((line) => line.includes("shouldDetectHeroInit(")).length;
+    const dispatcherConditionCount = heroInitSharedLines.filter((line) =>
+      line.includes(`eventPlayer._hero_setup_hero == Hero.${expectedHeroConst}`),
+    ).length;
+    const dispatcherCallCount = heroInitSharedLines.filter((line) => line.includes(`${expectedDefName}()`)).length;
 
-    let ruleCount = 0;
-    let trueCount = 0;
-    let falseCount = 0;
-    let resetHeroCount = 0;
-    let condCount = 0;
-    for (const sourceFile of sourceFiles) {
-      const lines = await readLines(sourceFile);
-      ruleCount += lines.filter((line) => line.startsWith('rule "')).length;
-      trueCount += lines.filter((line) => line.includes("eventPlayer._reset_requested = true")).length;
-      falseCount += lines.filter((line) => line.includes("eventPlayer._reset_requested = false")).length;
-      resetHeroCount += lines.filter((line) => line.includes("resetHero()")).length;
-      condCount += lines.filter(
-        (line) =>
-          line.includes("@Condition eventPlayer._reset_requested != false") ||
-          line.includes("@Condition eventPlayer._reset_requested == true"),
-      ).length;
-    }
-
-    if (ruleCount >= 2) {
-      reporter.pass(`${heroName}.init has at least two rules`);
+    if (defCount === 1) {
+      reporter.pass(`${heroName}.init defines ${expectedDefName} exactly once`);
     } else {
-      reporter.fail(`${heroName}.init should include Detect + Initialize rules (rule count=${ruleCount})`);
+      reporter.fail(`${heroName}.init should define ${expectedDefName} exactly once (count=${defCount})`);
     }
-    if (trueCount >= 1) {
-      reporter.pass(`${heroName}.init sets _reset_requested = true`);
+    if (ruleCount === 0) {
+      reporter.pass(`${heroName}.init no longer carries local Detect/Initialize rules`);
     } else {
-      reporter.fail(`${heroName}.init missing _reset_requested = true trigger`);
+      reporter.fail(`${heroName}.init should not keep local hero init rules (rule count=${ruleCount})`);
     }
-    if (falseCount >= 1) {
-      reporter.pass(`${heroName}.init resets _reset_requested = false`);
+    if (trueCount === 0) {
+      reporter.pass(`${heroName}.init no longer queues _reset_requested locally`);
     } else {
-      reporter.fail(`${heroName}.init missing _reset_requested = false reset`);
+      reporter.fail(`${heroName}.init should not set _reset_requested = true locally`);
     }
-    if (resetHeroCount >= 1) {
-      reporter.pass(`${heroName}.init calls resetHero() in initialization`);
+    if (falseCount === 0) {
+      reporter.pass(`${heroName}.init no longer clears _reset_requested locally`);
     } else {
-      reporter.fail(`${heroName}.init missing resetHero() call`);
+      reporter.fail(`${heroName}.init should not clear _reset_requested locally`);
     }
-    if (condCount >= 1) {
-      reporter.pass(`${heroName}.init gates initialize rule with _reset_requested condition`);
+    if (resetHeroCount === 0) {
+      reporter.pass(`${heroName}.init no longer calls resetHero() locally`);
+    } else {
+      reporter.fail(`${heroName}.init should not call resetHero() locally`);
+    }
+    if (condCount === 0) {
+      reporter.pass(`${heroName}.init no longer carries local _reset_requested gating`);
     } else if (args.strictHeroInit) {
-      reporter.fail(`${heroName}.init missing initialize gating condition on _reset_requested`);
+      reporter.fail(`${heroName}.init should not carry local _reset_requested gating`);
     } else {
-      reporter.warn(`${heroName}.init missing initialize gating condition on _reset_requested`);
+      reporter.warn(`${heroName}.init still carries local _reset_requested gating`);
+    }
+    if (localDetectMacroCount === 0) {
+      reporter.pass(`${heroName}.init no longer references shouldDetectHeroInit()`);
+    } else {
+      reporter.fail(`${heroName}.init should not reference shouldDetectHeroInit() anymore`);
+    }
+    if (heroInitSubroutines.filter((name) => name === expectedDefName).length === 1) {
+      reporter.pass(`hero init subroutine declarations include ${expectedDefName}`);
+    } else {
+      reporter.fail(`hero init subroutine declarations missing/duplicated for ${expectedDefName}`);
+    }
+    if (dispatcherConditionCount === 1 && dispatcherCallCount >= 1) {
+      reporter.pass(`${heroName}.init is wired into the shared hero init dispatcher`);
+    } else {
+      reporter.fail(`${heroName}.init missing shared dispatcher route for Hero.${expectedHeroConst}`);
     }
   }
 

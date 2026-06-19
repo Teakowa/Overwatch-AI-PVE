@@ -961,31 +961,33 @@
         36: Blacklist
         37: CustomAI
         38: CustomAIArray
-        39: HanzoBuff
-        40: BaptisteBuff
-        41: CassidyBuff
-        42: LucioBuff
-        43: JunkratBuff
-        44: MoiraBuff
-        45: ReinhardtBuff
-        46: VentureBuff
-        47: WreckingBallBuff
-        48: AnranBuff
-        49: BastionBuff
-        50: DominaBuff
-        51: EchoBuff
-        52: EmreBuff
-        53: JetpackCatBuff
-        54: JunkerQueenBuff
-        55: LifeweaverBuff
-        56: MeiBuff
-        57: MizukiBuff
-        58: PharahBuff
-        59: RoadhogBuff
-        60: SierraBuff
-        61: TorbjornBuff
-        62: WidowmakerBuff
-        63: WinstonBuff
+        39: ChangelogBodyTable
+        40: HanzoBuff
+        41: BaptisteBuff
+        42: CassidyBuff
+        43: LucioBuff
+        44: JunkratBuff
+        45: MoiraBuff
+        46: ReinhardtBuff
+        47: VentureBuff
+        48: WreckingBallBuff
+        49: AnranBuff
+        50: BastionBuff
+        51: DominaBuff
+        52: EchoBuff
+        53: EmreBuff
+        54: JetpackCatBuff
+        55: JunkerQueenBuff
+        56: LifeweaverBuff
+        57: MeiBuff
+        58: MizukiBuff
+        59: PharahBuff
+        60: RoadhogBuff
+        61: SierraBuff
+        62: TorbjornBuff
+        63: WidowmakerBuff
+        64: WinstonBuff
+        65: ShionBuff
     玩家:
         0: reset_pvar
         1: heroNum
@@ -1006,51 +1008,50 @@
         16: zarya_graviton_buff
         17: KnockbackDirection
         18: wuyang_buff
-        19: ChangelogText1
-        20: ChangelogText2
-        21: hazard_buff
-        22: zarya_buff
-        23: heart_steel
-        24: has_nano
-        25: dmg_amplification
-        26: dmg_reduction
-        27: hazard_using_ability_sec
-        28: scoped_shot_distance
-        29: scoped_damage_base
-        30: ow2_scoped_damage_falloff_scalar
-        31: ow1_scoped_damage_falloff_scalar
-        32: expected_scoped_damage
-        33: aram_extra_pool_applied
-        34: burn_stack
-        35: hero_switch_pvar
-        36: nano_full_health
-        37: junker_queen_buff
-        38: juno_buff
-        39: zarya_barrier_shields
-        40: ram_block_damage
-        41: ram_block_damage_hud
-        42: ram_dmg_reduc
-        43: orisa_fortify_armor_id
-        44: mauga_berserker_soul_id
-        45: illari_captive_hud
-        46: isKnocked
-        47: brig_repair_pack_state
-        48: brig_rally_armor_id
-        49: kiriko_buff
-        50: sierra_buff
-        51: sigma_hyperspheres
-        52: sigma_hyperspheres_hud
-        53: hack_timer
-        54: sombra_buff
-        55: healing_increase
-        56: healing_decrease
-        57: reinhardt_buff
-        58: reinhardt_charge_cd
-        59: doom_buff
-        60: doom_buff_hud
-        61: hazard_hp_id
-        62: reaper_buff
-        63: freja_buff
+        19: hazard_buff
+        20: zarya_buff
+        21: heart_steel
+        22: has_nano
+        23: dmg_amplification
+        24: dmg_reduction
+        25: hazard_using_ability_sec
+        26: scoped_shot_distance
+        27: scoped_damage_base
+        28: ow2_scoped_damage_falloff_scalar
+        29: ow1_scoped_damage_falloff_scalar
+        30: expected_scoped_damage
+        31: aram_extra_pool_applied
+        32: burn_stack
+        33: hero_switch_pvar
+        34: nano_full_health
+        35: junker_queen_buff
+        36: juno_buff
+        37: zarya_barrier_shields
+        38: ram_block_damage
+        39: ram_block_damage_hud
+        40: ram_dmg_reduc
+        41: orisa_fortify_armor_id
+        42: mauga_berserker_soul_id
+        43: illari_captive_hud
+        44: isKnocked
+        45: brig_repair_pack_state
+        46: brig_rally_armor_id
+        47: kiriko_buff
+        48: sierra_buff
+        49: sigma_hyperspheres
+        50: sigma_hyperspheres_hud
+        51: hack_timer
+        52: sombra_buff
+        53: healing_increase
+        54: healing_decrease
+        55: reinhardt_buff
+        56: reinhardt_charge_cd
+        57: doom_buff
+        58: doom_buff_hud
+        59: hazard_hp_id
+        60: reaper_buff
+        61: freja_buff
+        62: shion_buff
 }
 
 子程序 {
@@ -1063,12 +1064,65 @@
     6: executeUppercut
     7: enableAllAbilities
     8: disableAllAbilities
-    9: changelogText
-    10: resetHero
-    11: removeTankPassive
-    12: botAim2Target
-    13: applySignedMoveSpeed
-    14: clearMoveSpeedDebuffs
+    9: resetHero
+    10: removeTankPassive
+    11: botAim2Target
+    12: applySignedMoveSpeed
+    13: clearMoveSpeedDebuffs
+    14: resetCombatState
+    15: heroInitDispatcher
+    16: heroInitReaper
+    17: heroInitTracer
+    18: heroInitMercy
+    19: heroInitHanzo
+    20: heroInitFreja
+    21: heroInitShion
+    22: heroInitTorbjorn
+    23: heroInitVenture
+    24: heroInitVendetta
+    25: heroInitWuyang
+    26: heroInitReinhardt
+    27: heroInitHazard
+    28: heroInitDomina
+    29: heroInitAnran
+    30: heroInitEmre
+    31: heroInitMizuki
+    32: heroInitJetpackCat
+    33: heroInitPharah
+    34: heroInitWinston
+    35: heroInitWidowmaker
+    36: heroInitBastion
+    37: heroInitSymmetra
+    38: heroInitZenyatta
+    39: heroInitGenji
+    40: heroInitRoadhog
+    41: heroInitCassidy
+    42: heroInitJunkrat
+    43: heroInitZarya
+    44: heroInitSoldier76
+    45: heroInitLucio
+    46: heroInitDva
+    47: heroInitMei
+    48: heroInitSombra
+    49: heroInitAna
+    50: heroInitOrisa
+    51: heroInitBrigitte
+    52: heroInitMoira
+    53: heroInitWreckingBall
+    54: heroInitSojourn
+    55: heroInitAshe
+    56: heroInitEcho
+    57: heroInitBaptiste
+    58: heroInitKiriko
+    59: heroInitJunkerQueen
+    60: heroInitSierra
+    61: heroInitSigma
+    62: heroInitRamattra
+    63: heroInitJuno
+    64: heroInitDoomfist
+    65: heroInitLifeweaver
+    66: heroInitMauga
+    67: heroInitIllari
 }
 
 //Strict optimizations enabled
@@ -1092,12 +1146,12 @@
         设置全局变量(Debug_UltimateGain, 地图工坊设置开关(自定义字符串("Debug"), 自定义字符串("即时终极技能充能"), 假, 4));
         "随机禁用英雄池中的4名英雄（1 重装 2输出 1辅助）"
         设置全局变量(Hero_BAN, 地图工坊设置开关(自定义字符串("模式"), 自定义字符串("英雄BAN池"), 假, 11));
-        设置全局变量(CustomAI, 地图工坊设置组合(自定义字符串("模式"), 自定义字符串("自定义 AI"), 0, 数组(自定义字符串("弗蕾娅"), 自定义字符串("探奇"), 自定义字符串("法老之鹰"), 自定义字符串("伊拉锐"), 自定义字符串("朱诺"), 自定义字符串("骇灾"), 自定义字符串("斩仇"), 自定义字符串("埃姆雷"), 自定义字符串("安燃"), 自定义字符串("金驭"), 自定义字符串("西拉")), 12));
+        设置全局变量(CustomAI, 地图工坊设置组合(自定义字符串("模式"), 自定义字符串("自定义 AI"), 0, 数组(自定义字符串("弗蕾娅"), 自定义字符串("探奇"), 自定义字符串("法老之鹰"), 自定义字符串("伊拉锐"), 自定义字符串("朱诺"), 自定义字符串("骇灾"), 自定义字符串("斩仇"), 自定义字符串("埃姆雷"), 自定义字符串("安燃"), 自定义字符串("金驭"), 自定义字符串("西拉"), 自定义字符串("死怨")), 12));
         设置全局变量(FalloffMin, 数组(2.5, 2.5, 50, 8, 1, 10, 14, 22, 40, 18, 30, 10, 12.5, 25, 30, 10, 2.5, 3.75, 2.5, 23, 15, 100000000, 2.5, 20, 2.5, 17.5, 5.75, 15, 30, 25, 9.6, 15, 32, 2.5, 18, 9.75, 20, 30, 30, 15, 20, 2.5, 25));
         设置全局变量(ProjectileSpeed, 数组(100000000, 100000000, 100000000, 40, 100000000, 50, 70, 110, 100000000, 90, 100000000, 100000000, 100000000, 100000000, 100000000, 50, 80, 35, 100000000, 115, 75, 100000000, 100000000, 100, 80, 100000000, 100000000, 100000000, 100000000, 100000000, 48, 75, 160, 100000000, 90, 80, 100, 100000000, 100000000, 50, 100000000, 140, 625));
         设置全局变量(BotHeroArray, 数组(英雄(猎空), 英雄(死神), 英雄(黑百合), 英雄(法老之鹰), 英雄(莱因哈特), 英雄(天使), 英雄(托比昂), 英雄(半藏), 英雄(温斯顿), 英雄(禅雅塔), 英雄(堡垒), 英雄(秩序之光), 英雄(查莉娅), 英雄(卡西迪), 英雄(士兵：76), 英雄(卢西奥), 英雄(路霸), 英雄(狂鼠), 英雄(D.Va), 英雄(美), 英雄(源氏), 英雄(安娜), 英雄(黑影), 英雄(奥丽莎), 英雄(末日铁拳), 英雄(莫伊拉), 英雄(布丽吉塔), 英雄(破坏球), 英雄(艾什), 英雄(巴蒂斯特), 英雄(西格玛), 英雄(回声), 英雄(索杰恩), 英雄(渣客女王), 英雄(雾子), 英雄(拉玛刹), 英雄(生命之梭), 英雄(伊拉锐), 英雄(毛加), 英雄(探奇), 英雄(朱诺), 英雄(骇灾), 英雄(弗蕾娅)));
         设置全局变量(Heros, 从数组中移除(全部英雄, 数组(英雄(天使), 英雄(狂鼠), 英雄(托比昂), 英雄(堡垒))));
-        设置全局变量(CustomAIArray, 数组(英雄(弗蕾娅), 英雄(探奇), 英雄(法老之鹰), 英雄(伊拉锐), 英雄(朱诺), 英雄(骇灾), 英雄(斩仇), 英雄(埃姆雷), 英雄(安燃), 英雄(金驭), 英雄(西拉)));
+        设置全局变量(CustomAIArray, 数组(英雄(弗蕾娅), 英雄(探奇), 英雄(法老之鹰), 英雄(伊拉锐), 英雄(朱诺), 英雄(骇灾), 英雄(斩仇), 英雄(埃姆雷), 英雄(安燃), 英雄(金驭), 英雄(西拉), 英雄(Shion)));
     }
 }
 
@@ -1206,8 +1260,14 @@
         在索引处设置全局变量(SierraBuff, 0, 地图工坊设置整数(自定义字符串("英雄：西拉"), 自定义字符串("重构力场：每跳自我治疗"), 25, 0, 100, 179));
         在索引处设置全局变量(SierraBuff, 1, 地图工坊设置整数(自定义字符串("英雄：西拉"), 自定义字符串("标记次级火力：目标承受伤害 %"), 150, 100, 300, 180));
         在索引处设置全局变量(SierraBuff, 2, 地图工坊设置实数(自定义字符串("英雄：西拉"), 自定义字符串("终极技能：击倒持续时间"), 1.5, 0, 5, 181));
+        在索引处设置全局变量(ShionBuff, 0, 地图工坊设置整数(自定义字符串("英雄：死怨"), 自定义字符串("狂势（被动）最大层数"), 5, 1, 10, 188));
+        在索引处设置全局变量(ShionBuff, 1, 地图工坊设置整数(自定义字符串("英雄：死怨"), 自定义字符串("狂势（被动）满层增益：额外伤害增幅 %"), 30, 0, 200, 189));
+        在索引处设置全局变量(ShionBuff, 2, 地图工坊设置整数(自定义字符串("英雄：死怨"), 自定义字符串("狂势（被动）满层增益：伤害减免 %"), 40, 0, 90, 190));
+        在索引处设置全局变量(ShionBuff, 3, 地图工坊设置开关(自定义字符串("英雄：死怨"), 自定义字符串("交叉枪决：击杀后重置冷却"), 真, 191));
+        在索引处设置全局变量(ShionBuff, 4, 地图工坊设置整数(自定义字符串("英雄：死怨"), 自定义字符串("杀戮狂宴：击杀返还终极充能 %"), 50, 0, 100, 192));
+        在索引处设置全局变量(ShionBuff, 5, 地图工坊设置整数(自定义字符串("英雄：死怨"), 自定义字符串("狂势（被动）激活期间：参与击杀回复最大生命值 %"), 12, 0, 50, 193));
         在索引处设置全局变量(WidowmakerBuff, 0, 除(地图工坊设置实数(自定义字符串("英雄：黑百合"), 自定义字符串("红外侦测：暴击倍率 %"), 300, 250, 500, 185), 100));
-        在索引处设置全局变量(WinstonBuff, 0, 地图工坊设置整数(自定义字符串("英雄：温斯顿"), 自定义字符串("次要攻击：额外最大生命值伤害 %"), 8, 0, 50, 187));
+        在索引处设置全局变量(WinstonBuff, 0, 地图工坊设置整数(自定义字符串("英雄：温斯顿"), 自定义字符串("特斯拉炮-集束电击：额外最大生命值伤害 %"), 8, 0, 50, 187));
     }
 }
 
@@ -1217,9 +1277,9 @@
         持续 - 全局;
     }
     动作 {
-        设置全局变量(ANTI_CRASH_ACTIVATE_PERCENT, 地图工坊设置整数(自定义字符串("Anti Crash"), 自定义字符串("激活阈值"), 230, 0, 250, 0));
-        设置全局变量(ANTI_CRASH_HOLD_TIME, 地图工坊设置实数(自定义字符串("Anti Crash"), 自定义字符串("激活持续时间"), 8, 0, 20, 1));
-        设置全局变量(ANTI_CRASH_DEACTIVATE_PERCENT, 地图工坊设置整数(自定义字符串("Anti Crash"), 自定义字符串("停用阈值"), 180, 0, 250, 2));
+        设置全局变量(ANTI_CRASH_ACTIVATE_PERCENT, 230);
+        设置全局变量(ANTI_CRASH_HOLD_TIME, 8);
+        设置全局变量(ANTI_CRASH_DEACTIVATE_PERCENT, 180);
     }
 }
 
@@ -1386,29 +1446,13 @@
         全部;
     }
     条件 {
-        数组中的值((事件玩家).hero_switch_pvar, 1) == 假;
         所用英雄(事件玩家) != 首个((事件玩家).hero_switch_pvar);
+        或(比较(数组中的值((事件玩家).hero_switch_pvar, 1), ==, 假), 比较(所用英雄(事件玩家), !=, 数组中的值((事件玩家).hero_switch_pvar, 2))) == 真;
     }
     动作 {
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 1, 真);
         在索引处设置玩家变量(事件玩家, hero_switch_pvar, 2, 所用英雄(事件玩家));
-    }
-}
-
-规则 ("[utilities/hero_switch.opy]: finalize hero switch") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        全部;
-    }
-    条件 {
-        数组中的值((事件玩家).hero_switch_pvar, 1) == 真;
-        已重生(事件玩家) == 真;
-        首个((事件玩家).reset_pvar) == 假;
-    }
-    动作 {
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 0, 所用英雄(事件玩家));
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 1, 假);
+        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 1, 真);
+        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
     }
 }
 
@@ -2153,7 +2197,7 @@
     }
     动作 {
         开始按下按钮(事件玩家, 按钮(辅助攻击模式));
-        等待直到 (或(或(或(比较((事件玩家).botTarget, ==, 空), 死亡((事件玩家).botTarget)), 比较(相距距离(所选位置(事件玩家), (事件玩家).botTarget), >, 10)), 比较(数量(范围内玩家(事件玩家, 10, 对方队伍(所在队伍(事件玩家)), 表面)), ==, 0)), 99999);
+        等待直到 (或(或(或(比较((事件玩家).botTarget, ==, 空), 死亡((事件玩家).botTarget)), 比较(相距距离(所选位置(事件玩家), (事件玩家).botTarget), >, 10)), 比较(数量(范围内玩家(事件玩家, 10, 对方队伍(所在队伍(事件玩家)), 表面)), ==, 0)), 999999999999);
         停止按下按钮(事件玩家, 按钮(辅助攻击模式));
     }
 }
@@ -2255,7 +2299,7 @@
     }
 }
 
-规则 ("[AI/control]: Freja Ammo") {
+禁用 规则 ("[AI/control]: Freja Ammo") {
     事件 {
         持续 - 每名玩家;
         队伍1;
@@ -2265,7 +2309,6 @@
         弹药(事件玩家, 0) <= 1;
     }
     动作 {
-        "@Condition (eventPlayer.isUsingAbility1() or eventPlayer.isUsingAbility2() or eventPlayer.isUsingUltimate()) == true"
         设置弹药(事件玩家, 0, 最大弹药(事件玩家, 0));
     }
 }
@@ -3182,7 +3225,7 @@
         具有状态((事件玩家).botTarget, 燃烧) == 真;
     }
     动作 {
-        等待直到 (与(与(比较((事件玩家).botTarget, !=, 空), 存活((事件玩家).botTarget)), 比较(相距距离(乘(所选位置(事件玩家), 矢量(1, 0, 1)), 乘(所选位置((事件玩家).botTarget), 矢量(1, 0, 1))), <=, 12)), 4);
+        等待直到 (与(存活((事件玩家).botTarget), 比较(相距距离(乘(所选位置(事件玩家), 矢量(1, 0, 1)), 乘(所选位置((事件玩家).botTarget), 矢量(1, 0, 1))), <=, 12)), 4);
         按下按键(事件玩家, 按钮(终极技能));
     }
 }
@@ -3435,6 +3478,142 @@
 }
 
 //Strict optimizations enabled
+规则 ("[AI/control]: Shion Primary") {
+    事件 {
+        持续 - 每名玩家;
+        队伍1;
+        Shion;
+    }
+    条件 {
+        是否是机器人(事件玩家) == 真;
+        已重生(事件玩家) == 真;
+        存活(事件玩家) == 真;
+        (事件玩家).botTarget != 空;
+        存活((事件玩家).botTarget) == 真;
+        在视线内(事件玩家, (事件玩家).botTarget, 屏障不会阻挡视线) == 真;
+    }
+    动作 {
+        停止按下按钮(事件玩家, 按钮(主要攻击模式));
+        等待(较大(除(服务器负载平均值, 1000), 0.192), 无视条件);
+        开始按下按钮(事件玩家, 按钮(主要攻击模式));
+        如条件为“真”则循环;
+        停止按下按钮(事件玩家, 按钮(主要攻击模式));
+    }
+}
+
+规则 ("[AI/control]: Shion Secondary") {
+    事件 {
+        持续 - 每名玩家;
+        队伍1;
+        Shion;
+    }
+    条件 {
+        是否是机器人(事件玩家) == 真;
+        存活(事件玩家) == 真;
+        已重生(事件玩家) == 真;
+        技能冷却时间(事件玩家, 按钮(辅助攻击模式)) == 0;
+        (事件玩家).botTarget != 空;
+        存活((事件玩家).botTarget) == 真;
+        在视线内(事件玩家, (事件玩家).botTarget, 屏障不会阻挡视线) == 真;
+    }
+    动作 {
+        根据条件跳过(比较((事件玩家).botTarget, ==, 空), 6);
+        根据条件跳过(死亡((事件玩家).botTarget), 5);
+        根据条件跳过(非(在视线内(事件玩家, (事件玩家).botTarget, 屏障不会阻挡视线)), 4);
+        根据条件跳过(与(比较(标准化生命值((事件玩家).botTarget), >, 0.55), 比较(相距距离(乘(所选位置(事件玩家), 矢量(1, 0, 1)), 乘(所选位置((事件玩家).botTarget), 矢量(1, 0, 1))), >, 14)), 3);
+        开始按下按钮(事件玩家, 按钮(辅助攻击模式));
+        等待(0.3, 无视条件);
+        停止按下按钮(事件玩家, 按钮(辅助攻击模式));
+        //lbl_0:
+        等待(较大(除(服务器负载平均值, 1000), 0.4), 无视条件);
+    }
+}
+
+规则 ("[AI/control]: Shion Ability 1") {
+    事件 {
+        持续 - 每名玩家;
+        队伍1;
+        Shion;
+    }
+    条件 {
+        是否是机器人(事件玩家) == 真;
+        存活(事件玩家) == 真;
+        已重生(事件玩家) == 真;
+        技能冷却时间(事件玩家, 按钮(技能1)) == 0;
+        (事件玩家).botTarget != 空;
+        存活((事件玩家).botTarget) == 真;
+        在视线内(事件玩家, (事件玩家).botTarget, 屏障不会阻挡视线) == 真;
+    }
+    动作 {
+        If(比较(标准化生命值(事件玩家), >=, 0.45));
+            根据条件跳过(比较((事件玩家).botTarget, ==, 空), 7);
+            根据条件跳过(死亡((事件玩家).botTarget), 6);
+            根据条件跳过(非(在视线内(事件玩家, (事件玩家).botTarget, 屏障不会阻挡视线)), 5);
+            根据条件跳过(比较(相距距离(乘(所选位置(事件玩家), 矢量(1, 0, 1)), 乘(所选位置((事件玩家).botTarget), 矢量(1, 0, 1))), >, 8), 4);
+        End;
+        开始按下按钮(事件玩家, 按钮(技能1));
+        等待(较大(除(服务器负载平均值, 1000), 0.192), 无视条件);
+        停止按下按钮(事件玩家, 按钮(技能1));
+        //lbl_0:
+    }
+}
+
+规则 ("[AI/control]: Shion Ability 2") {
+    事件 {
+        持续 - 每名玩家;
+        队伍1;
+        Shion;
+    }
+    条件 {
+        是否是机器人(事件玩家) == 真;
+        存活(事件玩家) == 真;
+        已重生(事件玩家) == 真;
+        技能冷却时间(事件玩家, 按钮(技能2)) == 0;
+        (事件玩家).botTarget != 空;
+        存活((事件玩家).botTarget) == 真;
+        在视线内(事件玩家, (事件玩家).botTarget, 屏障不会阻挡视线) == 真;
+    }
+    动作 {
+        根据条件跳过(比较((事件玩家).botTarget, ==, 空), 6);
+        根据条件跳过(死亡((事件玩家).botTarget), 5);
+        根据条件跳过(非(在视线内(事件玩家, (事件玩家).botTarget, 屏障不会阻挡视线)), 4);
+        开始按下按钮(事件玩家, 按钮(技能2));
+        等待(0.75, 无视条件);
+        "eventPlayer.stopForcingButton(Button.ABILITY_2)"
+        等待(随机实数(1.67, 3), 无视条件);
+        "eventPlayer.forceButtonPress(Button.ABILITY_2)"
+        停止按下按钮(事件玩家, 按钮(技能2));
+        //lbl_0:
+        等待(较大(除(服务器负载平均值, 1000), 0.5), 无视条件);
+    }
+}
+
+规则 ("[AI/control]: Shion Ultimate") {
+    事件 {
+        持续 - 每名玩家;
+        队伍1;
+        Shion;
+    }
+    条件 {
+        是否是机器人(事件玩家) == 真;
+        存活(事件玩家) == 真;
+        已重生(事件玩家) == 真;
+        正在使用终极技能(事件玩家) == 假;
+        终极技能充能百分比(事件玩家) == 100;
+        (事件玩家).botTarget != 空;
+        存活((事件玩家).botTarget) == 真;
+        在视线内(事件玩家, (事件玩家).botTarget, 屏障不会阻挡视线) == 真;
+    }
+    动作 {
+        等待(随机实数(0.16, 1), 当为“假”时中止);
+        等待直到 (与(与(与(比较((事件玩家).botTarget, !=, 空), 存活((事件玩家).botTarget)), 在视线内(事件玩家, (事件玩家).botTarget, 屏障不会阻挡视线)), 比较(相距距离(乘(所选位置(事件玩家), 矢量(1, 0, 1)), 乘(所选位置((事件玩家).botTarget), 矢量(1, 0, 1))), <=, 14)), 999999999999);
+        开始按下按钮(事件玩家, 按钮(终极技能));
+        等待(1.8, 无视条件);
+        停止按下按钮(事件玩家, 按钮(终极技能));
+    }
+}
+
+//Strict optimizations enabled
 禁用 规则 ("Initialize AI Scripts End") {
     事件 {
         持续 - 全局;
@@ -3512,7 +3691,7 @@
     }
     动作 {
         等待直到 (比较(终极技能充能百分比(事件玩家), ==, 0), 99999);
-        设置玩家变量(事件玩家, nano_full_health, 已过滤的数组(距离准星最近的玩家(事件玩家, 所在队伍(事件玩家)), 比较(生命值(当前数组元素), >=, 最大生命值(当前数组元素))));
+        设置玩家变量(事件玩家, nano_full_health, 已过滤的数组(首个(已排序的数组(已过滤的数组(所有存活玩家(所在队伍(事件玩家)), 与(已重生(当前数组元素), 比较(当前数组元素, !=, 事件玩家))), 矢量间夹角(面朝方向(事件玩家), 减(当前数组元素, 眼睛位置(事件玩家))))), 比较(生命值(当前数组元素), >=, 最大生命值(当前数组元素))));
         伤害((事件玩家).nano_full_health, 空, 0.05);
         等待(0.216, 无视条件);
         治疗((事件玩家).nano_full_health, 空, 0.05);
@@ -4339,9 +4518,9 @@
         等待(0.16, 无视条件);
         设置玩家生命值(事件玩家, 最大生命值(事件玩家));
         等待(0.16, 无视条件);
-        开始持续伤害(事件玩家, 空, 9999, 除(乘(最大生命值(事件玩家), 数组中的值(全局.MaugaBuff, 6)), 100));
+        开始持续伤害(事件玩家, 空, 999999999999, 除(乘(最大生命值(事件玩家), 数组中的值(全局.MaugaBuff, 6)), 100));
         在索引处设置玩家变量(事件玩家, mauga_berserker_soul_id, 1, 上一个持续伤害效果ID);
-        等待直到 (或(非((事件玩家).mauga_berserker_soul), 死亡(事件玩家)), 9999);
+        等待直到 (或(非((事件玩家).mauga_berserker_soul), 死亡(事件玩家)), 999999999999);
         设置玩家变量(事件玩家, dmg_amplification, 0);
         设置玩家变量(事件玩家, dmg_reduction, 0);
         停止持续伤害(数组中的值((事件玩家).mauga_berserker_soul_id, 1));
@@ -4774,7 +4953,7 @@
     条件 {
         数组中的值(全局.Brigitte, 1) != 0;
         正在使用技能 2(事件玩家) == 真;
-        相距距离(事件玩家, 距离准星最近的玩家(事件玩家, 所在队伍(事件玩家))) <= 27.25;
+        相距距离(事件玩家, 首个(已排序的数组(已过滤的数组(所有存活玩家(所在队伍(事件玩家)), 与(已重生(当前数组元素), 比较(当前数组元素, !=, 事件玩家))), 矢量间夹角(面朝方向(事件玩家), 减(当前数组元素, 眼睛位置(事件玩家)))))) <= 27.25;
     }
     动作 {
         在索引处设置玩家变量(首个(已排序的数组(所有存活玩家(所在队伍(事件玩家)), 矢量间夹角(面朝方向(事件玩家), 方向(所选位置(事件玩家), 所选位置(当前数组元素))))), brig_repair_pack_state, 0, 真);
@@ -5359,7 +5538,7 @@
         存活(事件玩家) == 真;
         技能冷却时间(事件玩家, 按钮(技能2)) == 0;
         相距距离(事件玩家, 首个(数组中的值((事件玩家).reset_pvar, 9))) >= 5.5;
-        相距距离(距离最近的玩家(事件玩家, 所在队伍(事件玩家)), 首个(数组中的值((事件玩家).reset_pvar, 9))) <= 30;
+        相距距离(首个(已排序的数组(已过滤的数组(所有存活玩家(所在队伍(事件玩家)), 已重生(当前数组元素)), 相距距离(当前数组元素, 事件玩家))), 首个(数组中的值((事件玩家).reset_pvar, 9))) <= 30;
     }
     动作 {
         按下按键(事件玩家, 按钮(技能2));
@@ -5436,7 +5615,7 @@
         在重生室中(首个(数组中的值((事件玩家).reset_pvar, 9))) == 假;
         与(在目标点上(事件玩家), 在重生室中(事件玩家)) == 假;
         相距距离(事件玩家, 首个(数组中的值((事件玩家).reset_pvar, 9))) >= 5.5;
-        相距距离(距离最近的玩家(事件玩家, 所在队伍(事件玩家)), 首个(数组中的值((事件玩家).reset_pvar, 9))) <= 30;
+        相距距离(首个(已排序的数组(已过滤的数组(所有存活玩家(所在队伍(事件玩家)), 已重生(当前数组元素)), 相距距离(当前数组元素, 事件玩家))), 首个(数组中的值((事件玩家).reset_pvar, 9))) <= 30;
     }
     动作 {
         等待(2, 当为“假”时中止);
@@ -6385,6 +6564,168 @@
 }
 
 //Strict optimizations enabled
+规则 ("[Shion]: State clear on death") {
+    事件 {
+        玩家阵亡;
+        双方;
+        Shion;
+    }
+    动作 {
+        在索引处设置玩家变量(事件玩家, shion_buff, 0, 0);
+        在索引处设置玩家变量(事件玩家, shion_buff, 1, 假);
+        在索引处设置玩家变量(事件玩家, shion_buff, 2, 假);
+        在索引处设置玩家变量(事件玩家, shion_buff, 3, 0);
+        在索引处设置玩家变量(事件玩家, shion_buff, 4, 假);
+        设置造成伤害(事件玩家, 100);
+        设置受到伤害(事件玩家, 100);
+        设置玩家变量(事件玩家, hudText, 自定义字符串(""));
+    }
+}
+
+规则 ("[Shion]: Damage stack") {
+    事件 {
+        玩家造成伤害;
+        双方;
+        Shion;
+    }
+    条件 {
+        存活(事件玩家) == 真;
+        数组中的值((事件玩家).shion_buff, 2) != 真;
+        事件伤害 > 5;
+        或(或(比较(事件技能, ==, 按钮(主要攻击模式)), 比较(事件技能, ==, 按钮(辅助攻击模式))), 比较(事件技能, ==, 按钮(终极技能))) == 真;
+        数组中的值((事件玩家).shion_buff, 1) != 真;
+    }
+    动作 {
+        在索引处修改玩家变量(事件玩家, shion_buff, 0, 加, 1);
+        If(比较(所在队伍(事件玩家), ==, 队伍2));
+            设置玩家变量(事件玩家, hudText, 自定义字符串("狂势：{0} 层", 首个((事件玩家).shion_buff)));
+        End;
+        在索引处设置玩家变量(事件玩家, shion_buff, 1, 真);
+        等待直到 (或(死亡(事件玩家), 比较(首个((事件玩家).reset_pvar), !=, 假)), 0.5);
+        在索引处设置玩家变量(事件玩家, shion_buff, 1, 假);
+    }
+}
+
+规则 ("[Shion]: Stack timeout clear") {
+    事件 {
+        持续 - 每名玩家;
+        双方;
+        Shion;
+    }
+    条件 {
+        首个((事件玩家).shion_buff) != 0;
+        数组中的值((事件玩家).shion_buff, 2) != 真;
+        数组中的值((事件玩家).shion_buff, 3) == 0;
+    }
+    动作 {
+        在索引处设置玩家变量(事件玩家, shion_buff, 3, 首个((事件玩家).shion_buff));
+        等待(2, 无视条件);
+        If(或(或(死亡(事件玩家), 比较(首个((事件玩家).reset_pvar), !=, 假)), 比较(数组中的值((事件玩家).shion_buff, 2), ==, 真)));
+            在索引处设置玩家变量(事件玩家, shion_buff, 3, 0);
+        Else If(比较(首个((事件玩家).shion_buff), >, 数组中的值((事件玩家).shion_buff, 3)));
+            在索引处设置玩家变量(事件玩家, shion_buff, 3, 0);
+            循环;
+        Else;
+            在索引处设置玩家变量(事件玩家, shion_buff, 0, 0);
+            在索引处设置玩家变量(事件玩家, shion_buff, 3, 0);
+            设置玩家变量(事件玩家, hudText, 自定义字符串(""));
+    }
+}
+
+规则 ("[Shion]: Full stack elimination heal") {
+    事件 {
+        玩家参与消灭;
+        双方;
+        Shion;
+    }
+    条件 {
+        存活(事件玩家) == 真;
+        数组中的值((事件玩家).shion_buff, 2) == 真;
+    }
+    动作 {
+        治疗(事件玩家, 事件玩家, 除(乘(最大生命值(事件玩家), 数组中的值(全局.ShionBuff, 5)), 100));
+    }
+}
+
+规则 ("[Shion]: Full stack buff") {
+    事件 {
+        持续 - 每名玩家;
+        双方;
+        Shion;
+    }
+    条件 {
+        首个((事件玩家).shion_buff) >= 首个(全局.ShionBuff);
+        数组中的值((事件玩家).shion_buff, 2) != 真;
+    }
+    动作 {
+        在索引处设置玩家变量(事件玩家, shion_buff, 0, 0);
+        在索引处设置玩家变量(事件玩家, shion_buff, 2, 真);
+        设置造成伤害(事件玩家, 加(100, 数组中的值(全局.ShionBuff, 1)));
+        设置受到伤害(事件玩家, 减(100, 数组中的值(全局.ShionBuff, 2)));
+        If(比较(所在队伍(事件玩家), ==, 队伍2));
+            设置玩家变量(事件玩家, hudText, 自定义字符串("狂势已激活 | {0}% 增伤 | {1}% 减伤 | 击杀回复{2}%生命值", 数组中的值(全局.ShionBuff, 1), 数组中的值(全局.ShionBuff, 2), 数组中的值(全局.ShionBuff, 5)));
+        End;
+        等待直到 (或(或(死亡(事件玩家), 比较(首个((事件玩家).reset_pvar), !=, 假)), 比较(数组中的值((事件玩家).shion_buff, 2), ==, 假)), 8);
+        在索引处设置玩家变量(事件玩家, shion_buff, 2, 假);
+        设置造成伤害(事件玩家, 100);
+        设置受到伤害(事件玩家, 100);
+        设置玩家变量(事件玩家, hudText, 自定义字符串(""));
+    }
+}
+
+//Strict optimizations enabled
+规则 ("[Shion]: Execution kill window") {
+    事件 {
+        玩家造成伤害;
+        双方;
+        Shion;
+    }
+    条件 {
+        存活(事件玩家) == 真;
+        事件技能 == 按钮(辅助攻击模式);
+    }
+    动作 {
+        在索引处设置玩家变量(事件玩家, shion_buff, 4, 真);
+        等待直到 (或(死亡(事件玩家), 比较(首个((事件玩家).reset_pvar), !=, 假)), 0.6);
+        在索引处设置玩家变量(事件玩家, shion_buff, 4, 假);
+    }
+}
+
+规则 ("[Shion]: Execution kill reset cooldown") {
+    事件 {
+        玩家参与消灭;
+        双方;
+        Shion;
+    }
+    条件 {
+        数组中的值(全局.ShionBuff, 3) == 真;
+        存活(事件玩家) == 真;
+        或(比较(事件技能, ==, 按钮(辅助攻击模式)), 比较(数组中的值((事件玩家).shion_buff, 4), ==, 真)) == 真;
+        技能冷却时间(事件玩家, 按钮(辅助攻击模式)) > 0;
+    }
+    动作 {
+        设置技能冷却(事件玩家, 按钮(辅助攻击模式), 0);
+    }
+}
+
+//Strict optimizations enabled
+规则 ("[Shion]: Ultimate kill charge refund") {
+    事件 {
+        玩家参与消灭;
+        双方;
+        Shion;
+    }
+    条件 {
+        存活(事件玩家) == 真;
+        正在使用终极技能(事件玩家) == 真;
+        终极技能充能百分比(事件玩家) < 100;
+    }
+    动作 {
+        设置终极技能充能(事件玩家, 较小(100, 加(终极技能充能百分比(事件玩家), 数组中的值(全局.ShionBuff, 4))));
+    }
+}
+
+//Strict optimizations enabled
 //Strict optimizations enabled
 规则 ("[Wuyang]: primary dmg") {
     事件 {
@@ -7015,10 +7356,10 @@
     }
 }
 
-规则 ("[utilities/reset.opy]: resetHero()") {
+规则 ("[utilities/reset.opy]: resetCombatState()") {
     事件 {
         子程序;
-        resetHero;
+        resetCombatState;
     }
     动作 {
         消除HUD文本(数组中的值((事件玩家).reaper_buff, 2));
@@ -7027,13 +7368,25 @@
         消除HUD文本((事件玩家).doom_buff_hud);
         在索引处设置玩家变量(事件玩家, reaper_buff, 2, 0);
         设置玩家变量(事件玩家, hudText, 自定义字符串(""));
+        设置玩家变量(事件玩家, has_nano, 假);
+        在索引处设置玩家变量(事件玩家, zarya_buff, 0, 真);
+        在索引处设置玩家变量(事件玩家, zarya_buff, 1, 空);
         设置玩家变量(事件玩家, ram_block_damage, 0);
         设置玩家变量(事件玩家, sigma_hyperspheres, 0);
         设置玩家变量(事件玩家, doom_buff, 0);
         在索引处设置玩家变量(事件玩家, reaper_buff, 1, 0);
         设置玩家变量(事件玩家, dmg_reduction, 0);
         设置玩家变量(事件玩家, dmg_amplification, 0);
-        设置玩家变量(事件玩家, has_nano, 假);
+    }
+}
+
+规则 ("[utilities/reset.opy]: resetHero()") {
+    事件 {
+        子程序;
+        resetHero;
+    }
+    动作 {
+        调用子程序(resetCombatState);
         调用子程序(clearCustomHp);
         调用子程序(resetStats);
         调用子程序(resetStatuses);
@@ -7086,13 +7439,7 @@
     }
     动作 {
         等待(除(服务器负载平均值, 100), 无视条件);
-        设置玩家变量(事件玩家, hudText, 自定义字符串(""));
-        设置玩家变量(事件玩家, has_nano, 假);
-        在索引处设置玩家变量(事件玩家, zarya_buff, 0, 真);
-        在索引处设置玩家变量(事件玩家, zarya_buff, 1, 空);
-        设置玩家变量(事件玩家, ram_block_damage, 0);
-        设置玩家变量(事件玩家, sigma_hyperspheres, 0);
-        设置玩家变量(事件玩家, doom_buff, 0);
+        调用子程序(resetCombatState);
         调用子程序(resetStats);
         调用子程序(resetStatuses);
         调用子程序(resetFrenemies);
@@ -7110,10 +7457,14 @@
         所用英雄(事件玩家) != 英雄(黑影);
     }
     动作 {
-        等待直到 (非(处于回合之间), 10);
-        等待(加(乘(栏位(事件玩家), 1), 除(服务器负载平均值, 100)), 无视条件);
+        调用子程序(resetCombatState);
+        调用子程序(resetStatuses);
+        等待直到 (非(处于回合之间), 999999999999);
+        等待(加(乘(栏位(事件玩家), 10), 除(服务器负载平均值, 100)), 无视条件);
+        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 2, 所用英雄(事件玩家));
+        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 1, 真);
         在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
-        记入查看器(自定义字符串("queued init after new round"));
+        记入查看器(自定义字符串("queued init after new round (main throttled)"));
     }
 }
 
@@ -7151,1482 +7502,664 @@
 }
 
 //Strict optimizations enabled
-规则 ("[reaper/init.opy]: Detect switch to Reaper") {
+规则 ("[hero_init/shared.opy]: heroInitDispatcher()") {
     事件 {
-        持续 - 每名玩家;
-        双方;
-        死神;
-    }
-    条件 {
-        数组中的值((事件玩家).hero_switch_pvar, 1) == 真;
-        数组中的值((事件玩家).hero_switch_pvar, 2) == 所用英雄(事件玩家);
-        已重生(事件玩家) == 真;
+        子程序;
+        heroInitDispatcher;
     }
     动作 {
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 0, 所用英雄(事件玩家));
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
+        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(死神)));
+            调用子程序(heroInitReaper);
+        End;
+        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(猎空)));
+            调用子程序(heroInitTracer);
+        End;
+        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(天使)));
+            调用子程序(heroInitMercy);
+        End;
+        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(半藏)));
+            调用子程序(heroInitHanzo);
+        End;
+        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(弗蕾娅)));
+            调用子程序(heroInitFreja);
+        End;
+        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(Shion)));
+            调用子程序(heroInitShion);
+        End;
+        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(托比昂)));
+            调用子程序(heroInitTorbjorn);
+        End;
+        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(探奇)));
+            调用子程序(heroInitVenture);
+        End;
+        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(斩仇)));
+            调用子程序(heroInitVendetta);
+        End;
+        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(无漾)));
+            调用子程序(heroInitWuyang);
+        End;
+        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(莱因哈特)));
+            调用子程序(heroInitReinhardt);
+        End;
+        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(骇灾)));
+            调用子程序(heroInitHazard);
+        End;
+        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(金驭)));
+            调用子程序(heroInitDomina);
+        End;
+        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(安燃)));
+            调用子程序(heroInitAnran);
+        End;
+        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(埃姆雷)));
+            调用子程序(heroInitEmre);
+        End;
+        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(瑞稀)));
+            调用子程序(heroInitMizuki);
+        End;
+        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(飞天猫)));
+            调用子程序(heroInitJetpackCat);
+        End;
+        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(法老之鹰)));
+            调用子程序(heroInitPharah);
+        End;
+        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(温斯顿)));
+            调用子程序(heroInitWinston);
+        End;
+        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(黑百合)));
+            调用子程序(heroInitWidowmaker);
+        End;
+        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(堡垒)));
+            调用子程序(heroInitBastion);
+        End;
+        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(秩序之光)));
+            调用子程序(heroInitSymmetra);
+        End;
+        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(禅雅塔)));
+            调用子程序(heroInitZenyatta);
+        End;
+        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(源氏)));
+            调用子程序(heroInitGenji);
+        End;
+        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(路霸)));
+            调用子程序(heroInitRoadhog);
+        End;
+        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(卡西迪)));
+            调用子程序(heroInitCassidy);
+        End;
+        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(狂鼠)));
+            调用子程序(heroInitJunkrat);
+        End;
+        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(查莉娅)));
+            调用子程序(heroInitZarya);
+        End;
+        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(士兵：76)));
+            调用子程序(heroInitSoldier76);
+        End;
+        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(卢西奥)));
+            调用子程序(heroInitLucio);
+        End;
+        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(D.Va)));
+            调用子程序(heroInitDva);
+        End;
+        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(美)));
+            调用子程序(heroInitMei);
+        End;
+        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(黑影)));
+            调用子程序(heroInitSombra);
+        End;
+        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(安娜)));
+            调用子程序(heroInitAna);
+        End;
+        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(奥丽莎)));
+            调用子程序(heroInitOrisa);
+        End;
+        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(布丽吉塔)));
+            调用子程序(heroInitBrigitte);
+        End;
+        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(莫伊拉)));
+            调用子程序(heroInitMoira);
+        End;
+        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(破坏球)));
+            调用子程序(heroInitWreckingBall);
+        End;
+        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(索杰恩)));
+            调用子程序(heroInitSojourn);
+        End;
+        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(艾什)));
+            调用子程序(heroInitAshe);
+        End;
+        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(回声)));
+            调用子程序(heroInitEcho);
+        End;
+        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(巴蒂斯特)));
+            调用子程序(heroInitBaptiste);
+        End;
+        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(雾子)));
+            调用子程序(heroInitKiriko);
+        End;
+        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(渣客女王)));
+            调用子程序(heroInitJunkerQueen);
+        End;
+        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(西拉)));
+            调用子程序(heroInitSierra);
+        End;
+        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(西格玛)));
+            调用子程序(heroInitSigma);
+        End;
+        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(拉玛刹)));
+            调用子程序(heroInitRamattra);
+        End;
+        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(朱诺)));
+            调用子程序(heroInitJuno);
+        End;
+        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(末日铁拳)));
+            调用子程序(heroInitDoomfist);
+        End;
+        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(生命之梭)));
+            调用子程序(heroInitLifeweaver);
+        End;
+        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(毛加)));
+            调用子程序(heroInitMauga);
+        End;
+        If(比较(数组中的值((事件玩家).hero_switch_pvar, 2), ==, 英雄(伊拉锐)));
+            调用子程序(heroInitIllari);
+        End;
     }
 }
 
-规则 ("[reaper/init.opy]: Initialize Reaper") {
+规则 ("[hero_init/shared.opy]: initialize hero") {
     事件 {
         持续 - 每名玩家;
         双方;
-        死神;
+        全部;
     }
     条件 {
+        数组中的值((事件玩家).hero_switch_pvar, 1) == 真;
+        已重生(事件玩家) == 真;
         首个((事件玩家).reset_pvar) != 假;
+        所用英雄(事件玩家) == 数组中的值((事件玩家).hero_switch_pvar, 2);
     }
     动作 {
         调用子程序(resetHero);
-        根据条件跳过(比较(所在队伍(事件玩家), !=, 队伍1), 1);
-        开始为机器人强制设置名称(事件玩家, 数组随机取值(数组(自定义字符串("滚筒洗衣机"), 自定义字符串("转圈摩西"), 自定义字符串("龙卷风摩西"), 自定义字符串("哈哈摩西"), 自定义字符串("菜就多练"))));
-        //lbl_0:
+        调用子程序(heroInitDispatcher);
+        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 0, 数组中的值((事件玩家).hero_switch_pvar, 2));
+        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 1, 假);
         在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
     }
 }
 
 //Strict optimizations enabled
-规则 ("[tracer/init.opy]: Detect switch to Tracer") {
+规则 ("[reaper/init.opy]: heroInitReaper()") {
     事件 {
-        持续 - 每名玩家;
-        双方;
-        猎空;
-    }
-    条件 {
-        数组中的值((事件玩家).hero_switch_pvar, 1) == 真;
-        数组中的值((事件玩家).hero_switch_pvar, 2) == 所用英雄(事件玩家);
-        已重生(事件玩家) == 真;
+        子程序;
+        heroInitReaper;
     }
     动作 {
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 0, 所用英雄(事件玩家));
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
+        根据条件跳过(比较(所在队伍(事件玩家), !=, 队伍1), 1);
+        开始为机器人强制设置名称(事件玩家, 数组随机取值(数组(自定义字符串("滚筒洗衣机"), 自定义字符串("转圈摩西"), 自定义字符串("龙卷风摩西"), 自定义字符串("哈哈摩西"), 自定义字符串("菜就多练"))));
+        //lbl_0:
     }
 }
 
-规则 ("[tracer/init.opy]: Initialize Tracer") {
+//Strict optimizations enabled
+规则 ("[tracer/init.opy]: heroInitTracer()") {
     事件 {
-        持续 - 每名玩家;
-        双方;
-        猎空;
-    }
-    条件 {
-        首个((事件玩家).reset_pvar) != 假;
+        子程序;
+        heroInitTracer;
     }
     动作 {
-        调用子程序(resetHero);
         设置技能冷却(事件玩家, 按钮(技能2), 8);
         根据条件跳过(比较(所在队伍(事件玩家), !=, 队伍1), 1);
         开始为机器人强制设置名称(事件玩家, 数组随机取值(数组(自定义字符串("跳跳熊"), 自定义字符串("FLETA"), 自定义字符串("EVAEL"), 自定义字符串("炸弹摩西"), 自定义字符串("瞬移摩西"))));
         //lbl_0:
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
     }
 }
 
 //Strict optimizations enabled
-规则 ("[mercy/init.opy]: Detect switch to Mercy") {
+规则 ("[mercy/init.opy]: heroInitMercy()") {
     事件 {
-        持续 - 每名玩家;
-        双方;
-        天使;
-    }
-    条件 {
-        数组中的值((事件玩家).hero_switch_pvar, 1) == 真;
-        数组中的值((事件玩家).hero_switch_pvar, 2) == 所用英雄(事件玩家);
-        已重生(事件玩家) == 真;
+        子程序;
+        heroInitMercy;
     }
     动作 {
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 0, 所用英雄(事件玩家));
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
-    }
-}
-
-规则 ("[mercy/init.opy]: Initialize Mercy") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        天使;
-    }
-    条件 {
-        首个((事件玩家).reset_pvar) != 假;
-    }
-    动作 {
-        调用子程序(resetHero);
         设置最大弹药(事件玩家, 0, 20);
         设置弹药(事件玩家, 0, 最大弹药(事件玩家, 0));
         根据条件跳过(比较(所在队伍(事件玩家), !=, 队伍1), 1);
         开始为机器人强制设置名称(事件玩家, 数组随机取值(数组(自定义字符串("摩西"), 自定义字符串("拉使"), 自定义字符串("国服摩西请战"), 自定义字符串("我 有 恋 尸 癖"), 自定义字符串("慈 悲 十 三 摩"), 自定义字符串("食 尸 鬼"))));
         //lbl_0:
         在索引处设置玩家变量(数组中的值((事件玩家).reset_pvar, 6), reset_pvar, 9, 事件玩家);
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
     }
 }
 
 //Strict optimizations enabled
-规则 ("[hanzo/init.opy]: Detect switch to Hanzo") {
+规则 ("[hanzo/init.opy]: heroInitHanzo()") {
     事件 {
-        持续 - 每名玩家;
-        双方;
-        半藏;
-    }
-    条件 {
-        数组中的值((事件玩家).hero_switch_pvar, 1) == 真;
-        数组中的值((事件玩家).hero_switch_pvar, 2) == 所用英雄(事件玩家);
-        已重生(事件玩家) == 真;
+        子程序;
+        heroInitHanzo;
     }
     动作 {
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 0, 所用英雄(事件玩家));
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
-    }
-}
-
-规则 ("[hanzo/init.opy]: Initialize Hanzo") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        半藏;
-    }
-    条件 {
-        首个((事件玩家).reset_pvar) != 假;
-    }
-    动作 {
-        调用子程序(resetHero);
         根据条件跳过(比较(所在队伍(事件玩家), !=, 队伍1), 1);
         开始为机器人强制设置名称(事件玩家, 数组随机取值(数组(自定义字符串("ANS"), 自定义字符串("吃矢不忘拉矢人"), 自定义字符串("拉矢摩西"), 自定义字符串("贩箭摩西"))));
         //lbl_0:
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
     }
 }
 
 //Strict optimizations enabled
-规则 ("[Freja/init.opy]: Detect switch to Freja") {
+规则 ("[freja/init.opy]: heroInitFreja()") {
     事件 {
-        持续 - 每名玩家;
-        双方;
-        弗蕾娅;
-    }
-    条件 {
-        数组中的值((事件玩家).hero_switch_pvar, 1) == 真;
-        数组中的值((事件玩家).hero_switch_pvar, 2) == 所用英雄(事件玩家);
-        已重生(事件玩家) == 真;
+        子程序;
+        heroInitFreja;
     }
     动作 {
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 0, 所用英雄(事件玩家));
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
-    }
-}
-
-规则 ("[Freja/init.opy]: Initialize Freja") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        弗蕾娅;
-    }
-    条件 {
-        首个((事件玩家).reset_pvar) != 假;
-    }
-    动作 {
-        调用子程序(resetHero);
         设置弹道速度(事件玩家, 500);
         根据条件跳过(比较(所在队伍(事件玩家), !=, 队伍1), 1);
         开始为机器人强制设置名称(事件玩家, 数组随机取值(数组(自定义字符串("ANS"), 自定义字符串("射 爆"), 自定义字符串("拉矢摩西"))));
         //lbl_0:
         在索引处设置玩家变量(所有玩家(对方队伍(所在队伍(事件玩家))), reset_pvar, 11, 事件玩家);
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
     }
 }
 
 //Strict optimizations enabled
-规则 ("[torbjorn/init.opy]: Detect switch to Torbjorn") {
+规则 ("[shion/init.opy]: heroInitShion()") {
     事件 {
-        持续 - 每名玩家;
-        双方;
-        托比昂;
-    }
-    条件 {
-        数组中的值((事件玩家).hero_switch_pvar, 1) == 真;
-        数组中的值((事件玩家).hero_switch_pvar, 2) == 所用英雄(事件玩家);
-        已重生(事件玩家) == 真;
+        子程序;
+        heroInitShion;
     }
     动作 {
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 0, 所用英雄(事件玩家));
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
+        在索引处设置玩家变量(事件玩家, shion_buff, 0, 0);
+        在索引处设置玩家变量(事件玩家, shion_buff, 1, 假);
+        在索引处设置玩家变量(事件玩家, shion_buff, 2, 假);
+        在索引处设置玩家变量(事件玩家, shion_buff, 3, 0);
+        在索引处设置玩家变量(事件玩家, shion_buff, 4, 假);
+        设置造成伤害(事件玩家, 100);
+        设置受到伤害(事件玩家, 100);
     }
 }
 
-规则 ("[torbjorn/init.opy]: Initialize Torbjorn") {
+//Strict optimizations enabled
+规则 ("[torbjorn/init.opy]: heroInitTorbjorn()") {
     事件 {
-        持续 - 每名玩家;
-        双方;
-        托比昂;
-    }
-    条件 {
-        首个((事件玩家).reset_pvar) != 假;
+        子程序;
+        heroInitTorbjorn;
     }
     动作 {
-        调用子程序(resetHero);
         根据条件跳过(比较(所在队伍(事件玩家), !=, 队伍1), 1);
         开始为机器人强制设置名称(事件玩家, 数组随机取值(数组(自定义字符串("你强任你强"), 自定义字符串("史"), 自定义字符串("十年老兵"), 自定义字符串("炮台摩西"))));
         //lbl_0:
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
     }
 }
 
 //Strict optimizations enabled
-规则 ("[venture/init.opy]: Detect switch to venture") {
+规则 ("[venture/init.opy]: heroInitVenture()") {
     事件 {
-        持续 - 每名玩家;
-        双方;
-        探奇;
-    }
-    条件 {
-        数组中的值((事件玩家).hero_switch_pvar, 1) == 真;
-        数组中的值((事件玩家).hero_switch_pvar, 2) == 所用英雄(事件玩家);
-        已重生(事件玩家) == 真;
+        子程序;
+        heroInitVenture;
     }
     动作 {
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 0, 所用英雄(事件玩家));
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
-    }
-}
-
-规则 ("[venture/init.opy]: Initialize venture") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        探奇;
-    }
-    条件 {
-        首个((事件玩家).reset_pvar) != 假;
-    }
-    动作 {
-        调用子程序(resetHero);
         根据条件跳过(比较(所在队伍(事件玩家), !=, 队伍1), 1);
         开始为机器人强制设置名称(事件玩家, 数组随机取值(数组(自定义字符串("钻地摩西"), 自定义字符串("丁真摩西"))));
         //lbl_0:
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
     }
 }
 
 //Strict optimizations enabled
-规则 ("[Vendetta/init.opy]: Detect switch to Vendetta") {
+规则 ("[vendetta/init.opy]: heroInitVendetta()") {
     事件 {
-        持续 - 每名玩家;
-        双方;
-        斩仇;
-    }
-    条件 {
-        数组中的值((事件玩家).hero_switch_pvar, 1) == 真;
-        数组中的值((事件玩家).hero_switch_pvar, 2) == 所用英雄(事件玩家);
-        已重生(事件玩家) == 真;
+        子程序;
+        heroInitVendetta;
     }
     动作 {
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 0, 所用英雄(事件玩家));
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
-    }
-}
-
-规则 ("[Vendetta/init.opy]: Initialize Vendetta") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        斩仇;
-    }
-    条件 {
-        首个((事件玩家).reset_pvar) != 假;
-    }
-    动作 {
-        调用子程序(resetHero);
         根据条件跳过(比较(所在队伍(事件玩家), !=, 队伍1), 1);
         开始为机器人强制设置名称(事件玩家, 数组随机取值(数组(自定义字符串("大剑摩西"), 自定义字符串("一刀摩西"))));
         //lbl_0:
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
     }
 }
 
 //Strict optimizations enabled
-规则 ("[wuyang/init.opy]: Detect switch to wuyang") {
+规则 ("[wuyang/init.opy]: heroInitWuyang()") {
     事件 {
-        持续 - 每名玩家;
-        双方;
-        无漾;
-    }
-    条件 {
-        数组中的值((事件玩家).hero_switch_pvar, 1) == 真;
-        数组中的值((事件玩家).hero_switch_pvar, 2) == 所用英雄(事件玩家);
-        已重生(事件玩家) == 真;
+        子程序;
+        heroInitWuyang;
     }
     动作 {
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 0, 所用英雄(事件玩家));
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
-    }
-}
-
-规则 ("[wuyang/init.opy]: Initialize wuyang") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        无漾;
-    }
-    条件 {
-        首个((事件玩家).reset_pvar) != 假;
-    }
-    动作 {
-        调用子程序(resetHero);
         根据条件跳过(比较(所在队伍(事件玩家), !=, 队伍1), 1);
         开始为机器人强制设置名称(事件玩家, 数组随机取值(数组(自定义字符串("玩水摩西"), 自定义字符串("成都摩西"))));
         //lbl_0:
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
     }
 }
 
 //Strict optimizations enabled
-规则 ("[reinhardt/init.opy]: Detect switch to Reinhardt") {
+规则 ("[reinhardt/init.opy]: heroInitReinhardt()") {
     事件 {
-        持续 - 每名玩家;
-        双方;
-        莱因哈特;
-    }
-    条件 {
-        数组中的值((事件玩家).hero_switch_pvar, 1) == 真;
-        数组中的值((事件玩家).hero_switch_pvar, 2) == 所用英雄(事件玩家);
-        已重生(事件玩家) == 真;
+        子程序;
+        heroInitReinhardt;
     }
     动作 {
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 0, 所用英雄(事件玩家));
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
-    }
-}
-
-规则 ("[reinhardt/init.opy]: Initialize Reinhardt") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        莱因哈特;
-    }
-    条件 {
-        首个((事件玩家).reset_pvar) != 假;
-    }
-    动作 {
-        调用子程序(resetHero);
         "eventPlayer.setKnockbackReceived(REINHARDT_INIT_KNOCKBACK_RECEIVED)"
         根据条件跳过(比较(所在队伍(事件玩家), !=, 队伍1), 1);
         开始为机器人强制设置名称(事件玩家, 数组随机取值(数组(自定义字符串("小米Su7 Ultra"), 自定义字符串("Hadi"), 自定义字符串("冲锋摩西"), 自定义字符串("抡锤摩西"))));
         //lbl_0:
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
     }
 }
 
 //Strict optimizations enabled
-规则 ("[Hazard/init.opy]: Detect switch to Hazard") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        骇灾;
-    }
-    条件 {
-        数组中的值((事件玩家).hero_switch_pvar, 1) == 真;
-        数组中的值((事件玩家).hero_switch_pvar, 2) == 所用英雄(事件玩家);
-        已重生(事件玩家) == 真;
-    }
-    动作 {
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 0, 所用英雄(事件玩家));
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
-    }
-}
-
-规则 ("[Hazard/init.opy]: Initialize Hazard") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        骇灾;
-    }
-    条件 {
-        首个((事件玩家).reset_pvar) != 假;
-    }
-    动作 {
-        调用子程序(resetHero);
-        "removeTankPassive()"
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
-    }
-}
-
 //Strict optimizations enabled
-规则 ("[Domina/init.opy]: Detect switch to Domina") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        金驭;
-    }
-    条件 {
-        数组中的值((事件玩家).hero_switch_pvar, 1) == 真;
-        数组中的值((事件玩家).hero_switch_pvar, 2) == 所用英雄(事件玩家);
-        已重生(事件玩家) == 真;
-    }
-    动作 {
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 0, 所用英雄(事件玩家));
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
-    }
-}
-
-规则 ("[Domina/init.opy]: Initialize Domina") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        金驭;
-    }
-    条件 {
-        首个((事件玩家).reset_pvar) != 假;
-    }
-    动作 {
-        调用子程序(resetHero);
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
-    }
-}
-
 //Strict optimizations enabled
-规则 ("[Anran/init.opy]: Detect switch to Anran") {
+规则 ("[anran/init.opy]: heroInitAnran()") {
     事件 {
-        持续 - 每名玩家;
-        双方;
-        安燃;
-    }
-    条件 {
-        数组中的值((事件玩家).hero_switch_pvar, 1) == 真;
-        数组中的值((事件玩家).hero_switch_pvar, 2) == 所用英雄(事件玩家);
-        已重生(事件玩家) == 真;
+        子程序;
+        heroInitAnran;
     }
     动作 {
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 0, 所用英雄(事件玩家));
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
-    }
-}
-
-规则 ("[Anran/init.opy]: Initialize Anran") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        安燃;
-    }
-    条件 {
-        首个((事件玩家).reset_pvar) != 假;
-    }
-    动作 {
-        调用子程序(resetHero);
         根据条件跳过(比较(所在队伍(事件玩家), !=, 队伍1), 2);
         开始为机器人强制设置名称(事件玩家, 数组随机取值(数组(自定义字符串("扇风摩西"), 自定义字符串("加热摩西"), 自定义字符串("AAA成都烤肉总代"), 自定义字符串("别来无漾"))));
         设置玩家变量(事件玩家, heroNum, 数组值的索引(全局.BotHeroArray, 所用英雄(事件玩家)));
         //lbl_0:
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
     }
 }
 
 //Strict optimizations enabled
-规则 ("[Emre/init.opy]: Detect switch to Emre") {
+规则 ("[emre/init.opy]: heroInitEmre()") {
     事件 {
-        持续 - 每名玩家;
-        双方;
-        埃姆雷;
-    }
-    条件 {
-        数组中的值((事件玩家).hero_switch_pvar, 1) == 真;
-        数组中的值((事件玩家).hero_switch_pvar, 2) == 所用英雄(事件玩家);
-        已重生(事件玩家) == 真;
+        子程序;
+        heroInitEmre;
     }
     动作 {
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 0, 所用英雄(事件玩家));
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
-    }
-}
-
-规则 ("[Emre/init.opy]: Initialize Emre") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        埃姆雷;
-    }
-    条件 {
-        首个((事件玩家).reset_pvar) != 假;
-    }
-    动作 {
-        调用子程序(resetHero);
         根据条件跳过(比较(所在队伍(事件玩家), !=, 队伍1), 1);
         开始为机器人强制设置名称(事件玩家, 数组随机取值(数组(自定义字符串("不是M"), 自定义字符串("天眼摩西"), 自定义字符串("丢雷摩西"))));
         //lbl_0:
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
     }
 }
 
 //Strict optimizations enabled
-规则 ("[Mizuki/init.opy]: Detect switch to Mizuki") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        瑞稀;
-    }
-    条件 {
-        数组中的值((事件玩家).hero_switch_pvar, 1) == 真;
-        数组中的值((事件玩家).hero_switch_pvar, 2) == 所用英雄(事件玩家);
-        已重生(事件玩家) == 真;
-    }
-    动作 {
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 0, 所用英雄(事件玩家));
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
-    }
-}
-
-规则 ("[Mizuki/init.opy]: Initialize Mizuki") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        瑞稀;
-    }
-    条件 {
-        首个((事件玩家).reset_pvar) != 假;
-    }
-    动作 {
-        调用子程序(resetHero);
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
-    }
-}
-
 //Strict optimizations enabled
-规则 ("[JetpackCat/init.opy]: Detect switch to JetpackCat") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        飞天猫;
-    }
-    条件 {
-        数组中的值((事件玩家).hero_switch_pvar, 1) == 真;
-        数组中的值((事件玩家).hero_switch_pvar, 2) == 所用英雄(事件玩家);
-        已重生(事件玩家) == 真;
-    }
-    动作 {
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 0, 所用英雄(事件玩家));
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
-    }
-}
-
-规则 ("[JetpackCat/init.opy]: Initialize JetpackCat") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        飞天猫;
-    }
-    条件 {
-        首个((事件玩家).reset_pvar) != 假;
-    }
-    动作 {
-        调用子程序(resetHero);
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
-    }
-}
-
 //Strict optimizations enabled
-规则 ("[pharah/init.opy]: Detect switch to Pharah") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        法老之鹰;
-    }
-    条件 {
-        数组中的值((事件玩家).hero_switch_pvar, 1) == 真;
-        数组中的值((事件玩家).hero_switch_pvar, 2) == 所用英雄(事件玩家);
-        已重生(事件玩家) == 真;
-    }
-    动作 {
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 0, 所用英雄(事件玩家));
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
-    }
-}
-
-规则 ("[pharah/init.opy]: Initialize Pharah") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        法老之鹰;
-    }
-    条件 {
-        首个((事件玩家).reset_pvar) != 假;
-    }
-    动作 {
-        调用子程序(resetHero);
-        "pass"
-        禁用 中止;
-        //lbl_0:
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
-    }
-}
-
 //Strict optimizations enabled
-规则 ("[winston/init.opy]: Detect switch to Winston") {
+规则 ("[winston/init.opy]: heroInitWinston()") {
     事件 {
-        持续 - 每名玩家;
-        双方;
-        温斯顿;
-    }
-    条件 {
-        数组中的值((事件玩家).hero_switch_pvar, 1) == 真;
-        数组中的值((事件玩家).hero_switch_pvar, 2) == 所用英雄(事件玩家);
-        已重生(事件玩家) == 真;
+        子程序;
+        heroInitWinston;
     }
     动作 {
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 0, 所用英雄(事件玩家));
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
-    }
-}
-
-规则 ("[winston/init.opy]: Initialize Winston") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        温斯顿;
-    }
-    条件 {
-        首个((事件玩家).reset_pvar) != 假;
-    }
-    动作 {
-        调用子程序(resetHero);
         "removeTankPassive()"
         根据条件跳过(比较(所在队伍(事件玩家), !=, 队伍1), 1);
         开始为机器人强制设置名称(事件玩家, 数组随机取值(数组(自定义字符串("电音王子吴亦凡"), 自定义字符串("雷电法王杨永信"), 自定义字符串("电击摩西"), 自定义字符串("菜就多练"))));
         //lbl_0:
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
     }
 }
 
 //Strict optimizations enabled
-规则 ("[widowmaker/init.opy]: Detect switch to Widowmaker") {
+规则 ("[widowmaker/init.opy]: heroInitWidowmaker()") {
     事件 {
-        持续 - 每名玩家;
-        双方;
-        黑百合;
-    }
-    条件 {
-        数组中的值((事件玩家).hero_switch_pvar, 1) == 真;
-        数组中的值((事件玩家).hero_switch_pvar, 2) == 所用英雄(事件玩家);
-        已重生(事件玩家) == 真;
+        子程序;
+        heroInitWidowmaker;
     }
     动作 {
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 0, 所用英雄(事件玩家));
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
-    }
-}
-
-规则 ("[widowmaker/init.opy]: Initialize Widowmaker") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        黑百合;
-    }
-    条件 {
-        首个((事件玩家).reset_pvar) != 假;
-    }
-    动作 {
-        调用子程序(resetHero);
         设置最大弹药(事件玩家, 0, 25);
         设置弹药(事件玩家, 0, 最大弹药(事件玩家, 0));
         根据条件跳过(比较(所在队伍(事件玩家), !=, 队伍1), 1);
         开始为机器人强制设置名称(事件玩家, 数组随机取值(数组(自定义字符串("ANS"), 自定义字符串("亿枪一个"), 自定义字符串("KAI了就是KAI了？"), 自定义字符串("女兵摩西"), 自定义字符串("MN3"))));
         //lbl_0:
         在索引处设置玩家变量(数组中的值((事件玩家).reset_pvar, 6), reset_pvar, 9, 事件玩家);
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
     }
 }
 
 //Strict optimizations enabled
-规则 ("[bastion/init.opy]: Detect switch to Bastion") {
+规则 ("[bastion/init.opy]: heroInitBastion()") {
     事件 {
-        持续 - 每名玩家;
-        双方;
-        堡垒;
-    }
-    条件 {
-        数组中的值((事件玩家).hero_switch_pvar, 1) == 真;
-        数组中的值((事件玩家).hero_switch_pvar, 2) == 所用英雄(事件玩家);
-        已重生(事件玩家) == 真;
+        子程序;
+        heroInitBastion;
     }
     动作 {
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 0, 所用英雄(事件玩家));
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
-    }
-}
-
-规则 ("[bastion/init.opy]: Initialize Bastion") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        堡垒;
-    }
-    条件 {
-        首个((事件玩家).reset_pvar) != 假;
-    }
-    动作 {
-        调用子程序(resetHero);
         根据条件跳过(比较(所在队伍(事件玩家), !=, 队伍1), 1);
         开始为机器人强制设置名称(事件玩家, 数组随机取值(数组(自定义字符串("电脑"), 自定义字符串("嘟嘟嘟嘟嘟"), 自定义字符串("大炮摩西"), 自定义字符串("无可奉告"))));
         //lbl_0:
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
     }
 }
 
 //Strict optimizations enabled
-规则 ("[symmetra/init.opy]: Detect switch to Symmetra") {
+规则 ("[symmetra/init.opy]: heroInitSymmetra()") {
     事件 {
-        持续 - 每名玩家;
-        双方;
-        秩序之光;
-    }
-    条件 {
-        数组中的值((事件玩家).hero_switch_pvar, 1) == 真;
-        数组中的值((事件玩家).hero_switch_pvar, 2) == 所用英雄(事件玩家);
-        已重生(事件玩家) == 真;
+        子程序;
+        heroInitSymmetra;
     }
     动作 {
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 0, 所用英雄(事件玩家));
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
-    }
-}
-
-规则 ("[symmetra/init.opy]: Initialize Symmetra") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        秩序之光;
-    }
-    条件 {
-        首个((事件玩家).reset_pvar) != 假;
-    }
-    动作 {
-        调用子程序(resetHero);
         根据条件跳过(比较(所在队伍(事件玩家), !=, 队伍1), 1);
         开始为机器人强制设置名称(事件玩家, 数组随机取值(数组(自定义字符串("性♂感荷官在线烫头"), 自定义字符串("绿洲城首家赌场"), 自定义字符串("麻豆传媒摄影师"), 自定义字符串("烫头摩西"))));
         //lbl_0:
         在索引处设置玩家变量(所有玩家(所在队伍(事件玩家)), reset_pvar, 3, 事件玩家);
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
     }
 }
 
 //Strict optimizations enabled
-规则 ("[zenyatta]: Detect switch to zenyatta") {
+规则 ("[zenyatta/init.opy]: heroInitZenyatta()") {
     事件 {
-        持续 - 每名玩家;
-        双方;
-        禅雅塔;
-    }
-    条件 {
-        数组中的值((事件玩家).hero_switch_pvar, 1) == 真;
-        数组中的值((事件玩家).hero_switch_pvar, 2) == 所用英雄(事件玩家);
-        已重生(事件玩家) == 真;
+        子程序;
+        heroInitZenyatta;
     }
     动作 {
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 0, 所用英雄(事件玩家));
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
-    }
-}
-
-规则 ("[zenyatta]: init") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        禅雅塔;
-    }
-    条件 {
-        首个((事件玩家).reset_pvar) != 假;
-    }
-    动作 {
-        调用子程序(resetHero);
         设置最大弹药(事件玩家, 0, 20);
         设置弹药(事件玩家, 0, 最大弹药(事件玩家, 0));
         根据条件跳过(比较(所在队伍(事件玩家), !=, 队伍1), 1);
         开始为机器人强制设置名称(事件玩家, 数组随机取值(数组(自定义字符串("武僧"), 自定义字符串("出家摩西"), 自定义字符串("机械摩西"), 自定义字符串("就这"), 自定义字符串("JJONAK"))));
         //lbl_0:
         在索引处设置玩家变量(数组中的值((事件玩家).reset_pvar, 6), reset_pvar, 9, 事件玩家);
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
     }
 }
 
 //Strict optimizations enabled
-规则 ("[Genji]: Detect switch to Genji") {
+规则 ("[genji/init.opy]: heroInitGenji()") {
     事件 {
-        持续 - 每名玩家;
-        双方;
-        源氏;
-    }
-    条件 {
-        数组中的值((事件玩家).hero_switch_pvar, 1) == 真;
-        数组中的值((事件玩家).hero_switch_pvar, 2) == 所用英雄(事件玩家);
-        已重生(事件玩家) == 真;
+        子程序;
+        heroInitGenji;
     }
     动作 {
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 0, 所用英雄(事件玩家));
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
-    }
-}
-
-规则 ("[Genji]: init") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        源氏;
-    }
-    条件 {
-        首个((事件玩家).reset_pvar) != 假;
-    }
-    动作 {
-        调用子程序(resetHero);
         根据条件跳过(比较(所在队伍(事件玩家), !=, 队伍1), 1);
         开始为机器人强制设置名称(事件玩家, 数组随机取值(数组(自定义字符串("国服{0}分顶尖镖师", 首个(全局.Genji)), 自定义字符串("飞镖摩西"), 自定义字符串("源神"), 自定义字符串("忍者摩西"), 自定义字符串("源氏凯"))));
         //lbl_0:
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
     }
 }
 
 //Strict optimizations enabled
-规则 ("[roadhog]: Detect switch to roadhog") {
+规则 ("[roadhog/init.opy]: heroInitRoadhog()") {
     事件 {
-        持续 - 每名玩家;
-        双方;
-        路霸;
-    }
-    条件 {
-        数组中的值((事件玩家).hero_switch_pvar, 1) == 真;
-        数组中的值((事件玩家).hero_switch_pvar, 2) == 所用英雄(事件玩家);
-        已重生(事件玩家) == 真;
+        子程序;
+        heroInitRoadhog;
     }
     动作 {
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 0, 所用英雄(事件玩家));
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
-    }
-}
-
-规则 ("[roadhog]") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        路霸;
-    }
-    条件 {
-        首个((事件玩家).reset_pvar) != 假;
-    }
-    动作 {
-        调用子程序(resetHero);
         设置最大弹药(事件玩家, 0, 5);
         设置弹药(事件玩家, 0, 最大弹药(事件玩家, 0));
         开始为机器人强制设置名称(事件玩家, 数组随机取值(数组(自定义字符串("链钩摩西"), 自定义字符串("肥猪摩西"), 自定义字符串("小鱿摩西"), 自定义字符串("奶霸摩西"))));
-        "removeTankPassive()"
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
     }
 }
 
 //Strict optimizations enabled
-规则 ("[Cassidy]: Detect switch to Cassidy") {
+规则 ("[cassidy/init.opy]: heroInitCassidy()") {
     事件 {
-        持续 - 每名玩家;
-        双方;
-        卡西迪;
-    }
-    条件 {
-        数组中的值((事件玩家).hero_switch_pvar, 1) == 真;
-        数组中的值((事件玩家).hero_switch_pvar, 2) == 所用英雄(事件玩家);
-        已重生(事件玩家) == 真;
+        子程序;
+        heroInitCassidy;
     }
     动作 {
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 0, 所用英雄(事件玩家));
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
-    }
-}
-
-规则 ("[Cassidy]: Initialize Cassidy") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        卡西迪;
-    }
-    条件 {
-        首个((事件玩家).reset_pvar) != 假;
-    }
-    动作 {
-        调用子程序(resetHero);
         根据条件跳过(比较(所在队伍(事件玩家), !=, 队伍1), 1);
         开始为机器人强制设置名称(事件玩家, 数组随机取值(数组(自定义字符串("张三"), 自定义字符串("天王老子"), 自定义字符串("KAI了"), 自定义字符串("麦克雷"), 自定义字符串("六连摩西"))));
         //lbl_0:
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
     }
 }
 
 //Strict optimizations enabled
-规则 ("[Junkrat]: Detect switch to Junkrat") {
+规则 ("[junkrat/init.opy]: heroInitJunkrat()") {
     事件 {
-        持续 - 每名玩家;
-        双方;
-        狂鼠;
-    }
-    条件 {
-        数组中的值((事件玩家).hero_switch_pvar, 1) == 真;
-        数组中的值((事件玩家).hero_switch_pvar, 2) == 所用英雄(事件玩家);
-        已重生(事件玩家) == 真;
+        子程序;
+        heroInitJunkrat;
     }
     动作 {
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 0, 所用英雄(事件玩家));
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
-    }
-}
-
-规则 ("[Junkrat] Initialize") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        狂鼠;
-    }
-    条件 {
-        首个((事件玩家).reset_pvar) != 假;
-    }
-    动作 {
-        调用子程序(resetHero);
         根据条件跳过(比较(所在队伍(事件玩家), !=, 队伍1), 1);
         开始为机器人强制设置名称(事件玩家, 数组随机取值(数组(自定义字符串("拉 史 大 王"), 自定义字符串("拉 史 摩 西"), 自定义字符串("鼠鼠摩西"), 自定义字符串("鸭脖摩西"), 自定义字符串("夹子摩西"))));
         //lbl_0:
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
     }
 }
 
 //Strict optimizations enabled
-规则 ("[Zarya]: Detect switch to Zarya") {
+规则 ("[zarya/init.opy]: heroInitZarya()") {
     事件 {
-        持续 - 每名玩家;
-        双方;
-        查莉娅;
-    }
-    条件 {
-        数组中的值((事件玩家).hero_switch_pvar, 1) == 真;
-        数组中的值((事件玩家).hero_switch_pvar, 2) == 所用英雄(事件玩家);
-        已重生(事件玩家) == 真;
+        子程序;
+        heroInitZarya;
     }
     动作 {
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 0, 所用英雄(事件玩家));
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
-    }
-}
-
-规则 ("[Zarya] Initialize") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        查莉娅;
-    }
-    条件 {
-        首个((事件玩家).reset_pvar) != 假;
-    }
-    动作 {
-        调用子程序(resetHero);
         在索引处设置玩家变量(事件玩家, zarya_buff, 0, 真);
         "removeTankPassive()"
         根据条件跳过(比较(所在队伍(事件玩家), !=, 队伍1), 1);
         开始为机器人强制设置名称(事件玩家, 数组随机取值(数组(自定义字符串("Sinatraa"), 自定义字符串("泡泡摩西"), 自定义字符串("东北雨姐"))));
         //lbl_0:
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
     }
 }
 
 //Strict optimizations enabled
-规则 ("[Soldier: 76]: Detect switch to Soldier 76") {
+规则 ("[soldier76/init.opy]: heroInitSoldier76()") {
     事件 {
-        持续 - 每名玩家;
-        双方;
-        士兵：76;
-    }
-    条件 {
-        数组中的值((事件玩家).hero_switch_pvar, 1) == 真;
-        数组中的值((事件玩家).hero_switch_pvar, 2) == 所用英雄(事件玩家);
-        已重生(事件玩家) == 真;
+        子程序;
+        heroInitSoldier76;
     }
     动作 {
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 0, 所用英雄(事件玩家));
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
-    }
-}
-
-规则 ("[Soldier: 76]: Initialize") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        士兵：76;
-    }
-    条件 {
-        首个((事件玩家).reset_pvar) != 假;
-    }
-    动作 {
-        调用子程序(resetHero);
         根据条件跳过(比较(所在队伍(事件玩家), !=, 队伍1), 1);
         开始为机器人强制设置名称(事件玩家, 数组随机取值(数组(自定义字符串("国服顶尖小巴蒂"), 自定义字符串("跑男摩西"), 自定义字符串("奶棒摩西"), 自定义字符串("Kai了"), 自定义字符串("飞弹摩西"))));
         //lbl_0:
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
     }
 }
 
 //Strict optimizations enabled
-规则 ("[Lucio]: Detect switch to Lucio") {
+规则 ("[lucio/init.opy]: heroInitLucio()") {
     事件 {
-        持续 - 每名玩家;
-        双方;
-        卢西奥;
-    }
-    条件 {
-        数组中的值((事件玩家).hero_switch_pvar, 1) == 真;
-        数组中的值((事件玩家).hero_switch_pvar, 2) == 所用英雄(事件玩家);
-        已重生(事件玩家) == 真;
+        子程序;
+        heroInitLucio;
     }
     动作 {
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 0, 所用英雄(事件玩家));
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
-    }
-}
-
-规则 ("[Lucio] Initialize") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        卢西奥;
-    }
-    条件 {
-        首个((事件玩家).reset_pvar) != 假;
-    }
-    动作 {
-        调用子程序(resetHero);
         根据条件跳过(比较(所在队伍(事件玩家), !=, 队伍1), 1);
         开始为机器人强制设置名称(事件玩家, 数组随机取值(数组(自定义字符串("巴西拳王"), 自定义字符串("喇叭摩西"), 自定义字符串("轮滑摩西"))));
         //lbl_0:
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
     }
 }
 
 //Strict optimizations enabled
-规则 ("[D.Va]: Detect switch to D.Va") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        D.Va;
-    }
-    条件 {
-        数组中的值((事件玩家).hero_switch_pvar, 1) == 真;
-        数组中的值((事件玩家).hero_switch_pvar, 2) == 所用英雄(事件玩家);
-        已重生(事件玩家) == 真;
-        处于非初始状态(事件玩家) == 假;
-    }
-    动作 {
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 0, 所用英雄(事件玩家));
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
-    }
-}
-
-规则 ("[D.Va] Initialize") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        D.Va;
-    }
-    条件 {
-        首个((事件玩家).reset_pvar) != 假;
-    }
-    动作 {
-        调用子程序(resetHero);
-        "removeTankPassive()"
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
-    }
-}
-
 //Strict optimizations enabled
-规则 ("[Mei]: Detect switch to Mei") {
+规则 ("[mei/init.opy]: heroInitMei()") {
     事件 {
-        持续 - 每名玩家;
-        双方;
-        美;
-    }
-    条件 {
-        数组中的值((事件玩家).hero_switch_pvar, 1) == 真;
-        数组中的值((事件玩家).hero_switch_pvar, 2) == 所用英雄(事件玩家);
-        已重生(事件玩家) == 真;
+        子程序;
+        heroInitMei;
     }
     动作 {
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 0, 所用英雄(事件玩家));
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
-    }
-}
-
-规则 ("[Mei] Initialize") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        美;
-    }
-    条件 {
-        首个((事件玩家).reset_pvar) != 假;
-    }
-    动作 {
-        调用子程序(resetHero);
         根据条件跳过(比较(所在队伍(事件玩家), !=, 队伍1), 1);
         开始为机器人强制设置名称(事件玩家, 数组随机取值(数组(自定义字符串("识得唔识得啊"), 自定义字符串("冰雕摩西"), 自定义字符串("麦克美"), 自定义字符串("周美玲冰雪大世界"), 自定义字符串("哈尔滨摩西"))));
         //lbl_0:
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
     }
 }
 
 //Strict optimizations enabled
-规则 ("[Sombra]: Detect switch to Sombra") {
+规则 ("[sombra/init.opy]: heroInitSombra()") {
     事件 {
-        持续 - 每名玩家;
-        双方;
-        黑影;
-    }
-    条件 {
-        数组中的值((事件玩家).hero_switch_pvar, 1) == 真;
-        数组中的值((事件玩家).hero_switch_pvar, 2) == 所用英雄(事件玩家);
-        已重生(事件玩家) == 真;
+        子程序;
+        heroInitSombra;
     }
     动作 {
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 0, 所用英雄(事件玩家));
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
-    }
-}
-
-规则 ("[Sombra] Initialize") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        黑影;
-    }
-    条件 {
-        首个((事件玩家).reset_pvar) != 假;
-    }
-    动作 {
-        调用子程序(resetHero);
         根据条件跳过(比较(所在队伍(事件玩家), !=, 队伍1), 1);
         开始为机器人强制设置名称(事件玩家, 数组随机取值(数组(自定义字符串("全民偶像酸不辣"), 自定义字符串("多少有点LIP"), 自定义字符串("阳光开朗小女孩"), 自定义字符串("隐身摩西"))));
         //lbl_0:
         在索引处设置玩家变量(所有玩家(所在队伍(事件玩家)), reset_pvar, 4, 事件玩家);
         在索引处设置玩家变量(所有玩家(对方队伍(所在队伍(事件玩家))), reset_pvar, 7, 事件玩家);
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
     }
 }
 
 //Strict optimizations enabled
-规则 ("[Ana]: Detect switch to Ana") {
+规则 ("[ana/init.opy]: heroInitAna()") {
     事件 {
-        持续 - 每名玩家;
-        双方;
-        安娜;
-    }
-    条件 {
-        数组中的值((事件玩家).hero_switch_pvar, 1) == 真;
-        数组中的值((事件玩家).hero_switch_pvar, 2) == 所用英雄(事件玩家);
-        已重生(事件玩家) == 真;
+        子程序;
+        heroInitAna;
     }
     动作 {
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 0, 所用英雄(事件玩家));
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
-    }
-}
-
-规则 ("[Ana] Initialize") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        安娜;
-    }
-    条件 {
-        首个((事件玩家).reset_pvar) != 假;
-    }
-    动作 {
-        调用子程序(resetHero);
         根据条件跳过(比较(所在队伍(事件玩家), !=, 队伍1), 2);
         开始为机器人强制设置名称(事件玩家, 数组随机取值(数组(自定义字符串("老年摩西"), 自定义字符串("睡觉摩西"), 自定义字符串("末日铁娜"), 自定义字符串("独眼摩西"))));
         设置玩家变量(事件玩家, heroNum, 数组值的索引(全局.BotHeroArray, 所用英雄(事件玩家)));
         //lbl_0:
         在索引处设置玩家变量(数组中的值((事件玩家).reset_pvar, 6), reset_pvar, 9, 事件玩家);
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
     }
 }
 
 //Strict optimizations enabled
-规则 ("[Orisa]: Detect switch to Orisa") {
+规则 ("[orisa/init.opy]: heroInitOrisa()") {
     事件 {
-        持续 - 每名玩家;
-        双方;
-        奥丽莎;
-    }
-    条件 {
-        数组中的值((事件玩家).hero_switch_pvar, 1) == 真;
-        数组中的值((事件玩家).hero_switch_pvar, 2) == 所用英雄(事件玩家);
-        已重生(事件玩家) == 真;
+        子程序;
+        heroInitOrisa;
     }
     动作 {
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 0, 所用英雄(事件玩家));
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
-    }
-}
-
-规则 ("[Orisa] Initialize") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        奥丽莎;
-    }
-    条件 {
-        首个((事件玩家).reset_pvar) != 假;
-    }
-    动作 {
-        调用子程序(resetHero);
         "removeTankPassive()"
         根据条件跳过(比较(所在队伍(事件玩家), !=, 队伍1), 1);
         开始为机器人强制设置名称(事件玩家, 数组随机取值(数组(自定义字符串("命运羊驼"), 自定义字符串("美羊羊"), 自定义字符串("唯一真神"), 自定义字符串("标枪摩西"), 自定义字符串("小米Su7 Ultra"))));
         //lbl_0:
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
     }
 }
 
 //Strict optimizations enabled
-规则 ("[Brigitte]: Detect switch to Brigitte") {
+规则 ("[brigitte/init.opy]: heroInitBrigitte()") {
     事件 {
-        持续 - 每名玩家;
-        双方;
-        布丽吉塔;
-    }
-    条件 {
-        数组中的值((事件玩家).hero_switch_pvar, 1) == 真;
-        数组中的值((事件玩家).hero_switch_pvar, 2) == 所用英雄(事件玩家);
-        已重生(事件玩家) == 真;
+        子程序;
+        heroInitBrigitte;
     }
     动作 {
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 0, 所用英雄(事件玩家));
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
-    }
-}
-
-规则 ("[Brigitte] Initialize") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        布丽吉塔;
-    }
-    条件 {
-        首个((事件玩家).reset_pvar) != 假;
-    }
-    动作 {
-        调用子程序(resetHero);
         根据条件跳过(比较(所在队伍(事件玩家), !=, 队伍1), 1);
         开始为机器人强制设置名称(事件玩家, 数组随机取值(数组(自定义字符串("那个女人"), 自定义字符串("炖鸡摩西"), 自定义字符串("持盾摩西"), 自定义字符串("贴膜摩西"), 自定义字符串("护 娜 十 三 锤"), 自定义字符串("泰格"))));
         //lbl_0:
         在索引处设置玩家变量(所有玩家(所在队伍(事件玩家)), reset_pvar, 1, 事件玩家);
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
     }
 }
 
 //Strict optimizations enabled
-规则 ("[Moira]: Detect switch to Moira") {
+规则 ("[moira/init.opy]: heroInitMoira()") {
     事件 {
-        持续 - 每名玩家;
-        双方;
-        莫伊拉;
-    }
-    条件 {
-        数组中的值((事件玩家).hero_switch_pvar, 1) == 真;
-        数组中的值((事件玩家).hero_switch_pvar, 2) == 所用英雄(事件玩家);
-        已重生(事件玩家) == 真;
+        子程序;
+        heroInitMoira;
     }
     动作 {
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 0, 所用英雄(事件玩家));
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
-    }
-}
-
-规则 ("[Moira] Initialize") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        莫伊拉;
-    }
-    条件 {
-        首个((事件玩家).reset_pvar) != 假;
-    }
-    动作 {
-        调用子程序(resetHero);
         根据条件跳过(比较(所在队伍(事件玩家), !=, 队伍1), 1);
         开始为机器人强制设置名称(事件玩家, 数组随机取值(数组(自定义字符串("五  金  上  将"), 自定义字符串("五金上将莫伊拉"), 自定义字符串("五金摩西"), 自定义字符串("生化摩西"))));
         //lbl_0:
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
     }
 }
 
 //Strict optimizations enabled
-规则 ("[Wrecking Ball]: Detect switch to Wrecking Ball") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        破坏球;
-    }
-    条件 {
-        数组中的值((事件玩家).hero_switch_pvar, 1) == 真;
-        数组中的值((事件玩家).hero_switch_pvar, 2) == 所用英雄(事件玩家);
-        已重生(事件玩家) == 真;
-    }
-    动作 {
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 0, 所用英雄(事件玩家));
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
-    }
-}
-
-规则 ("[Wrecking Ball] Initialize") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        破坏球;
-    }
-    条件 {
-        首个((事件玩家).reset_pvar) != 假;
-    }
-    动作 {
-        调用子程序(resetHero);
-        "removeTankPassive()"
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
-    }
-}
-
 //Strict optimizations enabled
-规则 ("[Sojourn]: Detect switch to Sojourn") {
+规则 ("[sojourn/init.opy]: heroInitSojourn()") {
     事件 {
-        持续 - 每名玩家;
-        双方;
-        索杰恩;
-    }
-    条件 {
-        数组中的值((事件玩家).hero_switch_pvar, 1) == 真;
-        数组中的值((事件玩家).hero_switch_pvar, 2) == 所用英雄(事件玩家);
-        已重生(事件玩家) == 真;
+        子程序;
+        heroInitSojourn;
     }
     动作 {
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 0, 所用英雄(事件玩家));
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
-    }
-}
-
-规则 ("[Sojourn] Initialize") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        索杰恩;
-    }
-    条件 {
-        首个((事件玩家).reset_pvar) != 假;
-    }
-    动作 {
-        调用子程序(resetHero);
         根据条件跳过(比较(所在队伍(事件玩家), !=, 队伍1), 1);
         开始为机器人强制设置名称(事件玩家, 数组随机取值(数组(自定义字符串("跳跳熊"), 自定义字符串("我超摩西"), 自定义字符串("我超"), 自定义字符串("ANS"), 自定义字符串("MN3"), 自定义字符串("EVAEL"), 自定义字符串("没KAI"))));
         //lbl_0:
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
     }
 }
 
 //Strict optimizations enabled
-规则 ("[Ashe]: Detect switch to Ashe") {
+规则 ("[ashe/init.opy]: heroInitAshe()") {
     事件 {
-        持续 - 每名玩家;
-        双方;
-        艾什;
-    }
-    条件 {
-        数组中的值((事件玩家).hero_switch_pvar, 1) == 真;
-        数组中的值((事件玩家).hero_switch_pvar, 2) == 所用英雄(事件玩家);
-        已重生(事件玩家) == 真;
+        子程序;
+        heroInitAshe;
     }
     动作 {
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 0, 所用英雄(事件玩家));
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
-    }
-}
-
-规则 ("[Ashe] Initialize") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        艾什;
-    }
-    条件 {
-        首个((事件玩家).reset_pvar) != 假;
-    }
-    动作 {
-        调用子程序(resetHero);
         根据条件跳过(比较(所在队伍(事件玩家), !=, 队伍1), 1);
         开始为机器人强制设置名称(事件玩家, 数组随机取值(数组(自定义字符串("张三的绯闻女友"), 自定义字符串("KAI了"), 自定义字符串("ANS"), 自定义字符串("Bob摩西"))));
         //lbl_0:
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
     }
 }
 
 //Strict optimizations enabled
-规则 ("[Echo]: Detect switch to Echo") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        回声;
-    }
-    条件 {
-        数组中的值((事件玩家).hero_switch_pvar, 1) == 真;
-        数组中的值((事件玩家).hero_switch_pvar, 2) == 所用英雄(事件玩家);
-        已重生(事件玩家) == 真;
-    }
-    动作 {
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 0, 所用英雄(事件玩家));
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
-    }
-}
-
-规则 ("[Echo] Initialize") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        回声;
-    }
-    条件 {
-        首个((事件玩家).reset_pvar) != 假;
-    }
-    动作 {
-        调用子程序(resetHero);
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
-    }
-}
-
 //Strict optimizations enabled
-规则 ("[Baptiste]: Detect switch to Baptiste") {
+规则 ("[baptiste/init.opy]: heroInitBaptiste()") {
     事件 {
-        持续 - 每名玩家;
-        双方;
-        巴蒂斯特;
-    }
-    条件 {
-        数组中的值((事件玩家).hero_switch_pvar, 1) == 真;
-        数组中的值((事件玩家).hero_switch_pvar, 2) == 所用英雄(事件玩家);
-        已重生(事件玩家) == 真;
+        子程序;
+        heroInitBaptiste;
     }
     动作 {
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 0, 所用英雄(事件玩家));
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
-    }
-}
-
-规则 ("[Baptiste] Initialize") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        巴蒂斯特;
-    }
-    条件 {
-        首个((事件玩家).reset_pvar) != 假;
-    }
-    动作 {
-        调用子程序(resetHero);
         设置最大弹药(事件玩家, 0, 45);
         设置弹药(事件玩家, 0, 最大弹药(事件玩家, 0));
         设置最大弹药(事件玩家, 1, 25);
@@ -8635,372 +8168,141 @@
         开始为机器人强制设置名称(事件玩家, 数组随机取值(数组(自定义字符串("大 76"), 自定义字符串("Kai了"), 自定义字符串("天使"), 自定义字符串("飞饼摩西"), 自定义字符串("锁头摩西"))));
         //lbl_0:
         在索引处设置玩家变量(数组中的值((事件玩家).reset_pvar, 6), reset_pvar, 9, 事件玩家);
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
     }
 }
 
 //Strict optimizations enabled
-规则 ("[Kiriko]: Detect switch to Kiriko") {
+规则 ("[kiriko/init.opy]: heroInitKiriko()") {
     事件 {
-        持续 - 每名玩家;
-        双方;
-        雾子;
-    }
-    条件 {
-        数组中的值((事件玩家).hero_switch_pvar, 1) == 真;
-        数组中的值((事件玩家).hero_switch_pvar, 2) == 所用英雄(事件玩家);
-        已重生(事件玩家) == 真;
+        子程序;
+        heroInitKiriko;
     }
     动作 {
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 0, 所用英雄(事件玩家));
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
-    }
-}
-
-规则 ("[Kiriko] Initialize") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        雾子;
-    }
-    条件 {
-        首个((事件玩家).reset_pvar) != 假;
-    }
-    动作 {
-        调用子程序(resetHero);
         根据条件跳过(比较(所在队伍(事件玩家), !=, 队伍1), 1);
         开始为机器人强制设置名称(事件玩家, 数组随机取值(数组(自定义字符串("忍者摩西"), 自定义字符串("纸钱摩西"), 自定义字符串("破 摩 十 三 雾"))));
         //lbl_0:
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
     }
 }
 
 //Strict optimizations enabled
-规则 ("[Junker Queen]: Detect switch to Junker Queen") {
+规则 ("[junker_queen/init.opy]: heroInitJunkerQueen()") {
     事件 {
-        持续 - 每名玩家;
-        双方;
-        渣客女王;
-    }
-    条件 {
-        数组中的值((事件玩家).hero_switch_pvar, 1) == 真;
-        数组中的值((事件玩家).hero_switch_pvar, 2) == 所用英雄(事件玩家);
-        已重生(事件玩家) == 真;
+        子程序;
+        heroInitJunkerQueen;
     }
     动作 {
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 0, 所用英雄(事件玩家));
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
-    }
-}
-
-规则 ("[Junker Queen] Initialize") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        渣客女王;
-    }
-    条件 {
-        首个((事件玩家).reset_pvar) != 假;
-    }
-    动作 {
-        调用子程序(resetHero);
         设置造成治疗(事件玩家, If-Then-Else(比较(所在队伍(事件玩家), ==, 队伍1), 144.46, 122.23));
         "removeTankPassive()"
         根据条件跳过(比较(所在队伍(事件玩家), !=, 队伍1), 1);
         开始为机器人强制设置名称(事件玩家, 数组随机取值(数组(自定义字符串("姐就是女王 自信放光芒"), 自定义字符串("你若爱就来 不爱莫张狂"), 自定义字符串("收起你的那些小小花花肠"), 自定义字符串("甜言或蜜语去哄小姑娘"), 自定义字符串("姐就是女王 自信放光芒"), 自定义字符串("有钱了不起 姐也很自强"), 自定义字符串("不惧风霜雪雨逆风也飞翔"), 自定义字符串("活成一束光世界都照亮"))));
         //lbl_0:
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
     }
 }
 
 //Strict optimizations enabled
-规则 ("[Sierra]: Detect switch to Sierra") {
+规则 ("[sierra/init.opy]: heroInitSierra()") {
     事件 {
-        持续 - 每名玩家;
-        双方;
-        西拉;
-    }
-    条件 {
-        数组中的值((事件玩家).hero_switch_pvar, 1) == 真;
-        数组中的值((事件玩家).hero_switch_pvar, 2) == 所用英雄(事件玩家);
-        已重生(事件玩家) == 真;
+        子程序;
+        heroInitSierra;
     }
     动作 {
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 0, 所用英雄(事件玩家));
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
-    }
-}
-
-规则 ("[Sierra] Initialize") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        西拉;
-    }
-    条件 {
-        首个((事件玩家).reset_pvar) != 假;
-    }
-    动作 {
-        调用子程序(resetHero);
         根据条件跳过(比较(所在队伍(事件玩家), !=, 队伍1), 1);
         开始为机器人强制设置名称(事件玩家, 数组随机取值(数组(自定义字符串("拉西"), 自定义字符串("无人机摩西"))));
         //lbl_0:
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
     }
 }
 
 //Strict optimizations enabled
-规则 ("[Sigma]: Detect switch to Sigma") {
+规则 ("[sigma/init.opy]: heroInitSigma()") {
     事件 {
-        持续 - 每名玩家;
-        双方;
-        西格玛;
-    }
-    条件 {
-        数组中的值((事件玩家).hero_switch_pvar, 1) == 真;
-        数组中的值((事件玩家).hero_switch_pvar, 2) == 所用英雄(事件玩家);
-        已重生(事件玩家) == 真;
+        子程序;
+        heroInitSigma;
     }
     动作 {
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 0, 所用英雄(事件玩家));
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
-    }
-}
-
-规则 ("[Sigma] Initialize") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        西格玛;
-    }
-    条件 {
-        首个((事件玩家).reset_pvar) != 假;
-    }
-    动作 {
-        调用子程序(resetHero);
         "removeTankPassive()"
         根据条件跳过(比较(所在队伍(事件玩家), !=, 队伍1), 1);
         开始为机器人强制设置名称(事件玩家, 数组随机取值(数组(自定义字符串("核桃摩西"), 自定义字符串("长 者"), 自定义字符串("大爷摩西"))));
         //lbl_0:
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
     }
 }
 
 //Strict optimizations enabled
-规则 ("[Ramattra]: Detect switch to Ramattra") {
+规则 ("[ramattra/init.opy]: heroInitRamattra()") {
     事件 {
-        持续 - 每名玩家;
-        双方;
-        拉玛刹;
-    }
-    条件 {
-        数组中的值((事件玩家).hero_switch_pvar, 1) == 真;
-        数组中的值((事件玩家).hero_switch_pvar, 2) == 所用英雄(事件玩家);
-        已重生(事件玩家) == 真;
+        子程序;
+        heroInitRamattra;
     }
     动作 {
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 0, 所用英雄(事件玩家));
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
-    }
-}
-
-规则 ("[Ramattra] Initialize") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        拉玛刹;
-    }
-    条件 {
-        首个((事件玩家).reset_pvar) != 假;
-    }
-    动作 {
-        调用子程序(resetHero);
         "removeTankPassive()"
         根据条件跳过(比较(所在队伍(事件玩家), !=, 队伍1), 1);
         开始为机器人强制设置名称(事件玩家, 数组随机取值(数组(自定义字符串("我 扛 不 住 辣"), 自定义字符串("鲑鱼大帝"), 自定义字符串("Suffer as i have!"), 自定义字符串("抱头摩西"), 自定义字符串("痛苦摩西"))));
         //lbl_0:
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
     }
 }
 
 //Strict optimizations enabled
-规则 ("[Juno]: Detect switch to Juno") {
+规则 ("[juno/init.opy]: heroInitJuno()") {
     事件 {
-        持续 - 每名玩家;
-        双方;
-        朱诺;
-    }
-    条件 {
-        数组中的值((事件玩家).hero_switch_pvar, 1) == 真;
-        数组中的值((事件玩家).hero_switch_pvar, 2) == 所用英雄(事件玩家);
-        已重生(事件玩家) == 真;
+        子程序;
+        heroInitJuno;
     }
     动作 {
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 0, 所用英雄(事件玩家));
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
-    }
-}
-
-规则 ("[Juno] Initialize") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        朱诺;
-    }
-    条件 {
-        首个((事件玩家).reset_pvar) != 假;
-    }
-    动作 {
-        调用子程序(resetHero);
         根据条件跳过(比较(所在队伍(事件玩家), !=, 队伍1), 1);
         开始为机器人强制设置名称(事件玩家, 数组随机取值(数组(自定义字符串("轨投摩西"), 自定义字符串("香香糯糯"), 自定义字符串("火星摩西"), 自定义字符串("大头摩西"))));
         //lbl_0:
         在索引处设置玩家变量(数组中的值((事件玩家).reset_pvar, 6), reset_pvar, 9, 事件玩家);
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
     }
 }
 
 //Strict optimizations enabled
-规则 ("[Doomfist]: Detect switch to Doomfist") {
+规则 ("[doomfist/init.opy]: heroInitDoomfist()") {
     事件 {
-        持续 - 每名玩家;
-        双方;
-        末日铁拳;
-    }
-    条件 {
-        数组中的值((事件玩家).hero_switch_pvar, 1) == 真;
-        数组中的值((事件玩家).hero_switch_pvar, 2) == 所用英雄(事件玩家);
-        已重生(事件玩家) == 真;
+        子程序;
+        heroInitDoomfist;
     }
     动作 {
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 0, 所用英雄(事件玩家));
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
-    }
-}
-
-规则 ("[Doomfist] Initialize") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        末日铁拳;
-    }
-    条件 {
-        首个((事件玩家).reset_pvar) != 假;
-    }
-    动作 {
-        调用子程序(resetHero);
         "removeTankPassive()"
         根据条件跳过(比较(所在队伍(事件玩家), !=, 队伍1), 1);
         开始为机器人强制设置名称(事件玩家, 数组随机取值(数组(自定义字符串("男拳妈妈"), 自定义字符串("铁拳不准上桌吃饭"), 自定义字符串("吃个娜娜"), 自定义字符串("全部曹飞"), 自定义字符串("男拳摩西"), 自定义字符串("曹飞"), 自定义字符串("你这天使有用吗"), 自定义字符串("你倒是跑啊"), 自定义字符串("有人在家吗"))));
         //lbl_0:
         在索引处设置玩家变量(所有玩家(所在队伍(事件玩家)), reset_pvar, 2, 事件玩家);
         在索引处设置玩家变量(所有玩家(对方队伍(所在队伍(事件玩家))), reset_pvar, 5, 事件玩家);
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
     }
 }
 
 //Strict optimizations enabled
-规则 ("[Lifeweaver]: Detect switch to Lifeweaver") {
+规则 ("[lifeweaver/init.opy]: heroInitLifeweaver()") {
     事件 {
-        持续 - 每名玩家;
-        双方;
-        生命之梭;
-    }
-    条件 {
-        数组中的值((事件玩家).hero_switch_pvar, 1) == 真;
-        数组中的值((事件玩家).hero_switch_pvar, 2) == 所用英雄(事件玩家);
-        已重生(事件玩家) == 真;
+        子程序;
+        heroInitLifeweaver;
     }
     动作 {
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 0, 所用英雄(事件玩家));
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
-    }
-}
-
-规则 ("[Lifeweaver] Initialize") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        生命之梭;
-    }
-    条件 {
-        首个((事件玩家).reset_pvar) != 假;
-    }
-    动作 {
-        调用子程序(resetHero);
         在索引处设置玩家变量(数组中的值((事件玩家).reset_pvar, 6), reset_pvar, 9, 事件玩家);
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
     }
 }
 
 //Strict optimizations enabled
-规则 ("[Mauga]: Detect switch to Mauga") {
+规则 ("[mauga/init.opy]: heroInitMauga()") {
     事件 {
-        持续 - 每名玩家;
-        双方;
-        毛加;
-    }
-    条件 {
-        数组中的值((事件玩家).hero_switch_pvar, 1) == 真;
-        数组中的值((事件玩家).hero_switch_pvar, 2) == 所用英雄(事件玩家);
-        已重生(事件玩家) == 真;
+        子程序;
+        heroInitMauga;
     }
     动作 {
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 0, 所用英雄(事件玩家));
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
-    }
-}
-
-规则 ("[Mauga] Initialize") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        毛加;
-    }
-    条件 {
-        首个((事件玩家).reset_pvar) != 假;
-    }
-    动作 {
-        调用子程序(resetHero);
         "removeTankPassive()"
         根据条件跳过(比较(所在队伍(事件玩家), !=, 队伍1), 1);
         开始为机器人强制设置名称(事件玩家, 数组随机取值(数组(自定义字符串("黑皮体育生"), 自定义字符串("黑皮摩西"), 自定义字符串("SSVGG"), 自定义字符串("Seiseiguigeigei"), 自定义字符串("发烧摩西"), 自定义字符串("小米SU7"))));
         //lbl_0:
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
     }
 }
 
 //Strict optimizations enabled
-规则 ("[Illari]: Detect switch to Illari") {
+规则 ("[illari/init.opy]: heroInitIllari()") {
     事件 {
-        持续 - 每名玩家;
-        双方;
-        伊拉锐;
-    }
-    条件 {
-        数组中的值((事件玩家).hero_switch_pvar, 1) == 真;
-        数组中的值((事件玩家).hero_switch_pvar, 2) == 所用英雄(事件玩家);
-        已重生(事件玩家) == 真;
+        子程序;
+        heroInitIllari;
     }
     动作 {
-        在索引处设置玩家变量(事件玩家, hero_switch_pvar, 0, 所用英雄(事件玩家));
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 真);
-    }
-}
-
-规则 ("[Illari] Initialize") {
-    事件 {
-        持续 - 每名玩家;
-        双方;
-        伊拉锐;
-    }
-    条件 {
-        首个((事件玩家).reset_pvar) != 假;
-    }
-    动作 {
-        调用子程序(resetHero);
         在索引处设置玩家变量(数组中的值((事件玩家).reset_pvar, 6), reset_pvar, 9, 事件玩家);
-        在索引处设置玩家变量(事件玩家, reset_pvar, 0, 假);
     }
 }
 
@@ -9008,6 +8310,79 @@
 禁用 规则 ("Initialize Heors End") {
     事件 {
         持续 - 全局;
+    }
+}
+
+//Strict optimizations enabled
+规则 ("[Player]: changelog hud init") {
+    事件 {
+        持续 - 全局;
+    }
+    动作 {
+        等待(1, 无视条件);
+        创建HUD文本(If-Then-Else(与(与(比较(所在队伍(本地玩家), ==, 队伍2), 非(游戏正在进行中)), 在重生室中(本地玩家)), 本地玩家, 空), 空, 全局.Mark, If-Then-Else(与(比较(所在队伍(本地玩家), ==, 队伍2), 比较(数组中的值(全局.ChangelogBodyTable, 所用英雄(本地玩家)), !=, 空)), 数组中的值(全局.ChangelogBodyTable, 所用英雄(本地玩家)), 自定义字符串("")), 左边, 1, 颜色(白色), 颜色(白色), 颜色(白色), 可见和字符串, 始终不可见);
+    }
+}
+
+//Strict optimizations enabled
+规则 ("Initialize changelog body table") {
+    事件 {
+        持续 - 全局;
+    }
+    动作 {
+        设置全局变量(ChangelogBodyTable, 空数组);
+        在索引处设置全局变量(ChangelogBodyTable, 英雄(安娜), 自定义字符串("\r\n●{0}\r\n*造成伤害 +15%\r\n*造成治疗 +22%\r\n*生物手雷\r\n  使敌方燃烧 每秒造成{1}%最大生命值伤害\r\n*麻醉镖\r\n  冷却时间降低至10秒\r\n*纳米激素\r\n  治疗目标全部已损失生命值\n\n※※离开重生室隐藏", 英雄(安娜), 全局.Ana_GrenadeDamage));
+        在索引处设置全局变量(ChangelogBodyTable, 英雄(安燃), 自定义字符串("\r\n●{0}\r\n*造成伤害 +35%\r\n*受到伤害 -30%\r\n*怒炎冲 冷却时间降低至6秒\r\n*熠闪舞 冷却时间降低至6秒\r\n*烈焰 对所有燃烧中的敌人伤害提高25%（开始伤害调整）\n\n※※离开重生室隐藏", 英雄(安燃)));
+        在索引处设置全局变量(ChangelogBodyTable, 英雄(艾什), 自定义字符串("\r\n●{0}\r\n*造成伤害 +35%\r\n*毒蛇\r\n  弹药增加至 15 发\r\n  暴击倍率提高至 ×{1}\r\n  完成击杀后恢复全部子弹\r\n*延时雷管\r\n  冷却时间降低至8秒\r\n*短筒猎枪\r\n  冷却时间降低至8秒\n\n※※离开重生室隐藏", 英雄(艾什), 数组中的值(全局.HeadshotDamage, 1)));
+        在索引处设置全局变量(ChangelogBodyTable, 英雄(巴蒂斯特), 自定义字符串("\r\n●{0}\r\n*造成伤害 +50%\r\n*暴击额外伤害 +{1}\r\n*维生力场\r\n  冷却时间降低至约10.5秒\r\n*增幅矩阵\r\n  持续时间提高至 15 秒\n\n※※离开重生室隐藏", 英雄(巴蒂斯特), 首个(全局.BaptisteBuff)));
+        在索引处设置全局变量(ChangelogBodyTable, 英雄(堡垒), 自定义字符串("\r\n●{0}\r\n*造成伤害 +25%\r\n*受到伤害 -30%\r\n{1} 强攻模式\r\n  移动速度 +200%\r\n{2} A-36战术榴弹\r\n  冷却时间降低至6秒\n\n※※离开重生室隐藏", 英雄(堡垒), 技能图标字符串(英雄(堡垒), 按钮(技能1)), 技能图标字符串(英雄(堡垒), 按钮(辅助攻击模式))));
+        在索引处设置全局变量(ChangelogBodyTable, 英雄(布丽吉塔), 自定义字符串("\r\n●{0}\r\n*造成伤害 +25%\r\n*造成治疗+10%\r\n*受到伤害 -57%\r\n*恢复包 提供永久护甲\r\n*能量盾击 可穿透屏障击晕敌人\r\n*集结号令 为自身提供额外临时护甲\n\n", 英雄(布丽吉塔)));
+        在索引处设置全局变量(ChangelogBodyTable, 英雄(卡西迪), 自定义字符串("\r\n●{0}\r\n*造成伤害 +25%\r\n*受到伤害 -8%\r\n{1}维和者\r\n  换弹速度降低至0.75秒\r\n  连射伤害提高135%\r\n{2}闪光弹 击晕敌人\r\n*神射手 充能速度降低16%\n\n※※离开重生室隐藏", 英雄(卡西迪), 技能图标字符串(英雄(卡西迪), 按钮(主要攻击模式)), 技能图标字符串(英雄(卡西迪), 按钮(技能2))));
+        在索引处设置全局变量(ChangelogBodyTable, 英雄(金驭), 自定义字符串("\r\n●{0}\r\n*造成伤害 +25%\r\n*受到伤害 -30%\r\n*屏障阵列 冷却时间降低至8秒\r\n*音速斥力场 冷却时间调整为6秒\r\n  命中击退目标造成70%减速2秒并击晕0.80秒\r\n*爆能水晶 命中敌人造成70%减速2秒\n\n※※离开重生室隐藏", 英雄(金驭)));
+        在索引处设置全局变量(ChangelogBodyTable, 英雄(末日铁拳), 自定义字符串("\r\n●{0}\r\n*造成伤害 +15%\r\n*受到伤害 -35%\r\n*裂地重拳\r\n 将敌人击飞拉近并使其失控\r\n*悍猛格挡 吸收伤害，最多存储{1}点\r\n*火箭重拳 附带存储的全部伤害 对目标造成额外伤害\n\n※※离开重生室隐藏", 英雄(末日铁拳), 取整(数组中的值(全局.DoomBuff, 1), 下)));
+        在索引处设置全局变量(ChangelogBodyTable, 英雄(D.Va), 自定义字符串("\r\n●\"{0}\"\r\n*造成伤害 +35%\r\n*受到伤害 -25%\r\n{1} 防御矩阵\r\n持续时间提高至约2.7秒\r\n 充能速度提高100%\n\n※※离开重生室隐藏", 英雄(D.Va), 技能图标字符串(英雄(D.Va), 按钮(辅助攻击模式))));
+        在索引处设置全局变量(ChangelogBodyTable, 英雄(回声), 自定义字符串("\r\n●{0}\r\n*造成伤害 +35%\r\n*受到伤害 -30%\r\n*聚焦光束 持续期间伤害提高{1}%\r\n*人格复制期间终极充能最低保留{2}%\n\n※※离开重生室隐藏", 英雄(回声), 首个(全局.EchoBuff), 数组中的值(全局.EchoBuff, 1)));
+        在索引处设置全局变量(ChangelogBodyTable, 英雄(埃姆雷), 自定义字符串("\r\n●{0}\r\n*造成伤害 +35%\r\n*受到伤害 -10%\r\n{1} 赛博手雷 额外造成50点伤害，使其燃烧{2}", 英雄(埃姆雷), 技能图标字符串(英雄(埃姆雷), 按钮(技能2)), 自定义字符串("{0}秒\r\n{1} 虹吸冲击枪 冷却时间降低至8秒\r\n  \r\n*覆盖协议：使命中的敌人燃烧 造成75+{2}%最大生命值额外伤害\n\n※※离开重生室隐藏", 首个(全局.EmreBuff), 技能图标字符串(英雄(埃姆雷), 按钮(技能1)), 数组中的值(全局.EmreBuff, 1))));
+        在索引处设置全局变量(ChangelogBodyTable, 英雄(弗蕾娅), 自定义字符串("\r\n●{0}\r\n*造成伤害 +10%\r\n*受到伤害 -10%\r\n{1} 狩猎者 造成伤害时给敌方施加“狩猎”印记\r\n{2} 瞄准射击 爆炸造成20 × 印记层数 额外伤害\r\n  引爆后敌方生命值低于20%则将其斩杀\n\n※※离开重生室隐藏", 英雄(弗蕾娅), 技能图标字符串(英雄(弗蕾娅), 按钮(主要攻击模式)), 技能图标字符串(英雄(弗蕾娅), 按钮(辅助攻击模式))));
+        在索引处设置全局变量(ChangelogBodyTable, 英雄(源氏), 自定义字符串("\r\n●{0}\r\n*造成伤害 +45%\r\n*受到伤害 -50%\r\n*造成击杀后恢复50HP\r\n*影 使下一次近身攻击100%暴击\r\n*闪 冷却时间降低至6秒 持续期间免疫伤害\r\n*龙刃 持续时间增加至8秒\r\n  造成伤害+{1}% 受到伤害 -10%\n{2}", 英雄(源氏), 数组中的值(全局.Genji, 1), 自定义字符串("\n※※离开重生室隐藏")));
+        在索引处设置全局变量(ChangelogBodyTable, 英雄(半藏), 自定义字符串("\r\n●{0}\r\n*造成伤害 +25%\r\n*弹道速度+35%\r\n*暴击额外伤害 +{1}\r\n*岚 冷却时间降低至7秒\r\n*音 冷却时间降低至9秒\n\n※※离开重生室隐藏", 英雄(半藏), 首个(全局.HanzoBuff)));
+        在索引处设置全局变量(ChangelogBodyTable, 英雄(骇灾), 自定义字符串("\r\n●{0}\r\n*造成伤害 +25%\r\n*受到伤害 -45%\r\n*尖刺护体 基于受到伤害造成额外伤害\r\n  在格挡期间获得{1}%终极技能充能和生命回复\r\n*千针雨 不再根据伤害获得能量\n\n※※离开重生室隐藏", 英雄(骇灾), 数组中的值(全局.HazardBuff, 1)));
+        在索引处设置全局变量(ChangelogBodyTable, 英雄(伊拉锐), 自定义字符串("\r\n●{0}\r\n*造成伤害 +60%\r\n*受到伤害 +5%\r\n*能量回复速度 +25%\r\n*治疗光塔 冷却时间降低50%\r\n*桎梏灼日\r\n  基于附近友军数量造成额外最大生命值伤害\n\n※※离开重生室隐藏", 英雄(伊拉锐)));
+        在索引处设置全局变量(ChangelogBodyTable, 英雄(飞天猫), 自定义字符串("\r\n●{0}\r\n*造成伤害 +35%\r\n*受到伤害 -40%\r\n*造成治疗 +50%\r\n{1} 救生索 额外减伤35%\r\n{2}", 英雄(飞天猫), 技能图标字符串(英雄(飞天猫), 按钮(技能1)), 自定义字符串("{0} 呼噜噜 清除负面状态\r\n{1} 猫猫劫 额外减伤75%\r\n  对目标造成50%最大生命值伤害\r\n*近战造成0.6秒击晕\n\n※※离开重生室隐藏", 技能图标字符串(英雄(飞天猫), 按钮(技能2)), 技能图标字符串(英雄(飞天猫), 按钮(终极技能)))));
+        在索引处设置全局变量(ChangelogBodyTable, 英雄(渣客女王), 自定义字符串("\r\n●{0}\r\n*造成伤害 +30%\r\n*受到伤害 -40%\r\n*血斩 冷却时间降低至 6 秒\r\n*锯齿利刃 冷却时间降低至 4 秒\n\n※※离开重生室隐藏", 英雄(渣客女王)));
+        在索引处设置全局变量(ChangelogBodyTable, 英雄(狂鼠), 自定义字符串("\r\n●{0}\r\n*造成伤害 -5%\r\n*受到伤害 +30%\r\n*所有击退效果-50%\r\n*攻击点燃敌人并额外造成5%当前生命值伤害\r\n{1} 炸弹轮胎\r\n  充能速度降低30%\n\n※※离开重生室隐藏", 英雄(狂鼠), 技能图标字符串(英雄(狂鼠), 按钮(终极技能))));
+        在索引处设置全局变量(ChangelogBodyTable, 英雄(朱诺), 自定义字符串("\r\n●{0}\r\n*造成治疗 +45%\r\n{1} 超能环域 冷却时间降低至12秒\r\n{2}", 英雄(朱诺), 技能图标字符串(英雄(朱诺), 按钮(技能1)), 自定义字符串("{0} 脉冲星飞雷 冷却时间降低至8秒\r\n{1} 轨道射线 范围内所有友方受到伤害-{2}%（唯一特效）\n\n※※离开重生室隐藏", 技能图标字符串(英雄(朱诺), 按钮(辅助攻击模式)), 技能图标字符串(英雄(朱诺), 按钮(终极技能)), 全局.JunoBuff)));
+        在索引处设置全局变量(ChangelogBodyTable, 英雄(雾子), 自定义字符串("\r\n●{0}\r\n*造成伤害 +35%\r\n*造成治疗 +35%\r\n暴击倍率提高至 ×{1}\r\n{2}", 英雄(雾子), 加(数组中的值(全局.HeadshotDamage, 2), 1), 自定义字符串("{0} 瞬 最远距离提高至约85米\r\n{1} 铃 冷却时间降低至 8 秒\r\n  无敌时间提高至 1.8 秒\n\n※※离开重生室隐藏", 技能图标字符串(英雄(雾子), 按钮(技能1)), 技能图标字符串(英雄(雾子), 按钮(技能2)))));
+        在索引处设置全局变量(ChangelogBodyTable, 英雄(生命之梭), 自定义字符串("\r\n●{0}\r\n*造成治疗 +60%\r\n{1} 花瓣平台\r\n  冷却时间降低至 9 秒\r\n{2} 生命之握\r\n  冷却时间降低至约6.2秒\r\n  清除目标负面状态\n\n※※离开重生室隐藏", 英雄(生命之梭), 技能图标字符串(英雄(生命之梭), 按钮(技能1)), 技能图标字符串(英雄(生命之梭), 按钮(技能2))));
+        在索引处设置全局变量(ChangelogBodyTable, 英雄(卢西奥), 自定义字符串("\r\n●{0}\r\n*造成伤害 +20%\r\n*造成治疗 +30%\r\n*受到伤害 -30%\r\n*音波命中时为附近友军回复{1}生命值\n\n※※离开重生室隐藏", 英雄(卢西奥), 首个(全局.LucioBuff)));
+        在索引处设置全局变量(ChangelogBodyTable, 英雄(毛加), 自定义字符串("\r\n●{0}\r\n*造成伤害 +25%\r\n*受到伤害 -35%\r\n*狂战士之魂（被动） 受到致命伤害触发 回复100%最大生命值并进入狂战士状态\r\n*蛮力冲撞 击倒时间提高至2秒\r\n*心脏过载 冷却时间降低至约11.8秒 治疗量+100% 伤害减免提高{1}", 英雄(毛加), 自定义字符串("至55%\r\n*笼中斗 持续时间提高并免疫暴击\r\n")));
+        在索引处设置全局变量(ChangelogBodyTable, 英雄(美), 自定义字符串("\r\n●{0}\r\n{1} 冰墙\r\n  冷却时间降低至约6.7秒\n\n※※离开重生室隐藏", 英雄(美), 技能图标字符串(英雄(美), 按钮(技能2))));
+        在索引处设置全局变量(ChangelogBodyTable, 英雄(天使), 自定义字符串("\r\n●{0}\r\n*造成治疗 +35%\r\n*快速治疗 提供25点额外治疗\r\n*女武神\r\n  受到伤害 -{1}%\r\n  持续期间重生无冷却时间\n\n※※离开重生室隐藏", 英雄(天使), 首个(全局.MercyBuff)));
+        在索引处设置全局变量(ChangelogBodyTable, 英雄(瑞稀), 自定义字符串("\r\n●{0}\r\n*造成伤害+35%\r\n*受到伤害 -20%\r\n{1} 疗魂斗笠 额外治疗队友10%最大生命值 返还0.5秒cd\r\n{2}", 英雄(瑞稀), 技能图标字符串(英雄(瑞稀), 按钮(辅助攻击模式)), 自定义字符串("{0} 替魂纸人 清除负面状态\r\n{1} 缚魂锁链 使敌人虚弱\n\n※※离开重生室隐藏", 技能图标字符串(英雄(瑞稀), 按钮(技能1)), 技能图标字符串(英雄(瑞稀), 按钮(技能2)))));
+        在索引处设置全局变量(ChangelogBodyTable, 英雄(莫伊拉), 自定义字符串("\r\n●{0}\r\n 受到伤害-10%\r\n造成治疗+60%\r\n{1} 技能期间回复45%已损失生命值\r\n\n\n※※离开重生室隐藏", 英雄(莫伊拉), 技能图标字符串(英雄(莫伊拉), 按钮(技能1))));
+        在索引处设置全局变量(ChangelogBodyTable, 英雄(奥丽莎), 自定义字符串("\r\n●{0}\r\n*受到伤害 -45%\r\n*强固防御\r\n 冷却时间降低至约2秒\r\n 获得额外临时护甲\r\n 反弹{1}%受到的伤害\r\n*标枪旋击\r\n 冷却时间增加至约9.4秒\n\n※※离开重生室隐藏", 英雄(奥丽莎), 数组中的值(全局.Orisa_Fortify, 1)));
+        在索引处设置全局变量(ChangelogBodyTable, 英雄(法老之鹰), 自定义字符串("\r\n●{0}\r\n*造成伤害 +35%\r\n*受到伤害 -15%\r\n{1} 推进背包\r\n  补充全部燃料并额外获得75%燃料\n\n※※离开重生室隐藏", 英雄(法老之鹰), 技能图标字符串(英雄(法老之鹰), 按钮(技能1))));
+        在索引处设置全局变量(ChangelogBodyTable, 英雄(拉玛刹), 自定义字符串("\r\n●{0}\r\n*造成伤害 +20%\r\n*受到伤害 -35%\r\n*吞噬漩涡 冷却时间降低\r\n* 诛 -{1}%受到伤害 +30%移速 70%击退抵抗\r\n回复{2}%已造成伤害的生命值\n\n※离开重生室隐藏", 英雄(拉玛刹), 数组中的值(全局.Ram_Annihilation, 4), 乘(数组中的值(全局.Ram_Annihilation, 1), 100)));
+        在索引处设置全局变量(ChangelogBodyTable, 英雄(死神), 自定义字符串("\r\n●{0}\r\n*造成伤害 +35%\r\n*受到伤害 -35%\r\n*收割（被动）击杀获得灵魂层数\r\n灵魂层数会增强技能并缩短冷却\n\n※※离开重生室隐藏", 英雄(死神)));
+        在索引处设置全局变量(ChangelogBodyTable, 英雄(莱因哈特), 自定义字符串("\r\n●{0}\r\n*造成伤害 +5%\r\n*受到伤害 -25%\r\n*冲锋 根据剩余持续时间返还最多3秒cd\r\n*烈焰打击 恢复100%已造成伤害的生命值\r\n*裂地猛击 造成击杀返还100%充能\n\n※※离开重生室隐藏", 英雄(莱因哈特)));
+        在索引处设置全局变量(ChangelogBodyTable, 英雄(路霸), 自定义字符串("\r\n●{0}\r\n*造成伤害 -10%\r\n*受到伤害 +10%\n\n※※离开重生室隐藏", 英雄(路霸)));
+        在索引处设置全局变量(ChangelogBodyTable, 英雄(Shion), 自定义字符串("\r\n●{0}\r\n*造成伤害时获得1层狂势 满层后8秒内：增伤{1}% 减伤{2}", 英雄(Shion), 数组中的值(全局.ShionBuff, 1), 自定义字符串("{0}%\r\n{1} 交叉枪决 完成击杀后重置冷却\r\n{2}", 数组中的值(全局.ShionBuff, 2), 技能图标字符串(英雄(Shion), 按钮(辅助攻击模式)), 自定义字符串("{0} 每次击杀返还 {1}% 充能\n\n※※离开重生室隐藏", 技能图标字符串(英雄(Shion), 按钮(终极技能)), 数组中的值(全局.ShionBuff, 4)))));
+        在索引处设置全局变量(ChangelogBodyTable, 英雄(西拉), 自定义字符串("\r\n●{0}\r\n*造成伤害 +35%\r\n*受到伤害 -25%\r\n{1} 锚点无人机 每秒回复50生命值\r\n{2}", 英雄(西拉), 技能图标字符串(英雄(西拉), 按钮(技能1)), 自定义字符串("{0} 追踪弹 对命中目标的伤害提高{1}%\r\n  击杀后返还CD\r\n{2} 开路先锋 击倒敌人并造成额外伤害\n\n※※离开重生室隐藏", 技能图标字符串(英雄(西拉), 按钮(辅助攻击模式)), 减(数组中的值(全局.SierraBuff, 1), 100), 技能图标字符串(英雄(西拉), 按钮(终极技能)))));
+        在索引处设置全局变量(ChangelogBodyTable, 英雄(西格玛), 自定义字符串("\r\n●{0}\r\n*造成伤害 +25%\r\n*受到伤害 -25%\r\n*超能之球 每3次攻击强化下一次攻击 附带自身当前生命值{1}%伤害（不含临时生命值）\r\n*实验屏障 充能速度提高\r\n*引力乱流 最大生命值伤害增加至 75%\n\n※离开重生室隐藏", 英雄(西格玛), 乘(首个(全局.SigmaBuff), 100)));
+        在索引处设置全局变量(ChangelogBodyTable, 英雄(索杰恩), 自定义字符串("\r\n●{0}\r\n*造成伤害 +30%\r\n*电磁炮充能速度+25%\r\n*电磁炮-充能射击 处决生命值低于{1}%的敌人\r\n *机体超频 强化充能射击：处决阈值增加至20%\n\n※※离开重生室隐藏", 英雄(索杰恩), 乘(首个(全局.SojournBuff), 100)));
+        在索引处设置全局变量(ChangelogBodyTable, 英雄(士兵：76), 自定义字符串("\r\n●{0}\r\n*造成伤害 +30%\r\n{1} 生物力场\r\n  冷却时间降低\r\n{2}", 英雄(士兵：76), 技能图标字符串(英雄(士兵：76), 按钮(技能1)), 自定义字符串("{0} 螺旋飞弹 使敌人燃烧并额外造成{1}点伤害\n\n※※离开重生室隐藏", 技能图标字符串(英雄(士兵：76), 按钮(辅助攻击模式)), 数组中的值(全局.S76Buff, 1))));
+        在索引处设置全局变量(ChangelogBodyTable, 英雄(黑影), 自定义字符串("\r\n●{0}\r\n*造成伤害 +35%\r\n*受到伤害 -22%\r\n*位移传动  击杀后重置CD\r\n*黑客入侵  沉默敌人6秒并使敌方额外减疗{1}%\r\n*电磁脉冲  充能速度提高7%\n\n※※离开重生室隐藏", 英雄(黑影), 首个(全局.SombraBuff)));
+        在索引处设置全局变量(ChangelogBodyTable, 英雄(秩序之光), 自定义字符串("\r\n●{0}\r\n*造成伤害 -40%\r\n*受到伤害 +20%\n\n※※离开重生室隐藏", 英雄(秩序之光)));
+        在索引处设置全局变量(ChangelogBodyTable, 英雄(托比昂), 自定义字符串("\r\n●{0}\r\n*造成伤害 -20%\r\n{1} 熔火核心\r\n  充能速度降低30%\n\n※※离开重生室隐藏", 英雄(托比昂), 技能图标字符串(英雄(托比昂), 按钮(终极技能))));
+        在索引处设置全局变量(ChangelogBodyTable, 英雄(猎空), 自定义字符串("\r\n●{0}\r\n*造成伤害 +60%\r\n*受到伤害 -65%\r\n*回溯 立刻回复50生命值\r\n  回溯期间完成击杀时回满闪现并重置回溯冷却\r\n*重生 阵亡后立刻重生\r\n*脉冲炸弹 充能速度 +60%\n\n※※离开重生室隐藏", 英雄(猎空)));
+        在索引处设置全局变量(ChangelogBodyTable, 英雄(斩仇), 自定义字符串("\r\n●{0}\r\n*造成伤害 +35%\r\n*受到伤害-45%\r\n{1} 暴击额外其{2}", 英雄(斩仇), 技能图标字符串(英雄(斩仇), 按钮(主要攻击模式)), 自定义字符串("{0}%最大生命值伤害，并回复{1}最大生命值\r\n{2}", 乘(首个(全局.VendettaBuff), 100), 乘(数组中的值(全局.VendettaBuff, 6), 100), 自定义字符串("{0} 每命中一名敌人回复{1}%已损失生命值\r\n{2}", 技能图标字符串(英雄(斩仇), 按钮(技能1)), 乘(数组中的值(全局.VendettaBuff, 2), 100), 自定义字符串("{0} 使敌人沉默，持续期间不可阻挡\r\n{1} 击倒敌人，生命值低于{2}%的敌人将被斩杀\n\n※※离开重生室隐藏", 技能图标字符串(英雄(斩仇), 按钮(技能2)), 技能图标字符串(英雄(斩仇), 按钮(终极技能)), 乘(数组中的值(全局.VendettaBuff, 5), 100))))));
+        在索引处设置全局变量(ChangelogBodyTable, 英雄(探奇), 自定义字符串("\r\n●{0}\r\n*造成伤害 +40%\r\n*受到伤害 -30%\r\n钻地  \r\n  持续时间 +300%\r\n  移动速度 +156%\r\n钻头突刺 冷却时间 -25%\n\n※※离开重生室隐藏", 英雄(探奇)));
+        在索引处设置全局变量(ChangelogBodyTable, 英雄(黑百合), 自定义字符串("\r\n●{0}\r\n*造成伤害 +35%\r\n*受到伤害 +15%\r\n*移除开镜伤害衰减\n\n※※离开重生室隐藏", 英雄(黑百合)));
+        在索引处设置全局变量(ChangelogBodyTable, 英雄(温斯顿), 自定义字符串("\r\n●{0}\r\n*受到伤害 -35%\r\n*造成伤害 +10%\r\n{1} 特斯拉炮-集束电击\r\n  回复已造成伤害的生命值并额外造成目标最大生命值{2}", 英雄(温斯顿), 技能图标字符串(英雄(温斯顿), 按钮(辅助攻击模式)), 自定义字符串("{0}%伤害\r\n{1} 屏障发射器\r\n  冷却时间降低至12秒\n\n※※离开重生室隐藏", 首个(全局.WinstonBuff), 技能图标字符串(英雄(温斯顿), 按钮(技能2)))));
+        在索引处设置全局变量(ChangelogBodyTable, 英雄(破坏球), 自定义字符串("\r\n●{0}\r\n*造成伤害 +35%\r\n*受到伤害 -15%\r\n*工程抓钩\r\n  冷却时间降低至4秒\r\n  在重生室中无冷却时间\r\n*感应护盾 冷却时间降低至12秒\r\n*重力坠击 冷却时间降低至6秒\n\n※※离开重生室隐藏", 英雄(破坏球)));
+        在索引处设置全局变量(ChangelogBodyTable, 英雄(无漾), 自定义字符串("\r\n●{0}\r\n*水珠爆炸附带目标最大生命值8%额外伤害\r\n 并使{1}CD-1秒\r\n{2}", 英雄(无漾), 技能图标字符串(英雄(无漾), 按钮(技能2)), 自定义字符串("{0} 飞流步 回复{1}生命值 减伤{2}", 技能图标字符串(英雄(无漾), 按钮(技能1)), 乘(4.5, 数组中的值(全局.WuyangBuff, 2)), 自定义字符串("{0}%\r\n{1} 翻江浪 对同一目标命中2次后冻结2.50秒\r\n{2} 惊涛破 使友方回复满生命值\n\n※※离开重生室隐藏", 数组中的值(全局.WuyangBuff, 3), 技能图标字符串(英雄(无漾), 按钮(技能2)), 技能图标字符串(英雄(无漾), 按钮(终极技能))))));
+        在索引处设置全局变量(ChangelogBodyTable, 英雄(查莉娅), 自定义字符串("\r\n●{0}\r\n*造成伤害 +35%\r\n*受到伤害 -25%\r\n*胜利意志\r\n  生命值低于30%时触发\r\n  获得1秒无敌并重置屏障冷却\r\n  回复{1}生命值\r\n{2}", 英雄(查莉娅), 乘(数组中的值(全局.ZaryaBuff, 1), 数组中的值(全局.ZaryaBuff, 2)), 自定义字符串("{0} 粒子屏障\r\n  冷却时间降低至约9秒\r\n{1} 投射屏障\r\n  为目标提供3秒50点临时生命值\r\n*重力喷涌\r\n  充能速度提高8%\n\n※※离开重生室隐藏", 技能图标字符串(英雄(查莉娅), 按钮(技能1)), 技能图标字符串(英雄(查莉娅), 按钮(技能2)))));
+        在索引处设置全局变量(ChangelogBodyTable, 英雄(禅雅塔), 自定义字符串("\r\n●{0}\r\n*造成伤害 +60%\r\n*弹道速度 +25%\r\n*暴击倍率提高至 ×{1}\r\n*蹬 将敌人击退并让禅雅塔向反方向弹开\r\n*圣 治疗量提高至400/s 移速+25%\r\n  无法被命中 免疫所有控制\n\n※※离开重生室隐藏", 英雄(禅雅塔), 加(1, 首个(全局.HeadshotDamage))));
     }
 }
 
