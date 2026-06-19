@@ -373,7 +373,7 @@ async function generateReviewReportTemplate(
   ];
   for (const hero of heroes) {
     output.push(`### ${hero}`);
-    output.push("- [ ] shared hero_init dispatcher、英雄 init subroutine 与 reset 链路符合预期");
+    output.push("- [ ] hero_init dispatcher、英雄 init subroutine 与 reset 链路符合预期");
     output.push("- [ ] hero_rules 行为改动符合设计并已评估负载风险");
     output.push("- [ ] changelog 文案已覆盖本次改动");
     output.push("- [ ] Team 1/Team 2 职责边界未被破坏");
@@ -394,7 +394,7 @@ async function auditHero(slug: string, args: Args, reporter: Reporter): Promise<
   const heroesMain = await readLines(resolveRepo("src/heroes/main.opy"));
   const heroesAram = await readLines(resolveRepo("src/heroes/aram.opy"));
   const heroInitSubroutines = await readLines(resolveRepo("src/modules/hero_init/subroutines.opy"));
-  const heroInitShared = await readLines(resolveRepo("src/modules/hero_init/shared.opy"));
+  const heroInitDispatcher = await readLines(resolveRepo("src/modules/hero_init/dispatcher.opy"));
   const currentHeroDir = resolveRepo("src/heroes", slug);
 
   console.log();
@@ -439,13 +439,13 @@ async function auditHero(slug: string, args: Args, reporter: Reporter): Promise<
   ).length;
   const localDetectMacroCount = countOccurrences(initLines, "shouldDetectHeroInit(");
   const subroutineDeclCount = countOccurrences(heroInitSubroutines, `subroutine ${expectedDefName}`);
-  const dispatcherConditionCount = heroInitShared.filter((line) =>
+  const dispatcherConditionCount = heroInitDispatcher.filter((line) =>
     line.includes(`eventPlayer._hero_setup_hero == Hero.${heroConst}`),
   ).length;
-  const dispatcherCallCount = countOccurrences(heroInitShared, `${expectedDefName}()`);
-  const sharedResetLine = firstMatchLine(heroInitShared, "resetHero()");
-  const sharedClearLine = firstMatchLine(heroInitShared, "eventPlayer._reset_requested = false");
-  const sharedGateCount = heroInitShared.filter(
+  const dispatcherCallCount = countOccurrences(heroInitDispatcher, `${expectedDefName}()`);
+  const dispatcherResetLine = firstMatchLine(heroInitDispatcher, "resetHero()");
+  const dispatcherClearLine = firstMatchLine(heroInitDispatcher, "eventPlayer._reset_requested = false");
+  const dispatcherGateCount = heroInitDispatcher.filter(
     (line) =>
       line.includes("@Condition eventPlayer._hero_switch_pending == true") ||
       line.includes("@Condition eventPlayer.hasSpawned() == true") ||
@@ -466,20 +466,20 @@ async function auditHero(slug: string, args: Args, reporter: Reporter): Promise<
     reporter.warn("hero init file still carries local _reset_requested gating");
   }
   localDetectMacroCount === 0 ? reporter.pass("hero init file no longer references shouldDetectHeroInit()") : reporter.fail("hero init file should not reference shouldDetectHeroInit()");
-  subroutineDeclCount === 1 ? reporter.pass("hero init subroutine declaration exists in shared hero_init surface") : reporter.fail(`shared hero_init declaration missing/duplicated for ${expectedDefName}`);
+  subroutineDeclCount === 1 ? reporter.pass("hero init subroutine declaration exists in hero_init surface") : reporter.fail(`hero_init declaration missing/duplicated for ${expectedDefName}`);
   dispatcherConditionCount === 1 && dispatcherCallCount >= 1
-    ? reporter.pass(`shared hero init dispatcher route exists for Hero.${heroConst}`)
-    : reporter.fail(`shared hero init dispatcher route missing for Hero.${heroConst}`);
+    ? reporter.pass(`hero init dispatcher route exists for Hero.${heroConst}`)
+    : reporter.fail(`hero init dispatcher route missing for Hero.${heroConst}`);
   reporter.pass(`hero tag resolved from slug: @Hero ${heroTag}`);
-  if (sharedResetLine && sharedClearLine) {
-    sharedClearLine > sharedResetLine ? reporter.pass("shared init clear happens after resetHero()") : reporter.fail("shared _reset_requested clear appears before resetHero()");
+  if (dispatcherResetLine && dispatcherClearLine) {
+    dispatcherClearLine > dispatcherResetLine ? reporter.pass("dispatcher init clear happens after resetHero()") : reporter.fail("dispatcher _reset_requested clear appears before resetHero()");
   }
-  if (sharedGateCount === 4) {
-    reporter.pass("shared initialize gating contract exists");
+  if (dispatcherGateCount === 4) {
+    reporter.pass("dispatcher initialize gating contract exists");
   } else if (args.strictInitGate) {
-    reporter.fail(`shared initialize gating contract incomplete (count=${sharedGateCount})`);
+    reporter.fail(`dispatcher initialize gating contract incomplete (count=${dispatcherGateCount})`);
   } else {
-    reporter.warn(`shared initialize gating contract incomplete (count=${sharedGateCount})`);
+    reporter.warn(`dispatcher initialize gating contract incomplete (count=${dispatcherGateCount})`);
   }
 
   const knownSlots = new Set([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13, 14, 15, 16]);

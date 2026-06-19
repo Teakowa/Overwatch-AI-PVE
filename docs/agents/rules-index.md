@@ -19,6 +19,7 @@
 | R-PROTO-REPO-WIDE-MAINFILE | docs/agents/protocol-constraints.md | #r-proto-repo-wide-mainfile | 改 `.opy` 模块入口声明或 LSP 模块解析 | repo-maintainers |
 | R-PROTO-SETTINGS-FIRST | docs/agents/protocol-constraints.md | #r-proto-settings-first | 改英雄通用数值策略 | repo-maintainers |
 | R-PROTO-NO-FILENAME-ORDER-HACK | docs/agents/protocol-constraints.md | #r-proto-no-filename-order-hack | 变更模块文件命名 | repo-maintainers |
+| R-PROTO-ROLE-FIRST-NAMING | docs/agents/protocol-constraints.md | #r-proto-role-first-naming | 新增或重命名模块/规范文件 | repo-maintainers |
 | R-HINIT-DETECT-SET-RESET-FLAG | docs/agents/hero-init-contract.md | #r-hinit-detect-set-reset-flag | 新增/改共享 hero init queue/detect | repo-maintainers |
 | R-HINIT-INIT-GUARD | docs/agents/hero-init-contract.md | #r-hinit-init-guard | 新增/改共享 hero init initialize dispatcher | repo-maintainers |
 | R-HINIT-CALL-RESET-HERO | docs/agents/hero-init-contract.md | #r-hinit-call-reset-hero | 初始化链路改动 | repo-maintainers |

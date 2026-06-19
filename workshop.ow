@@ -7502,7 +7502,7 @@
 }
 
 //Strict optimizations enabled
-规则 ("[hero_init/shared.opy]: heroInitDispatcher()") {
+规则 ("[hero_init/dispatcher.opy]: heroInitDispatcher()") {
     事件 {
         子程序;
         heroInitDispatcher;
@@ -7667,7 +7667,7 @@
     }
 }
 
-规则 ("[hero_init/shared.opy]: initialize hero") {
+规则 ("[hero_init/dispatcher.opy]: initialize hero") {
     事件 {
         持续 - 每名玩家;
         双方;

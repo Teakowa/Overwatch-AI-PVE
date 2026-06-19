@@ -2,7 +2,7 @@
 #!optimizeStrict
 
 def heroInitDispatcher():
-    @Name "[hero_init/shared.opy]: heroInitDispatcher()"
+    @Name "[hero_init/dispatcher.opy]: heroInitDispatcher()"
 
     if eventPlayer._hero_setup_hero == Hero.REAPER:
         heroInitReaper()
@@ -109,7 +109,7 @@ def heroInitDispatcher():
     if eventPlayer._hero_setup_hero == Hero.ILLARI:
         heroInitIllari()
 
-rule "[hero_init/shared.opy]: initialize hero":
+rule "[hero_init/dispatcher.opy]: initialize hero":
     @Event eachPlayer
     @Condition eventPlayer._hero_switch_pending == true
     @Condition eventPlayer.hasSpawned() == true
