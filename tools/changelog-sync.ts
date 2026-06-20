@@ -112,17 +112,17 @@ function slugToSettingsKey(value: string): string {
   return `${head}${rest.map((part) => `${part[0]!.toUpperCase()}${part.slice(1)}`).join("")}`;
 }
 
-function extractHeroChangelogAssignments(text: string): Map<string, number> {
+function extractHeroChangelogEntries(text: string): Map<string, number> {
   const counts = new Map<string, number>();
-  for (const match of text.matchAll(/ChangelogBodyTable\[Hero\.([A-Z_]+)\]\s*=/g)) {
+  for (const match of text.matchAll(/hero:\s*Hero\.([A-Z_]+)/g)) {
     const heroConst = match[1]!;
     counts.set(heroConst, (counts.get(heroConst) ?? 0) + 1);
   }
   return counts;
 }
 
-function countHeroChangelogCoverage(slug: string, assignments: Map<string, number>): number {
-  return assignments.get(constFromSlug(slug)) ?? 0;
+function countHeroChangelogCoverage(slug: string, entries: Map<string, number>): number {
+  return entries.get(constFromSlug(slug)) ?? 0;
 }
 
 function addTargetHero(targets: Set<string>, raw: string): void {
@@ -212,7 +212,7 @@ async function renderReport(
   reporter: Reporter,
   heroes: string[],
   diffRange: string,
-  assignments: Map<string, number>,
+  entries: Map<string, number>,
 ): Promise<void> {
   const lines: string[] = [
     "# Changelog Sync Report",
@@ -226,13 +226,13 @@ async function renderReport(
     "## Coverage",
   ];
   for (const hero of heroes) {
-    const count = countHeroChangelogCoverage(hero, assignments);
+    const count = countHeroChangelogCoverage(hero, entries);
     if (count === 1) {
-      lines.push(`- [OK] ${hero}: central changelog body assignment exists`);
+      lines.push(`- [OK] ${hero}: central changelog database entry exists`);
     } else if (count > 1) {
-      lines.push(`- [WARN] ${hero}: central changelog body assignment duplicated (${count})`);
+      lines.push(`- [WARN] ${hero}: central changelog database entry duplicated (${count})`);
     } else {
-      lines.push(`- [WARN] ${hero}: central changelog body assignment missing`);
+      lines.push(`- [WARN] ${hero}: central changelog database entry missing`);
     }
   }
   lines.push("", "## Pending Player-Facing Changelog Items");
@@ -275,7 +275,7 @@ async function main(): Promise<void> {
       if (filePath === changelogTablePath) {
         const diff = tryCommand("git", ["diff", "--unified=0", args.diffRange, "--", filePath], repoRoot);
         for (const line of diff.split("\n")) {
-          const match = line.match(/ChangelogBodyTable\[Hero\.([A-Z_]+)\]\s*=/);
+          const match = line.match(/hero:\s*Hero\.([A-Z_]+)/);
           if (match) {
             addTargetHero(targetHeroes, slugFromConst(match[1]!));
           }
@@ -305,7 +305,7 @@ async function main(): Promise<void> {
   const reporter = new Reporter();
   const [hudText, tableText] = await Promise.all([fs.readFile(resolveRepo(changelogHudPath), "utf8"), fs.readFile(resolveRepo(changelogTablePath), "utf8")]);
   const changelogText = `${hudText}\n${tableText}`;
-  const assignments = extractHeroChangelogAssignments(tableText);
+  const entries = extractHeroChangelogEntries(tableText);
   console.log(`Running ow-changelog-sync from: ${repoRoot}`);
   console.log(`Target heroes: ${heroes.join(" ")}`);
 
@@ -319,17 +319,17 @@ async function main(): Promise<void> {
   }
 
   for (const hero of heroes) {
-    const coverageCount = countHeroChangelogCoverage(hero, assignments);
+    const coverageCount = countHeroChangelogCoverage(hero, entries);
     if (coverageCount === 1) {
-      reporter.pass(`coverage OK for ${hero} (central changelog body assignment)`);
+      reporter.pass(`coverage OK for ${hero} (central changelog database entry)`);
     } else if (coverageCount > 1) {
       args.strictCoverage
-        ? reporter.fail(`coverage duplicated for ${hero} (central changelog body assignment, count=${coverageCount})`)
-        : reporter.warn(`coverage duplicated for ${hero} (central changelog body assignment, count=${coverageCount})`);
+        ? reporter.fail(`coverage duplicated for ${hero} (central changelog database entry, count=${coverageCount})`)
+        : reporter.warn(`coverage duplicated for ${hero} (central changelog database entry, count=${coverageCount})`);
     } else {
       args.strictCoverage
-        ? reporter.fail(`coverage missing for ${hero} (central changelog body assignment)`)
-        : reporter.warn(`coverage missing for ${hero} (central changelog body assignment)`);
+        ? reporter.fail(`coverage missing for ${hero} (central changelog database entry)`)
+        : reporter.warn(`coverage missing for ${hero} (central changelog database entry)`);
     }
 
     const clues = await collectDiffCluesForHero(hero, args.diffRange);
@@ -347,20 +347,20 @@ async function main(): Promise<void> {
       const heroConst = constFromSlug(hero);
       if (coverageCount === 0) {
         args.strictSettingsSync
-          ? reporter.fail(`settings cooldown changed for ${hero}, but central changelog body assignment not found`)
-          : reporter.warn(`settings cooldown changed for ${hero}, but central changelog body assignment not found`);
+          ? reporter.fail(`settings cooldown changed for ${hero}, but central changelog database entry not found`)
+          : reporter.warn(`settings cooldown changed for ${hero}, but central changelog database entry not found`);
       } else if (coverageCount > 1) {
         args.strictSettingsSync
-          ? reporter.fail(`settings cooldown changed for ${hero}, but central changelog body assignment is duplicated`)
-          : reporter.warn(`settings cooldown changed for ${hero}, but central changelog body assignment is duplicated`);
+          ? reporter.fail(`settings cooldown changed for ${hero}, but central changelog database entry is duplicated`)
+          : reporter.warn(`settings cooldown changed for ${hero}, but central changelog database entry is duplicated`);
       } else {
         const changelogDiff = tryCommand("git", ["diff", "--unified=3", args.diffRange, "--", changelogTablePath], repoRoot);
-        if (changelogDiff.includes(`ChangelogBodyTable[Hero.${heroConst}] =`)) {
-          reporter.pass(`settings cooldown sync OK for ${hero} (central changelog body updated in diff)`);
+        if (changelogDiff.includes(`hero: Hero.${heroConst}`)) {
+          reporter.pass(`settings cooldown sync OK for ${hero} (central changelog database entry updated in diff)`);
         } else {
           args.strictSettingsSync
-            ? reporter.fail(`settings cooldown changed for ${hero}, but ChangelogBodyTable[Hero.${heroConst}] was not updated in diff`)
-            : reporter.warn(`settings cooldown changed for ${hero}, but ChangelogBodyTable[Hero.${heroConst}] was not updated in diff`);
+            ? reporter.fail(`settings cooldown changed for ${hero}, but hero: Hero.${heroConst} was not updated in diff`)
+            : reporter.warn(`settings cooldown changed for ${hero}, but hero: Hero.${heroConst} was not updated in diff`);
         }
       }
     }
@@ -371,7 +371,7 @@ async function main(): Promise<void> {
       args.reportPath !== null
         ? resolveRepo(args.reportPath)
         : resolveRepo(`docs/reports/changelog-sync-${new Date().toISOString().replace(/[:.]/g, "-")}.md`);
-    await renderReport(reportPath, reporter, heroes, args.diffRange, assignments);
+    await renderReport(reportPath, reporter, heroes, args.diffRange, entries);
     const reportText = await fs.readFile(reportPath, "utf8");
     const reportBanned = containsBannedTeamWording(reportText);
     if (reportBanned.length === 0) {

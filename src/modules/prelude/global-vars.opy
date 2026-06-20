@@ -40,6 +40,7 @@ globalvar Counter_Bot
 globalvar Blacklist
 globalvar CustomAI
 globalvar CustomAIArray
+globalvar ChangelogHeroes
 globalvar ChangelogBodyTable
 globalvar HanzoBuff
 globalvar BaptisteBuff
@@ -67,4 +68,3 @@ globalvar TorbjornBuff
 globalvar WidowmakerBuff
 globalvar WinstonBuff
 globalvar ShionBuff
-

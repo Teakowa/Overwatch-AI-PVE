@@ -148,9 +148,9 @@ function slugFromConst(value: string): string {
   return value.toLowerCase();
 }
 
-function extractHeroChangelogAssignments(text: string): Map<string, number> {
+function extractHeroChangelogEntries(text: string): Map<string, number> {
   const counts = new Map<string, number>();
-  for (const match of text.matchAll(/ChangelogBodyTable\[Hero\.([A-Z_]+)\]\s*=/g)) {
+  for (const match of text.matchAll(/hero:\s*Hero\.([A-Z_]+)/g)) {
     const heroConst = match[1]!;
     counts.set(heroConst, (counts.get(heroConst) ?? 0) + 1);
   }
@@ -185,7 +185,7 @@ function collectHeroesFromDiff(range: string): string[] {
     if (filePath === changelogTablePath) {
       const diff = tryCommand("git", ["diff", "--unified=0", range, "--", filePath], repoRoot);
       for (const line of diff.split("\n")) {
-        const match = line.match(/ChangelogBodyTable\[Hero\.([A-Z_]+)\]\s*=/);
+        const match = line.match(/hero:\s*Hero\.([A-Z_]+)/);
         if (match) {
           heroes.add(slugFromConst(match[1]!));
         }
@@ -390,7 +390,7 @@ async function generateReviewReportTemplate(
 
 async function auditHero(slug: string, args: Args, reporter: Reporter): Promise<void> {
   const initFile = resolveRepo("src/heroes", slug, "init.opy");
-  const changelogAssignments = extractHeroChangelogAssignments(await fs.readFile(resolveRepo(changelogTablePath), "utf8"));
+  const changelogEntries = extractHeroChangelogEntries(await fs.readFile(resolveRepo(changelogTablePath), "utf8"));
   const heroesMain = await readLines(resolveRepo("src/heroes/main.opy"));
   const heroesAram = await readLines(resolveRepo("src/heroes/aram.opy"));
   const heroInitDispatcher = await readLines(resolveRepo("src/modules/hero_init/dispatcher.opy"));
@@ -551,14 +551,14 @@ async function auditHero(slug: string, args: Args, reporter: Reporter): Promise<
     reporter.warn(`no hero_rules touchpoint detected for ${slug}`);
   }
 
-  const changelogCount = changelogAssignments.get(heroConst) ?? 0;
+  const changelogCount = changelogEntries.get(heroConst) ?? 0;
   if (changelogCount === 1) {
-    reporter.pass(`central changelog body assignment exists for ${slug}`);
+    reporter.pass(`central changelog database entry exists for ${slug}`);
   } else if (changelogCount > 1) {
-    const message = `duplicated central changelog body assignment for ${slug} (count=${changelogCount})`;
+    const message = `duplicated central changelog database entry for ${slug} (count=${changelogCount})`;
     args.strictChangelog ? reporter.fail(message) : reporter.warn(message);
   } else {
-    const message = `missing central changelog body assignment for ${slug}`;
+    const message = `missing central changelog database entry for ${slug}`;
     args.strictChangelog ? reporter.fail(message) : reporter.warn(message);
   }
 }

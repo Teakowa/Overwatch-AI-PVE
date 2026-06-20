@@ -219,15 +219,14 @@ async function main(): Promise<void> {
   }
 
   if (optimizeLine > 0) {
-    const expectedBefore = [
+    const expectedBefore: string[] = [];
+    const expectedAfter = [
       "utilities/macros.opy",
       "constants/player_constants.opy",
       "modules/prelude/settings.opy",
       "modules/prelude/global-vars.opy",
       "modules/prelude/player-vars.opy",
       "modules/prelude/subroutine.opy",
-    ];
-    const expectedAfter = [
       "modules/bootstrap/init-and-settings.opy",
       "modules/bootstrap/anti-crash.opy",
       "modules/bootstrap/blacklist.opy",
