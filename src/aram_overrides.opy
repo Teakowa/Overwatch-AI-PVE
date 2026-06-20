@@ -56,6 +56,4 @@
 #!include "utilities/reset_statuses.opy"
 #!include "utilities/reset_hero.opy"
 #!include "modules/bootstrap/aram-player-lifecycle-and-reset.opy"
-#!include "modules/debug/changelog.opy"
-#!include "utilities/changelog_text.opy"
 

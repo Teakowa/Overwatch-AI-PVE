@@ -22,15 +22,10 @@
 
 # Utilities: shared subroutines and helpers
 #!include "utilities/knockback.opy"
-#!include "utilities/apply_custom_hp.opy"
 #!include "utilities/clear_custom_hp.opy"
 #!include "utilities/reset_frenemies.opy"
 #!include "utilities/hero_switch.opy"
 #!include "utilities/reset_stats.opy"
-#!include "utilities/execute_uppercut.opy"
-#!include "utilities/enable_all_abilities.opy"
-#!include "utilities/disable_all_abilities.opy"
-#!include "utilities/remove_tank_passive.opy"
 #!include "utilities/bot_aim2target.opy"
 
 # AI core logic
@@ -45,6 +40,5 @@
 #!include "heroes/main.opy"
 
 # Debug and changelog
-#!include "modules/debug/changelog.opy"
-#!include "utilities/changelog_text.opy"
+
 

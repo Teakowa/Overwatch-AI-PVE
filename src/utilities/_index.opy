@@ -5,8 +5,6 @@
 #!include "reset_stats.opy"
 #!include "reset_statuses.opy"
 #!include "execute_uppercut.opy"
-#!include "enable_all_abilities.opy"
-#!include "disable_all_abilities.opy"
 #!include "reset_hero.opy"
 #!include "remove_tank_passive.opy"
 #!include "bot_aim2target.opy"
