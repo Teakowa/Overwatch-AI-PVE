@@ -366,6 +366,7 @@ settings {
                 "ability2Cooldown%": SETTINGS_TEAM1_SIGMA_ABILITY2_COOLDOWN_PERCENT
             },
             "roadhog": {
+                "ability1Cooldown%": SETTINGS_TEAM1_ROADHOG_ABILITY1_COOLDOWN_PERCENT,
                 "damageReceived%": SETTINGS_TEAM1_ROADHOG_DAMAGE_RECEIVED_PERCENT,
                 "secondaryFireRechargeRate%": SETTINGS_TEAM1_ROADHOG_SECONDARY_FIRE_RECHARGE_RATE_PERCENT,
                 "enableInfiniteAmmo": true,
