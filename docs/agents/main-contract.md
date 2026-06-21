@@ -15,7 +15,12 @@
 
 主入口 include 顺序必须保持：
 
-`constants/player_constants.opy` -> `modules/prelude/settings.opy` -> `modules/prelude/global-vars.opy` -> `modules/prelude/player-vars.opy` -> `modules/prelude/subroutine.opy` -> `#!optimizeStrict` -> `modules/bootstrap/*` -> `utilities/*` -> `modules/ai/*` -> `modules/hero_rules/*` -> `modules/hero_init/*` -> `modules/debug/*` -> `utilities/changelog_text.opy`
+`constants/player_constants.opy` -> `modules/prelude/settings.opy` -> `modules/prelude/global-vars.opy` -> `modules/prelude/player-vars.opy` -> `modules/prelude/subroutine.opy` -> `#!optimizeStrict` -> `modules/bootstrap/*` -> `utilities/*` -> `modules/ai/*` -> `modules/hero_rules/*` -> `reset late-binding` -> `modules/hero_init/*` -> `modules/debug/*` -> `utilities/changelog_text.opy`
+
+### R-MAIN-ENTRY-OWNS-FINAL-ORDER
+
+- `src/main.opy` 与 `src/aramMain.opy` 必须直接表达最终编译顺序。
+- 下层聚合文件只允许承载单一 phase 内容，不能跨 phase 把 reset / hero_init / AI / debug 重新拉回自身。
 
 ### R-MAIN-NO-INDEX-INCLUDE
 

@@ -2,11 +2,6 @@
 
 #!include "modules/bootstrap/aram-extra-hero-pool.opy"
 
-#!include "modules/ai/core/core-global-and-targeting.opy"
-#!include "modules/ai/movement/movement.opy"
-#!include "modules/ai/control/common.opy"
-#!include "modules/ai/control/heroes.opy"
-
 #!include "heroes/orisa/aram.opy"
 #!include "heroes/mauga/aram.opy"
 #!include "heroes/ana/aram.opy"
@@ -53,7 +48,3 @@
 #!include "heroes/anran/aram.opy"
 #!include "heroes/lucio/rules.opy"
 #!include "heroes/sierra/rules.opy"
-#!include "utilities/reset_statuses.opy"
-#!include "utilities/reset_hero.opy"
-#!include "modules/bootstrap/aram-player-lifecycle-and-reset.opy"
-

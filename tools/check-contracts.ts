@@ -11,6 +11,7 @@ type Args = {
 };
 
 type DeclarationKind = "globalvar" | "playervar" | "subroutine";
+type EntryLabel = "main" | "aram";
 
 function usage(): void {
   console.log("Usage: tools/check-contracts.ts [--strict-hero-init] [--build]");
@@ -195,6 +196,122 @@ function heroConstFromSlug(slug: string): string {
   return heroTagFromSlug(slug).replace(/([a-z0-9])([A-Z])/g, "$1_$2").toUpperCase();
 }
 
+function normalizeRepoPath(filePath: string): string {
+  return path.relative(repoRoot, filePath).split(path.sep).join("/");
+}
+
+function validateAllowedIncludes(
+  reporter: Reporter,
+  label: string,
+  includes: string[],
+  predicate: (includePath: string) => boolean,
+): void {
+  const invalid = includes.filter((includePath) => !predicate(includePath));
+  if (invalid.length === 0) {
+    reporter.pass(`${label} include responsibility preserved`);
+  } else {
+    reporter.fail(`${label} contains cross-phase includes: ${invalid.join(", ")}`);
+  }
+}
+
+function classifyEntryPhase(entryLabel: EntryLabel, relPath: string): number | null {
+  if (
+    relPath === "src/utilities/macros.opy" ||
+    relPath.startsWith("src/constants/") ||
+    relPath === "src/modules/prelude/settings.opy" ||
+    relPath === "src/aram_settings.opy" ||
+    relPath === "src/constants/ow2_hero_defaults.opy"
+  ) {
+    return 0;
+  }
+  if (
+    relPath === "src/modules/prelude/global-vars.opy" ||
+    relPath === "src/modules/prelude/player-vars.opy" ||
+    relPath === "src/modules/prelude/subroutine.opy"
+  ) {
+    return 1;
+  }
+  if (relPath === "src/modules/bootstrap/aram-extra-hero-pool.opy") {
+    return 4;
+  }
+  if (
+    relPath === "src/main_mode_profile.opy" ||
+    relPath === "src/aram_protocol.opy" ||
+    relPath === "src/heroes/settings.opy" ||
+    relPath === "src/heroes/settings.aram.opy" ||
+    /^src\/heroes\/[^/]+\/settings(\.aram)?\.opy$/.test(relPath) ||
+    relPath.startsWith("src/modules/bootstrap/") &&
+    relPath !== "src/modules/bootstrap/player-lifecycle-and-reset.opy" &&
+    relPath !== "src/modules/bootstrap/aram-player-lifecycle-and-reset.opy"
+  ) {
+    return 2;
+  }
+  if (
+    relPath.startsWith("src/utilities/") &&
+    relPath !== "src/utilities/reset_statuses.opy" &&
+    relPath !== "src/utilities/reset_hero.opy" &&
+    relPath !== "src/utilities/changelog_text.opy"
+  ) {
+    return 2;
+  }
+  if (relPath.startsWith("src/modules/ai/")) {
+    return 3;
+  }
+  if (
+    relPath === "src/heroes/main.opy" ||
+    relPath === "src/aram_overrides.opy" ||
+    relPath === "src/modules/hero_rules/player_shared.opy" ||
+    relPath.endsWith("/rules.opy") ||
+    /^src\/heroes\/[^/]+\/(?!settings(?:\.aram)?\.opy$|init\.opy$|aram\.opy$).+\.opy$/.test(relPath) ||
+    (entryLabel === "aram" && /^src\/heroes\/[^/]+\/aram\.opy$/.test(relPath))
+  ) {
+    return 4;
+  }
+  if (
+    relPath === "src/utilities/reset_statuses.opy" ||
+    relPath === "src/utilities/reset_hero.opy" ||
+    relPath === "src/modules/bootstrap/player-lifecycle-and-reset.opy" ||
+    relPath === "src/modules/bootstrap/aram-player-lifecycle-and-reset.opy"
+  ) {
+    return 5;
+  }
+  if (
+    relPath === "src/heroes/aram.opy" ||
+    relPath.startsWith("src/modules/hero_init/") ||
+    relPath.endsWith("/init.opy")
+  ) {
+    return 6;
+  }
+  if (relPath === "src/modules/debug/changelog.opy" || relPath === "src/utilities/changelog_text.opy") {
+    return 7;
+  }
+  return null;
+}
+
+function validateExpandedPhaseOrder(
+  reporter: Reporter,
+  entryLabel: EntryLabel,
+  includedFiles: string[],
+): void {
+  let previousPhase = -1;
+  for (const filePath of includedFiles) {
+    const relPath = normalizeRepoPath(filePath);
+    const phase = classifyEntryPhase(entryLabel, relPath);
+    if (phase === null) {
+      reporter.fail(`${entryLabel} include graph has unclassified file: ${relPath}`);
+      return;
+    }
+    if (phase < previousPhase) {
+      reporter.fail(
+        `${entryLabel} expanded include order regressed at ${relPath} (phase=${phase} previous=${previousPhase})`,
+      );
+      return;
+    }
+    previousPhase = phase;
+  }
+  reporter.pass(`${entryLabel} expanded include order preserves entry phases`);
+}
+
 async function main(): Promise<void> {
   const args = parseArgs(process.argv.slice(2));
   const reporter = new Reporter();
@@ -220,6 +337,66 @@ async function main(): Promise<void> {
 
   if (optimizeLine > 0) {
     const expectedBefore: string[] = [];
+    const mainHeroInitIncludes = [
+      "utilities/reset_statuses.opy",
+      "utilities/reset_hero.opy",
+      "modules/bootstrap/player-lifecycle-and-reset.opy",
+      "modules/hero_init/delimiter-begin.opy",
+      "modules/hero_init/dispatcher.opy",
+      "heroes/reaper/init.opy",
+      "heroes/tracer/init.opy",
+      "heroes/mercy/init.opy",
+      "heroes/hanzo/init.opy",
+      "heroes/freja/init.opy",
+      "heroes/shion/init.opy",
+      "heroes/torbjorn/init.opy",
+      "heroes/venture/init.opy",
+      "heroes/vendetta/init.opy",
+      "heroes/wuyang/init.opy",
+      "heroes/reinhardt/init.opy",
+      "heroes/hazard/init.opy",
+      "heroes/domina/init.opy",
+      "heroes/anran/init.opy",
+      "heroes/emre/init.opy",
+      "heroes/mizuki/init.opy",
+      "heroes/jetpack_cat/init.opy",
+      "heroes/pharah/init.opy",
+      "heroes/winston/init.opy",
+      "heroes/widowmaker/init.opy",
+      "heroes/bastion/init.opy",
+      "heroes/symmetra/init.opy",
+      "heroes/zenyatta/init.opy",
+      "heroes/genji/init.opy",
+      "heroes/roadhog/init.opy",
+      "heroes/cassidy/init.opy",
+      "heroes/junkrat/init.opy",
+      "heroes/zarya/init.opy",
+      "heroes/soldier76/init.opy",
+      "heroes/lucio/init.opy",
+      "heroes/dva/init.opy",
+      "heroes/mei/init.opy",
+      "heroes/sombra/init.opy",
+      "heroes/ana/init.opy",
+      "heroes/orisa/init.opy",
+      "heroes/brigitte/init.opy",
+      "heroes/moira/init.opy",
+      "heroes/wrecking_ball/init.opy",
+      "heroes/sojourn/init.opy",
+      "heroes/ashe/init.opy",
+      "heroes/echo/init.opy",
+      "heroes/baptiste/init.opy",
+      "heroes/kiriko/init.opy",
+      "heroes/junker_queen/init.opy",
+      "heroes/sierra/init.opy",
+      "heroes/sigma/init.opy",
+      "heroes/ramattra/init.opy",
+      "heroes/juno/init.opy",
+      "heroes/doomfist/init.opy",
+      "heroes/lifeweaver/init.opy",
+      "heroes/mauga/init.opy",
+      "heroes/illari/init.opy",
+      "modules/hero_init/delimiter-end.opy",
+    ];
     const expectedAfter = [
       "utilities/macros.opy",
       "constants/player_constants.opy",
@@ -250,6 +427,7 @@ async function main(): Promise<void> {
       "modules/ai/control/heroes.opy",
       "modules/ai/delimiter-end.opy",
       "heroes/main.opy",
+      ...mainHeroInitIncludes,
       "modules/debug/changelog.opy",
       "utilities/changelog_text.opy",
     ];
@@ -257,6 +435,62 @@ async function main(): Promise<void> {
     const after = mainIncludes.filter((item) => item.line > optimizeLine).map((item) => item.path);
     compareArrays(reporter, "main before optimizeStrict", before, expectedBefore);
     compareArrays(reporter, "main after optimizeStrict", after, expectedAfter);
+  }
+
+  const aramMainFile = resolveRepo("src/aramMain.opy");
+  const aramMainLines = await readLines(aramMainFile);
+  const aramMainIncludes = parseIncludes(aramMainLines);
+  const aramOptimizeLine = aramMainLines.findIndex((line) => line.includes("#!optimizeStrict")) + 1;
+
+  if (aramOptimizeLine > 0 && aramMainLines.filter((line) => line.includes("#!optimizeStrict")).length === 1) {
+    reporter.pass(`aram directive: #!optimizeStrict at line ${aramOptimizeLine}`);
+  } else {
+    reporter.fail("aram directive missing/duplicated: #!optimizeStrict");
+  }
+
+  if (aramOptimizeLine > 0) {
+    const expectedBefore: string[] = [];
+    const expectedAfter = [
+      "utilities/macros.opy",
+      "constants/ow2_hero_defaults.opy",
+      "constants/player_constants.opy",
+      "aram_settings.opy",
+      "modules/prelude/global-vars.opy",
+      "modules/prelude/player-vars.opy",
+      "modules/prelude/subroutine.opy",
+      "aram_protocol.opy",
+      "modules/bootstrap/aram-mode-settings.opy",
+      "modules/bootstrap/aram-hero-ability-settings.opy",
+      "modules/bootstrap/aram-safety-blacklist-ban.opy",
+      "utilities/bot_aim2target.opy",
+      "utilities/clear_custom_hp.opy",
+      "utilities/enable_all_abilities.opy",
+      "utilities/reset_frenemies.opy",
+      "utilities/hero_switch.opy",
+      "utilities/disable_all_abilities.opy",
+      "utilities/reset_stats.opy",
+      "utilities/knockback.opy",
+      "utilities/set_third_person.opy",
+      "utilities/remove_tank_passive.opy",
+      "modules/bootstrap/blacklist.opy",
+      "modules/ai/delimiter-begin.opy",
+      "modules/ai/core/core-global-and-targeting.opy",
+      "modules/ai/movement/movement.opy",
+      "modules/ai/control/common.opy",
+      "modules/ai/control/heroes.opy",
+      "modules/ai/delimiter-end.opy",
+      "aram_overrides.opy",
+      "utilities/reset_statuses.opy",
+      "utilities/reset_hero.opy",
+      "modules/bootstrap/aram-player-lifecycle-and-reset.opy",
+      "heroes/aram.opy",
+      "modules/debug/changelog.opy",
+      "utilities/changelog_text.opy",
+    ];
+    const before = aramMainIncludes.filter((item) => item.line < aramOptimizeLine).map((item) => item.path);
+    const after = aramMainIncludes.filter((item) => item.line > aramOptimizeLine).map((item) => item.path);
+    compareArrays(reporter, "aram before optimizeStrict", before, expectedBefore);
+    compareArrays(reporter, "aram after optimizeStrict", after, expectedAfter);
   }
 
   const aiIndexFile = resolveRepo("src/modules/ai/_index.opy");
@@ -271,31 +505,13 @@ async function main(): Promise<void> {
 
   const heroesMainFile = resolveRepo("src/heroes/main.opy");
   const heroesMainLines = await readLines(heroesMainFile);
-  const beginLine = heroesMainLines.findIndex((line) => line.includes('../modules/hero_init/delimiter-begin.opy')) + 1;
-  const endLine = heroesMainLines.findIndex((line) => line.includes('../modules/hero_init/delimiter-end.opy')) + 1;
-  if (beginLine > 0 && endLine > 0 && beginLine < endLine) {
-    reporter.pass("Hero init delimiter includes are ordered in src/heroes/main.opy");
-  } else {
-    reporter.fail("Hero init delimiter include boundaries are broken in src/heroes/main.opy");
-  }
-
   const heroesMainIncludes = parseIncludes(heroesMainLines).map((item) => item.path);
-  const heroResetSequence = [
-    "../utilities/reset_statuses.opy",
-    "../utilities/reset_hero.opy",
-    "../modules/bootstrap/player-lifecycle-and-reset.opy",
-    "../modules/hero_init/delimiter-begin.opy",
-    "../modules/hero_init/dispatcher.opy",
-  ];
-  const heroResetStart = heroesMainIncludes.indexOf(heroResetSequence[0]!);
-  if (
-    heroResetStart >= 0 &&
-    heroResetSequence.every((entry, index) => heroesMainIncludes[heroResetStart + index] === entry)
-  ) {
-    reporter.pass("heroes/main reset late-binding order preserved");
-  } else {
-    reporter.fail("heroes/main reset late-binding order is broken");
-  }
+  validateAllowedIncludes(
+    reporter,
+    "src/heroes/main.opy",
+    heroesMainIncludes,
+    (includePath) => includePath === "../modules/hero_rules/player_shared.opy" || /^(?!\.\.\/).+\/rules\.opy$/.test(includePath),
+  );
 
   const heroesAramFile = resolveRepo("src/heroes/aram.opy");
   const heroesAramLines = await readLines(heroesAramFile);
@@ -315,22 +531,16 @@ async function main(): Promise<void> {
   const aramOverridesFile = resolveRepo("src/aram_overrides.opy");
   const aramOverridesLines = await readLines(aramOverridesFile);
   const aramOverridesIncludes = parseIncludes(aramOverridesLines).map((item) => item.path);
-  const aramResetSequence = [
-    "utilities/reset_statuses.opy",
-    "utilities/reset_hero.opy",
-    "modules/bootstrap/aram-player-lifecycle-and-reset.opy",
-  ];
-  const aramResetStart = aramOverridesIncludes.indexOf(aramResetSequence[0]!);
-  if (
-    aramResetStart >= 0 &&
-    aramResetSequence.every((entry, index) => aramOverridesIncludes[aramResetStart + index] === entry)
-  ) {
-    reporter.pass("aram_overrides reset late-binding order preserved");
-  } else {
-    reporter.fail("aram_overrides reset late-binding order is broken");
-  }
+  validateAllowedIncludes(
+    reporter,
+    "src/aram_overrides.opy",
+    aramOverridesIncludes,
+    (includePath) =>
+      includePath === "modules/bootstrap/aram-extra-hero-pool.opy" ||
+      /^heroes\/[^/]+\/aram\.opy$/.test(includePath) ||
+      /^heroes\/[^/]+\/rules\.opy$/.test(includePath),
+  );
 
-  const srcLines = (await fs.readFile(resolveRepo("src"), "utf8").catch(() => "")).split(/\r?\n/);
   const allOpyFiles: string[] = [];
   async function walk(current: string): Promise<void> {
     const entries = await fs.readdir(current, { withFileTypes: true });
@@ -437,6 +647,11 @@ async function main(): Promise<void> {
 
   for (const entryRoot of entryRoots) {
     includedFilesByEntry.set(entryRoot.label, await collectIncludedFiles(entryRoot.filePath));
+  }
+
+  for (const entryRoot of entryRoots) {
+    const includedFiles = (includedFilesByEntry.get(entryRoot.label) ?? []).slice(1);
+    validateExpandedPhaseOrder(reporter, entryRoot.label, includedFiles);
   }
 
   const moduleOwners = new Map<string, Set<string>>();

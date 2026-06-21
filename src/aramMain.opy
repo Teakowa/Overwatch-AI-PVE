@@ -35,10 +35,30 @@
 #!include "modules/bootstrap/blacklist.opy"
 
 #
-# ARAM-specific overrides (target: thin layer only)
+# AI core logic
+#
+#!include "modules/ai/delimiter-begin.opy"
+#!include "modules/ai/core/core-global-and-targeting.opy"
+#!include "modules/ai/movement/movement.opy"
+#!include "modules/ai/control/common.opy"
+#!include "modules/ai/control/heroes.opy"
+#!include "modules/ai/delimiter-end.opy"
+
+#
+# ARAM-specific hero gameplay rules
 #
 #!include "aram_overrides.opy"
 
-#!include "modules/ai/delimiter-begin.opy"
+#
+# Reset and hero init
+#
+#!include "utilities/reset_statuses.opy"
+#!include "utilities/reset_hero.opy"
+#!include "modules/bootstrap/aram-player-lifecycle-and-reset.opy"
 #!include "heroes/aram.opy"
-#!include "modules/ai/delimiter-end.opy"
+
+#
+# Debug and changelog
+#
+#!include "modules/debug/changelog.opy"
+#!include "utilities/changelog_text.opy"
