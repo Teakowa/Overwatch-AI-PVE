@@ -9,8 +9,6 @@ rule "[Roadhog]: Chain Hook slaughter mark":
     @Condition victim.unaffected != true
     @Condition victim.untargetable() != true
 
-    eventPlayer.roadhog_slaughter_target = victim
-    current_slaughter_target = victim
+    victim.roadhog_slaughter = true
     wait(3)
-    if eventPlayer.roadhog_slaughter_target == current_slaughter_target:
-        eventPlayer.roadhog_slaughter_target = null
+    victim.roadhog_slaughter = false
