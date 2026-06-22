@@ -59,6 +59,9 @@ Use these as the only canonical policy sources:
 
 ## Workflow Command Pointers
 
+- Dependency bootstrap:
+  - `pnpm install --frozen-lockfile`
+
 - Build/perf script surface:
   - `pnpm run build`
   - `pnpm run build:release`
@@ -90,6 +93,11 @@ Use these as the only canonical policy sources:
   - `tools/changelog-sync.ts --from-diff --report`
   - `tools/changelog-sync.ts --hero freja --strict-coverage --strict-language`
   - `tools/changelog-sync.ts --hero jetpack_cat --strict-coverage --strict-language --strict-settings-sync`
+
+- Fandom hero data:
+  - `tools/fandom/fetch-heroes.ts`
+  - `tools/fandom/fetch-hero-details.ts`
+  - `tools/fandom/fetch-all-hero-details.ts`
 
 - Structure sync:
   - `tools/module-metrics-sync.ts`
