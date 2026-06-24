@@ -7,5 +7,5 @@ def heroInitOrisa():
     #removeTankPassive()
     if eventPlayer.getTeam() != Team.1:
         goto lbl_0
-    eventPlayer.startForcingName(random.choice(["命运羊驼", "美羊羊", "唯一真神", "标枪摩西", "小米Su7 Ultra"]))
+    eventPlayer.startForcingName(random.choice(["命运羊驼", "美羊羊", "唯一真神", "标枪摩西", "金色传说"]))
     lbl_0:
