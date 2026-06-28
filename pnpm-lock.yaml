@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       overpy:
-        specifier: 9.7.4
-        version: 9.7.4
+        specifier: 9.7.7
+        version: 9.7.7
     devDependencies:
       '@types/node':
         specifier: ^25.9.3
@@ -193,8 +193,8 @@ packages:
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
 
-  overpy@9.7.4:
-    resolution: {integrity: sha512-twNQDFWSB0EGZ4O591hSdUin5voYINKhDndNAxGCZjiTxG30gIXvRWtTh6TmM+ANHNeF0t5+hY08OAu9S0oHwA==}
+  overpy@9.7.7:
+    resolution: {integrity: sha512-Pog+8ppAa73PzumuNWnNMfZ+LNJjw7o1OajZWEIqDCYdlojBNH3BZjAjedIJ60w0K/YaHax4mZppr4OG3DRrLw==}
     hasBin: true
 
   tsx@4.22.4:
@@ -326,7 +326,7 @@ snapshots:
   fsevents@2.3.3:
     optional: true
 
-  overpy@9.7.4: {}
+  overpy@9.7.7: {}
 
   tsx@4.22.4:
     dependencies:
