@@ -24,14 +24,11 @@
 #!include "modules/bootstrap/aram-safety-blacklist-ban.opy"
 #!include "utilities/bot_aim2target.opy"
 #!include "utilities/clear_custom_hp.opy"
-#!include "utilities/enable_all_abilities.opy"
 #!include "utilities/reset_frenemies.opy"
 #!include "utilities/hero_switch.opy"
-#!include "utilities/disable_all_abilities.opy"
 #!include "utilities/reset_stats.opy"
 #!include "utilities/knockback.opy"
 #!include "utilities/set_third_person.opy"
-#!include "utilities/remove_tank_passive.opy"
 #!include "modules/bootstrap/blacklist.opy"
 
 #
