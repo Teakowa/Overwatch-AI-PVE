@@ -6,20 +6,21 @@
 rule "[Torbjörn]: Forge Hammer":
     @Event eachPlayer
     @Hero torbjorn
-    @Condition (eventPlayer.isInAlternateForm() and eventPlayer.getCurrentWeapon() == 2) == true
+    @Condition (eventPlayer.isInAlternateForm() or eventPlayer.getCurrentWeapon() == 2) == true
 
     eventPlayer.setDamageDealt(TorbjornBuff[0])
-    waitUntil(not (eventPlayer.isInAlternateForm() and eventPlayer.getCurrentWeapon() == 2), 999999986991104)
+    waitUntil(not (eventPlayer.isInAlternateForm() or eventPlayer.getCurrentWeapon() == 2), 999999986991104)
     eventPlayer.setDamageDealt(100)
     wait(1)
 
 rule "[Torbjörn]: Forge Hammer":
     @Event playerDealtDamage
     @Hero torbjorn
-    @Condition (eventPlayer.isInAlternateForm() and eventPlayer.getCurrentWeapon() == 2) == true
+    @Condition (eventPlayer.isInAlternateForm() or eventPlayer.getCurrentWeapon() == 2) == true
     @Condition eventAbility == Button.PRIMARY_FIRE
 
     heal(eventPlayer, eventPlayer, eventDamage * TORBJORN_ARAM_EVENT_DAMAGE_HEAL_SCALAR)
+    victim.setStatusEffect(eventPlayer, Status.STUNNED, 0.3)
 
 rule "[Torbjörn]: Forge Hammer":
     @Event eachPlayer
