@@ -101,4 +101,5 @@
 
 # Debug and changelog
 
-
+#!include "modules/debug/changelog.opy"
+#!include "utilities/changelog_text.opy"
