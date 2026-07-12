@@ -12,12 +12,8 @@ rule "[Freja]: Dmg. reduction":
         goto lbl_0
     heal(eventPlayer, null, FREJA_ABILITY2_HEAL)
     eventPlayer.setDamageReceived(FREJA_ABILITY2_DAMAGE_RECEIVED)
-    hudText(eventPlayer, null, " \r\n", "受到伤害减免：{0}%".format(25), HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
-    #eventPlayer.hudText = "受到伤害减免：{0}%".format(25)
-    eventPlayer.freja_air_hud = getLastCreatedText()
+    eventPlayer.hudText = "受到伤害减免：{0}%".format(25)
     lbl_0:
     waitUntil(not eventPlayer.isInAir() and eventPlayer.isOnGround(), 99999)
     eventPlayer.hudText = ""
-    destroyHudText(eventPlayer.freja_air_hud)
-    eventPlayer.freja_air_hud = 0
     eventPlayer.setDamageReceived(100)

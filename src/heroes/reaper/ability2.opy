@@ -16,12 +16,9 @@ rule "[Reaper]: Ability 2 Shadow Step dmg reduction setup":
     @Condition eventPlayer.isUsingAbility2() != true
     @Condition eventPlayer.dmg_reduction != 0
 
-    destroyHudText(eventPlayer.reaper_effect_hud)
-    hudText(eventPlayer, null, " \r\n", "受到伤害减免：{0}%".format(ceil(eventPlayer.dmg_reduction)), HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
-    eventPlayer.reaper_effect_hud = getLastCreatedText()
+    eventPlayer.hudText = "受到伤害减免：{0}%".format(ceil(eventPlayer.dmg_reduction))
     eventPlayer.setDamageReceived(100 - eventPlayer.dmg_reduction)
     wait(5)
     eventPlayer.dmg_reduction = 0
     eventPlayer.setDamageReceived(100)
-    destroyHudText(eventPlayer.reaper_effect_hud)
-    eventPlayer.reaper_effect_hud = 0
+    eventPlayer.hudText = ""

@@ -2,10 +2,6 @@
 def resetCombatState():
     @Name "[utilities/reset.opy]: resetCombatState()"
 
-    destroyHudText(eventPlayer.reaper_buff[2])
-    destroyHudText(eventPlayer.ram_block_damage_hud)
-    destroyHudText(eventPlayer.sigma_hyperspheres_hud)
-    destroyHudText(eventPlayer.doom_buff_hud)
     eventPlayer.reaper_buff[2] = 0
     eventPlayer.hudText = ""
     eventPlayer.has_nano = false

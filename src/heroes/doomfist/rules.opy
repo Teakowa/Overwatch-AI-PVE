@@ -14,11 +14,8 @@ rule "[Doomfist]: block HUD":
     @Condition eventPlayer._reset_requested == false
     @Condition eventPlayer.doom_buff > 0
 
-    #hudText(eventPlayer, null, "\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r", "{0}".format(floor(eventPlayer.doom_buff)), HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
-    #eventPlayer.doom_buff_hud = getLastCreatedText()
     waitUntil(eventPlayer.doom_buff == 0 or eventPlayer._reset_requested or eventPlayer.isInSpawnRoom(), Math.INFINITY)
     eventPlayer.hudText = ""
-    #destroyHudText(eventPlayer.doom_buff_hud)
 
 rule "[Doomfist] The Best Defense get armor":
     @Event playerDealtDamage
@@ -52,3 +49,5 @@ rule "[Doomfist] remove The Best Defense armor":
 #!include "secondary.opy"
 #!include "ability2.opy"
 #!include "ultimate.opy"
+
+

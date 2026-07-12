@@ -34,26 +34,16 @@ rule "[Freja]: HUD & Reset":
     @Event eachPlayer
     @Condition eventPlayer.freja_mark_count > 0
 
-    if eventPlayer.freja_target_mark_hud != 0:
-        goto lbl_0
-    hudText(eventPlayer.reset_pvar[11], null, " \r\n\r\n\n", "  {0} 狩猎印记： {1}".format(heroIcon(eventPlayer.getHero()), eventPlayer.freja_mark_count), HudPosition.LEFT, 1, null, null, rgb(255, 255, 255, 200), HudReeval.STRING)
-    eventPlayer.freja_target_mark_hud = getLastCreatedText()
-    lbl_0:
-    if eventPlayer.freja_self_mark_hud != 0:
-        goto lbl_1
-    hudText(eventPlayer, null, " \r\n\r\n\n", " {0} 印记： {1}".format(heroIcon(Hero.FREJA), eventPlayer.freja_mark_count), HudPosition.LEFT, 2, null, null, rgb(255, 255, 255, 200), HudReeval.STRING)
-    eventPlayer.freja_self_mark_hud = getLastCreatedText()
-    lbl_1:
+    eventPlayer.reset_pvar[11].hudText = "{0} 狩猎印记： {1}".format(heroIcon(eventPlayer.getHero()), eventPlayer.freja_mark_count)
+    eventPlayer.hudText = "{0} 印记： {1}".format(heroIcon(Hero.FREJA), eventPlayer.freja_mark_count)
     eventPlayer.freja_mark_snapshot = eventPlayer.freja_mark_count
     wait(5)
     if eventPlayer.freja_mark_count > eventPlayer.freja_mark_snapshot:
         loop()
     eventPlayer.freja_mark_count = 0
     eventPlayer.freja_mark_snapshot = 0
-    destroyHudText(eventPlayer.freja_target_mark_hud)
-    destroyHudText(eventPlayer.freja_self_mark_hud)
-    eventPlayer.freja_target_mark_hud = 0
-    eventPlayer.freja_self_mark_hud = 0
+    eventPlayer.reset_pvar[11].hudText = ""
+    eventPlayer.hudText = ""
 
 rule "[Freja]: Ex":
     @Event playerDealtKnockback

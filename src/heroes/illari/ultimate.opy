@@ -10,12 +10,9 @@ rule "[Illari]: Captive Sun HUD":
     eventPlayer.illari_captive_hud[0] = getLastCreatedEntity()
     eventPlayer.illari_captive_hud[2] = len(getPlayersInRadius(eventPlayer, ILLARI_ULTIMATE_HUD_RADIUS, eventPlayer.getTeam(), LosCheck.SURFACES).exclude(eventPlayer))
     eventPlayer.hudText = "最大生命值伤害：{0}%".format(eventPlayer.illari_captive_hud[2] * IllariBuff)
-    #hudText(eventPlayer, null, "\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r", "最大生命值伤害：{0}%".format(((len([player for player in getLivingPlayers(eventPlayer.getTeam()) if isInLoS(eventPlayer, player) and distance(eventPlayer, player) <= 10 and player != eventPlayer])) * IllariBuff) * 100), HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
-    #eventPlayer.illari_captive_hud[1] = getLastCreatedText()
     waitUntil(not eventPlayer.isUsingUltimate(), 8)
     wait(0.98)
     destroyEffect(eventPlayer.illari_captive_hud[0])
-    #destroyHudText(eventPlayer.illari_captive_hud[1])
     eventPlayer.hudText = ""
     eventPlayer.illari_captive_hud[0] = 0
     eventPlayer.illari_captive_hud[1] = 0
@@ -28,3 +25,5 @@ rule "[Illari] Captive Sun":
 
     eventPlayer.illari_captive_hud[2] = len(getPlayersInRadius(eventPlayer, ILLARI_ULTIMATE_DAMAGE_RADIUS, eventPlayer.getTeam(), LosCheck.SURFACES).exclude(eventPlayer))
     damage(victim, attacker, victim.maxHealthPercent(eventPlayer.illari_captive_hud[2] * IllariBuff))
+
+

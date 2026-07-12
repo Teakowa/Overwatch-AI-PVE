@@ -91,8 +91,7 @@ rule "[Doomfist]: block HUD":
     @Condition eventPlayer.isInSpawnRoom() != true
     @Condition eventPlayer._reset_requested == false
 
-    #hudText(eventPlayer, null, "\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r", "{0}".format(floor(eventPlayer.doom_buff)), HudPosition.TOP, 9, Color.WHITE, Color.WHITE, Color.WHITE, HudReeval.VISIBILITY_AND_STRING)
-    #eventPlayer.doom_buff_hud = getLastCreatedText()
     waitUntil(eventPlayer.doom_buff == 0 or eventPlayer._reset_requested or eventPlayer.isInSpawnRoom(), 999999986991104)
     eventPlayer.hudText = ""
-    #destroyHudText(eventPlayer.doom_buff_hud)
+
+

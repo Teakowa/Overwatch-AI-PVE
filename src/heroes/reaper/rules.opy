@@ -20,11 +20,6 @@ rule "[Reaper]: HUD & Reset":
     @Condition eventPlayer._reset_requested == false
     @Condition eventPlayer.reaper_soul_count > 0
 
-    if eventPlayer.reaper_soul_hud != 0:
-        goto lbl_0
-    hudText(eventPlayer, null, " \r\n\r\n\n", "已收割灵魂： {0}".format(eventPlayer.reaper_soul_count), HudPosition.LEFT, 3, null, null, rgb(255, 255, 255, 200), HudReeval.STRING)
-    eventPlayer.reaper_soul_hud = getLastCreatedText()
-    lbl_0:
+    eventPlayer.hudText = "已收割灵魂： {0}".format(eventPlayer.reaper_soul_count)
     waitUntil(eventPlayer.reaper_soul_count == 0 or eventPlayer._reset_requested, Math.INFINITY)
-    destroyHudText(eventPlayer.reaper_soul_hud)
-    eventPlayer.reaper_soul_hud = 0
+    eventPlayer.hudText = ""

@@ -25,4 +25,4 @@ rule "[Reaper]: Ability 1 Wraith Form dmg increase setup":
     if ruleCondition:
         loop()
     eventPlayer.setDamageDealt(100)
-    eventPlayer.hudText = """
+    eventPlayer.hudText = ""
