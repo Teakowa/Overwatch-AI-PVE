@@ -81,9 +81,11 @@ Use these as the only canonical policy sources:
   - `tools/check-contracts.ts --build`
   - `tools/check-contracts.ts --strict-hero-init`
   - `tools/check-aram-overrides-duplicates.ts`
+  - `tools/check-aram-overrides-duplicates.ts --check`
   - `tools/check-aram-overrides-duplicates.ts --check --emit-candidates build/reports/aram-delta-whitelist-candidates.tsv`
 
 - Hero/changelog linkage:
+  - `tools/hero-pipeline.ts --hero freja`
   - `tools/hero-pipeline.ts --from-diff`
   - `tools/hero-pipeline.ts --from-diff --build`
   - `tools/hero-pipeline.ts --from-diff --strict-cooldown-placement`
@@ -95,9 +97,13 @@ Use these as the only canonical policy sources:
   - `tools/changelog-sync.ts --hero jetpack_cat --strict-coverage --strict-language --strict-settings-sync`
 
 - Fandom hero data:
-  - `tools/fandom/fetch-heroes.ts`
-  - `tools/fandom/fetch-hero-details.ts`
-  - `tools/fandom/fetch-all-hero-details.ts`
+  - `tools/fandom/fetch-heroes.ts --output /tmp/ow_heroes.json --pretty`
+  - `tools/fandom/fetch-hero-details.ts --hero "Ana" --output /tmp/ana.json --pretty`
+  - `tools/fandom/fetch-hero-details.ts --url URL --output /tmp/ana.json`
+  - `tools/fandom/fetch-all-hero-details.ts --heroes-file /tmp/ow_heroes.json --output /tmp/ow_hero_details.json --pretty`
+  - `tools/fandom/fetch-heroes.ts --html-file /path/to/Heroes.html --allowlist PATH --output /tmp/ow_heroes.json --pretty`
+  - `tools/fandom/fetch-hero-details.ts --html-file /path/to/Ana.html --hero "Ana" --output /tmp/ana.json`
+  - `tools/fandom/fetch-all-hero-details.ts --heroes-file /tmp/ow_heroes.json --html-dir /path/to/html-pages --output /tmp/ow_hero_details.json`
 
 - Structure sync:
   - `tools/module-metrics-sync.ts`
