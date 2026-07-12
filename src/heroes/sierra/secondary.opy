@@ -16,7 +16,9 @@ rule "[Sierra]: secondary hit get ammo":
         eventPlayer.sierra_buff = victim
     if eventPlayer.getAmmo() != eventPlayer.getMaxAmmo():
         eventPlayer.setAmmo(0, eventPlayer.getMaxAmmo())
-    wait(4)
+    wait(3)
+    eventPlayer.sierra_buff = null
+    wait(1)
 
 rule "[Sierra]: secondary target damage amp":
     @Event eachPlayer
