@@ -83,6 +83,8 @@ Use these as the only canonical policy sources:
   - `tools/check-aram-overrides-duplicates.ts`
   - `tools/check-aram-overrides-duplicates.ts --check`
   - `tools/check-aram-overrides-duplicates.ts --check --emit-candidates build/reports/aram-delta-whitelist-candidates.tsv`
+  - `pnpm run tool:check-contracts`
+  - `pnpm run tool:check-aram-overrides-duplicates`
 
 - Hero/changelog linkage:
   - `tools/hero-pipeline.ts --hero freja`
@@ -95,6 +97,8 @@ Use these as the only canonical policy sources:
   - `tools/changelog-sync.ts --from-diff --report`
   - `tools/changelog-sync.ts --hero freja --strict-coverage --strict-language`
   - `tools/changelog-sync.ts --hero jetpack_cat --strict-coverage --strict-language --strict-settings-sync`
+  - `pnpm run tool:hero-pipeline`
+  - `pnpm run tool:changelog-sync`
 
 - Fandom hero data:
   - `tools/fandom/fetch-heroes.ts --output /tmp/ow_heroes.json --pretty`
@@ -104,13 +108,18 @@ Use these as the only canonical policy sources:
   - `tools/fandom/fetch-heroes.ts --html-file /path/to/Heroes.html --allowlist PATH --output /tmp/ow_heroes.json --pretty`
   - `tools/fandom/fetch-hero-details.ts --html-file /path/to/Ana.html --hero "Ana" --output /tmp/ana.json`
   - `tools/fandom/fetch-all-hero-details.ts --heroes-file /tmp/ow_heroes.json --html-dir /path/to/html-pages --output /tmp/ow_hero_details.json`
+  - `pnpm run tool:fandom:fetch-heroes`
+  - `pnpm run tool:fandom:fetch-hero-details`
+  - `pnpm run tool:fandom:fetch-all-hero-details`
 
 - Structure sync:
   - `tools/module-metrics-sync.ts`
   - `tools/module-metrics-sync.ts --check`
   - `tools/module-metrics-sync.ts --report`
+  - `pnpm run tool:module-metrics-sync`
 
 - Hero sync guard:
   - `tools/player-constants-reachability.ts --prefix ANRAN_`
   - `tools/player-constants-reachability.ts --prefix ANRAN_ --apply`
   - `tools/player-constants-reachability.ts --global-cleanup --apply`
+  - `pnpm run tool:player-constants-reachability`
