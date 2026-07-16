@@ -31,3 +31,12 @@ rule "[Ana] Nano Boost Healing":
     @Condition isHero(healer, Hero.ANA)
 
     heal(healee, healer, ANA_ULTIMATE_NANO_HEAL)
+
+rule "[Ana] Nano Boost ":
+    @Event eachPlayer
+    @Condition eventPlayer.has_nano == true
+
+    eventPlayer.setHealingDealt(100 + Ana_NanoHealAmp)
+    smallMessage(eventPlayer, "  {0} 获得纳米激素强化".format(abilityIconString(Hero.ANA, Button.ULTIMATE)))
+    waitUntil(eventPlayer.has_nano == false, 99999)
+    eventPlayer.setHealingDealt(100)

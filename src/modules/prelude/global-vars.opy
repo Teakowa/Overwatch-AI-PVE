@@ -68,3 +68,4 @@ globalvar TorbjornBuff
 globalvar WidowmakerBuff
 globalvar WinstonBuff
 globalvar ShionBuff
+globalvar Ana_NanoHealAmp
