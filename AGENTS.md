@@ -76,10 +76,13 @@ Use these as the only canonical policy sources:
   - Release freshness guard: workflow skips stale runs when `github.sha` is not current `origin/main` head.
   - Release skip guard: include `[skip release]` in a `main` commit message to bypass release workflow.
 
-- Contract and ARAM guards:
+- Contract guard:
   - `tools/check-contracts.ts`
   - `tools/check-contracts.ts --build`
   - `tools/check-contracts.ts --strict-hero-init`
+  - `tools/hero-pipeline.ts --from-diff --strict-cooldown-placement`
+
+- Contract and ARAM guards:
   - `tools/check-aram-overrides-duplicates.ts`
   - `tools/check-aram-overrides-duplicates.ts --check`
   - `tools/check-aram-overrides-duplicates.ts --check --emit-candidates build/reports/aram-delta-whitelist-candidates.tsv`
@@ -111,6 +114,10 @@ Use these as the only canonical policy sources:
   - `pnpm run tool:fandom:fetch-heroes`
   - `pnpm run tool:fandom:fetch-hero-details`
   - `pnpm run tool:fandom:fetch-all-hero-details`
+
+- Balance notes:
+  - Use `docs/workflows/ow-balance-notes-writer.md` for player-facing balance-note formatting.
+  - Keep output in Chinese unless explicitly asked otherwise.
 
 - Structure sync:
   - `tools/module-metrics-sync.ts`
