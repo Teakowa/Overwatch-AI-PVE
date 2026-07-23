@@ -13,30 +13,24 @@ rule "[Ramattra]: Pummel Knockback":
     wait(0.5)
 
 rule "[Ramattra]: Pummel healing":
-    @Event eachPlayer
+    @Event playerDealtDamage
     @Team 1
     @Hero ramattra
     @Condition eventPlayer.isUsingAbility1() == true
+    @Condition eventAbility == Button.ABILITY_1
     @Condition eventPlayer.getHealthOfType(Health.NORMAL) <= 325
 
-    eventPlayer.ram_pummel_damage_dealt = eventPlayer.getHeroStatistic(Hero.RAMATTRA, HeroStat.DAMAGE_DEALT)
-    wait(1)
-    if ruleCondition:
-        eventPlayer.ram_block_damage += (eventPlayer.getHeroStatistic(Hero.RAMATTRA, HeroStat.DAMAGE_DEALT) - eventPlayer.ram_pummel_damage_dealt) * 2.5
-        eventPlayer.ram_pummel_damage_dealt = eventPlayer.getHeroStatistic(Hero.RAMATTRA, HeroStat.DAMAGE_DEALT)
-        loop()
+    eventPlayer.ram_block_damage += eventDamage * 2.5
+    wait(0.3)
 
 rule "[Ramattra]: Pummel healing":
-    @Event eachPlayer
+    @Event playerDealtDamage
     @Team 2
     @Hero ramattra
     @Condition eventPlayer.isUsingAbility1() == true
+    @Condition eventAbility == Button.ABILITY_1
     @Condition eventPlayer.getHealthOfType(Health.NORMAL) <= 325
 
-    eventPlayer.ram_pummel_damage_dealt = eventPlayer.getHeroStatistic(Hero.RAMATTRA, HeroStat.DAMAGE_DEALT)
-    wait(1)
-    if ruleCondition:
-        eventPlayer.ram_block_damage += (eventPlayer.getHeroStatistic(Hero.RAMATTRA, HeroStat.DAMAGE_DEALT) - eventPlayer.ram_pummel_damage_dealt) * 1.5
-        eventPlayer.ram_pummel_damage_dealt = eventPlayer.getHeroStatistic(Hero.RAMATTRA, HeroStat.DAMAGE_DEALT)
-        eventPlayer.hudText = "{0}/{1}".format(floor(eventPlayer.ram_block_damage), Ram_Annihilation[0])
-        loop()
+    eventPlayer.ram_block_damage += eventDamage * 1.5
+    eventPlayer.hudText = "{0}/{1}".format(floor(eventPlayer.ram_block_damage), Ram_Annihilation[0])
+    wait(0.3)
