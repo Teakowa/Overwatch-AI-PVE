@@ -5,6 +5,7 @@
 playervar ram_block_damage
 playervar ram_block_damage_hud
 playervar ram_dmg_reduc
+playervar ram_pummel_damage_dealt
 
 rule "[Ramattra]: Pain endures":
     @Event playerDealtFinalBlow
@@ -60,26 +61,32 @@ rule "[Ramattra] ult healing":
 
 
 rule "[Ramattra]: Pummel healing":
-    @Event playerDealtDamage
+    @Event eachPlayer
     @Team 1
     @Hero ramattra
     @Condition eventPlayer.isUsingAbility1() == true
-    @Condition eventAbility == Button.ABILITY_1
     @Condition eventPlayer.getHealthOfType(Health.NORMAL) <= eventPlayer.getMaxHealthOfType(Health.NORMAL) + 50
 
-    eventPlayer.ram_block_damage += eventDamage * 2.5
-    wait(0.3)
+    eventPlayer.ram_pummel_damage_dealt = eventPlayer.getHeroStatistic(Hero.RAMATTRA, HeroStat.DAMAGE_DEALT)
+    wait(1)
+    if ruleCondition:
+        eventPlayer.ram_block_damage += (eventPlayer.getHeroStatistic(Hero.RAMATTRA, HeroStat.DAMAGE_DEALT) - eventPlayer.ram_pummel_damage_dealt) * 2.5
+        eventPlayer.ram_pummel_damage_dealt = eventPlayer.getHeroStatistic(Hero.RAMATTRA, HeroStat.DAMAGE_DEALT)
+        loop()
 
 rule "[Ramattra]: Pummel healing":
-    @Event playerDealtDamage
+    @Event eachPlayer
     @Team 2
     @Hero ramattra
     @Condition eventPlayer.isUsingAbility1() == true
-    @Condition eventAbility == Button.ABILITY_1
     @Condition eventPlayer.getHealthOfType(Health.NORMAL) <= eventPlayer.getMaxHealthOfType(Health.NORMAL) + 50
 
-    eventPlayer.ram_block_damage += eventDamage * 1.5
-    wait(0.3)
+    eventPlayer.ram_pummel_damage_dealt = eventPlayer.getHeroStatistic(Hero.RAMATTRA, HeroStat.DAMAGE_DEALT)
+    wait(1)
+    if ruleCondition:
+        eventPlayer.ram_block_damage += (eventPlayer.getHeroStatistic(Hero.RAMATTRA, HeroStat.DAMAGE_DEALT) - eventPlayer.ram_pummel_damage_dealt) * 1.5
+        eventPlayer.ram_pummel_damage_dealt = eventPlayer.getHeroStatistic(Hero.RAMATTRA, HeroStat.DAMAGE_DEALT)
+        loop()
 
 rule "[Ramattra]: block":
     @Event playerTookDamage
@@ -126,5 +133,4 @@ rule "[Ramattra]: Annihilation dmg reduc":
     waitUntil(not eventPlayer.isUsingUltimate(), Math.INFINITY)
     stopDamageModification(eventPlayer.ram_dmg_reduc)
     eventPlayer.ram_dmg_reduc = null
-
 

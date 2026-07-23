@@ -7,6 +7,7 @@
 playervar ram_block_damage
 playervar ram_block_damage_hud
 playervar ram_dmg_reduc
+playervar ram_pummel_damage_dealt
 
 
 #!include "secondary.opy"
