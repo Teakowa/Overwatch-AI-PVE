@@ -5,6 +5,7 @@
 playervar ram_block_damage
 playervar ram_block_damage_hud
 playervar ram_dmg_reduc
+playervar ram_ult_damage_dealt
 
 rule "[Ramattra]: Pain endures":
     @Event playerDealtFinalBlow
@@ -53,9 +54,11 @@ rule "[Ramattra] ult healing":
     @Condition eventPlayer.isUsingUltimate() == true
     @Condition eventPlayer.getNormalizedHealth() != 1
 
-    heal(eventPlayer, eventPlayer, 75 * Ram_Annihilation[1])
-    wait(0.5)
+    eventPlayer.ram_ult_damage_dealt = eventPlayer.getHeroStatistic(Hero.RAMATTRA, HeroStat.DAMAGE_DEALT)
+    wait(1)
     if ruleCondition:
+        heal(eventPlayer, eventPlayer, (eventPlayer.getHeroStatistic(Hero.RAMATTRA, HeroStat.DAMAGE_DEALT) - eventPlayer.ram_ult_damage_dealt) * Ram_Annihilation[1])
+        eventPlayer.ram_ult_damage_dealt = eventPlayer.getHeroStatistic(Hero.RAMATTRA, HeroStat.DAMAGE_DEALT)
         loop()
 
 
@@ -126,5 +129,4 @@ rule "[Ramattra]: Annihilation dmg reduc":
     waitUntil(not eventPlayer.isUsingUltimate(), Math.INFINITY)
     stopDamageModification(eventPlayer.ram_dmg_reduc)
     eventPlayer.ram_dmg_reduc = null
-
 

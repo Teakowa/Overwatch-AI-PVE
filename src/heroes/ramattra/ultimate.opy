@@ -53,9 +53,11 @@ rule "[Ramattra] ult healing":
     @Condition eventPlayer.isUsingUltimate() == true
     @Condition eventPlayer.getNormalizedHealth() != 1
 
-    heal(eventPlayer, eventPlayer, 25 * Ram_Annihilation[1])
-    wait(0.5)
+    eventPlayer.ram_ult_damage_dealt = eventPlayer.getHeroStatistic(Hero.RAMATTRA, HeroStat.DAMAGE_DEALT)
+    wait(1)
     if ruleCondition:
+        heal(eventPlayer, eventPlayer, (eventPlayer.getHeroStatistic(Hero.RAMATTRA, HeroStat.DAMAGE_DEALT) - eventPlayer.ram_ult_damage_dealt) * Ram_Annihilation[1])
+        eventPlayer.ram_ult_damage_dealt = eventPlayer.getHeroStatistic(Hero.RAMATTRA, HeroStat.DAMAGE_DEALT)
         loop()
 
 rule "[Ramattra]: Annihilation dmg reduc":
