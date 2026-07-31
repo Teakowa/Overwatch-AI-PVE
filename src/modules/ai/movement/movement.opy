@@ -10,10 +10,19 @@ rule "[AI/Movement]: Movement":
     
     if eventPlayer.botTarget == null or eventPlayer.botTarget.isAlive() != true or isInLoS(eventPlayer, eventPlayer.botTarget) != true:
         eventPlayer.startThrottleInDirection(directionTowards(eventPlayer, eventPlayer.reset_pvar[15]), 1, Relativity.TO_WORLD)
+        eventPlayer.Strafe = 0
+        chaseAtRate(eventPlayer.Strafe, 0, 9999)
     else:
         eventPlayer.startThrottleInDirection(directionFromAngles(horizontalAngleOfDirection(directionTowards(eventPlayer, eventPlayer.botTarget)) + eventPlayer.Strafe, 0), 1, Relativity.TO_WORLD)
-    eventPlayer.Strafe = 90 if distance(eventPlayer, eventPlayer.botTarget) <= FalloffMin[eventPlayer.heroNum] else 0 if eventPlayer.getHero() in getTankHeroes() else 45
-    chaseAtRate(eventPlayer.Strafe, 90 if distance(eventPlayer, eventPlayer.botTarget) <= FalloffMin[eventPlayer.heroNum] else 0 if eventPlayer.getHero() in getTankHeroes() else 45, (0 if abs(eventPlayer.Strafe) == 90 else 9999) if distance(eventPlayer, eventPlayer.botTarget) <= FalloffMin[eventPlayer.heroNum] else 0 if abs(eventPlayer.Strafe) == 45 else 9999)
+        if distance(eventPlayer, eventPlayer.botTarget) <= FalloffMin[eventPlayer.heroNum]:
+            eventPlayer.Strafe = 90
+            chaseAtRate(eventPlayer.Strafe, 90, 0)
+        elif eventPlayer.getHero() in getTankHeroes():
+            eventPlayer.Strafe = 0
+            chaseAtRate(eventPlayer.Strafe, 0, 9999)
+        else:
+            eventPlayer.Strafe = 45
+            chaseAtRate(eventPlayer.Strafe, 45, 0)
     eventPlayer.Strafe *= -1
     wait(0.5)
     if ruleCondition:
