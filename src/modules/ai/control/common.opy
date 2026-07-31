@@ -9,6 +9,11 @@ rule "[AI]: Target in line of sight":
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.getHero() in CustomAIArray.concat([Hero.REAPER, Hero.KIRIKO, Hero.MAUGA, Hero.SOJOURN, Hero.GENJI, Hero.TRACER]) == true
 
+    if len(getPlayersInRadius(eventPlayer, 22, getOppositeTeam(eventPlayer.getTeam()), LosCheck.SURFACES)) == 0:
+        eventPlayer.botTemp = []
+        eventPlayer.botTarget = null
+        goto lbl_0
+
     eventPlayer.botTemp = [
         player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam()))
         if player.hasSpawned()
