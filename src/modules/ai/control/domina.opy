@@ -32,7 +32,7 @@ rule "[AI/control]: Domina Secondary":
     @Condition isInLoS(eventPlayer, eventPlayer.botTarget) == true
 
     eventPlayer.startForcingButton(Button.SECONDARY_FIRE)
-    wait(max(getAverageServerLoad() / 1000, WAIT_AI_THROTTLE_MIN))
+    wait(WAIT_AI_THROTTLE_MIN)
     eventPlayer.stopForcingButton(Button.SECONDARY_FIRE)
 
 rule "[AI/control]: Domina Ability 1":
@@ -52,7 +52,7 @@ rule "[AI/control]: Domina Ability 1":
         random.uniform(0.65, 1.2)
     )
     eventPlayer.startForcingButton(Button.ABILITY_1)
-    wait(max(getAverageServerLoad() / 1000, WAIT_AI_THROTTLE_MIN))
+    wait(WAIT_AI_THROTTLE_MIN)
     eventPlayer.stopForcingButton(Button.ABILITY_1)
 
 rule "[AI/control]: Domina Ability 2":
@@ -69,7 +69,7 @@ rule "[AI/control]: Domina Ability 2":
     @Condition distance(eventPlayer.getPosition() * vect(1, 0, 1), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) <= 14
 
     eventPlayer.startForcingButton(Button.ABILITY_2)
-    wait(max(getAverageServerLoad() / 1000, WAIT_AI_THROTTLE_MIN))
+    wait(WAIT_AI_THROTTLE_MIN)
     eventPlayer.stopForcingButton(Button.ABILITY_2)
 
 rule "[AI/control]: Domina Ultimate":

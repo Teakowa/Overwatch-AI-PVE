@@ -13,7 +13,7 @@ rule "[AI/control]: Emre Primary":
     @Condition isInLoS(eventPlayer, eventPlayer.botTarget) == true
 
     eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
-    wait(max(getAverageServerLoad() / 1000, WAIT_AI_THROTTLE_MIN), Wait.ABORT_WHEN_FALSE)
+    wait(WAIT_AI_THROTTLE_MIN, Wait.ABORT_WHEN_FALSE)
     eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
     if ruleCondition:
         loop()
@@ -31,7 +31,7 @@ rule "[AI/control]: Emre Secondary":
     @Condition isInLoS(eventPlayer, eventPlayer.botTarget) == true
 
     eventPlayer.startForcingButton(Button.SECONDARY_FIRE)
-    wait(max(getAverageServerLoad() / 1000, WAIT_AI_THROTTLE_MIN))
+    wait(WAIT_AI_THROTTLE_MIN)
     eventPlayer.forceButtonPress(Button.PRIMARY_FIRE)
     eventPlayer.stopForcingButton(Button.SECONDARY_FIRE)
 
@@ -49,7 +49,7 @@ rule "[AI/control]: Emre Ability 1":
 
     waitUntil(true and distance(eventPlayer.getPosition(), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) < 6.8, random.uniform(0.65, 1.2))
     eventPlayer.startForcingButton(Button.ABILITY_1)
-    wait(max(getAverageServerLoad() / 1000, WAIT_AI_THROTTLE_MIN))
+    wait(WAIT_AI_THROTTLE_MIN)
     eventPlayer.stopForcingButton(Button.ABILITY_1)
 
 rule "[AI/control]: Emre Ability 2":

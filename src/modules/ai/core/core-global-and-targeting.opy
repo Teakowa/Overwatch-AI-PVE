@@ -6,7 +6,7 @@ rule "[AI/global]: Generated at the beginning":
     @Condition any([isWaitingForPlayers(), isInSetup(), isGameInProgress()]) == true
     @Condition getPlayersOnHero(CustomAIArray[CustomAI], Team.1).hasSpawned() != true
     
-    wait(getAverageServerLoad() / 100)
+    wait(0.25)
     #waitUntil(getPlayersOnHero(CustomAIArray[CustomAI], Team.1).hasSpawned() != true, 9999)
     destroyAllDummies()
     wait(0.25)

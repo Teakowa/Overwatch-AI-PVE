@@ -22,7 +22,7 @@ rule "[Hazard]: Spike Guard get Ultimate and heal":
 
     eventPlayer.setUltCharge(eventPlayer.getUltCharge() + (HazardBuff[1] if eventPlayer.getTeam() == Team.2 else HazardBuff[1] * 1.15))
     heal(eventPlayer, eventPlayer, eventDamage / 0.35 * (HazardBuff[2] if eventPlayer.getTeam() == Team.2 else 0.5))
-    wait(max(0.5, getAverageServerLoad() / 100))
+    wait(0.5)
 
 rule "[Hazard]: Spike Guard using tracking":
     @Event eachPlayer

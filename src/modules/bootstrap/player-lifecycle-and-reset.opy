@@ -25,7 +25,7 @@ rule "[utilities/reset]: Default respawn time":
 rule "[utilities/reset]: reset when died":
     @Event playerDied
 
-    wait(getAverageServerLoad() / 100)
+    wait(0.25)
     resetCombatState()
     resetStats()
     resetStatuses()
@@ -39,7 +39,7 @@ rule "[reset.opy]: Reinitialize hero on new round":
     resetCombatState()
     resetStatuses()
     waitUntil(not isMatchBetweenRounds(), Math.INFINITY)
-    wait(eventPlayer.getSlot() * 10 + getAverageServerLoad() / 100)
+    wait(eventPlayer.getSlot() * 10 + 0.25)
     eventPlayer.init_hero = eventPlayer.getCurrentHero()
     eventPlayer.call_init = true
     eventPlayer._reset_requested = true

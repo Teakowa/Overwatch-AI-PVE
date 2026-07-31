@@ -4,7 +4,7 @@
 def setPlayerHeros():
     @Name "[Player]: set extra hero"
 
-    wait(eventPlayer.getSlot() * 1 + getAverageServerLoad() / 100)
+    wait(eventPlayer.getSlot() * 1 + 0.25)
     eventPlayer.heros = [random.shuffle(getTankHeroes()).slice(0, Hero_BAN[3]), random.shuffle(getDamageHeroes()).slice(0, Hero_BAN[4]), random.shuffle(getSupportHeroes()).slice(0, Hero_BAN[5]), eventPlayer.getHero()]
     eventPlayer.setAllowedHeroes(eventPlayer.heros)
     eventPlayer.aram_extra_pool_applied = true

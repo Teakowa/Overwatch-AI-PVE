@@ -32,7 +32,7 @@ rule "[AI/Movement]: Strafing":
     
     eventPlayer.startThrottleInDirection(random.choice([Vector.LEFT, Vector.RIGHT]), 1, Relativity.TO_PLAYER)
     wait(random.uniform(0.2, 0.5), Wait.ABORT_WHEN_FALSE)
-    wait(max(0.016, getAverageServerLoad() / 1000))
+    wait(WAIT_SHORT_FRAME)
     if ruleCondition:
         loop()
     eventPlayer.stopThrottleInDirection()
@@ -47,7 +47,7 @@ rule "[AI/Movement]: Strafing Genji":
     
     eventPlayer.startThrottleInDirection(random.choice([Vector.LEFT, Vector.RIGHT]), 1, Relativity.TO_PLAYER)
     wait(random.uniform(0.2, 0.8), Wait.ABORT_WHEN_FALSE)
-    wait(max(0.016, getAverageServerLoad() / 1000))
+    wait(WAIT_SHORT_FRAME)
     if ruleCondition:
         loop()
     eventPlayer.stopThrottleInDirection()

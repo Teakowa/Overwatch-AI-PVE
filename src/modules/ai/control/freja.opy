@@ -15,11 +15,11 @@ rule "[AI/control]: Freja Primary":
     eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
     waitUntil(eventPlayer.isUsingAbility1(), 1.5)
     eventPlayer.startForcingButton(Button.SECONDARY_FIRE)
-    wait(max(getAverageServerLoad() / 1000, WAIT_AI_THROTTLE_MIN))
+    wait(WAIT_AI_THROTTLE_MIN)
     eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
-    wait(max(getAverageServerLoad() / 1000, WAIT_AI_THROTTLE_MIN))
+    wait(WAIT_AI_THROTTLE_MIN)
     eventPlayer.stopForcingButton(Button.SECONDARY_FIRE)
-    wait(max(getAverageServerLoad() / 1000, 0.5))
+    wait(0.5)
     if ruleCondition:
         loop()
     eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
@@ -43,9 +43,9 @@ rule "[AI/control]: Freja Ability 2":
     wait(1)
     eventPlayer.stopForcingButton(Button.ABILITY_2)
     eventPlayer.forceButtonPress(Button.ABILITY_1)
-    wait(max(getAverageServerLoad() / 1000, 0.4))
+    wait(0.4)
     eventPlayer.forceButtonPress(Button.ABILITY_1)
-    wait(max(getAverageServerLoad() / 1000, 0.4))
+    wait(0.4)
 
 
 

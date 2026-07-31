@@ -12,6 +12,6 @@ rule "[AI/control]: Reaper Secondary":
     @Condition eventPlayer.getAbilityCooldown(Button.SECONDARY_FIRE) == 0
     
     eventPlayer.startForcingButton(Button.SECONDARY_FIRE)
-    wait(max(getAverageServerLoad() / 1000, WAIT_AI_THROTTLE_MIN))
+    wait(WAIT_AI_THROTTLE_MIN)
     eventPlayer.stopForcingButton(Button.SECONDARY_FIRE)
     wait(3)

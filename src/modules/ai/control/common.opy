@@ -21,7 +21,7 @@ rule "[AI]: Target in line of sight":
         wait()
     eventPlayer.botTarget = eventPlayer.botTemp.first()
     lbl_0:
-    wait(max(getAverageServerLoad() / 1000, 0.512))
+    wait(0.512)
     if ruleCondition:
         loop()
     #eventPlayer.botTarget = null
