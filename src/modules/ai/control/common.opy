@@ -4,21 +4,26 @@
 rule "[AI]: Target in line of sight":
     @Event eachPlayer
     @Team 1
-    @Condition eventPlayer.getHero() in CustomAIArray.concat([Hero.REAPER, Hero.KIRIKO, Hero.MAUGA, Hero.SOJOURN, Hero.GENJI, Hero.TRACER]) == true
+    @Condition eventPlayer.isDummy() != false
+    @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.hasSpawned() == true
-    @Condition len(getPlayersInRadius(eventPlayer, 22, getOppositeTeam(eventPlayer.getTeam()), LosCheck.SURFACES)) > 0
-    #@Condition getPlayersInRadius(eventPlayer.getEyePosition(), 50, getOppositeTeam(eventPlayer.getTeam()))[0] != false
-    
-    eventPlayer.botTemp = [player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player)]
-    wait()
+    @Condition eventPlayer.getHero() in CustomAIArray.concat([Hero.REAPER, Hero.KIRIKO, Hero.MAUGA, Hero.SOJOURN, Hero.GENJI, Hero.TRACER]) == true
+
+    eventPlayer.botTemp = [
+        player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam()))
+        if player.hasSpawned()
+        and not player.hasStatus(Status.INVINCIBLE)
+        and not player.hasStatus(Status.PHASED_OUT)
+        and not (player.getHero() == Hero.ORISA and player.isUsingAbility1())
+        and not (player.getHero() == Hero.GENJI and player.isUsingAbility2())
+        and not (player.getHero() == Hero.DOOMFIST and player.isUsingAbility2())
+        and isInLoS(eventPlayer, player)
+    ]
     if not eventPlayer.botTemp:
         eventPlayer.botTarget = null
         goto lbl_0
-    eventPlayer.botTemp.remove([player for player in eventPlayer.botTemp if not player.hasSpawned() or player.hasStatus(Status.INVINCIBLE) or player.hasStatus(Status.PHASED_OUT) or player.getHero() == Hero.ORISA and player.isUsingAbility1() or player.getHero() == Hero.GENJI and player.isUsingAbility2() or player.getHero() == Hero.DOOMFIST and player.isUsingAbility2()])
-    wait()
     if len(eventPlayer.botTemp) > 1:
         eventPlayer.botTemp = sorted(eventPlayer.botTemp, lambda player: player.getHealth() * distance(eventPlayer, player))
-        wait()
     eventPlayer.botTarget = eventPlayer.botTemp.first()
     lbl_0:
     wait(0.512)
