@@ -7,27 +7,6 @@
 #!define WAIT_AI_THROTTLE_MIN 0.192
 
 # =========================
-# Anti Crash
-# =========================
-#!define ANTI_CRASH_ACTIVATE_DEFAULT 230
-#!define ANTI_CRASH_ACTIVATE_MIN 0
-#!define ANTI_CRASH_ACTIVATE_MAX 250
-
-#!define ANTI_CRASH_HOLD_DEFAULT 8
-#!define ANTI_CRASH_HOLD_MIN 0
-#!define ANTI_CRASH_HOLD_MAX 20
-#!define ANTI_CRASH_HOLD_ORDER 1
-
-#!define ANTI_CRASH_DEACTIVATE_DEFAULT 180
-#!define ANTI_CRASH_DEACTIVATE_MIN 0
-#!define ANTI_CRASH_DEACTIVATE_MAX 250
-#!define ANTI_CRASH_DEACTIVATE_ORDER 2
-
-#!define ANTI_CRASH_SLOW_MOTION_ON 1
-#!define ANTI_CRASH_SLOW_MOTION_OFF 100
-#!define ANTI_CRASH_RECOVERY_WAIT 0.5
-
-# =========================
 # Player Lifecycle
 # =========================
 #!define TEAM1_RESPAWN_TIME_DEFAULT 5

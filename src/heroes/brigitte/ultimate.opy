@@ -42,7 +42,6 @@ rule "[Brigitte]Rally provides permanent armor to self":
     @Condition eventPlayer.isUsingUltimate() == true
     @Condition len(eventPlayer.brig_rally_armor_id) < 9
 
-    # @Condition getAverageServerLoad() < ANTI_CRASH_DEACTIVATE_PERCENT
     eventPlayer.dmg_reduction += 1.5
     eventPlayer.setDamageReceived(100 - eventPlayer.dmg_reduction)
     eventPlayer.hudText = "受到伤害减免：{0}%".format(eventPlayer.dmg_reduction)
@@ -64,7 +63,6 @@ rule "[Brigitte]Rally provides permanent armor to allies":
     @Condition len(eventPlayer.brig_rally_armor_id) < 9
     @Disabled
 
-    # @Condition getAverageServerLoad() < ANTI_CRASH_DEACTIVATE_PERCENT
     eventPlayer.addHealthPool(Health.ARMOR, Brigitte[2], false, false)
     eventPlayer.brig_rally_armor_id.append(getLastCreatedHealthPool())
     wait(0.5)
