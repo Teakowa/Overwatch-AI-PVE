@@ -4,7 +4,7 @@
 
 rule "[Global]Setup Blacklist":
     Blacklist = []
-    wait(getAverageServerLoad() / 100)
+    wait(0.25)
     Blacklist.append("哇哦谢谢你-浅眉-丶基猫-蜡笔小新眼子-Patrick-蟑螂恶霸-哈奇-翻斗花园胡图图-心有猛虎-亞当-我要去美国了-无月-念安-浑沌-爱喝芒果汁".split("-"))
     Blacklist.append("为这点事活着吗-她与春风皆过客-Eliake-李幽州-LETSGODUDE-嗣音-河神与樵夫的交易-qing-Gastby-暴躁的快速玩家-Azuki9527-李慕下".split("-"))
     Blacklist.append("小哲-比奇堡悍匪-蓝海-啊哈哈哈哈-EdwardJoe-EQUA-小余天天开心-梦想成为源氏糕手-口执剑只为伊人口-折耳-必深深李雪花大姨-乌有-贝壳".split("-"))

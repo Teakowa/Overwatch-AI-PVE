@@ -13,7 +13,7 @@ rule "[AI/control]: Shion Primary":
     @Condition isInLoS(eventPlayer, eventPlayer.botTarget) == true
 
     eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
-    wait(max(getAverageServerLoad() / 1000, WAIT_AI_THROTTLE_MIN))
+    wait(WAIT_AI_THROTTLE_MIN)
     eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
     if ruleCondition:
         loop()
@@ -45,7 +45,7 @@ rule "[AI/control]: Shion Secondary":
     wait(0.3)
     eventPlayer.stopForcingButton(Button.SECONDARY_FIRE)
     lbl_0:
-    wait(max(getAverageServerLoad() / 1000, 0.4))
+    wait(0.4)
 
 
 
@@ -71,7 +71,7 @@ rule "[AI/control]: Shion Ability 1":
         if distance(eventPlayer.getPosition() * vect(1, 0, 1), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) > 8:
             goto lbl_0
     eventPlayer.startForcingButton(Button.ABILITY_1)
-    wait(max(getAverageServerLoad() / 1000, WAIT_AI_THROTTLE_MIN))
+    wait(WAIT_AI_THROTTLE_MIN)
     eventPlayer.stopForcingButton(Button.ABILITY_1)
     lbl_0:
 
@@ -102,7 +102,7 @@ rule "[AI/control]: Shion Ability 2":
     # eventPlayer.forceButtonPress(Button.ABILITY_2)
     eventPlayer.stopForcingButton(Button.ABILITY_2)
     lbl_0:
-    wait(max(getAverageServerLoad() / 1000, 0.5))
+    wait(0.5)
 
 
 

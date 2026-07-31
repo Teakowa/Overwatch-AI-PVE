@@ -13,7 +13,7 @@ rule "[AI/control]: Hazard Primary":
     @Condition isInLoS(eventPlayer, eventPlayer.botTarget) == true
     
     eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
-    wait(max(getAverageServerLoad() / 1000, WAIT_AI_THROTTLE_MIN))
+    wait(WAIT_AI_THROTTLE_MIN)
     eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
     if ruleCondition:
         loop()

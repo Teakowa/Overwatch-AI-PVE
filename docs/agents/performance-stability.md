@@ -20,6 +20,6 @@
 
 - 大遍历、字符串处理与高成本检测优先低频化/分批执行/缓存化。
 
-### R-PERF-KEEP-ANTI-CRASH
+### R-PERF-NO-RUNTIME-LOAD-SAMPLING
 
-- Anti Crash（`getAverageServerLoad()`）是保底保护链路，不弱化。
+- 禁止在运行时调用 `getAverageServerLoad()` 或通过 Anti Crash 采样动态调整等待；使用固定节流、玩家槽位错峰和硬上限控制服务器压力。

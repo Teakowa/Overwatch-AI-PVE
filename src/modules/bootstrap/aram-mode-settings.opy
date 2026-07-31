@@ -6,9 +6,6 @@ rule "Copyright (c) 2019-2025 他又（aka Teakowa）":
     Heros = getAllHeroes()
     Collaborator = ["他又"]
     Mark = " \r\n\r\n\n 非重装 AI 伤害减免 15%\r\n 重装 AI 最高伤害减免 30%\r\n 完整更新日志 workshop.codes/F288Z/update-log\r\n 中途退的会被永久BAN"
-    ANTI_CRASH_ACTIVATE_PERCENT = ANTI_CRASH_ACTIVATE_DEFAULT
-    ANTI_CRASH_HOLD_TIME = ANTI_CRASH_HOLD_DEFAULT
-    ANTI_CRASH_DEACTIVATE_PERCENT = ANTI_CRASH_DEACTIVATE_DEFAULT
 
 rule "Initialize global variables":
     Debug_UltimateGain = false

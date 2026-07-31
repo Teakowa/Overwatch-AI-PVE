@@ -30,7 +30,7 @@
 | R-PERF-USE-PLAYER-FILTER | docs/agents/performance-stability.md | #r-perf-use-player-filter | 英雄/槽位筛选改动 | repo-maintainers |
 | R-PERF-DEFER-STARTUP-BURST | docs/agents/performance-stability.md | #r-perf-defer-startup-burst | 开局初始化改动 | repo-maintainers |
 | R-PERF-LOW-FREQ-HEAVY-OPS | docs/agents/performance-stability.md | #r-perf-low-freq-heavy-ops | 大数组/高成本检测改动 | repo-maintainers |
-| R-PERF-KEEP-ANTI-CRASH | docs/agents/performance-stability.md | #r-perf-keep-anti-crash | Anti Crash 相关改动 | repo-maintainers |
+| R-PERF-NO-RUNTIME-LOAD-SAMPLING | docs/agents/performance-stability.md | #r-perf-no-runtime-load-sampling | 动态负载采样或 Anti Crash 相关改动 | repo-maintainers |
 | R-CHECK-MAIN-CONTRACT | docs/agents/self-checklist.md | #r-check-main-contract | 提交前自检 | repo-maintainers |
 | R-CHECK-INDEX-PROTOCOL | docs/agents/self-checklist.md | #r-check-index-protocol | 提交前自检 | repo-maintainers |
 | R-CHECK-HERO-INIT-CHAIN | docs/agents/self-checklist.md | #r-check-hero-init-chain | 提交前自检 | repo-maintainers |

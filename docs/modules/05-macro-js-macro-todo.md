@@ -22,7 +22,7 @@
 - [ ] 抽取 Hero Init 通用片段宏（Detect/Initialize骨架中的重复动作）。（status: todo）
 - [ ] 扩展 Hero Init 宏化到全量英雄（保留特殊英雄例外逻辑）。（status: todo）
 - [ ] 抽取 AI 控制层共通条件宏（`hasSpawned/isAlive/isDummy/botTarget/LoS`）。（status: todo）
-- [ ] 抽取 AI 节流等待宏（统一 `wait(max(getAverageServerLoad()/1000, ...))`）。（status: todo）
+- [ ] 抽取 AI 静态节流等待宏（统一 `WAIT_AI_THROTTLE_MIN` 等固定周期）。（status: todo）
 - [ ] 抽取通用公式宏（如 falloff/clamp 计算，减少重复数学表达式）。（status: in_progress）
 - [ ] 引入第一个 JS macro（建议先做黑名单数据生成，低玩法风险）。（status: todo）
 - [ ] 评估 Changelog 是否进入 JS macro（复杂度高，放第二阶段，可延期）。（status: todo）
@@ -49,4 +49,4 @@
 - 分区顺序与分隔规则名保持不变。
 - 变量与子程序索引保持不变。
 - 不引入无等待高频循环。
-- 高负载场景下 Anti Crash 链路不弱化。
+- 运行时禁止负载采样；使用静态节流、错峰和硬上限控制服务器压力。

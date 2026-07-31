@@ -35,7 +35,7 @@ rule "[AI/control]: Anran Ability 1":
 
     waitUntil(true and distance(eventPlayer.getPosition() * vect(1, 0, 1), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) < 24, random.uniform(0.65, 1.2))
     eventPlayer.startForcingButton(Button.ABILITY_1)
-    wait(max(getAverageServerLoad() / 1000, WAIT_AI_THROTTLE_MIN))
+    wait(WAIT_AI_THROTTLE_MIN)
     eventPlayer.stopForcingButton(Button.ABILITY_1)
 
 rule "[AI/control]: Anran Ability 2":
@@ -51,7 +51,7 @@ rule "[AI/control]: Anran Ability 2":
     @Condition eventPlayer.getNormalizedHealth() < 0.45 or distance(eventPlayer.getPosition() * vect(1, 0, 1), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) <= 7.8
 
     eventPlayer.startForcingButton(Button.ABILITY_2)
-    wait(max(getAverageServerLoad() / 1000, WAIT_AI_THROTTLE_MIN))
+    wait(WAIT_AI_THROTTLE_MIN)
     eventPlayer.stopForcingButton(Button.ABILITY_2)
 
 rule "[AI/control]: Anran Ultimate":

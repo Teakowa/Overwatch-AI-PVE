@@ -39,7 +39,7 @@ rule "[reset.opy]: Reinitialize hero on new round":
     eventPlayer.extra_hero = true
     eventPlayer.aram_extra_pool_applied = false
     waitUntil(not isMatchBetweenRounds(), Math.INFINITY)
-    wait(eventPlayer.getSlot() * 10 + getAverageServerLoad() / 100)
+    wait(eventPlayer.getSlot() * 10 + 0.25)
     eventPlayer.ram_block_damage = 0
     eventPlayer.sigma_hyperspheres = 0
     eventPlayer.init_hero = eventPlayer.getCurrentHero()

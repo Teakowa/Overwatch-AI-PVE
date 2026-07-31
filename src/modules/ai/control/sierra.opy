@@ -13,7 +13,7 @@ rule "[AI/control]: Sierra Primary":
     @Condition isInLoS(eventPlayer, eventPlayer.botTarget) == true
 
     eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
-    wait(max(getAverageServerLoad() / 1000, 1))
+    wait(1)
     if ruleCondition:
         loop()
     eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
@@ -31,7 +31,7 @@ rule "[AI/control]: Sierra Secondary":
     @Condition isInLoS(eventPlayer, eventPlayer.botTarget) == true
 
     eventPlayer.startForcingButton(Button.SECONDARY_FIRE)
-    wait(max(getAverageServerLoad() / 1000, WAIT_AI_THROTTLE_MIN))
+    wait(WAIT_AI_THROTTLE_MIN)
     eventPlayer.stopForcingButton(Button.SECONDARY_FIRE)
     wait(3)
 
@@ -50,7 +50,7 @@ rule "[AI/control]: Sierra Ability 1":
     eventPlayer.startForcingButton(Button.ABILITY_1)
     wait(0.8)
     eventPlayer.stopForcingButton(Button.ABILITY_1)
-    wait(max(getAverageServerLoad() / 1000, 0.5))
+    wait(0.5)
 
 rule "[AI/control]: Sierra Ability 1":
     @Event eachPlayer

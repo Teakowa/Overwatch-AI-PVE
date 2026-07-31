@@ -46,7 +46,7 @@ rule "[AI/control]: Tracer Primary":
     #@Condition len([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if isInLoS(eventPlayer, player) == true]) > 0
     
     eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
-    wait(max(getAverageServerLoad() / 1000, 0.5))
+    wait(0.5)
     if ruleCondition:
         loop()
     eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
@@ -62,5 +62,5 @@ rule "[AI/control]: Tracer Recall (Remove Pluse Bomb)":
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) == 0
     
     eventPlayer.forceButtonPress(Button.ABILITY_2)
-    wait(max(getAverageServerLoad() / 1000, 0.1))
+    wait(0.1)
 

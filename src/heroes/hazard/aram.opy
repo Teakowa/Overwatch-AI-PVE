@@ -22,7 +22,7 @@ rule "[Hazard]: Spike Guard get Ultimate and heal":
 
     eventPlayer.setUltCharge(eventPlayer.getUltCharge() + (HazardBuff[1] if eventPlayer.getTeam() == Team.2 else HazardBuff[1] * 2.5))
     heal(eventPlayer, eventPlayer, eventDamage / 0.35 * HazardBuff[2])
-    wait(min(0.16, getAverageServerLoad() / 100))
+    wait(WAIT_SHORT_FRAME)
 # hazard aram-mode overlay
 
 #!include "ability1.opy"

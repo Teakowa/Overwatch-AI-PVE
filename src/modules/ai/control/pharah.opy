@@ -13,7 +13,7 @@ rule "[AI/control]: Pharah Primary":
     @Condition isInLoS(eventPlayer, eventPlayer.botTarget) == true
     
     eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
-    wait(max(getAverageServerLoad() / 1000, 1))
+    wait(1)
     if ruleCondition:
         loop()
     eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
@@ -33,7 +33,7 @@ rule "[AI/control]: Pharah Secondary":
     @Condition isInLoS(eventPlayer, eventPlayer.botTarget) == true
     
     eventPlayer.startForcingButton(Button.SECONDARY_FIRE)
-    wait(max(getAverageServerLoad() / 1000, WAIT_AI_THROTTLE_MIN))
+    wait(WAIT_AI_THROTTLE_MIN)
     eventPlayer.stopForcingButton(Button.SECONDARY_FIRE)
     wait(4)
 
@@ -52,7 +52,7 @@ rule "[AI/control]: Pharah Ability 1":
     @Condition isInLoS(eventPlayer, eventPlayer.botTarget) == true
     
     eventPlayer.startForcingButton(Button.ABILITY_1)
-    wait(max(getAverageServerLoad() / 1000, WAIT_AI_THROTTLE_MIN))
+    wait(WAIT_AI_THROTTLE_MIN)
     eventPlayer.stopForcingButton(Button.ABILITY_1)
 
 
@@ -70,7 +70,7 @@ rule "[AI/control]: Pharah Ability 2":
     @Condition isInLoS(eventPlayer, eventPlayer.botTarget) == true
     
     eventPlayer.startForcingButton(Button.ABILITY_2)
-    wait(max(getAverageServerLoad() / 1000, WAIT_AI_THROTTLE_MIN))
+    wait(WAIT_AI_THROTTLE_MIN)
     eventPlayer.stopForcingButton(Button.ABILITY_2)
 
 
@@ -87,14 +87,14 @@ rule "[AI/control]: Pharah Jump":
     @Condition isInLoS(eventPlayer, eventPlayer.botTarget) == true
     
     eventPlayer.startForcingButton(Button.JUMP)
-    wait(max(getAverageServerLoad() / 1000, 0.333))
+    wait(0.333)
     eventPlayer.stopForcingButton(Button.JUMP)
     wait(0.167)
     while eventPlayer.isInAir():
         eventPlayer.startForcingButton(Button.JUMP)
-        wait(max(getAverageServerLoad() / 1000, 0.333))
+        wait(0.333)
         eventPlayer.stopForcingButton(Button.JUMP)
-        wait(max(getAverageServerLoad() / 1000, 0.333))
+        wait(0.333)
     wait(1.167)
     loop()
 
