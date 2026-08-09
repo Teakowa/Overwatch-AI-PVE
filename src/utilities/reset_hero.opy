@@ -8,6 +8,7 @@ def resetCombatState():
     eventPlayer.zarya_buff[0] = true
     eventPlayer.zarya_buff[1] = null
     eventPlayer.ram_block_damage = 0
+    eventPlayer.ram_annihilation_damage_bonus = 0
     eventPlayer.sigma_hyperspheres = 0
     eventPlayer.doom_buff = 0
     eventPlayer.reaper_buff[1] = 0

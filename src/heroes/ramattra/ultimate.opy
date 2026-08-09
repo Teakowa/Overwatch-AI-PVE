@@ -4,11 +4,14 @@
 rule "[Ramattra]: Pain endures":
     @Event playerDealtFinalBlow
     @Hero ramattra
-    @Condition eventPlayer.getUltCharge() != 100
     @Condition eventPlayer.isUsingUltimate() == true
     @Condition (eventAbility == Button.ULTIMATE or eventAbility == Button.ABILITY_1 or eventAbility == Button.MELEE) == true
 
-    eventPlayer.setUltCharge(eventPlayer.getUltCharge() + 25)
+    if eventPlayer.getUltCharge() < 100:
+        eventPlayer.setUltCharge(eventPlayer.getUltCharge() + Ram_Annihilation[5])
+    else:
+        eventPlayer.ram_annihilation_damage_bonus += Ram_Annihilation[6]
+        eventPlayer.setDamageDealt(100 + Ram_Annihilation[2] + eventPlayer.ram_annihilation_damage_bonus)
     wait(0.3)
 
 rule "[Ramattra] ult speed":
@@ -16,13 +19,14 @@ rule "[Ramattra] ult speed":
     @Hero ramattra
     @Condition eventPlayer.isUsingUltimate() == true
 
+    eventPlayer.ram_annihilation_damage_bonus = 0
     if abs(eventPlayer.mov_speed_buff) < abs(Ram_Annihilation[3]):
         eventPlayer.mov_speed_buff = Ram_Annihilation[3]
         applySignedMoveSpeed()
     eventPlayer.setDamageDealt(100 + Ram_Annihilation[2])
     eventPlayer.setDamageReceived(100 - Ram_Annihilation[4])
     eventPlayer.setKnockbackReceived(RAMATTRA_ULTIMATE_KNOCKBACK_RECEIVED)
-    waitUntil(not eventPlayer.isUsingUltimate() or eventPlayer.isDead(), Math.INFINITY)
+    waitUntil(not eventPlayer.isUsingUltimate() or eventPlayer.isDead() or eventPlayer._reset_requested != false, Math.INFINITY)
     if eventPlayer.isDead():
         goto lbl_0
     if eventPlayer.mov_speed_buff == Ram_Annihilation[3]:
@@ -31,6 +35,7 @@ rule "[Ramattra] ult speed":
     lbl_0:
     eventPlayer.setDamageReceived(100)
     eventPlayer.setKnockbackReceived(100)
+    eventPlayer.ram_annihilation_damage_bonus = 0
     eventPlayer.setDamageDealt(100)
     wait(WAIT_SHORT_FRAME)
     #removeTankPassive()

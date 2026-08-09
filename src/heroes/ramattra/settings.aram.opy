@@ -6,3 +6,5 @@ macro INIT_RAMATTRA_WORKSHOP_SETTINGS():
     Ram_Annihilation[2] = createWorkshopSettingInt("英雄：拉玛刹", "诛 （终极技能）额外造成伤害 %", 30, 0, 100, 101)
     Ram_Annihilation[3] = createWorkshopSettingInt("英雄：拉玛刹", "诛 （终极技能）移动速度加成 %", 25, 0, 100, 102)
     Ram_Annihilation[4] = createWorkshopSettingInt("英雄：拉玛刹", "诛 （终极技能）受到伤害减免 %", 20, 0, 99, 103)
+    Ram_Annihilation[5] = createWorkshopSettingInt("英雄：拉玛刹", "诛 （终极技能）击杀返还终极充能 %", 25, 0, 100, 104)
+    Ram_Annihilation[6] = createWorkshopSettingInt("英雄：拉玛刹", "诛 （终极技能）满充能击杀额外造成伤害 %", 15, 0, 100, 105)
