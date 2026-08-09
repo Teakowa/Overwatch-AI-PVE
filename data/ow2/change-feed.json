@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "snapshotId": "ow2-reference-2026-03-04",
+  "lastChecked": "2026-03-04",
+  "sourcePolicy": {
+    "preferred": [
+      "official_patch_notes"
+    ],
+    "discovery": [
+      "repository_import",
+      "third_party_structured_source",
+      "manual_review"
+    ],
+    "acceptance": "manual"
+  },
+  "changes": []
+}
