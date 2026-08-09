@@ -22,16 +22,6 @@ globalvar	ChangelogBodyTable	40
 globalvar	HanzoBuff	41
 globalvar	BaptisteBuff	42
 globalvar	MoiraBuff	46
-globalvar	AnranBuff	50
-globalvar	BastionBuff	51
-globalvar	DominaBuff	52
-globalvar	EchoBuff	53
-globalvar	EmreBuff	54
-globalvar	JetpackCatBuff	55
-globalvar	JunkerQueenBuff	56
-globalvar	MeiBuff	58
-globalvar	MizukiBuff	59
-globalvar	SierraBuff	62
 playervar	reset_pvar	0
 playervar	heroNum	1
 playervar	botTemp	2

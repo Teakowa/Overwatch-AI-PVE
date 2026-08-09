@@ -25,13 +25,3 @@ globalvar ChangelogBodyTable
 globalvar HanzoBuff
 globalvar BaptisteBuff
 globalvar MoiraBuff
-globalvar AnranBuff
-globalvar BastionBuff
-globalvar DominaBuff
-globalvar EchoBuff
-globalvar EmreBuff
-globalvar JetpackCatBuff
-globalvar JunkerQueenBuff
-globalvar MeiBuff
-globalvar MizukiBuff
-globalvar SierraBuff

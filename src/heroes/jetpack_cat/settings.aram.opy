@@ -1,5 +1,7 @@
 #!mainFile "../../aramMain.opy"
 
+globalvar JetpackCatBuff 55
+
 macro INIT_JETPACK_CAT_WORKSHOP_SETTINGS():
     JetpackCatBuff[0] = createWorkshopSettingInt("英雄：喷气猫", "狂乱飞行：受到伤害 %", JETPACK_CAT_ARAM_ABILITY1_DAMAGE_RECEIVED, 0, 100, 162)
     JetpackCatBuff[1] = createWorkshopSettingInt("英雄：喷气猫", "瞌睡轰炸：额外最大生命值伤害 %", JETPACK_CAT_ARAM_MAX_HEALTH_PERCENT, 0, 100, 164)

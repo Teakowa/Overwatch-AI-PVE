@@ -3,7 +3,7 @@
 This is the canonical audit for issue #69. It covers every declaration that remains
 in src/modules/prelude/global-vars.opy or src/modules/prelude/player-vars.opy after
 the Ana settings pilot (#65), the Domina audit (#68), the retired burn-stack owner
-(#66), and the Ana combat-policy pilot (#67).
+(#66), the Ana combat-policy pilot (#67), and the completed #70 settings waves.
 
 The matrix is an audit and migration plan. It does not itself authorize a bulk move.
 Each future wave must preserve the declaration name, explicit Workshop slot, Main and
@@ -52,22 +52,8 @@ ARAM reach, and the reset/lifecycle behavior recorded here.
 
 ### move: hero-owned global state/settings
 
-Each row is an independent hero-settings migration. The target settings path must
-declare the old slot explicitly; if the ARAM settings path is listed, both entry
-settings modules must retain the same logical name and slot.
-
-| Variable | Kind | Current owner | Consumers | Main/ARAM | Target owner | Action | Blocker |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| AnranBuff | globalvar (slot 50) | prelude/global-vars.opy | heroes/anran/settings.opy, settings.aram.opy, ability2.opy, burning.opy; utilities/changelog_text.opy | M+A | heroes/anran/settings.opy and settings.aram.opy | G-ANRAN move setting with slot 50 | changelog_text display read |
-| BastionBuff | globalvar (slot 51) | prelude/global-vars.opy | heroes/bastion/settings.opy, settings.aram.opy, ability1.opy, aram.opy | M+A | heroes/bastion/settings.opy and settings.aram.opy | G-BASTION move setting with slot 51 | none |
-| DominaBuff | globalvar (slot 52) | prelude/global-vars.opy | heroes/domina/settings.opy, rules.opy, ultimate.opy | M+A | heroes/domina/settings.opy | G-DOMINA move setting with slot 52 | none |
-| EchoBuff | globalvar (slot 53) | prelude/global-vars.opy | heroes/echo/settings.opy, ability2.opy, ultimate.opy; utilities/changelog_text.opy | M+A | heroes/echo/settings.opy | G-ECHO move setting with slot 53 | changelog_text display read |
-| EmreBuff | globalvar (slot 54) | prelude/global-vars.opy | heroes/emre/settings.opy, settings.aram.opy, ability2.opy, ultimate.opy, aram.opy; utilities/changelog_text.opy | M+A | heroes/emre/settings.opy and settings.aram.opy | G-EMRE move setting with slot 54 | changelog_text display read |
-| JetpackCatBuff | globalvar (slot 55) | prelude/global-vars.opy | heroes/jetpack_cat/settings.opy, settings.aram.opy, ability1.opy, ability2.opy, rules.opy, ultimate.opy, aram.opy | M+A | heroes/jetpack_cat/settings.opy and settings.aram.opy | G-JETPACK-CAT move setting with slot 55 | none |
-| JunkerQueenBuff | globalvar (slot 56) | prelude/global-vars.opy | heroes/junker_queen/settings.opy, ability1.opy, ability2.opy | M+A | heroes/junker_queen/settings.opy | G-JUNKER-QUEEN move setting with slot 56 | none |
-| MeiBuff | globalvar (slot 58) | prelude/global-vars.opy | heroes/mei/settings.opy, settings.aram.opy, aram.opy | M+A | heroes/mei/settings.opy and settings.aram.opy | G-MEI move setting with slot 58 | none |
-| MizukiBuff | globalvar (slot 59) | prelude/global-vars.opy | heroes/mizuki/settings.opy, ability1.opy, ability2.opy, secondary.opy | M+A | heroes/mizuki/settings.opy | G-MIZUKI move setting with slot 59 | none |
-| SierraBuff | globalvar (slot 62) | prelude/global-vars.opy | heroes/sierra/settings.opy, ability1.opy, secondary.opy, ultimate.opy; utilities/changelog_text.opy | M+A | heroes/sierra/settings.opy | G-SIERRA move setting with slot 62 | changelog_text display read |
+No unambiguous hero-owned global settings remain after the #70 migration waves.
+The remaining global declarations are explicitly classified under keep or defer.
 
 ### defer: cross-module coupling must be resolved first
 
@@ -140,9 +126,8 @@ settings modules must retain the same logical name and slot.
 The wave identifiers in the Action column are ordering and review boundaries, not a
 request to combine all rows into one commit.
 
-1. G-GENJI through G-SHION: migrate one hero settings owner at a time. Keep the
-   existing settings macro behavior, carry the old global slot, and update the
-   changelog display dependency in the same hero-scoped commit when listed.
+1. The unambiguous G-* settings waves are complete in #70. Each migrated owner
+   preserved the existing settings macro behavior, explicit slot, and mode reach.
 2. D-HEADSHOT, D-SOJOURN, and D-KNOCKBACK are policy/interface prerequisites. They
    must not be folded into the settings wave merely because their values look like
    hero settings.
@@ -157,9 +142,9 @@ request to combine all rows into one commit.
 
 ## Audit evidence and maintenance
 
-- The current declaration inventory is 34 globalvar plus 33 playervar entries; the matrix has
+- The current declaration inventory is 24 globalvar plus 33 playervar entries; the matrix has
   one row for each remaining declaration.
-- Both entry roots include the prelude declarations. The consumer paths above were
+- The remaining prelude declarations are reachable from the applicable entry roots. The consumer paths above were
   searched across src, including bootstrap, AI, utilities, hero Main rules, and ARAM
   overlays.
 - Ana_GrenadeDamage and Ana_NanoHealAmp are intentionally absent because #65 already
