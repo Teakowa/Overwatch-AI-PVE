@@ -30,6 +30,7 @@ Read only the documents needed by change scope:
 | Change scope | Read first | Then read if needed |
 | --- | --- | --- |
 | Any change (baseline context) | `docs/agents/project-scope.md` | `docs/agents/rules-index.md` |
+| `globalvar` / `playervar` ownership or prelude migration | `docs/agents/variable-ownership.md` | `docs/agents/protocol-constraints.md` |
 | `src/main.opy` or `src/modules/prelude/*` | `docs/agents/main-contract.md` | `docs/agents/protocol-constraints.md` |
 | `src/modules/hero_init/*` | `docs/agents/hero-init-contract.md` | `docs/agents/protocol-constraints.md` |
 | `src/modules/hero_rules/*` or high-frequency `src/modules/ai/*` | `docs/agents/performance-stability.md` | `docs/agents/protocol-constraints.md` |
@@ -56,6 +57,7 @@ Use these as the only canonical policy sources:
 6. Gate sequencing and commit constraints -> `docs/agents/gates-and-commits.md`
 7. Pre-commit self checklist -> `docs/agents/self-checklist.md`
 8. Rule registry and ownership mapping -> `docs/agents/rules-index.md`
+9. Variable ownership and prelude ABI boundary -> `docs/agents/variable-ownership.md`
 
 ## Workflow Command Pointers
 

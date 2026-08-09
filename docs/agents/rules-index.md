@@ -6,6 +6,7 @@
 | --- | --- | --- | --- | --- |
 | R-SCOPE-ENTRY | docs/agents/project-scope.md | #r-scope-entry | 任意改动需建立项目上下文 | repo-maintainers |
 | R-SCOPE-OUTPUT | docs/agents/project-scope.md | #r-scope-output | 涉及产物或构建输出说明 | repo-maintainers |
+| R-VAR-OWNERSHIP | docs/agents/variable-ownership.md | #r-var-ownership | 新增、移动或审计 `globalvar` / `playervar` 所有权 | repo-maintainers |
 | R-MAIN-TOP-ORDER | docs/agents/main-contract.md | #r-main-top-order | 改 `src/main.opy` 或 prelude | repo-maintainers |
 | R-MAIN-INCLUDE-ORDER | docs/agents/main-contract.md | #r-main-include-order | 改 include 编排 | repo-maintainers |
 | R-MAIN-NO-INDEX-INCLUDE | docs/agents/main-contract.md | #r-main-no-index-include | 调整 main include | repo-maintainers |
