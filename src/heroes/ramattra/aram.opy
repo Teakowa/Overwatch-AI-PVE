@@ -6,15 +6,19 @@ playervar ram_block_damage
 playervar ram_block_damage_hud
 playervar ram_dmg_reduc
 playervar ram_ult_damage_dealt
+playervar ram_annihilation_damage_bonus
 
 rule "[Ramattra]: Pain endures":
     @Event playerDealtFinalBlow
     @Hero ramattra
-    @Condition eventPlayer.getUltCharge() != 100
     @Condition eventPlayer.isUsingUltimate() == true
     @Condition (eventAbility == Button.ULTIMATE or eventAbility == Button.ABILITY_1) == true
 
-    eventPlayer.setUltCharge(eventPlayer.getUltCharge() + 25)
+    if eventPlayer.getUltCharge() < 100:
+        eventPlayer.setUltCharge(eventPlayer.getUltCharge() + Ram_Annihilation[5])
+    else:
+        eventPlayer.ram_annihilation_damage_bonus += Ram_Annihilation[6]
+        eventPlayer.setDamageDealt(100 + Ram_Annihilation[2] + eventPlayer.ram_annihilation_damage_bonus)
     wait(0.3)
 
 rule "[Ramattra] ult speed":
@@ -22,16 +26,18 @@ rule "[Ramattra] ult speed":
     @Hero ramattra
     @Condition eventPlayer.isUsingUltimate() == true
 
+    eventPlayer.ram_annihilation_damage_bonus = 0
     eventPlayer.mov_speed_buff += Ram_Annihilation[3]
     eventPlayer.setDamageDealt(100 + Ram_Annihilation[2])
     eventPlayer.setDamageReceived(100 - Ram_Annihilation[4])
     eventPlayer.setMoveSpeed(100 + eventPlayer.mov_speed_buff - eventPlayer.mov_speed_penalty)
     eventPlayer.setKnockbackReceived(RAMATTRA_ARAM_KNOCKBACK_RECEIVED)
-    waitUntil(not eventPlayer.isUsingUltimate(), 999999986991104)
+    waitUntil(not eventPlayer.isUsingUltimate() or eventPlayer.isDead() or eventPlayer._reset_requested != false, 999999986991104)
     eventPlayer.mov_speed_buff = 0
     eventPlayer.setMoveSpeed(100)
     eventPlayer.setDamageReceived(100)
     eventPlayer.setKnockbackReceived(100)
+    eventPlayer.ram_annihilation_damage_bonus = 0
     eventPlayer.setDamageDealt(100)
     wait(0.16)
     removeTankPassive()
@@ -129,4 +135,3 @@ rule "[Ramattra]: Annihilation dmg reduc":
     waitUntil(not eventPlayer.isUsingUltimate(), Math.INFINITY)
     stopDamageModification(eventPlayer.ram_dmg_reduc)
     eventPlayer.ram_dmg_reduc = null
-

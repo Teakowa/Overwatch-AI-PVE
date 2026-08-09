@@ -8,6 +8,7 @@ playervar ram_block_damage
 playervar ram_block_damage_hud
 playervar ram_dmg_reduc
 playervar ram_ult_damage_dealt
+playervar ram_annihilation_damage_bonus
 
 
 #!include "secondary.opy"
