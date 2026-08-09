@@ -5,11 +5,11 @@
 ## 结论摘要
 
 - 启用的 OW2_* reference 定义：61；注释掉的候选定义：0。
-- Main 中直接使用 OW2_*：61 个字段；另有 3 个被消费的非命名空间重复基线事实（总记录 3 个）。
+- Main 中直接使用 OW2_*：61 个字段；另有 0 个被消费的非命名空间重复基线事实（总记录 0 个）。
 - Main 中通过 ratioPercent/ultGenPercent 形成的基线相关 settings：99 条。
 - ARAM settings 条目：386 条，其中直接数字：335 条。
 - 英雄 runtime Workshop setting 工厂调用：186 条。
-- 需要在迁移前人工确认的项目：338 条；缺失 reference：0 条。
+- 需要在迁移前人工确认的项目：335 条；缺失 reference：0 条。
 
 ## 分类口径
 
@@ -24,7 +24,7 @@
 | 文件/范围 | 角色 | 相关条目 |
 | --- | --- | ---: |
 | `src/constants/ow2_hero_defaults.opy` | 当前 OW2 reference 常数文件 | 61 |
-| `src/constants/player_constants.opy` | 项目常数、目标和重复 baseline 别名 | 3 |
+| `src/constants/player_constants.opy` | 项目常数、目标和重复 baseline 别名 | 0 |
 | `src/constants/hero_balance_constants.opy` | Main/ARAM 最终 Workshop 百分比及项目机制常数 | 0 |
 | `src/modules/prelude/settings.opy` | Main Workshop settings consumer | 99 |
 | `src/aram_settings.opy` | ARAM Workshop settings consumer | 386 |
@@ -39,9 +39,6 @@
 
 | legacy 名称 | canonical reference | 当前值 | 是否相同 | 消费位置 |
 | --- | --- | ---: | :---: | --- |
-| `DOMINA_BARRIER_ARRAY_COOLDOWN` | `OW2_DOMINA_BARRIER_ARRAY_COOLDOWN` | `8` | 否 | `src/modules/prelude/settings.opy:406`, `src/modules/prelude/settings.opy:804`, `src/utilities/changelog_text.opy:12` |
-| `DOMINA_CRYSTAL_CHARGE_COOLDOWN` | `OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN` | `6` | 否 | `src/modules/prelude/settings.opy:405`, `src/modules/prelude/settings.opy:803` |
-| `DOMINA_SONIC_REPULSORS_COOLDOWN` | `OW2_DOMINA_SONIC_REPULSORS_COOLDOWN` | `6` | 否 | `src/modules/prelude/settings.opy:404`, `src/modules/prelude/settings.opy:802`, `src/utilities/changelog_text.opy:12` |
 
 ## Main 基线相关 settings inventory
 
@@ -87,9 +84,9 @@
 | team1 | sigma | `health%` | absolute_pve_target | `OW2_SIGMA_BARRIER_HEALTH` | `SET_AI_SIGMA_HEALTH_TARGET` | 未配置 |
 | team1 | kiriko | `ability2Cooldown%` | absolute_pve_target | `OW2_KIRIKO_SUZU_COOLDOWN` | `SET_AI_KIRIKO_ABILITY2_COOLDOWN_TARGET` | `team1:43`, `team2:43` |
 | team1 | kiriko | `ultGen%` | absolute_pve_target | `OW2_KIRIKO_ULT_COST` | `SET_AI_KIRIKO_ULT_COST_TARGET` | 未配置 |
-| team1 | domina | `ability1Cooldown%` | absolute_pve_target | `OW2_DOMINA_SONIC_REPULSORS_COOLDOWN` | `DOMINA_SONIC_REPULSORS_COOLDOWN` | 未配置 |
-| team1 | domina | `ability2Cooldown%` | absolute_pve_target | `OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN` | `DOMINA_CRYSTAL_CHARGE_COOLDOWN` | `allTeams:50` |
-| team1 | domina | `secondaryFireCooldown%` | absolute_pve_target | `OW2_DOMINA_BARRIER_ARRAY_COOLDOWN` | `DOMINA_BARRIER_ARRAY_COOLDOWN` | `allTeams:42` |
+| team1 | domina | `ability1Cooldown%` | absolute_pve_target | `OW2_DOMINA_SONIC_REPULSORS_COOLDOWN` | `SET_DOMINA_ABILITY1_COOLDOWN_TARGET` | 未配置 |
+| team1 | domina | `ability2Cooldown%` | absolute_pve_target | `OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN` | `SET_DOMINA_ABILITY2_COOLDOWN_TARGET` | `allTeams:50` |
+| team1 | domina | `secondaryFireCooldown%` | absolute_pve_target | `OW2_DOMINA_BARRIER_ARRAY_COOLDOWN` | `SET_DOMINA_SECONDARY_FIRE_COOLDOWN_TARGET` | `allTeams:42` |
 | team1 | sombra | `secondaryFireCooldown%` | absolute_pve_target | `OW2_SOMBRA_HACK_COOLDOWN_TIME` | `SET_AI_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET` | `team1:84`, `team2:84` |
 | team1 | widowmaker | `ultGen%` | absolute_pve_target | `OW2_WIDOWMAKER_ULT_COST` | `SET_AI_WIDOWMAKER_ULT_COST_TARGET` | 未配置 |
 | team2 | hanzo | `ability2Cooldown%` | absolute_pve_target | `OW2_HANZO_STORM_COOLDOWN` | `SET_PLAYER_HANZO_ABILITY2_COOLDOWN_TARGET` | `team1:0`, `team2:0` |
@@ -140,9 +137,9 @@
 | team2 | roadhog | `ability1Cooldown%` | absolute_pve_target | `OW2_ROADHOG_HOOK_COOLDOWN_TIME` | `SET_PLAYER_ROADHOG_ABILITY1_COOLDOWN_TARGET` | 未配置 |
 | team2 | kiriko | `ability2Cooldown%` | absolute_pve_target | `OW2_KIRIKO_SUZU_COOLDOWN` | `SET_PLAYER_KIRIKO_ABILITY2_COOLDOWN_TARGET` | `team1:43`, `team2:43` |
 | team2 | kiriko | `ultGen%` | absolute_pve_target | `OW2_KIRIKO_ULT_COST` | `SET_PLAYER_KIRIKO_ULT_COST_TARGET` | 未配置 |
-| team2 | domina | `ability1Cooldown%` | absolute_pve_target | `OW2_DOMINA_SONIC_REPULSORS_COOLDOWN` | `DOMINA_SONIC_REPULSORS_COOLDOWN` | 未配置 |
-| team2 | domina | `ability2Cooldown%` | absolute_pve_target | `OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN` | `DOMINA_CRYSTAL_CHARGE_COOLDOWN` | `allTeams:50` |
-| team2 | domina | `secondaryFireCooldown%` | absolute_pve_target | `OW2_DOMINA_BARRIER_ARRAY_COOLDOWN` | `DOMINA_BARRIER_ARRAY_COOLDOWN` | `allTeams:42` |
+| team2 | domina | `ability1Cooldown%` | absolute_pve_target | `OW2_DOMINA_SONIC_REPULSORS_COOLDOWN` | `SET_DOMINA_ABILITY1_COOLDOWN_TARGET` | 未配置 |
+| team2 | domina | `ability2Cooldown%` | absolute_pve_target | `OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN` | `SET_DOMINA_ABILITY2_COOLDOWN_TARGET` | `allTeams:50` |
+| team2 | domina | `secondaryFireCooldown%` | absolute_pve_target | `OW2_DOMINA_BARRIER_ARRAY_COOLDOWN` | `SET_DOMINA_SECONDARY_FIRE_COOLDOWN_TARGET` | `allTeams:42` |
 | team2 | sombra | `secondaryFireCooldown%` | absolute_pve_target | `OW2_SOMBRA_HACK_COOLDOWN_TIME` | `SET_PLAYER_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET` | `team1:84`, `team2:84` |
 | team2 | widowmaker | `ultGen%` | absolute_pve_target | `OW2_WIDOWMAKER_ULT_COST` | `SET_PLAYER_WIDOWMAKER_ULT_COST_TARGET` | 未配置 |
 | allTeams | dva | `ability1Cooldown%` | absolute_pve_target | `OW2_DVA_BOOSTER_COOLDOWN_TIME` | `SET_DVA_ABILITY1_COOLDOWN_TARGET` | 未配置 |
@@ -155,9 +152,6 @@
 
 | 类别 | Hero | Field | 来源 | 当前值 | 原因 |
 | --- | --- | --- | --- | --- | --- |
-| divergent_duplicate | DOMINA | `DOMINA_BARRIER_ARRAY_COOLDOWN` | `src/constants/player_constants.opy:122` | `8` | legacy value differs from OW2_DOMINA_BARRIER_ARRAY_COOLDOWN (14); this may be a target or a stale duplicate |
-| divergent_duplicate | DOMINA | `DOMINA_CRYSTAL_CHARGE_COOLDOWN` | `src/constants/player_constants.opy:121` | `6` | legacy value differs from OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN (8); this may be a target or a stale duplicate |
-| divergent_duplicate | DOMINA | `DOMINA_SONIC_REPULSORS_COOLDOWN` | `src/constants/player_constants.opy:123` | `6` | legacy value differs from OW2_DOMINA_SONIC_REPULSORS_COOLDOWN (7); this may be a target or a stale duplicate |
 | aram_direct_literal | hanzo | `ability2Quantity%` | `src/aram_settings.opy:31` | `6` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | hanzo | `ability3Cooldown%` | `src/aram_settings.opy:32` | `0` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | hanzo | `ability2Cooldown%` | `src/aram_settings.opy:33` | `0` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |

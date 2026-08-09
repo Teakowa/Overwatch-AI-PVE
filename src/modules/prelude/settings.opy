@@ -401,9 +401,9 @@ settings {
             "domina": {
                 "damageDealt%": DOMINA_DAMAGE_DEALT_PERCENT,
                 "damageReceived%": DOMINA_AI_DAMAGE_RECEIVED_PERCENT,
-                "ability1Cooldown%": ratioPercent(DOMINA_SONIC_REPULSORS_COOLDOWN, OW2_DOMINA_SONIC_REPULSORS_COOLDOWN),
-                "ability2Cooldown%": ratioPercent(DOMINA_CRYSTAL_CHARGE_COOLDOWN, OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN),
-                "secondaryFireCooldown%": ratioPercent(DOMINA_BARRIER_ARRAY_COOLDOWN, OW2_DOMINA_BARRIER_ARRAY_COOLDOWN)
+                "ability1Cooldown%": ratioPercent(SET_DOMINA_ABILITY1_COOLDOWN_TARGET, OW2_DOMINA_SONIC_REPULSORS_COOLDOWN),
+                "ability2Cooldown%": ratioPercent(SET_DOMINA_ABILITY2_COOLDOWN_TARGET, OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN),
+                "secondaryFireCooldown%": ratioPercent(SET_DOMINA_SECONDARY_FIRE_COOLDOWN_TARGET, OW2_DOMINA_BARRIER_ARRAY_COOLDOWN)
             },
             "sombra": {
                 "damageDealt%": SETTINGS_TEAM1_SOMBRA_DAMAGE_DEALT_PERCENT,
@@ -799,9 +799,9 @@ settings {
             "domina": {
                 "damageDealt%": DOMINA_DAMAGE_DEALT_PERCENT,
                 "damageReceived%": DOMINA_PLAYER_DAMAGE_RECEIVED_PERCENT,
-                "ability1Cooldown%": ratioPercent(DOMINA_SONIC_REPULSORS_COOLDOWN, OW2_DOMINA_SONIC_REPULSORS_COOLDOWN),
-                "ability2Cooldown%": ratioPercent(DOMINA_CRYSTAL_CHARGE_COOLDOWN, OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN),
-                "secondaryFireCooldown%": ratioPercent(DOMINA_BARRIER_ARRAY_COOLDOWN, OW2_DOMINA_BARRIER_ARRAY_COOLDOWN)
+                "ability1Cooldown%": ratioPercent(SET_DOMINA_ABILITY1_COOLDOWN_TARGET, OW2_DOMINA_SONIC_REPULSORS_COOLDOWN),
+                "ability2Cooldown%": ratioPercent(SET_DOMINA_ABILITY2_COOLDOWN_TARGET, OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN),
+                "secondaryFireCooldown%": ratioPercent(SET_DOMINA_SECONDARY_FIRE_COOLDOWN_TARGET, OW2_DOMINA_BARRIER_ARRAY_COOLDOWN)
             },
             "sombra": {
                 "damageDealt%": SETTINGS_TEAM2_SOMBRA_DAMAGE_DEALT_PERCENT,

@@ -23,15 +23,15 @@
     "activeOw2ReferenceDefinitions": 61,
     "commentedOw2ReferenceDefinitions": 0,
     "directOw2Consumers": 61,
-    "duplicateBaselineFacts": 3,
-    "consumedDuplicateBaselineFacts": 3,
+    "duplicateBaselineFacts": 0,
+    "consumedDuplicateBaselineFacts": 0,
     "mainDerivedSettings": 99,
     "aramSettingEntries": 386,
     "aramDirectNumericSettings": 335,
     "heroWorkshopSettingEntries": 186,
     "missingProjectConsumedReferences": 0,
     "unusedOw2ReferenceDefinitions": 0,
-    "semanticReviewItems": 338
+    "semanticReviewItems": 335
   },
   "coverage": {
     "files": [
@@ -45,7 +45,7 @@
         "path": "src/constants/player_constants.opy",
         "role": "项目常数、目标和重复 baseline 别名",
         "inspected": true,
-        "relevantEntries": 3
+        "relevantEntries": 0
       },
       {
         "path": "src/constants/hero_balance_constants.opy",
@@ -196,76 +196,7 @@
       "zenyatta"
     ]
   },
-  "duplicateBaselineFacts": [
-    {
-      "canonicalReference": "OW2_DOMINA_BARRIER_ARRAY_COOLDOWN",
-      "legacyName": "DOMINA_BARRIER_ARRAY_COOLDOWN",
-      "referenceValue": "14",
-      "legacyValue": "8",
-      "sameValue": false,
-      "referenceActive": true,
-      "referenceLine": 38,
-      "legacyLine": 122,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 406
-        },
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 804
-        },
-        {
-          "file": "src/utilities/changelog_text.opy",
-          "line": 12
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN",
-      "legacyName": "DOMINA_CRYSTAL_CHARGE_COOLDOWN",
-      "referenceValue": "8",
-      "legacyValue": "6",
-      "sameValue": false,
-      "referenceActive": true,
-      "referenceLine": 39,
-      "legacyLine": 121,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 405
-        },
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 803
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_DOMINA_SONIC_REPULSORS_COOLDOWN",
-      "legacyName": "DOMINA_SONIC_REPULSORS_COOLDOWN",
-      "referenceValue": "7",
-      "legacyValue": "6",
-      "sameValue": false,
-      "referenceActive": true,
-      "referenceLine": 40,
-      "legacyLine": 123,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 404
-        },
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 802
-        },
-        {
-          "file": "src/utilities/changelog_text.opy",
-          "line": 12
-        }
-      ]
-    }
-  ],
+  "duplicateBaselineFacts": [],
   "baselineFields": [
     {
       "id": "team1.hanzo.ultGen%",
@@ -2470,25 +2401,25 @@
         "team": "team1",
         "hero": "domina",
         "field": "ability1Cooldown%",
-        "value": "ratioPercent(DOMINA_SONIC_REPULSORS_COOLDOWN, OW2_DOMINA_SONIC_REPULSORS_COOLDOWN)",
+        "value": "ratioPercent(SET_DOMINA_ABILITY1_COOLDOWN_TARGET, OW2_DOMINA_SONIC_REPULSORS_COOLDOWN)",
         "file": "src/modules/prelude/settings.opy",
         "line": 404,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
-          "DOMINA_SONIC_REPULSORS_COOLDOWN",
+          "SET_DOMINA_ABILITY1_COOLDOWN_TARGET",
           "OW2_DOMINA_SONIC_REPULSORS_COOLDOWN"
         ],
         "targetTokens": [
-          "DOMINA_SONIC_REPULSORS_COOLDOWN"
+          "SET_DOMINA_ABILITY1_COOLDOWN_TARGET"
         ],
         "functionName": "ratioPercent",
         "expressionArguments": [
-          "DOMINA_SONIC_REPULSORS_COOLDOWN",
+          "SET_DOMINA_ABILITY1_COOLDOWN_TARGET",
           "OW2_DOMINA_SONIC_REPULSORS_COOLDOWN"
         ],
         "referenceToken": "OW2_DOMINA_SONIC_REPULSORS_COOLDOWN",
-        "targetToken": "DOMINA_SONIC_REPULSORS_COOLDOWN",
+        "targetToken": "SET_DOMINA_ABILITY1_COOLDOWN_TARGET",
         "canonicalReference": "OW2_DOMINA_SONIC_REPULSORS_COOLDOWN",
         "referenceResolved": true,
         "aramRepresentations": []
@@ -2509,25 +2440,25 @@
         "team": "team1",
         "hero": "domina",
         "field": "ability2Cooldown%",
-        "value": "ratioPercent(DOMINA_CRYSTAL_CHARGE_COOLDOWN, OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN)",
+        "value": "ratioPercent(SET_DOMINA_ABILITY2_COOLDOWN_TARGET, OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN)",
         "file": "src/modules/prelude/settings.opy",
         "line": 405,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
-          "DOMINA_CRYSTAL_CHARGE_COOLDOWN",
+          "SET_DOMINA_ABILITY2_COOLDOWN_TARGET",
           "OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN"
         ],
         "targetTokens": [
-          "DOMINA_CRYSTAL_CHARGE_COOLDOWN"
+          "SET_DOMINA_ABILITY2_COOLDOWN_TARGET"
         ],
         "functionName": "ratioPercent",
         "expressionArguments": [
-          "DOMINA_CRYSTAL_CHARGE_COOLDOWN",
+          "SET_DOMINA_ABILITY2_COOLDOWN_TARGET",
           "OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN"
         ],
         "referenceToken": "OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN",
-        "targetToken": "DOMINA_CRYSTAL_CHARGE_COOLDOWN",
+        "targetToken": "SET_DOMINA_ABILITY2_COOLDOWN_TARGET",
         "canonicalReference": "OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN",
         "referenceResolved": true,
         "aramRepresentations": [
@@ -2576,25 +2507,25 @@
         "team": "team1",
         "hero": "domina",
         "field": "secondaryFireCooldown%",
-        "value": "ratioPercent(DOMINA_BARRIER_ARRAY_COOLDOWN, OW2_DOMINA_BARRIER_ARRAY_COOLDOWN)",
+        "value": "ratioPercent(SET_DOMINA_SECONDARY_FIRE_COOLDOWN_TARGET, OW2_DOMINA_BARRIER_ARRAY_COOLDOWN)",
         "file": "src/modules/prelude/settings.opy",
         "line": 406,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
-          "DOMINA_BARRIER_ARRAY_COOLDOWN",
+          "SET_DOMINA_SECONDARY_FIRE_COOLDOWN_TARGET",
           "OW2_DOMINA_BARRIER_ARRAY_COOLDOWN"
         ],
         "targetTokens": [
-          "DOMINA_BARRIER_ARRAY_COOLDOWN"
+          "SET_DOMINA_SECONDARY_FIRE_COOLDOWN_TARGET"
         ],
         "functionName": "ratioPercent",
         "expressionArguments": [
-          "DOMINA_BARRIER_ARRAY_COOLDOWN",
+          "SET_DOMINA_SECONDARY_FIRE_COOLDOWN_TARGET",
           "OW2_DOMINA_BARRIER_ARRAY_COOLDOWN"
         ],
         "referenceToken": "OW2_DOMINA_BARRIER_ARRAY_COOLDOWN",
-        "targetToken": "DOMINA_BARRIER_ARRAY_COOLDOWN",
+        "targetToken": "SET_DOMINA_SECONDARY_FIRE_COOLDOWN_TARGET",
         "canonicalReference": "OW2_DOMINA_BARRIER_ARRAY_COOLDOWN",
         "referenceResolved": true,
         "aramRepresentations": [
@@ -5521,25 +5452,25 @@
         "team": "team2",
         "hero": "domina",
         "field": "ability1Cooldown%",
-        "value": "ratioPercent(DOMINA_SONIC_REPULSORS_COOLDOWN, OW2_DOMINA_SONIC_REPULSORS_COOLDOWN)",
+        "value": "ratioPercent(SET_DOMINA_ABILITY1_COOLDOWN_TARGET, OW2_DOMINA_SONIC_REPULSORS_COOLDOWN)",
         "file": "src/modules/prelude/settings.opy",
         "line": 802,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
-          "DOMINA_SONIC_REPULSORS_COOLDOWN",
+          "SET_DOMINA_ABILITY1_COOLDOWN_TARGET",
           "OW2_DOMINA_SONIC_REPULSORS_COOLDOWN"
         ],
         "targetTokens": [
-          "DOMINA_SONIC_REPULSORS_COOLDOWN"
+          "SET_DOMINA_ABILITY1_COOLDOWN_TARGET"
         ],
         "functionName": "ratioPercent",
         "expressionArguments": [
-          "DOMINA_SONIC_REPULSORS_COOLDOWN",
+          "SET_DOMINA_ABILITY1_COOLDOWN_TARGET",
           "OW2_DOMINA_SONIC_REPULSORS_COOLDOWN"
         ],
         "referenceToken": "OW2_DOMINA_SONIC_REPULSORS_COOLDOWN",
-        "targetToken": "DOMINA_SONIC_REPULSORS_COOLDOWN",
+        "targetToken": "SET_DOMINA_ABILITY1_COOLDOWN_TARGET",
         "canonicalReference": "OW2_DOMINA_SONIC_REPULSORS_COOLDOWN",
         "referenceResolved": true,
         "aramRepresentations": []
@@ -5560,25 +5491,25 @@
         "team": "team2",
         "hero": "domina",
         "field": "ability2Cooldown%",
-        "value": "ratioPercent(DOMINA_CRYSTAL_CHARGE_COOLDOWN, OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN)",
+        "value": "ratioPercent(SET_DOMINA_ABILITY2_COOLDOWN_TARGET, OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN)",
         "file": "src/modules/prelude/settings.opy",
         "line": 803,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
-          "DOMINA_CRYSTAL_CHARGE_COOLDOWN",
+          "SET_DOMINA_ABILITY2_COOLDOWN_TARGET",
           "OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN"
         ],
         "targetTokens": [
-          "DOMINA_CRYSTAL_CHARGE_COOLDOWN"
+          "SET_DOMINA_ABILITY2_COOLDOWN_TARGET"
         ],
         "functionName": "ratioPercent",
         "expressionArguments": [
-          "DOMINA_CRYSTAL_CHARGE_COOLDOWN",
+          "SET_DOMINA_ABILITY2_COOLDOWN_TARGET",
           "OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN"
         ],
         "referenceToken": "OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN",
-        "targetToken": "DOMINA_CRYSTAL_CHARGE_COOLDOWN",
+        "targetToken": "SET_DOMINA_ABILITY2_COOLDOWN_TARGET",
         "canonicalReference": "OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN",
         "referenceResolved": true,
         "aramRepresentations": [
@@ -5627,25 +5558,25 @@
         "team": "team2",
         "hero": "domina",
         "field": "secondaryFireCooldown%",
-        "value": "ratioPercent(DOMINA_BARRIER_ARRAY_COOLDOWN, OW2_DOMINA_BARRIER_ARRAY_COOLDOWN)",
+        "value": "ratioPercent(SET_DOMINA_SECONDARY_FIRE_COOLDOWN_TARGET, OW2_DOMINA_BARRIER_ARRAY_COOLDOWN)",
         "file": "src/modules/prelude/settings.opy",
         "line": 804,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
-          "DOMINA_BARRIER_ARRAY_COOLDOWN",
+          "SET_DOMINA_SECONDARY_FIRE_COOLDOWN_TARGET",
           "OW2_DOMINA_BARRIER_ARRAY_COOLDOWN"
         ],
         "targetTokens": [
-          "DOMINA_BARRIER_ARRAY_COOLDOWN"
+          "SET_DOMINA_SECONDARY_FIRE_COOLDOWN_TARGET"
         ],
         "functionName": "ratioPercent",
         "expressionArguments": [
-          "DOMINA_BARRIER_ARRAY_COOLDOWN",
+          "SET_DOMINA_SECONDARY_FIRE_COOLDOWN_TARGET",
           "OW2_DOMINA_BARRIER_ARRAY_COOLDOWN"
         ],
         "referenceToken": "OW2_DOMINA_BARRIER_ARRAY_COOLDOWN",
-        "targetToken": "DOMINA_BARRIER_ARRAY_COOLDOWN",
+        "targetToken": "SET_DOMINA_SECONDARY_FIRE_COOLDOWN_TARGET",
         "canonicalReference": "OW2_DOMINA_BARRIER_ARRAY_COOLDOWN",
         "referenceResolved": true,
         "aramRepresentations": [
@@ -12737,42 +12668,6 @@
     }
   ],
   "semanticReviewRequired": [
-    {
-      "id": "duplicate.DOMINA_BARRIER_ARRAY_COOLDOWN",
-      "category": "divergent_duplicate",
-      "hero": "DOMINA",
-      "field": "DOMINA_BARRIER_ARRAY_COOLDOWN",
-      "source": {
-        "file": "src/constants/player_constants.opy",
-        "line": 122
-      },
-      "value": "8",
-      "reason": "legacy value differs from OW2_DOMINA_BARRIER_ARRAY_COOLDOWN (14); this may be a target or a stale duplicate"
-    },
-    {
-      "id": "duplicate.DOMINA_CRYSTAL_CHARGE_COOLDOWN",
-      "category": "divergent_duplicate",
-      "hero": "DOMINA",
-      "field": "DOMINA_CRYSTAL_CHARGE_COOLDOWN",
-      "source": {
-        "file": "src/constants/player_constants.opy",
-        "line": 121
-      },
-      "value": "6",
-      "reason": "legacy value differs from OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN (8); this may be a target or a stale duplicate"
-    },
-    {
-      "id": "duplicate.DOMINA_SONIC_REPULSORS_COOLDOWN",
-      "category": "divergent_duplicate",
-      "hero": "DOMINA",
-      "field": "DOMINA_SONIC_REPULSORS_COOLDOWN",
-      "source": {
-        "file": "src/constants/player_constants.opy",
-        "line": 123
-      },
-      "value": "6",
-      "reason": "legacy value differs from OW2_DOMINA_SONIC_REPULSORS_COOLDOWN (7); this may be a target or a stale duplicate"
-    },
     {
       "id": "aram.team1.hanzo.ability2Quantity%",
       "category": "aram_direct_literal",
