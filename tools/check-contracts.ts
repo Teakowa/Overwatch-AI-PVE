@@ -307,6 +307,7 @@ function classifyEntryPhase(entryLabel: EntryLabel, relPath: string): number | n
     relPath === "src/modules/burning/state.opy" ||
     relPath === "src/modules/combat-policy/custom-effect-guards.opy" ||
     relPath === "src/heroes/wuyang/state.opy" ||
+    relPath === "src/modules/scoped-damage/state.opy" ||
     relPath === "src/heroes/settings.opy" ||
     relPath === "src/heroes/settings.aram.opy" ||
     /^src\/heroes\/[^/]+\/settings(\.aram)?\.opy$/.test(relPath) ||
@@ -477,6 +478,7 @@ async function main(): Promise<void> {
       "modules/burning/state.opy",
       "modules/combat-policy/custom-effect-guards.opy",
       "heroes/wuyang/state.opy",
+      "modules/scoped-damage/state.opy",
       "modules/bootstrap/init-and-settings.opy",
       "modules/bootstrap/anti-crash.opy",
       "modules/bootstrap/blacklist.opy",
@@ -529,6 +531,7 @@ async function main(): Promise<void> {
       "modules/burning/state.opy",
       "modules/combat-policy/custom-effect-guards.opy",
       "heroes/wuyang/state.opy",
+      "modules/scoped-damage/state.opy",
       "aram_protocol.opy",
       "modules/bootstrap/aram-mode-settings.opy",
       "modules/bootstrap/aram-hero-ability-settings.opy",

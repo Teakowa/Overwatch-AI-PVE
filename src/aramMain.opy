@@ -17,6 +17,7 @@
 #!include "modules/burning/state.opy"
 #!include "modules/combat-policy/custom-effect-guards.opy"
 #!include "heroes/wuyang/state.opy"
+#!include "modules/scoped-damage/state.opy"
 #!include "aram_protocol.opy"
 
 #

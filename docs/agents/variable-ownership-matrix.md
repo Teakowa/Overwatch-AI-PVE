@@ -97,11 +97,8 @@ Wuyang declaration and lifecycle reset now live in heroes/wuyang/state.opy.
 
 | Variable | Kind | Current owner | Consumers | Main/ARAM | Target owner | Action | Blocker |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| scoped_shot_distance | playervar (slot 26) | prelude/player-vars.opy | heroes/widowmaker/rules.opy, aram.opy; heroes/cassidy/primary.opy | M+A | new modules/scoped-damage/state.opy | P-SCOPE move scoped-damage state with slot 26 | Widowmaker and Cassidy currently share fields directly |
-| scoped_damage_base | playervar (slot 27) | prelude/player-vars.opy | heroes/widowmaker/rules.opy, aram.opy; heroes/cassidy/primary.opy | M+A | new modules/scoped-damage/state.opy | P-SCOPE move scoped-damage state with slot 27 | shared calculation needs an explicit owner |
-| ow2_scoped_damage_falloff_scalar | playervar (slot 28) | prelude/player-vars.opy | heroes/widowmaker/rules.opy, aram.opy; heroes/cassidy/primary.opy | M+A | new modules/scoped-damage/state.opy | P-SCOPE move scoped-damage state with slot 28 | shared calculation needs an explicit owner |
-| ow1_scoped_damage_falloff_scalar | playervar (slot 29) | prelude/player-vars.opy | heroes/widowmaker/rules.opy, aram.opy; heroes/cassidy/primary.opy | M+A | new modules/scoped-damage/state.opy | P-SCOPE move scoped-damage state with slot 29 | shared calculation needs an explicit owner |
-| expected_scoped_damage | playervar (slot 30) | prelude/player-vars.opy | heroes/widowmaker/rules.opy, aram.opy; heroes/cassidy/primary.opy | M+A | new modules/scoped-damage/state.opy | P-SCOPE move scoped-damage state with slot 30 | shared calculation needs an explicit owner |
+The five scoped-damage declarations now live in modules/scoped-damage/state.opy
+with their original slots and both-entry include reach.
 
 ### defer: cross-module coupling must be resolved first
 
@@ -134,8 +131,8 @@ request to combine all rows into one commit.
    hero settings.
 3. P-WUYANG: move the one-hero player state together with an explicit lifecycle
    reset hook in a separate commit.
-4. P-SCOPE: move the five scoped-damage fields as one responsibility-named mechanic
-   unit, with Main/ARAM includes and a focused consumer check.
+4. P-SCOPE is complete: the five scoped-damage fields share one responsibility-named
+   owner with Main/ARAM includes and unchanged consumers.
 5. D-P1 through D-P14 are blocked waves. Each blocker must be resolved with a
    semantic interface or a narrower state split before its declaration moves.
 6. K-* rows remain in the prelude ABI. The protocol baseline must retain their order
@@ -143,7 +140,7 @@ request to combine all rows into one commit.
 
 ## Audit evidence and maintenance
 
-- The current declaration inventory is 24 globalvar plus 32 playervar entries; the matrix has
+- The current declaration inventory is 24 globalvar plus 27 playervar entries; the matrix has
   one row for each remaining declaration.
 - The remaining prelude declarations are reachable from the applicable entry roots. The consumer paths above were
   searched across src, including bootstrap, AI, utilities, hero Main rules, and ARAM

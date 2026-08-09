@@ -15,6 +15,7 @@
 #!include "modules/burning/state.opy"
 #!include "modules/combat-policy/custom-effect-guards.opy"
 #!include "heroes/wuyang/state.opy"
+#!include "modules/scoped-damage/state.opy"
 
 # Bootstrap: init, anti-crash, blacklist, lifecycle
 #!include "modules/bootstrap/init-and-settings.opy"
