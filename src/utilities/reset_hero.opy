@@ -13,6 +13,8 @@ def resetCombatState():
     eventPlayer.reaper_buff[1] = 0
     eventPlayer.dmg_reduction = 0
     eventPlayer.dmg_amplification = 0
+    eventPlayer.domina_ai_busy = false
+    eventPlayer.domina_secondary_retry_blocked = false
 
 def resetHero():
     @Name "[utilities/reset.opy]: resetHero()"

@@ -43,6 +43,7 @@ rule "[AI/ultimate]: Counter Ultimate Ability":
 rule "[AI/ultimate]: Auto use Ultimate Ability":
     @Event playerTookDamage
     @Team 1
+    @Condition not isHero(eventPlayer, Hero.DOMINA)
     #@Condition getPlayersInRadius(eventPlayer, 10, getOppositeTeam(eventPlayer.getTeam()), LosCheck.SURFACES) >= 3
     @Condition len(getPlayersInRadius(eventPlayer, 10, getOppositeTeam(eventPlayer.getTeam()), LosCheck.SURFACES)) >= 3
     #@Condition getPlayersInRadius(eventPlayer, 15, eventPlayer.getTeam(), LosCheck.SURFACES) >= 3
