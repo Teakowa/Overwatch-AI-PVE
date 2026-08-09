@@ -12,6 +12,8 @@ type Args = {
 
 type DeclarationKind = "globalvar" | "playervar" | "subroutine";
 type EntryLabel = "main" | "aram";
+type ProtocolMapping = { kind: DeclarationKind; name: string; index: number };
+type DeclarationRecord = { name: string; index: number | null };
 
 function usage(): void {
   console.log("Usage: tools/check-contracts.ts [--strict-hero-init] [--build]");
@@ -69,15 +71,41 @@ function countExactRuleName(lines: string[], name: string): number {
   return lines.filter((line) => line === `rule "${name}":`).length;
 }
 
-async function parseProtocolMapping(filePath: string): Promise<Array<{ kind: string; name: string; index: number }>> {
+async function parseProtocolMapping(filePath: string): Promise<ProtocolMapping[]> {
   const lines = (await fs.readFile(filePath, "utf8")).split(/\r?\n/);
   return lines
     .map((line) => line.trim())
     .filter(Boolean)
-    .map((line) => {
-      const [kind, name, index] = line.split("\t");
-      return { kind: kind!, name: name!, index: Number(index) };
+    .map((line, lineIndex) => {
+      const [kind, name, indexText] = line.split("\t");
+      if (!kind || !name || !indexText || !["globalvar", "playervar", "subroutine"].includes(kind)) {
+        throw new Error(`Malformed protocol baseline row ${lineIndex + 1}: ${line}`);
+      }
+      const index = Number(indexText);
+      if (!Number.isInteger(index) || index < 0) {
+        throw new Error(`Invalid protocol baseline index at row ${lineIndex + 1}: ${line}`);
+      }
+      return { kind: kind as DeclarationKind, name, index };
     });
+}
+
+function extractDeclarationRecordsFromLines(
+  lines: string[],
+  kind: DeclarationKind,
+): DeclarationRecord[] {
+  const declarationPattern = new RegExp(`^${kind}\\s+([^\\s]+)(?:\\s+(\\d+))?(?:\\s*=.*)?$`);
+  return lines
+    .map((line) => {
+      const match = line.match(declarationPattern);
+      if (!match) {
+        return null;
+      }
+      return {
+        name: match[1]!,
+        index: match[2] === undefined ? null : Number(match[2]),
+      };
+    })
+    .filter((value): value is DeclarationRecord => value !== null);
 }
 
 async function extractDeclarations(
@@ -85,18 +113,57 @@ async function extractDeclarations(
   kind: DeclarationKind,
 ): Promise<string[]> {
   const lines = await readLines(filePath);
-  return lines
-    .map((line) => line.match(new RegExp(`^${kind}\\s+([^\\s]+)`))?.[1] ?? null)
-    .filter((value): value is string => Boolean(value));
+  return extractDeclarationRecordsFromLines(lines, kind).map((record) => record.name);
 }
 
 function extractDeclarationsFromLines(
   lines: string[],
   kind: DeclarationKind,
 ): string[] {
-  return lines
-    .map((line) => line.match(new RegExp(`^${kind}\\s+([^\\s]+)`))?.[1] ?? null)
-    .filter((value): value is string => Boolean(value));
+  return extractDeclarationRecordsFromLines(lines, kind).map((record) => record.name);
+}
+
+function validateProtocolBaseline(
+  reporter: Reporter,
+  mappings: ProtocolMapping[],
+  declarationsByKind: Record<DeclarationKind, string[]>,
+): void {
+  for (const kind of ["globalvar", "playervar", "subroutine"] as const) {
+    const kindMappings = mappings.filter((mapping) => mapping.kind === kind);
+    const expectedNames = kindMappings.map((mapping) => mapping.name);
+    const actualNames = declarationsByKind[kind];
+    const duplicateBaselineNames = duplicateNames(expectedNames);
+    const duplicateBaselineIndexes = duplicateNames(kindMappings.map((mapping) => String(mapping.index)));
+    const nonMonotonicIndexes = kindMappings.some(
+      (mapping, index) => index > 0 && mapping.index <= kindMappings[index - 1]!.index,
+    );
+
+    if (duplicateBaselineNames.length > 0) {
+      reporter.fail(`${kind} shared ABI baseline has duplicate names: ${duplicateBaselineNames.join(" ")}`);
+    }
+    if (duplicateBaselineIndexes.length > 0 || nonMonotonicIndexes) {
+      reporter.fail(`${kind} shared ABI baseline indexes must be unique and strictly increasing`);
+    }
+
+    const expectedSet = new Set(expectedNames);
+    const actualSet = new Set(actualNames);
+    const missing = expectedNames.filter((name) => !actualSet.has(name));
+    const unexpected = actualNames.filter((name) => !expectedSet.has(name));
+    if (missing.length > 0) {
+      reporter.fail(`${kind} shared ABI baseline declarations missing from prelude: ${missing.join(" ")}`);
+    }
+    if (unexpected.length > 0) {
+      reporter.fail(`${kind} prelude declarations missing from shared ABI baseline: ${unexpected.join(" ")}`);
+    }
+    if (
+      missing.length === 0 &&
+      unexpected.length === 0 &&
+      actualNames.length === expectedNames.length &&
+      actualNames.every((name, index) => name === expectedNames[index])
+    ) {
+      reporter.pass(`${kind} shared ABI baseline order and membership preserved`);
+    }
+  }
 }
 
 async function collectIncludedFiles(entryFile: string): Promise<string[]> {
@@ -621,8 +688,14 @@ async function main(): Promise<void> {
     subroutine: resolveRepo("src/modules/prelude/subroutine.opy"),
   } as const;
 
+  const preludeDeclarations = {
+    globalvar: await extractDeclarations(declarationFiles.globalvar, "globalvar"),
+    playervar: await extractDeclarations(declarationFiles.playervar, "playervar"),
+    subroutine: await extractDeclarations(declarationFiles.subroutine, "subroutine"),
+  } satisfies Record<DeclarationKind, string[]>;
+
   for (const kind of ["globalvar", "playervar", "subroutine"] as const) {
-    const declarations = await extractDeclarations(declarationFiles[kind], kind);
+    const declarations = preludeDeclarations[kind];
     const dupes = duplicateNames(declarations);
     if (dupes.length > 0) {
       reporter.fail(`${kind} has duplicate names in ${path.relative(repoRoot, declarationFiles[kind])}: ${dupes.join(" ")}`);
@@ -630,6 +703,7 @@ async function main(): Promise<void> {
       reporter.pass(`${kind} has no duplicate names in ${path.relative(repoRoot, declarationFiles[kind])}`);
     }
   }
+  validateProtocolBaseline(reporter, protocolMappings, preludeDeclarations);
 
   const entryRoots = [
     { label: "main", filePath: resolveRepo("src/main.opy") },
@@ -688,11 +762,11 @@ async function main(): Promise<void> {
   for (const entryRoot of entryRoots) {
     const includedFiles = includedFilesByEntry.get(entryRoot.label) ?? [];
     for (const kind of ["globalvar", "playervar", "subroutine"] as const) {
-      const declarations: Array<{ filePath: string; name: string }> = [];
+      const declarations: Array<{ filePath: string; name: string; index: number | null }> = [];
       for (const filePath of includedFiles) {
         const lines = await readLines(filePath);
-        for (const name of extractDeclarationsFromLines(lines, kind)) {
-          declarations.push({ filePath, name });
+        for (const declaration of extractDeclarationRecordsFromLines(lines, kind)) {
+          declarations.push({ filePath, ...declaration });
         }
       }
 
@@ -703,20 +777,42 @@ async function main(): Promise<void> {
         const detail = duplicates.map((item) => `${item.name} (${item.files.join(", ")})`).join("; ");
         reporter.fail(`${entryRoot.label} ${kind} duplicate declarations found: ${detail}`);
       }
-    }
-  }
 
-  for (const mapping of protocolMappings) {
-    const filePath = declarationFiles[mapping.kind as keyof typeof declarationFiles];
-    if (!filePath) {
-      reporter.fail(`unknown kind in protocol file: ${mapping.kind}`);
-      continue;
-    }
-    const declarations = await extractDeclarations(filePath, mapping.kind as keyof typeof declarationFiles);
-    if (declarations[mapping.index] === mapping.name) {
-      reporter.pass(`declaration order preserved: ${mapping.kind} ${mapping.name} ${mapping.index}`);
-    } else {
-      reporter.fail(`declaration order changed/missing: ${mapping.kind} ${mapping.name} ${mapping.index}`);
+      const indexedDeclarations = declarations.filter((declaration) => declaration.index !== null);
+      const indexOwners = new Map<number, string[]>();
+      for (const declaration of indexedDeclarations) {
+        const index = declaration.index!;
+        const names = indexOwners.get(index) ?? [];
+        names.push(declaration.name);
+        indexOwners.set(index, names);
+      }
+      const duplicateIndexes = [...indexOwners.entries()].filter(([, names]) => names.length > 1);
+      if (duplicateIndexes.length === 0) {
+        reporter.pass(`${entryRoot.label} ${kind} explicit declaration indexes are unique`);
+      } else {
+        const detail = duplicateIndexes.map(([index, names]) => `${index} (${names.join(", ")})`).join("; ");
+        reporter.fail(`${entryRoot.label} ${kind} duplicate explicit declaration indexes found: ${detail}`);
+      }
+
+      const preludeFileSet = new Set(Object.values(declarationFiles).map((filePath) => path.resolve(filePath)));
+      const moduleLocalDeclarations = declarations.filter(
+        (declaration) => !preludeFileSet.has(path.resolve(declaration.filePath)),
+      );
+      const invalidOwners = moduleLocalDeclarations.filter(({ filePath }) => {
+        const relPath = normalizeRepoPath(filePath);
+        return !relPath.startsWith("src/heroes/") && !relPath.startsWith("src/modules/");
+      });
+      if (invalidOwners.length === 0) {
+        reporter.pass(
+          `${entryRoot.label} ${kind} module-local declarations use owner-module checks (${moduleLocalDeclarations.length})`,
+        );
+      } else {
+        reporter.fail(
+          `${entryRoot.label} ${kind} declarations outside owner-module boundaries: ${invalidOwners
+            .map(({ filePath }) => normalizeRepoPath(filePath))
+            .join(", ")}`,
+        );
+      }
     }
   }
 

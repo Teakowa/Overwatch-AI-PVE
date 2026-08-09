@@ -65,6 +65,7 @@ globalvar	TorbjornBuff	63
 globalvar	WidowmakerBuff	64
 globalvar	WinstonBuff	65
 globalvar	ShionBuff	66
+globalvar	Ana_NanoHealAmp	67
 playervar	reset_pvar	0
 playervar	heroNum	1
 playervar	botTemp	2
