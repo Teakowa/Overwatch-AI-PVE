@@ -3,7 +3,7 @@
 
 #!define changelog_database [ \
     { hero: Hero.ANA, body: "\r\n●{0}\r\n*造成伤害 +15%\r\n*造成治疗 +22%\r\n*生物手雷\r\n  使敌方燃烧 每秒造成{1}%最大生命值伤害\r\n*麻醉镖\r\n  冷却时间降低至10秒\r\n*纳米激素\r\n  治疗目标全部已损失生命值\n\n※※离开重生室隐藏".format(Hero.ANA, Ana_GrenadeDamage) }, \
-    { hero: Hero.ANRAN, body: "\r\n●{0}\r\n*造成伤害 +35%\r\n*受到伤害 -30%\r\n*怒炎冲 冷却时间降低至6秒\r\n*熠闪舞 冷却时间降低至6秒\r\n*烈焰 对所有燃烧中的敌人伤害提高25%（开始伤害调整）\n\n※※离开重生室隐藏".format(Hero.ANRAN) }, \
+    { hero: Hero.ANRAN, body: "\r\n●{0}\r\n*造成伤害 +35%\r\n*受到伤害 -30%\r\n*怒炎冲 冷却时间降低至6秒\r\n*熠闪舞 冷却时间降低至6秒\r\n*烈焰 对所有燃烧中的敌人伤害提高{1}%（伤害放大）\r\n*浴火 战斗中有燃烧敌人时每秒回复25+5%最大生命值\n\n※※离开重生室隐藏".format(Hero.ANRAN, AnranBuff[1] - 100) }, \
     { hero: Hero.ASHE, body: "\r\n●{0}\r\n*造成伤害 +35%\r\n*毒蛇\r\n  弹药增加至 15 发\r\n  暴击倍率提高至 ×{1}\r\n  完成击杀后恢复全部子弹\r\n*延时雷管\r\n  冷却时间降低至8秒\r\n*短筒猎枪\r\n  冷却时间降低至8秒\n\n※※离开重生室隐藏".format(Hero.ASHE, HeadshotDamage[1]) }, \
     { hero: Hero.BAPTISTE, body: "\r\n●{0}\r\n*造成伤害 +50%\r\n*暴击额外伤害 +{1}\r\n*维生力场\r\n  冷却时间降低至10秒\r\n*增幅矩阵\r\n  持续时间提高至 15 秒\n\n※※离开重生室隐藏".format(Hero.BAPTISTE, BaptisteBuff[0]) }, \
     { hero: Hero.BASTION, body: "\r\n●{0}\r\n*造成伤害 +25%\r\n*受到伤害 -30%\r\n{1} 强攻模式\r\n  移动速度 +200%\r\n{2} A-36战术榴弹\r\n  冷却时间降低至6秒\n\n※※离开重生室隐藏".format(Hero.BASTION, abilityIconString(Hero.BASTION, Button.ABILITY_1), abilityIconString(Hero.BASTION, Button.SECONDARY_FIRE)) }, \

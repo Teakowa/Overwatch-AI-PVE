@@ -33,7 +33,7 @@
 #!include "reinhardt/settings.aram.opy"
 #!include "venture/settings.opy"
 #!include "wrecking_ball/settings.opy"
-#!include "anran/settings.opy"
+#!include "anran/settings.aram.opy"
 #!include "bastion/settings.aram.opy"
 #!include "domina/settings.opy"
 #!include "echo/settings.opy"

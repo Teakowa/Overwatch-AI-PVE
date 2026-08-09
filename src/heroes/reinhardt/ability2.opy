@@ -11,5 +11,4 @@ rule "[Reinhardt] firestrike healing":
     heal(eventPlayer, eventPlayer, eventDamage)
     lbl_0:
     victim.setStatusEffect(attacker, Status.BURNING, ReinhardtBuff[1])
-    victim.burn_stack += 2
     damage(victim, attacker, 20)

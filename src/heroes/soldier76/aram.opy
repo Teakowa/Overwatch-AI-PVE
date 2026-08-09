@@ -65,7 +65,6 @@ rule "[Soldier: 76]: 辅助攻击燃烧":
     @Condition attacker != victim
 
     victim.setStatusEffect(attacker, Status.BURNING, S76Buff[4])
-    victim.burn_stack += S76Buff[4]
     damage(victim, attacker, attacker.maxHealthPercent(S76Buff[3]))
 
 rule "[Soldier: 76]: 治疗":

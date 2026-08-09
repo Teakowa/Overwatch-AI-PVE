@@ -9,7 +9,7 @@
 这里的“机制特效”指会对角色状态、控制、存活、回复、资源、位移或团队交互造成非纯面板影响的实现。来源可以是：
 
 - 原生状态：`ASLEEP / BURNING / FROZEN / HACKED / INVINCIBLE / KNOCKED_DOWN / PHASED_OUT / ROOTED / STUNNED / UNKILLABLE`
-- 自定义链路：`burn_stack`、`startDamageOverTime`、`heal` / HOT / 吸血、临时生命池 / 护甲池、`unaffected`、移速修正、击退抗性、斩杀、印记 / 层数、治疗修正、冷却返还
+- 自定义链路：`startDamageOverTime`、`startDamageModification`、`heal` / HOT / 吸血、临时生命池 / 护甲池、`unaffected`、移速修正、击退抗性、斩杀、印记 / 层数、治疗修正、冷却返还
 - 命名机制：例如 Mauga 的“狂战士之魂”、Reaper 的“灵魂层数”、Shion 的“狂势”
 
 本表明确排除：
@@ -22,7 +22,7 @@
 
 | 类型 | 定义口径 | 代表英雄 | 典型触发 | 模式差异 | 备注 |
 |---|---|---|---|---|---|
-| 燃烧 / DOT | 施加 `BURNING`、持续伤害或按生命值持续灼烧 | Ana、Soldier: 76、Mauga、Emre、Junkrat | 技能命中、投射物命中、碰撞控制 | 两模式都常见，部分英雄只有 ARAM 增强版 | 含 `burn_stack` 这类围绕燃烧构建的后续连锁 |
+| 燃烧 / DOT | 施加 `BURNING`、持续伤害或按生命值持续灼烧 | Ana、Soldier: 76、Mauga、Emre、Junkrat | 技能命中、投射物命中、碰撞控制 | 两模式都常见，部分英雄只有 ARAM 增强版 | Anran 的燃烧联动使用二值 `BURNING` 状态，不追踪来源或层数 |
 | 冻结 | 施加 `FROZEN` 或明确冻结链路 | Wuyang、Mei | 连续命中、技能累计层数 | 目前主要由 Wuyang 与 ARAM Mei 承担 | 属于硬控，不等同于减速 |
 | 睡眠 | 施加 `ASLEEP` 或睡眠延长链路 | Ana | 麻醉命中后进入控制 | 目前以常规赛 Ana 为主 | 属于独立硬控类型 |
 | 眩晕 | 施加 `STUNNED` | Cassidy、Brigitte、Orisa、JetpackCat、Wrecking Ball、Sierra | 技能命中、终极命中、近战触发 | main 与 aram 基本同类，时长可能不同 | 与击倒分开统计 |
@@ -53,7 +53,7 @@
 | 英雄 | 常规赛 | 大乱斗 | 已实现机制特效类型 | 备注 |
 |---|---|---|---|---|
 | Ana | 有 | 有 | 睡眠；燃烧 / DOT；条件追加伤害 / 比例伤害结算 | 手雷附燃烧与比例 DOT，睡眠链在规则层有强化 |
-| Anran | 有 | 有 | 虚化；免控 / `unaffected`；燃烧 / DOT；印记 / 叠层 / 资源计数；自疗 / HOT / 吸血 / 团疗 | 围绕燃烧层数吃收益，ARAM 版本更强 |
+| Anran | 有 | 有 | 虚化；免控 / `unaffected`；燃烧 / DOT；自疗 / HOT / 吸血 / 团疗 | 围绕燃烧状态提供伤害放大与战斗续航，ARAM 版本伤害放大更强 |
 | Ashe | 无 | 有 | 燃烧 / DOT；条件追加伤害 / 比例伤害结算 | main 主要是爆头与资源类规则，ARAM 额外有 DOT |
 | Baptiste | 有 | 有 | 虚化；自疗 / HOT / 吸血 / 团疗；团队减伤 / 团队保命 | 不朽领域链路为队友提供短暂保命窗口 |
 | Bastion | 有 | 有 | 燃烧 / DOT；条件追加伤害 / 比例伤害结算 | 当前源码可见 Ability1 附燃烧与额外比例伤害 |
