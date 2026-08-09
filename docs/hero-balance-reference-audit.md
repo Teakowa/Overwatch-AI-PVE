@@ -7,9 +7,9 @@
 - 启用的 OW2_* reference 定义：61；注释掉的候选定义：0。
 - Main 中直接使用 OW2_*：61 个字段；另有 0 个被消费的非命名空间重复基线事实（总记录 0 个）。
 - Main 中通过 ratioPercent/ultGenPercent 形成的基线相关 settings：99 条。
-- ARAM settings 条目：386 条，其中直接数字：335 条。
+- ARAM settings 条目：386 条，其中直接数字：299 条。
 - 英雄 runtime Workshop setting 工厂调用：186 条。
-- 需要在迁移前人工确认的项目：335 条；缺失 reference：0 条。
+- 需要在迁移前人工确认的项目：299 条；缺失 reference：0 条。
 
 ## 分类口径
 
@@ -47,26 +47,26 @@
 | Team | Hero | Field | Category | Reference | Target | ARAM 表示 |
 | --- | --- | --- | --- | --- | --- | --- |
 | team1 | hanzo | `ultGen%` | absolute_pve_target | `OW2_HANZO_ULT_COST` | `SET_AI_HANZO_ULT_COST_TARGET` | 未配置 |
-| team1 | cassidy | `ability2Cooldown%` | absolute_pve_target | `OW2_MCCREE_FLASHBANG_COOLDOWN` | `SET_AI_CASSIDY_ABILITY2_COOLDOWN_TARGET` | `team1:67` |
+| team1 | cassidy | `ability2Cooldown%` | absolute_pve_target | `OW2_MCCREE_FLASHBANG_COOLDOWN` | `SET_AI_CASSIDY_ABILITY2_COOLDOWN_TARGET` | `team1:ratioPercent(SET_ARAM_TEAM1_CASSIDY_ABILITY2_COOLDOWN_TARGET, OW2_MCCREE_FLASHBANG_COOLDOWN)` |
 | team1 | lucio | `ultGen%` | absolute_pve_target | `OW2_LUCIO_ULT_COST` | `SET_AI_LUCIO_ULT_COST_TARGET` | 未配置 |
-| team1 | soldier | `ability2Cooldown%` | absolute_pve_target | `OW2_SOLDIER_BIOTIC_FIELD_COOLDOWN` | `SET_AI_SOLDIER_ABILITY2_COOLDOWN_TARGET` | `team1:56` |
+| team1 | soldier | `ability2Cooldown%` | absolute_pve_target | `OW2_SOLDIER_BIOTIC_FIELD_COOLDOWN` | `SET_AI_SOLDIER_ABILITY2_COOLDOWN_TARGET` | `team1:ratioPercent(SET_ARAM_TEAM1_SOLDIER_ABILITY2_COOLDOWN_TARGET, OW2_SOLDIER_BIOTIC_FIELD_COOLDOWN)` |
 | team1 | orisa | `ability1Cooldown%` | absolute_pve_target | `OW2_ORISA_FORTIFY_COOLDOWN` | `SET_AI_ORISA_ABILITY1_COOLDOWN_TARGET` | 未配置 |
-| team1 | orisa | `ultGen%` | absolute_pve_target | `OW2_ORISA_ULT_COST` | `SET_AI_ORISA_ULT_COST_TARGET` | `team1:125`, `team2:125` |
-| team1 | ana | `ultGen%` | absolute_pve_target | `OW2_ANA_ULT_COST` | `SET_AI_ANA_ULT_COST_TARGET` | `team1:200` |
-| team1 | ana | `ability1Cooldown%` | absolute_pve_target | `OW2_ANA_SLEEP_DART_COOLDOWN_TIME` | `SET_AI_ANA_ABILITY1_COOLDOWN_TARGET` | `team1:50`, `team2:57` |
-| team1 | baptiste | `ability1Cooldown%` | absolute_pve_target | `OW2_BAPTISTE_REGEN_BURST_COOLDOWN` | `SET_AI_BAPTISTE_ABILITY1_COOLDOWN_TARGET` | `team1:53`, `team2:53` |
-| team1 | baptiste | `ability2Cooldown%` | absolute_pve_target | `OW2_BAPTISTE_LAMP_COOLDOWN_TIME` | `SET_AI_BAPTISTE_ABILITY2_COOLDOWN_TARGET` | `team1:48`, `team2:48` |
+| team1 | orisa | `ultGen%` | absolute_pve_target | `OW2_ORISA_ULT_COST` | `SET_AI_ORISA_ULT_COST_TARGET` | `team1:ultGenPercent(OW2_ORISA_ULT_COST, SET_ARAM_TEAM1_ORISA_ULT_COST_TARGET)`, `team2:ultGenPercent(OW2_ORISA_ULT_COST, SET_ARAM_TEAM2_ORISA_ULT_COST_TARGET)` |
+| team1 | ana | `ultGen%` | absolute_pve_target | `OW2_ANA_ULT_COST` | `SET_AI_ANA_ULT_COST_TARGET` | `team1:ultGenPercent(OW2_ANA_ULT_COST, SET_ARAM_TEAM1_ANA_ULT_COST_TARGET)` |
+| team1 | ana | `ability1Cooldown%` | absolute_pve_target | `OW2_ANA_SLEEP_DART_COOLDOWN_TIME` | `SET_AI_ANA_ABILITY1_COOLDOWN_TARGET` | `team1:ratioPercent(SET_ARAM_TEAM1_ANA_ABILITY1_COOLDOWN_TARGET, OW2_ANA_SLEEP_DART_COOLDOWN_TIME)`, `team2:ratioPercent(SET_ARAM_TEAM2_ANA_ABILITY1_COOLDOWN_TARGET, OW2_ANA_SLEEP_DART_COOLDOWN_TIME)` |
+| team1 | baptiste | `ability1Cooldown%` | absolute_pve_target | `OW2_BAPTISTE_REGEN_BURST_COOLDOWN` | `SET_AI_BAPTISTE_ABILITY1_COOLDOWN_TARGET` | `team1:ratioPercent(SET_ARAM_TEAM1_BAPTISTE_ABILITY1_COOLDOWN_TARGET, OW2_BAPTISTE_REGEN_BURST_COOLDOWN)`, `team2:ratioPercent(SET_ARAM_TEAM2_BAPTISTE_ABILITY1_COOLDOWN_TARGET, OW2_BAPTISTE_REGEN_BURST_COOLDOWN)` |
+| team1 | baptiste | `ability2Cooldown%` | absolute_pve_target | `OW2_BAPTISTE_LAMP_COOLDOWN_TIME` | `SET_AI_BAPTISTE_ABILITY2_COOLDOWN_TARGET` | `team1:ratioPercent(SET_ARAM_TEAM1_BAPTISTE_ABILITY2_COOLDOWN_TARGET, OW2_BAPTISTE_LAMP_COOLDOWN_TIME)`, `team2:ratioPercent(SET_ARAM_TEAM2_BAPTISTE_ABILITY2_COOLDOWN_TARGET, OW2_BAPTISTE_LAMP_COOLDOWN_TIME)` |
 | team1 | brigitte | `ultGen%` | absolute_pve_target | `OW2_BRIGITTE_ULT_COST` | `SET_AI_BRIGITTE_ULT_COST_TARGET` | 未配置 |
-| team1 | brigitte | `shieldBashKb%` | absolute_pve_target | `OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK` | `SET_AI_BRIGITTE_SHIELD_BASH_KB_TARGET` | `team1:50`, `team2:50` |
+| team1 | brigitte | `shieldBashKb%` | absolute_pve_target | `OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK` | `SET_AI_BRIGITTE_SHIELD_BASH_KB_TARGET` | `team1:ratioPercent(SET_ARAM_TEAM1_BRIGITTE_SHIELD_BASH_KB_TARGET, OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK)`, `team2:ratioPercent(SET_ARAM_TEAM2_BRIGITTE_SHIELD_BASH_KB_TARGET, OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK)` |
 | team1 | torbjorn | `ultGen%` | absolute_pve_target | `OW2_TORBJORN_ULT_COST` | `SET_AI_TORBJORN_ULT_COST_TARGET` | 未配置 |
 | team1 | ramattra | `ability2Cooldown%` | absolute_pve_target | `OW2_RAMATTRA_VORTEX_COOLDOWN` | `SET_AI_RAMATTRA_ABILITY2_COOLDOWN_TARGET` | 未配置 |
-| team1 | ramattra | `ability1Cooldown%` | absolute_pve_target | `OW2_RAMATTRA_NEMESIS_COOLDOWN` | `SET_AI_RAMATTRA_ABILITY1_COOLDOWN_TARGET` | `team1:86` |
-| team1 | ramattra | `ultGen%` | absolute_pve_target | `OW2_RAMATTRA_ULT_COST` | `SET_AI_RAMATTRA_ULT_COST_TARGET` | `team1:500` |
+| team1 | ramattra | `ability1Cooldown%` | absolute_pve_target | `OW2_RAMATTRA_NEMESIS_COOLDOWN` | `SET_AI_RAMATTRA_ABILITY1_COOLDOWN_TARGET` | `team1:ratioPercent(SET_ARAM_TEAM1_RAMATTRA_ABILITY1_COOLDOWN_TARGET, OW2_RAMATTRA_NEMESIS_COOLDOWN)` |
+| team1 | ramattra | `ultGen%` | absolute_pve_target | `OW2_RAMATTRA_ULT_COST` | `SET_AI_RAMATTRA_ULT_COST_TARGET` | `team1:ultGenPercent(OW2_RAMATTRA_ULT_COST, SET_ARAM_TEAM1_RAMATTRA_ULT_COST_TARGET)` |
 | team1 | ramattra | `secondaryFireCooldown%` | absolute_pve_target | `OW2_RAMATTRA_VOID_BARRIER_COOLDOWN` | `SET_AI_RAMATTRA_SECONDARY_FIRE_COOLDOWN_TARGET` | 未配置 |
 | team1 | venture | `ultGen%` | absolute_pve_target | `OW2_VENTURE_ULT_COST` | `SET_AI_VENTURE_ULT_COST_TARGET` | 未配置 |
-| team1 | illari | `ability2Cooldown%` | absolute_pve_target | `OW2_ILLARI_PYLON_COOLDOWN` | `SET_AI_ILLARI_ABILITY2_COOLDOWN_TARGET` | `allTeams:50` |
-| team1 | juno | `ultGen%` | absolute_pve_target | `OW2_JUNO_ULT_COST` | `SET_AI_JUNO_ULT_COST_TARGET` | `allTeams:175` |
-| team1 | doomfist | `ammoRegenerationTime%` | absolute_pve_target | `OW2_DOOMFIST_AMMO_REGEN` | `SET_AI_DOOMFIST_AMMO_REGENERATION_TIME_TARGET` | `team1:80`, `team2:80` |
+| team1 | illari | `ability2Cooldown%` | absolute_pve_target | `OW2_ILLARI_PYLON_COOLDOWN` | `SET_AI_ILLARI_ABILITY2_COOLDOWN_TARGET` | `allTeams:ratioPercent(SET_ARAM_ALLTEAMS_ILLARI_ABILITY2_COOLDOWN_TARGET, OW2_ILLARI_PYLON_COOLDOWN)` |
+| team1 | juno | `ultGen%` | absolute_pve_target | `OW2_JUNO_ULT_COST` | `SET_AI_JUNO_ULT_COST_TARGET` | `allTeams:ultGenPercent(OW2_JUNO_ULT_COST, SET_ARAM_ALLTEAMS_JUNO_ULT_COST_TARGET)` |
+| team1 | doomfist | `ammoRegenerationTime%` | absolute_pve_target | `OW2_DOOMFIST_AMMO_REGEN` | `SET_AI_DOOMFIST_AMMO_REGENERATION_TIME_TARGET` | `team1:ratioPercent(SET_ARAM_TEAM1_DOOMFIST_AMMO_REGENERATION_TIME_TARGET, OW2_DOOMFIST_AMMO_REGEN)`, `team2:ratioPercent(SET_ARAM_TEAM2_DOOMFIST_AMMO_REGENERATION_TIME_TARGET, OW2_DOOMFIST_AMMO_REGEN)` |
 | team1 | zarya | `ultGen%` | absolute_pve_target | `OW2_ZARYA_ULT_COST` | `SET_AI_ZARYA_ULT_COST_TARGET` | 未配置 |
 | team1 | pharah | `ability1Cooldown%` | absolute_pve_target | `OW2_PHARAH_JUMP_JET_COOLDOWN` | `SET_AI_PHARAH_ABILITY1_COOLDOWN_TARGET` | 未配置 |
 | team1 | pharah | `ability2Cooldown%` | absolute_pve_target | `OW2_PHARAH_CONCUSSIVE_BLAST_COOLDOWN` | `SET_AI_PHARAH_ABILITY2_COOLDOWN_TARGET` | 未配置 |
@@ -76,45 +76,45 @@
 | team1 | junkrat | `ability1Cooldown%` | absolute_pve_target | `OW2_JUNKRAT_CONCUSSION_MINE_COOLDOWN` | `SET_AI_JUNKRAT_ABILITY1_COOLDOWN_TARGET` | 未配置 |
 | team1 | tracer | `ultGen%` | absolute_pve_target | `OW2_TRACER_ULT_COST` | `SET_AI_TRACER_ULT_COST_TARGET` | 未配置 |
 | team1 | tracer | `ability2Cooldown%` | absolute_pve_target | `OW2_TRACER_RECALL_COOLDOWN` | `SET_AI_TRACER_ABILITY2_COOLDOWN_TARGET` | 未配置 |
-| team1 | zenyatta | `ultGen%` | absolute_pve_target | `OW2_ZENYATTA_ULT_COST` | `SET_AI_ZENYATTA_ULT_COST_TARGET` | `team1:160` |
+| team1 | zenyatta | `ultGen%` | absolute_pve_target | `OW2_ZENYATTA_ULT_COST` | `SET_AI_ZENYATTA_ULT_COST_TARGET` | `team1:ultGenPercent(OW2_ZENYATTA_ULT_COST, SET_ARAM_TEAM1_ZENYATTA_ULT_COST_TARGET)` |
 | team1 | moira | `ultGen%` | absolute_pve_target | `OW2_MOIRA_ULT_COST` | `SET_AI_MOIRA_ULT_COST_TARGET` | 未配置 |
-| team1 | reinhardt | `ability1Cooldown%` | absolute_pve_target | `OW2_REINHARDT_CHARGE_COOLDOWN_TIME` | `SET_AI_REINHARDT_ABILITY1_COOLDOWN_TARGET` | `team1:10`, `team2:20` |
-| team1 | reinhardt | `secondaryFireRechargeRate%` | absolute_pve_target | `OW2_REINHARDT_BARRIER_REGEN` | `SET_AI_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET` | `team1:170`, `team2:130` |
+| team1 | reinhardt | `ability1Cooldown%` | absolute_pve_target | `OW2_REINHARDT_CHARGE_COOLDOWN_TIME` | `SET_AI_REINHARDT_ABILITY1_COOLDOWN_TARGET` | `team1:ratioPercent(SET_ARAM_TEAM1_REINHARDT_ABILITY1_COOLDOWN_TARGET, OW2_REINHARDT_CHARGE_COOLDOWN_TIME)`, `team2:ratioPercent(SET_ARAM_TEAM2_REINHARDT_ABILITY1_COOLDOWN_TARGET, OW2_REINHARDT_CHARGE_COOLDOWN_TIME)` |
+| team1 | reinhardt | `secondaryFireRechargeRate%` | absolute_pve_target | `OW2_REINHARDT_BARRIER_REGEN` | `SET_AI_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET` | `team1:ratioPercent(SET_ARAM_TEAM1_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET, OW2_REINHARDT_BARRIER_REGEN)`, `team2:ratioPercent(SET_ARAM_TEAM2_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET, OW2_REINHARDT_BARRIER_REGEN)` |
 | team1 | reinhardt | `health%` | absolute_pve_target | `OW2_REINHARDT_BARRIER_HEALTH` | `SET_AI_REINHARDT_HEALTH_TARGET` | 未配置 |
 | team1 | sigma | `health%` | absolute_pve_target | `OW2_SIGMA_BARRIER_HEALTH` | `SET_AI_SIGMA_HEALTH_TARGET` | 未配置 |
-| team1 | kiriko | `ability2Cooldown%` | absolute_pve_target | `OW2_KIRIKO_SUZU_COOLDOWN` | `SET_AI_KIRIKO_ABILITY2_COOLDOWN_TARGET` | `team1:43`, `team2:43` |
+| team1 | kiriko | `ability2Cooldown%` | absolute_pve_target | `OW2_KIRIKO_SUZU_COOLDOWN` | `SET_AI_KIRIKO_ABILITY2_COOLDOWN_TARGET` | `team1:ratioPercent(SET_ARAM_TEAM1_KIRIKO_ABILITY2_COOLDOWN_TARGET, OW2_KIRIKO_SUZU_COOLDOWN)`, `team2:ratioPercent(SET_ARAM_TEAM2_KIRIKO_ABILITY2_COOLDOWN_TARGET, OW2_KIRIKO_SUZU_COOLDOWN)` |
 | team1 | kiriko | `ultGen%` | absolute_pve_target | `OW2_KIRIKO_ULT_COST` | `SET_AI_KIRIKO_ULT_COST_TARGET` | 未配置 |
 | team1 | domina | `ability1Cooldown%` | absolute_pve_target | `OW2_DOMINA_SONIC_REPULSORS_COOLDOWN` | `SET_DOMINA_ABILITY1_COOLDOWN_TARGET` | 未配置 |
-| team1 | domina | `ability2Cooldown%` | absolute_pve_target | `OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN` | `SET_DOMINA_ABILITY2_COOLDOWN_TARGET` | `allTeams:50` |
-| team1 | domina | `secondaryFireCooldown%` | absolute_pve_target | `OW2_DOMINA_BARRIER_ARRAY_COOLDOWN` | `SET_DOMINA_SECONDARY_FIRE_COOLDOWN_TARGET` | `allTeams:42` |
-| team1 | sombra | `secondaryFireCooldown%` | absolute_pve_target | `OW2_SOMBRA_HACK_COOLDOWN_TIME` | `SET_AI_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET` | `team1:84`, `team2:84` |
+| team1 | domina | `ability2Cooldown%` | absolute_pve_target | `OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN` | `SET_DOMINA_ABILITY2_COOLDOWN_TARGET` | `allTeams:ratioPercent(SET_ARAM_ALLTEAMS_DOMINA_ABILITY2_COOLDOWN_TARGET, OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN)` |
+| team1 | domina | `secondaryFireCooldown%` | absolute_pve_target | `OW2_DOMINA_BARRIER_ARRAY_COOLDOWN` | `SET_DOMINA_SECONDARY_FIRE_COOLDOWN_TARGET` | `allTeams:ratioPercent(SET_ARAM_ALLTEAMS_DOMINA_SECONDARY_FIRE_COOLDOWN_TARGET, OW2_DOMINA_BARRIER_ARRAY_COOLDOWN)` |
+| team1 | sombra | `secondaryFireCooldown%` | absolute_pve_target | `OW2_SOMBRA_HACK_COOLDOWN_TIME` | `SET_AI_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET` | `team1:ratioPercent(SET_ARAM_TEAM1_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET, OW2_SOMBRA_HACK_COOLDOWN_TIME)`, `team2:ratioPercent(SET_ARAM_TEAM2_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET, OW2_SOMBRA_HACK_COOLDOWN_TIME)` |
 | team1 | widowmaker | `ultGen%` | absolute_pve_target | `OW2_WIDOWMAKER_ULT_COST` | `SET_AI_WIDOWMAKER_ULT_COST_TARGET` | 未配置 |
-| team2 | hanzo | `ability2Cooldown%` | absolute_pve_target | `OW2_HANZO_STORM_COOLDOWN` | `SET_PLAYER_HANZO_ABILITY2_COOLDOWN_TARGET` | `team1:0`, `team2:0` |
+| team2 | hanzo | `ability2Cooldown%` | absolute_pve_target | `OW2_HANZO_STORM_COOLDOWN` | `SET_PLAYER_HANZO_ABILITY2_COOLDOWN_TARGET` | `team1:ratioPercent(SET_ARAM_TEAM1_HANZO_ABILITY2_COOLDOWN_TARGET, OW2_HANZO_STORM_COOLDOWN)`, `team2:ratioPercent(SET_ARAM_TEAM2_HANZO_ABILITY2_COOLDOWN_TARGET, OW2_HANZO_STORM_COOLDOWN)` |
 | team2 | hanzo | `ultGen%` | absolute_pve_target | `OW2_HANZO_ULT_COST` | `SET_PLAYER_HANZO_ULT_COST_TARGET` | 未配置 |
 | team2 | cassidy | `ultGen%` | absolute_pve_target | `OW2_MCCREE_ULT_COST` | `SET_PLAYER_CASSIDY_ULT_COST_TARGET` | 未配置 |
-| team2 | cassidy | `ability2Cooldown%` | absolute_pve_target | `OW2_MCCREE_FLASHBANG_COOLDOWN` | `SET_PLAYER_CASSIDY_ABILITY2_COOLDOWN_TARGET` | `team1:67` |
-| team2 | bastion | `ability1Cooldown%` | absolute_pve_target | `OW2_BASTION_RECONFIGURE_COOLDOWN` | `SET_PLAYER_BASTION_ABILITY1_COOLDOWN_TARGET` | `team2:50` |
-| team2 | soldier | `ability2Cooldown%` | absolute_pve_target | `OW2_SOLDIER_BIOTIC_FIELD_COOLDOWN` | `SET_PLAYER_SOLDIER_ABILITY2_COOLDOWN_TARGET` | `team1:56` |
+| team2 | cassidy | `ability2Cooldown%` | absolute_pve_target | `OW2_MCCREE_FLASHBANG_COOLDOWN` | `SET_PLAYER_CASSIDY_ABILITY2_COOLDOWN_TARGET` | `team1:ratioPercent(SET_ARAM_TEAM1_CASSIDY_ABILITY2_COOLDOWN_TARGET, OW2_MCCREE_FLASHBANG_COOLDOWN)` |
+| team2 | bastion | `ability1Cooldown%` | absolute_pve_target | `OW2_BASTION_RECONFIGURE_COOLDOWN` | `SET_PLAYER_BASTION_ABILITY1_COOLDOWN_TARGET` | `team2:ratioPercent(SET_ARAM_TEAM2_BASTION_ABILITY1_COOLDOWN_TARGET, OW2_BASTION_RECONFIGURE_COOLDOWN)` |
+| team2 | soldier | `ability2Cooldown%` | absolute_pve_target | `OW2_SOLDIER_BIOTIC_FIELD_COOLDOWN` | `SET_PLAYER_SOLDIER_ABILITY2_COOLDOWN_TARGET` | `team1:ratioPercent(SET_ARAM_TEAM1_SOLDIER_ABILITY2_COOLDOWN_TARGET, OW2_SOLDIER_BIOTIC_FIELD_COOLDOWN)` |
 | team2 | orisa | `ability1Cooldown%` | absolute_pve_target | `OW2_ORISA_FORTIFY_COOLDOWN` | `SET_PLAYER_ORISA_ABILITY1_COOLDOWN_TARGET` | 未配置 |
-| team2 | orisa | `ultGen%` | absolute_pve_target | `OW2_ORISA_ULT_COST` | `SET_PLAYER_ORISA_ULT_COST_TARGET` | `team1:125`, `team2:125` |
-| team2 | ana | `ability2Cooldown%` | absolute_pve_target | `OW2_ANA_BIOTIC_GRENADE_COOLDOWN` | `SET_PLAYER_ANA_ABILITY2_COOLDOWN_TARGET` | `team1:50`, `team2:57` |
-| team2 | ana | `ultGen%` | absolute_pve_target | `OW2_ANA_ULT_COST` | `SET_PLAYER_ANA_ULT_COST_TARGET` | `team1:200` |
-| team2 | ana | `ability1Cooldown%` | absolute_pve_target | `OW2_ANA_SLEEP_DART_COOLDOWN_TIME` | `SET_PLAYER_ANA_ABILITY1_COOLDOWN_TARGET` | `team1:50`, `team2:57` |
-| team2 | baptiste | `ability1Cooldown%` | absolute_pve_target | `OW2_BAPTISTE_REGEN_BURST_COOLDOWN` | `SET_PLAYER_BAPTISTE_ABILITY1_COOLDOWN_TARGET` | `team1:53`, `team2:53` |
-| team2 | baptiste | `ability2Cooldown%` | absolute_pve_target | `OW2_BAPTISTE_LAMP_COOLDOWN_TIME` | `SET_PLAYER_BAPTISTE_ABILITY2_COOLDOWN_TARGET` | `team1:48`, `team2:48` |
+| team2 | orisa | `ultGen%` | absolute_pve_target | `OW2_ORISA_ULT_COST` | `SET_PLAYER_ORISA_ULT_COST_TARGET` | `team1:ultGenPercent(OW2_ORISA_ULT_COST, SET_ARAM_TEAM1_ORISA_ULT_COST_TARGET)`, `team2:ultGenPercent(OW2_ORISA_ULT_COST, SET_ARAM_TEAM2_ORISA_ULT_COST_TARGET)` |
+| team2 | ana | `ability2Cooldown%` | absolute_pve_target | `OW2_ANA_BIOTIC_GRENADE_COOLDOWN` | `SET_PLAYER_ANA_ABILITY2_COOLDOWN_TARGET` | `team1:ratioPercent(SET_ARAM_TEAM1_ANA_ABILITY2_COOLDOWN_TARGET, OW2_ANA_BIOTIC_GRENADE_COOLDOWN)`, `team2:ratioPercent(SET_ARAM_TEAM2_ANA_ABILITY2_COOLDOWN_TARGET, OW2_ANA_BIOTIC_GRENADE_COOLDOWN)` |
+| team2 | ana | `ultGen%` | absolute_pve_target | `OW2_ANA_ULT_COST` | `SET_PLAYER_ANA_ULT_COST_TARGET` | `team1:ultGenPercent(OW2_ANA_ULT_COST, SET_ARAM_TEAM1_ANA_ULT_COST_TARGET)` |
+| team2 | ana | `ability1Cooldown%` | absolute_pve_target | `OW2_ANA_SLEEP_DART_COOLDOWN_TIME` | `SET_PLAYER_ANA_ABILITY1_COOLDOWN_TARGET` | `team1:ratioPercent(SET_ARAM_TEAM1_ANA_ABILITY1_COOLDOWN_TARGET, OW2_ANA_SLEEP_DART_COOLDOWN_TIME)`, `team2:ratioPercent(SET_ARAM_TEAM2_ANA_ABILITY1_COOLDOWN_TARGET, OW2_ANA_SLEEP_DART_COOLDOWN_TIME)` |
+| team2 | baptiste | `ability1Cooldown%` | absolute_pve_target | `OW2_BAPTISTE_REGEN_BURST_COOLDOWN` | `SET_PLAYER_BAPTISTE_ABILITY1_COOLDOWN_TARGET` | `team1:ratioPercent(SET_ARAM_TEAM1_BAPTISTE_ABILITY1_COOLDOWN_TARGET, OW2_BAPTISTE_REGEN_BURST_COOLDOWN)`, `team2:ratioPercent(SET_ARAM_TEAM2_BAPTISTE_ABILITY1_COOLDOWN_TARGET, OW2_BAPTISTE_REGEN_BURST_COOLDOWN)` |
+| team2 | baptiste | `ability2Cooldown%` | absolute_pve_target | `OW2_BAPTISTE_LAMP_COOLDOWN_TIME` | `SET_PLAYER_BAPTISTE_ABILITY2_COOLDOWN_TARGET` | `team1:ratioPercent(SET_ARAM_TEAM1_BAPTISTE_ABILITY2_COOLDOWN_TARGET, OW2_BAPTISTE_LAMP_COOLDOWN_TIME)`, `team2:ratioPercent(SET_ARAM_TEAM2_BAPTISTE_ABILITY2_COOLDOWN_TARGET, OW2_BAPTISTE_LAMP_COOLDOWN_TIME)` |
 | team2 | brigitte | `ability2Cooldown%` | absolute_pve_target | `OW2_BRIGITTE_REPAIR_PACK_COOLDOWN` | `SET_PLAYER_BRIGITTE_ABILITY2_COOLDOWN_TARGET` | 未配置 |
 | team2 | brigitte | `ultGen%` | absolute_pve_target | `OW2_BRIGITTE_ULT_COST` | `SET_PLAYER_BRIGITTE_ULT_COST_TARGET` | 未配置 |
 | team2 | brigitte | `shieldBashCooldown%` | absolute_pve_target | `OW2_BRIGITTE_SHIELD_BASH_COOLDOWN` | `SET_PLAYER_BRIGITTE_SHIELD_BASH_COOLDOWN_TARGET` | 未配置 |
-| team2 | brigitte | `shieldBashKb%` | absolute_pve_target | `OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK` | `SET_PLAYER_BRIGITTE_SHIELD_BASH_KB_TARGET` | `team1:50`, `team2:50` |
+| team2 | brigitte | `shieldBashKb%` | absolute_pve_target | `OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK` | `SET_PLAYER_BRIGITTE_SHIELD_BASH_KB_TARGET` | `team1:ratioPercent(SET_ARAM_TEAM1_BRIGITTE_SHIELD_BASH_KB_TARGET, OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK)`, `team2:ratioPercent(SET_ARAM_TEAM2_BRIGITTE_SHIELD_BASH_KB_TARGET, OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK)` |
 | team2 | torbjorn | `ultGen%` | absolute_pve_target | `OW2_TORBJORN_ULT_COST` | `SET_PLAYER_TORBJORN_ULT_COST_TARGET` | 未配置 |
 | team2 | ramattra | `ability2Cooldown%` | absolute_pve_target | `OW2_RAMATTRA_VORTEX_COOLDOWN` | `SET_PLAYER_RAMATTRA_ABILITY2_COOLDOWN_TARGET` | 未配置 |
-| team2 | ramattra | `ability1Cooldown%` | absolute_pve_target | `OW2_RAMATTRA_NEMESIS_COOLDOWN` | `SET_PLAYER_RAMATTRA_ABILITY1_COOLDOWN_TARGET` | `team1:86` |
-| team2 | ramattra | `ultGen%` | absolute_pve_target | `OW2_RAMATTRA_ULT_COST` | `SET_PLAYER_RAMATTRA_ULT_COST_TARGET` | `team1:500` |
+| team2 | ramattra | `ability1Cooldown%` | absolute_pve_target | `OW2_RAMATTRA_NEMESIS_COOLDOWN` | `SET_PLAYER_RAMATTRA_ABILITY1_COOLDOWN_TARGET` | `team1:ratioPercent(SET_ARAM_TEAM1_RAMATTRA_ABILITY1_COOLDOWN_TARGET, OW2_RAMATTRA_NEMESIS_COOLDOWN)` |
+| team2 | ramattra | `ultGen%` | absolute_pve_target | `OW2_RAMATTRA_ULT_COST` | `SET_PLAYER_RAMATTRA_ULT_COST_TARGET` | `team1:ultGenPercent(OW2_RAMATTRA_ULT_COST, SET_ARAM_TEAM1_RAMATTRA_ULT_COST_TARGET)` |
 | team2 | ramattra | `secondaryFireCooldown%` | absolute_pve_target | `OW2_RAMATTRA_VOID_BARRIER_COOLDOWN` | `SET_PLAYER_RAMATTRA_SECONDARY_FIRE_COOLDOWN_TARGET` | 未配置 |
 | team2 | venture | `ultGen%` | absolute_pve_target | `OW2_VENTURE_ULT_COST` | `SET_PLAYER_VENTURE_ULT_COST_TARGET` | 未配置 |
-| team2 | illari | `ability2Cooldown%` | absolute_pve_target | `OW2_ILLARI_PYLON_COOLDOWN` | `SET_PLAYER_ILLARI_ABILITY2_COOLDOWN_TARGET` | `allTeams:50` |
-| team2 | juno | `ultGen%` | absolute_pve_target | `OW2_JUNO_ULT_COST` | `SET_PLAYER_JUNO_ULT_COST_TARGET` | `allTeams:175` |
-| team2 | doomfist | `ammoRegenerationTime%` | absolute_pve_target | `OW2_DOOMFIST_AMMO_REGEN` | `SET_PLAYER_DOOMFIST_AMMO_REGENERATION_TIME_TARGET` | `team1:80`, `team2:80` |
+| team2 | illari | `ability2Cooldown%` | absolute_pve_target | `OW2_ILLARI_PYLON_COOLDOWN` | `SET_PLAYER_ILLARI_ABILITY2_COOLDOWN_TARGET` | `allTeams:ratioPercent(SET_ARAM_ALLTEAMS_ILLARI_ABILITY2_COOLDOWN_TARGET, OW2_ILLARI_PYLON_COOLDOWN)` |
+| team2 | juno | `ultGen%` | absolute_pve_target | `OW2_JUNO_ULT_COST` | `SET_PLAYER_JUNO_ULT_COST_TARGET` | `allTeams:ultGenPercent(OW2_JUNO_ULT_COST, SET_ARAM_ALLTEAMS_JUNO_ULT_COST_TARGET)` |
+| team2 | doomfist | `ammoRegenerationTime%` | absolute_pve_target | `OW2_DOOMFIST_AMMO_REGEN` | `SET_PLAYER_DOOMFIST_AMMO_REGENERATION_TIME_TARGET` | `team1:ratioPercent(SET_ARAM_TEAM1_DOOMFIST_AMMO_REGENERATION_TIME_TARGET, OW2_DOOMFIST_AMMO_REGEN)`, `team2:ratioPercent(SET_ARAM_TEAM2_DOOMFIST_AMMO_REGENERATION_TIME_TARGET, OW2_DOOMFIST_AMMO_REGEN)` |
 | team2 | doomfist | `ability1Cooldown%` | absolute_pve_target | `OW2_DOOMFIST_POWER_BLOCK_COOLDOWN` | `SET_PLAYER_DOOMFIST_ABILITY1_COOLDOWN_TARGET` | 未配置 |
 | team2 | doomfist | `ability2Cooldown%` | absolute_pve_target | `OW2_DOOMFIST_SEISMIC_SLAM_COOLDOWN` | `SET_PLAYER_DOOMFIST_ABILITY2_COOLDOWN_TARGET` | 未配置 |
 | team2 | zarya | `ultGen%` | absolute_pve_target | `OW2_ZARYA_ULT_COST` | `SET_PLAYER_ZARYA_ULT_COST_TARGET` | 未配置 |
@@ -123,28 +123,28 @@
 | team2 | winston | `ability2Cooldown%` | absolute_pve_target | `OW2_WINSTON_BARRIER_COOLDOWN` | `SET_PLAYER_WINSTON_ABILITY2_COOLDOWN_TARGET` | 未配置 |
 | team2 | genji | `ultGen%` | absolute_pve_target | `OW2_GENJI_ULT_COST` | `SET_PLAYER_GENJI_ULT_COST_TARGET` | 未配置 |
 | team2 | genji | `ability2Cooldown%` | absolute_pve_target | `OW2_GENJI_DEFLECT_COOLDOWN` | `SET_PLAYER_GENJI_ABILITY2_COOLDOWN_TARGET` | 未配置 |
-| team2 | junkrat | `ultGen%` | absolute_pve_target | `OW2_JUNKRAT_ULT_COST` | `SET_PLAYER_JUNKRAT_ULT_COST_TARGET` | `team2:95` |
+| team2 | junkrat | `ultGen%` | absolute_pve_target | `OW2_JUNKRAT_ULT_COST` | `SET_PLAYER_JUNKRAT_ULT_COST_TARGET` | `team2:ultGenPercent(OW2_JUNKRAT_ULT_COST, SET_ARAM_TEAM2_JUNKRAT_ULT_COST_TARGET)` |
 | team2 | tracer | `ultGen%` | absolute_pve_target | `OW2_TRACER_ULT_COST` | `SET_PLAYER_TRACER_ULT_COST_TARGET` | 未配置 |
 | team2 | tracer | `ability2Cooldown%` | absolute_pve_target | `OW2_TRACER_RECALL_COOLDOWN` | `SET_PLAYER_TRACER_ABILITY2_COOLDOWN_TARGET` | 未配置 |
-| team2 | zenyatta | `ultGen%` | absolute_pve_target | `OW2_ZENYATTA_ULT_COST` | `SET_PLAYER_ZENYATTA_ULT_COST_TARGET` | `team1:160` |
+| team2 | zenyatta | `ultGen%` | absolute_pve_target | `OW2_ZENYATTA_ULT_COST` | `SET_PLAYER_ZENYATTA_ULT_COST_TARGET` | `team1:ultGenPercent(OW2_ZENYATTA_ULT_COST, SET_ARAM_TEAM1_ZENYATTA_ULT_COST_TARGET)` |
 | team2 | moira | `ultGen%` | absolute_pve_target | `OW2_MOIRA_ULT_COST` | `SET_PLAYER_MOIRA_ULT_COST_TARGET` | 未配置 |
-| team2 | reinhardt | `ability1Cooldown%` | absolute_pve_target | `OW2_REINHARDT_CHARGE_COOLDOWN_TIME` | `SET_PLAYER_REINHARDT_ABILITY1_COOLDOWN_TARGET` | `team1:10`, `team2:20` |
-| team2 | reinhardt | `secondaryFireRechargeRate%` | absolute_pve_target | `OW2_REINHARDT_BARRIER_REGEN` | `SET_PLAYER_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET` | `team1:170`, `team2:130` |
+| team2 | reinhardt | `ability1Cooldown%` | absolute_pve_target | `OW2_REINHARDT_CHARGE_COOLDOWN_TIME` | `SET_PLAYER_REINHARDT_ABILITY1_COOLDOWN_TARGET` | `team1:ratioPercent(SET_ARAM_TEAM1_REINHARDT_ABILITY1_COOLDOWN_TARGET, OW2_REINHARDT_CHARGE_COOLDOWN_TIME)`, `team2:ratioPercent(SET_ARAM_TEAM2_REINHARDT_ABILITY1_COOLDOWN_TARGET, OW2_REINHARDT_CHARGE_COOLDOWN_TIME)` |
+| team2 | reinhardt | `secondaryFireRechargeRate%` | absolute_pve_target | `OW2_REINHARDT_BARRIER_REGEN` | `SET_PLAYER_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET` | `team1:ratioPercent(SET_ARAM_TEAM1_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET, OW2_REINHARDT_BARRIER_REGEN)`, `team2:ratioPercent(SET_ARAM_TEAM2_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET, OW2_REINHARDT_BARRIER_REGEN)` |
 | team2 | reinhardt | `health%` | absolute_pve_target | `OW2_REINHARDT_BARRIER_HEALTH` | `SET_PLAYER_REINHARDT_HEALTH_TARGET` | 未配置 |
 | team2 | reinhardt | `ultGen%` | absolute_pve_target | `OW2_REINHARDT_ULT_COST` | `SET_PLAYER_REINHARDT_ULT_COST_TARGET` | 未配置 |
 | team2 | sigma | `health%` | absolute_pve_target | `OW2_SIGMA_BARRIER_HEALTH` | `SET_PLAYER_SIGMA_HEALTH_TARGET` | 未配置 |
 | team2 | sigma | `ultGen%` | absolute_pve_target | `OW2_SIGMA_ULT_COST` | `SET_PLAYER_SIGMA_ULT_COST_TARGET` | 未配置 |
 | team2 | roadhog | `ability1Cooldown%` | absolute_pve_target | `OW2_ROADHOG_HOOK_COOLDOWN_TIME` | `SET_PLAYER_ROADHOG_ABILITY1_COOLDOWN_TARGET` | 未配置 |
-| team2 | kiriko | `ability2Cooldown%` | absolute_pve_target | `OW2_KIRIKO_SUZU_COOLDOWN` | `SET_PLAYER_KIRIKO_ABILITY2_COOLDOWN_TARGET` | `team1:43`, `team2:43` |
+| team2 | kiriko | `ability2Cooldown%` | absolute_pve_target | `OW2_KIRIKO_SUZU_COOLDOWN` | `SET_PLAYER_KIRIKO_ABILITY2_COOLDOWN_TARGET` | `team1:ratioPercent(SET_ARAM_TEAM1_KIRIKO_ABILITY2_COOLDOWN_TARGET, OW2_KIRIKO_SUZU_COOLDOWN)`, `team2:ratioPercent(SET_ARAM_TEAM2_KIRIKO_ABILITY2_COOLDOWN_TARGET, OW2_KIRIKO_SUZU_COOLDOWN)` |
 | team2 | kiriko | `ultGen%` | absolute_pve_target | `OW2_KIRIKO_ULT_COST` | `SET_PLAYER_KIRIKO_ULT_COST_TARGET` | 未配置 |
 | team2 | domina | `ability1Cooldown%` | absolute_pve_target | `OW2_DOMINA_SONIC_REPULSORS_COOLDOWN` | `SET_DOMINA_ABILITY1_COOLDOWN_TARGET` | 未配置 |
-| team2 | domina | `ability2Cooldown%` | absolute_pve_target | `OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN` | `SET_DOMINA_ABILITY2_COOLDOWN_TARGET` | `allTeams:50` |
-| team2 | domina | `secondaryFireCooldown%` | absolute_pve_target | `OW2_DOMINA_BARRIER_ARRAY_COOLDOWN` | `SET_DOMINA_SECONDARY_FIRE_COOLDOWN_TARGET` | `allTeams:42` |
-| team2 | sombra | `secondaryFireCooldown%` | absolute_pve_target | `OW2_SOMBRA_HACK_COOLDOWN_TIME` | `SET_PLAYER_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET` | `team1:84`, `team2:84` |
+| team2 | domina | `ability2Cooldown%` | absolute_pve_target | `OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN` | `SET_DOMINA_ABILITY2_COOLDOWN_TARGET` | `allTeams:ratioPercent(SET_ARAM_ALLTEAMS_DOMINA_ABILITY2_COOLDOWN_TARGET, OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN)` |
+| team2 | domina | `secondaryFireCooldown%` | absolute_pve_target | `OW2_DOMINA_BARRIER_ARRAY_COOLDOWN` | `SET_DOMINA_SECONDARY_FIRE_COOLDOWN_TARGET` | `allTeams:ratioPercent(SET_ARAM_ALLTEAMS_DOMINA_SECONDARY_FIRE_COOLDOWN_TARGET, OW2_DOMINA_BARRIER_ARRAY_COOLDOWN)` |
+| team2 | sombra | `secondaryFireCooldown%` | absolute_pve_target | `OW2_SOMBRA_HACK_COOLDOWN_TIME` | `SET_PLAYER_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET` | `team1:ratioPercent(SET_ARAM_TEAM1_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET, OW2_SOMBRA_HACK_COOLDOWN_TIME)`, `team2:ratioPercent(SET_ARAM_TEAM2_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET, OW2_SOMBRA_HACK_COOLDOWN_TIME)` |
 | team2 | widowmaker | `ultGen%` | absolute_pve_target | `OW2_WIDOWMAKER_ULT_COST` | `SET_PLAYER_WIDOWMAKER_ULT_COST_TARGET` | 未配置 |
 | allTeams | dva | `ability1Cooldown%` | absolute_pve_target | `OW2_DVA_BOOSTER_COOLDOWN_TIME` | `SET_DVA_ABILITY1_COOLDOWN_TARGET` | 未配置 |
 | allTeams | dva | `ability2Cooldown%` | absolute_pve_target | `OW2_DVA_MICRO_MISSILES_COOLDOWN_TIME` | `SET_DVA_ABILITY2_COOLDOWN_TARGET` | 未配置 |
-| allTeams | dva | `secondaryFireMaximumTime%` | absolute_pve_target | `OW2_DVA_MATRIX_DURATION` | `SET_DVA_SECONDARY_FIRE_MAXIMUM_TIME_TARGET` | `allTeams:114` |
+| allTeams | dva | `secondaryFireMaximumTime%` | absolute_pve_target | `OW2_DVA_MATRIX_DURATION` | `SET_DVA_SECONDARY_FIRE_MAXIMUM_TIME_TARGET` | `allTeams:ratioPercent(SET_ARAM_ALLTEAMS_DVA_SECONDARY_FIRE_MAXIMUM_TIME_TARGET, OW2_DVA_MATRIX_DURATION)` |
 
 ## 缺失 reference 与人工设计审查
 
@@ -154,14 +154,12 @@
 | --- | --- | --- | --- | --- | --- |
 | aram_direct_literal | hanzo | `ability2Quantity%` | `src/aram_settings.opy:31` | `6` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | hanzo | `ability3Cooldown%` | `src/aram_settings.opy:32` | `0` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
-| aram_direct_literal | hanzo | `ability2Cooldown%` | `src/aram_settings.opy:33` | `0` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | hanzo | `ability1Cooldown%` | `src/aram_settings.opy:34` | `0` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | hanzo | `projectileSpeed%` | `src/aram_settings.opy:35` | `135` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | hanzo | `movementSpeed%` | `src/aram_settings.opy:36` | `120` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | hanzo | `projectileGravity%` | `src/aram_settings.opy:37` | `0` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | cassidy | `damageDealt%` | `src/aram_settings.opy:40` | `110` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | cassidy | `damageReceived%` | `src/aram_settings.opy:41` | `80` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
-| aram_direct_literal | cassidy | `ability2Cooldown%` | `src/aram_settings.opy:42` | `67` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | lucio | `damageDealt%` | `src/aram_settings.opy:46` | `105` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | lucio | `damageReceived%` | `src/aram_settings.opy:47` | `75` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | lucio | `healingReceived%` | `src/aram_settings.opy:48` | `120` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
@@ -169,7 +167,6 @@
 | aram_direct_literal | lucio | `healingDealt%` | `src/aram_settings.opy:50` | `210` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | soldier | `damageDealt%` | `src/aram_settings.opy:53` | `115` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | soldier | `movementSpeed%` | `src/aram_settings.opy:54` | `110` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
-| aram_direct_literal | soldier | `ability2Cooldown%` | `src/aram_settings.opy:55` | `56` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | soldier | `ultDuration%` | `src/aram_settings.opy:56` | `134` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | mercy | `damageDealt%` | `src/aram_settings.opy:60` | `200` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | mercy | `damageReceived%` | `src/aram_settings.opy:61` | `70` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
@@ -182,23 +179,16 @@
 | aram_direct_literal | orisa | `projectileGravity%` | `src/aram_settings.opy:71` | `0` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | orisa | `health%` | `src/aram_settings.opy:73` | `500` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | orisa | `movementSpeed%` | `src/aram_settings.opy:74` | `105` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
-| aram_direct_literal | orisa | `ultGen%` | `src/aram_settings.opy:75` | `125` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | ana | `healingDealt%` | `src/aram_settings.opy:79` | `122` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
-| aram_direct_literal | ana | `ability2Cooldown%` | `src/aram_settings.opy:80` | `50` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
-| aram_direct_literal | ana | `ability1Cooldown%` | `src/aram_settings.opy:81` | `50` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
-| aram_direct_literal | ana | `ultGen%` | `src/aram_settings.opy:82` | `200` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | baptiste | `damageDealt%` | `src/aram_settings.opy:86` | `115` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
-| aram_direct_literal | baptiste | `ability1Cooldown%` | `src/aram_settings.opy:87` | `53` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | baptiste | `healingDealt%` | `src/aram_settings.opy:89` | `125` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | baptiste | `ultDuration%` | `src/aram_settings.opy:90` | `200` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
-| aram_direct_literal | baptiste | `ability2Cooldown%` | `src/aram_settings.opy:91` | `48` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | brigitte | `damageDealt%` | `src/aram_settings.opy:94` | `115` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | brigitte | `damageReceived%` | `src/aram_settings.opy:95` | `70` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | brigitte | `healingReceived%` | `src/aram_settings.opy:96` | `110` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | brigitte | `secondaryFireRechargeRate%` | `src/aram_settings.opy:98` | `118` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | brigitte | `secondaryFireCooldown%` | `src/aram_settings.opy:99` | `80` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | brigitte | `healingDealt%` | `src/aram_settings.opy:100` | `125` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
-| aram_direct_literal | brigitte | `shieldBashKb%` | `src/aram_settings.opy:101` | `50` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | torbjorn | `damageDealt%` | `src/aram_settings.opy:104` | `115` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | torbjorn | `damageReceived%` | `src/aram_settings.opy:105` | `75` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | torbjorn | `ability2Cooldown%` | `src/aram_settings.opy:106` | `50` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
@@ -206,12 +196,9 @@
 | aram_direct_literal | torbjorn | `ultDuration%` | `src/aram_settings.opy:108` | `150` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | ramattra | `damageDealt%` | `src/aram_settings.opy:111` | `105` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | ramattra | `damageReceived%` | `src/aram_settings.opy:112` | `70` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
-| aram_direct_literal | ramattra | `ability1Cooldown%` | `src/aram_settings.opy:113` | `86` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
-| aram_direct_literal | ramattra | `ultGen%` | `src/aram_settings.opy:115` | `500` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | ramattra | `ultDuration%` | `src/aram_settings.opy:116` | `500` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | doomfist | `damageDealt%` | `src/aram_settings.opy:120` | `115` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | doomfist | `damageReceived%` | `src/aram_settings.opy:121` | `70` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
-| aram_direct_literal | doomfist | `ammoRegenerationTime%` | `src/aram_settings.opy:122` | `80` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | zarya | `damageDealt%` | `src/aram_settings.opy:126` | `115` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | zarya | `damageReceived%` | `src/aram_settings.opy:127` | `70` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | zarya | `ability2Cooldown%` | `src/aram_settings.opy:128` | `50` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
@@ -242,7 +229,6 @@
 | aram_direct_literal | tracer | `ability1Cooldown%` | `src/aram_settings.opy:175` | `60` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | zenyatta | `damageDealt%` | `src/aram_settings.opy:178` | `110` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | zenyatta | `healingReceived%` | `src/aram_settings.opy:179` | `150` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
-| aram_direct_literal | zenyatta | `ultGen%` | `src/aram_settings.opy:180` | `160` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | zenyatta | `projectileSpeed%` | `src/aram_settings.opy:181` | `150` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | zenyatta | `healingDealt%` | `src/aram_settings.opy:183` | `200` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | symmetra | `health%` | `src/aram_settings.opy:186` | `100` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
@@ -269,9 +255,7 @@
 | aram_direct_literal | moira | `ability2MaxDamage%` | `src/aram_settings.opy:219` | `500` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | moira | `ability2MaxHealing%` | `src/aram_settings.opy:220` | `500` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | moira | `primaryFireRechargeRate%` | `src/aram_settings.opy:221` | `500` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
-| aram_direct_literal | reinhardt | `ability1Cooldown%` | `src/aram_settings.opy:224` | `10` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | reinhardt | `damageReceived%` | `src/aram_settings.opy:225` | `70` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
-| aram_direct_literal | reinhardt | `secondaryFireRechargeRate%` | `src/aram_settings.opy:226` | `170` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | reinhardt | `combatUltGen%` | `src/aram_settings.opy:227` | `150` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | sigma | `damageReceived%` | `src/aram_settings.opy:230` | `70` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | sigma | `secondaryFireRechargeRate%` | `src/aram_settings.opy:231` | `350` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
@@ -283,12 +267,10 @@
 | aram_direct_literal | kiriko | `damageDealt%` | `src/aram_settings.opy:243` | `120` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | kiriko | `projectileSpeed%` | `src/aram_settings.opy:244` | `115` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | kiriko | `healingDealt%` | `src/aram_settings.opy:245` | `250` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
-| aram_direct_literal | kiriko | `ability2Cooldown%` | `src/aram_settings.opy:246` | `43` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | sombra | `damageDealt%` | `src/aram_settings.opy:249` | `110` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | sombra | `damageReceived%` | `src/aram_settings.opy:250` | `80` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | sombra | `healingReceived%` | `src/aram_settings.opy:251` | `115` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | sombra | `passiveUltGen%` | `src/aram_settings.opy:253` | `134` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
-| aram_direct_literal | sombra | `secondaryFireCooldown%` | `src/aram_settings.opy:254` | `84` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | sombra | `ammoClipSize%` | `src/aram_settings.opy:255` | `125` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | widowmaker | `damageDealt%` | `src/aram_settings.opy:258` | `165` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | widowmaker | `damageReceived%` | `src/aram_settings.opy:259` | `80` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
@@ -299,7 +281,6 @@
 | aram_direct_literal | general | `ultGen%` | `src/aram_settings.opy:267` | `150` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | general | `health%` | `src/aram_settings.opy:269` | `200` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | hanzo | `damageDealt%` | `src/aram_settings.opy:274` | `110` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
-| aram_direct_literal | hanzo | `ability2Cooldown%` | `src/aram_settings.opy:275` | `0` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | hanzo | `projectileSpeed%` | `src/aram_settings.opy:276` | `135` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | hanzo | `ability1Cooldown%` | `src/aram_settings.opy:277` | `0` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | cassidy | `damageDealt%` | `src/aram_settings.opy:280` | `110` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
@@ -311,7 +292,6 @@
 | aram_direct_literal | echo | `damageDealt%` | `src/aram_settings.opy:291` | `115` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | echo | `damageReceived%` | `src/aram_settings.opy:292` | `80` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | bastion | `damageDealt%` | `src/aram_settings.opy:295` | `125` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
-| aram_direct_literal | bastion | `ability1Cooldown%` | `src/aram_settings.opy:296` | `50` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | bastion | `damageReceived%` | `src/aram_settings.opy:297` | `70` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | soldier | `damageDealt%` | `src/aram_settings.opy:300` | `130` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | soldier | `ultDuration%` | `src/aram_settings.opy:301` | `134` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
@@ -323,23 +303,17 @@
 | aram_direct_literal | orisa | `projectileSpeed%` | `src/aram_settings.opy:314` | `130` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | orisa | `health%` | `src/aram_settings.opy:316` | `500` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | orisa | `movementSpeed%` | `src/aram_settings.opy:317` | `105` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
-| aram_direct_literal | orisa | `ultGen%` | `src/aram_settings.opy:318` | `125` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | ana | `damageDealt%` | `src/aram_settings.opy:321` | `115` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | ana | `healingDealt%` | `src/aram_settings.opy:322` | `130` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
-| aram_direct_literal | ana | `ability2Cooldown%` | `src/aram_settings.opy:323` | `57` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
-| aram_direct_literal | ana | `ability1Cooldown%` | `src/aram_settings.opy:324` | `57` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | baptiste | `damageDealt%` | `src/aram_settings.opy:327` | `120` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | baptiste | `ammoClipSize%` | `src/aram_settings.opy:328` | `100` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
-| aram_direct_literal | baptiste | `ability1Cooldown%` | `src/aram_settings.opy:329` | `53` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | baptiste | `healingDealt%` | `src/aram_settings.opy:330` | `120` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | baptiste | `ultDuration%` | `src/aram_settings.opy:331` | `150` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
-| aram_direct_literal | baptiste | `ability2Cooldown%` | `src/aram_settings.opy:332` | `48` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | brigitte | `damageDealt%` | `src/aram_settings.opy:335` | `115` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | brigitte | `damageReceived%` | `src/aram_settings.opy:336` | `43` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | brigitte | `secondaryFireRechargeRate%` | `src/aram_settings.opy:338` | `118` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | brigitte | `secondaryFireCooldown%` | `src/aram_settings.opy:339` | `80` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | brigitte | `healingDealt%` | `src/aram_settings.opy:340` | `110` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
-| aram_direct_literal | brigitte | `shieldBashKb%` | `src/aram_settings.opy:341` | `50` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | torbjorn | `damageDealt%` | `src/aram_settings.opy:344` | `105` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | torbjorn | `ammoClipSize%` | `src/aram_settings.opy:345` | `100` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | torbjorn | `damageReceived%` | `src/aram_settings.opy:346` | `85` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
@@ -351,7 +325,6 @@
 | aram_direct_literal | ramattra | `ultDuration%` | `src/aram_settings.opy:354` | `500` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | doomfist | `damageDealt%` | `src/aram_settings.opy:357` | `110` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | doomfist | `damageReceived%` | `src/aram_settings.opy:358` | `70` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
-| aram_direct_literal | doomfist | `ammoRegenerationTime%` | `src/aram_settings.opy:359` | `80` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | zarya | `damageDealt%` | `src/aram_settings.opy:362` | `110` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | zarya | `damageReceived%` | `src/aram_settings.opy:363` | `75` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | zarya | `ammoClipSize%` | `src/aram_settings.opy:364` | `150` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
@@ -380,7 +353,6 @@
 | aram_direct_literal | junkrat | `combatUltGen%` | `src/aram_settings.opy:400` | `95` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | junkrat | `projectileSpeed%` | `src/aram_settings.opy:401` | `200` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | junkrat | `ability2Cooldown%` | `src/aram_settings.opy:403` | `100` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
-| aram_direct_literal | junkrat | `ultGen%` | `src/aram_settings.opy:404` | `95` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | junkrat | `ultDuration%` | `src/aram_settings.opy:405` | `40` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | junkrat | `passiveUltGen%` | `src/aram_settings.opy:406` | `95` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | tracer | `damageDealt%` | `src/aram_settings.opy:410` | `125` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
@@ -412,9 +384,7 @@
 | aram_direct_literal | moira | `ability2MaxHealing%` | `src/aram_settings.opy:450` | `100` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | moira | `primaryFireRechargeRate%` | `src/aram_settings.opy:452` | `150` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | reinhardt | `damageDealt%` | `src/aram_settings.opy:455` | `110` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
-| aram_direct_literal | reinhardt | `ability1Cooldown%` | `src/aram_settings.opy:456` | `20` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | reinhardt | `damageReceived%` | `src/aram_settings.opy:457` | `75` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
-| aram_direct_literal | reinhardt | `secondaryFireRechargeRate%` | `src/aram_settings.opy:458` | `130` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | sigma | `damageDealt%` | `src/aram_settings.opy:461` | `115` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | sigma | `damageReceived%` | `src/aram_settings.opy:462` | `75` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | sigma | `secondaryFireRechargeRate%` | `src/aram_settings.opy:463` | `300` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
@@ -422,10 +392,8 @@
 | aram_direct_literal | roadhog | `damageReceived%` | `src/aram_settings.opy:467` | `100` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | kiriko | `damageDealt%` | `src/aram_settings.opy:472` | `120` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | kiriko | `healingDealt%` | `src/aram_settings.opy:473` | `110` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
-| aram_direct_literal | kiriko | `ability2Cooldown%` | `src/aram_settings.opy:474` | `43` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | sombra | `damageDealt%` | `src/aram_settings.opy:477` | `110` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | sombra | `damageReceived%` | `src/aram_settings.opy:478` | `80` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
-| aram_direct_literal | sombra | `secondaryFireCooldown%` | `src/aram_settings.opy:479` | `84` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | widowmaker | `damageDealt%` | `src/aram_settings.opy:482` | `115` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | widowmaker | `damageReceived%` | `src/aram_settings.opy:483` | `115` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | widowmaker | `ammoClipSize%` | `src/aram_settings.opy:484` | `86` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
@@ -439,7 +407,6 @@
 | aram_direct_literal | illari | `damageDealt%` | `src/aram_settings.opy:503` | `120` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | illari | `damageReceived%` | `src/aram_settings.opy:504` | `95` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | illari | `projectileSpeed%` | `src/aram_settings.opy:506` | `500` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
-| aram_direct_literal | illari | `ability2Cooldown%` | `src/aram_settings.opy:507` | `50` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | freja | `damageDealt%` | `src/aram_settings.opy:510` | `110` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | freja | `damageReceived%` | `src/aram_settings.opy:511` | `90` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | freja | `projectileSpeed%` | `src/aram_settings.opy:512` | `100` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
@@ -448,7 +415,6 @@
 | aram_direct_literal | venture | `ability1Duration%` | `src/aram_settings.opy:517` | `250` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | juno | `damageDealt%` | `src/aram_settings.opy:520` | `115` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | juno | `healingDealt%` | `src/aram_settings.opy:521` | `125` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
-| aram_direct_literal | juno | `ultGen%` | `src/aram_settings.opy:522` | `175` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | pharah | `damageDealt%` | `src/aram_settings.opy:525` | `110` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | pharah | `damageReceived%` | `src/aram_settings.opy:526` | `80` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | lifeweaver | `healingDealt%` | `src/aram_settings.opy:531` | `135` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
@@ -465,8 +431,6 @@
 | aram_direct_literal | hazard | `passiveUltGen%` | `src/aram_settings.opy:547` | `0` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | domina | `damageDealt%` | `src/aram_settings.opy:550` | `125` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | domina | `damageReceived%` | `src/aram_settings.opy:551` | `80` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
-| aram_direct_literal | domina | `secondaryFireCooldown%` | `src/aram_settings.opy:552` | `42` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
-| aram_direct_literal | domina | `ability2Cooldown%` | `src/aram_settings.opy:553` | `50` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | mizuki | `damageDealt%` | `src/aram_settings.opy:556` | `125` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | mizuki | `damageReceived%` | `src/aram_settings.opy:557` | `80` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | mizuki | `secondaryFireCooldown%` | `src/aram_settings.opy:558` | `50` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |

@@ -27,11 +27,11 @@
     "consumedDuplicateBaselineFacts": 0,
     "mainDerivedSettings": 99,
     "aramSettingEntries": 386,
-    "aramDirectNumericSettings": 335,
+    "aramDirectNumericSettings": 299,
     "heroWorkshopSettingEntries": 186,
     "missingProjectConsumedReferences": 0,
     "unusedOw2ReferenceDefinitions": 0,
-    "semanticReviewItems": 335
+    "semanticReviewItems": 299
   },
   "coverage": {
     "files": [
@@ -275,13 +275,19 @@
             "team": "team1",
             "hero": "cassidy",
             "field": "ability2Cooldown%",
-            "value": "67",
+            "value": "ratioPercent(SET_ARAM_TEAM1_CASSIDY_ABILITY2_COOLDOWN_TARGET, OW2_MCCREE_FLASHBANG_COOLDOWN)",
             "file": "src/aram_settings.opy",
             "line": 42,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_TEAM1_CASSIDY_ABILITY2_COOLDOWN_TARGET",
+              "OW2_MCCREE_FLASHBANG_COOLDOWN"
+            ],
+            "targetTokens": [
+              "SET_ARAM_TEAM1_CASSIDY_ABILITY2_COOLDOWN_TARGET",
+              "OW2_MCCREE_FLASHBANG_COOLDOWN"
+            ]
           }
         ]
       },
@@ -291,13 +297,19 @@
           "team": "team1",
           "hero": "cassidy",
           "field": "ability2Cooldown%",
-          "value": "67",
+          "value": "ratioPercent(SET_ARAM_TEAM1_CASSIDY_ABILITY2_COOLDOWN_TARGET, OW2_MCCREE_FLASHBANG_COOLDOWN)",
           "file": "src/aram_settings.opy",
           "line": 42,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_TEAM1_CASSIDY_ABILITY2_COOLDOWN_TARGET",
+            "OW2_MCCREE_FLASHBANG_COOLDOWN"
+          ],
+          "targetTokens": [
+            "SET_ARAM_TEAM1_CASSIDY_ABILITY2_COOLDOWN_TARGET",
+            "OW2_MCCREE_FLASHBANG_COOLDOWN"
+          ]
         }
       ],
       "canonicalReference": "OW2_MCCREE_FLASHBANG_COOLDOWN",
@@ -381,13 +393,19 @@
             "team": "team1",
             "hero": "soldier",
             "field": "ability2Cooldown%",
-            "value": "56",
+            "value": "ratioPercent(SET_ARAM_TEAM1_SOLDIER_ABILITY2_COOLDOWN_TARGET, OW2_SOLDIER_BIOTIC_FIELD_COOLDOWN)",
             "file": "src/aram_settings.opy",
             "line": 55,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_TEAM1_SOLDIER_ABILITY2_COOLDOWN_TARGET",
+              "OW2_SOLDIER_BIOTIC_FIELD_COOLDOWN"
+            ],
+            "targetTokens": [
+              "SET_ARAM_TEAM1_SOLDIER_ABILITY2_COOLDOWN_TARGET",
+              "OW2_SOLDIER_BIOTIC_FIELD_COOLDOWN"
+            ]
           }
         ]
       },
@@ -397,13 +415,19 @@
           "team": "team1",
           "hero": "soldier",
           "field": "ability2Cooldown%",
-          "value": "56",
+          "value": "ratioPercent(SET_ARAM_TEAM1_SOLDIER_ABILITY2_COOLDOWN_TARGET, OW2_SOLDIER_BIOTIC_FIELD_COOLDOWN)",
           "file": "src/aram_settings.opy",
           "line": 55,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_TEAM1_SOLDIER_ABILITY2_COOLDOWN_TARGET",
+            "OW2_SOLDIER_BIOTIC_FIELD_COOLDOWN"
+          ],
+          "targetTokens": [
+            "SET_ARAM_TEAM1_SOLDIER_ABILITY2_COOLDOWN_TARGET",
+            "OW2_SOLDIER_BIOTIC_FIELD_COOLDOWN"
+          ]
         }
       ],
       "canonicalReference": "OW2_SOLDIER_BIOTIC_FIELD_COOLDOWN",
@@ -487,26 +511,38 @@
             "team": "team1",
             "hero": "orisa",
             "field": "ultGen%",
-            "value": "125",
+            "value": "ultGenPercent(OW2_ORISA_ULT_COST, SET_ARAM_TEAM1_ORISA_ULT_COST_TARGET)",
             "file": "src/aram_settings.opy",
             "line": 75,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "OW2_ORISA_ULT_COST",
+              "SET_ARAM_TEAM1_ORISA_ULT_COST_TARGET"
+            ],
+            "targetTokens": [
+              "OW2_ORISA_ULT_COST",
+              "SET_ARAM_TEAM1_ORISA_ULT_COST_TARGET"
+            ]
           },
           {
             "mode": "aram",
             "team": "team2",
             "hero": "orisa",
             "field": "ultGen%",
-            "value": "125",
+            "value": "ultGenPercent(OW2_ORISA_ULT_COST, SET_ARAM_TEAM2_ORISA_ULT_COST_TARGET)",
             "file": "src/aram_settings.opy",
             "line": 318,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "OW2_ORISA_ULT_COST",
+              "SET_ARAM_TEAM2_ORISA_ULT_COST_TARGET"
+            ],
+            "targetTokens": [
+              "OW2_ORISA_ULT_COST",
+              "SET_ARAM_TEAM2_ORISA_ULT_COST_TARGET"
+            ]
           }
         ]
       },
@@ -516,26 +552,38 @@
           "team": "team1",
           "hero": "orisa",
           "field": "ultGen%",
-          "value": "125",
+          "value": "ultGenPercent(OW2_ORISA_ULT_COST, SET_ARAM_TEAM1_ORISA_ULT_COST_TARGET)",
           "file": "src/aram_settings.opy",
           "line": 75,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "OW2_ORISA_ULT_COST",
+            "SET_ARAM_TEAM1_ORISA_ULT_COST_TARGET"
+          ],
+          "targetTokens": [
+            "OW2_ORISA_ULT_COST",
+            "SET_ARAM_TEAM1_ORISA_ULT_COST_TARGET"
+          ]
         },
         {
           "mode": "aram",
           "team": "team2",
           "hero": "orisa",
           "field": "ultGen%",
-          "value": "125",
+          "value": "ultGenPercent(OW2_ORISA_ULT_COST, SET_ARAM_TEAM2_ORISA_ULT_COST_TARGET)",
           "file": "src/aram_settings.opy",
           "line": 318,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "OW2_ORISA_ULT_COST",
+            "SET_ARAM_TEAM2_ORISA_ULT_COST_TARGET"
+          ],
+          "targetTokens": [
+            "OW2_ORISA_ULT_COST",
+            "SET_ARAM_TEAM2_ORISA_ULT_COST_TARGET"
+          ]
         }
       ],
       "canonicalReference": "OW2_ORISA_ULT_COST",
@@ -580,13 +628,19 @@
             "team": "team1",
             "hero": "ana",
             "field": "ultGen%",
-            "value": "200",
+            "value": "ultGenPercent(OW2_ANA_ULT_COST, SET_ARAM_TEAM1_ANA_ULT_COST_TARGET)",
             "file": "src/aram_settings.opy",
             "line": 82,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "OW2_ANA_ULT_COST",
+              "SET_ARAM_TEAM1_ANA_ULT_COST_TARGET"
+            ],
+            "targetTokens": [
+              "OW2_ANA_ULT_COST",
+              "SET_ARAM_TEAM1_ANA_ULT_COST_TARGET"
+            ]
           }
         ]
       },
@@ -596,13 +650,19 @@
           "team": "team1",
           "hero": "ana",
           "field": "ultGen%",
-          "value": "200",
+          "value": "ultGenPercent(OW2_ANA_ULT_COST, SET_ARAM_TEAM1_ANA_ULT_COST_TARGET)",
           "file": "src/aram_settings.opy",
           "line": 82,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "OW2_ANA_ULT_COST",
+            "SET_ARAM_TEAM1_ANA_ULT_COST_TARGET"
+          ],
+          "targetTokens": [
+            "OW2_ANA_ULT_COST",
+            "SET_ARAM_TEAM1_ANA_ULT_COST_TARGET"
+          ]
         }
       ],
       "canonicalReference": "OW2_ANA_ULT_COST",
@@ -647,26 +707,38 @@
             "team": "team1",
             "hero": "ana",
             "field": "ability1Cooldown%",
-            "value": "50",
+            "value": "ratioPercent(SET_ARAM_TEAM1_ANA_ABILITY1_COOLDOWN_TARGET, OW2_ANA_SLEEP_DART_COOLDOWN_TIME)",
             "file": "src/aram_settings.opy",
             "line": 81,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_TEAM1_ANA_ABILITY1_COOLDOWN_TARGET",
+              "OW2_ANA_SLEEP_DART_COOLDOWN_TIME"
+            ],
+            "targetTokens": [
+              "SET_ARAM_TEAM1_ANA_ABILITY1_COOLDOWN_TARGET",
+              "OW2_ANA_SLEEP_DART_COOLDOWN_TIME"
+            ]
           },
           {
             "mode": "aram",
             "team": "team2",
             "hero": "ana",
             "field": "ability1Cooldown%",
-            "value": "57",
+            "value": "ratioPercent(SET_ARAM_TEAM2_ANA_ABILITY1_COOLDOWN_TARGET, OW2_ANA_SLEEP_DART_COOLDOWN_TIME)",
             "file": "src/aram_settings.opy",
             "line": 324,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_TEAM2_ANA_ABILITY1_COOLDOWN_TARGET",
+              "OW2_ANA_SLEEP_DART_COOLDOWN_TIME"
+            ],
+            "targetTokens": [
+              "SET_ARAM_TEAM2_ANA_ABILITY1_COOLDOWN_TARGET",
+              "OW2_ANA_SLEEP_DART_COOLDOWN_TIME"
+            ]
           }
         ]
       },
@@ -676,26 +748,38 @@
           "team": "team1",
           "hero": "ana",
           "field": "ability1Cooldown%",
-          "value": "50",
+          "value": "ratioPercent(SET_ARAM_TEAM1_ANA_ABILITY1_COOLDOWN_TARGET, OW2_ANA_SLEEP_DART_COOLDOWN_TIME)",
           "file": "src/aram_settings.opy",
           "line": 81,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_TEAM1_ANA_ABILITY1_COOLDOWN_TARGET",
+            "OW2_ANA_SLEEP_DART_COOLDOWN_TIME"
+          ],
+          "targetTokens": [
+            "SET_ARAM_TEAM1_ANA_ABILITY1_COOLDOWN_TARGET",
+            "OW2_ANA_SLEEP_DART_COOLDOWN_TIME"
+          ]
         },
         {
           "mode": "aram",
           "team": "team2",
           "hero": "ana",
           "field": "ability1Cooldown%",
-          "value": "57",
+          "value": "ratioPercent(SET_ARAM_TEAM2_ANA_ABILITY1_COOLDOWN_TARGET, OW2_ANA_SLEEP_DART_COOLDOWN_TIME)",
           "file": "src/aram_settings.opy",
           "line": 324,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_TEAM2_ANA_ABILITY1_COOLDOWN_TARGET",
+            "OW2_ANA_SLEEP_DART_COOLDOWN_TIME"
+          ],
+          "targetTokens": [
+            "SET_ARAM_TEAM2_ANA_ABILITY1_COOLDOWN_TARGET",
+            "OW2_ANA_SLEEP_DART_COOLDOWN_TIME"
+          ]
         }
       ],
       "canonicalReference": "OW2_ANA_SLEEP_DART_COOLDOWN_TIME",
@@ -740,26 +824,38 @@
             "team": "team1",
             "hero": "baptiste",
             "field": "ability1Cooldown%",
-            "value": "53",
+            "value": "ratioPercent(SET_ARAM_TEAM1_BAPTISTE_ABILITY1_COOLDOWN_TARGET, OW2_BAPTISTE_REGEN_BURST_COOLDOWN)",
             "file": "src/aram_settings.opy",
             "line": 87,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_TEAM1_BAPTISTE_ABILITY1_COOLDOWN_TARGET",
+              "OW2_BAPTISTE_REGEN_BURST_COOLDOWN"
+            ],
+            "targetTokens": [
+              "SET_ARAM_TEAM1_BAPTISTE_ABILITY1_COOLDOWN_TARGET",
+              "OW2_BAPTISTE_REGEN_BURST_COOLDOWN"
+            ]
           },
           {
             "mode": "aram",
             "team": "team2",
             "hero": "baptiste",
             "field": "ability1Cooldown%",
-            "value": "53",
+            "value": "ratioPercent(SET_ARAM_TEAM2_BAPTISTE_ABILITY1_COOLDOWN_TARGET, OW2_BAPTISTE_REGEN_BURST_COOLDOWN)",
             "file": "src/aram_settings.opy",
             "line": 329,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_TEAM2_BAPTISTE_ABILITY1_COOLDOWN_TARGET",
+              "OW2_BAPTISTE_REGEN_BURST_COOLDOWN"
+            ],
+            "targetTokens": [
+              "SET_ARAM_TEAM2_BAPTISTE_ABILITY1_COOLDOWN_TARGET",
+              "OW2_BAPTISTE_REGEN_BURST_COOLDOWN"
+            ]
           }
         ]
       },
@@ -769,26 +865,38 @@
           "team": "team1",
           "hero": "baptiste",
           "field": "ability1Cooldown%",
-          "value": "53",
+          "value": "ratioPercent(SET_ARAM_TEAM1_BAPTISTE_ABILITY1_COOLDOWN_TARGET, OW2_BAPTISTE_REGEN_BURST_COOLDOWN)",
           "file": "src/aram_settings.opy",
           "line": 87,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_TEAM1_BAPTISTE_ABILITY1_COOLDOWN_TARGET",
+            "OW2_BAPTISTE_REGEN_BURST_COOLDOWN"
+          ],
+          "targetTokens": [
+            "SET_ARAM_TEAM1_BAPTISTE_ABILITY1_COOLDOWN_TARGET",
+            "OW2_BAPTISTE_REGEN_BURST_COOLDOWN"
+          ]
         },
         {
           "mode": "aram",
           "team": "team2",
           "hero": "baptiste",
           "field": "ability1Cooldown%",
-          "value": "53",
+          "value": "ratioPercent(SET_ARAM_TEAM2_BAPTISTE_ABILITY1_COOLDOWN_TARGET, OW2_BAPTISTE_REGEN_BURST_COOLDOWN)",
           "file": "src/aram_settings.opy",
           "line": 329,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_TEAM2_BAPTISTE_ABILITY1_COOLDOWN_TARGET",
+            "OW2_BAPTISTE_REGEN_BURST_COOLDOWN"
+          ],
+          "targetTokens": [
+            "SET_ARAM_TEAM2_BAPTISTE_ABILITY1_COOLDOWN_TARGET",
+            "OW2_BAPTISTE_REGEN_BURST_COOLDOWN"
+          ]
         }
       ],
       "canonicalReference": "OW2_BAPTISTE_REGEN_BURST_COOLDOWN",
@@ -833,26 +941,38 @@
             "team": "team1",
             "hero": "baptiste",
             "field": "ability2Cooldown%",
-            "value": "48",
+            "value": "ratioPercent(SET_ARAM_TEAM1_BAPTISTE_ABILITY2_COOLDOWN_TARGET, OW2_BAPTISTE_LAMP_COOLDOWN_TIME)",
             "file": "src/aram_settings.opy",
             "line": 91,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_TEAM1_BAPTISTE_ABILITY2_COOLDOWN_TARGET",
+              "OW2_BAPTISTE_LAMP_COOLDOWN_TIME"
+            ],
+            "targetTokens": [
+              "SET_ARAM_TEAM1_BAPTISTE_ABILITY2_COOLDOWN_TARGET",
+              "OW2_BAPTISTE_LAMP_COOLDOWN_TIME"
+            ]
           },
           {
             "mode": "aram",
             "team": "team2",
             "hero": "baptiste",
             "field": "ability2Cooldown%",
-            "value": "48",
+            "value": "ratioPercent(SET_ARAM_TEAM2_BAPTISTE_ABILITY2_COOLDOWN_TARGET, OW2_BAPTISTE_LAMP_COOLDOWN_TIME)",
             "file": "src/aram_settings.opy",
             "line": 332,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_TEAM2_BAPTISTE_ABILITY2_COOLDOWN_TARGET",
+              "OW2_BAPTISTE_LAMP_COOLDOWN_TIME"
+            ],
+            "targetTokens": [
+              "SET_ARAM_TEAM2_BAPTISTE_ABILITY2_COOLDOWN_TARGET",
+              "OW2_BAPTISTE_LAMP_COOLDOWN_TIME"
+            ]
           }
         ]
       },
@@ -862,26 +982,38 @@
           "team": "team1",
           "hero": "baptiste",
           "field": "ability2Cooldown%",
-          "value": "48",
+          "value": "ratioPercent(SET_ARAM_TEAM1_BAPTISTE_ABILITY2_COOLDOWN_TARGET, OW2_BAPTISTE_LAMP_COOLDOWN_TIME)",
           "file": "src/aram_settings.opy",
           "line": 91,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_TEAM1_BAPTISTE_ABILITY2_COOLDOWN_TARGET",
+            "OW2_BAPTISTE_LAMP_COOLDOWN_TIME"
+          ],
+          "targetTokens": [
+            "SET_ARAM_TEAM1_BAPTISTE_ABILITY2_COOLDOWN_TARGET",
+            "OW2_BAPTISTE_LAMP_COOLDOWN_TIME"
+          ]
         },
         {
           "mode": "aram",
           "team": "team2",
           "hero": "baptiste",
           "field": "ability2Cooldown%",
-          "value": "48",
+          "value": "ratioPercent(SET_ARAM_TEAM2_BAPTISTE_ABILITY2_COOLDOWN_TARGET, OW2_BAPTISTE_LAMP_COOLDOWN_TIME)",
           "file": "src/aram_settings.opy",
           "line": 332,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_TEAM2_BAPTISTE_ABILITY2_COOLDOWN_TARGET",
+            "OW2_BAPTISTE_LAMP_COOLDOWN_TIME"
+          ],
+          "targetTokens": [
+            "SET_ARAM_TEAM2_BAPTISTE_ABILITY2_COOLDOWN_TARGET",
+            "OW2_BAPTISTE_LAMP_COOLDOWN_TIME"
+          ]
         }
       ],
       "canonicalReference": "OW2_BAPTISTE_LAMP_COOLDOWN_TIME",
@@ -965,26 +1097,38 @@
             "team": "team1",
             "hero": "brigitte",
             "field": "shieldBashKb%",
-            "value": "50",
+            "value": "ratioPercent(SET_ARAM_TEAM1_BRIGITTE_SHIELD_BASH_KB_TARGET, OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK)",
             "file": "src/aram_settings.opy",
             "line": 101,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_TEAM1_BRIGITTE_SHIELD_BASH_KB_TARGET",
+              "OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK"
+            ],
+            "targetTokens": [
+              "SET_ARAM_TEAM1_BRIGITTE_SHIELD_BASH_KB_TARGET",
+              "OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK"
+            ]
           },
           {
             "mode": "aram",
             "team": "team2",
             "hero": "brigitte",
             "field": "shieldBashKb%",
-            "value": "50",
+            "value": "ratioPercent(SET_ARAM_TEAM2_BRIGITTE_SHIELD_BASH_KB_TARGET, OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK)",
             "file": "src/aram_settings.opy",
             "line": 341,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_TEAM2_BRIGITTE_SHIELD_BASH_KB_TARGET",
+              "OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK"
+            ],
+            "targetTokens": [
+              "SET_ARAM_TEAM2_BRIGITTE_SHIELD_BASH_KB_TARGET",
+              "OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK"
+            ]
           }
         ]
       },
@@ -994,26 +1138,38 @@
           "team": "team1",
           "hero": "brigitte",
           "field": "shieldBashKb%",
-          "value": "50",
+          "value": "ratioPercent(SET_ARAM_TEAM1_BRIGITTE_SHIELD_BASH_KB_TARGET, OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK)",
           "file": "src/aram_settings.opy",
           "line": 101,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_TEAM1_BRIGITTE_SHIELD_BASH_KB_TARGET",
+            "OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK"
+          ],
+          "targetTokens": [
+            "SET_ARAM_TEAM1_BRIGITTE_SHIELD_BASH_KB_TARGET",
+            "OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK"
+          ]
         },
         {
           "mode": "aram",
           "team": "team2",
           "hero": "brigitte",
           "field": "shieldBashKb%",
-          "value": "50",
+          "value": "ratioPercent(SET_ARAM_TEAM2_BRIGITTE_SHIELD_BASH_KB_TARGET, OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK)",
           "file": "src/aram_settings.opy",
           "line": 341,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_TEAM2_BRIGITTE_SHIELD_BASH_KB_TARGET",
+            "OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK"
+          ],
+          "targetTokens": [
+            "SET_ARAM_TEAM2_BRIGITTE_SHIELD_BASH_KB_TARGET",
+            "OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK"
+          ]
         }
       ],
       "canonicalReference": "OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK",
@@ -1136,13 +1292,19 @@
             "team": "team1",
             "hero": "ramattra",
             "field": "ability1Cooldown%",
-            "value": "86",
+            "value": "ratioPercent(SET_ARAM_TEAM1_RAMATTRA_ABILITY1_COOLDOWN_TARGET, OW2_RAMATTRA_NEMESIS_COOLDOWN)",
             "file": "src/aram_settings.opy",
             "line": 113,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_TEAM1_RAMATTRA_ABILITY1_COOLDOWN_TARGET",
+              "OW2_RAMATTRA_NEMESIS_COOLDOWN"
+            ],
+            "targetTokens": [
+              "SET_ARAM_TEAM1_RAMATTRA_ABILITY1_COOLDOWN_TARGET",
+              "OW2_RAMATTRA_NEMESIS_COOLDOWN"
+            ]
           }
         ]
       },
@@ -1152,13 +1314,19 @@
           "team": "team1",
           "hero": "ramattra",
           "field": "ability1Cooldown%",
-          "value": "86",
+          "value": "ratioPercent(SET_ARAM_TEAM1_RAMATTRA_ABILITY1_COOLDOWN_TARGET, OW2_RAMATTRA_NEMESIS_COOLDOWN)",
           "file": "src/aram_settings.opy",
           "line": 113,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_TEAM1_RAMATTRA_ABILITY1_COOLDOWN_TARGET",
+            "OW2_RAMATTRA_NEMESIS_COOLDOWN"
+          ],
+          "targetTokens": [
+            "SET_ARAM_TEAM1_RAMATTRA_ABILITY1_COOLDOWN_TARGET",
+            "OW2_RAMATTRA_NEMESIS_COOLDOWN"
+          ]
         }
       ],
       "canonicalReference": "OW2_RAMATTRA_NEMESIS_COOLDOWN",
@@ -1203,13 +1371,19 @@
             "team": "team1",
             "hero": "ramattra",
             "field": "ultGen%",
-            "value": "500",
+            "value": "ultGenPercent(OW2_RAMATTRA_ULT_COST, SET_ARAM_TEAM1_RAMATTRA_ULT_COST_TARGET)",
             "file": "src/aram_settings.opy",
             "line": 115,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "OW2_RAMATTRA_ULT_COST",
+              "SET_ARAM_TEAM1_RAMATTRA_ULT_COST_TARGET"
+            ],
+            "targetTokens": [
+              "OW2_RAMATTRA_ULT_COST",
+              "SET_ARAM_TEAM1_RAMATTRA_ULT_COST_TARGET"
+            ]
           }
         ]
       },
@@ -1219,13 +1393,19 @@
           "team": "team1",
           "hero": "ramattra",
           "field": "ultGen%",
-          "value": "500",
+          "value": "ultGenPercent(OW2_RAMATTRA_ULT_COST, SET_ARAM_TEAM1_RAMATTRA_ULT_COST_TARGET)",
           "file": "src/aram_settings.opy",
           "line": 115,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "OW2_RAMATTRA_ULT_COST",
+            "SET_ARAM_TEAM1_RAMATTRA_ULT_COST_TARGET"
+          ],
+          "targetTokens": [
+            "OW2_RAMATTRA_ULT_COST",
+            "SET_ARAM_TEAM1_RAMATTRA_ULT_COST_TARGET"
+          ]
         }
       ],
       "canonicalReference": "OW2_RAMATTRA_ULT_COST",
@@ -1348,13 +1528,19 @@
             "team": "allTeams",
             "hero": "illari",
             "field": "ability2Cooldown%",
-            "value": "50",
+            "value": "ratioPercent(SET_ARAM_ALLTEAMS_ILLARI_ABILITY2_COOLDOWN_TARGET, OW2_ILLARI_PYLON_COOLDOWN)",
             "file": "src/aram_settings.opy",
             "line": 507,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_ALLTEAMS_ILLARI_ABILITY2_COOLDOWN_TARGET",
+              "OW2_ILLARI_PYLON_COOLDOWN"
+            ],
+            "targetTokens": [
+              "SET_ARAM_ALLTEAMS_ILLARI_ABILITY2_COOLDOWN_TARGET",
+              "OW2_ILLARI_PYLON_COOLDOWN"
+            ]
           }
         ]
       },
@@ -1364,13 +1550,19 @@
           "team": "allTeams",
           "hero": "illari",
           "field": "ability2Cooldown%",
-          "value": "50",
+          "value": "ratioPercent(SET_ARAM_ALLTEAMS_ILLARI_ABILITY2_COOLDOWN_TARGET, OW2_ILLARI_PYLON_COOLDOWN)",
           "file": "src/aram_settings.opy",
           "line": 507,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_ALLTEAMS_ILLARI_ABILITY2_COOLDOWN_TARGET",
+            "OW2_ILLARI_PYLON_COOLDOWN"
+          ],
+          "targetTokens": [
+            "SET_ARAM_ALLTEAMS_ILLARI_ABILITY2_COOLDOWN_TARGET",
+            "OW2_ILLARI_PYLON_COOLDOWN"
+          ]
         }
       ],
       "canonicalReference": "OW2_ILLARI_PYLON_COOLDOWN",
@@ -1415,13 +1607,19 @@
             "team": "allTeams",
             "hero": "juno",
             "field": "ultGen%",
-            "value": "175",
+            "value": "ultGenPercent(OW2_JUNO_ULT_COST, SET_ARAM_ALLTEAMS_JUNO_ULT_COST_TARGET)",
             "file": "src/aram_settings.opy",
             "line": 522,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "OW2_JUNO_ULT_COST",
+              "SET_ARAM_ALLTEAMS_JUNO_ULT_COST_TARGET"
+            ],
+            "targetTokens": [
+              "OW2_JUNO_ULT_COST",
+              "SET_ARAM_ALLTEAMS_JUNO_ULT_COST_TARGET"
+            ]
           }
         ]
       },
@@ -1431,13 +1629,19 @@
           "team": "allTeams",
           "hero": "juno",
           "field": "ultGen%",
-          "value": "175",
+          "value": "ultGenPercent(OW2_JUNO_ULT_COST, SET_ARAM_ALLTEAMS_JUNO_ULT_COST_TARGET)",
           "file": "src/aram_settings.opy",
           "line": 522,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "OW2_JUNO_ULT_COST",
+            "SET_ARAM_ALLTEAMS_JUNO_ULT_COST_TARGET"
+          ],
+          "targetTokens": [
+            "OW2_JUNO_ULT_COST",
+            "SET_ARAM_ALLTEAMS_JUNO_ULT_COST_TARGET"
+          ]
         }
       ],
       "canonicalReference": "OW2_JUNO_ULT_COST",
@@ -1482,26 +1686,38 @@
             "team": "team1",
             "hero": "doomfist",
             "field": "ammoRegenerationTime%",
-            "value": "80",
+            "value": "ratioPercent(SET_ARAM_TEAM1_DOOMFIST_AMMO_REGENERATION_TIME_TARGET, OW2_DOOMFIST_AMMO_REGEN)",
             "file": "src/aram_settings.opy",
             "line": 122,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_TEAM1_DOOMFIST_AMMO_REGENERATION_TIME_TARGET",
+              "OW2_DOOMFIST_AMMO_REGEN"
+            ],
+            "targetTokens": [
+              "SET_ARAM_TEAM1_DOOMFIST_AMMO_REGENERATION_TIME_TARGET",
+              "OW2_DOOMFIST_AMMO_REGEN"
+            ]
           },
           {
             "mode": "aram",
             "team": "team2",
             "hero": "doomfist",
             "field": "ammoRegenerationTime%",
-            "value": "80",
+            "value": "ratioPercent(SET_ARAM_TEAM2_DOOMFIST_AMMO_REGENERATION_TIME_TARGET, OW2_DOOMFIST_AMMO_REGEN)",
             "file": "src/aram_settings.opy",
             "line": 359,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_TEAM2_DOOMFIST_AMMO_REGENERATION_TIME_TARGET",
+              "OW2_DOOMFIST_AMMO_REGEN"
+            ],
+            "targetTokens": [
+              "SET_ARAM_TEAM2_DOOMFIST_AMMO_REGENERATION_TIME_TARGET",
+              "OW2_DOOMFIST_AMMO_REGEN"
+            ]
           }
         ]
       },
@@ -1511,26 +1727,38 @@
           "team": "team1",
           "hero": "doomfist",
           "field": "ammoRegenerationTime%",
-          "value": "80",
+          "value": "ratioPercent(SET_ARAM_TEAM1_DOOMFIST_AMMO_REGENERATION_TIME_TARGET, OW2_DOOMFIST_AMMO_REGEN)",
           "file": "src/aram_settings.opy",
           "line": 122,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_TEAM1_DOOMFIST_AMMO_REGENERATION_TIME_TARGET",
+            "OW2_DOOMFIST_AMMO_REGEN"
+          ],
+          "targetTokens": [
+            "SET_ARAM_TEAM1_DOOMFIST_AMMO_REGENERATION_TIME_TARGET",
+            "OW2_DOOMFIST_AMMO_REGEN"
+          ]
         },
         {
           "mode": "aram",
           "team": "team2",
           "hero": "doomfist",
           "field": "ammoRegenerationTime%",
-          "value": "80",
+          "value": "ratioPercent(SET_ARAM_TEAM2_DOOMFIST_AMMO_REGENERATION_TIME_TARGET, OW2_DOOMFIST_AMMO_REGEN)",
           "file": "src/aram_settings.opy",
           "line": 359,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_TEAM2_DOOMFIST_AMMO_REGENERATION_TIME_TARGET",
+            "OW2_DOOMFIST_AMMO_REGEN"
+          ],
+          "targetTokens": [
+            "SET_ARAM_TEAM2_DOOMFIST_AMMO_REGENERATION_TIME_TARGET",
+            "OW2_DOOMFIST_AMMO_REGEN"
+          ]
         }
       ],
       "canonicalReference": "OW2_DOOMFIST_AMMO_REGEN",
@@ -1926,13 +2154,19 @@
             "team": "team1",
             "hero": "zenyatta",
             "field": "ultGen%",
-            "value": "160",
+            "value": "ultGenPercent(OW2_ZENYATTA_ULT_COST, SET_ARAM_TEAM1_ZENYATTA_ULT_COST_TARGET)",
             "file": "src/aram_settings.opy",
             "line": 180,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "OW2_ZENYATTA_ULT_COST",
+              "SET_ARAM_TEAM1_ZENYATTA_ULT_COST_TARGET"
+            ],
+            "targetTokens": [
+              "OW2_ZENYATTA_ULT_COST",
+              "SET_ARAM_TEAM1_ZENYATTA_ULT_COST_TARGET"
+            ]
           }
         ]
       },
@@ -1942,13 +2176,19 @@
           "team": "team1",
           "hero": "zenyatta",
           "field": "ultGen%",
-          "value": "160",
+          "value": "ultGenPercent(OW2_ZENYATTA_ULT_COST, SET_ARAM_TEAM1_ZENYATTA_ULT_COST_TARGET)",
           "file": "src/aram_settings.opy",
           "line": 180,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "OW2_ZENYATTA_ULT_COST",
+            "SET_ARAM_TEAM1_ZENYATTA_ULT_COST_TARGET"
+          ],
+          "targetTokens": [
+            "OW2_ZENYATTA_ULT_COST",
+            "SET_ARAM_TEAM1_ZENYATTA_ULT_COST_TARGET"
+          ]
         }
       ],
       "canonicalReference": "OW2_ZENYATTA_ULT_COST",
@@ -2032,26 +2272,38 @@
             "team": "team1",
             "hero": "reinhardt",
             "field": "ability1Cooldown%",
-            "value": "10",
+            "value": "ratioPercent(SET_ARAM_TEAM1_REINHARDT_ABILITY1_COOLDOWN_TARGET, OW2_REINHARDT_CHARGE_COOLDOWN_TIME)",
             "file": "src/aram_settings.opy",
             "line": 224,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_TEAM1_REINHARDT_ABILITY1_COOLDOWN_TARGET",
+              "OW2_REINHARDT_CHARGE_COOLDOWN_TIME"
+            ],
+            "targetTokens": [
+              "SET_ARAM_TEAM1_REINHARDT_ABILITY1_COOLDOWN_TARGET",
+              "OW2_REINHARDT_CHARGE_COOLDOWN_TIME"
+            ]
           },
           {
             "mode": "aram",
             "team": "team2",
             "hero": "reinhardt",
             "field": "ability1Cooldown%",
-            "value": "20",
+            "value": "ratioPercent(SET_ARAM_TEAM2_REINHARDT_ABILITY1_COOLDOWN_TARGET, OW2_REINHARDT_CHARGE_COOLDOWN_TIME)",
             "file": "src/aram_settings.opy",
             "line": 456,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_TEAM2_REINHARDT_ABILITY1_COOLDOWN_TARGET",
+              "OW2_REINHARDT_CHARGE_COOLDOWN_TIME"
+            ],
+            "targetTokens": [
+              "SET_ARAM_TEAM2_REINHARDT_ABILITY1_COOLDOWN_TARGET",
+              "OW2_REINHARDT_CHARGE_COOLDOWN_TIME"
+            ]
           }
         ]
       },
@@ -2061,26 +2313,38 @@
           "team": "team1",
           "hero": "reinhardt",
           "field": "ability1Cooldown%",
-          "value": "10",
+          "value": "ratioPercent(SET_ARAM_TEAM1_REINHARDT_ABILITY1_COOLDOWN_TARGET, OW2_REINHARDT_CHARGE_COOLDOWN_TIME)",
           "file": "src/aram_settings.opy",
           "line": 224,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_TEAM1_REINHARDT_ABILITY1_COOLDOWN_TARGET",
+            "OW2_REINHARDT_CHARGE_COOLDOWN_TIME"
+          ],
+          "targetTokens": [
+            "SET_ARAM_TEAM1_REINHARDT_ABILITY1_COOLDOWN_TARGET",
+            "OW2_REINHARDT_CHARGE_COOLDOWN_TIME"
+          ]
         },
         {
           "mode": "aram",
           "team": "team2",
           "hero": "reinhardt",
           "field": "ability1Cooldown%",
-          "value": "20",
+          "value": "ratioPercent(SET_ARAM_TEAM2_REINHARDT_ABILITY1_COOLDOWN_TARGET, OW2_REINHARDT_CHARGE_COOLDOWN_TIME)",
           "file": "src/aram_settings.opy",
           "line": 456,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_TEAM2_REINHARDT_ABILITY1_COOLDOWN_TARGET",
+            "OW2_REINHARDT_CHARGE_COOLDOWN_TIME"
+          ],
+          "targetTokens": [
+            "SET_ARAM_TEAM2_REINHARDT_ABILITY1_COOLDOWN_TARGET",
+            "OW2_REINHARDT_CHARGE_COOLDOWN_TIME"
+          ]
         }
       ],
       "canonicalReference": "OW2_REINHARDT_CHARGE_COOLDOWN_TIME",
@@ -2125,26 +2389,38 @@
             "team": "team1",
             "hero": "reinhardt",
             "field": "secondaryFireRechargeRate%",
-            "value": "170",
+            "value": "ratioPercent(SET_ARAM_TEAM1_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET, OW2_REINHARDT_BARRIER_REGEN)",
             "file": "src/aram_settings.opy",
             "line": 226,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_TEAM1_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET",
+              "OW2_REINHARDT_BARRIER_REGEN"
+            ],
+            "targetTokens": [
+              "SET_ARAM_TEAM1_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET",
+              "OW2_REINHARDT_BARRIER_REGEN"
+            ]
           },
           {
             "mode": "aram",
             "team": "team2",
             "hero": "reinhardt",
             "field": "secondaryFireRechargeRate%",
-            "value": "130",
+            "value": "ratioPercent(SET_ARAM_TEAM2_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET, OW2_REINHARDT_BARRIER_REGEN)",
             "file": "src/aram_settings.opy",
             "line": 458,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_TEAM2_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET",
+              "OW2_REINHARDT_BARRIER_REGEN"
+            ],
+            "targetTokens": [
+              "SET_ARAM_TEAM2_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET",
+              "OW2_REINHARDT_BARRIER_REGEN"
+            ]
           }
         ]
       },
@@ -2154,26 +2430,38 @@
           "team": "team1",
           "hero": "reinhardt",
           "field": "secondaryFireRechargeRate%",
-          "value": "170",
+          "value": "ratioPercent(SET_ARAM_TEAM1_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET, OW2_REINHARDT_BARRIER_REGEN)",
           "file": "src/aram_settings.opy",
           "line": 226,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_TEAM1_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET",
+            "OW2_REINHARDT_BARRIER_REGEN"
+          ],
+          "targetTokens": [
+            "SET_ARAM_TEAM1_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET",
+            "OW2_REINHARDT_BARRIER_REGEN"
+          ]
         },
         {
           "mode": "aram",
           "team": "team2",
           "hero": "reinhardt",
           "field": "secondaryFireRechargeRate%",
-          "value": "130",
+          "value": "ratioPercent(SET_ARAM_TEAM2_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET, OW2_REINHARDT_BARRIER_REGEN)",
           "file": "src/aram_settings.opy",
           "line": 458,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_TEAM2_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET",
+            "OW2_REINHARDT_BARRIER_REGEN"
+          ],
+          "targetTokens": [
+            "SET_ARAM_TEAM2_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET",
+            "OW2_REINHARDT_BARRIER_REGEN"
+          ]
         }
       ],
       "canonicalReference": "OW2_REINHARDT_BARRIER_REGEN",
@@ -2296,26 +2584,38 @@
             "team": "team1",
             "hero": "kiriko",
             "field": "ability2Cooldown%",
-            "value": "43",
+            "value": "ratioPercent(SET_ARAM_TEAM1_KIRIKO_ABILITY2_COOLDOWN_TARGET, OW2_KIRIKO_SUZU_COOLDOWN)",
             "file": "src/aram_settings.opy",
             "line": 246,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_TEAM1_KIRIKO_ABILITY2_COOLDOWN_TARGET",
+              "OW2_KIRIKO_SUZU_COOLDOWN"
+            ],
+            "targetTokens": [
+              "SET_ARAM_TEAM1_KIRIKO_ABILITY2_COOLDOWN_TARGET",
+              "OW2_KIRIKO_SUZU_COOLDOWN"
+            ]
           },
           {
             "mode": "aram",
             "team": "team2",
             "hero": "kiriko",
             "field": "ability2Cooldown%",
-            "value": "43",
+            "value": "ratioPercent(SET_ARAM_TEAM2_KIRIKO_ABILITY2_COOLDOWN_TARGET, OW2_KIRIKO_SUZU_COOLDOWN)",
             "file": "src/aram_settings.opy",
             "line": 474,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_TEAM2_KIRIKO_ABILITY2_COOLDOWN_TARGET",
+              "OW2_KIRIKO_SUZU_COOLDOWN"
+            ],
+            "targetTokens": [
+              "SET_ARAM_TEAM2_KIRIKO_ABILITY2_COOLDOWN_TARGET",
+              "OW2_KIRIKO_SUZU_COOLDOWN"
+            ]
           }
         ]
       },
@@ -2325,26 +2625,38 @@
           "team": "team1",
           "hero": "kiriko",
           "field": "ability2Cooldown%",
-          "value": "43",
+          "value": "ratioPercent(SET_ARAM_TEAM1_KIRIKO_ABILITY2_COOLDOWN_TARGET, OW2_KIRIKO_SUZU_COOLDOWN)",
           "file": "src/aram_settings.opy",
           "line": 246,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_TEAM1_KIRIKO_ABILITY2_COOLDOWN_TARGET",
+            "OW2_KIRIKO_SUZU_COOLDOWN"
+          ],
+          "targetTokens": [
+            "SET_ARAM_TEAM1_KIRIKO_ABILITY2_COOLDOWN_TARGET",
+            "OW2_KIRIKO_SUZU_COOLDOWN"
+          ]
         },
         {
           "mode": "aram",
           "team": "team2",
           "hero": "kiriko",
           "field": "ability2Cooldown%",
-          "value": "43",
+          "value": "ratioPercent(SET_ARAM_TEAM2_KIRIKO_ABILITY2_COOLDOWN_TARGET, OW2_KIRIKO_SUZU_COOLDOWN)",
           "file": "src/aram_settings.opy",
           "line": 474,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_TEAM2_KIRIKO_ABILITY2_COOLDOWN_TARGET",
+            "OW2_KIRIKO_SUZU_COOLDOWN"
+          ],
+          "targetTokens": [
+            "SET_ARAM_TEAM2_KIRIKO_ABILITY2_COOLDOWN_TARGET",
+            "OW2_KIRIKO_SUZU_COOLDOWN"
+          ]
         }
       ],
       "canonicalReference": "OW2_KIRIKO_SUZU_COOLDOWN",
@@ -2467,13 +2779,19 @@
             "team": "allTeams",
             "hero": "domina",
             "field": "ability2Cooldown%",
-            "value": "50",
+            "value": "ratioPercent(SET_ARAM_ALLTEAMS_DOMINA_ABILITY2_COOLDOWN_TARGET, OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN)",
             "file": "src/aram_settings.opy",
             "line": 553,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_ALLTEAMS_DOMINA_ABILITY2_COOLDOWN_TARGET",
+              "OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN"
+            ],
+            "targetTokens": [
+              "SET_ARAM_ALLTEAMS_DOMINA_ABILITY2_COOLDOWN_TARGET",
+              "OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN"
+            ]
           }
         ]
       },
@@ -2483,13 +2801,19 @@
           "team": "allTeams",
           "hero": "domina",
           "field": "ability2Cooldown%",
-          "value": "50",
+          "value": "ratioPercent(SET_ARAM_ALLTEAMS_DOMINA_ABILITY2_COOLDOWN_TARGET, OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN)",
           "file": "src/aram_settings.opy",
           "line": 553,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_ALLTEAMS_DOMINA_ABILITY2_COOLDOWN_TARGET",
+            "OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN"
+          ],
+          "targetTokens": [
+            "SET_ARAM_ALLTEAMS_DOMINA_ABILITY2_COOLDOWN_TARGET",
+            "OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN"
+          ]
         }
       ],
       "canonicalReference": "OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN",
@@ -2534,13 +2858,19 @@
             "team": "allTeams",
             "hero": "domina",
             "field": "secondaryFireCooldown%",
-            "value": "42",
+            "value": "ratioPercent(SET_ARAM_ALLTEAMS_DOMINA_SECONDARY_FIRE_COOLDOWN_TARGET, OW2_DOMINA_BARRIER_ARRAY_COOLDOWN)",
             "file": "src/aram_settings.opy",
             "line": 552,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_ALLTEAMS_DOMINA_SECONDARY_FIRE_COOLDOWN_TARGET",
+              "OW2_DOMINA_BARRIER_ARRAY_COOLDOWN"
+            ],
+            "targetTokens": [
+              "SET_ARAM_ALLTEAMS_DOMINA_SECONDARY_FIRE_COOLDOWN_TARGET",
+              "OW2_DOMINA_BARRIER_ARRAY_COOLDOWN"
+            ]
           }
         ]
       },
@@ -2550,13 +2880,19 @@
           "team": "allTeams",
           "hero": "domina",
           "field": "secondaryFireCooldown%",
-          "value": "42",
+          "value": "ratioPercent(SET_ARAM_ALLTEAMS_DOMINA_SECONDARY_FIRE_COOLDOWN_TARGET, OW2_DOMINA_BARRIER_ARRAY_COOLDOWN)",
           "file": "src/aram_settings.opy",
           "line": 552,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_ALLTEAMS_DOMINA_SECONDARY_FIRE_COOLDOWN_TARGET",
+            "OW2_DOMINA_BARRIER_ARRAY_COOLDOWN"
+          ],
+          "targetTokens": [
+            "SET_ARAM_ALLTEAMS_DOMINA_SECONDARY_FIRE_COOLDOWN_TARGET",
+            "OW2_DOMINA_BARRIER_ARRAY_COOLDOWN"
+          ]
         }
       ],
       "canonicalReference": "OW2_DOMINA_BARRIER_ARRAY_COOLDOWN",
@@ -2601,26 +2937,38 @@
             "team": "team1",
             "hero": "sombra",
             "field": "secondaryFireCooldown%",
-            "value": "84",
+            "value": "ratioPercent(SET_ARAM_TEAM1_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET, OW2_SOMBRA_HACK_COOLDOWN_TIME)",
             "file": "src/aram_settings.opy",
             "line": 254,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_TEAM1_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET",
+              "OW2_SOMBRA_HACK_COOLDOWN_TIME"
+            ],
+            "targetTokens": [
+              "SET_ARAM_TEAM1_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET",
+              "OW2_SOMBRA_HACK_COOLDOWN_TIME"
+            ]
           },
           {
             "mode": "aram",
             "team": "team2",
             "hero": "sombra",
             "field": "secondaryFireCooldown%",
-            "value": "84",
+            "value": "ratioPercent(SET_ARAM_TEAM2_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET, OW2_SOMBRA_HACK_COOLDOWN_TIME)",
             "file": "src/aram_settings.opy",
             "line": 479,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_TEAM2_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET",
+              "OW2_SOMBRA_HACK_COOLDOWN_TIME"
+            ],
+            "targetTokens": [
+              "SET_ARAM_TEAM2_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET",
+              "OW2_SOMBRA_HACK_COOLDOWN_TIME"
+            ]
           }
         ]
       },
@@ -2630,26 +2978,38 @@
           "team": "team1",
           "hero": "sombra",
           "field": "secondaryFireCooldown%",
-          "value": "84",
+          "value": "ratioPercent(SET_ARAM_TEAM1_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET, OW2_SOMBRA_HACK_COOLDOWN_TIME)",
           "file": "src/aram_settings.opy",
           "line": 254,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_TEAM1_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET",
+            "OW2_SOMBRA_HACK_COOLDOWN_TIME"
+          ],
+          "targetTokens": [
+            "SET_ARAM_TEAM1_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET",
+            "OW2_SOMBRA_HACK_COOLDOWN_TIME"
+          ]
         },
         {
           "mode": "aram",
           "team": "team2",
           "hero": "sombra",
           "field": "secondaryFireCooldown%",
-          "value": "84",
+          "value": "ratioPercent(SET_ARAM_TEAM2_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET, OW2_SOMBRA_HACK_COOLDOWN_TIME)",
           "file": "src/aram_settings.opy",
           "line": 479,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_TEAM2_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET",
+            "OW2_SOMBRA_HACK_COOLDOWN_TIME"
+          ],
+          "targetTokens": [
+            "SET_ARAM_TEAM2_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET",
+            "OW2_SOMBRA_HACK_COOLDOWN_TIME"
+          ]
         }
       ],
       "canonicalReference": "OW2_SOMBRA_HACK_COOLDOWN_TIME",
@@ -2733,26 +3093,38 @@
             "team": "team1",
             "hero": "hanzo",
             "field": "ability2Cooldown%",
-            "value": "0",
+            "value": "ratioPercent(SET_ARAM_TEAM1_HANZO_ABILITY2_COOLDOWN_TARGET, OW2_HANZO_STORM_COOLDOWN)",
             "file": "src/aram_settings.opy",
             "line": 33,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_TEAM1_HANZO_ABILITY2_COOLDOWN_TARGET",
+              "OW2_HANZO_STORM_COOLDOWN"
+            ],
+            "targetTokens": [
+              "SET_ARAM_TEAM1_HANZO_ABILITY2_COOLDOWN_TARGET",
+              "OW2_HANZO_STORM_COOLDOWN"
+            ]
           },
           {
             "mode": "aram",
             "team": "team2",
             "hero": "hanzo",
             "field": "ability2Cooldown%",
-            "value": "0",
+            "value": "ratioPercent(SET_ARAM_TEAM2_HANZO_ABILITY2_COOLDOWN_TARGET, OW2_HANZO_STORM_COOLDOWN)",
             "file": "src/aram_settings.opy",
             "line": 275,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_TEAM2_HANZO_ABILITY2_COOLDOWN_TARGET",
+              "OW2_HANZO_STORM_COOLDOWN"
+            ],
+            "targetTokens": [
+              "SET_ARAM_TEAM2_HANZO_ABILITY2_COOLDOWN_TARGET",
+              "OW2_HANZO_STORM_COOLDOWN"
+            ]
           }
         ]
       },
@@ -2762,26 +3134,38 @@
           "team": "team1",
           "hero": "hanzo",
           "field": "ability2Cooldown%",
-          "value": "0",
+          "value": "ratioPercent(SET_ARAM_TEAM1_HANZO_ABILITY2_COOLDOWN_TARGET, OW2_HANZO_STORM_COOLDOWN)",
           "file": "src/aram_settings.opy",
           "line": 33,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_TEAM1_HANZO_ABILITY2_COOLDOWN_TARGET",
+            "OW2_HANZO_STORM_COOLDOWN"
+          ],
+          "targetTokens": [
+            "SET_ARAM_TEAM1_HANZO_ABILITY2_COOLDOWN_TARGET",
+            "OW2_HANZO_STORM_COOLDOWN"
+          ]
         },
         {
           "mode": "aram",
           "team": "team2",
           "hero": "hanzo",
           "field": "ability2Cooldown%",
-          "value": "0",
+          "value": "ratioPercent(SET_ARAM_TEAM2_HANZO_ABILITY2_COOLDOWN_TARGET, OW2_HANZO_STORM_COOLDOWN)",
           "file": "src/aram_settings.opy",
           "line": 275,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_TEAM2_HANZO_ABILITY2_COOLDOWN_TARGET",
+            "OW2_HANZO_STORM_COOLDOWN"
+          ],
+          "targetTokens": [
+            "SET_ARAM_TEAM2_HANZO_ABILITY2_COOLDOWN_TARGET",
+            "OW2_HANZO_STORM_COOLDOWN"
+          ]
         }
       ],
       "canonicalReference": "OW2_HANZO_STORM_COOLDOWN",
@@ -2904,13 +3288,19 @@
             "team": "team1",
             "hero": "cassidy",
             "field": "ability2Cooldown%",
-            "value": "67",
+            "value": "ratioPercent(SET_ARAM_TEAM1_CASSIDY_ABILITY2_COOLDOWN_TARGET, OW2_MCCREE_FLASHBANG_COOLDOWN)",
             "file": "src/aram_settings.opy",
             "line": 42,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_TEAM1_CASSIDY_ABILITY2_COOLDOWN_TARGET",
+              "OW2_MCCREE_FLASHBANG_COOLDOWN"
+            ],
+            "targetTokens": [
+              "SET_ARAM_TEAM1_CASSIDY_ABILITY2_COOLDOWN_TARGET",
+              "OW2_MCCREE_FLASHBANG_COOLDOWN"
+            ]
           }
         ]
       },
@@ -2920,13 +3310,19 @@
           "team": "team1",
           "hero": "cassidy",
           "field": "ability2Cooldown%",
-          "value": "67",
+          "value": "ratioPercent(SET_ARAM_TEAM1_CASSIDY_ABILITY2_COOLDOWN_TARGET, OW2_MCCREE_FLASHBANG_COOLDOWN)",
           "file": "src/aram_settings.opy",
           "line": 42,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_TEAM1_CASSIDY_ABILITY2_COOLDOWN_TARGET",
+            "OW2_MCCREE_FLASHBANG_COOLDOWN"
+          ],
+          "targetTokens": [
+            "SET_ARAM_TEAM1_CASSIDY_ABILITY2_COOLDOWN_TARGET",
+            "OW2_MCCREE_FLASHBANG_COOLDOWN"
+          ]
         }
       ],
       "canonicalReference": "OW2_MCCREE_FLASHBANG_COOLDOWN",
@@ -2971,13 +3367,19 @@
             "team": "team2",
             "hero": "bastion",
             "field": "ability1Cooldown%",
-            "value": "50",
+            "value": "ratioPercent(SET_ARAM_TEAM2_BASTION_ABILITY1_COOLDOWN_TARGET, OW2_BASTION_RECONFIGURE_COOLDOWN)",
             "file": "src/aram_settings.opy",
             "line": 296,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_TEAM2_BASTION_ABILITY1_COOLDOWN_TARGET",
+              "OW2_BASTION_RECONFIGURE_COOLDOWN"
+            ],
+            "targetTokens": [
+              "SET_ARAM_TEAM2_BASTION_ABILITY1_COOLDOWN_TARGET",
+              "OW2_BASTION_RECONFIGURE_COOLDOWN"
+            ]
           }
         ]
       },
@@ -2987,13 +3389,19 @@
           "team": "team2",
           "hero": "bastion",
           "field": "ability1Cooldown%",
-          "value": "50",
+          "value": "ratioPercent(SET_ARAM_TEAM2_BASTION_ABILITY1_COOLDOWN_TARGET, OW2_BASTION_RECONFIGURE_COOLDOWN)",
           "file": "src/aram_settings.opy",
           "line": 296,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_TEAM2_BASTION_ABILITY1_COOLDOWN_TARGET",
+            "OW2_BASTION_RECONFIGURE_COOLDOWN"
+          ],
+          "targetTokens": [
+            "SET_ARAM_TEAM2_BASTION_ABILITY1_COOLDOWN_TARGET",
+            "OW2_BASTION_RECONFIGURE_COOLDOWN"
+          ]
         }
       ],
       "canonicalReference": "OW2_BASTION_RECONFIGURE_COOLDOWN",
@@ -3038,13 +3446,19 @@
             "team": "team1",
             "hero": "soldier",
             "field": "ability2Cooldown%",
-            "value": "56",
+            "value": "ratioPercent(SET_ARAM_TEAM1_SOLDIER_ABILITY2_COOLDOWN_TARGET, OW2_SOLDIER_BIOTIC_FIELD_COOLDOWN)",
             "file": "src/aram_settings.opy",
             "line": 55,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_TEAM1_SOLDIER_ABILITY2_COOLDOWN_TARGET",
+              "OW2_SOLDIER_BIOTIC_FIELD_COOLDOWN"
+            ],
+            "targetTokens": [
+              "SET_ARAM_TEAM1_SOLDIER_ABILITY2_COOLDOWN_TARGET",
+              "OW2_SOLDIER_BIOTIC_FIELD_COOLDOWN"
+            ]
           }
         ]
       },
@@ -3054,13 +3468,19 @@
           "team": "team1",
           "hero": "soldier",
           "field": "ability2Cooldown%",
-          "value": "56",
+          "value": "ratioPercent(SET_ARAM_TEAM1_SOLDIER_ABILITY2_COOLDOWN_TARGET, OW2_SOLDIER_BIOTIC_FIELD_COOLDOWN)",
           "file": "src/aram_settings.opy",
           "line": 55,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_TEAM1_SOLDIER_ABILITY2_COOLDOWN_TARGET",
+            "OW2_SOLDIER_BIOTIC_FIELD_COOLDOWN"
+          ],
+          "targetTokens": [
+            "SET_ARAM_TEAM1_SOLDIER_ABILITY2_COOLDOWN_TARGET",
+            "OW2_SOLDIER_BIOTIC_FIELD_COOLDOWN"
+          ]
         }
       ],
       "canonicalReference": "OW2_SOLDIER_BIOTIC_FIELD_COOLDOWN",
@@ -3144,26 +3564,38 @@
             "team": "team1",
             "hero": "orisa",
             "field": "ultGen%",
-            "value": "125",
+            "value": "ultGenPercent(OW2_ORISA_ULT_COST, SET_ARAM_TEAM1_ORISA_ULT_COST_TARGET)",
             "file": "src/aram_settings.opy",
             "line": 75,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "OW2_ORISA_ULT_COST",
+              "SET_ARAM_TEAM1_ORISA_ULT_COST_TARGET"
+            ],
+            "targetTokens": [
+              "OW2_ORISA_ULT_COST",
+              "SET_ARAM_TEAM1_ORISA_ULT_COST_TARGET"
+            ]
           },
           {
             "mode": "aram",
             "team": "team2",
             "hero": "orisa",
             "field": "ultGen%",
-            "value": "125",
+            "value": "ultGenPercent(OW2_ORISA_ULT_COST, SET_ARAM_TEAM2_ORISA_ULT_COST_TARGET)",
             "file": "src/aram_settings.opy",
             "line": 318,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "OW2_ORISA_ULT_COST",
+              "SET_ARAM_TEAM2_ORISA_ULT_COST_TARGET"
+            ],
+            "targetTokens": [
+              "OW2_ORISA_ULT_COST",
+              "SET_ARAM_TEAM2_ORISA_ULT_COST_TARGET"
+            ]
           }
         ]
       },
@@ -3173,26 +3605,38 @@
           "team": "team1",
           "hero": "orisa",
           "field": "ultGen%",
-          "value": "125",
+          "value": "ultGenPercent(OW2_ORISA_ULT_COST, SET_ARAM_TEAM1_ORISA_ULT_COST_TARGET)",
           "file": "src/aram_settings.opy",
           "line": 75,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "OW2_ORISA_ULT_COST",
+            "SET_ARAM_TEAM1_ORISA_ULT_COST_TARGET"
+          ],
+          "targetTokens": [
+            "OW2_ORISA_ULT_COST",
+            "SET_ARAM_TEAM1_ORISA_ULT_COST_TARGET"
+          ]
         },
         {
           "mode": "aram",
           "team": "team2",
           "hero": "orisa",
           "field": "ultGen%",
-          "value": "125",
+          "value": "ultGenPercent(OW2_ORISA_ULT_COST, SET_ARAM_TEAM2_ORISA_ULT_COST_TARGET)",
           "file": "src/aram_settings.opy",
           "line": 318,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "OW2_ORISA_ULT_COST",
+            "SET_ARAM_TEAM2_ORISA_ULT_COST_TARGET"
+          ],
+          "targetTokens": [
+            "OW2_ORISA_ULT_COST",
+            "SET_ARAM_TEAM2_ORISA_ULT_COST_TARGET"
+          ]
         }
       ],
       "canonicalReference": "OW2_ORISA_ULT_COST",
@@ -3237,26 +3681,38 @@
             "team": "team1",
             "hero": "ana",
             "field": "ability2Cooldown%",
-            "value": "50",
+            "value": "ratioPercent(SET_ARAM_TEAM1_ANA_ABILITY2_COOLDOWN_TARGET, OW2_ANA_BIOTIC_GRENADE_COOLDOWN)",
             "file": "src/aram_settings.opy",
             "line": 80,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_TEAM1_ANA_ABILITY2_COOLDOWN_TARGET",
+              "OW2_ANA_BIOTIC_GRENADE_COOLDOWN"
+            ],
+            "targetTokens": [
+              "SET_ARAM_TEAM1_ANA_ABILITY2_COOLDOWN_TARGET",
+              "OW2_ANA_BIOTIC_GRENADE_COOLDOWN"
+            ]
           },
           {
             "mode": "aram",
             "team": "team2",
             "hero": "ana",
             "field": "ability2Cooldown%",
-            "value": "57",
+            "value": "ratioPercent(SET_ARAM_TEAM2_ANA_ABILITY2_COOLDOWN_TARGET, OW2_ANA_BIOTIC_GRENADE_COOLDOWN)",
             "file": "src/aram_settings.opy",
             "line": 323,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_TEAM2_ANA_ABILITY2_COOLDOWN_TARGET",
+              "OW2_ANA_BIOTIC_GRENADE_COOLDOWN"
+            ],
+            "targetTokens": [
+              "SET_ARAM_TEAM2_ANA_ABILITY2_COOLDOWN_TARGET",
+              "OW2_ANA_BIOTIC_GRENADE_COOLDOWN"
+            ]
           }
         ]
       },
@@ -3266,26 +3722,38 @@
           "team": "team1",
           "hero": "ana",
           "field": "ability2Cooldown%",
-          "value": "50",
+          "value": "ratioPercent(SET_ARAM_TEAM1_ANA_ABILITY2_COOLDOWN_TARGET, OW2_ANA_BIOTIC_GRENADE_COOLDOWN)",
           "file": "src/aram_settings.opy",
           "line": 80,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_TEAM1_ANA_ABILITY2_COOLDOWN_TARGET",
+            "OW2_ANA_BIOTIC_GRENADE_COOLDOWN"
+          ],
+          "targetTokens": [
+            "SET_ARAM_TEAM1_ANA_ABILITY2_COOLDOWN_TARGET",
+            "OW2_ANA_BIOTIC_GRENADE_COOLDOWN"
+          ]
         },
         {
           "mode": "aram",
           "team": "team2",
           "hero": "ana",
           "field": "ability2Cooldown%",
-          "value": "57",
+          "value": "ratioPercent(SET_ARAM_TEAM2_ANA_ABILITY2_COOLDOWN_TARGET, OW2_ANA_BIOTIC_GRENADE_COOLDOWN)",
           "file": "src/aram_settings.opy",
           "line": 323,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_TEAM2_ANA_ABILITY2_COOLDOWN_TARGET",
+            "OW2_ANA_BIOTIC_GRENADE_COOLDOWN"
+          ],
+          "targetTokens": [
+            "SET_ARAM_TEAM2_ANA_ABILITY2_COOLDOWN_TARGET",
+            "OW2_ANA_BIOTIC_GRENADE_COOLDOWN"
+          ]
         }
       ],
       "canonicalReference": "OW2_ANA_BIOTIC_GRENADE_COOLDOWN",
@@ -3330,13 +3798,19 @@
             "team": "team1",
             "hero": "ana",
             "field": "ultGen%",
-            "value": "200",
+            "value": "ultGenPercent(OW2_ANA_ULT_COST, SET_ARAM_TEAM1_ANA_ULT_COST_TARGET)",
             "file": "src/aram_settings.opy",
             "line": 82,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "OW2_ANA_ULT_COST",
+              "SET_ARAM_TEAM1_ANA_ULT_COST_TARGET"
+            ],
+            "targetTokens": [
+              "OW2_ANA_ULT_COST",
+              "SET_ARAM_TEAM1_ANA_ULT_COST_TARGET"
+            ]
           }
         ]
       },
@@ -3346,13 +3820,19 @@
           "team": "team1",
           "hero": "ana",
           "field": "ultGen%",
-          "value": "200",
+          "value": "ultGenPercent(OW2_ANA_ULT_COST, SET_ARAM_TEAM1_ANA_ULT_COST_TARGET)",
           "file": "src/aram_settings.opy",
           "line": 82,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "OW2_ANA_ULT_COST",
+            "SET_ARAM_TEAM1_ANA_ULT_COST_TARGET"
+          ],
+          "targetTokens": [
+            "OW2_ANA_ULT_COST",
+            "SET_ARAM_TEAM1_ANA_ULT_COST_TARGET"
+          ]
         }
       ],
       "canonicalReference": "OW2_ANA_ULT_COST",
@@ -3397,26 +3877,38 @@
             "team": "team1",
             "hero": "ana",
             "field": "ability1Cooldown%",
-            "value": "50",
+            "value": "ratioPercent(SET_ARAM_TEAM1_ANA_ABILITY1_COOLDOWN_TARGET, OW2_ANA_SLEEP_DART_COOLDOWN_TIME)",
             "file": "src/aram_settings.opy",
             "line": 81,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_TEAM1_ANA_ABILITY1_COOLDOWN_TARGET",
+              "OW2_ANA_SLEEP_DART_COOLDOWN_TIME"
+            ],
+            "targetTokens": [
+              "SET_ARAM_TEAM1_ANA_ABILITY1_COOLDOWN_TARGET",
+              "OW2_ANA_SLEEP_DART_COOLDOWN_TIME"
+            ]
           },
           {
             "mode": "aram",
             "team": "team2",
             "hero": "ana",
             "field": "ability1Cooldown%",
-            "value": "57",
+            "value": "ratioPercent(SET_ARAM_TEAM2_ANA_ABILITY1_COOLDOWN_TARGET, OW2_ANA_SLEEP_DART_COOLDOWN_TIME)",
             "file": "src/aram_settings.opy",
             "line": 324,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_TEAM2_ANA_ABILITY1_COOLDOWN_TARGET",
+              "OW2_ANA_SLEEP_DART_COOLDOWN_TIME"
+            ],
+            "targetTokens": [
+              "SET_ARAM_TEAM2_ANA_ABILITY1_COOLDOWN_TARGET",
+              "OW2_ANA_SLEEP_DART_COOLDOWN_TIME"
+            ]
           }
         ]
       },
@@ -3426,26 +3918,38 @@
           "team": "team1",
           "hero": "ana",
           "field": "ability1Cooldown%",
-          "value": "50",
+          "value": "ratioPercent(SET_ARAM_TEAM1_ANA_ABILITY1_COOLDOWN_TARGET, OW2_ANA_SLEEP_DART_COOLDOWN_TIME)",
           "file": "src/aram_settings.opy",
           "line": 81,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_TEAM1_ANA_ABILITY1_COOLDOWN_TARGET",
+            "OW2_ANA_SLEEP_DART_COOLDOWN_TIME"
+          ],
+          "targetTokens": [
+            "SET_ARAM_TEAM1_ANA_ABILITY1_COOLDOWN_TARGET",
+            "OW2_ANA_SLEEP_DART_COOLDOWN_TIME"
+          ]
         },
         {
           "mode": "aram",
           "team": "team2",
           "hero": "ana",
           "field": "ability1Cooldown%",
-          "value": "57",
+          "value": "ratioPercent(SET_ARAM_TEAM2_ANA_ABILITY1_COOLDOWN_TARGET, OW2_ANA_SLEEP_DART_COOLDOWN_TIME)",
           "file": "src/aram_settings.opy",
           "line": 324,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_TEAM2_ANA_ABILITY1_COOLDOWN_TARGET",
+            "OW2_ANA_SLEEP_DART_COOLDOWN_TIME"
+          ],
+          "targetTokens": [
+            "SET_ARAM_TEAM2_ANA_ABILITY1_COOLDOWN_TARGET",
+            "OW2_ANA_SLEEP_DART_COOLDOWN_TIME"
+          ]
         }
       ],
       "canonicalReference": "OW2_ANA_SLEEP_DART_COOLDOWN_TIME",
@@ -3490,26 +3994,38 @@
             "team": "team1",
             "hero": "baptiste",
             "field": "ability1Cooldown%",
-            "value": "53",
+            "value": "ratioPercent(SET_ARAM_TEAM1_BAPTISTE_ABILITY1_COOLDOWN_TARGET, OW2_BAPTISTE_REGEN_BURST_COOLDOWN)",
             "file": "src/aram_settings.opy",
             "line": 87,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_TEAM1_BAPTISTE_ABILITY1_COOLDOWN_TARGET",
+              "OW2_BAPTISTE_REGEN_BURST_COOLDOWN"
+            ],
+            "targetTokens": [
+              "SET_ARAM_TEAM1_BAPTISTE_ABILITY1_COOLDOWN_TARGET",
+              "OW2_BAPTISTE_REGEN_BURST_COOLDOWN"
+            ]
           },
           {
             "mode": "aram",
             "team": "team2",
             "hero": "baptiste",
             "field": "ability1Cooldown%",
-            "value": "53",
+            "value": "ratioPercent(SET_ARAM_TEAM2_BAPTISTE_ABILITY1_COOLDOWN_TARGET, OW2_BAPTISTE_REGEN_BURST_COOLDOWN)",
             "file": "src/aram_settings.opy",
             "line": 329,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_TEAM2_BAPTISTE_ABILITY1_COOLDOWN_TARGET",
+              "OW2_BAPTISTE_REGEN_BURST_COOLDOWN"
+            ],
+            "targetTokens": [
+              "SET_ARAM_TEAM2_BAPTISTE_ABILITY1_COOLDOWN_TARGET",
+              "OW2_BAPTISTE_REGEN_BURST_COOLDOWN"
+            ]
           }
         ]
       },
@@ -3519,26 +4035,38 @@
           "team": "team1",
           "hero": "baptiste",
           "field": "ability1Cooldown%",
-          "value": "53",
+          "value": "ratioPercent(SET_ARAM_TEAM1_BAPTISTE_ABILITY1_COOLDOWN_TARGET, OW2_BAPTISTE_REGEN_BURST_COOLDOWN)",
           "file": "src/aram_settings.opy",
           "line": 87,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_TEAM1_BAPTISTE_ABILITY1_COOLDOWN_TARGET",
+            "OW2_BAPTISTE_REGEN_BURST_COOLDOWN"
+          ],
+          "targetTokens": [
+            "SET_ARAM_TEAM1_BAPTISTE_ABILITY1_COOLDOWN_TARGET",
+            "OW2_BAPTISTE_REGEN_BURST_COOLDOWN"
+          ]
         },
         {
           "mode": "aram",
           "team": "team2",
           "hero": "baptiste",
           "field": "ability1Cooldown%",
-          "value": "53",
+          "value": "ratioPercent(SET_ARAM_TEAM2_BAPTISTE_ABILITY1_COOLDOWN_TARGET, OW2_BAPTISTE_REGEN_BURST_COOLDOWN)",
           "file": "src/aram_settings.opy",
           "line": 329,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_TEAM2_BAPTISTE_ABILITY1_COOLDOWN_TARGET",
+            "OW2_BAPTISTE_REGEN_BURST_COOLDOWN"
+          ],
+          "targetTokens": [
+            "SET_ARAM_TEAM2_BAPTISTE_ABILITY1_COOLDOWN_TARGET",
+            "OW2_BAPTISTE_REGEN_BURST_COOLDOWN"
+          ]
         }
       ],
       "canonicalReference": "OW2_BAPTISTE_REGEN_BURST_COOLDOWN",
@@ -3583,26 +4111,38 @@
             "team": "team1",
             "hero": "baptiste",
             "field": "ability2Cooldown%",
-            "value": "48",
+            "value": "ratioPercent(SET_ARAM_TEAM1_BAPTISTE_ABILITY2_COOLDOWN_TARGET, OW2_BAPTISTE_LAMP_COOLDOWN_TIME)",
             "file": "src/aram_settings.opy",
             "line": 91,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_TEAM1_BAPTISTE_ABILITY2_COOLDOWN_TARGET",
+              "OW2_BAPTISTE_LAMP_COOLDOWN_TIME"
+            ],
+            "targetTokens": [
+              "SET_ARAM_TEAM1_BAPTISTE_ABILITY2_COOLDOWN_TARGET",
+              "OW2_BAPTISTE_LAMP_COOLDOWN_TIME"
+            ]
           },
           {
             "mode": "aram",
             "team": "team2",
             "hero": "baptiste",
             "field": "ability2Cooldown%",
-            "value": "48",
+            "value": "ratioPercent(SET_ARAM_TEAM2_BAPTISTE_ABILITY2_COOLDOWN_TARGET, OW2_BAPTISTE_LAMP_COOLDOWN_TIME)",
             "file": "src/aram_settings.opy",
             "line": 332,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_TEAM2_BAPTISTE_ABILITY2_COOLDOWN_TARGET",
+              "OW2_BAPTISTE_LAMP_COOLDOWN_TIME"
+            ],
+            "targetTokens": [
+              "SET_ARAM_TEAM2_BAPTISTE_ABILITY2_COOLDOWN_TARGET",
+              "OW2_BAPTISTE_LAMP_COOLDOWN_TIME"
+            ]
           }
         ]
       },
@@ -3612,26 +4152,38 @@
           "team": "team1",
           "hero": "baptiste",
           "field": "ability2Cooldown%",
-          "value": "48",
+          "value": "ratioPercent(SET_ARAM_TEAM1_BAPTISTE_ABILITY2_COOLDOWN_TARGET, OW2_BAPTISTE_LAMP_COOLDOWN_TIME)",
           "file": "src/aram_settings.opy",
           "line": 91,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_TEAM1_BAPTISTE_ABILITY2_COOLDOWN_TARGET",
+            "OW2_BAPTISTE_LAMP_COOLDOWN_TIME"
+          ],
+          "targetTokens": [
+            "SET_ARAM_TEAM1_BAPTISTE_ABILITY2_COOLDOWN_TARGET",
+            "OW2_BAPTISTE_LAMP_COOLDOWN_TIME"
+          ]
         },
         {
           "mode": "aram",
           "team": "team2",
           "hero": "baptiste",
           "field": "ability2Cooldown%",
-          "value": "48",
+          "value": "ratioPercent(SET_ARAM_TEAM2_BAPTISTE_ABILITY2_COOLDOWN_TARGET, OW2_BAPTISTE_LAMP_COOLDOWN_TIME)",
           "file": "src/aram_settings.opy",
           "line": 332,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_TEAM2_BAPTISTE_ABILITY2_COOLDOWN_TARGET",
+            "OW2_BAPTISTE_LAMP_COOLDOWN_TIME"
+          ],
+          "targetTokens": [
+            "SET_ARAM_TEAM2_BAPTISTE_ABILITY2_COOLDOWN_TARGET",
+            "OW2_BAPTISTE_LAMP_COOLDOWN_TIME"
+          ]
         }
       ],
       "canonicalReference": "OW2_BAPTISTE_LAMP_COOLDOWN_TIME",
@@ -3793,26 +4345,38 @@
             "team": "team1",
             "hero": "brigitte",
             "field": "shieldBashKb%",
-            "value": "50",
+            "value": "ratioPercent(SET_ARAM_TEAM1_BRIGITTE_SHIELD_BASH_KB_TARGET, OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK)",
             "file": "src/aram_settings.opy",
             "line": 101,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_TEAM1_BRIGITTE_SHIELD_BASH_KB_TARGET",
+              "OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK"
+            ],
+            "targetTokens": [
+              "SET_ARAM_TEAM1_BRIGITTE_SHIELD_BASH_KB_TARGET",
+              "OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK"
+            ]
           },
           {
             "mode": "aram",
             "team": "team2",
             "hero": "brigitte",
             "field": "shieldBashKb%",
-            "value": "50",
+            "value": "ratioPercent(SET_ARAM_TEAM2_BRIGITTE_SHIELD_BASH_KB_TARGET, OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK)",
             "file": "src/aram_settings.opy",
             "line": 341,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_TEAM2_BRIGITTE_SHIELD_BASH_KB_TARGET",
+              "OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK"
+            ],
+            "targetTokens": [
+              "SET_ARAM_TEAM2_BRIGITTE_SHIELD_BASH_KB_TARGET",
+              "OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK"
+            ]
           }
         ]
       },
@@ -3822,26 +4386,38 @@
           "team": "team1",
           "hero": "brigitte",
           "field": "shieldBashKb%",
-          "value": "50",
+          "value": "ratioPercent(SET_ARAM_TEAM1_BRIGITTE_SHIELD_BASH_KB_TARGET, OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK)",
           "file": "src/aram_settings.opy",
           "line": 101,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_TEAM1_BRIGITTE_SHIELD_BASH_KB_TARGET",
+            "OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK"
+          ],
+          "targetTokens": [
+            "SET_ARAM_TEAM1_BRIGITTE_SHIELD_BASH_KB_TARGET",
+            "OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK"
+          ]
         },
         {
           "mode": "aram",
           "team": "team2",
           "hero": "brigitte",
           "field": "shieldBashKb%",
-          "value": "50",
+          "value": "ratioPercent(SET_ARAM_TEAM2_BRIGITTE_SHIELD_BASH_KB_TARGET, OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK)",
           "file": "src/aram_settings.opy",
           "line": 341,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_TEAM2_BRIGITTE_SHIELD_BASH_KB_TARGET",
+            "OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK"
+          ],
+          "targetTokens": [
+            "SET_ARAM_TEAM2_BRIGITTE_SHIELD_BASH_KB_TARGET",
+            "OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK"
+          ]
         }
       ],
       "canonicalReference": "OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK",
@@ -3964,13 +4540,19 @@
             "team": "team1",
             "hero": "ramattra",
             "field": "ability1Cooldown%",
-            "value": "86",
+            "value": "ratioPercent(SET_ARAM_TEAM1_RAMATTRA_ABILITY1_COOLDOWN_TARGET, OW2_RAMATTRA_NEMESIS_COOLDOWN)",
             "file": "src/aram_settings.opy",
             "line": 113,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_TEAM1_RAMATTRA_ABILITY1_COOLDOWN_TARGET",
+              "OW2_RAMATTRA_NEMESIS_COOLDOWN"
+            ],
+            "targetTokens": [
+              "SET_ARAM_TEAM1_RAMATTRA_ABILITY1_COOLDOWN_TARGET",
+              "OW2_RAMATTRA_NEMESIS_COOLDOWN"
+            ]
           }
         ]
       },
@@ -3980,13 +4562,19 @@
           "team": "team1",
           "hero": "ramattra",
           "field": "ability1Cooldown%",
-          "value": "86",
+          "value": "ratioPercent(SET_ARAM_TEAM1_RAMATTRA_ABILITY1_COOLDOWN_TARGET, OW2_RAMATTRA_NEMESIS_COOLDOWN)",
           "file": "src/aram_settings.opy",
           "line": 113,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_TEAM1_RAMATTRA_ABILITY1_COOLDOWN_TARGET",
+            "OW2_RAMATTRA_NEMESIS_COOLDOWN"
+          ],
+          "targetTokens": [
+            "SET_ARAM_TEAM1_RAMATTRA_ABILITY1_COOLDOWN_TARGET",
+            "OW2_RAMATTRA_NEMESIS_COOLDOWN"
+          ]
         }
       ],
       "canonicalReference": "OW2_RAMATTRA_NEMESIS_COOLDOWN",
@@ -4031,13 +4619,19 @@
             "team": "team1",
             "hero": "ramattra",
             "field": "ultGen%",
-            "value": "500",
+            "value": "ultGenPercent(OW2_RAMATTRA_ULT_COST, SET_ARAM_TEAM1_RAMATTRA_ULT_COST_TARGET)",
             "file": "src/aram_settings.opy",
             "line": 115,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "OW2_RAMATTRA_ULT_COST",
+              "SET_ARAM_TEAM1_RAMATTRA_ULT_COST_TARGET"
+            ],
+            "targetTokens": [
+              "OW2_RAMATTRA_ULT_COST",
+              "SET_ARAM_TEAM1_RAMATTRA_ULT_COST_TARGET"
+            ]
           }
         ]
       },
@@ -4047,13 +4641,19 @@
           "team": "team1",
           "hero": "ramattra",
           "field": "ultGen%",
-          "value": "500",
+          "value": "ultGenPercent(OW2_RAMATTRA_ULT_COST, SET_ARAM_TEAM1_RAMATTRA_ULT_COST_TARGET)",
           "file": "src/aram_settings.opy",
           "line": 115,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "OW2_RAMATTRA_ULT_COST",
+            "SET_ARAM_TEAM1_RAMATTRA_ULT_COST_TARGET"
+          ],
+          "targetTokens": [
+            "OW2_RAMATTRA_ULT_COST",
+            "SET_ARAM_TEAM1_RAMATTRA_ULT_COST_TARGET"
+          ]
         }
       ],
       "canonicalReference": "OW2_RAMATTRA_ULT_COST",
@@ -4176,13 +4776,19 @@
             "team": "allTeams",
             "hero": "illari",
             "field": "ability2Cooldown%",
-            "value": "50",
+            "value": "ratioPercent(SET_ARAM_ALLTEAMS_ILLARI_ABILITY2_COOLDOWN_TARGET, OW2_ILLARI_PYLON_COOLDOWN)",
             "file": "src/aram_settings.opy",
             "line": 507,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_ALLTEAMS_ILLARI_ABILITY2_COOLDOWN_TARGET",
+              "OW2_ILLARI_PYLON_COOLDOWN"
+            ],
+            "targetTokens": [
+              "SET_ARAM_ALLTEAMS_ILLARI_ABILITY2_COOLDOWN_TARGET",
+              "OW2_ILLARI_PYLON_COOLDOWN"
+            ]
           }
         ]
       },
@@ -4192,13 +4798,19 @@
           "team": "allTeams",
           "hero": "illari",
           "field": "ability2Cooldown%",
-          "value": "50",
+          "value": "ratioPercent(SET_ARAM_ALLTEAMS_ILLARI_ABILITY2_COOLDOWN_TARGET, OW2_ILLARI_PYLON_COOLDOWN)",
           "file": "src/aram_settings.opy",
           "line": 507,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_ALLTEAMS_ILLARI_ABILITY2_COOLDOWN_TARGET",
+            "OW2_ILLARI_PYLON_COOLDOWN"
+          ],
+          "targetTokens": [
+            "SET_ARAM_ALLTEAMS_ILLARI_ABILITY2_COOLDOWN_TARGET",
+            "OW2_ILLARI_PYLON_COOLDOWN"
+          ]
         }
       ],
       "canonicalReference": "OW2_ILLARI_PYLON_COOLDOWN",
@@ -4243,13 +4855,19 @@
             "team": "allTeams",
             "hero": "juno",
             "field": "ultGen%",
-            "value": "175",
+            "value": "ultGenPercent(OW2_JUNO_ULT_COST, SET_ARAM_ALLTEAMS_JUNO_ULT_COST_TARGET)",
             "file": "src/aram_settings.opy",
             "line": 522,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "OW2_JUNO_ULT_COST",
+              "SET_ARAM_ALLTEAMS_JUNO_ULT_COST_TARGET"
+            ],
+            "targetTokens": [
+              "OW2_JUNO_ULT_COST",
+              "SET_ARAM_ALLTEAMS_JUNO_ULT_COST_TARGET"
+            ]
           }
         ]
       },
@@ -4259,13 +4877,19 @@
           "team": "allTeams",
           "hero": "juno",
           "field": "ultGen%",
-          "value": "175",
+          "value": "ultGenPercent(OW2_JUNO_ULT_COST, SET_ARAM_ALLTEAMS_JUNO_ULT_COST_TARGET)",
           "file": "src/aram_settings.opy",
           "line": 522,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "OW2_JUNO_ULT_COST",
+            "SET_ARAM_ALLTEAMS_JUNO_ULT_COST_TARGET"
+          ],
+          "targetTokens": [
+            "OW2_JUNO_ULT_COST",
+            "SET_ARAM_ALLTEAMS_JUNO_ULT_COST_TARGET"
+          ]
         }
       ],
       "canonicalReference": "OW2_JUNO_ULT_COST",
@@ -4310,26 +4934,38 @@
             "team": "team1",
             "hero": "doomfist",
             "field": "ammoRegenerationTime%",
-            "value": "80",
+            "value": "ratioPercent(SET_ARAM_TEAM1_DOOMFIST_AMMO_REGENERATION_TIME_TARGET, OW2_DOOMFIST_AMMO_REGEN)",
             "file": "src/aram_settings.opy",
             "line": 122,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_TEAM1_DOOMFIST_AMMO_REGENERATION_TIME_TARGET",
+              "OW2_DOOMFIST_AMMO_REGEN"
+            ],
+            "targetTokens": [
+              "SET_ARAM_TEAM1_DOOMFIST_AMMO_REGENERATION_TIME_TARGET",
+              "OW2_DOOMFIST_AMMO_REGEN"
+            ]
           },
           {
             "mode": "aram",
             "team": "team2",
             "hero": "doomfist",
             "field": "ammoRegenerationTime%",
-            "value": "80",
+            "value": "ratioPercent(SET_ARAM_TEAM2_DOOMFIST_AMMO_REGENERATION_TIME_TARGET, OW2_DOOMFIST_AMMO_REGEN)",
             "file": "src/aram_settings.opy",
             "line": 359,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_TEAM2_DOOMFIST_AMMO_REGENERATION_TIME_TARGET",
+              "OW2_DOOMFIST_AMMO_REGEN"
+            ],
+            "targetTokens": [
+              "SET_ARAM_TEAM2_DOOMFIST_AMMO_REGENERATION_TIME_TARGET",
+              "OW2_DOOMFIST_AMMO_REGEN"
+            ]
           }
         ]
       },
@@ -4339,26 +4975,38 @@
           "team": "team1",
           "hero": "doomfist",
           "field": "ammoRegenerationTime%",
-          "value": "80",
+          "value": "ratioPercent(SET_ARAM_TEAM1_DOOMFIST_AMMO_REGENERATION_TIME_TARGET, OW2_DOOMFIST_AMMO_REGEN)",
           "file": "src/aram_settings.opy",
           "line": 122,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_TEAM1_DOOMFIST_AMMO_REGENERATION_TIME_TARGET",
+            "OW2_DOOMFIST_AMMO_REGEN"
+          ],
+          "targetTokens": [
+            "SET_ARAM_TEAM1_DOOMFIST_AMMO_REGENERATION_TIME_TARGET",
+            "OW2_DOOMFIST_AMMO_REGEN"
+          ]
         },
         {
           "mode": "aram",
           "team": "team2",
           "hero": "doomfist",
           "field": "ammoRegenerationTime%",
-          "value": "80",
+          "value": "ratioPercent(SET_ARAM_TEAM2_DOOMFIST_AMMO_REGENERATION_TIME_TARGET, OW2_DOOMFIST_AMMO_REGEN)",
           "file": "src/aram_settings.opy",
           "line": 359,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_TEAM2_DOOMFIST_AMMO_REGENERATION_TIME_TARGET",
+            "OW2_DOOMFIST_AMMO_REGEN"
+          ],
+          "targetTokens": [
+            "SET_ARAM_TEAM2_DOOMFIST_AMMO_REGENERATION_TIME_TARGET",
+            "OW2_DOOMFIST_AMMO_REGEN"
+          ]
         }
       ],
       "canonicalReference": "OW2_DOOMFIST_AMMO_REGEN",
@@ -4715,13 +5363,19 @@
             "team": "team2",
             "hero": "junkrat",
             "field": "ultGen%",
-            "value": "95",
+            "value": "ultGenPercent(OW2_JUNKRAT_ULT_COST, SET_ARAM_TEAM2_JUNKRAT_ULT_COST_TARGET)",
             "file": "src/aram_settings.opy",
             "line": 404,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "OW2_JUNKRAT_ULT_COST",
+              "SET_ARAM_TEAM2_JUNKRAT_ULT_COST_TARGET"
+            ],
+            "targetTokens": [
+              "OW2_JUNKRAT_ULT_COST",
+              "SET_ARAM_TEAM2_JUNKRAT_ULT_COST_TARGET"
+            ]
           }
         ]
       },
@@ -4731,13 +5385,19 @@
           "team": "team2",
           "hero": "junkrat",
           "field": "ultGen%",
-          "value": "95",
+          "value": "ultGenPercent(OW2_JUNKRAT_ULT_COST, SET_ARAM_TEAM2_JUNKRAT_ULT_COST_TARGET)",
           "file": "src/aram_settings.opy",
           "line": 404,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "OW2_JUNKRAT_ULT_COST",
+            "SET_ARAM_TEAM2_JUNKRAT_ULT_COST_TARGET"
+          ],
+          "targetTokens": [
+            "OW2_JUNKRAT_ULT_COST",
+            "SET_ARAM_TEAM2_JUNKRAT_ULT_COST_TARGET"
+          ]
         }
       ],
       "canonicalReference": "OW2_JUNKRAT_ULT_COST",
@@ -4860,13 +5520,19 @@
             "team": "team1",
             "hero": "zenyatta",
             "field": "ultGen%",
-            "value": "160",
+            "value": "ultGenPercent(OW2_ZENYATTA_ULT_COST, SET_ARAM_TEAM1_ZENYATTA_ULT_COST_TARGET)",
             "file": "src/aram_settings.opy",
             "line": 180,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "OW2_ZENYATTA_ULT_COST",
+              "SET_ARAM_TEAM1_ZENYATTA_ULT_COST_TARGET"
+            ],
+            "targetTokens": [
+              "OW2_ZENYATTA_ULT_COST",
+              "SET_ARAM_TEAM1_ZENYATTA_ULT_COST_TARGET"
+            ]
           }
         ]
       },
@@ -4876,13 +5542,19 @@
           "team": "team1",
           "hero": "zenyatta",
           "field": "ultGen%",
-          "value": "160",
+          "value": "ultGenPercent(OW2_ZENYATTA_ULT_COST, SET_ARAM_TEAM1_ZENYATTA_ULT_COST_TARGET)",
           "file": "src/aram_settings.opy",
           "line": 180,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "OW2_ZENYATTA_ULT_COST",
+            "SET_ARAM_TEAM1_ZENYATTA_ULT_COST_TARGET"
+          ],
+          "targetTokens": [
+            "OW2_ZENYATTA_ULT_COST",
+            "SET_ARAM_TEAM1_ZENYATTA_ULT_COST_TARGET"
+          ]
         }
       ],
       "canonicalReference": "OW2_ZENYATTA_ULT_COST",
@@ -4966,26 +5638,38 @@
             "team": "team1",
             "hero": "reinhardt",
             "field": "ability1Cooldown%",
-            "value": "10",
+            "value": "ratioPercent(SET_ARAM_TEAM1_REINHARDT_ABILITY1_COOLDOWN_TARGET, OW2_REINHARDT_CHARGE_COOLDOWN_TIME)",
             "file": "src/aram_settings.opy",
             "line": 224,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_TEAM1_REINHARDT_ABILITY1_COOLDOWN_TARGET",
+              "OW2_REINHARDT_CHARGE_COOLDOWN_TIME"
+            ],
+            "targetTokens": [
+              "SET_ARAM_TEAM1_REINHARDT_ABILITY1_COOLDOWN_TARGET",
+              "OW2_REINHARDT_CHARGE_COOLDOWN_TIME"
+            ]
           },
           {
             "mode": "aram",
             "team": "team2",
             "hero": "reinhardt",
             "field": "ability1Cooldown%",
-            "value": "20",
+            "value": "ratioPercent(SET_ARAM_TEAM2_REINHARDT_ABILITY1_COOLDOWN_TARGET, OW2_REINHARDT_CHARGE_COOLDOWN_TIME)",
             "file": "src/aram_settings.opy",
             "line": 456,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_TEAM2_REINHARDT_ABILITY1_COOLDOWN_TARGET",
+              "OW2_REINHARDT_CHARGE_COOLDOWN_TIME"
+            ],
+            "targetTokens": [
+              "SET_ARAM_TEAM2_REINHARDT_ABILITY1_COOLDOWN_TARGET",
+              "OW2_REINHARDT_CHARGE_COOLDOWN_TIME"
+            ]
           }
         ]
       },
@@ -4995,26 +5679,38 @@
           "team": "team1",
           "hero": "reinhardt",
           "field": "ability1Cooldown%",
-          "value": "10",
+          "value": "ratioPercent(SET_ARAM_TEAM1_REINHARDT_ABILITY1_COOLDOWN_TARGET, OW2_REINHARDT_CHARGE_COOLDOWN_TIME)",
           "file": "src/aram_settings.opy",
           "line": 224,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_TEAM1_REINHARDT_ABILITY1_COOLDOWN_TARGET",
+            "OW2_REINHARDT_CHARGE_COOLDOWN_TIME"
+          ],
+          "targetTokens": [
+            "SET_ARAM_TEAM1_REINHARDT_ABILITY1_COOLDOWN_TARGET",
+            "OW2_REINHARDT_CHARGE_COOLDOWN_TIME"
+          ]
         },
         {
           "mode": "aram",
           "team": "team2",
           "hero": "reinhardt",
           "field": "ability1Cooldown%",
-          "value": "20",
+          "value": "ratioPercent(SET_ARAM_TEAM2_REINHARDT_ABILITY1_COOLDOWN_TARGET, OW2_REINHARDT_CHARGE_COOLDOWN_TIME)",
           "file": "src/aram_settings.opy",
           "line": 456,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_TEAM2_REINHARDT_ABILITY1_COOLDOWN_TARGET",
+            "OW2_REINHARDT_CHARGE_COOLDOWN_TIME"
+          ],
+          "targetTokens": [
+            "SET_ARAM_TEAM2_REINHARDT_ABILITY1_COOLDOWN_TARGET",
+            "OW2_REINHARDT_CHARGE_COOLDOWN_TIME"
+          ]
         }
       ],
       "canonicalReference": "OW2_REINHARDT_CHARGE_COOLDOWN_TIME",
@@ -5059,26 +5755,38 @@
             "team": "team1",
             "hero": "reinhardt",
             "field": "secondaryFireRechargeRate%",
-            "value": "170",
+            "value": "ratioPercent(SET_ARAM_TEAM1_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET, OW2_REINHARDT_BARRIER_REGEN)",
             "file": "src/aram_settings.opy",
             "line": 226,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_TEAM1_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET",
+              "OW2_REINHARDT_BARRIER_REGEN"
+            ],
+            "targetTokens": [
+              "SET_ARAM_TEAM1_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET",
+              "OW2_REINHARDT_BARRIER_REGEN"
+            ]
           },
           {
             "mode": "aram",
             "team": "team2",
             "hero": "reinhardt",
             "field": "secondaryFireRechargeRate%",
-            "value": "130",
+            "value": "ratioPercent(SET_ARAM_TEAM2_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET, OW2_REINHARDT_BARRIER_REGEN)",
             "file": "src/aram_settings.opy",
             "line": 458,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_TEAM2_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET",
+              "OW2_REINHARDT_BARRIER_REGEN"
+            ],
+            "targetTokens": [
+              "SET_ARAM_TEAM2_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET",
+              "OW2_REINHARDT_BARRIER_REGEN"
+            ]
           }
         ]
       },
@@ -5088,26 +5796,38 @@
           "team": "team1",
           "hero": "reinhardt",
           "field": "secondaryFireRechargeRate%",
-          "value": "170",
+          "value": "ratioPercent(SET_ARAM_TEAM1_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET, OW2_REINHARDT_BARRIER_REGEN)",
           "file": "src/aram_settings.opy",
           "line": 226,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_TEAM1_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET",
+            "OW2_REINHARDT_BARRIER_REGEN"
+          ],
+          "targetTokens": [
+            "SET_ARAM_TEAM1_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET",
+            "OW2_REINHARDT_BARRIER_REGEN"
+          ]
         },
         {
           "mode": "aram",
           "team": "team2",
           "hero": "reinhardt",
           "field": "secondaryFireRechargeRate%",
-          "value": "130",
+          "value": "ratioPercent(SET_ARAM_TEAM2_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET, OW2_REINHARDT_BARRIER_REGEN)",
           "file": "src/aram_settings.opy",
           "line": 458,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_TEAM2_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET",
+            "OW2_REINHARDT_BARRIER_REGEN"
+          ],
+          "targetTokens": [
+            "SET_ARAM_TEAM2_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET",
+            "OW2_REINHARDT_BARRIER_REGEN"
+          ]
         }
       ],
       "canonicalReference": "OW2_REINHARDT_BARRIER_REGEN",
@@ -5347,26 +6067,38 @@
             "team": "team1",
             "hero": "kiriko",
             "field": "ability2Cooldown%",
-            "value": "43",
+            "value": "ratioPercent(SET_ARAM_TEAM1_KIRIKO_ABILITY2_COOLDOWN_TARGET, OW2_KIRIKO_SUZU_COOLDOWN)",
             "file": "src/aram_settings.opy",
             "line": 246,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_TEAM1_KIRIKO_ABILITY2_COOLDOWN_TARGET",
+              "OW2_KIRIKO_SUZU_COOLDOWN"
+            ],
+            "targetTokens": [
+              "SET_ARAM_TEAM1_KIRIKO_ABILITY2_COOLDOWN_TARGET",
+              "OW2_KIRIKO_SUZU_COOLDOWN"
+            ]
           },
           {
             "mode": "aram",
             "team": "team2",
             "hero": "kiriko",
             "field": "ability2Cooldown%",
-            "value": "43",
+            "value": "ratioPercent(SET_ARAM_TEAM2_KIRIKO_ABILITY2_COOLDOWN_TARGET, OW2_KIRIKO_SUZU_COOLDOWN)",
             "file": "src/aram_settings.opy",
             "line": 474,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_TEAM2_KIRIKO_ABILITY2_COOLDOWN_TARGET",
+              "OW2_KIRIKO_SUZU_COOLDOWN"
+            ],
+            "targetTokens": [
+              "SET_ARAM_TEAM2_KIRIKO_ABILITY2_COOLDOWN_TARGET",
+              "OW2_KIRIKO_SUZU_COOLDOWN"
+            ]
           }
         ]
       },
@@ -5376,26 +6108,38 @@
           "team": "team1",
           "hero": "kiriko",
           "field": "ability2Cooldown%",
-          "value": "43",
+          "value": "ratioPercent(SET_ARAM_TEAM1_KIRIKO_ABILITY2_COOLDOWN_TARGET, OW2_KIRIKO_SUZU_COOLDOWN)",
           "file": "src/aram_settings.opy",
           "line": 246,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_TEAM1_KIRIKO_ABILITY2_COOLDOWN_TARGET",
+            "OW2_KIRIKO_SUZU_COOLDOWN"
+          ],
+          "targetTokens": [
+            "SET_ARAM_TEAM1_KIRIKO_ABILITY2_COOLDOWN_TARGET",
+            "OW2_KIRIKO_SUZU_COOLDOWN"
+          ]
         },
         {
           "mode": "aram",
           "team": "team2",
           "hero": "kiriko",
           "field": "ability2Cooldown%",
-          "value": "43",
+          "value": "ratioPercent(SET_ARAM_TEAM2_KIRIKO_ABILITY2_COOLDOWN_TARGET, OW2_KIRIKO_SUZU_COOLDOWN)",
           "file": "src/aram_settings.opy",
           "line": 474,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_TEAM2_KIRIKO_ABILITY2_COOLDOWN_TARGET",
+            "OW2_KIRIKO_SUZU_COOLDOWN"
+          ],
+          "targetTokens": [
+            "SET_ARAM_TEAM2_KIRIKO_ABILITY2_COOLDOWN_TARGET",
+            "OW2_KIRIKO_SUZU_COOLDOWN"
+          ]
         }
       ],
       "canonicalReference": "OW2_KIRIKO_SUZU_COOLDOWN",
@@ -5518,13 +6262,19 @@
             "team": "allTeams",
             "hero": "domina",
             "field": "ability2Cooldown%",
-            "value": "50",
+            "value": "ratioPercent(SET_ARAM_ALLTEAMS_DOMINA_ABILITY2_COOLDOWN_TARGET, OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN)",
             "file": "src/aram_settings.opy",
             "line": 553,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_ALLTEAMS_DOMINA_ABILITY2_COOLDOWN_TARGET",
+              "OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN"
+            ],
+            "targetTokens": [
+              "SET_ARAM_ALLTEAMS_DOMINA_ABILITY2_COOLDOWN_TARGET",
+              "OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN"
+            ]
           }
         ]
       },
@@ -5534,13 +6284,19 @@
           "team": "allTeams",
           "hero": "domina",
           "field": "ability2Cooldown%",
-          "value": "50",
+          "value": "ratioPercent(SET_ARAM_ALLTEAMS_DOMINA_ABILITY2_COOLDOWN_TARGET, OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN)",
           "file": "src/aram_settings.opy",
           "line": 553,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_ALLTEAMS_DOMINA_ABILITY2_COOLDOWN_TARGET",
+            "OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN"
+          ],
+          "targetTokens": [
+            "SET_ARAM_ALLTEAMS_DOMINA_ABILITY2_COOLDOWN_TARGET",
+            "OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN"
+          ]
         }
       ],
       "canonicalReference": "OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN",
@@ -5585,13 +6341,19 @@
             "team": "allTeams",
             "hero": "domina",
             "field": "secondaryFireCooldown%",
-            "value": "42",
+            "value": "ratioPercent(SET_ARAM_ALLTEAMS_DOMINA_SECONDARY_FIRE_COOLDOWN_TARGET, OW2_DOMINA_BARRIER_ARRAY_COOLDOWN)",
             "file": "src/aram_settings.opy",
             "line": 552,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_ALLTEAMS_DOMINA_SECONDARY_FIRE_COOLDOWN_TARGET",
+              "OW2_DOMINA_BARRIER_ARRAY_COOLDOWN"
+            ],
+            "targetTokens": [
+              "SET_ARAM_ALLTEAMS_DOMINA_SECONDARY_FIRE_COOLDOWN_TARGET",
+              "OW2_DOMINA_BARRIER_ARRAY_COOLDOWN"
+            ]
           }
         ]
       },
@@ -5601,13 +6363,19 @@
           "team": "allTeams",
           "hero": "domina",
           "field": "secondaryFireCooldown%",
-          "value": "42",
+          "value": "ratioPercent(SET_ARAM_ALLTEAMS_DOMINA_SECONDARY_FIRE_COOLDOWN_TARGET, OW2_DOMINA_BARRIER_ARRAY_COOLDOWN)",
           "file": "src/aram_settings.opy",
           "line": 552,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_ALLTEAMS_DOMINA_SECONDARY_FIRE_COOLDOWN_TARGET",
+            "OW2_DOMINA_BARRIER_ARRAY_COOLDOWN"
+          ],
+          "targetTokens": [
+            "SET_ARAM_ALLTEAMS_DOMINA_SECONDARY_FIRE_COOLDOWN_TARGET",
+            "OW2_DOMINA_BARRIER_ARRAY_COOLDOWN"
+          ]
         }
       ],
       "canonicalReference": "OW2_DOMINA_BARRIER_ARRAY_COOLDOWN",
@@ -5652,26 +6420,38 @@
             "team": "team1",
             "hero": "sombra",
             "field": "secondaryFireCooldown%",
-            "value": "84",
+            "value": "ratioPercent(SET_ARAM_TEAM1_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET, OW2_SOMBRA_HACK_COOLDOWN_TIME)",
             "file": "src/aram_settings.opy",
             "line": 254,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_TEAM1_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET",
+              "OW2_SOMBRA_HACK_COOLDOWN_TIME"
+            ],
+            "targetTokens": [
+              "SET_ARAM_TEAM1_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET",
+              "OW2_SOMBRA_HACK_COOLDOWN_TIME"
+            ]
           },
           {
             "mode": "aram",
             "team": "team2",
             "hero": "sombra",
             "field": "secondaryFireCooldown%",
-            "value": "84",
+            "value": "ratioPercent(SET_ARAM_TEAM2_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET, OW2_SOMBRA_HACK_COOLDOWN_TIME)",
             "file": "src/aram_settings.opy",
             "line": 479,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_TEAM2_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET",
+              "OW2_SOMBRA_HACK_COOLDOWN_TIME"
+            ],
+            "targetTokens": [
+              "SET_ARAM_TEAM2_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET",
+              "OW2_SOMBRA_HACK_COOLDOWN_TIME"
+            ]
           }
         ]
       },
@@ -5681,26 +6461,38 @@
           "team": "team1",
           "hero": "sombra",
           "field": "secondaryFireCooldown%",
-          "value": "84",
+          "value": "ratioPercent(SET_ARAM_TEAM1_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET, OW2_SOMBRA_HACK_COOLDOWN_TIME)",
           "file": "src/aram_settings.opy",
           "line": 254,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_TEAM1_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET",
+            "OW2_SOMBRA_HACK_COOLDOWN_TIME"
+          ],
+          "targetTokens": [
+            "SET_ARAM_TEAM1_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET",
+            "OW2_SOMBRA_HACK_COOLDOWN_TIME"
+          ]
         },
         {
           "mode": "aram",
           "team": "team2",
           "hero": "sombra",
           "field": "secondaryFireCooldown%",
-          "value": "84",
+          "value": "ratioPercent(SET_ARAM_TEAM2_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET, OW2_SOMBRA_HACK_COOLDOWN_TIME)",
           "file": "src/aram_settings.opy",
           "line": 479,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_TEAM2_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET",
+            "OW2_SOMBRA_HACK_COOLDOWN_TIME"
+          ],
+          "targetTokens": [
+            "SET_ARAM_TEAM2_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET",
+            "OW2_SOMBRA_HACK_COOLDOWN_TIME"
+          ]
         }
       ],
       "canonicalReference": "OW2_SOMBRA_HACK_COOLDOWN_TIME",
@@ -5862,13 +6654,19 @@
             "team": "allTeams",
             "hero": "dva",
             "field": "secondaryFireMaximumTime%",
-            "value": "114",
+            "value": "ratioPercent(SET_ARAM_ALLTEAMS_DVA_SECONDARY_FIRE_MAXIMUM_TIME_TARGET, OW2_DVA_MATRIX_DURATION)",
             "file": "src/aram_settings.opy",
             "line": 499,
-            "isNumericLiteral": true,
+            "isNumericLiteral": false,
             "category": "runtime_workshop_setting",
-            "referenceTokens": [],
-            "targetTokens": []
+            "referenceTokens": [
+              "SET_ARAM_ALLTEAMS_DVA_SECONDARY_FIRE_MAXIMUM_TIME_TARGET",
+              "OW2_DVA_MATRIX_DURATION"
+            ],
+            "targetTokens": [
+              "SET_ARAM_ALLTEAMS_DVA_SECONDARY_FIRE_MAXIMUM_TIME_TARGET",
+              "OW2_DVA_MATRIX_DURATION"
+            ]
           }
         ]
       },
@@ -5878,13 +6676,19 @@
           "team": "allTeams",
           "hero": "dva",
           "field": "secondaryFireMaximumTime%",
-          "value": "114",
+          "value": "ratioPercent(SET_ARAM_ALLTEAMS_DVA_SECONDARY_FIRE_MAXIMUM_TIME_TARGET, OW2_DVA_MATRIX_DURATION)",
           "file": "src/aram_settings.opy",
           "line": 499,
-          "isNumericLiteral": true,
+          "isNumericLiteral": false,
           "category": "runtime_workshop_setting",
-          "referenceTokens": [],
-          "targetTokens": []
+          "referenceTokens": [
+            "SET_ARAM_ALLTEAMS_DVA_SECONDARY_FIRE_MAXIMUM_TIME_TARGET",
+            "OW2_DVA_MATRIX_DURATION"
+          ],
+          "targetTokens": [
+            "SET_ARAM_ALLTEAMS_DVA_SECONDARY_FIRE_MAXIMUM_TIME_TARGET",
+            "OW2_DVA_MATRIX_DURATION"
+          ]
         }
       ],
       "canonicalReference": "OW2_DVA_MATRIX_DURATION",
@@ -5898,6 +6702,14 @@
       "value": "12",
       "consumers": [
         {
+          "file": "src/aram_settings.opy",
+          "line": 80
+        },
+        {
+          "file": "src/aram_settings.opy",
+          "line": 323
+        },
+        {
           "file": "src/modules/prelude/settings.opy",
           "line": 499
         }
@@ -5907,6 +6719,14 @@
       "canonicalReference": "OW2_ANA_SLEEP_DART_COOLDOWN_TIME",
       "value": "12",
       "consumers": [
+        {
+          "file": "src/aram_settings.opy",
+          "line": 81
+        },
+        {
+          "file": "src/aram_settings.opy",
+          "line": 324
+        },
         {
           "file": "src/modules/prelude/settings.opy",
           "line": 97
@@ -5921,6 +6741,10 @@
       "canonicalReference": "OW2_ANA_ULT_COST",
       "value": "2300",
       "consumers": [
+        {
+          "file": "src/aram_settings.opy",
+          "line": 82
+        },
         {
           "file": "src/modules/prelude/settings.opy",
           "line": 94
@@ -5964,6 +6788,14 @@
       "value": "22",
       "consumers": [
         {
+          "file": "src/aram_settings.opy",
+          "line": 91
+        },
+        {
+          "file": "src/aram_settings.opy",
+          "line": 332
+        },
+        {
           "file": "src/modules/prelude/settings.opy",
           "line": 106
         },
@@ -5978,6 +6810,14 @@
       "value": "14",
       "consumers": [
         {
+          "file": "src/aram_settings.opy",
+          "line": 87
+        },
+        {
+          "file": "src/aram_settings.opy",
+          "line": 329
+        },
+        {
           "file": "src/modules/prelude/settings.opy",
           "line": 101
         },
@@ -5991,6 +6831,10 @@
       "canonicalReference": "OW2_BASTION_RECONFIGURE_COOLDOWN",
       "value": "12",
       "consumers": [
+        {
+          "file": "src/aram_settings.opy",
+          "line": 296
+        },
         {
           "file": "src/modules/prelude/settings.opy",
           "line": 465
@@ -6022,6 +6866,14 @@
       "value": "2",
       "consumers": [
         {
+          "file": "src/aram_settings.opy",
+          "line": 101
+        },
+        {
+          "file": "src/aram_settings.opy",
+          "line": 341
+        },
+        {
           "file": "src/modules/prelude/settings.opy",
           "line": 119
         },
@@ -6050,6 +6902,10 @@
       "value": "12",
       "consumers": [
         {
+          "file": "src/aram_settings.opy",
+          "line": 42
+        },
+        {
           "file": "src/modules/prelude/settings.opy",
           "line": 49
         },
@@ -6074,6 +6930,10 @@
       "value": "14",
       "consumers": [
         {
+          "file": "src/aram_settings.opy",
+          "line": 552
+        },
+        {
           "file": "src/modules/prelude/settings.opy",
           "line": 406
         },
@@ -6087,6 +6947,10 @@
       "canonicalReference": "OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN",
       "value": "8",
       "consumers": [
+        {
+          "file": "src/aram_settings.opy",
+          "line": 553
+        },
         {
           "file": "src/modules/prelude/settings.opy",
           "line": 405
@@ -6115,6 +6979,14 @@
       "canonicalReference": "OW2_DOOMFIST_AMMO_REGEN",
       "value": "0.4",
       "consumers": [
+        {
+          "file": "src/aram_settings.opy",
+          "line": 122
+        },
+        {
+          "file": "src/aram_settings.opy",
+          "line": 359
+        },
         {
           "file": "src/modules/prelude/settings.opy",
           "line": 215
@@ -6160,6 +7032,10 @@
       "value": "2",
       "consumers": [
         {
+          "file": "src/aram_settings.opy",
+          "line": 499
+        },
+        {
           "file": "src/modules/prelude/settings.opy",
           "line": 832
         }
@@ -6204,6 +7080,14 @@
       "value": "8",
       "consumers": [
         {
+          "file": "src/aram_settings.opy",
+          "line": 33
+        },
+        {
+          "file": "src/aram_settings.opy",
+          "line": 275
+        },
+        {
           "file": "src/modules/prelude/settings.opy",
           "line": 434
         }
@@ -6227,6 +7111,10 @@
       "canonicalReference": "OW2_ILLARI_PYLON_COOLDOWN",
       "value": "6",
       "consumers": [
+        {
+          "file": "src/aram_settings.opy",
+          "line": 507
+        },
         {
           "file": "src/modules/prelude/settings.opy",
           "line": 199
@@ -6252,6 +7140,10 @@
       "value": "2100",
       "consumers": [
         {
+          "file": "src/aram_settings.opy",
+          "line": 404
+        },
+        {
           "file": "src/modules/prelude/settings.opy",
           "line": 678
         }
@@ -6261,6 +7153,10 @@
       "canonicalReference": "OW2_JUNO_ULT_COST",
       "value": "3135",
       "consumers": [
+        {
+          "file": "src/aram_settings.opy",
+          "line": 522
+        },
         {
           "file": "src/modules/prelude/settings.opy",
           "line": 207
@@ -6275,6 +7171,14 @@
       "canonicalReference": "OW2_KIRIKO_SUZU_COOLDOWN",
       "value": "14",
       "consumers": [
+        {
+          "file": "src/aram_settings.opy",
+          "line": 246
+        },
+        {
+          "file": "src/aram_settings.opy",
+          "line": 474
+        },
         {
           "file": "src/modules/prelude/settings.opy",
           "line": 381
@@ -6342,6 +7246,14 @@
       "value": "2150",
       "consumers": [
         {
+          "file": "src/aram_settings.opy",
+          "line": 75
+        },
+        {
+          "file": "src/aram_settings.opy",
+          "line": 318
+        },
+        {
           "file": "src/modules/prelude/settings.opy",
           "line": 89
         },
@@ -6384,6 +7296,10 @@
       "value": "8",
       "consumers": [
         {
+          "file": "src/aram_settings.opy",
+          "line": 113
+        },
+        {
           "file": "src/modules/prelude/settings.opy",
           "line": 150
         },
@@ -6397,6 +7313,10 @@
       "canonicalReference": "OW2_RAMATTRA_ULT_COST",
       "value": "2300",
       "consumers": [
+        {
+          "file": "src/aram_settings.opy",
+          "line": 115
+        },
         {
           "file": "src/modules/prelude/settings.opy",
           "line": 153
@@ -6454,6 +7374,14 @@
       "value": "150",
       "consumers": [
         {
+          "file": "src/aram_settings.opy",
+          "line": 226
+        },
+        {
+          "file": "src/aram_settings.opy",
+          "line": 458
+        },
+        {
           "file": "src/modules/prelude/settings.opy",
           "line": 355
         },
@@ -6467,6 +7395,14 @@
       "canonicalReference": "OW2_REINHARDT_CHARGE_COOLDOWN_TIME",
       "value": "10",
       "consumers": [
+        {
+          "file": "src/aram_settings.opy",
+          "line": 224
+        },
+        {
+          "file": "src/aram_settings.opy",
+          "line": 456
+        },
         {
           "file": "src/modules/prelude/settings.opy",
           "line": 352
@@ -6526,6 +7462,10 @@
       "value": "15",
       "consumers": [
         {
+          "file": "src/aram_settings.opy",
+          "line": 55
+        },
+        {
           "file": "src/modules/prelude/settings.opy",
           "line": 63
         },
@@ -6539,6 +7479,14 @@
       "canonicalReference": "OW2_SOMBRA_HACK_COOLDOWN_TIME",
       "value": "6",
       "consumers": [
+        {
+          "file": "src/aram_settings.opy",
+          "line": 254
+        },
+        {
+          "file": "src/aram_settings.opy",
+          "line": 479
+        },
         {
           "file": "src/modules/prelude/settings.opy",
           "line": 414
@@ -6662,6 +7610,10 @@
       "value": "2500",
       "consumers": [
         {
+          "file": "src/aram_settings.opy",
+          "line": 180
+        },
+        {
           "file": "src/modules/prelude/settings.opy",
           "line": 303
         },
@@ -6696,19 +7648,6 @@
       "value": "0",
       "file": "src/aram_settings.opy",
       "line": 32,
-      "isNumericLiteral": true,
-      "category": "runtime_workshop_setting",
-      "referenceTokens": [],
-      "targetTokens": []
-    },
-    {
-      "mode": "aram",
-      "team": "team1",
-      "hero": "hanzo",
-      "field": "ability2Cooldown%",
-      "value": "0",
-      "file": "src/aram_settings.opy",
-      "line": 33,
       "isNumericLiteral": true,
       "category": "runtime_workshop_setting",
       "referenceTokens": [],
@@ -6787,19 +7726,6 @@
       "value": "80",
       "file": "src/aram_settings.opy",
       "line": 41,
-      "isNumericLiteral": true,
-      "category": "runtime_workshop_setting",
-      "referenceTokens": [],
-      "targetTokens": []
-    },
-    {
-      "mode": "aram",
-      "team": "team1",
-      "hero": "cassidy",
-      "field": "ability2Cooldown%",
-      "value": "67",
-      "file": "src/aram_settings.opy",
-      "line": 42,
       "isNumericLiteral": true,
       "category": "runtime_workshop_setting",
       "referenceTokens": [],
@@ -6891,19 +7817,6 @@
       "value": "110",
       "file": "src/aram_settings.opy",
       "line": 54,
-      "isNumericLiteral": true,
-      "category": "runtime_workshop_setting",
-      "referenceTokens": [],
-      "targetTokens": []
-    },
-    {
-      "mode": "aram",
-      "team": "team1",
-      "hero": "soldier",
-      "field": "ability2Cooldown%",
-      "value": "56",
-      "file": "src/aram_settings.opy",
-      "line": 55,
       "isNumericLiteral": true,
       "category": "runtime_workshop_setting",
       "referenceTokens": [],
@@ -7068,19 +7981,6 @@
     {
       "mode": "aram",
       "team": "team1",
-      "hero": "orisa",
-      "field": "ultGen%",
-      "value": "125",
-      "file": "src/aram_settings.opy",
-      "line": 75,
-      "isNumericLiteral": true,
-      "category": "runtime_workshop_setting",
-      "referenceTokens": [],
-      "targetTokens": []
-    },
-    {
-      "mode": "aram",
-      "team": "team1",
       "hero": "ana",
       "field": "healingDealt%",
       "value": "122",
@@ -7094,63 +7994,11 @@
     {
       "mode": "aram",
       "team": "team1",
-      "hero": "ana",
-      "field": "ability2Cooldown%",
-      "value": "50",
-      "file": "src/aram_settings.opy",
-      "line": 80,
-      "isNumericLiteral": true,
-      "category": "runtime_workshop_setting",
-      "referenceTokens": [],
-      "targetTokens": []
-    },
-    {
-      "mode": "aram",
-      "team": "team1",
-      "hero": "ana",
-      "field": "ability1Cooldown%",
-      "value": "50",
-      "file": "src/aram_settings.opy",
-      "line": 81,
-      "isNumericLiteral": true,
-      "category": "runtime_workshop_setting",
-      "referenceTokens": [],
-      "targetTokens": []
-    },
-    {
-      "mode": "aram",
-      "team": "team1",
-      "hero": "ana",
-      "field": "ultGen%",
-      "value": "200",
-      "file": "src/aram_settings.opy",
-      "line": 82,
-      "isNumericLiteral": true,
-      "category": "runtime_workshop_setting",
-      "referenceTokens": [],
-      "targetTokens": []
-    },
-    {
-      "mode": "aram",
-      "team": "team1",
       "hero": "baptiste",
       "field": "damageDealt%",
       "value": "115",
       "file": "src/aram_settings.opy",
       "line": 86,
-      "isNumericLiteral": true,
-      "category": "runtime_workshop_setting",
-      "referenceTokens": [],
-      "targetTokens": []
-    },
-    {
-      "mode": "aram",
-      "team": "team1",
-      "hero": "baptiste",
-      "field": "ability1Cooldown%",
-      "value": "53",
-      "file": "src/aram_settings.opy",
-      "line": 87,
       "isNumericLiteral": true,
       "category": "runtime_workshop_setting",
       "referenceTokens": [],
@@ -7177,19 +8025,6 @@
       "value": "200",
       "file": "src/aram_settings.opy",
       "line": 90,
-      "isNumericLiteral": true,
-      "category": "runtime_workshop_setting",
-      "referenceTokens": [],
-      "targetTokens": []
-    },
-    {
-      "mode": "aram",
-      "team": "team1",
-      "hero": "baptiste",
-      "field": "ability2Cooldown%",
-      "value": "48",
-      "file": "src/aram_settings.opy",
-      "line": 91,
       "isNumericLiteral": true,
       "category": "runtime_workshop_setting",
       "referenceTokens": [],
@@ -7268,19 +8103,6 @@
       "value": "125",
       "file": "src/aram_settings.opy",
       "line": 100,
-      "isNumericLiteral": true,
-      "category": "runtime_workshop_setting",
-      "referenceTokens": [],
-      "targetTokens": []
-    },
-    {
-      "mode": "aram",
-      "team": "team1",
-      "hero": "brigitte",
-      "field": "shieldBashKb%",
-      "value": "50",
-      "file": "src/aram_settings.opy",
-      "line": 101,
       "isNumericLiteral": true,
       "category": "runtime_workshop_setting",
       "referenceTokens": [],
@@ -7381,32 +8203,6 @@
       "mode": "aram",
       "team": "team1",
       "hero": "ramattra",
-      "field": "ability1Cooldown%",
-      "value": "86",
-      "file": "src/aram_settings.opy",
-      "line": 113,
-      "isNumericLiteral": true,
-      "category": "runtime_workshop_setting",
-      "referenceTokens": [],
-      "targetTokens": []
-    },
-    {
-      "mode": "aram",
-      "team": "team1",
-      "hero": "ramattra",
-      "field": "ultGen%",
-      "value": "500",
-      "file": "src/aram_settings.opy",
-      "line": 115,
-      "isNumericLiteral": true,
-      "category": "runtime_workshop_setting",
-      "referenceTokens": [],
-      "targetTokens": []
-    },
-    {
-      "mode": "aram",
-      "team": "team1",
-      "hero": "ramattra",
       "field": "ultDuration%",
       "value": "500",
       "file": "src/aram_settings.opy",
@@ -7437,19 +8233,6 @@
       "value": "70",
       "file": "src/aram_settings.opy",
       "line": 121,
-      "isNumericLiteral": true,
-      "category": "runtime_workshop_setting",
-      "referenceTokens": [],
-      "targetTokens": []
-    },
-    {
-      "mode": "aram",
-      "team": "team1",
-      "hero": "doomfist",
-      "field": "ammoRegenerationTime%",
-      "value": "80",
-      "file": "src/aram_settings.opy",
-      "line": 122,
       "isNumericLiteral": true,
       "category": "runtime_workshop_setting",
       "referenceTokens": [],
@@ -7849,19 +8632,6 @@
       "mode": "aram",
       "team": "team1",
       "hero": "zenyatta",
-      "field": "ultGen%",
-      "value": "160",
-      "file": "src/aram_settings.opy",
-      "line": 180,
-      "isNumericLiteral": true,
-      "category": "runtime_workshop_setting",
-      "referenceTokens": [],
-      "targetTokens": []
-    },
-    {
-      "mode": "aram",
-      "team": "team1",
-      "hero": "zenyatta",
       "field": "projectileSpeed%",
       "value": "150",
       "file": "src/aram_settings.opy",
@@ -8200,36 +8970,10 @@
       "mode": "aram",
       "team": "team1",
       "hero": "reinhardt",
-      "field": "ability1Cooldown%",
-      "value": "10",
-      "file": "src/aram_settings.opy",
-      "line": 224,
-      "isNumericLiteral": true,
-      "category": "runtime_workshop_setting",
-      "referenceTokens": [],
-      "targetTokens": []
-    },
-    {
-      "mode": "aram",
-      "team": "team1",
-      "hero": "reinhardt",
       "field": "damageReceived%",
       "value": "70",
       "file": "src/aram_settings.opy",
       "line": 225,
-      "isNumericLiteral": true,
-      "category": "runtime_workshop_setting",
-      "referenceTokens": [],
-      "targetTokens": []
-    },
-    {
-      "mode": "aram",
-      "team": "team1",
-      "hero": "reinhardt",
-      "field": "secondaryFireRechargeRate%",
-      "value": "170",
-      "file": "src/aram_settings.opy",
-      "line": 226,
       "isNumericLiteral": true,
       "category": "runtime_workshop_setting",
       "referenceTokens": [],
@@ -8381,19 +9125,6 @@
     {
       "mode": "aram",
       "team": "team1",
-      "hero": "kiriko",
-      "field": "ability2Cooldown%",
-      "value": "43",
-      "file": "src/aram_settings.opy",
-      "line": 246,
-      "isNumericLiteral": true,
-      "category": "runtime_workshop_setting",
-      "referenceTokens": [],
-      "targetTokens": []
-    },
-    {
-      "mode": "aram",
-      "team": "team1",
       "hero": "sombra",
       "field": "damageDealt%",
       "value": "110",
@@ -8438,19 +9169,6 @@
       "value": "134",
       "file": "src/aram_settings.opy",
       "line": 253,
-      "isNumericLiteral": true,
-      "category": "runtime_workshop_setting",
-      "referenceTokens": [],
-      "targetTokens": []
-    },
-    {
-      "mode": "aram",
-      "team": "team1",
-      "hero": "sombra",
-      "field": "secondaryFireCooldown%",
-      "value": "84",
-      "file": "src/aram_settings.opy",
-      "line": 254,
       "isNumericLiteral": true,
       "category": "runtime_workshop_setting",
       "referenceTokens": [],
@@ -8581,19 +9299,6 @@
       "value": "110",
       "file": "src/aram_settings.opy",
       "line": 274,
-      "isNumericLiteral": true,
-      "category": "runtime_workshop_setting",
-      "referenceTokens": [],
-      "targetTokens": []
-    },
-    {
-      "mode": "aram",
-      "team": "team2",
-      "hero": "hanzo",
-      "field": "ability2Cooldown%",
-      "value": "0",
-      "file": "src/aram_settings.opy",
-      "line": 275,
       "isNumericLiteral": true,
       "category": "runtime_workshop_setting",
       "referenceTokens": [],
@@ -8746,19 +9451,6 @@
       "mode": "aram",
       "team": "team2",
       "hero": "bastion",
-      "field": "ability1Cooldown%",
-      "value": "50",
-      "file": "src/aram_settings.opy",
-      "line": 296,
-      "isNumericLiteral": true,
-      "category": "runtime_workshop_setting",
-      "referenceTokens": [],
-      "targetTokens": []
-    },
-    {
-      "mode": "aram",
-      "team": "team2",
-      "hero": "bastion",
       "field": "damageReceived%",
       "value": "70",
       "file": "src/aram_settings.opy",
@@ -8901,19 +9593,6 @@
     {
       "mode": "aram",
       "team": "team2",
-      "hero": "orisa",
-      "field": "ultGen%",
-      "value": "125",
-      "file": "src/aram_settings.opy",
-      "line": 318,
-      "isNumericLiteral": true,
-      "category": "runtime_workshop_setting",
-      "referenceTokens": [],
-      "targetTokens": []
-    },
-    {
-      "mode": "aram",
-      "team": "team2",
       "hero": "ana",
       "field": "damageDealt%",
       "value": "115",
@@ -8932,32 +9611,6 @@
       "value": "130",
       "file": "src/aram_settings.opy",
       "line": 322,
-      "isNumericLiteral": true,
-      "category": "runtime_workshop_setting",
-      "referenceTokens": [],
-      "targetTokens": []
-    },
-    {
-      "mode": "aram",
-      "team": "team2",
-      "hero": "ana",
-      "field": "ability2Cooldown%",
-      "value": "57",
-      "file": "src/aram_settings.opy",
-      "line": 323,
-      "isNumericLiteral": true,
-      "category": "runtime_workshop_setting",
-      "referenceTokens": [],
-      "targetTokens": []
-    },
-    {
-      "mode": "aram",
-      "team": "team2",
-      "hero": "ana",
-      "field": "ability1Cooldown%",
-      "value": "57",
-      "file": "src/aram_settings.opy",
-      "line": 324,
       "isNumericLiteral": true,
       "category": "runtime_workshop_setting",
       "referenceTokens": [],
@@ -8993,19 +9646,6 @@
       "mode": "aram",
       "team": "team2",
       "hero": "baptiste",
-      "field": "ability1Cooldown%",
-      "value": "53",
-      "file": "src/aram_settings.opy",
-      "line": 329,
-      "isNumericLiteral": true,
-      "category": "runtime_workshop_setting",
-      "referenceTokens": [],
-      "targetTokens": []
-    },
-    {
-      "mode": "aram",
-      "team": "team2",
-      "hero": "baptiste",
       "field": "healingDealt%",
       "value": "120",
       "file": "src/aram_settings.opy",
@@ -9023,19 +9663,6 @@
       "value": "150",
       "file": "src/aram_settings.opy",
       "line": 331,
-      "isNumericLiteral": true,
-      "category": "runtime_workshop_setting",
-      "referenceTokens": [],
-      "targetTokens": []
-    },
-    {
-      "mode": "aram",
-      "team": "team2",
-      "hero": "baptiste",
-      "field": "ability2Cooldown%",
-      "value": "48",
-      "file": "src/aram_settings.opy",
-      "line": 332,
       "isNumericLiteral": true,
       "category": "runtime_workshop_setting",
       "referenceTokens": [],
@@ -9101,19 +9728,6 @@
       "value": "110",
       "file": "src/aram_settings.opy",
       "line": 340,
-      "isNumericLiteral": true,
-      "category": "runtime_workshop_setting",
-      "referenceTokens": [],
-      "targetTokens": []
-    },
-    {
-      "mode": "aram",
-      "team": "team2",
-      "hero": "brigitte",
-      "field": "shieldBashKb%",
-      "value": "50",
-      "file": "src/aram_settings.opy",
-      "line": 341,
       "isNumericLiteral": true,
       "category": "runtime_workshop_setting",
       "referenceTokens": [],
@@ -9257,19 +9871,6 @@
       "value": "70",
       "file": "src/aram_settings.opy",
       "line": 358,
-      "isNumericLiteral": true,
-      "category": "runtime_workshop_setting",
-      "referenceTokens": [],
-      "targetTokens": []
-    },
-    {
-      "mode": "aram",
-      "team": "team2",
-      "hero": "doomfist",
-      "field": "ammoRegenerationTime%",
-      "value": "80",
-      "file": "src/aram_settings.opy",
-      "line": 359,
       "isNumericLiteral": true,
       "category": "runtime_workshop_setting",
       "referenceTokens": [],
@@ -9634,19 +10235,6 @@
       "value": "100",
       "file": "src/aram_settings.opy",
       "line": 403,
-      "isNumericLiteral": true,
-      "category": "runtime_workshop_setting",
-      "referenceTokens": [],
-      "targetTokens": []
-    },
-    {
-      "mode": "aram",
-      "team": "team2",
-      "hero": "junkrat",
-      "field": "ultGen%",
-      "value": "95",
-      "file": "src/aram_settings.opy",
-      "line": 404,
       "isNumericLiteral": true,
       "category": "runtime_workshop_setting",
       "referenceTokens": [],
@@ -10059,36 +10647,10 @@
       "mode": "aram",
       "team": "team2",
       "hero": "reinhardt",
-      "field": "ability1Cooldown%",
-      "value": "20",
-      "file": "src/aram_settings.opy",
-      "line": 456,
-      "isNumericLiteral": true,
-      "category": "runtime_workshop_setting",
-      "referenceTokens": [],
-      "targetTokens": []
-    },
-    {
-      "mode": "aram",
-      "team": "team2",
-      "hero": "reinhardt",
       "field": "damageReceived%",
       "value": "75",
       "file": "src/aram_settings.opy",
       "line": 457,
-      "isNumericLiteral": true,
-      "category": "runtime_workshop_setting",
-      "referenceTokens": [],
-      "targetTokens": []
-    },
-    {
-      "mode": "aram",
-      "team": "team2",
-      "hero": "reinhardt",
-      "field": "secondaryFireRechargeRate%",
-      "value": "130",
-      "file": "src/aram_settings.opy",
-      "line": 458,
       "isNumericLiteral": true,
       "category": "runtime_workshop_setting",
       "referenceTokens": [],
@@ -10188,19 +10750,6 @@
     {
       "mode": "aram",
       "team": "team2",
-      "hero": "kiriko",
-      "field": "ability2Cooldown%",
-      "value": "43",
-      "file": "src/aram_settings.opy",
-      "line": 474,
-      "isNumericLiteral": true,
-      "category": "runtime_workshop_setting",
-      "referenceTokens": [],
-      "targetTokens": []
-    },
-    {
-      "mode": "aram",
-      "team": "team2",
       "hero": "sombra",
       "field": "damageDealt%",
       "value": "110",
@@ -10219,19 +10768,6 @@
       "value": "80",
       "file": "src/aram_settings.opy",
       "line": 478,
-      "isNumericLiteral": true,
-      "category": "runtime_workshop_setting",
-      "referenceTokens": [],
-      "targetTokens": []
-    },
-    {
-      "mode": "aram",
-      "team": "team2",
-      "hero": "sombra",
-      "field": "secondaryFireCooldown%",
-      "value": "84",
-      "file": "src/aram_settings.opy",
-      "line": 479,
       "isNumericLiteral": true,
       "category": "runtime_workshop_setting",
       "referenceTokens": [],
@@ -10409,19 +10945,6 @@
     {
       "mode": "aram",
       "team": "allTeams",
-      "hero": "illari",
-      "field": "ability2Cooldown%",
-      "value": "50",
-      "file": "src/aram_settings.opy",
-      "line": 507,
-      "isNumericLiteral": true,
-      "category": "runtime_workshop_setting",
-      "referenceTokens": [],
-      "targetTokens": []
-    },
-    {
-      "mode": "aram",
-      "team": "allTeams",
       "hero": "freja",
       "field": "damageDealt%",
       "value": "110",
@@ -10518,19 +11041,6 @@
       "value": "125",
       "file": "src/aram_settings.opy",
       "line": 521,
-      "isNumericLiteral": true,
-      "category": "runtime_workshop_setting",
-      "referenceTokens": [],
-      "targetTokens": []
-    },
-    {
-      "mode": "aram",
-      "team": "allTeams",
-      "hero": "juno",
-      "field": "ultGen%",
-      "value": "175",
-      "file": "src/aram_settings.opy",
-      "line": 522,
       "isNumericLiteral": true,
       "category": "runtime_workshop_setting",
       "referenceTokens": [],
@@ -10739,32 +11249,6 @@
       "value": "80",
       "file": "src/aram_settings.opy",
       "line": 551,
-      "isNumericLiteral": true,
-      "category": "runtime_workshop_setting",
-      "referenceTokens": [],
-      "targetTokens": []
-    },
-    {
-      "mode": "aram",
-      "team": "allTeams",
-      "hero": "domina",
-      "field": "secondaryFireCooldown%",
-      "value": "42",
-      "file": "src/aram_settings.opy",
-      "line": 552,
-      "isNumericLiteral": true,
-      "category": "runtime_workshop_setting",
-      "referenceTokens": [],
-      "targetTokens": []
-    },
-    {
-      "mode": "aram",
-      "team": "allTeams",
-      "hero": "domina",
-      "field": "ability2Cooldown%",
-      "value": "50",
-      "file": "src/aram_settings.opy",
-      "line": 553,
       "isNumericLiteral": true,
       "category": "runtime_workshop_setting",
       "referenceTokens": [],
@@ -12693,18 +13177,6 @@
       "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
     },
     {
-      "id": "aram.team1.hanzo.ability2Cooldown%",
-      "category": "aram_direct_literal",
-      "hero": "hanzo",
-      "field": "ability2Cooldown%",
-      "source": {
-        "file": "src/aram_settings.opy",
-        "line": 33
-      },
-      "value": "0",
-      "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
-    },
-    {
       "id": "aram.team1.hanzo.ability1Cooldown%",
       "category": "aram_direct_literal",
       "hero": "hanzo",
@@ -12774,18 +13246,6 @@
         "line": 41
       },
       "value": "80",
-      "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
-    },
-    {
-      "id": "aram.team1.cassidy.ability2Cooldown%",
-      "category": "aram_direct_literal",
-      "hero": "cassidy",
-      "field": "ability2Cooldown%",
-      "source": {
-        "file": "src/aram_settings.opy",
-        "line": 42
-      },
-      "value": "67",
       "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
     },
     {
@@ -12870,18 +13330,6 @@
         "line": 54
       },
       "value": "110",
-      "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
-    },
-    {
-      "id": "aram.team1.soldier.ability2Cooldown%",
-      "category": "aram_direct_literal",
-      "hero": "soldier",
-      "field": "ability2Cooldown%",
-      "source": {
-        "file": "src/aram_settings.opy",
-        "line": 55
-      },
-      "value": "56",
       "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
     },
     {
@@ -13029,18 +13477,6 @@
       "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
     },
     {
-      "id": "aram.team1.orisa.ultGen%",
-      "category": "aram_direct_literal",
-      "hero": "orisa",
-      "field": "ultGen%",
-      "source": {
-        "file": "src/aram_settings.opy",
-        "line": 75
-      },
-      "value": "125",
-      "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
-    },
-    {
       "id": "aram.team1.ana.healingDealt%",
       "category": "aram_direct_literal",
       "hero": "ana",
@@ -13053,42 +13489,6 @@
       "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
     },
     {
-      "id": "aram.team1.ana.ability2Cooldown%",
-      "category": "aram_direct_literal",
-      "hero": "ana",
-      "field": "ability2Cooldown%",
-      "source": {
-        "file": "src/aram_settings.opy",
-        "line": 80
-      },
-      "value": "50",
-      "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
-    },
-    {
-      "id": "aram.team1.ana.ability1Cooldown%",
-      "category": "aram_direct_literal",
-      "hero": "ana",
-      "field": "ability1Cooldown%",
-      "source": {
-        "file": "src/aram_settings.opy",
-        "line": 81
-      },
-      "value": "50",
-      "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
-    },
-    {
-      "id": "aram.team1.ana.ultGen%",
-      "category": "aram_direct_literal",
-      "hero": "ana",
-      "field": "ultGen%",
-      "source": {
-        "file": "src/aram_settings.opy",
-        "line": 82
-      },
-      "value": "200",
-      "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
-    },
-    {
       "id": "aram.team1.baptiste.damageDealt%",
       "category": "aram_direct_literal",
       "hero": "baptiste",
@@ -13098,18 +13498,6 @@
         "line": 86
       },
       "value": "115",
-      "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
-    },
-    {
-      "id": "aram.team1.baptiste.ability1Cooldown%",
-      "category": "aram_direct_literal",
-      "hero": "baptiste",
-      "field": "ability1Cooldown%",
-      "source": {
-        "file": "src/aram_settings.opy",
-        "line": 87
-      },
-      "value": "53",
       "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
     },
     {
@@ -13134,18 +13522,6 @@
         "line": 90
       },
       "value": "200",
-      "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
-    },
-    {
-      "id": "aram.team1.baptiste.ability2Cooldown%",
-      "category": "aram_direct_literal",
-      "hero": "baptiste",
-      "field": "ability2Cooldown%",
-      "source": {
-        "file": "src/aram_settings.opy",
-        "line": 91
-      },
-      "value": "48",
       "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
     },
     {
@@ -13218,18 +13594,6 @@
         "line": 100
       },
       "value": "125",
-      "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
-    },
-    {
-      "id": "aram.team1.brigitte.shieldBashKb%",
-      "category": "aram_direct_literal",
-      "hero": "brigitte",
-      "field": "shieldBashKb%",
-      "source": {
-        "file": "src/aram_settings.opy",
-        "line": 101
-      },
-      "value": "50",
       "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
     },
     {
@@ -13317,30 +13681,6 @@
       "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
     },
     {
-      "id": "aram.team1.ramattra.ability1Cooldown%",
-      "category": "aram_direct_literal",
-      "hero": "ramattra",
-      "field": "ability1Cooldown%",
-      "source": {
-        "file": "src/aram_settings.opy",
-        "line": 113
-      },
-      "value": "86",
-      "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
-    },
-    {
-      "id": "aram.team1.ramattra.ultGen%",
-      "category": "aram_direct_literal",
-      "hero": "ramattra",
-      "field": "ultGen%",
-      "source": {
-        "file": "src/aram_settings.opy",
-        "line": 115
-      },
-      "value": "500",
-      "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
-    },
-    {
       "id": "aram.team1.ramattra.ultDuration%",
       "category": "aram_direct_literal",
       "hero": "ramattra",
@@ -13374,18 +13714,6 @@
         "line": 121
       },
       "value": "70",
-      "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
-    },
-    {
-      "id": "aram.team1.doomfist.ammoRegenerationTime%",
-      "category": "aram_direct_literal",
-      "hero": "doomfist",
-      "field": "ammoRegenerationTime%",
-      "source": {
-        "file": "src/aram_settings.opy",
-        "line": 122
-      },
-      "value": "80",
       "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
     },
     {
@@ -13749,18 +14077,6 @@
       "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
     },
     {
-      "id": "aram.team1.zenyatta.ultGen%",
-      "category": "aram_direct_literal",
-      "hero": "zenyatta",
-      "field": "ultGen%",
-      "source": {
-        "file": "src/aram_settings.opy",
-        "line": 180
-      },
-      "value": "160",
-      "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
-    },
-    {
       "id": "aram.team1.zenyatta.projectileSpeed%",
       "category": "aram_direct_literal",
       "hero": "zenyatta",
@@ -14073,18 +14389,6 @@
       "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
     },
     {
-      "id": "aram.team1.reinhardt.ability1Cooldown%",
-      "category": "aram_direct_literal",
-      "hero": "reinhardt",
-      "field": "ability1Cooldown%",
-      "source": {
-        "file": "src/aram_settings.opy",
-        "line": 224
-      },
-      "value": "10",
-      "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
-    },
-    {
       "id": "aram.team1.reinhardt.damageReceived%",
       "category": "aram_direct_literal",
       "hero": "reinhardt",
@@ -14094,18 +14398,6 @@
         "line": 225
       },
       "value": "70",
-      "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
-    },
-    {
-      "id": "aram.team1.reinhardt.secondaryFireRechargeRate%",
-      "category": "aram_direct_literal",
-      "hero": "reinhardt",
-      "field": "secondaryFireRechargeRate%",
-      "source": {
-        "file": "src/aram_settings.opy",
-        "line": 226
-      },
-      "value": "170",
       "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
     },
     {
@@ -14241,18 +14533,6 @@
       "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
     },
     {
-      "id": "aram.team1.kiriko.ability2Cooldown%",
-      "category": "aram_direct_literal",
-      "hero": "kiriko",
-      "field": "ability2Cooldown%",
-      "source": {
-        "file": "src/aram_settings.opy",
-        "line": 246
-      },
-      "value": "43",
-      "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
-    },
-    {
       "id": "aram.team1.sombra.damageDealt%",
       "category": "aram_direct_literal",
       "hero": "sombra",
@@ -14298,18 +14578,6 @@
         "line": 253
       },
       "value": "134",
-      "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
-    },
-    {
-      "id": "aram.team1.sombra.secondaryFireCooldown%",
-      "category": "aram_direct_literal",
-      "hero": "sombra",
-      "field": "secondaryFireCooldown%",
-      "source": {
-        "file": "src/aram_settings.opy",
-        "line": 254
-      },
-      "value": "84",
       "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
     },
     {
@@ -14430,18 +14698,6 @@
         "line": 274
       },
       "value": "110",
-      "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
-    },
-    {
-      "id": "aram.team2.hanzo.ability2Cooldown%",
-      "category": "aram_direct_literal",
-      "hero": "hanzo",
-      "field": "ability2Cooldown%",
-      "source": {
-        "file": "src/aram_settings.opy",
-        "line": 275
-      },
-      "value": "0",
       "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
     },
     {
@@ -14577,18 +14833,6 @@
       "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
     },
     {
-      "id": "aram.team2.bastion.ability1Cooldown%",
-      "category": "aram_direct_literal",
-      "hero": "bastion",
-      "field": "ability1Cooldown%",
-      "source": {
-        "file": "src/aram_settings.opy",
-        "line": 296
-      },
-      "value": "50",
-      "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
-    },
-    {
       "id": "aram.team2.bastion.damageReceived%",
       "category": "aram_direct_literal",
       "hero": "bastion",
@@ -14721,18 +14965,6 @@
       "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
     },
     {
-      "id": "aram.team2.orisa.ultGen%",
-      "category": "aram_direct_literal",
-      "hero": "orisa",
-      "field": "ultGen%",
-      "source": {
-        "file": "src/aram_settings.opy",
-        "line": 318
-      },
-      "value": "125",
-      "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
-    },
-    {
       "id": "aram.team2.ana.damageDealt%",
       "category": "aram_direct_literal",
       "hero": "ana",
@@ -14754,30 +14986,6 @@
         "line": 322
       },
       "value": "130",
-      "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
-    },
-    {
-      "id": "aram.team2.ana.ability2Cooldown%",
-      "category": "aram_direct_literal",
-      "hero": "ana",
-      "field": "ability2Cooldown%",
-      "source": {
-        "file": "src/aram_settings.opy",
-        "line": 323
-      },
-      "value": "57",
-      "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
-    },
-    {
-      "id": "aram.team2.ana.ability1Cooldown%",
-      "category": "aram_direct_literal",
-      "hero": "ana",
-      "field": "ability1Cooldown%",
-      "source": {
-        "file": "src/aram_settings.opy",
-        "line": 324
-      },
-      "value": "57",
       "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
     },
     {
@@ -14805,18 +15013,6 @@
       "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
     },
     {
-      "id": "aram.team2.baptiste.ability1Cooldown%",
-      "category": "aram_direct_literal",
-      "hero": "baptiste",
-      "field": "ability1Cooldown%",
-      "source": {
-        "file": "src/aram_settings.opy",
-        "line": 329
-      },
-      "value": "53",
-      "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
-    },
-    {
       "id": "aram.team2.baptiste.healingDealt%",
       "category": "aram_direct_literal",
       "hero": "baptiste",
@@ -14838,18 +15034,6 @@
         "line": 331
       },
       "value": "150",
-      "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
-    },
-    {
-      "id": "aram.team2.baptiste.ability2Cooldown%",
-      "category": "aram_direct_literal",
-      "hero": "baptiste",
-      "field": "ability2Cooldown%",
-      "source": {
-        "file": "src/aram_settings.opy",
-        "line": 332
-      },
-      "value": "48",
       "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
     },
     {
@@ -14910,18 +15094,6 @@
         "line": 340
       },
       "value": "110",
-      "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
-    },
-    {
-      "id": "aram.team2.brigitte.shieldBashKb%",
-      "category": "aram_direct_literal",
-      "hero": "brigitte",
-      "field": "shieldBashKb%",
-      "source": {
-        "file": "src/aram_settings.opy",
-        "line": 341
-      },
-      "value": "50",
       "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
     },
     {
@@ -15054,18 +15226,6 @@
         "line": 358
       },
       "value": "70",
-      "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
-    },
-    {
-      "id": "aram.team2.doomfist.ammoRegenerationTime%",
-      "category": "aram_direct_literal",
-      "hero": "doomfist",
-      "field": "ammoRegenerationTime%",
-      "source": {
-        "file": "src/aram_settings.opy",
-        "line": 359
-      },
-      "value": "80",
       "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
     },
     {
@@ -15402,18 +15562,6 @@
         "line": 403
       },
       "value": "100",
-      "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
-    },
-    {
-      "id": "aram.team2.junkrat.ultGen%",
-      "category": "aram_direct_literal",
-      "hero": "junkrat",
-      "field": "ultGen%",
-      "source": {
-        "file": "src/aram_settings.opy",
-        "line": 404
-      },
-      "value": "95",
       "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
     },
     {
@@ -15789,18 +15937,6 @@
       "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
     },
     {
-      "id": "aram.team2.reinhardt.ability1Cooldown%",
-      "category": "aram_direct_literal",
-      "hero": "reinhardt",
-      "field": "ability1Cooldown%",
-      "source": {
-        "file": "src/aram_settings.opy",
-        "line": 456
-      },
-      "value": "20",
-      "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
-    },
-    {
       "id": "aram.team2.reinhardt.damageReceived%",
       "category": "aram_direct_literal",
       "hero": "reinhardt",
@@ -15810,18 +15946,6 @@
         "line": 457
       },
       "value": "75",
-      "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
-    },
-    {
-      "id": "aram.team2.reinhardt.secondaryFireRechargeRate%",
-      "category": "aram_direct_literal",
-      "hero": "reinhardt",
-      "field": "secondaryFireRechargeRate%",
-      "source": {
-        "file": "src/aram_settings.opy",
-        "line": 458
-      },
-      "value": "130",
       "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
     },
     {
@@ -15909,18 +16033,6 @@
       "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
     },
     {
-      "id": "aram.team2.kiriko.ability2Cooldown%",
-      "category": "aram_direct_literal",
-      "hero": "kiriko",
-      "field": "ability2Cooldown%",
-      "source": {
-        "file": "src/aram_settings.opy",
-        "line": 474
-      },
-      "value": "43",
-      "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
-    },
-    {
       "id": "aram.team2.sombra.damageDealt%",
       "category": "aram_direct_literal",
       "hero": "sombra",
@@ -15942,18 +16054,6 @@
         "line": 478
       },
       "value": "80",
-      "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
-    },
-    {
-      "id": "aram.team2.sombra.secondaryFireCooldown%",
-      "category": "aram_direct_literal",
-      "hero": "sombra",
-      "field": "secondaryFireCooldown%",
-      "source": {
-        "file": "src/aram_settings.opy",
-        "line": 479
-      },
-      "value": "84",
       "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
     },
     {
@@ -16113,18 +16213,6 @@
       "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
     },
     {
-      "id": "aram.allTeams.illari.ability2Cooldown%",
-      "category": "aram_direct_literal",
-      "hero": "illari",
-      "field": "ability2Cooldown%",
-      "source": {
-        "file": "src/aram_settings.opy",
-        "line": 507
-      },
-      "value": "50",
-      "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
-    },
-    {
       "id": "aram.allTeams.freja.damageDealt%",
       "category": "aram_direct_literal",
       "hero": "freja",
@@ -16218,18 +16306,6 @@
         "line": 521
       },
       "value": "125",
-      "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
-    },
-    {
-      "id": "aram.allTeams.juno.ultGen%",
-      "category": "aram_direct_literal",
-      "hero": "juno",
-      "field": "ultGen%",
-      "source": {
-        "file": "src/aram_settings.opy",
-        "line": 522
-      },
-      "value": "175",
       "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
     },
     {
@@ -16422,30 +16498,6 @@
         "line": 551
       },
       "value": "80",
-      "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
-    },
-    {
-      "id": "aram.allTeams.domina.secondaryFireCooldown%",
-      "category": "aram_direct_literal",
-      "hero": "domina",
-      "field": "secondaryFireCooldown%",
-      "source": {
-        "file": "src/aram_settings.opy",
-        "line": 552
-      },
-      "value": "42",
-      "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
-    },
-    {
-      "id": "aram.allTeams.domina.ability2Cooldown%",
-      "category": "aram_direct_literal",
-      "hero": "domina",
-      "field": "ability2Cooldown%",
-      "source": {
-        "file": "src/aram_settings.opy",
-        "line": 553
-      },
-      "value": "50",
       "reason": "ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone"
     },
     {
