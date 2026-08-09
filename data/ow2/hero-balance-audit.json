@@ -20,18 +20,18 @@
     "runtime_workshop_setting": "A user-configurable Workshop setting that must remain runtime-controlled."
   },
   "summary": {
-    "activeOw2ReferenceDefinitions": 349,
-    "commentedOw2ReferenceDefinitions": 17,
+    "activeOw2ReferenceDefinitions": 61,
+    "commentedOw2ReferenceDefinitions": 0,
     "directOw2Consumers": 3,
-    "duplicateBaselineFacts": 78,
+    "duplicateBaselineFacts": 61,
     "consumedDuplicateBaselineFacts": 61,
     "mainDerivedSettings": 99,
     "aramSettingEntries": 386,
     "aramDirectNumericSettings": 335,
     "heroWorkshopSettingEntries": 186,
     "missingProjectConsumedReferences": 3,
-    "unusedOw2ReferenceDefinitions": 288,
-    "semanticReviewItems": 345
+    "unusedOw2ReferenceDefinitions": 0,
+    "semanticReviewItems": 344
   },
   "coverage": {
     "files": [
@@ -39,13 +39,13 @@
         "path": "src/constants/ow2_hero_defaults.opy",
         "role": "当前 OW2 reference 常数文件",
         "inspected": true,
-        "relevantEntries": 368
+        "relevantEntries": 61
       },
       {
         "path": "src/constants/player_constants.opy",
         "role": "项目常数、目标和重复 baseline 别名",
         "inspected": true,
-        "relevantEntries": 78
+        "relevantEntries": 61
       },
       {
         "path": "src/constants/hero_balance_constants.opy",
@@ -204,7 +204,7 @@
       "legacyValue": "12",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 24,
+      "referenceLine": 12,
       "legacyLine": 49,
       "consumers": [
         {
@@ -220,7 +220,7 @@
       "legacyValue": "12",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 30,
+      "referenceLine": 13,
       "legacyLine": 50,
       "consumers": [
         {
@@ -240,7 +240,7 @@
       "legacyValue": "2300",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 33,
+      "referenceLine": 14,
       "legacyLine": 51,
       "consumers": [
         {
@@ -260,7 +260,7 @@
       "legacyValue": "8",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 51,
+      "referenceLine": 17,
       "legacyLine": 62,
       "consumers": [
         {
@@ -280,7 +280,7 @@
       "legacyValue": "8",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 48,
+      "referenceLine": 18,
       "legacyLine": 61,
       "consumers": [
         {
@@ -300,7 +300,7 @@
       "legacyValue": "22",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 66,
+      "referenceLine": 21,
       "legacyLine": 78,
       "consumers": [
         {
@@ -320,7 +320,7 @@
       "legacyValue": "14",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 69,
+      "referenceLine": 22,
       "legacyLine": 79,
       "consumers": [
         {
@@ -340,7 +340,7 @@
       "legacyValue": "12",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 80,
+      "referenceLine": 25,
       "legacyLine": 88,
       "consumers": [
         {
@@ -350,24 +350,13 @@
       ]
     },
     {
-      "canonicalReference": "OW2_BRIGITTE_INSPIRE_DURATION",
-      "legacyName": "BRIGITTE_INSPIRE_DURATION",
-      "referenceValue": "4",
-      "legacyValue": "4",
-      "sameValue": true,
-      "referenceActive": false,
-      "referenceLine": 91,
-      "legacyLine": 94,
-      "consumers": []
-    },
-    {
       "canonicalReference": "OW2_BRIGITTE_REPAIR_PACK_COOLDOWN",
       "legacyName": "BRIGITTE_REPAIR_PACK_COOLDOWN",
       "referenceValue": "5",
       "legacyValue": "5",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 94,
+      "referenceLine": 28,
       "legacyLine": 95,
       "consumers": [
         {
@@ -383,7 +372,7 @@
       "legacyValue": "5",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 95,
+      "referenceLine": 29,
       "legacyLine": 96,
       "consumers": [
         {
@@ -399,7 +388,7 @@
       "legacyValue": "2",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 97,
+      "referenceLine": 30,
       "legacyLine": 97,
       "consumers": [
         {
@@ -419,7 +408,7 @@
       "legacyValue": "2700",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 98,
+      "referenceLine": 31,
       "legacyLine": 98,
       "consumers": [
         {
@@ -433,46 +422,13 @@
       ]
     },
     {
-      "canonicalReference": "OW2_DAMAGE_PASSIVE_DURATION",
-      "legacyName": "DAMAGE_PASSIVE_DURATION",
-      "referenceValue": "2",
-      "legacyValue": "2",
-      "sameValue": true,
-      "referenceActive": false,
-      "referenceLine": 12,
-      "legacyLine": 39,
-      "consumers": []
-    },
-    {
-      "canonicalReference": "OW2_DAMAGE_PASSIVE_HEAL_REDUCTION_PERCENT",
-      "legacyName": "DAMAGE_PASSIVE_HEAL_REDUCTION_PERCENT",
-      "referenceValue": "25",
-      "legacyValue": "25",
-      "sameValue": true,
-      "referenceActive": false,
-      "referenceLine": 13,
-      "legacyLine": 40,
-      "consumers": []
-    },
-    {
-      "canonicalReference": "OW2_DAMAGE_PASSIVE_TANK_HEAL_REDUCTION_PERCENT",
-      "legacyName": "DAMAGE_PASSIVE_TANK_HEAL_REDUCTION_PERCENT",
-      "referenceValue": "25",
-      "legacyValue": "25",
-      "sameValue": true,
-      "referenceActive": false,
-      "referenceLine": 14,
-      "legacyLine": 41,
-      "consumers": []
-    },
-    {
       "canonicalReference": "OW2_DOMINA_BARRIER_ARRAY_COOLDOWN",
       "legacyName": "DOMINA_BARRIER_ARRAY_COOLDOWN",
       "referenceValue": "14",
       "legacyValue": "8",
       "sameValue": false,
       "referenceActive": true,
-      "referenceLine": 153,
+      "referenceLine": 38,
       "legacyLine": 142,
       "consumers": [
         {
@@ -496,7 +452,7 @@
       "legacyValue": "6",
       "sameValue": false,
       "referenceActive": true,
-      "referenceLine": 158,
+      "referenceLine": 39,
       "legacyLine": 141,
       "consumers": [
         {
@@ -516,7 +472,7 @@
       "legacyValue": "6",
       "sameValue": false,
       "referenceActive": true,
-      "referenceLine": 155,
+      "referenceLine": 40,
       "legacyLine": 143,
       "consumers": [
         {
@@ -540,7 +496,7 @@
       "legacyValue": "0.4",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 120,
+      "referenceLine": 43,
       "legacyLine": 119,
       "consumers": [
         {
@@ -560,7 +516,7 @@
       "legacyValue": "8",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 129,
+      "referenceLine": 44,
       "legacyLine": 120,
       "consumers": [
         {
@@ -576,7 +532,7 @@
       "legacyValue": "7.5",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 135,
+      "referenceLine": 45,
       "legacyLine": 121,
       "consumers": [
         {
@@ -592,7 +548,7 @@
       "legacyValue": "(DVA_BOOSTER_COOLDOWN_TIME_RAW * 85 / 100)",
       "sameValue": false,
       "referenceActive": true,
-      "referenceLine": 141,
+      "referenceLine": 48,
       "legacyLine": 131,
       "consumers": [
         {
@@ -608,7 +564,7 @@
       "legacyValue": "(DVA_MATRIX_DURATION_RAW * 134 / 100)",
       "sameValue": false,
       "referenceActive": true,
-      "referenceLine": 144,
+      "referenceLine": 49,
       "legacyLine": 133,
       "consumers": [
         {
@@ -624,7 +580,7 @@
       "legacyValue": "(DVA_MICRO_MISSILES_COOLDOWN_TIME_RAW * 86 / 100)",
       "sameValue": false,
       "referenceActive": true,
-      "referenceLine": 145,
+      "referenceLine": 50,
       "legacyLine": 135,
       "consumers": [
         {
@@ -640,7 +596,7 @@
       "legacyValue": "10",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 179,
+      "referenceLine": 53,
       "legacyLine": 153,
       "consumers": [
         {
@@ -656,7 +612,7 @@
       "legacyValue": "2125",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 181,
+      "referenceLine": 54,
       "legacyLine": 154,
       "consumers": [
         {
@@ -670,24 +626,13 @@
       ]
     },
     {
-      "canonicalReference": "OW2_HANZO_ARROW_DAMAGE",
-      "legacyName": "HANZO_ARROW_DAMAGE",
-      "referenceValue": "125",
-      "legacyValue": "125",
-      "sameValue": true,
-      "referenceActive": false,
-      "referenceLine": 184,
-      "legacyLine": 162,
-      "consumers": []
-    },
-    {
       "canonicalReference": "OW2_HANZO_STORM_COOLDOWN",
       "legacyName": "HANZO_STORM_COOLDOWN",
       "referenceValue": "8",
       "legacyValue": "8",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 185,
+      "referenceLine": 57,
       "legacyLine": 163,
       "consumers": [
         {
@@ -703,7 +648,7 @@
       "legacyValue": "1700",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 187,
+      "referenceLine": 58,
       "legacyLine": 164,
       "consumers": [
         {
@@ -717,46 +662,13 @@
       ]
     },
     {
-      "canonicalReference": "OW2_HAZARD_ARMOR",
-      "legacyName": "HAZARD_ARMOR",
-      "referenceValue": "225",
-      "legacyValue": "225",
-      "sameValue": true,
-      "referenceActive": false,
-      "referenceLine": 194,
-      "legacyLine": 175,
-      "consumers": []
-    },
-    {
-      "canonicalReference": "OW2_HAZARD_HEALTH",
-      "legacyName": "HAZARD_HEALTH",
-      "referenceValue": "275",
-      "legacyValue": "275",
-      "sameValue": true,
-      "referenceActive": false,
-      "referenceLine": 193,
-      "legacyLine": 174,
-      "consumers": []
-    },
-    {
-      "canonicalReference": "OW2_HEAL_PASSIVE_ACTIVATION_TIME",
-      "legacyName": "HEAL_PASSIVE_ACTIVATION_TIME",
-      "referenceValue": "5",
-      "legacyValue": "5",
-      "sameValue": true,
-      "referenceActive": false,
-      "referenceLine": 15,
-      "legacyLine": 42,
-      "consumers": []
-    },
-    {
       "canonicalReference": "OW2_ILLARI_PYLON_COOLDOWN",
       "legacyName": "ILLARI_PYLON_COOLDOWN",
       "referenceValue": "6",
       "legacyValue": "6",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 226,
+      "referenceLine": 61,
       "legacyLine": 195,
       "consumers": [
         {
@@ -776,7 +688,7 @@
       "legacyValue": "8",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 208,
+      "referenceLine": 64,
       "legacyLine": 180,
       "consumers": [
         {
@@ -792,7 +704,7 @@
       "legacyValue": "2100",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 215,
+      "referenceLine": 65,
       "legacyLine": 181,
       "consumers": [
         {
@@ -808,7 +720,7 @@
       "legacyValue": "3135",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 221,
+      "referenceLine": 68,
       "legacyLine": 188,
       "consumers": [
         {
@@ -828,7 +740,7 @@
       "legacyValue": "14",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 240,
+      "referenceLine": 71,
       "legacyLine": 202,
       "consumers": [
         {
@@ -848,7 +760,7 @@
       "legacyValue": "2525",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 242,
+      "referenceLine": 72,
       "legacyLine": 203,
       "consumers": [
         {
@@ -868,7 +780,7 @@
       "legacyValue": "2650",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 256,
+      "referenceLine": 75,
       "legacyLine": 214,
       "consumers": [
         {
@@ -878,24 +790,13 @@
       ]
     },
     {
-      "canonicalReference": "OW2_MCCREE_FAN_THE_HAMMER_DAMAGE",
-      "legacyName": "MCCREE_FAN_THE_HAMMER_DAMAGE",
-      "referenceValue": "50",
-      "legacyValue": "50",
-      "sameValue": true,
-      "referenceActive": false,
-      "referenceLine": 110,
-      "legacyLine": 109,
-      "consumers": []
-    },
-    {
       "canonicalReference": "OW2_MCCREE_FLASHBANG_COOLDOWN",
       "legacyName": "MCCREE_FLASHBANG_COOLDOWN",
       "referenceValue": "12",
       "legacyValue": "12",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 111,
+      "referenceLine": 34,
       "legacyLine": 110,
       "consumers": [
         {
@@ -915,7 +816,7 @@
       "legacyValue": "1800",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 117,
+      "referenceLine": 35,
       "legacyLine": 111,
       "consumers": [
         {
@@ -931,7 +832,7 @@
       "legacyValue": "2700",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 286,
+      "referenceLine": 78,
       "legacyLine": 226,
       "consumers": [
         {
@@ -951,7 +852,7 @@
       "legacyValue": "16",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 291,
+      "referenceLine": 81,
       "legacyLine": 233,
       "consumers": [
         {
@@ -965,24 +866,13 @@
       ]
     },
     {
-      "canonicalReference": "OW2_ORISA_TERRA_SURGE_RADIUS",
-      "legacyName": "ORISA_TERRA_SURGE_RADIUS",
-      "referenceValue": "10.5",
-      "legacyValue": "10.5",
-      "sameValue": true,
-      "referenceActive": false,
-      "referenceLine": 302,
-      "legacyLine": 234,
-      "consumers": []
-    },
-    {
       "canonicalReference": "OW2_ORISA_ULT_COST",
       "legacyName": "ORISA_ULT_COST",
       "referenceValue": "2150",
       "legacyValue": "2150",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 303,
+      "referenceLine": 82,
       "legacyLine": 235,
       "consumers": [
         {
@@ -1002,7 +892,7 @@
       "legacyValue": "7",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 306,
+      "referenceLine": 85,
       "legacyLine": 244,
       "consumers": [
         {
@@ -1022,7 +912,7 @@
       "legacyValue": "14",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 310,
+      "referenceLine": 86,
       "legacyLine": 245,
       "consumers": [
         {
@@ -1042,7 +932,7 @@
       "legacyValue": "8",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 317,
+      "referenceLine": 89,
       "legacyLine": 254,
       "consumers": [
         {
@@ -1062,7 +952,7 @@
       "legacyValue": "2300",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 319,
+      "referenceLine": 90,
       "legacyLine": 255,
       "consumers": [
         {
@@ -1082,7 +972,7 @@
       "legacyValue": "16",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 320,
+      "referenceLine": 91,
       "legacyLine": 256,
       "consumers": [
         {
@@ -1102,7 +992,7 @@
       "legacyValue": "11",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 322,
+      "referenceLine": 92,
       "legacyLine": 257,
       "consumers": [
         {
@@ -1116,24 +1006,13 @@
       ]
     },
     {
-      "canonicalReference": "OW2_REAPER_LIFESTEAL",
-      "legacyName": "REAPER_LIFESTEAL",
-      "referenceValue": "0.3",
-      "legacyValue": "0.3",
-      "sameValue": true,
-      "referenceActive": false,
-      "referenceLine": 328,
-      "legacyLine": 270,
-      "consumers": []
-    },
-    {
       "canonicalReference": "OW2_REINHARDT_BARRIER_HEALTH",
       "legacyName": "REINHARDT_BARRIER_HEALTH",
       "referenceValue": "1500",
       "legacyValue": "1500",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 333,
+      "referenceLine": 95,
       "legacyLine": 273,
       "consumers": [
         {
@@ -1153,7 +1032,7 @@
       "legacyValue": "150",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 334,
+      "referenceLine": 96,
       "legacyLine": 274,
       "consumers": [
         {
@@ -1173,7 +1052,7 @@
       "legacyValue": "10",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 336,
+      "referenceLine": 97,
       "legacyLine": 275,
       "consumers": [
         {
@@ -1193,7 +1072,7 @@
       "legacyValue": "1960",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 345,
+      "referenceLine": 98,
       "legacyLine": 276,
       "consumers": [
         {
@@ -1203,35 +1082,13 @@
       ]
     },
     {
-      "canonicalReference": "OW2_ROADHOG_BREATHER_HEAL_BUFF_DURATION",
-      "legacyName": "ROADHOG_BREATHER_HEAL_BUFF_DURATION",
-      "referenceValue": "2.5",
-      "legacyValue": "2.5",
-      "sameValue": true,
-      "referenceActive": false,
-      "referenceLine": 353,
-      "legacyLine": 288,
-      "consumers": []
-    },
-    {
-      "canonicalReference": "OW2_ROADHOG_BREATHER_RECHARGE_DURATION",
-      "legacyName": "ROADHOG_BREATHER_RECHARGE_DURATION",
-      "referenceValue": "10",
-      "legacyValue": "10",
-      "sameValue": true,
-      "referenceActive": false,
-      "referenceLine": 355,
-      "legacyLine": 289,
-      "consumers": []
-    },
-    {
       "canonicalReference": "OW2_ROADHOG_HOOK_COOLDOWN_TIME",
       "legacyName": "ROADHOG_HOOK_COOLDOWN_TIME",
       "referenceValue": "8",
       "legacyValue": "8",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 358,
+      "referenceLine": 101,
       "legacyLine": 290,
       "consumers": [
         {
@@ -1247,7 +1104,7 @@
       "legacyValue": "700",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 371,
+      "referenceLine": 104,
       "legacyLine": 296,
       "consumers": [
         {
@@ -1267,7 +1124,7 @@
       "legacyValue": "2300",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 375,
+      "referenceLine": 105,
       "legacyLine": 297,
       "consumers": [
         {
@@ -1283,7 +1140,7 @@
       "legacyValue": "15",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 385,
+      "referenceLine": 108,
       "legacyLine": 307,
       "consumers": [
         {
@@ -1303,7 +1160,7 @@
       "legacyValue": "6",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 390,
+      "referenceLine": 111,
       "legacyLine": 314,
       "consumers": [
         {
@@ -1317,57 +1174,13 @@
       ]
     },
     {
-      "canonicalReference": "OW2_SUPPORT_HEAL_PASSIVE_ACTIVATION_TIME",
-      "legacyName": "SUPPORT_HEAL_PASSIVE_ACTIVATION_TIME",
-      "referenceValue": "(OW2_HEAL_PASSIVE_ACTIVATION_TIME/2)",
-      "legacyValue": "(HEAL_PASSIVE_ACTIVATION_TIME/2)",
-      "sameValue": false,
-      "referenceActive": false,
-      "referenceLine": 17,
-      "legacyLine": 43,
-      "consumers": []
-    },
-    {
-      "canonicalReference": "OW2_SUPPORT_PASSIVE_HEALING",
-      "legacyName": "SUPPORT_PASSIVE_HEALING",
-      "referenceValue": "20",
-      "legacyValue": "20",
-      "sameValue": true,
-      "referenceActive": false,
-      "referenceLine": 18,
-      "legacyLine": 44,
-      "consumers": []
-    },
-    {
-      "canonicalReference": "OW2_TANK_CRITICAL_HIT_MULTIPLIER",
-      "legacyName": "TANK_CRITICAL_HIT_MULTIPLIER",
-      "referenceValue": "(2*0.75)",
-      "legacyValue": "(2*0.75)",
-      "sameValue": true,
-      "referenceActive": false,
-      "referenceLine": 19,
-      "legacyLine": 45,
-      "consumers": []
-    },
-    {
-      "canonicalReference": "OW2_TANK_KNOCKBACK_REDUCTION_PERCENT",
-      "legacyName": "TANK_KNOCKBACK_REDUCTION_PERCENT",
-      "referenceValue": "40",
-      "legacyValue": "40",
-      "sameValue": true,
-      "referenceActive": false,
-      "referenceLine": 20,
-      "legacyLine": 46,
-      "consumers": []
-    },
-    {
       "canonicalReference": "OW2_TORBJORN_ULT_COST",
       "legacyName": "TORBJORN_ULT_COST",
       "referenceValue": "2350",
       "legacyValue": "2350",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 411,
+      "referenceLine": 114,
       "legacyLine": 323,
       "consumers": [
         {
@@ -1387,7 +1200,7 @@
       "legacyValue": "13",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 416,
+      "referenceLine": 117,
       "legacyLine": 330,
       "consumers": [
         {
@@ -1407,7 +1220,7 @@
       "legacyValue": "1375",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 417,
+      "referenceLine": 118,
       "legacyLine": 331,
       "consumers": [
         {
@@ -1427,7 +1240,7 @@
       "legacyValue": "2125",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 422,
+      "referenceLine": 121,
       "legacyLine": 340,
       "consumers": [
         {
@@ -1447,7 +1260,7 @@
       "legacyValue": "1400",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 428,
+      "referenceLine": 124,
       "legacyLine": 347,
       "consumers": [
         {
@@ -1467,7 +1280,7 @@
       "legacyValue": "13",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 432,
+      "referenceLine": 127,
       "legacyLine": 354,
       "consumers": [
         {
@@ -1487,7 +1300,7 @@
       "legacyValue": "5",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 435,
+      "referenceLine": 128,
       "legacyLine": 355,
       "consumers": [
         {
@@ -1503,7 +1316,7 @@
       "legacyValue": "2500",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 462,
+      "referenceLine": 131,
       "legacyLine": 365,
       "consumers": [
         {
@@ -1523,7 +1336,7 @@
       "legacyValue": "2500",
       "sameValue": true,
       "referenceActive": true,
-      "referenceLine": 467,
+      "referenceLine": 134,
       "legacyLine": 372,
       "consumers": [
         {
@@ -7623,20 +7436,6 @@
       ]
     },
     {
-      "canonicalReference": "OW2_DOMINA_SONIC_REPULSORS_COOLDOWN",
-      "value": "7",
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 404
-        },
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 802
-        }
-      ]
-    },
-    {
       "canonicalReference": "OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN",
       "value": "8",
       "consumers": [
@@ -7647,6 +7446,20 @@
         {
           "file": "src/modules/prelude/settings.opy",
           "line": 803
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_DOMINA_SONIC_REPULSORS_COOLDOWN",
+      "value": "7",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 404
+        },
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 802
         }
       ]
     }
@@ -7689,1736 +7502,7 @@
       "reason": "Main derives a Workshop percentage from a token that is not an active canonical OW2 definition; do not migrate it without deciding whether it is an absolute target or a relative modifier."
     }
   ],
-  "unusedOw2ReferenceDefinitions": [
-    {
-      "name": "OW2_ARMOR_DAMAGE_REDUCTION",
-      "value": "7",
-      "line": 11,
-      "active": true
-    },
-    {
-      "name": "OW2_MELEE_DAMAGE",
-      "value": "40",
-      "line": 16,
-      "active": true
-    },
-    {
-      "name": "OW2_TANK_ULT_NEGATION_PERCENT",
-      "value": "20",
-      "line": 21,
-      "active": true
-    },
-    {
-      "name": "OW2_ANA_BIOTIC_GRENADE_DAMAGE",
-      "value": "75",
-      "line": 25,
-      "active": true
-    },
-    {
-      "name": "OW2_ANA_BIOTIC_GRENADE_HEALING",
-      "value": "75",
-      "line": 26,
-      "active": true
-    },
-    {
-      "name": "OW2_ANA_BIOTIC_RIFLE_DAMAGE",
-      "value": "75",
-      "line": 27,
-      "active": true
-    },
-    {
-      "name": "OW2_ANA_BIOTIC_RIFLE_HEALING",
-      "value": "75",
-      "line": 28,
-      "active": true
-    },
-    {
-      "name": "OW2_ANA_CLIP_SIZE",
-      "value": "15",
-      "line": 29,
-      "active": true
-    },
-    {
-      "name": "OW2_ANA_SLEEP_DART_TANK_SLEEP_DURATION",
-      "value": "5",
-      "line": 31,
-      "active": true
-    },
-    {
-      "name": "OW2_ANA_HEALTH",
-      "value": "250",
-      "line": 32,
-      "active": true
-    },
-    {
-      "name": "OW2_ANRAN_HEALTH",
-      "value": "250",
-      "line": 36,
-      "active": true
-    },
-    {
-      "name": "OW2_ANRAN_IGNITION_DAMAGE_PER_SECOND",
-      "value": "10",
-      "line": 37,
-      "active": true
-    },
-    {
-      "name": "OW2_ANRAN_IGNITION_CRITICAL_DAMAGE_PER_SECOND",
-      "value": "20",
-      "line": 38,
-      "active": true
-    },
-    {
-      "name": "OW2_ANRAN_IGNITION_DURATION",
-      "value": "3",
-      "line": 39,
-      "active": true
-    },
-    {
-      "name": "OW2_ANRAN_ZHUQUE_FANS_DAMAGE_PER_SHOT",
-      "value": "22",
-      "line": 40,
-      "active": true
-    },
-    {
-      "name": "OW2_ANRAN_ZHUQUE_FANS_CLIP_SIZE",
-      "value": "20",
-      "line": 41,
-      "active": true
-    },
-    {
-      "name": "OW2_ANRAN_ZHUQUE_FANS_PROJECTILE_SPEED",
-      "value": "90",
-      "line": 42,
-      "active": true
-    },
-    {
-      "name": "OW2_ANRAN_FAN_THE_FLAMES_DAMAGE_PER_PELLET",
-      "value": "5",
-      "line": 43,
-      "active": true
-    },
-    {
-      "name": "OW2_ANRAN_FAN_THE_FLAMES_BASE_DAMAGE",
-      "value": "30",
-      "line": 44,
-      "active": true
-    },
-    {
-      "name": "OW2_ANRAN_FAN_THE_FLAMES_BURNING_DAMAGE",
-      "value": "60",
-      "line": 45,
-      "active": true
-    },
-    {
-      "name": "OW2_ANRAN_FAN_THE_FLAMES_CLIP_SIZE",
-      "value": "10",
-      "line": 46,
-      "active": true
-    },
-    {
-      "name": "OW2_ANRAN_FAN_THE_FLAMES_RANGE",
-      "value": "10",
-      "line": 47,
-      "active": true
-    },
-    {
-      "name": "OW2_ANRAN_INFERNO_RUSH_CHARGES",
-      "value": "2",
-      "line": 49,
-      "active": true
-    },
-    {
-      "name": "OW2_ANRAN_INFERNO_RUSH_DAMAGE",
-      "value": "50",
-      "line": 50,
-      "active": true
-    },
-    {
-      "name": "OW2_ANRAN_DANCING_BLAZE_DAMAGE",
-      "value": "50",
-      "line": 52,
-      "active": true
-    },
-    {
-      "name": "OW2_ANRAN_VERMILLION_ASCENT_MAX_DAMAGE",
-      "value": "165",
-      "line": 53,
-      "active": true
-    },
-    {
-      "name": "OW2_ANRAN_VERMILLION_ASCENT_MIN_DAMAGE",
-      "value": "90",
-      "line": 54,
-      "active": true
-    },
-    {
-      "name": "OW2_ANRAN_VERMILLION_REVIVAL_DAMAGE_PER_SECOND",
-      "value": "10",
-      "line": 55,
-      "active": true
-    },
-    {
-      "name": "OW2_ANRAN_ULT_COST",
-      "value": "2000",
-      "line": 56,
-      "active": true
-    },
-    {
-      "name": "OW2_ASHE_BOB_DAMAGE",
-      "value": "17",
-      "line": 59,
-      "active": true
-    },
-    {
-      "name": "OW2_ASHE_BOB_HEALTH",
-      "value": "1000",
-      "line": 60,
-      "active": true
-    },
-    {
-      "name": "OW2_ASHE_ULT_COST",
-      "value": "2450",
-      "line": 61,
-      "active": true
-    },
-    {
-      "name": "OW2_BAPTISTE_HEALTH",
-      "value": "250",
-      "line": 64,
-      "active": true
-    },
-    {
-      "name": "OW2_BAPTISTE_LAMP_HP",
-      "value": "125",
-      "line": 65,
-      "active": true
-    },
-    {
-      "name": "OW2_BAPTISTE_PRIMARY_DAMAGE",
-      "value": "25",
-      "line": 67,
-      "active": true
-    },
-    {
-      "name": "OW2_BAPTISTE_REGEN_BURST_ALLY_HPS",
-      "value": "10",
-      "line": 68,
-      "active": true
-    },
-    {
-      "name": "OW2_BAPTISTE_REGEN_BURST_SELF_HPS",
-      "value": "10",
-      "line": 70,
-      "active": true
-    },
-    {
-      "name": "OW2_BAPTISTE_ULT_COST",
-      "value": "2550",
-      "line": 71,
-      "active": true
-    },
-    {
-      "name": "OW2_BASTION_ARTILLERY_CONFIG_CAST_TIME",
-      "value": "0.5",
-      "line": 74,
-      "active": true
-    },
-    {
-      "name": "OW2_BASTION_ASSAULT_CONFIG_DAMAGE",
-      "value": "12",
-      "line": 75,
-      "active": true
-    },
-    {
-      "name": "OW2_BASTION_ASSAULT_CONFIG_LENGTH",
-      "value": "7.016",
-      "line": 76,
-      "active": true
-    },
-    {
-      "name": "OW2_BASTION_ASSAULT_CONFIG_TRANSFORM_TIME",
-      "value": "0.5",
-      "line": 77,
-      "active": true
-    },
-    {
-      "name": "OW2_BASTION_RECON_GUN_DAMAGE",
-      "value": "23",
-      "line": 78,
-      "active": true
-    },
-    {
-      "name": "OW2_BASTION_RECON_CLIP_SIZE",
-      "value": "25",
-      "line": 79,
-      "active": true
-    },
-    {
-      "name": "OW2_BASTION_TACTICAL_GRENADE_DAMAGE",
-      "value": "100",
-      "line": 81,
-      "active": true
-    },
-    {
-      "name": "OW2_BASTION_TACTICAL_GRENADE_PROJECTILE_SPEED",
-      "value": "40",
-      "line": 82,
-      "active": true
-    },
-    {
-      "name": "OW2_BASTION_ULT_COST",
-      "value": "2050",
-      "line": 83,
-      "active": true
-    },
-    {
-      "name": "OW2_BRIGITTE_BARRIER_HEALTH",
-      "value": "250",
-      "line": 86,
-      "active": true
-    },
-    {
-      "name": "OW2_BRIGITTE_FLAIL_DAMAGE",
-      "value": "45",
-      "line": 87,
-      "active": true
-    },
-    {
-      "name": "OW2_BRIGITTE_ARMOR",
-      "value": "50",
-      "line": 88,
-      "active": true
-    },
-    {
-      "name": "OW2_BRIGITTE_HEALTH",
-      "value": "200",
-      "line": 89,
-      "active": true
-    },
-    {
-      "name": "OW2_BRIGITTE_BARRIER_ULT",
-      "value": "700",
-      "line": 90,
-      "active": true
-    },
-    {
-      "name": "OW2_BRIGITTE_RALLY_INSTANT_ARMOR",
-      "value": "84",
-      "line": 92,
-      "active": true
-    },
-    {
-      "name": "OW2_BRIGITTE_RALLY_SPEED_BUFF",
-      "value": "1.15",
-      "line": 93,
-      "active": true
-    },
-    {
-      "name": "OW2_BRIGITTE_SHIELD_BASH_DAMAGE",
-      "value": "70",
-      "line": 96,
-      "active": true
-    },
-    {
-      "name": "OW2_BRIGITTE_WHIPSHOT_DAMAGE",
-      "value": "70",
-      "line": 99,
-      "active": true
-    },
-    {
-      "name": "OW2_MCCREE_COMBAT_ROLL_DAMAGE_REDUCTION",
-      "value": "50",
-      "line": 102,
-      "active": true
-    },
-    {
-      "name": "OW2_MCREE_COMBAT_ROLL_COOLDOWN",
-      "value": "5",
-      "line": 103,
-      "active": true
-    },
-    {
-      "name": "OW2_MCCREE_DEADEYE_DAMAGE",
-      "value": "300",
-      "line": 104,
-      "active": true
-    },
-    {
-      "name": "OW2_MCCREE_DEADEYE_DAMAGE_REDUCTION_MAX",
-      "value": "40",
-      "line": 105,
-      "active": true
-    },
-    {
-      "name": "OW2_MCCREE_DEADEYE_DAMAGE_REDUCTION_MIN",
-      "value": "0",
-      "line": 106,
-      "active": true
-    },
-    {
-      "name": "OW2_MCCREE_DEADEYE_MOVE_SPEED_MAX",
-      "value": "3.575",
-      "line": 107,
-      "active": true
-    },
-    {
-      "name": "OW2_MCCREE_DEADEYE_MOVE_SPEED_MIN",
-      "value": "1.65",
-      "line": 108,
-      "active": true
-    },
-    {
-      "name": "OW2_MCCREE_DEADEYE_PENALTY_DURATION",
-      "value": "7",
-      "line": 109,
-      "active": true
-    },
-    {
-      "name": "OW2_MCCREE_FLASHBANG_DAMAGE",
-      "value": "75",
-      "line": 112,
-      "active": true
-    },
-    {
-      "name": "OW2_MCCREE_FLASHBANG_HINDER_DURATION",
-      "value": "1.2",
-      "line": 113,
-      "active": true
-    },
-    {
-      "name": "OW2_MCCREE_FLASHBANG_SPEED_REDUCTION",
-      "value": "0.5",
-      "line": 114,
-      "active": true
-    },
-    {
-      "name": "OW2_MCCREE_HEALTH",
-      "value": "250",
-      "line": 115,
-      "active": true
-    },
-    {
-      "name": "OW2_MCCREE_MAGNETIC_GRENADE_COOLDOWN",
-      "value": "12",
-      "line": 116,
-      "active": true
-    },
-    {
-      "name": "OW2_DOOMFIST_BEST_DEFENSE",
-      "value": "40",
-      "line": 121,
-      "active": true
-    },
-    {
-      "name": "OW2_DOOMFIST_HAND_CANNON_DAMAGE",
-      "value": "55",
-      "line": 122,
-      "active": true
-    },
-    {
-      "name": "OW2_DOOMFIST_HEALTH",
-      "value": "425",
-      "line": 123,
-      "active": true
-    },
-    {
-      "name": "OW2_DOOMFIST_METEOR_STRIKE_INNER_SPHERE_DAMAGE",
-      "value": "300",
-      "line": 124,
-      "active": true
-    },
-    {
-      "name": "OW2_DOOMFIST_METEOR_STRIKE_OUTER_SPHERE_MAX_DAMAGE",
-      "value": "100",
-      "line": 125,
-      "active": true
-    },
-    {
-      "name": "OW2_DOOMFIST_METEOR_STRIKE_OUTER_SPHERE_MIN_DAMAGE",
-      "value": "50",
-      "line": 126,
-      "active": true
-    },
-    {
-      "name": "OW2_DOOMFIST_METEOR_STRIKE_SLOW",
-      "value": "0.5",
-      "line": 127,
-      "active": true
-    },
-    {
-      "name": "OW2_DOOMFIST_METEOR_STRIKE_SLOW_DURATION",
-      "value": "3",
-      "line": 128,
-      "active": true
-    },
-    {
-      "name": "OW2_DOOMFIST_ROCKET_PUNCH_CHARGE_TIME_MAX",
-      "value": "1",
-      "line": 130,
-      "active": true
-    },
-    {
-      "name": "OW2_DOOMFIST_ROCKET_PUNCH_CHARGE_TIME_MIN",
-      "value": "0.2",
-      "line": 131,
-      "active": true
-    },
-    {
-      "name": "OW2_DOOMFIST_ROCKET_PUNCH_IMPACT_DAMAGE_MIN",
-      "value": "25",
-      "line": 132,
-      "active": true
-    },
-    {
-      "name": "OW2_DOOMFIST_ROCKET_PUNCH_IMPACT_DAMAGE_MAX",
-      "value": "75",
-      "line": 133,
-      "active": true
-    },
-    {
-      "name": "OW2_DOOMFIST_ROCKET_PUNCH_WALL_SLAM_DAMAGE_MIN",
-      "value": "10",
-      "line": 134,
-      "active": true
-    },
-    {
-      "name": "OW2_DOOMFIST_ULT_COST",
-      "value": "1975",
-      "line": 136,
-      "active": true
-    },
-    {
-      "name": "OW2_DVA_ARMOR",
-      "value": "300",
-      "line": 139,
-      "active": true
-    },
-    {
-      "name": "OW2_DVA_PILOT_HEALTH",
-      "value": "175",
-      "line": 140,
-      "active": true
-    },
-    {
-      "name": "OW2_DVA_BOOSTERS_DAMAGE",
-      "value": "25",
-      "line": 142,
-      "active": true
-    },
-    {
-      "name": "OW2_DVA_HEALTH",
-      "value": "250",
-      "line": 143,
-      "active": true
-    },
-    {
-      "name": "OW2_DVA_MICRO_MISSILES_DAMAGE",
-      "value": "8.5",
-      "line": 146,
-      "active": true
-    },
-    {
-      "name": "OW2_DVA_MOVE_PENALTY",
-      "value": "0.4",
-      "line": 147,
-      "active": true
-    },
-    {
-      "name": "OW2_DVA_ULT_COST",
-      "value": "1700",
-      "line": 148,
-      "active": true
-    },
-    {
-      "name": "OW2_DOMINA_HEALTH",
-      "value": "100",
-      "line": 151,
-      "active": true
-    },
-    {
-      "name": "OW2_DOMINA_SHIELDS",
-      "value": "300",
-      "line": 152,
-      "active": true
-    },
-    {
-      "name": "OW2_DOMINA_BARRIER_ARRAY_PANEL_HEALTH",
-      "value": "225",
-      "line": 154,
-      "active": true
-    },
-    {
-      "name": "OW2_DOMINA_SONIC_REPULSORS_DAMAGE",
-      "value": "40",
-      "line": 156,
-      "active": true
-    },
-    {
-      "name": "OW2_DOMINA_SONIC_REPULSORS_WALL_IMPACT_DAMAGE",
-      "value": "40",
-      "line": 157,
-      "active": true
-    },
-    {
-      "name": "OW2_DOMINA_CRYSTAL_CHARGE_DOT_DAMAGE",
-      "value": "50",
-      "line": 159,
-      "active": true
-    },
-    {
-      "name": "OW2_DOMINA_CRYSTAL_CHARGE_EXPLOSION_MAX_DAMAGE",
-      "value": "100",
-      "line": 160,
-      "active": true
-    },
-    {
-      "name": "OW2_DOMINA_CRYSTAL_CHARGE_EXPLOSION_MIN_DAMAGE",
-      "value": "50",
-      "line": 161,
-      "active": true
-    },
-    {
-      "name": "OW2_DOMINA_ULT_COST",
-      "value": "2350",
-      "line": 162,
-      "active": true
-    },
-    {
-      "name": "OW2_ECHO_DUPLICATE_ULT_CHARGE_MULTIPLIER",
-      "value": "4.5",
-      "line": 165,
-      "active": true
-    },
-    {
-      "name": "OW2_ECHO_FOCUSING_BEAM_DMG",
-      "value": "200",
-      "line": 166,
-      "active": true
-    },
-    {
-      "name": "OW2_ECHO_HEALTH",
-      "value": "150",
-      "line": 167,
-      "active": true
-    },
-    {
-      "name": "OW2_ECHO_SHIELD",
-      "value": "75",
-      "line": 168,
-      "active": true
-    },
-    {
-      "name": "OW2_ECHO_STICKY_BOMBS_DAMAGE",
-      "value": "180",
-      "line": 169,
-      "active": true
-    },
-    {
-      "name": "OW2_ECHO_ULT_COST",
-      "value": "1850",
-      "line": 170,
-      "active": true
-    },
-    {
-      "name": "OW2_FREJA_HEALTH",
-      "value": "225",
-      "line": 173,
-      "active": true
-    },
-    {
-      "name": "OW2_FREJA_ULT_COST",
-      "value": "1750",
-      "line": 174,
-      "active": true
-    },
-    {
-      "name": "OW2_GENJI_CLIP_SIZE",
-      "value": "24",
-      "line": 177,
-      "active": true
-    },
-    {
-      "name": "OW2_GENJI_PROJECTILE_SPEED",
-      "value": "75",
-      "line": 178,
-      "active": true
-    },
-    {
-      "name": "OW2_GENJI_SHURIKEN_DAMAGE",
-      "value": "27",
-      "line": 180,
-      "active": true
-    },
-    {
-      "name": "OW2_HANZO_STORM_DAMAGE",
-      "value": "75",
-      "line": 186,
-      "active": true
-    },
-    {
-      "name": "OW2_WUYANG_ULT_COST",
-      "value": "2800",
-      "line": 190,
-      "active": true
-    },
-    {
-      "name": "OW2_HAZARD_ULT_COST",
-      "value": "2150",
-      "line": 195,
-      "active": true
-    },
-    {
-      "name": "OW2_JUNKERQUEEN_ADRENALINE",
-      "value": "100",
-      "line": 198,
-      "active": true
-    },
-    {
-      "name": "OW2_JUNKERQUEEN_BLADE_COOLDOWN",
-      "value": "6",
-      "line": 199,
-      "active": true
-    },
-    {
-      "name": "OW2_JUNKERQUEEN_CARNAGE_DAMAGE",
-      "value": "105",
-      "line": 200,
-      "active": true
-    },
-    {
-      "name": "OW2_JUNKERQUEEN_SCATTER_GUN_DAMAGE",
-      "value": "80",
-      "line": 201,
-      "active": true
-    },
-    {
-      "name": "OW2_JUNKERQUEEN_SHOUT_COOLDOWN_TIME",
-      "value": "15",
-      "line": 202,
-      "active": true
-    },
-    {
-      "name": "OW2_JUNKERQUEEN_SHOUT_OVERHEALTH",
-      "value": "175",
-      "line": 203,
-      "active": true
-    },
-    {
-      "name": "OW2_JUNKERQUEEN_RAMPAGE_WOUND_DAMAGE",
-      "value": "90",
-      "line": 204,
-      "active": true
-    },
-    {
-      "name": "OW2_JUNKERQUEEN_ULT_COST",
-      "value": "2700",
-      "line": 205,
-      "active": true
-    },
-    {
-      "name": "OW2_JUNKRAT_CONCUSSION_MINE_MAX_DAMAGE",
-      "value": "120",
-      "line": 209,
-      "active": true
-    },
-    {
-      "name": "OW2_JUNKRAT_CONCUSSION_MINE_MIN_DAMAGE",
-      "value": "55",
-      "line": 210,
-      "active": true
-    },
-    {
-      "name": "OW2_JUNKRAT_FRAG_DAMAGE",
-      "value": "125",
-      "line": 211,
-      "active": true
-    },
-    {
-      "name": "OW2_JUNKRAT_HEALTH",
-      "value": "250",
-      "line": 212,
-      "active": true
-    },
-    {
-      "name": "OW2_JUNKRAT_STEEL_TRAP_DMG",
-      "value": "100",
-      "line": 213,
-      "active": true
-    },
-    {
-      "name": "OW2_JUNKRAT_TIRE_HEALTH",
-      "value": "100",
-      "line": 214,
-      "active": true
-    },
-    {
-      "name": "OW2_JUNKRAT_PROJECTILE",
-      "value": "30",
-      "line": 216,
-      "active": true
-    },
-    {
-      "name": "OW2_JUNO_HEALTH",
-      "value": "75",
-      "line": 219,
-      "active": true
-    },
-    {
-      "name": "OW2_JUNO_SHIELDS",
-      "value": "150",
-      "line": 220,
-      "active": true
-    },
-    {
-      "name": "OW2_ILLARI_SUNSTRUCK_DAMAGE",
-      "value": "160",
-      "line": 224,
-      "active": true
-    },
-    {
-      "name": "OW2_ILLARI_OUTBURST_COOLDOWN",
-      "value": "7",
-      "line": 225,
-      "active": true
-    },
-    {
-      "name": "OW2_ILLARI_PYLON_HP",
-      "value": "125",
-      "line": 227,
-      "active": true
-    },
-    {
-      "name": "OW2_ILLARI_PYLON_SELF_HEAL",
-      "value": "0.5",
-      "line": 228,
-      "active": true
-    },
-    {
-      "name": "OW2_ILLARI_SOLAR_RIFLE_CRIT_MULTIPLIER",
-      "value": "1.5",
-      "line": 229,
-      "active": true
-    },
-    {
-      "name": "OW2_ILLARI_SOLAR_RIFLE_DAMAGE",
-      "value": "75",
-      "line": 230,
-      "active": true
-    },
-    {
-      "name": "OW2_ILLARI_SOLAR_RIFLE_DAMAGE_CRIT",
-      "value": "(OW2_ILLARI_SOLAR_RIFLE_CRIT_MULTIPLIER * OW2_ILLARI_SOLAR_RIFLE_DAMAGE)",
-      "line": 231,
-      "active": true
-    },
-    {
-      "name": "OW2_ILLARI_SOLAR_RIFLE_HEALING",
-      "value": "115",
-      "line": 232,
-      "active": true
-    },
-    {
-      "name": "OW2_ILLARI_ULT_COST",
-      "value": "2975",
-      "line": 233,
-      "active": true
-    },
-    {
-      "name": "OW2_KIRIKO_KUNAI_DAMAGE",
-      "value": "60",
-      "line": 236,
-      "active": true
-    },
-    {
-      "name": "OW2_KIRIKO_KUNAI_HEADSHOT_DAMAGE",
-      "value": "(OW2_KIRIKO_KUNAI_DAMAGE * OW2_KIRIKO_KUNAI_HEADSHOT_MULTIPLIER)",
-      "line": 237,
-      "active": true
-    },
-    {
-      "name": "OW2_KIRIKO_KUNAI_HEADSHOT_MULTIPLIER",
-      "value": "2",
-      "line": 238,
-      "active": true
-    },
-    {
-      "name": "OW2_KIRIKO_OFUDA_HEALING",
-      "value": "14",
-      "line": 239,
-      "active": true
-    },
-    {
-      "name": "OW2_KIRIKO_SWIFT_STEP_COOLDOWN",
-      "value": "7",
-      "line": 241,
-      "active": true
-    },
-    {
-      "name": "OW2_LIFEWEAVER_THORN_VOLLEY_DAMAGE",
-      "value": "12",
-      "line": 245,
-      "active": true
-    },
-    {
-      "name": "OW2_LIFEWEAVER_ULT_COST",
-      "value": "2200",
-      "line": 246,
-      "active": true
-    },
-    {
-      "name": "OW2_LUCIO_AMP_HEALING",
-      "value": "56",
-      "line": 249,
-      "active": true
-    },
-    {
-      "name": "OW2_LUCIO_ALLY_HEALING",
-      "value": "20",
-      "line": 250,
-      "active": true
-    },
-    {
-      "name": "OW2_LUCIO_SELF_HEALING",
-      "value": "14",
-      "line": 251,
-      "active": true
-    },
-    {
-      "name": "OW2_LUCIO_SOUND_GUN_DAMAGE",
-      "value": "20",
-      "line": 252,
-      "active": true
-    },
-    {
-      "name": "OW2_LUCIO_SOUNDWAVE_DAMAGE",
-      "value": "45",
-      "line": 253,
-      "active": true
-    },
-    {
-      "name": "OW2_LUCIO_SOUNDWAVE_COOLDOWN",
-      "value": "5",
-      "line": 254,
-      "active": true
-    },
-    {
-      "name": "OW2_LUCIO_SOUNDWAVE_KNOCKBACK",
-      "value": "1",
-      "line": 255,
-      "active": true
-    },
-    {
-      "name": "OW2_MAUGA_CARDIAC_COOLDOWN",
-      "value": "14",
-      "line": 259,
-      "active": true
-    },
-    {
-      "name": "OW2_MAUGA_CARDIAC_DURATION",
-      "value": "5",
-      "line": 260,
-      "active": true
-    },
-    {
-      "name": "OW2_MAUGA_CARDIAC_DAMAGE_REDUCTION",
-      "value": "0.3",
-      "line": 261,
-      "active": true
-    },
-    {
-      "name": "OW2_MAUGA_CARDIAC_RADIUS",
-      "value": "10.5",
-      "line": 262,
-      "active": true
-    },
-    {
-      "name": "OW2_MAUGA_CHAINGUN_DAMAGE",
-      "value": "4",
-      "line": 263,
-      "active": true
-    },
-    {
-      "name": "OW2_MAUGA_ULT_COST",
-      "value": "2650",
-      "line": 264,
-      "active": true
-    },
-    {
-      "name": "OW2_MEI_BLASTER_DAMAGE_RATE",
-      "value": "110",
-      "line": 267,
-      "active": true
-    },
-    {
-      "name": "OW2_MEI_CRYO_HEALING",
-      "value": "62.5",
-      "line": 268,
-      "active": true
-    },
-    {
-      "name": "OW2_MEI_ICEWALL_HP",
-      "value": "250",
-      "line": 269,
-      "active": true
-    },
-    {
-      "name": "OW2_MEI_ICICLE_DAMAGE",
-      "value": "85",
-      "line": 270,
-      "active": true
-    },
-    {
-      "name": "OW2_MEI_ULT_COST",
-      "value": "1925",
-      "line": 271,
-      "active": true
-    },
-    {
-      "name": "OW2_MERCY_STAFF_HEALING",
-      "value": "60",
-      "line": 274,
-      "active": true
-    },
-    {
-      "name": "OW2_MERCY_STAFF_DAMAGE_BOOST",
-      "value": "1.3",
-      "line": 275,
-      "active": true
-    },
-    {
-      "name": "OW2_MERCY_ULT_COST",
-      "value": "2000",
-      "line": 276,
-      "active": true
-    },
-    {
-      "name": "OW2_MOIRA_BIOTIC_GRASP_DAMAGE",
-      "value": "65",
-      "line": 279,
-      "active": true
-    },
-    {
-      "name": "OW2_MOIRA_BIOTIC_GRASP_SELF_HEAL",
-      "value": "30",
-      "line": 280,
-      "active": true
-    },
-    {
-      "name": "OW2_MOIRA_COALESCENCE_DAMAGE",
-      "value": "85",
-      "line": 281,
-      "active": true
-    },
-    {
-      "name": "OW2_MOIRA_COALESCENCE_SELF_HEAL",
-      "value": "55",
-      "line": 282,
-      "active": true
-    },
-    {
-      "name": "OW2_MOIRA_COALESCENCE_SPEED_BUFF",
-      "value": "1.4",
-      "line": 283,
-      "active": true
-    },
-    {
-      "name": "OW2_MOIRA_HEAL_GRASP_AMMO",
-      "value": "156",
-      "line": 284,
-      "active": true
-    },
-    {
-      "name": "OW2_MOIRA_HEAL_GRASP_AMMO_USAGE",
-      "value": "20",
-      "line": 285,
-      "active": true
-    },
-    {
-      "name": "OW2_ORISA_CLIP_SIZE",
-      "value": "50",
-      "line": 289,
-      "active": true
-    },
-    {
-      "name": "OW2_ORISA_FIRE_RATE",
-      "value": "10",
-      "line": 290,
-      "active": true
-    },
-    {
-      "name": "OW2_ORISA_FORTIFY_DAMAGE_REDUCTION",
-      "value": "0.45",
-      "line": 292,
-      "active": true
-    },
-    {
-      "name": "OW2_ORISA_FORTIFY_MOVEMENT_PENALTY",
-      "value": "0.1",
-      "line": 293,
-      "active": true
-    },
-    {
-      "name": "OW2_ORISA_FORTIFY_OVERHEALTH",
-      "value": "100",
-      "line": 294,
-      "active": true
-    },
-    {
-      "name": "OW2_ORISA_FUSION_DRIVER_DAMAGE",
-      "value": "14",
-      "line": 295,
-      "active": true
-    },
-    {
-      "name": "OW2_ORISA_GUN_PROJECTILE_SPEED",
-      "value": "100",
-      "line": 296,
-      "active": true
-    },
-    {
-      "name": "OW2_ORISA_JAVELIN_SPIN_COOLDOWN",
-      "value": "8",
-      "line": 297,
-      "active": true
-    },
-    {
-      "name": "OW2_ORISA_PERK_LVL3_COST",
-      "value": "6000",
-      "line": 298,
-      "active": true
-    },
-    {
-      "name": "OW2_ORISA_PROJECTILE_BARRIER_COOLDOWN",
-      "value": "8",
-      "line": 299,
-      "active": true
-    },
-    {
-      "name": "OW2_ORISA_PROJECTILE_BARRIER_DURATION",
-      "value": "6",
-      "line": 300,
-      "active": true
-    },
-    {
-      "name": "OW2_ORISA_PROJECTILE_BARRIER_HEALTH",
-      "value": "600",
-      "line": 301,
-      "active": true
-    },
-    {
-      "name": "OW2_PHARAH_CONCUSSIVE_BLAST_DAMAGE",
-      "value": "0",
-      "line": 307,
-      "active": true
-    },
-    {
-      "name": "OW2_PHARAH_CONCUSSIVE_BLAST_KNOCKBACK",
-      "value": "100",
-      "line": 308,
-      "active": true
-    },
-    {
-      "name": "OW2_PHARAH_HOVER_JETS_SPEED_BOOST",
-      "value": "1.4",
-      "line": 309,
-      "active": true
-    },
-    {
-      "name": "OW2_PHARAH_ROCKET_SPEED",
-      "value": "40",
-      "line": 311,
-      "active": true
-    },
-    {
-      "name": "OW2_PHARAH_ULT_COST",
-      "value": "2200",
-      "line": 312,
-      "active": true
-    },
-    {
-      "name": "OW2_RAMATTRA_BARRIER_HEALTH",
-      "value": "1000",
-      "line": 315,
-      "active": true
-    },
-    {
-      "name": "OW2_RAMATTRA_NEMESIS_ARMOR",
-      "value": "200",
-      "line": 316,
-      "active": true
-    },
-    {
-      "name": "OW2_RAMATTRA_PUMMEL_DAMAGE",
-      "value": "65",
-      "line": 318,
-      "active": true
-    },
-    {
-      "name": "OW2_RAMATTRA_VOID_BARRIER_HP",
-      "value": "1000",
-      "line": 321,
-      "active": true
-    },
-    {
-      "name": "OW2_RAMATTRA_VORTEX_DAMAGE",
-      "value": "70",
-      "line": 323,
-      "active": true
-    },
-    {
-      "name": "OW2_REAPER_DEATH_BLOSSON_DAMAGE",
-      "value": "185",
-      "line": 326,
-      "active": true
-    },
-    {
-      "name": "OW2_REAPER_HELLFIRE_SHOTGUNS_DAMAGE",
-      "value": "115",
-      "line": 327,
-      "active": true
-    },
-    {
-      "name": "OW2_REAPER_SHADOW_STEP_COOLDOWN",
-      "value": "8",
-      "line": 329,
-      "active": true
-    },
-    {
-      "name": "OW2_REAPER_ULT_COST",
-      "value": "2050",
-      "line": 330,
-      "active": true
-    },
-    {
-      "name": "OW2_REINHARDT_CHARGE_BUMP_DAMAGE",
-      "value": "50",
-      "line": 335,
-      "active": true
-    },
-    {
-      "name": "OW2_REINHARDT_CHARGE_PIN_DAMAGE",
-      "value": "300",
-      "line": 337,
-      "active": true
-    },
-    {
-      "name": "OW2_REINHARDT_EARTHSHATTER_BASE_DAMAGE",
-      "value": "50",
-      "line": 338,
-      "active": true
-    },
-    {
-      "name": "OW2_REINHARDT_EARTHSHATTER_BONUS_DAMAGE",
-      "value": "200",
-      "line": 339,
-      "active": true
-    },
-    {
-      "name": "OW2_REINHARDT_FIRESTRIKE_CAST_TIME",
-      "value": "1",
-      "line": 340,
-      "active": true
-    },
-    {
-      "name": "OW2_REINHARDT_FIRESTRIKE_COOLDOWN",
-      "value": "8",
-      "line": 341,
-      "active": true
-    },
-    {
-      "name": "OW2_REINHARDT_FIRESTRIKE_DAMAGE",
-      "value": "120",
-      "line": 342,
-      "active": true
-    },
-    {
-      "name": "OW2_REINHARDT_HAMMER_DAMAGE",
-      "value": "100",
-      "line": 343,
-      "active": true
-    },
-    {
-      "name": "OW2_REINHARDT_TURN_BONUS",
-      "value": "1.5",
-      "line": 344,
-      "active": true
-    },
-    {
-      "name": "OW2_ROADHOG_BREATHER_CAST_TIME",
-      "value": "0.21",
-      "line": 348,
-      "active": true
-    },
-    {
-      "name": "OW2_ROADHOG_BREATHER_COOLDOWN",
-      "value": "1.25",
-      "line": 349,
-      "active": true
-    },
-    {
-      "name": "OW2_ROADHOG_BREATHER_DAMAGE_REDUCTION",
-      "value": "0.4",
-      "line": 350,
-      "active": true
-    },
-    {
-      "name": "OW2_ROADHOG_BREATHER_DURATION",
-      "value": "2",
-      "line": 351,
-      "active": true
-    },
-    {
-      "name": "OW2_ROADHOG_BREATHER_HEAL_BUFF",
-      "value": "0.5",
-      "line": 352,
-      "active": true
-    },
-    {
-      "name": "OW2_ROADHOG_BREATHER_HEAL_TOTAL",
-      "value": "450",
-      "line": 354,
-      "active": true
-    },
-    {
-      "name": "OW2_ROADHOG_BREATHER_RECOVERY_TIME",
-      "value": "0.49",
-      "line": 356,
-      "active": true
-    },
-    {
-      "name": "OW2_ROADHOG_CLIP_SIZE",
-      "value": "6",
-      "line": 357,
-      "active": true
-    },
-    {
-      "name": "OW2_ROADHOG_HOOK_DAMAGE",
-      "value": "25",
-      "line": 359,
-      "active": true
-    },
-    {
-      "name": "OW2_ROADHOG_HOOK_PROXIMITY",
-      "value": "3",
-      "line": 360,
-      "active": true
-    },
-    {
-      "name": "OW2_ROADHOG_SCRAP_GUN_DAMAGE",
-      "value": "162.5",
-      "line": 361,
-      "active": true
-    },
-    {
-      "name": "OW2_ROADHOG_ULT_COST",
-      "value": "2700",
-      "line": 362,
-      "active": true
-    },
-    {
-      "name": "OW2_ROADHOG_WHOLEHOG_DAMAGE",
-      "value": "6",
-      "line": 363,
-      "active": true
-    },
-    {
-      "name": "OW2_ROADHOG_WHOLEHOG_KNOCKBACK",
-      "value": "16",
-      "line": 364,
-      "active": true
-    },
-    {
-      "name": "OW2_SIGMA_HEALTH",
-      "value": "200",
-      "line": 367,
-      "active": true
-    },
-    {
-      "name": "OW2_SIGMA_ACCRETION_TOTAL_DAMAGE",
-      "value": "120",
-      "line": 368,
-      "active": true
-    },
-    {
-      "name": "OW2_SIGMA_ACCRETION_DIRECT_HIT_DAMAGE",
-      "value": "80",
-      "line": 369,
-      "active": true
-    },
-    {
-      "name": "OW2_SIGMA_ACCRETION_SPLASH_DAMAGE",
-      "value": "40",
-      "line": 370,
-      "active": true
-    },
-    {
-      "name": "OW2_SIGMA_BARRIER_REGEN",
-      "value": "85",
-      "line": 372,
-      "active": true
-    },
-    {
-      "name": "OW2_SIGMA_KINETIC_GRASP_COOLDOWN",
-      "value": "12",
-      "line": 373,
-      "active": true
-    },
-    {
-      "name": "OW2_SIGMA_SHIELDS",
-      "value": "250",
-      "line": 374,
-      "active": true
-    },
-    {
-      "name": "OW2_SOJOURN_DISRUPTOR_DAMAGE",
-      "value": "80",
-      "line": 378,
-      "active": true
-    },
-    {
-      "name": "OW2_SOJOURN_RAILGUN_ALT_HEADSHOT_MULTIPLIER",
-      "value": "1.5",
-      "line": 379,
-      "active": true
-    },
-    {
-      "name": "OW2_SOJOURN_ULT_COST",
-      "value": "2300",
-      "line": 380,
-      "active": true
-    },
-    {
-      "name": "OW2_SOLDIER_HEAVY_PULSE_RIFLE_DAMAGE",
-      "value": "19",
-      "line": 383,
-      "active": true
-    },
-    {
-      "name": "OW2_SOLDIER_BIOTIC_FIELD_HEAL",
-      "value": "40",
-      "line": 384,
-      "active": true
-    },
-    {
-      "name": "OW2_SOLDIER_ULT_COST",
-      "value": "2750",
-      "line": 386,
-      "active": true
-    },
-    {
-      "name": "OW2_SOMBRA_EMP_BARRIER_DAMAGE",
-      "value": "10000",
-      "line": 389,
-      "active": true
-    },
-    {
-      "name": "OW2_SOMBRA_HACK_DAMAGE_MULTIPLIER",
-      "value": "1.2",
-      "line": 391,
-      "active": true
-    },
-    {
-      "name": "OW2_SOMBRA_HEALTH",
-      "value": "225",
-      "line": 392,
-      "active": true
-    },
-    {
-      "name": "OW2_SOMBRA_MACHINE_PISTOL_DAMAGE",
-      "value": "8",
-      "line": 393,
-      "active": true
-    },
-    {
-      "name": "OW2_SOMBRA_STEALTH_COOLDOWN",
-      "value": "3.5",
-      "line": 394,
-      "active": true
-    },
-    {
-      "name": "OW2_SOMBRA_STEALTH_CAST_TIME",
-      "value": "0.25",
-      "line": 395,
-      "active": true
-    },
-    {
-      "name": "OW2_SOMBRA_STEALTH_MOVEMENT_BONUS",
-      "value": "1.6",
-      "line": 396,
-      "active": true
-    },
-    {
-      "name": "OW2_SOMBRA_ULT_COST",
-      "value": "1850",
-      "line": 397,
-      "active": true
-    },
-    {
-      "name": "OW2_SOMBRA_WALKING_SPEED",
-      "value": "5.50",
-      "line": 398,
-      "active": true
-    },
-    {
-      "name": "OW2_SYMMETRA_ORB_DAMAGE",
-      "value": "100",
-      "line": 401,
-      "active": true
-    },
-    {
-      "name": "OW2_SYMMETRA_ORB_SPEED",
-      "value": "50",
-      "line": 402,
-      "active": true
-    },
-    {
-      "name": "OW2_SYMMETRA_PROJECTOR_DAMAGE",
-      "value": "60",
-      "line": 403,
-      "active": true
-    },
-    {
-      "name": "OW2_SYMMETRA_TURRET_DAMAGE",
-      "value": "30",
-      "line": 404,
-      "active": true
-    },
-    {
-      "name": "OW2_SYMMETRA_TURRET_HEALTH",
-      "value": "40",
-      "line": 405,
-      "active": true
-    },
-    {
-      "name": "OW2_SYMMETRA_ULT_COST",
-      "value": "2025",
-      "line": 406,
-      "active": true
-    },
-    {
-      "name": "OW2_TORBJORN_TURRET_DAMAGE",
-      "value": "12",
-      "line": 409,
-      "active": true
-    },
-    {
-      "name": "OW2_TORBJORN_TURRET_HEALTH",
-      "value": "225",
-      "line": 410,
-      "active": true
-    },
-    {
-      "name": "OW2_TRACER_HEALTH",
-      "value": "175",
-      "line": 414,
-      "active": true
-    },
-    {
-      "name": "OW2_TRACER_PULSE_PISTOL_DAMAGE",
-      "value": "5.75",
-      "line": 415,
-      "active": true
-    },
-    {
-      "name": "OW2_VENTURE_DRILL_DASH_COOLDOWN",
-      "value": "8",
-      "line": 420,
-      "active": true
-    },
-    {
-      "name": "OW2_VENTURE_EXPLORER_SHIELDS",
-      "value": "40",
-      "line": 421,
-      "active": true
-    },
-    {
-      "name": "OW2_WIDOWMAKER_DAMAGE_FALLOFF_SCALAR",
-      "value": "0.5",
-      "line": 425,
-      "active": true
-    },
-    {
-      "name": "OW2_WIDOWMAKER_DAMAGE_FALLOFF_START_DISTANCE",
-      "value": "50",
-      "line": 426,
-      "active": true
-    },
-    {
-      "name": "OW2_WIDOWMAKER_DAMAGE_FALLOFF_END_DISTANCE",
-      "value": "70",
-      "line": 427,
-      "active": true
-    },
-    {
-      "name": "OW2_WINSTON_ARMOR",
-      "value": "200",
-      "line": 431,
-      "active": true
-    },
-    {
-      "name": "OW2_WINSTON_BARRIER_HEALTH",
-      "value": "650",
-      "line": 433,
-      "active": true
-    },
-    {
-      "name": "OW2_WINSTON_HEALTH",
-      "value": "350",
-      "line": 434,
-      "active": true
-    },
-    {
-      "name": "OW2_WINSTON_JUMP_PACK_DAMAGE",
-      "value": "60",
-      "line": 436,
-      "active": true
-    },
-    {
-      "name": "OW2_WINSTON_PRIMAL_DAMAGE",
-      "value": "50",
-      "line": 437,
-      "active": true
-    },
-    {
-      "name": "OW2_WINSTON_PRIMAL_DURATION",
-      "value": "10",
-      "line": 438,
-      "active": true
-    },
-    {
-      "name": "OW2_WINSTON_PRIMAL_HEALTH",
-      "value": "1050",
-      "line": 439,
-      "active": true
-    },
-    {
-      "name": "OW2_WINSTON_PRIMAL_HEALTH_BONUS",
-      "value": "(OW2_WINSTON_PRIMAL_HEALTH - OW2_WINSTON_HEALTH)",
-      "line": 440,
-      "active": true
-    },
-    {
-      "name": "OW2_WINSTON_TESLA_DAMAGE",
-      "value": "70",
-      "line": 441,
-      "active": true
-    },
-    {
-      "name": "OW2_WINSTON_AMMO",
-      "value": "120",
-      "line": 442,
-      "active": true
-    },
-    {
-      "name": "OW2_WINSTON_ULT_COST",
-      "value": "2525",
-      "line": 443,
-      "active": true
-    },
-    {
-      "name": "OW2_WRECKING_BALL_ADAPTIVE_SHIELD_BASE",
-      "value": "100",
-      "line": 446,
-      "active": true
-    },
-    {
-      "name": "OW2_WRECKING_BALL_ADAPTIVE_SHIELD_DURATION",
-      "value": "7",
-      "line": 447,
-      "active": true
-    },
-    {
-      "name": "OW2_WRECKING_BALL_ADAPTIVE_SHIELD_PER_TARGET",
-      "value": "50",
-      "line": 448,
-      "active": true
-    },
-    {
-      "name": "OW2_WRECKING_BALL_ADAPTIVE_SHIELD_RADIUS",
-      "value": "10",
-      "line": 449,
-      "active": true
-    },
-    {
-      "name": "OW2_WRECKING_BALL_CANNON_AMMO",
-      "value": "80",
-      "line": 450,
-      "active": true
-    },
-    {
-      "name": "OW2_WRECKING_BALL_FIREBALL_KB",
-      "value": "1.33",
-      "line": 451,
-      "active": true
-    },
-    {
-      "name": "OW2_WRECKING_BALL_FIREBALL_DAMAGE",
-      "value": "60",
-      "line": 452,
-      "active": true
-    },
-    {
-      "name": "OW2_WRECKING_BALL_MINEFIELD_DAMAGE",
-      "value": "165",
-      "line": 453,
-      "active": true
-    },
-    {
-      "name": "OW2_WRECKING_BALL_PILEDRIVER_COOLDOWN_TIME",
-      "value": "10",
-      "line": 454,
-      "active": true
-    },
-    {
-      "name": "OW2_WRECKING_BALL_PILEDRIVER_DAMAGE",
-      "value": "100",
-      "line": 455,
-      "active": true
-    },
-    {
-      "name": "OW2_WRECKING_BALL_ULT_COST",
-      "value": "1850",
-      "line": 456,
-      "active": true
-    },
-    {
-      "name": "OW2_ZARYA_BARRIER_HEALTH",
-      "value": "200",
-      "line": 459,
-      "active": true
-    },
-    {
-      "name": "OW2_ZARYA_CANNON_DAMAGE_MAX",
-      "value": "175",
-      "line": 460,
-      "active": true
-    },
-    {
-      "name": "OW2_ZARYA_CANNON_DAMAGE_MIN",
-      "value": "95",
-      "line": 461,
-      "active": true
-    },
-    {
-      "name": "OW2_ZENYATTA_MELEE_DAMAGE",
-      "value": "60",
-      "line": 465,
-      "active": true
-    },
-    {
-      "name": "OW2_ZENYATTA_ORB_DAMAGE",
-      "value": "50",
-      "line": 466,
-      "active": true
-    },
-    {
-      "name": "OW2_ZENYATTA_KNOCKBACK",
-      "value": "1680",
-      "line": 468,
-      "active": true
-    }
-  ],
+  "unusedOw2ReferenceDefinitions": [],
   "aramDirectNumericSettings": [
     {
       "mode": "aram",
@@ -15520,18 +13604,6 @@
       },
       "value": "(DVA_MICRO_MISSILES_COOLDOWN_TIME_RAW * 86 / 100)",
       "reason": "legacy value differs from OW2_DVA_MICRO_MISSILES_COOLDOWN_TIME (8); this may be a target or a stale duplicate"
-    },
-    {
-      "id": "duplicate.SUPPORT_HEAL_PASSIVE_ACTIVATION_TIME",
-      "category": "divergent_duplicate",
-      "hero": "SUPPORT",
-      "field": "SUPPORT_HEAL_PASSIVE_ACTIVATION_TIME",
-      "source": {
-        "file": "src/constants/player_constants.opy",
-        "line": 43
-      },
-      "value": "(HEAL_PASSIVE_ACTIVATION_TIME/2)",
-      "reason": "legacy value differs from OW2_SUPPORT_HEAL_PASSIVE_ACTIVATION_TIME ((OW2_HEAL_PASSIVE_ACTIVATION_TIME/2)); this may be a target or a stale duplicate"
     },
     {
       "id": "aram.team1.hanzo.ability2Quantity%",

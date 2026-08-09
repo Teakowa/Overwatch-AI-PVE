@@ -1,0 +1,821 @@
+{
+  "schemaVersion": 1,
+  "snapshot": {
+    "id": "ow2-reference-2026-03-04",
+    "effectiveDate": "2026-03-04",
+    "lastVerified": "2026-03-04",
+    "ruleset": "6v6",
+    "verificationStatus": "provisional",
+    "source": {
+      "type": "third_party_repository_import",
+      "identifier": "Overwatch-1-Emulator/ow1-emulator@staging",
+      "url": "https://github.com/Overwatch-1-Emulator/ow1-emulator/tree/staging"
+    },
+    "provenanceNotes": [
+      "The reference file was imported into this project in commit 77ddfd6 from the upstream emulator defaults.",
+      "This snapshot is a project-owned reference, not a live Overwatch balance source.",
+      "The upstream source does not attest each value to a ruleset; 6v6 is selected explicitly for this project's PvE calculations.",
+      "Third-party or inherited values must be reviewed before they replace a maintainer-approved snapshot."
+    ]
+  },
+  "generation": {
+    "referenceRuleset": "6v6",
+    "output": "src/constants/ow2_hero_defaults.opy",
+    "ordering": "hero, field, constant"
+  },
+  "references": [
+    {
+      "constant": "OW2_ANA_BIOTIC_GRENADE_COOLDOWN",
+      "hero": "ana",
+      "field": "biotic_grenade_cooldown",
+      "value": 12,
+      "unit": "seconds",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_ANA_SLEEP_DART_COOLDOWN_TIME",
+      "hero": "ana",
+      "field": "sleep_dart_cooldown_time",
+      "value": 12,
+      "unit": "seconds",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_ANA_ULT_COST",
+      "hero": "ana",
+      "field": "ult_cost",
+      "value": 2300,
+      "unit": "ultimate_charge_points",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_ANRAN_DANCING_BLAZE_COOLDOWN",
+      "hero": "anran",
+      "field": "dancing_blaze_cooldown",
+      "value": 8,
+      "unit": "seconds",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_ANRAN_INFERNO_RUSH_COOLDOWN",
+      "hero": "anran",
+      "field": "inferno_rush_cooldown",
+      "value": 8,
+      "unit": "seconds",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_BAPTISTE_LAMP_COOLDOWN_TIME",
+      "hero": "baptiste",
+      "field": "lamp_cooldown_time",
+      "value": 22,
+      "unit": "seconds",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_BAPTISTE_REGEN_BURST_COOLDOWN",
+      "hero": "baptiste",
+      "field": "regen_burst_cooldown",
+      "value": 14,
+      "unit": "seconds",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_BASTION_RECONFIGURE_COOLDOWN",
+      "hero": "bastion",
+      "field": "reconfigure_cooldown",
+      "value": 12,
+      "unit": "seconds",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_BRIGITTE_REPAIR_PACK_COOLDOWN",
+      "hero": "brigitte",
+      "field": "repair_pack_cooldown",
+      "value": 5,
+      "unit": "seconds",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_BRIGITTE_SHIELD_BASH_COOLDOWN",
+      "hero": "brigitte",
+      "field": "shield_bash_cooldown",
+      "value": 5,
+      "unit": "seconds",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK",
+      "hero": "brigitte",
+      "field": "shield_bash_knockback",
+      "value": 2,
+      "unit": "game_units",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_BRIGITTE_ULT_COST",
+      "hero": "brigitte",
+      "field": "ult_cost",
+      "value": 2700,
+      "unit": "ultimate_charge_points",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_MCCREE_FLASHBANG_COOLDOWN",
+      "hero": "cassidy",
+      "field": "flashbang_cooldown",
+      "value": 12,
+      "unit": "seconds",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_MCCREE_ULT_COST",
+      "hero": "cassidy",
+      "field": "ult_cost",
+      "value": 1800,
+      "unit": "ultimate_charge_points",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_DOMINA_BARRIER_ARRAY_COOLDOWN",
+      "hero": "domina",
+      "field": "barrier_array_cooldown",
+      "value": 14,
+      "unit": "seconds",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN",
+      "hero": "domina",
+      "field": "crystal_charge_cooldown",
+      "value": 8,
+      "unit": "seconds",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_DOMINA_SONIC_REPULSORS_COOLDOWN",
+      "hero": "domina",
+      "field": "sonic_repulsors_cooldown",
+      "value": 7,
+      "unit": "seconds",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_DOOMFIST_AMMO_REGEN",
+      "hero": "doomfist",
+      "field": "ammo_regen",
+      "value": 0.4,
+      "unit": "seconds_per_ammo",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_DOOMFIST_POWER_BLOCK_COOLDOWN",
+      "hero": "doomfist",
+      "field": "power_block_cooldown",
+      "value": 8,
+      "unit": "seconds",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_DOOMFIST_SEISMIC_SLAM_COOLDOWN",
+      "hero": "doomfist",
+      "field": "seismic_slam_cooldown",
+      "value": 7.5,
+      "unit": "seconds",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_DVA_BOOSTER_COOLDOWN_TIME",
+      "hero": "dva",
+      "field": "booster_cooldown_time",
+      "value": 4,
+      "unit": "seconds",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_DVA_MATRIX_DURATION",
+      "hero": "dva",
+      "field": "matrix_duration",
+      "value": 2,
+      "unit": "seconds",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_DVA_MICRO_MISSILES_COOLDOWN_TIME",
+      "hero": "dva",
+      "field": "micro_missiles_cooldown_time",
+      "value": 8,
+      "unit": "seconds",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_GENJI_DEFLECT_COOLDOWN",
+      "hero": "genji",
+      "field": "deflect_cooldown",
+      "value": 10,
+      "unit": "seconds",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_GENJI_ULT_COST",
+      "hero": "genji",
+      "field": "ult_cost",
+      "value": 2125,
+      "unit": "ultimate_charge_points",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_HANZO_STORM_COOLDOWN",
+      "hero": "hanzo",
+      "field": "storm_cooldown",
+      "value": 8,
+      "unit": "seconds",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_HANZO_ULT_COST",
+      "hero": "hanzo",
+      "field": "ult_cost",
+      "value": 1700,
+      "unit": "ultimate_charge_points",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_ILLARI_PYLON_COOLDOWN",
+      "hero": "illari",
+      "field": "pylon_cooldown",
+      "value": 6,
+      "unit": "seconds",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_JUNKRAT_CONCUSSION_MINE_COOLDOWN",
+      "hero": "junkrat",
+      "field": "concussion_mine_cooldown",
+      "value": 8,
+      "unit": "seconds",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_JUNKRAT_ULT_COST",
+      "hero": "junkrat",
+      "field": "ult_cost",
+      "value": 2100,
+      "unit": "ultimate_charge_points",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_JUNO_ULT_COST",
+      "hero": "juno",
+      "field": "ult_cost",
+      "value": 3135,
+      "unit": "ultimate_charge_points",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_KIRIKO_SUZU_COOLDOWN",
+      "hero": "kiriko",
+      "field": "suzu_cooldown",
+      "value": 14,
+      "unit": "seconds",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_KIRIKO_ULT_COST",
+      "hero": "kiriko",
+      "field": "ult_cost",
+      "value": 2525,
+      "unit": "ultimate_charge_points",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_LUCIO_ULT_COST",
+      "hero": "lucio",
+      "field": "ult_cost",
+      "value": 2650,
+      "unit": "ultimate_charge_points",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_MOIRA_ULT_COST",
+      "hero": "moira",
+      "field": "ult_cost",
+      "value": 2700,
+      "unit": "ultimate_charge_points",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_ORISA_FORTIFY_COOLDOWN",
+      "hero": "orisa",
+      "field": "fortify_cooldown",
+      "value": 16,
+      "unit": "seconds",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_ORISA_ULT_COST",
+      "hero": "orisa",
+      "field": "ult_cost",
+      "value": 2150,
+      "unit": "ultimate_charge_points",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_PHARAH_CONCUSSIVE_BLAST_COOLDOWN",
+      "hero": "pharah",
+      "field": "concussive_blast_cooldown",
+      "value": 7,
+      "unit": "seconds",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_PHARAH_JUMP_JET_COOLDOWN",
+      "hero": "pharah",
+      "field": "jump_jet_cooldown",
+      "value": 14,
+      "unit": "seconds",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_RAMATTRA_NEMESIS_COOLDOWN",
+      "hero": "ramattra",
+      "field": "nemesis_cooldown",
+      "value": 8,
+      "unit": "seconds",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_RAMATTRA_ULT_COST",
+      "hero": "ramattra",
+      "field": "ult_cost",
+      "value": 2300,
+      "unit": "ultimate_charge_points",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_RAMATTRA_VOID_BARRIER_COOLDOWN",
+      "hero": "ramattra",
+      "field": "void_barrier_cooldown",
+      "value": 16,
+      "unit": "seconds",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_RAMATTRA_VORTEX_COOLDOWN",
+      "hero": "ramattra",
+      "field": "vortex_cooldown",
+      "value": 11,
+      "unit": "seconds",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_REINHARDT_BARRIER_HEALTH",
+      "hero": "reinhardt",
+      "field": "barrier_health",
+      "value": 1500,
+      "unit": "health_points",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_REINHARDT_BARRIER_REGEN",
+      "hero": "reinhardt",
+      "field": "barrier_regen",
+      "value": 150,
+      "unit": "health_points_per_second",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_REINHARDT_CHARGE_COOLDOWN_TIME",
+      "hero": "reinhardt",
+      "field": "charge_cooldown_time",
+      "value": 10,
+      "unit": "seconds",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_REINHARDT_ULT_COST",
+      "hero": "reinhardt",
+      "field": "ult_cost",
+      "value": 1960,
+      "unit": "ultimate_charge_points",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_ROADHOG_HOOK_COOLDOWN_TIME",
+      "hero": "roadhog",
+      "field": "hook_cooldown_time",
+      "value": 8,
+      "unit": "seconds",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_SIGMA_BARRIER_HEALTH",
+      "hero": "sigma",
+      "field": "barrier_health",
+      "value": 700,
+      "unit": "health_points",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_SIGMA_ULT_COST",
+      "hero": "sigma",
+      "field": "ult_cost",
+      "value": 2300,
+      "unit": "ultimate_charge_points",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_SOLDIER_BIOTIC_FIELD_COOLDOWN",
+      "hero": "soldier",
+      "field": "biotic_field_cooldown",
+      "value": 15,
+      "unit": "seconds",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_SOMBRA_HACK_COOLDOWN_TIME",
+      "hero": "sombra",
+      "field": "hack_cooldown_time",
+      "value": 6,
+      "unit": "seconds",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_TORBJORN_ULT_COST",
+      "hero": "torbjorn",
+      "field": "ult_cost",
+      "value": 2350,
+      "unit": "ultimate_charge_points",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_TRACER_RECALL_COOLDOWN",
+      "hero": "tracer",
+      "field": "recall_cooldown",
+      "value": 13,
+      "unit": "seconds",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_TRACER_ULT_COST",
+      "hero": "tracer",
+      "field": "ult_cost",
+      "value": 1375,
+      "unit": "ultimate_charge_points",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_VENTURE_ULT_COST",
+      "hero": "venture",
+      "field": "ult_cost",
+      "value": 2125,
+      "unit": "ultimate_charge_points",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_WIDOWMAKER_ULT_COST",
+      "hero": "widowmaker",
+      "field": "ult_cost",
+      "value": 1400,
+      "unit": "ultimate_charge_points",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_WINSTON_BARRIER_COOLDOWN",
+      "hero": "winston",
+      "field": "barrier_cooldown",
+      "value": 13,
+      "unit": "seconds",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_WINSTON_JUMP_PACK_COOLDOWN_TIME",
+      "hero": "winston",
+      "field": "jump_pack_cooldown_time",
+      "value": 5,
+      "unit": "seconds",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_ZARYA_ULT_COST",
+      "hero": "zarya",
+      "field": "ult_cost",
+      "value": 2500,
+      "unit": "ultimate_charge_points",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    },
+    {
+      "constant": "OW2_ZENYATTA_ULT_COST",
+      "hero": "zenyatta",
+      "field": "ult_cost",
+      "value": 2500,
+      "unit": "ultimate_charge_points",
+      "ruleset": "6v6",
+      "source": {
+        "type": "snapshot",
+        "snapshot": "ow2-reference-2026-03-04"
+      },
+      "provenanceNote": "Inherited from the imported staging snapshot; verify against official patch notes before accepting a new value."
+    }
+  ]
+}

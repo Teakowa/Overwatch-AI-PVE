@@ -4,12 +4,12 @@
 
 ## 结论摘要
 
-- 启用的 OW2_* reference 定义：349；注释掉的候选定义：17。
-- Main 中直接使用 OW2_*：3 个字段；另有 61 个被消费的非命名空间重复基线事实（总记录 78 个）。
+- 启用的 OW2_* reference 定义：61；注释掉的候选定义：0。
+- Main 中直接使用 OW2_*：3 个字段；另有 61 个被消费的非命名空间重复基线事实（总记录 61 个）。
 - Main 中通过 ratioPercent/ultGenPercent 形成的基线相关 settings：99 条。
 - ARAM settings 条目：386 条，其中直接数字：335 条。
 - 英雄 runtime Workshop setting 工厂调用：186 条。
-- 需要在迁移前人工确认的项目：345 条；缺失 reference：3 条。
+- 需要在迁移前人工确认的项目：344 条；缺失 reference：3 条。
 
 ## 分类口径
 
@@ -23,8 +23,8 @@
 
 | 文件/范围 | 角色 | 相关条目 |
 | --- | --- | ---: |
-| `src/constants/ow2_hero_defaults.opy` | 当前 OW2 reference 常数文件 | 368 |
-| `src/constants/player_constants.opy` | 项目常数、目标和重复 baseline 别名 | 78 |
+| `src/constants/ow2_hero_defaults.opy` | 当前 OW2 reference 常数文件 | 61 |
+| `src/constants/player_constants.opy` | 项目常数、目标和重复 baseline 别名 | 61 |
 | `src/constants/hero_balance_constants.opy` | Main/ARAM 最终 Workshop 百分比及项目机制常数 | 0 |
 | `src/modules/prelude/settings.opy` | Main Workshop settings consumer | 99 |
 | `src/aram_settings.opy` | ARAM Workshop settings consumer | 386 |
@@ -47,14 +47,10 @@
 | `BAPTISTE_LAMP_COOLDOWN_TIME` | `OW2_BAPTISTE_LAMP_COOLDOWN_TIME` | `22` | 是 | `src/modules/prelude/settings.opy:106`, `src/modules/prelude/settings.opy:513` |
 | `BAPTISTE_REGEN_BURST_COOLDOWN` | `OW2_BAPTISTE_REGEN_BURST_COOLDOWN` | `14` | 是 | `src/modules/prelude/settings.opy:101`, `src/modules/prelude/settings.opy:509` |
 | `BASTION_RECONFIGURE_COOLDOWN` | `OW2_BASTION_RECONFIGURE_COOLDOWN` | `12` | 是 | `src/modules/prelude/settings.opy:465` |
-| `BRIGITTE_INSPIRE_DURATION` | `OW2_BRIGITTE_INSPIRE_DURATION` | `4` | 是 | 未直接消费 |
 | `BRIGITTE_REPAIR_PACK_COOLDOWN` | `OW2_BRIGITTE_REPAIR_PACK_COOLDOWN` | `5` | 是 | `src/modules/prelude/settings.opy:522` |
 | `BRIGITTE_SHIELD_BASH_COOLDOWN` | `OW2_BRIGITTE_SHIELD_BASH_COOLDOWN` | `5` | 是 | `src/modules/prelude/settings.opy:528` |
 | `BRIGITTE_SHIELD_BASH_KNOCKBACK` | `OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK` | `2` | 是 | `src/modules/prelude/settings.opy:119`, `src/modules/prelude/settings.opy:530` |
 | `BRIGITTE_ULT_COST` | `OW2_BRIGITTE_ULT_COST` | `2700` | 是 | `src/modules/prelude/settings.opy:117`, `src/modules/prelude/settings.opy:526` |
-| `DAMAGE_PASSIVE_DURATION` | `OW2_DAMAGE_PASSIVE_DURATION` | `2` | 是 | 未直接消费 |
-| `DAMAGE_PASSIVE_HEAL_REDUCTION_PERCENT` | `OW2_DAMAGE_PASSIVE_HEAL_REDUCTION_PERCENT` | `25` | 是 | 未直接消费 |
-| `DAMAGE_PASSIVE_TANK_HEAL_REDUCTION_PERCENT` | `OW2_DAMAGE_PASSIVE_TANK_HEAL_REDUCTION_PERCENT` | `25` | 是 | 未直接消费 |
 | `DOMINA_BARRIER_ARRAY_COOLDOWN` | `OW2_DOMINA_BARRIER_ARRAY_COOLDOWN` | `8` | 否 | `src/modules/prelude/settings.opy:406`, `src/modules/prelude/settings.opy:804`, `src/utilities/changelog_text.opy:12` |
 | `DOMINA_CRYSTAL_CHARGE_COOLDOWN` | `OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN` | `6` | 否 | `src/modules/prelude/settings.opy:405`, `src/modules/prelude/settings.opy:803` |
 | `DOMINA_SONIC_REPULSORS_COOLDOWN` | `OW2_DOMINA_SONIC_REPULSORS_COOLDOWN` | `6` | 否 | `src/modules/prelude/settings.opy:404`, `src/modules/prelude/settings.opy:802`, `src/utilities/changelog_text.opy:12` |
@@ -66,12 +62,8 @@
 | `DVA_MICRO_MISSILES_COOLDOWN_TIME` | `OW2_DVA_MICRO_MISSILES_COOLDOWN_TIME` | `(DVA_MICRO_MISSILES_COOLDOWN_TIME_RAW * 86 / 100)` | 否 | `src/modules/prelude/settings.opy:829` |
 | `GENJI_DEFLECT_COOLDOWN` | `OW2_GENJI_DEFLECT_COOLDOWN` | `10` | 是 | `src/modules/prelude/settings.opy:670` |
 | `GENJI_ULT_COST` | `OW2_GENJI_ULT_COST` | `2125` | 是 | `src/modules/prelude/settings.opy:282`, `src/modules/prelude/settings.opy:668` |
-| `HANZO_ARROW_DAMAGE` | `OW2_HANZO_ARROW_DAMAGE` | `125` | 是 | 未直接消费 |
 | `HANZO_STORM_COOLDOWN` | `OW2_HANZO_STORM_COOLDOWN` | `8` | 是 | `src/modules/prelude/settings.opy:434` |
 | `HANZO_ULT_COST` | `OW2_HANZO_ULT_COST` | `1700` | 是 | `src/modules/prelude/settings.opy:44`, `src/modules/prelude/settings.opy:436` |
-| `HAZARD_ARMOR` | `OW2_HAZARD_ARMOR` | `225` | 是 | 未直接消费 |
-| `HAZARD_HEALTH` | `OW2_HAZARD_HEALTH` | `275` | 是 | 未直接消费 |
-| `HEAL_PASSIVE_ACTIVATION_TIME` | `OW2_HEAL_PASSIVE_ACTIVATION_TIME` | `5` | 是 | 未直接消费 |
 | `ILLARI_PYLON_COOLDOWN` | `OW2_ILLARI_PYLON_COOLDOWN` | `6` | 是 | `src/modules/prelude/settings.opy:199`, `src/modules/prelude/settings.opy:592` |
 | `JUNKRAT_CONCUSSION_MINE_COOLDOWN` | `OW2_JUNKRAT_CONCUSSION_MINE_COOLDOWN` | `8` | 是 | `src/modules/prelude/settings.opy:288` |
 | `JUNKRAT_ULT_COST` | `OW2_JUNKRAT_ULT_COST` | `2100` | 是 | `src/modules/prelude/settings.opy:678` |
@@ -79,12 +71,10 @@
 | `KIRIKO_SUZU_COOLDOWN` | `OW2_KIRIKO_SUZU_COOLDOWN` | `14` | 是 | `src/modules/prelude/settings.opy:381`, `src/modules/prelude/settings.opy:780` |
 | `KIRIKO_ULT_COST` | `OW2_KIRIKO_ULT_COST` | `2525` | 是 | `src/modules/prelude/settings.opy:383`, `src/modules/prelude/settings.opy:782` |
 | `LUCIO_ULT_COST` | `OW2_LUCIO_ULT_COST` | `2650` | 是 | `src/modules/prelude/settings.opy:58` |
-| `MCCREE_FAN_THE_HAMMER_DAMAGE` | `OW2_MCCREE_FAN_THE_HAMMER_DAMAGE` | `50` | 是 | 未直接消费 |
 | `MCCREE_FLASHBANG_COOLDOWN` | `OW2_MCCREE_FLASHBANG_COOLDOWN` | `12` | 是 | `src/modules/prelude/settings.opy:49`, `src/modules/prelude/settings.opy:446` |
 | `MCCREE_ULT_COST` | `OW2_MCCREE_ULT_COST` | `1800` | 是 | `src/modules/prelude/settings.opy:444` |
 | `MOIRA_ULT_COST` | `OW2_MOIRA_ULT_COST` | `2700` | 是 | `src/modules/prelude/settings.opy:349`, `src/modules/prelude/settings.opy:739` |
 | `ORISA_FORTIFY_COOLDOWN` | `OW2_ORISA_FORTIFY_COOLDOWN` | `16` | 是 | `src/modules/prelude/settings.opy:81`, `src/modules/prelude/settings.opy:487` |
-| `ORISA_TERRA_SURGE_RADIUS` | `OW2_ORISA_TERRA_SURGE_RADIUS` | `10.5` | 是 | 未直接消费 |
 | `ORISA_ULT_COST` | `OW2_ORISA_ULT_COST` | `2150` | 是 | `src/modules/prelude/settings.opy:89`, `src/modules/prelude/settings.opy:493` |
 | `PHARAH_CONCUSSIVE_BLAST_COOLDOWN` | `OW2_PHARAH_CONCUSSIVE_BLAST_COOLDOWN` | `7` | 是 | `src/modules/prelude/settings.opy:251`, `src/modules/prelude/settings.opy:640` |
 | `PHARAH_JUMP_JET_COOLDOWN` | `OW2_PHARAH_JUMP_JET_COOLDOWN` | `14` | 是 | `src/modules/prelude/settings.opy:247`, `src/modules/prelude/settings.opy:637` |
@@ -92,22 +82,15 @@
 | `RAMATTRA_ULT_COST` | `OW2_RAMATTRA_ULT_COST` | `2300` | 是 | `src/modules/prelude/settings.opy:153`, `src/modules/prelude/settings.opy:556` |
 | `RAMATTRA_VOID_BARRIER_COOLDOWN` | `OW2_RAMATTRA_VOID_BARRIER_COOLDOWN` | `16` | 是 | `src/modules/prelude/settings.opy:156`, `src/modules/prelude/settings.opy:559` |
 | `RAMATTRA_VORTEX_COOLDOWN` | `OW2_RAMATTRA_VORTEX_COOLDOWN` | `11` | 是 | `src/modules/prelude/settings.opy:148`, `src/modules/prelude/settings.opy:552` |
-| `REAPER_LIFESTEAL` | `OW2_REAPER_LIFESTEAL` | `0.3` | 是 | 未直接消费 |
 | `REINHARDT_BARRIER_HEALTH` | `OW2_REINHARDT_BARRIER_HEALTH` | `1500` | 是 | `src/modules/prelude/settings.opy:358`, `src/modules/prelude/settings.opy:747` |
 | `REINHARDT_BARRIER_REGEN` | `OW2_REINHARDT_BARRIER_REGEN` | `150` | 是 | `src/modules/prelude/settings.opy:355`, `src/modules/prelude/settings.opy:745` |
 | `REINHARDT_CHARGE_COOLDOWN_TIME` | `OW2_REINHARDT_CHARGE_COOLDOWN_TIME` | `10` | 是 | `src/modules/prelude/settings.opy:352`, `src/modules/prelude/settings.opy:743` |
 | `REINHARDT_ULT_COST` | `OW2_REINHARDT_ULT_COST` | `1960` | 是 | `src/modules/prelude/settings.opy:748` |
-| `ROADHOG_BREATHER_HEAL_BUFF_DURATION` | `OW2_ROADHOG_BREATHER_HEAL_BUFF_DURATION` | `2.5` | 是 | 未直接消费 |
-| `ROADHOG_BREATHER_RECHARGE_DURATION` | `OW2_ROADHOG_BREATHER_RECHARGE_DURATION` | `10` | 是 | 未直接消费 |
 | `ROADHOG_HOOK_COOLDOWN_TIME` | `OW2_ROADHOG_HOOK_COOLDOWN_TIME` | `8` | 是 | `src/modules/prelude/settings.opy:773` |
 | `SIGMA_BARRIER_HEALTH` | `OW2_SIGMA_BARRIER_HEALTH` | `700` | 是 | `src/modules/prelude/settings.opy:364`, `src/modules/prelude/settings.opy:763` |
 | `SIGMA_ULT_COST` | `OW2_SIGMA_ULT_COST` | `2300` | 是 | `src/modules/prelude/settings.opy:765` |
 | `SOLDIER_BIOTIC_FIELD_COOLDOWN` | `OW2_SOLDIER_BIOTIC_FIELD_COOLDOWN` | `15` | 是 | `src/modules/prelude/settings.opy:63`, `src/modules/prelude/settings.opy:471` |
 | `SOMBRA_HACK_COOLDOWN_TIME` | `OW2_SOMBRA_HACK_COOLDOWN_TIME` | `6` | 是 | `src/modules/prelude/settings.opy:414`, `src/modules/prelude/settings.opy:811` |
-| `SUPPORT_HEAL_PASSIVE_ACTIVATION_TIME` | `OW2_SUPPORT_HEAL_PASSIVE_ACTIVATION_TIME` | `(HEAL_PASSIVE_ACTIVATION_TIME/2)` | 否 | 未直接消费 |
-| `SUPPORT_PASSIVE_HEALING` | `OW2_SUPPORT_PASSIVE_HEALING` | `20` | 是 | 未直接消费 |
-| `TANK_CRITICAL_HIT_MULTIPLIER` | `OW2_TANK_CRITICAL_HIT_MULTIPLIER` | `(2*0.75)` | 是 | 未直接消费 |
-| `TANK_KNOCKBACK_REDUCTION_PERCENT` | `OW2_TANK_KNOCKBACK_REDUCTION_PERCENT` | `40` | 是 | 未直接消费 |
 | `TORBJORN_ULT_COST` | `OW2_TORBJORN_ULT_COST` | `2350` | 是 | `src/modules/prelude/settings.opy:139`, `src/modules/prelude/settings.opy:544` |
 | `TRACER_RECALL_COOLDOWN` | `OW2_TRACER_RECALL_COOLDOWN` | `13` | 是 | `src/modules/prelude/settings.opy:296`, `src/modules/prelude/settings.opy:689` |
 | `TRACER_ULT_COST` | `OW2_TRACER_ULT_COST` | `1375` | 是 | `src/modules/prelude/settings.opy:294`, `src/modules/prelude/settings.opy:687` |
@@ -239,7 +222,6 @@
 | divergent_duplicate | DVA | `DVA_BOOSTER_COOLDOWN_TIME` | `src/constants/player_constants.opy:131` | `(DVA_BOOSTER_COOLDOWN_TIME_RAW * 85 / 100)` | legacy value differs from OW2_DVA_BOOSTER_COOLDOWN_TIME (4); this may be a target or a stale duplicate |
 | divergent_duplicate | DVA | `DVA_MATRIX_DURATION` | `src/constants/player_constants.opy:133` | `(DVA_MATRIX_DURATION_RAW * 134 / 100)` | legacy value differs from OW2_DVA_MATRIX_DURATION (2); this may be a target or a stale duplicate |
 | divergent_duplicate | DVA | `DVA_MICRO_MISSILES_COOLDOWN_TIME` | `src/constants/player_constants.opy:135` | `(DVA_MICRO_MISSILES_COOLDOWN_TIME_RAW * 86 / 100)` | legacy value differs from OW2_DVA_MICRO_MISSILES_COOLDOWN_TIME (8); this may be a target or a stale duplicate |
-| divergent_duplicate | SUPPORT | `SUPPORT_HEAL_PASSIVE_ACTIVATION_TIME` | `src/constants/player_constants.opy:43` | `(HEAL_PASSIVE_ACTIVATION_TIME/2)` | legacy value differs from OW2_SUPPORT_HEAL_PASSIVE_ACTIVATION_TIME ((OW2_HEAL_PASSIVE_ACTIVATION_TIME/2)); this may be a target or a stale duplicate |
 | aram_direct_literal | hanzo | `ability2Quantity%` | `src/aram_settings.opy:31` | `6` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | hanzo | `ability3Cooldown%` | `src/aram_settings.opy:32` | `0` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
 | aram_direct_literal | hanzo | `ability2Cooldown%` | `src/aram_settings.opy:33` | `0` | ARAM stores a balance-sensitive Workshop percentage directly; semantic intent cannot be inferred from the literal alone |
@@ -580,7 +562,7 @@
 
 `unusedOw2ReferenceDefinitions` 是当前既没有直接消费、也没有通过重复 alias 消费的启用定义；#79 应只把项目实际消费的子集纳入 canonical snapshot，避免把未使用字段误当作项目契约。完整列表见 JSON。
 
-共 288 个。
+共 0 个。
 
 ## 迁移边界
 
