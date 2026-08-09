@@ -91,6 +91,9 @@ Use these as the only canonical policy sources:
   - `pnpm run tool:check-contracts`
   - `pnpm run tool:check-aram-overrides-duplicates`
 
+- Ana portability:
+  - `pnpm run tool:check-ana-portability`
+
 - Hero/changelog linkage:
   - `tools/hero-pipeline.ts --hero freja`
   - `tools/hero-pipeline.ts --from-diff`
