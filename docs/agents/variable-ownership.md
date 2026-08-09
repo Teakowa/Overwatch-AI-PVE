@@ -76,3 +76,12 @@ declared with its preserved slot in both `src/heroes/ana/settings.opy` and
 module, and `nano_full_health` remains in the Main/ARAM rules modules. Their Workshop
 setting IDs and values are unchanged. Burning and combat eligibility remain explicit
 shared dependencies rather than ambient prelude state.
+
+### Domina player-state pilot audit
+
+The current source has no declaration, read, write, or reset path for
+`domina_ai_busy` or `domina_secondary_retry_blocked`. Those names belonged to the
+reverted Domina AI serialization change tracked by #61. The ownership refactor does
+not reintroduce that behavior; if a future Domina implementation adds either state,
+the declaration must live in the narrowest `src/heroes/domina/` module and be covered
+by the same Main/ARAM uniqueness checks.
