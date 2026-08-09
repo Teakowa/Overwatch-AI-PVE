@@ -32,6 +32,9 @@ macro RESET_HERO_EXTRA_BEFORE_CLEAR():
     eventPlayer.stopCamera()
 
 macro RESET_HERO_WAIT():
+    if isHero(eventPlayer, Hero.MOIRA):
+        eventPlayer.setUltEnabled(false)
+        eventPlayer.disallowButton(Button.ULTIMATE)
     wait(WAIT_SHORT_FRAME)
 
 macro RESET_REMOVE_TANK_PASSIVE_ENABLED():
