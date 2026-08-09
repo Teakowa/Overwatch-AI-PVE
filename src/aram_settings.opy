@@ -30,7 +30,7 @@ settings {
             "hanzo": {
                 "ability2Quantity%": 6,
                 "ability3Cooldown%": 0,
-                "ability2Cooldown%": ratioPercent(SET_ARAM_TEAM1_HANZO_ABILITY2_COOLDOWN_TARGET, OW2_HANZO_STORM_COOLDOWN),
+                "ability2Cooldown%": relativePercent(REL_ARAM_TEAM1_HANZO_ABILITY2_COOLDOWN_PERCENT, OW2_HANZO_STORM_COOLDOWN),
                 "ability1Cooldown%": 0,
                 "projectileSpeed%": 135,
                 "movementSpeed%": 120,
@@ -39,7 +39,7 @@ settings {
             "cassidy": {
                 "damageDealt%": 110,
                 "damageReceived%": 80,
-                "ability2Cooldown%": ratioPercent(SET_ARAM_TEAM1_CASSIDY_ABILITY2_COOLDOWN_TARGET, OW2_MCCREE_FLASHBANG_COOLDOWN),
+                "ability2Cooldown%": relativePercent(REL_ARAM_TEAM1_CASSIDY_ABILITY2_COOLDOWN_PERCENT, OW2_MCCREE_FLASHBANG_COOLDOWN),
                 "enableInfiniteAmmo": false
             },
             "lucio": {
@@ -52,7 +52,7 @@ settings {
             "soldier": {
                 "damageDealt%": 115,
                 "movementSpeed%": 110,
-                "ability2Cooldown%": ratioPercent(SET_ARAM_TEAM1_SOLDIER_ABILITY2_COOLDOWN_TARGET, OW2_SOLDIER_BIOTIC_FIELD_COOLDOWN),
+                "ability2Cooldown%": relativePercent(REL_ARAM_TEAM1_SOLDIER_ABILITY2_COOLDOWN_PERCENT, OW2_SOLDIER_BIOTIC_FIELD_COOLDOWN),
                 "ultDuration%": 134,
                 "secondaryFireKb%": 120
             },
@@ -72,23 +72,23 @@ settings {
                 "enableInfiniteAmmo": true,
                 "health%": 500,
                 "movementSpeed%": 105,
-                "ultGen%": ultGenPercent(OW2_ORISA_ULT_COST, SET_ARAM_TEAM1_ORISA_ULT_COST_TARGET)
+                "ultGen%": relativePercent(REL_ARAM_TEAM1_ORISA_ULT_COST_PERCENT, OW2_ORISA_ULT_COST)
             },
             "ana": {
                 "enableInfiniteAmmo": true,
                 "healingDealt%": 122,
-                "ability2Cooldown%": ratioPercent(SET_ARAM_TEAM1_ANA_ABILITY2_COOLDOWN_TARGET, OW2_ANA_BIOTIC_GRENADE_COOLDOWN),
-                "ability1Cooldown%": ratioPercent(SET_ARAM_TEAM1_ANA_ABILITY1_COOLDOWN_TARGET, OW2_ANA_SLEEP_DART_COOLDOWN_TIME),
-                "ultGen%": ultGenPercent(OW2_ANA_ULT_COST, SET_ARAM_TEAM1_ANA_ULT_COST_TARGET),
+                "ability2Cooldown%": relativePercent(REL_ARAM_TEAM1_ANA_ABILITY2_COOLDOWN_PERCENT, OW2_ANA_BIOTIC_GRENADE_COOLDOWN),
+                "ability1Cooldown%": relativePercent(REL_ARAM_TEAM1_ANA_ABILITY1_COOLDOWN_PERCENT, OW2_ANA_SLEEP_DART_COOLDOWN_TIME),
+                "ultGen%": relativePercent(REL_ARAM_TEAM1_ANA_ULT_COST_PERCENT, OW2_ANA_ULT_COST),
                 "enableSpawningWithUlt": true
             },
             "baptiste": {
                 "damageDealt%": 115,
-                "ability1Cooldown%": ratioPercent(SET_ARAM_TEAM1_BAPTISTE_ABILITY1_COOLDOWN_TARGET, OW2_BAPTISTE_REGEN_BURST_COOLDOWN),
+                "ability1Cooldown%": relativePercent(REL_ARAM_TEAM1_BAPTISTE_ABILITY1_COOLDOWN_PERCENT, OW2_BAPTISTE_REGEN_BURST_COOLDOWN),
                 "enableInfiniteAmmo": true,
                 "healingDealt%": 125,
                 "ultDuration%": 200,
-                "ability2Cooldown%": ratioPercent(SET_ARAM_TEAM1_BAPTISTE_ABILITY2_COOLDOWN_TARGET, OW2_BAPTISTE_LAMP_COOLDOWN_TIME)
+                "ability2Cooldown%": relativePercent(REL_ARAM_TEAM1_BAPTISTE_ABILITY2_COOLDOWN_PERCENT, OW2_BAPTISTE_LAMP_COOLDOWN_TIME)
             },
             "brigitte": {
                 "damageDealt%": 115,
@@ -98,7 +98,7 @@ settings {
                 "secondaryFireRechargeRate%": 118,
                 "secondaryFireCooldown%": 80,
                 "healingDealt%": 125,
-                "shieldBashKb%": ratioPercent(SET_ARAM_TEAM1_BRIGITTE_SHIELD_BASH_KB_TARGET, OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK)
+                "shieldBashKb%": relativePercent(REL_ARAM_TEAM1_BRIGITTE_SHIELD_BASH_KB_PERCENT, OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK)
             },
             "torbjorn": {
                 "damageDealt%": 115,
@@ -110,16 +110,16 @@ settings {
             "ramattra": {
                 "damageDealt%": 105,
                 "damageReceived%": 70,
-                "ability1Cooldown%": ratioPercent(SET_ARAM_TEAM1_RAMATTRA_ABILITY1_COOLDOWN_TARGET, OW2_RAMATTRA_NEMESIS_COOLDOWN),
+                "ability1Cooldown%": relativePercent(REL_ARAM_TEAM1_RAMATTRA_ABILITY1_COOLDOWN_PERCENT, OW2_RAMATTRA_NEMESIS_COOLDOWN),
                 "enableInfiniteAmmo": true,
-                "ultGen%": ultGenPercent(OW2_RAMATTRA_ULT_COST, SET_ARAM_TEAM1_RAMATTRA_ULT_COST_TARGET),
+                "ultGen%": relativePercent(REL_ARAM_TEAM1_RAMATTRA_ULT_COST_PERCENT, OW2_RAMATTRA_ULT_COST),
                 "ultDuration%": 500,
                 "enableSpawningWithUlt": true
             },
             "doomfist": {
                 "damageDealt%": 115,
                 "damageReceived%": 70,
-                "ammoRegenerationTime%": ratioPercent(SET_ARAM_TEAM1_DOOMFIST_AMMO_REGENERATION_TIME_TARGET, OW2_DOOMFIST_AMMO_REGEN),
+                "ammoRegenerationTime%": relativePercent(REL_ARAM_TEAM1_DOOMFIST_AMMO_REGENERATION_TIME_PERCENT, OW2_DOOMFIST_AMMO_REGEN),
                 "enableInfiniteAmmo": true
             },
             "zarya": {
@@ -177,7 +177,7 @@ settings {
             "zenyatta": {
                 "damageDealt%": 110,
                 "healingReceived%": 150,
-                "ultGen%": ultGenPercent(OW2_ZENYATTA_ULT_COST, SET_ARAM_TEAM1_ZENYATTA_ULT_COST_TARGET),
+                "ultGen%": relativePercent(REL_ARAM_TEAM1_ZENYATTA_ULT_COST_PERCENT, OW2_ZENYATTA_ULT_COST),
                 "projectileSpeed%": 150,
                 "enableInfiniteAmmo": true,
                 "healingDealt%": 200
@@ -221,9 +221,9 @@ settings {
                 "primaryFireRechargeRate%": 500
             },
             "reinhardt": {
-                "ability1Cooldown%": ratioPercent(SET_ARAM_TEAM1_REINHARDT_ABILITY1_COOLDOWN_TARGET, OW2_REINHARDT_CHARGE_COOLDOWN_TIME),
+                "ability1Cooldown%": relativePercent(REL_ARAM_TEAM1_REINHARDT_ABILITY1_COOLDOWN_PERCENT, OW2_REINHARDT_CHARGE_COOLDOWN_TIME),
                 "damageReceived%": 70,
-                "secondaryFireRechargeRate%": ratioPercent(SET_ARAM_TEAM1_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET, OW2_REINHARDT_BARRIER_REGEN),
+                "secondaryFireRechargeRate%": relativePercent(REL_ARAM_TEAM1_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_PERCENT, OW2_REINHARDT_BARRIER_REGEN),
                 "combatUltGen%": 150
             },
             "sigma": {
@@ -243,7 +243,7 @@ settings {
                 "damageDealt%": 120,
                 "projectileSpeed%": 115,
                 "healingDealt%": 250,
-                "ability2Cooldown%": ratioPercent(SET_ARAM_TEAM1_KIRIKO_ABILITY2_COOLDOWN_TARGET, OW2_KIRIKO_SUZU_COOLDOWN)
+                "ability2Cooldown%": relativePercent(REL_ARAM_TEAM1_KIRIKO_ABILITY2_COOLDOWN_PERCENT, OW2_KIRIKO_SUZU_COOLDOWN)
             },
             "sombra": {
                 "damageDealt%": 110,
@@ -251,7 +251,7 @@ settings {
                 "healingReceived%": 115,
                 "enableInfiniteAmmo": false,
                 "passiveUltGen%": 134,
-                "secondaryFireCooldown%": ratioPercent(SET_ARAM_TEAM1_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET, OW2_SOMBRA_HACK_COOLDOWN_TIME),
+                "secondaryFireCooldown%": relativePercent(REL_ARAM_TEAM1_SOMBRA_SECONDARY_FIRE_COOLDOWN_PERCENT, OW2_SOMBRA_HACK_COOLDOWN_TIME),
                 "ammoClipSize%": 125
             },
             "widowmaker": {
@@ -272,7 +272,7 @@ settings {
         "team2": {
             "hanzo": {
                 "damageDealt%": 110,
-                "ability2Cooldown%": ratioPercent(SET_ARAM_TEAM2_HANZO_ABILITY2_COOLDOWN_TARGET, OW2_HANZO_STORM_COOLDOWN),
+                "ability2Cooldown%": relativePercent(REL_ARAM_TEAM2_HANZO_ABILITY2_COOLDOWN_PERCENT, OW2_HANZO_STORM_COOLDOWN),
                 "projectileSpeed%": 135,
                 "ability1Cooldown%": 0
             },
@@ -293,7 +293,7 @@ settings {
             },
             "bastion": {
                 "damageDealt%": 125,
-                "ability1Cooldown%": ratioPercent(SET_ARAM_TEAM2_BASTION_ABILITY1_COOLDOWN_TARGET, OW2_BASTION_RECONFIGURE_COOLDOWN),
+                "ability1Cooldown%": relativePercent(REL_ARAM_TEAM2_BASTION_ABILITY1_COOLDOWN_PERCENT, OW2_BASTION_RECONFIGURE_COOLDOWN),
                 "damageReceived%": 70
             },
             "soldier": {
@@ -315,21 +315,21 @@ settings {
                 "enableInfiniteAmmo": true,
                 "health%": 500,
                 "movementSpeed%": 105,
-                "ultGen%": ultGenPercent(OW2_ORISA_ULT_COST, SET_ARAM_TEAM2_ORISA_ULT_COST_TARGET)
+                "ultGen%": relativePercent(REL_ARAM_TEAM2_ORISA_ULT_COST_PERCENT, OW2_ORISA_ULT_COST)
             },
             "ana": {
                 "damageDealt%": 115,
                 "healingDealt%": 130,
-                "ability2Cooldown%": ratioPercent(SET_ARAM_TEAM2_ANA_ABILITY2_COOLDOWN_TARGET, OW2_ANA_BIOTIC_GRENADE_COOLDOWN),
-                "ability1Cooldown%": ratioPercent(SET_ARAM_TEAM2_ANA_ABILITY1_COOLDOWN_TARGET, OW2_ANA_SLEEP_DART_COOLDOWN_TIME)
+                "ability2Cooldown%": relativePercent(REL_ARAM_TEAM2_ANA_ABILITY2_COOLDOWN_PERCENT, OW2_ANA_BIOTIC_GRENADE_COOLDOWN),
+                "ability1Cooldown%": relativePercent(REL_ARAM_TEAM2_ANA_ABILITY1_COOLDOWN_PERCENT, OW2_ANA_SLEEP_DART_COOLDOWN_TIME)
             },
             "baptiste": {
                 "damageDealt%": 120,
                 "ammoClipSize%": 100,
-                "ability1Cooldown%": ratioPercent(SET_ARAM_TEAM2_BAPTISTE_ABILITY1_COOLDOWN_TARGET, OW2_BAPTISTE_REGEN_BURST_COOLDOWN),
+                "ability1Cooldown%": relativePercent(REL_ARAM_TEAM2_BAPTISTE_ABILITY1_COOLDOWN_PERCENT, OW2_BAPTISTE_REGEN_BURST_COOLDOWN),
                 "healingDealt%": 120,
                 "ultDuration%": 150,
-                "ability2Cooldown%": ratioPercent(SET_ARAM_TEAM2_BAPTISTE_ABILITY2_COOLDOWN_TARGET, OW2_BAPTISTE_LAMP_COOLDOWN_TIME)
+                "ability2Cooldown%": relativePercent(REL_ARAM_TEAM2_BAPTISTE_ABILITY2_COOLDOWN_PERCENT, OW2_BAPTISTE_LAMP_COOLDOWN_TIME)
             },
             "brigitte": {
                 "damageDealt%": 115,
@@ -338,7 +338,7 @@ settings {
                 "secondaryFireRechargeRate%": 118,
                 "secondaryFireCooldown%": 80,
                 "healingDealt%": 110,
-                "shieldBashKb%": ratioPercent(SET_ARAM_TEAM2_BRIGITTE_SHIELD_BASH_KB_TARGET, OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK)
+                "shieldBashKb%": relativePercent(REL_ARAM_TEAM2_BRIGITTE_SHIELD_BASH_KB_PERCENT, OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK)
             },
             "torbjorn": {
                 "damageDealt%": 105,
@@ -356,7 +356,7 @@ settings {
             "doomfist": {
                 "damageDealt%": 110,
                 "damageReceived%": 70,
-                "ammoRegenerationTime%": ratioPercent(SET_ARAM_TEAM2_DOOMFIST_AMMO_REGENERATION_TIME_TARGET, OW2_DOOMFIST_AMMO_REGEN)
+                "ammoRegenerationTime%": relativePercent(REL_ARAM_TEAM2_DOOMFIST_AMMO_REGENERATION_TIME_PERCENT, OW2_DOOMFIST_AMMO_REGEN)
             },
             "zarya": {
                 "damageDealt%": 110,
@@ -401,7 +401,7 @@ settings {
                 "projectileSpeed%": 200,
                 "primaryFireKb%": 50,
                 "ability2Cooldown%": 100,
-                "ultGen%": ultGenPercent(OW2_JUNKRAT_ULT_COST, SET_ARAM_TEAM2_JUNKRAT_ULT_COST_TARGET),
+                "ultGen%": relativePercent(REL_ARAM_TEAM2_JUNKRAT_ULT_COST_PERCENT, OW2_JUNKRAT_ULT_COST),
                 "ultDuration%": 40,
                 "passiveUltGen%": 95,
                 "ability1Kb%": 50
@@ -453,9 +453,9 @@ settings {
             },
             "reinhardt": {
                 "damageDealt%": 110,
-                "ability1Cooldown%": ratioPercent(SET_ARAM_TEAM2_REINHARDT_ABILITY1_COOLDOWN_TARGET, OW2_REINHARDT_CHARGE_COOLDOWN_TIME),
+                "ability1Cooldown%": relativePercent(REL_ARAM_TEAM2_REINHARDT_ABILITY1_COOLDOWN_PERCENT, OW2_REINHARDT_CHARGE_COOLDOWN_TIME),
                 "damageReceived%": 75,
-                "secondaryFireRechargeRate%": ratioPercent(SET_ARAM_TEAM2_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET, OW2_REINHARDT_BARRIER_REGEN)
+                "secondaryFireRechargeRate%": relativePercent(REL_ARAM_TEAM2_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_PERCENT, OW2_REINHARDT_BARRIER_REGEN)
             },
             "sigma": {
                 "damageDealt%": 115,
@@ -471,12 +471,12 @@ settings {
                 "ability1Distance%": 243,
                 "damageDealt%": 120,
                 "healingDealt%": 110,
-                "ability2Cooldown%": ratioPercent(SET_ARAM_TEAM2_KIRIKO_ABILITY2_COOLDOWN_TARGET, OW2_KIRIKO_SUZU_COOLDOWN)
+                "ability2Cooldown%": relativePercent(REL_ARAM_TEAM2_KIRIKO_ABILITY2_COOLDOWN_PERCENT, OW2_KIRIKO_SUZU_COOLDOWN)
             },
             "sombra": {
                 "damageDealt%": 110,
                 "damageReceived%": 80,
-                "secondaryFireCooldown%": ratioPercent(SET_ARAM_TEAM2_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET, OW2_SOMBRA_HACK_COOLDOWN_TIME)
+                "secondaryFireCooldown%": relativePercent(REL_ARAM_TEAM2_SOMBRA_SECONDARY_FIRE_COOLDOWN_PERCENT, OW2_SOMBRA_HACK_COOLDOWN_TIME)
             },
             "widowmaker": {
                 "damageDealt%": 115,
@@ -496,7 +496,7 @@ settings {
                 "damageDealt%": 105,
                 "damageReceived%": 75,
                 "secondaryFireRechargeRate%": 200,
-                "secondaryFireMaximumTime%": ratioPercent(SET_ARAM_ALLTEAMS_DVA_SECONDARY_FIRE_MAXIMUM_TIME_TARGET, OW2_DVA_MATRIX_DURATION)
+                "secondaryFireMaximumTime%": relativePercent(REL_ARAM_ALLTEAMS_DVA_SECONDARY_FIRE_MAXIMUM_TIME_PERCENT, OW2_DVA_MATRIX_DURATION)
             },
             "illari": {
                 "passiveHealthRegen": false,
@@ -504,7 +504,7 @@ settings {
                 "damageReceived%": 95,
                 "solarEnergyRecharge%": 500,
                 "projectileSpeed%": 500,
-                "ability2Cooldown%": ratioPercent(SET_ARAM_ALLTEAMS_ILLARI_ABILITY2_COOLDOWN_TARGET, OW2_ILLARI_PYLON_COOLDOWN)
+                "ability2Cooldown%": relativePercent(REL_ARAM_ALLTEAMS_ILLARI_ABILITY2_COOLDOWN_PERCENT, OW2_ILLARI_PYLON_COOLDOWN)
             },
             "freja": {
                 "damageDealt%": 110,
@@ -519,7 +519,7 @@ settings {
             "juno": {
                 "damageDealt%": 115,
                 "healingDealt%": 125,
-                "ultGen%": ultGenPercent(OW2_JUNO_ULT_COST, SET_ARAM_ALLTEAMS_JUNO_ULT_COST_TARGET)
+                "ultGen%": relativePercent(REL_ARAM_ALLTEAMS_JUNO_ULT_COST_PERCENT, OW2_JUNO_ULT_COST)
             },
             "pharah": {
                 "damageDealt%": 110,
@@ -549,8 +549,8 @@ settings {
             "domina": {
                 "damageDealt%": 125,
                 "damageReceived%": 80,
-                "secondaryFireCooldown%": ratioPercent(SET_ARAM_ALLTEAMS_DOMINA_SECONDARY_FIRE_COOLDOWN_TARGET, OW2_DOMINA_BARRIER_ARRAY_COOLDOWN),
-                "ability2Cooldown%": ratioPercent(SET_ARAM_ALLTEAMS_DOMINA_ABILITY2_COOLDOWN_TARGET, OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN)
+                "secondaryFireCooldown%": relativePercent(REL_ARAM_ALLTEAMS_DOMINA_SECONDARY_FIRE_COOLDOWN_PERCENT, OW2_DOMINA_BARRIER_ARRAY_COOLDOWN),
+                "ability2Cooldown%": relativePercent(REL_ARAM_ALLTEAMS_DOMINA_ABILITY2_COOLDOWN_PERCENT, OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN)
             },
             "mizuki": {
                 "damageDealt%": 125,

@@ -43,10 +43,11 @@
 ### 3.1 Settings 常量命名
 
 - canonical OW2 reference：只使用生成文件中的 `OW2_<HERO>_<FIELD>`，禁止在其他 `.opy` 文件重复定义或使用去掉 `OW2_` 的旧 alias。
-- 目标值（可由基准值计算）：
+- 绝对 PvE target（可由基准值计算）：
   - `SET_AI_<HERO>_<FIELD>_TARGET`
   - `SET_PLAYER_<HERO>_<FIELD>_TARGET`
   - ARAM 按实际作用域使用 `SET_ARAM_TEAM1_<HERO>_<FIELD>_TARGET`、`SET_ARAM_TEAM2_<HERO>_<FIELD>_TARGET` 或 `SET_ARAM_ALLTEAMS_<HERO>_<FIELD>_TARGET`。
+- relative modifier：使用 `REL_<SCOPE>_<HERO>_<FIELD>_PERCENT`，并通过 `relativePercent(REL_..., OW2_...)` 保留其 reference provenance。
 - 直接值（无可靠基准值）：
   - `SET_AI_<HERO>_<FIELD>`
   - `SET_PLAYER_<HERO>_<FIELD>`
@@ -63,11 +64,12 @@
 
 - 冷却/比例优先：`ratioPercent(...)`
 - 终极充能优先：`ultGenPercent(...)`
+- relative modifier：`relativePercent(REL_..._PERCENT, OW2_...)`、`relativeRatioPercent(REL_..._PERCENT, OW2_...)` 或 `relativeUltGenPercent(REL_..._PERCENT, OW2_...)`；第二个参数用于审计和 provenance，宏展开后保持原有 Workshop 百分比计算。
 - 无可靠基准值时：直接常量引用，不保留裸数字。
 
 ## 4. 迁移模式
 
-### 4.1 Settings 四种替换模式
+### 4.1 Settings 五种替换模式
 
 1. 基准值 + 目标值：
 - Before: `"ability2Cooldown%": 67`
@@ -81,10 +83,15 @@
 - Before: `"damageReceived%": 60`
 - After: `"damageReceived%": SET_AI_X_DAMAGE_RECEIVED`
 
-4. ARAM 独立 target：
+4. relative modifier：
+- Before: `"ability2Cooldown%": ratioPercent(SET_AI_X_ABILITY2_COOLDOWN_TARGET, OW2_X_ABILITY2_COOLDOWN)`
+- After: `"ability2Cooldown%": relativeRatioPercent(REL_AI_X_ABILITY2_COOLDOWN_PERCENT, OW2_X_ABILITY2_COOLDOWN)`
+- `REL_*_PERCENT` 是相对百分比，不得误读成绝对秒数 target。
+
+5. ARAM 独立 relative modifier：
 - Before: `"ultGen%": 175`
-- After: `"ultGen%": ultGenPercent(OW2_JUNO_ULT_COST, SET_ARAM_ALLTEAMS_JUNO_ULT_COST_TARGET)`
-- `SET_ARAM_*` 的数值必须保持 ARAM 自己的调优，不得为了复用 Main 而强行相同。
+- After: `"ultGen%": relativeUltGenPercent(REL_ARAM_ALLTEAMS_JUNO_ULT_COST_PERCENT, OW2_JUNO_ULT_COST)`
+- `REL_ARAM_*` 的数值必须保持 ARAM 自己的调优，不得为了复用 Main 而强行相同。
 
 ### 4.2 Rules 常量提取规则
 
@@ -107,7 +114,7 @@
 - PvE target 在 `src/constants/player_constants.opy` 对应英雄块新增；命名遵循第 3 节规范。
 
 3. 替换引用
-- `settings` 改为 `ratioPercent/ultGenPercent/直接常量`。
+- `settings` 改为 `ratioPercent/ultGenPercent/relativePercent/relativeRatioPercent/relativeUltGenPercent/直接常量`。
 - `rules` 改为命名的 project-only 或 relative modifier 常量。
 
 4. 门禁执行

@@ -38,7 +38,7 @@ type SettingEntry = SourceLocation & {
 };
 
 type MainDerivedSetting = SettingEntry & {
-  functionName: "ratioPercent" | "ultGenPercent";
+  functionName: "ratioPercent" | "ultGenPercent" | "relativePercent" | "relativeRatioPercent" | "relativeUltGenPercent";
   expressionArguments: string[];
   referenceToken: string | null;
   targetToken: string | null;
@@ -245,7 +245,7 @@ function parseSettingEntries(file: string, mode: Mode): SettingEntry[] {
     if (!team || !hero) continue;
     const value = property[2]!.trim();
     const field = property[1]!;
-    const category: Category = mode === "aram" ? "runtime_workshop_setting" : "project_only_mechanic_constant";
+    const category: Category = value.includes("relativePercent(") || value.includes("relativeRatioPercent(") || value.includes("relativeUltGenPercent(") ? "relative_pve_modifier" : mode === "aram" ? "runtime_workshop_setting" : "project_only_mechanic_constant";
     entries.push({
       mode,
       team,
@@ -273,12 +273,12 @@ function isBaselineField(field: string): boolean {
 
 function parseMainDerivedSettings(file: string, aramEntries: SettingEntry[], ow2: Map<string, Definition>, player: Map<string, Definition>): MainDerivedSetting[] {
   return parseSettingEntries(file, "main")
-    .filter((entry) => entry.value.includes("ratioPercent(") || entry.value.includes("ultGenPercent("))
+    .filter((entry) => entry.value.includes("ratioPercent(") || entry.value.includes("ultGenPercent(") || entry.value.includes("relativePercent(") || entry.value.includes("relativeRatioPercent(") || entry.value.includes("relativeUltGenPercent("))
     .map((entry) => {
-      const functionName = entry.value.includes("ratioPercent(") ? "ratioPercent" : "ultGenPercent";
+      const functionName = entry.value.includes("relativeUltGenPercent(") ? "relativeUltGenPercent" : entry.value.includes("relativeRatioPercent(") ? "relativeRatioPercent" : entry.value.includes("relativePercent(") ? "relativePercent" : entry.value.includes("ratioPercent(") ? "ratioPercent" : "ultGenPercent";
       const expressionArguments = splitArguments(entry.value);
-      const referenceToken = functionName === "ratioPercent" ? tokensIn(expressionArguments[1] ?? "").find(Boolean) ?? null : tokensIn(expressionArguments[0] ?? "").find(Boolean) ?? null;
-      const targetToken = functionName === "ratioPercent" ? tokensIn(expressionArguments[0] ?? "").find(Boolean) ?? null : tokensIn(expressionArguments[1] ?? "").find(Boolean) ?? null;
+      const referenceToken = functionName === "ultGenPercent" ? tokensIn(expressionArguments[0] ?? "").find(Boolean) ?? null : tokensIn(expressionArguments[1] ?? "").find(Boolean) ?? null;
+      const targetToken = functionName === "ultGenPercent" ? tokensIn(expressionArguments[1] ?? "").find(Boolean) ?? null : tokensIn(expressionArguments[0] ?? "").find(Boolean) ?? null;
       const directReference = referenceToken?.startsWith("OW2_") ? referenceToken : null;
       const aliasReference = referenceToken && ow2.has(`OW2_${referenceToken}`) ? `OW2_${referenceToken}` : null;
       const canonicalReference = directReference ?? aliasReference;
@@ -286,7 +286,7 @@ function parseMainDerivedSettings(file: string, aramEntries: SettingEntry[], ow2
       const aramRepresentations = aramEntries.filter((candidate) => candidate.hero === entry.hero && candidate.field === entry.field);
       return {
         ...entry,
-        category: "absolute_pve_target",
+        category: functionName === "relativePercent" || functionName === "relativeRatioPercent" || functionName === "relativeUltGenPercent" || targetToken?.startsWith("REL_") ? "relative_pve_modifier" : "absolute_pve_target",
         functionName,
         expressionArguments,
         referenceToken,
@@ -345,7 +345,7 @@ function buildReport(inventory: AuditInventory): string {
     "",
     `- 启用的 OW2_* reference 定义：${inventory.summary.activeOw2ReferenceDefinitions}；注释掉的候选定义：${inventory.summary.commentedOw2ReferenceDefinitions}。`,
     `- Main 中直接使用 OW2_*：${inventory.summary.directOw2Consumers} 个字段；另有 ${inventory.summary.consumedDuplicateBaselineFacts} 个被消费的非命名空间重复基线事实（总记录 ${inventory.summary.duplicateBaselineFacts} 个）。`,
-    `- Main 中通过 ratioPercent/ultGenPercent 形成的基线相关 settings：${inventory.summary.mainDerivedSettings} 条。`,
+    `- Main 中通过 ratioPercent/ultGenPercent/relativePercent/relativeRatioPercent/relativeUltGenPercent 形成的基线相关 settings：${inventory.summary.mainDerivedSettings} 条。`,
     `- ARAM settings 条目：${inventory.summary.aramSettingEntries} 条，其中直接数字：${inventory.summary.aramDirectNumericSettings} 条。`,
     `- 英雄 runtime Workshop setting 工厂调用：${inventory.summary.heroWorkshopSettingEntries} 条。`,
     `- 需要在迁移前人工确认的项目：${inventory.summary.semanticReviewItems} 条；缺失 reference：${inventory.summary.missingProjectConsumedReferences} 条。`,
@@ -370,7 +370,7 @@ function buildReport(inventory: AuditInventory): string {
     "",
     "## Main 基线相关 settings inventory",
     "",
-    "每一行代表一个当前 Main 的 `ratioPercent` 或 `ultGenPercent` 消费；ARAM 对应条目、canonical reference、target 来源和迁移备注均在 JSON 的 `baselineFields` 中保留。",
+    "每一行代表一个当前 Main 的 `ratioPercent`、`ultGenPercent`、`relativePercent`、`relativeRatioPercent` 或 `relativeUltGenPercent` 消费；ARAM 对应条目、canonical reference、target 来源和迁移备注均在 JSON 的 `baselineFields` 中保留。",
     "",
     "| Team | Hero | Field | Category | Reference | Target | ARAM 表示 |",
     "| --- | --- | --- | --- | --- | --- | --- |",

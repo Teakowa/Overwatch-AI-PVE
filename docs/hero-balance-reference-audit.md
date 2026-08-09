@@ -6,7 +6,7 @@
 
 - 启用的 OW2_* reference 定义：61；注释掉的候选定义：0。
 - Main 中直接使用 OW2_*：61 个字段；另有 0 个被消费的非命名空间重复基线事实（总记录 0 个）。
-- Main 中通过 ratioPercent/ultGenPercent 形成的基线相关 settings：99 条。
+- Main 中通过 ratioPercent/ultGenPercent/relativePercent/relativeRatioPercent/relativeUltGenPercent 形成的基线相关 settings：99 条。
 - ARAM settings 条目：386 条，其中直接数字：299 条。
 - 英雄 runtime Workshop setting 工厂调用：186 条。
 - 需要在迁移前人工确认的项目：299 条；缺失 reference：0 条。
@@ -42,109 +42,109 @@
 
 ## Main 基线相关 settings inventory
 
-每一行代表一个当前 Main 的 `ratioPercent` 或 `ultGenPercent` 消费；ARAM 对应条目、canonical reference、target 来源和迁移备注均在 JSON 的 `baselineFields` 中保留。
+每一行代表一个当前 Main 的 `ratioPercent`、`ultGenPercent`、`relativePercent`、`relativeRatioPercent` 或 `relativeUltGenPercent` 消费；ARAM 对应条目、canonical reference、target 来源和迁移备注均在 JSON 的 `baselineFields` 中保留。
 
 | Team | Hero | Field | Category | Reference | Target | ARAM 表示 |
 | --- | --- | --- | --- | --- | --- | --- |
-| team1 | hanzo | `ultGen%` | absolute_pve_target | `OW2_HANZO_ULT_COST` | `SET_AI_HANZO_ULT_COST_TARGET` | 未配置 |
-| team1 | cassidy | `ability2Cooldown%` | absolute_pve_target | `OW2_MCCREE_FLASHBANG_COOLDOWN` | `SET_AI_CASSIDY_ABILITY2_COOLDOWN_TARGET` | `team1:ratioPercent(SET_ARAM_TEAM1_CASSIDY_ABILITY2_COOLDOWN_TARGET, OW2_MCCREE_FLASHBANG_COOLDOWN)` |
-| team1 | lucio | `ultGen%` | absolute_pve_target | `OW2_LUCIO_ULT_COST` | `SET_AI_LUCIO_ULT_COST_TARGET` | 未配置 |
-| team1 | soldier | `ability2Cooldown%` | absolute_pve_target | `OW2_SOLDIER_BIOTIC_FIELD_COOLDOWN` | `SET_AI_SOLDIER_ABILITY2_COOLDOWN_TARGET` | `team1:ratioPercent(SET_ARAM_TEAM1_SOLDIER_ABILITY2_COOLDOWN_TARGET, OW2_SOLDIER_BIOTIC_FIELD_COOLDOWN)` |
-| team1 | orisa | `ability1Cooldown%` | absolute_pve_target | `OW2_ORISA_FORTIFY_COOLDOWN` | `SET_AI_ORISA_ABILITY1_COOLDOWN_TARGET` | 未配置 |
-| team1 | orisa | `ultGen%` | absolute_pve_target | `OW2_ORISA_ULT_COST` | `SET_AI_ORISA_ULT_COST_TARGET` | `team1:ultGenPercent(OW2_ORISA_ULT_COST, SET_ARAM_TEAM1_ORISA_ULT_COST_TARGET)`, `team2:ultGenPercent(OW2_ORISA_ULT_COST, SET_ARAM_TEAM2_ORISA_ULT_COST_TARGET)` |
-| team1 | ana | `ultGen%` | absolute_pve_target | `OW2_ANA_ULT_COST` | `SET_AI_ANA_ULT_COST_TARGET` | `team1:ultGenPercent(OW2_ANA_ULT_COST, SET_ARAM_TEAM1_ANA_ULT_COST_TARGET)` |
-| team1 | ana | `ability1Cooldown%` | absolute_pve_target | `OW2_ANA_SLEEP_DART_COOLDOWN_TIME` | `SET_AI_ANA_ABILITY1_COOLDOWN_TARGET` | `team1:ratioPercent(SET_ARAM_TEAM1_ANA_ABILITY1_COOLDOWN_TARGET, OW2_ANA_SLEEP_DART_COOLDOWN_TIME)`, `team2:ratioPercent(SET_ARAM_TEAM2_ANA_ABILITY1_COOLDOWN_TARGET, OW2_ANA_SLEEP_DART_COOLDOWN_TIME)` |
-| team1 | baptiste | `ability1Cooldown%` | absolute_pve_target | `OW2_BAPTISTE_REGEN_BURST_COOLDOWN` | `SET_AI_BAPTISTE_ABILITY1_COOLDOWN_TARGET` | `team1:ratioPercent(SET_ARAM_TEAM1_BAPTISTE_ABILITY1_COOLDOWN_TARGET, OW2_BAPTISTE_REGEN_BURST_COOLDOWN)`, `team2:ratioPercent(SET_ARAM_TEAM2_BAPTISTE_ABILITY1_COOLDOWN_TARGET, OW2_BAPTISTE_REGEN_BURST_COOLDOWN)` |
-| team1 | baptiste | `ability2Cooldown%` | absolute_pve_target | `OW2_BAPTISTE_LAMP_COOLDOWN_TIME` | `SET_AI_BAPTISTE_ABILITY2_COOLDOWN_TARGET` | `team1:ratioPercent(SET_ARAM_TEAM1_BAPTISTE_ABILITY2_COOLDOWN_TARGET, OW2_BAPTISTE_LAMP_COOLDOWN_TIME)`, `team2:ratioPercent(SET_ARAM_TEAM2_BAPTISTE_ABILITY2_COOLDOWN_TARGET, OW2_BAPTISTE_LAMP_COOLDOWN_TIME)` |
-| team1 | brigitte | `ultGen%` | absolute_pve_target | `OW2_BRIGITTE_ULT_COST` | `SET_AI_BRIGITTE_ULT_COST_TARGET` | 未配置 |
-| team1 | brigitte | `shieldBashKb%` | absolute_pve_target | `OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK` | `SET_AI_BRIGITTE_SHIELD_BASH_KB_TARGET` | `team1:ratioPercent(SET_ARAM_TEAM1_BRIGITTE_SHIELD_BASH_KB_TARGET, OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK)`, `team2:ratioPercent(SET_ARAM_TEAM2_BRIGITTE_SHIELD_BASH_KB_TARGET, OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK)` |
-| team1 | torbjorn | `ultGen%` | absolute_pve_target | `OW2_TORBJORN_ULT_COST` | `SET_AI_TORBJORN_ULT_COST_TARGET` | 未配置 |
-| team1 | ramattra | `ability2Cooldown%` | absolute_pve_target | `OW2_RAMATTRA_VORTEX_COOLDOWN` | `SET_AI_RAMATTRA_ABILITY2_COOLDOWN_TARGET` | 未配置 |
-| team1 | ramattra | `ability1Cooldown%` | absolute_pve_target | `OW2_RAMATTRA_NEMESIS_COOLDOWN` | `SET_AI_RAMATTRA_ABILITY1_COOLDOWN_TARGET` | `team1:ratioPercent(SET_ARAM_TEAM1_RAMATTRA_ABILITY1_COOLDOWN_TARGET, OW2_RAMATTRA_NEMESIS_COOLDOWN)` |
-| team1 | ramattra | `ultGen%` | absolute_pve_target | `OW2_RAMATTRA_ULT_COST` | `SET_AI_RAMATTRA_ULT_COST_TARGET` | `team1:ultGenPercent(OW2_RAMATTRA_ULT_COST, SET_ARAM_TEAM1_RAMATTRA_ULT_COST_TARGET)` |
-| team1 | ramattra | `secondaryFireCooldown%` | absolute_pve_target | `OW2_RAMATTRA_VOID_BARRIER_COOLDOWN` | `SET_AI_RAMATTRA_SECONDARY_FIRE_COOLDOWN_TARGET` | 未配置 |
-| team1 | venture | `ultGen%` | absolute_pve_target | `OW2_VENTURE_ULT_COST` | `SET_AI_VENTURE_ULT_COST_TARGET` | 未配置 |
-| team1 | illari | `ability2Cooldown%` | absolute_pve_target | `OW2_ILLARI_PYLON_COOLDOWN` | `SET_AI_ILLARI_ABILITY2_COOLDOWN_TARGET` | `allTeams:ratioPercent(SET_ARAM_ALLTEAMS_ILLARI_ABILITY2_COOLDOWN_TARGET, OW2_ILLARI_PYLON_COOLDOWN)` |
-| team1 | juno | `ultGen%` | absolute_pve_target | `OW2_JUNO_ULT_COST` | `SET_AI_JUNO_ULT_COST_TARGET` | `allTeams:ultGenPercent(OW2_JUNO_ULT_COST, SET_ARAM_ALLTEAMS_JUNO_ULT_COST_TARGET)` |
-| team1 | doomfist | `ammoRegenerationTime%` | absolute_pve_target | `OW2_DOOMFIST_AMMO_REGEN` | `SET_AI_DOOMFIST_AMMO_REGENERATION_TIME_TARGET` | `team1:ratioPercent(SET_ARAM_TEAM1_DOOMFIST_AMMO_REGENERATION_TIME_TARGET, OW2_DOOMFIST_AMMO_REGEN)`, `team2:ratioPercent(SET_ARAM_TEAM2_DOOMFIST_AMMO_REGENERATION_TIME_TARGET, OW2_DOOMFIST_AMMO_REGEN)` |
-| team1 | zarya | `ultGen%` | absolute_pve_target | `OW2_ZARYA_ULT_COST` | `SET_AI_ZARYA_ULT_COST_TARGET` | 未配置 |
-| team1 | pharah | `ability1Cooldown%` | absolute_pve_target | `OW2_PHARAH_JUMP_JET_COOLDOWN` | `SET_AI_PHARAH_ABILITY1_COOLDOWN_TARGET` | 未配置 |
-| team1 | pharah | `ability2Cooldown%` | absolute_pve_target | `OW2_PHARAH_CONCUSSIVE_BLAST_COOLDOWN` | `SET_AI_PHARAH_ABILITY2_COOLDOWN_TARGET` | 未配置 |
-| team1 | winston | `ability1Cooldown%` | absolute_pve_target | `OW2_WINSTON_JUMP_PACK_COOLDOWN_TIME` | `SET_AI_WINSTON_ABILITY1_COOLDOWN_TARGET` | 未配置 |
-| team1 | winston | `ability2Cooldown%` | absolute_pve_target | `OW2_WINSTON_BARRIER_COOLDOWN` | `SET_AI_WINSTON_ABILITY2_COOLDOWN_TARGET` | 未配置 |
-| team1 | genji | `ultGen%` | absolute_pve_target | `OW2_GENJI_ULT_COST` | `SET_AI_GENJI_ULT_COST_TARGET` | 未配置 |
-| team1 | junkrat | `ability1Cooldown%` | absolute_pve_target | `OW2_JUNKRAT_CONCUSSION_MINE_COOLDOWN` | `SET_AI_JUNKRAT_ABILITY1_COOLDOWN_TARGET` | 未配置 |
-| team1 | tracer | `ultGen%` | absolute_pve_target | `OW2_TRACER_ULT_COST` | `SET_AI_TRACER_ULT_COST_TARGET` | 未配置 |
-| team1 | tracer | `ability2Cooldown%` | absolute_pve_target | `OW2_TRACER_RECALL_COOLDOWN` | `SET_AI_TRACER_ABILITY2_COOLDOWN_TARGET` | 未配置 |
-| team1 | zenyatta | `ultGen%` | absolute_pve_target | `OW2_ZENYATTA_ULT_COST` | `SET_AI_ZENYATTA_ULT_COST_TARGET` | `team1:ultGenPercent(OW2_ZENYATTA_ULT_COST, SET_ARAM_TEAM1_ZENYATTA_ULT_COST_TARGET)` |
-| team1 | moira | `ultGen%` | absolute_pve_target | `OW2_MOIRA_ULT_COST` | `SET_AI_MOIRA_ULT_COST_TARGET` | 未配置 |
-| team1 | reinhardt | `ability1Cooldown%` | absolute_pve_target | `OW2_REINHARDT_CHARGE_COOLDOWN_TIME` | `SET_AI_REINHARDT_ABILITY1_COOLDOWN_TARGET` | `team1:ratioPercent(SET_ARAM_TEAM1_REINHARDT_ABILITY1_COOLDOWN_TARGET, OW2_REINHARDT_CHARGE_COOLDOWN_TIME)`, `team2:ratioPercent(SET_ARAM_TEAM2_REINHARDT_ABILITY1_COOLDOWN_TARGET, OW2_REINHARDT_CHARGE_COOLDOWN_TIME)` |
-| team1 | reinhardt | `secondaryFireRechargeRate%` | absolute_pve_target | `OW2_REINHARDT_BARRIER_REGEN` | `SET_AI_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET` | `team1:ratioPercent(SET_ARAM_TEAM1_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET, OW2_REINHARDT_BARRIER_REGEN)`, `team2:ratioPercent(SET_ARAM_TEAM2_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET, OW2_REINHARDT_BARRIER_REGEN)` |
-| team1 | reinhardt | `health%` | absolute_pve_target | `OW2_REINHARDT_BARRIER_HEALTH` | `SET_AI_REINHARDT_HEALTH_TARGET` | 未配置 |
-| team1 | sigma | `health%` | absolute_pve_target | `OW2_SIGMA_BARRIER_HEALTH` | `SET_AI_SIGMA_HEALTH_TARGET` | 未配置 |
-| team1 | kiriko | `ability2Cooldown%` | absolute_pve_target | `OW2_KIRIKO_SUZU_COOLDOWN` | `SET_AI_KIRIKO_ABILITY2_COOLDOWN_TARGET` | `team1:ratioPercent(SET_ARAM_TEAM1_KIRIKO_ABILITY2_COOLDOWN_TARGET, OW2_KIRIKO_SUZU_COOLDOWN)`, `team2:ratioPercent(SET_ARAM_TEAM2_KIRIKO_ABILITY2_COOLDOWN_TARGET, OW2_KIRIKO_SUZU_COOLDOWN)` |
-| team1 | kiriko | `ultGen%` | absolute_pve_target | `OW2_KIRIKO_ULT_COST` | `SET_AI_KIRIKO_ULT_COST_TARGET` | 未配置 |
+| team1 | hanzo | `ultGen%` | relative_pve_modifier | `OW2_HANZO_ULT_COST` | `REL_AI_HANZO_ULT_COST_PERCENT` | 未配置 |
+| team1 | cassidy | `ability2Cooldown%` | relative_pve_modifier | `OW2_MCCREE_FLASHBANG_COOLDOWN` | `REL_AI_CASSIDY_ABILITY2_COOLDOWN_PERCENT` | `team1:relativePercent(REL_ARAM_TEAM1_CASSIDY_ABILITY2_COOLDOWN_PERCENT, OW2_MCCREE_FLASHBANG_COOLDOWN)` |
+| team1 | lucio | `ultGen%` | relative_pve_modifier | `OW2_LUCIO_ULT_COST` | `REL_AI_LUCIO_ULT_COST_PERCENT` | 未配置 |
+| team1 | soldier | `ability2Cooldown%` | relative_pve_modifier | `OW2_SOLDIER_BIOTIC_FIELD_COOLDOWN` | `REL_AI_SOLDIER_ABILITY2_COOLDOWN_PERCENT` | `team1:relativePercent(REL_ARAM_TEAM1_SOLDIER_ABILITY2_COOLDOWN_PERCENT, OW2_SOLDIER_BIOTIC_FIELD_COOLDOWN)` |
+| team1 | orisa | `ability1Cooldown%` | relative_pve_modifier | `OW2_ORISA_FORTIFY_COOLDOWN` | `REL_AI_ORISA_ABILITY1_COOLDOWN_PERCENT` | 未配置 |
+| team1 | orisa | `ultGen%` | relative_pve_modifier | `OW2_ORISA_ULT_COST` | `REL_AI_ORISA_ULT_COST_PERCENT` | `team1:relativePercent(REL_ARAM_TEAM1_ORISA_ULT_COST_PERCENT, OW2_ORISA_ULT_COST)`, `team2:relativePercent(REL_ARAM_TEAM2_ORISA_ULT_COST_PERCENT, OW2_ORISA_ULT_COST)` |
+| team1 | ana | `ultGen%` | relative_pve_modifier | `OW2_ANA_ULT_COST` | `REL_AI_ANA_ULT_COST_PERCENT` | `team1:relativePercent(REL_ARAM_TEAM1_ANA_ULT_COST_PERCENT, OW2_ANA_ULT_COST)` |
+| team1 | ana | `ability1Cooldown%` | relative_pve_modifier | `OW2_ANA_SLEEP_DART_COOLDOWN_TIME` | `REL_AI_ANA_ABILITY1_COOLDOWN_PERCENT` | `team1:relativePercent(REL_ARAM_TEAM1_ANA_ABILITY1_COOLDOWN_PERCENT, OW2_ANA_SLEEP_DART_COOLDOWN_TIME)`, `team2:relativePercent(REL_ARAM_TEAM2_ANA_ABILITY1_COOLDOWN_PERCENT, OW2_ANA_SLEEP_DART_COOLDOWN_TIME)` |
+| team1 | baptiste | `ability1Cooldown%` | relative_pve_modifier | `OW2_BAPTISTE_REGEN_BURST_COOLDOWN` | `REL_AI_BAPTISTE_ABILITY1_COOLDOWN_PERCENT` | `team1:relativePercent(REL_ARAM_TEAM1_BAPTISTE_ABILITY1_COOLDOWN_PERCENT, OW2_BAPTISTE_REGEN_BURST_COOLDOWN)`, `team2:relativePercent(REL_ARAM_TEAM2_BAPTISTE_ABILITY1_COOLDOWN_PERCENT, OW2_BAPTISTE_REGEN_BURST_COOLDOWN)` |
+| team1 | baptiste | `ability2Cooldown%` | relative_pve_modifier | `OW2_BAPTISTE_LAMP_COOLDOWN_TIME` | `REL_AI_BAPTISTE_ABILITY2_COOLDOWN_PERCENT` | `team1:relativePercent(REL_ARAM_TEAM1_BAPTISTE_ABILITY2_COOLDOWN_PERCENT, OW2_BAPTISTE_LAMP_COOLDOWN_TIME)`, `team2:relativePercent(REL_ARAM_TEAM2_BAPTISTE_ABILITY2_COOLDOWN_PERCENT, OW2_BAPTISTE_LAMP_COOLDOWN_TIME)` |
+| team1 | brigitte | `ultGen%` | relative_pve_modifier | `OW2_BRIGITTE_ULT_COST` | `REL_AI_BRIGITTE_ULT_COST_PERCENT` | 未配置 |
+| team1 | brigitte | `shieldBashKb%` | relative_pve_modifier | `OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK` | `REL_AI_BRIGITTE_SHIELD_BASH_KB_PERCENT` | `team1:relativePercent(REL_ARAM_TEAM1_BRIGITTE_SHIELD_BASH_KB_PERCENT, OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK)`, `team2:relativePercent(REL_ARAM_TEAM2_BRIGITTE_SHIELD_BASH_KB_PERCENT, OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK)` |
+| team1 | torbjorn | `ultGen%` | relative_pve_modifier | `OW2_TORBJORN_ULT_COST` | `REL_AI_TORBJORN_ULT_COST_PERCENT` | 未配置 |
+| team1 | ramattra | `ability2Cooldown%` | relative_pve_modifier | `OW2_RAMATTRA_VORTEX_COOLDOWN` | `REL_AI_RAMATTRA_ABILITY2_COOLDOWN_PERCENT` | 未配置 |
+| team1 | ramattra | `ability1Cooldown%` | relative_pve_modifier | `OW2_RAMATTRA_NEMESIS_COOLDOWN` | `REL_AI_RAMATTRA_ABILITY1_COOLDOWN_PERCENT` | `team1:relativePercent(REL_ARAM_TEAM1_RAMATTRA_ABILITY1_COOLDOWN_PERCENT, OW2_RAMATTRA_NEMESIS_COOLDOWN)` |
+| team1 | ramattra | `ultGen%` | relative_pve_modifier | `OW2_RAMATTRA_ULT_COST` | `REL_AI_RAMATTRA_ULT_COST_PERCENT` | `team1:relativePercent(REL_ARAM_TEAM1_RAMATTRA_ULT_COST_PERCENT, OW2_RAMATTRA_ULT_COST)` |
+| team1 | ramattra | `secondaryFireCooldown%` | relative_pve_modifier | `OW2_RAMATTRA_VOID_BARRIER_COOLDOWN` | `REL_AI_RAMATTRA_SECONDARY_FIRE_COOLDOWN_PERCENT` | 未配置 |
+| team1 | venture | `ultGen%` | relative_pve_modifier | `OW2_VENTURE_ULT_COST` | `REL_AI_VENTURE_ULT_COST_PERCENT` | 未配置 |
+| team1 | illari | `ability2Cooldown%` | relative_pve_modifier | `OW2_ILLARI_PYLON_COOLDOWN` | `REL_AI_ILLARI_ABILITY2_COOLDOWN_PERCENT` | `allTeams:relativePercent(REL_ARAM_ALLTEAMS_ILLARI_ABILITY2_COOLDOWN_PERCENT, OW2_ILLARI_PYLON_COOLDOWN)` |
+| team1 | juno | `ultGen%` | relative_pve_modifier | `OW2_JUNO_ULT_COST` | `REL_AI_JUNO_ULT_COST_PERCENT` | `allTeams:relativePercent(REL_ARAM_ALLTEAMS_JUNO_ULT_COST_PERCENT, OW2_JUNO_ULT_COST)` |
+| team1 | doomfist | `ammoRegenerationTime%` | relative_pve_modifier | `OW2_DOOMFIST_AMMO_REGEN` | `REL_AI_DOOMFIST_AMMO_REGENERATION_TIME_PERCENT` | `team1:relativePercent(REL_ARAM_TEAM1_DOOMFIST_AMMO_REGENERATION_TIME_PERCENT, OW2_DOOMFIST_AMMO_REGEN)`, `team2:relativePercent(REL_ARAM_TEAM2_DOOMFIST_AMMO_REGENERATION_TIME_PERCENT, OW2_DOOMFIST_AMMO_REGEN)` |
+| team1 | zarya | `ultGen%` | relative_pve_modifier | `OW2_ZARYA_ULT_COST` | `REL_AI_ZARYA_ULT_COST_PERCENT` | 未配置 |
+| team1 | pharah | `ability1Cooldown%` | relative_pve_modifier | `OW2_PHARAH_JUMP_JET_COOLDOWN` | `REL_AI_PHARAH_ABILITY1_COOLDOWN_PERCENT` | 未配置 |
+| team1 | pharah | `ability2Cooldown%` | relative_pve_modifier | `OW2_PHARAH_CONCUSSIVE_BLAST_COOLDOWN` | `REL_AI_PHARAH_ABILITY2_COOLDOWN_PERCENT` | 未配置 |
+| team1 | winston | `ability1Cooldown%` | relative_pve_modifier | `OW2_WINSTON_JUMP_PACK_COOLDOWN_TIME` | `REL_AI_WINSTON_ABILITY1_COOLDOWN_PERCENT` | 未配置 |
+| team1 | winston | `ability2Cooldown%` | relative_pve_modifier | `OW2_WINSTON_BARRIER_COOLDOWN` | `REL_AI_WINSTON_ABILITY2_COOLDOWN_PERCENT` | 未配置 |
+| team1 | genji | `ultGen%` | relative_pve_modifier | `OW2_GENJI_ULT_COST` | `REL_AI_GENJI_ULT_COST_PERCENT` | 未配置 |
+| team1 | junkrat | `ability1Cooldown%` | relative_pve_modifier | `OW2_JUNKRAT_CONCUSSION_MINE_COOLDOWN` | `REL_AI_JUNKRAT_ABILITY1_COOLDOWN_PERCENT` | 未配置 |
+| team1 | tracer | `ultGen%` | relative_pve_modifier | `OW2_TRACER_ULT_COST` | `REL_AI_TRACER_ULT_COST_PERCENT` | 未配置 |
+| team1 | tracer | `ability2Cooldown%` | relative_pve_modifier | `OW2_TRACER_RECALL_COOLDOWN` | `REL_AI_TRACER_ABILITY2_COOLDOWN_PERCENT` | 未配置 |
+| team1 | zenyatta | `ultGen%` | relative_pve_modifier | `OW2_ZENYATTA_ULT_COST` | `REL_AI_ZENYATTA_ULT_COST_PERCENT` | `team1:relativePercent(REL_ARAM_TEAM1_ZENYATTA_ULT_COST_PERCENT, OW2_ZENYATTA_ULT_COST)` |
+| team1 | moira | `ultGen%` | relative_pve_modifier | `OW2_MOIRA_ULT_COST` | `REL_AI_MOIRA_ULT_COST_PERCENT` | 未配置 |
+| team1 | reinhardt | `ability1Cooldown%` | relative_pve_modifier | `OW2_REINHARDT_CHARGE_COOLDOWN_TIME` | `REL_AI_REINHARDT_ABILITY1_COOLDOWN_PERCENT` | `team1:relativePercent(REL_ARAM_TEAM1_REINHARDT_ABILITY1_COOLDOWN_PERCENT, OW2_REINHARDT_CHARGE_COOLDOWN_TIME)`, `team2:relativePercent(REL_ARAM_TEAM2_REINHARDT_ABILITY1_COOLDOWN_PERCENT, OW2_REINHARDT_CHARGE_COOLDOWN_TIME)` |
+| team1 | reinhardt | `secondaryFireRechargeRate%` | relative_pve_modifier | `OW2_REINHARDT_BARRIER_REGEN` | `REL_AI_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_PERCENT` | `team1:relativePercent(REL_ARAM_TEAM1_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_PERCENT, OW2_REINHARDT_BARRIER_REGEN)`, `team2:relativePercent(REL_ARAM_TEAM2_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_PERCENT, OW2_REINHARDT_BARRIER_REGEN)` |
+| team1 | reinhardt | `health%` | relative_pve_modifier | `OW2_REINHARDT_BARRIER_HEALTH` | `REL_AI_REINHARDT_HEALTH_PERCENT` | 未配置 |
+| team1 | sigma | `health%` | relative_pve_modifier | `OW2_SIGMA_BARRIER_HEALTH` | `REL_AI_SIGMA_HEALTH_PERCENT` | 未配置 |
+| team1 | kiriko | `ability2Cooldown%` | relative_pve_modifier | `OW2_KIRIKO_SUZU_COOLDOWN` | `REL_AI_KIRIKO_ABILITY2_COOLDOWN_PERCENT` | `team1:relativePercent(REL_ARAM_TEAM1_KIRIKO_ABILITY2_COOLDOWN_PERCENT, OW2_KIRIKO_SUZU_COOLDOWN)`, `team2:relativePercent(REL_ARAM_TEAM2_KIRIKO_ABILITY2_COOLDOWN_PERCENT, OW2_KIRIKO_SUZU_COOLDOWN)` |
+| team1 | kiriko | `ultGen%` | relative_pve_modifier | `OW2_KIRIKO_ULT_COST` | `REL_AI_KIRIKO_ULT_COST_PERCENT` | 未配置 |
 | team1 | domina | `ability1Cooldown%` | absolute_pve_target | `OW2_DOMINA_SONIC_REPULSORS_COOLDOWN` | `SET_DOMINA_ABILITY1_COOLDOWN_TARGET` | 未配置 |
-| team1 | domina | `ability2Cooldown%` | absolute_pve_target | `OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN` | `SET_DOMINA_ABILITY2_COOLDOWN_TARGET` | `allTeams:ratioPercent(SET_ARAM_ALLTEAMS_DOMINA_ABILITY2_COOLDOWN_TARGET, OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN)` |
-| team1 | domina | `secondaryFireCooldown%` | absolute_pve_target | `OW2_DOMINA_BARRIER_ARRAY_COOLDOWN` | `SET_DOMINA_SECONDARY_FIRE_COOLDOWN_TARGET` | `allTeams:ratioPercent(SET_ARAM_ALLTEAMS_DOMINA_SECONDARY_FIRE_COOLDOWN_TARGET, OW2_DOMINA_BARRIER_ARRAY_COOLDOWN)` |
-| team1 | sombra | `secondaryFireCooldown%` | absolute_pve_target | `OW2_SOMBRA_HACK_COOLDOWN_TIME` | `SET_AI_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET` | `team1:ratioPercent(SET_ARAM_TEAM1_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET, OW2_SOMBRA_HACK_COOLDOWN_TIME)`, `team2:ratioPercent(SET_ARAM_TEAM2_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET, OW2_SOMBRA_HACK_COOLDOWN_TIME)` |
-| team1 | widowmaker | `ultGen%` | absolute_pve_target | `OW2_WIDOWMAKER_ULT_COST` | `SET_AI_WIDOWMAKER_ULT_COST_TARGET` | 未配置 |
-| team2 | hanzo | `ability2Cooldown%` | absolute_pve_target | `OW2_HANZO_STORM_COOLDOWN` | `SET_PLAYER_HANZO_ABILITY2_COOLDOWN_TARGET` | `team1:ratioPercent(SET_ARAM_TEAM1_HANZO_ABILITY2_COOLDOWN_TARGET, OW2_HANZO_STORM_COOLDOWN)`, `team2:ratioPercent(SET_ARAM_TEAM2_HANZO_ABILITY2_COOLDOWN_TARGET, OW2_HANZO_STORM_COOLDOWN)` |
-| team2 | hanzo | `ultGen%` | absolute_pve_target | `OW2_HANZO_ULT_COST` | `SET_PLAYER_HANZO_ULT_COST_TARGET` | 未配置 |
-| team2 | cassidy | `ultGen%` | absolute_pve_target | `OW2_MCCREE_ULT_COST` | `SET_PLAYER_CASSIDY_ULT_COST_TARGET` | 未配置 |
-| team2 | cassidy | `ability2Cooldown%` | absolute_pve_target | `OW2_MCCREE_FLASHBANG_COOLDOWN` | `SET_PLAYER_CASSIDY_ABILITY2_COOLDOWN_TARGET` | `team1:ratioPercent(SET_ARAM_TEAM1_CASSIDY_ABILITY2_COOLDOWN_TARGET, OW2_MCCREE_FLASHBANG_COOLDOWN)` |
-| team2 | bastion | `ability1Cooldown%` | absolute_pve_target | `OW2_BASTION_RECONFIGURE_COOLDOWN` | `SET_PLAYER_BASTION_ABILITY1_COOLDOWN_TARGET` | `team2:ratioPercent(SET_ARAM_TEAM2_BASTION_ABILITY1_COOLDOWN_TARGET, OW2_BASTION_RECONFIGURE_COOLDOWN)` |
-| team2 | soldier | `ability2Cooldown%` | absolute_pve_target | `OW2_SOLDIER_BIOTIC_FIELD_COOLDOWN` | `SET_PLAYER_SOLDIER_ABILITY2_COOLDOWN_TARGET` | `team1:ratioPercent(SET_ARAM_TEAM1_SOLDIER_ABILITY2_COOLDOWN_TARGET, OW2_SOLDIER_BIOTIC_FIELD_COOLDOWN)` |
-| team2 | orisa | `ability1Cooldown%` | absolute_pve_target | `OW2_ORISA_FORTIFY_COOLDOWN` | `SET_PLAYER_ORISA_ABILITY1_COOLDOWN_TARGET` | 未配置 |
-| team2 | orisa | `ultGen%` | absolute_pve_target | `OW2_ORISA_ULT_COST` | `SET_PLAYER_ORISA_ULT_COST_TARGET` | `team1:ultGenPercent(OW2_ORISA_ULT_COST, SET_ARAM_TEAM1_ORISA_ULT_COST_TARGET)`, `team2:ultGenPercent(OW2_ORISA_ULT_COST, SET_ARAM_TEAM2_ORISA_ULT_COST_TARGET)` |
-| team2 | ana | `ability2Cooldown%` | absolute_pve_target | `OW2_ANA_BIOTIC_GRENADE_COOLDOWN` | `SET_PLAYER_ANA_ABILITY2_COOLDOWN_TARGET` | `team1:ratioPercent(SET_ARAM_TEAM1_ANA_ABILITY2_COOLDOWN_TARGET, OW2_ANA_BIOTIC_GRENADE_COOLDOWN)`, `team2:ratioPercent(SET_ARAM_TEAM2_ANA_ABILITY2_COOLDOWN_TARGET, OW2_ANA_BIOTIC_GRENADE_COOLDOWN)` |
-| team2 | ana | `ultGen%` | absolute_pve_target | `OW2_ANA_ULT_COST` | `SET_PLAYER_ANA_ULT_COST_TARGET` | `team1:ultGenPercent(OW2_ANA_ULT_COST, SET_ARAM_TEAM1_ANA_ULT_COST_TARGET)` |
-| team2 | ana | `ability1Cooldown%` | absolute_pve_target | `OW2_ANA_SLEEP_DART_COOLDOWN_TIME` | `SET_PLAYER_ANA_ABILITY1_COOLDOWN_TARGET` | `team1:ratioPercent(SET_ARAM_TEAM1_ANA_ABILITY1_COOLDOWN_TARGET, OW2_ANA_SLEEP_DART_COOLDOWN_TIME)`, `team2:ratioPercent(SET_ARAM_TEAM2_ANA_ABILITY1_COOLDOWN_TARGET, OW2_ANA_SLEEP_DART_COOLDOWN_TIME)` |
-| team2 | baptiste | `ability1Cooldown%` | absolute_pve_target | `OW2_BAPTISTE_REGEN_BURST_COOLDOWN` | `SET_PLAYER_BAPTISTE_ABILITY1_COOLDOWN_TARGET` | `team1:ratioPercent(SET_ARAM_TEAM1_BAPTISTE_ABILITY1_COOLDOWN_TARGET, OW2_BAPTISTE_REGEN_BURST_COOLDOWN)`, `team2:ratioPercent(SET_ARAM_TEAM2_BAPTISTE_ABILITY1_COOLDOWN_TARGET, OW2_BAPTISTE_REGEN_BURST_COOLDOWN)` |
-| team2 | baptiste | `ability2Cooldown%` | absolute_pve_target | `OW2_BAPTISTE_LAMP_COOLDOWN_TIME` | `SET_PLAYER_BAPTISTE_ABILITY2_COOLDOWN_TARGET` | `team1:ratioPercent(SET_ARAM_TEAM1_BAPTISTE_ABILITY2_COOLDOWN_TARGET, OW2_BAPTISTE_LAMP_COOLDOWN_TIME)`, `team2:ratioPercent(SET_ARAM_TEAM2_BAPTISTE_ABILITY2_COOLDOWN_TARGET, OW2_BAPTISTE_LAMP_COOLDOWN_TIME)` |
-| team2 | brigitte | `ability2Cooldown%` | absolute_pve_target | `OW2_BRIGITTE_REPAIR_PACK_COOLDOWN` | `SET_PLAYER_BRIGITTE_ABILITY2_COOLDOWN_TARGET` | 未配置 |
-| team2 | brigitte | `ultGen%` | absolute_pve_target | `OW2_BRIGITTE_ULT_COST` | `SET_PLAYER_BRIGITTE_ULT_COST_TARGET` | 未配置 |
-| team2 | brigitte | `shieldBashCooldown%` | absolute_pve_target | `OW2_BRIGITTE_SHIELD_BASH_COOLDOWN` | `SET_PLAYER_BRIGITTE_SHIELD_BASH_COOLDOWN_TARGET` | 未配置 |
-| team2 | brigitte | `shieldBashKb%` | absolute_pve_target | `OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK` | `SET_PLAYER_BRIGITTE_SHIELD_BASH_KB_TARGET` | `team1:ratioPercent(SET_ARAM_TEAM1_BRIGITTE_SHIELD_BASH_KB_TARGET, OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK)`, `team2:ratioPercent(SET_ARAM_TEAM2_BRIGITTE_SHIELD_BASH_KB_TARGET, OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK)` |
-| team2 | torbjorn | `ultGen%` | absolute_pve_target | `OW2_TORBJORN_ULT_COST` | `SET_PLAYER_TORBJORN_ULT_COST_TARGET` | 未配置 |
-| team2 | ramattra | `ability2Cooldown%` | absolute_pve_target | `OW2_RAMATTRA_VORTEX_COOLDOWN` | `SET_PLAYER_RAMATTRA_ABILITY2_COOLDOWN_TARGET` | 未配置 |
-| team2 | ramattra | `ability1Cooldown%` | absolute_pve_target | `OW2_RAMATTRA_NEMESIS_COOLDOWN` | `SET_PLAYER_RAMATTRA_ABILITY1_COOLDOWN_TARGET` | `team1:ratioPercent(SET_ARAM_TEAM1_RAMATTRA_ABILITY1_COOLDOWN_TARGET, OW2_RAMATTRA_NEMESIS_COOLDOWN)` |
-| team2 | ramattra | `ultGen%` | absolute_pve_target | `OW2_RAMATTRA_ULT_COST` | `SET_PLAYER_RAMATTRA_ULT_COST_TARGET` | `team1:ultGenPercent(OW2_RAMATTRA_ULT_COST, SET_ARAM_TEAM1_RAMATTRA_ULT_COST_TARGET)` |
-| team2 | ramattra | `secondaryFireCooldown%` | absolute_pve_target | `OW2_RAMATTRA_VOID_BARRIER_COOLDOWN` | `SET_PLAYER_RAMATTRA_SECONDARY_FIRE_COOLDOWN_TARGET` | 未配置 |
-| team2 | venture | `ultGen%` | absolute_pve_target | `OW2_VENTURE_ULT_COST` | `SET_PLAYER_VENTURE_ULT_COST_TARGET` | 未配置 |
-| team2 | illari | `ability2Cooldown%` | absolute_pve_target | `OW2_ILLARI_PYLON_COOLDOWN` | `SET_PLAYER_ILLARI_ABILITY2_COOLDOWN_TARGET` | `allTeams:ratioPercent(SET_ARAM_ALLTEAMS_ILLARI_ABILITY2_COOLDOWN_TARGET, OW2_ILLARI_PYLON_COOLDOWN)` |
-| team2 | juno | `ultGen%` | absolute_pve_target | `OW2_JUNO_ULT_COST` | `SET_PLAYER_JUNO_ULT_COST_TARGET` | `allTeams:ultGenPercent(OW2_JUNO_ULT_COST, SET_ARAM_ALLTEAMS_JUNO_ULT_COST_TARGET)` |
-| team2 | doomfist | `ammoRegenerationTime%` | absolute_pve_target | `OW2_DOOMFIST_AMMO_REGEN` | `SET_PLAYER_DOOMFIST_AMMO_REGENERATION_TIME_TARGET` | `team1:ratioPercent(SET_ARAM_TEAM1_DOOMFIST_AMMO_REGENERATION_TIME_TARGET, OW2_DOOMFIST_AMMO_REGEN)`, `team2:ratioPercent(SET_ARAM_TEAM2_DOOMFIST_AMMO_REGENERATION_TIME_TARGET, OW2_DOOMFIST_AMMO_REGEN)` |
-| team2 | doomfist | `ability1Cooldown%` | absolute_pve_target | `OW2_DOOMFIST_POWER_BLOCK_COOLDOWN` | `SET_PLAYER_DOOMFIST_ABILITY1_COOLDOWN_TARGET` | 未配置 |
-| team2 | doomfist | `ability2Cooldown%` | absolute_pve_target | `OW2_DOOMFIST_SEISMIC_SLAM_COOLDOWN` | `SET_PLAYER_DOOMFIST_ABILITY2_COOLDOWN_TARGET` | 未配置 |
-| team2 | zarya | `ultGen%` | absolute_pve_target | `OW2_ZARYA_ULT_COST` | `SET_PLAYER_ZARYA_ULT_COST_TARGET` | 未配置 |
-| team2 | pharah | `ability1Cooldown%` | absolute_pve_target | `OW2_PHARAH_JUMP_JET_COOLDOWN` | `SET_PLAYER_PHARAH_ABILITY1_COOLDOWN_TARGET` | 未配置 |
-| team2 | pharah | `ability2Cooldown%` | absolute_pve_target | `OW2_PHARAH_CONCUSSIVE_BLAST_COOLDOWN` | `SET_PLAYER_PHARAH_ABILITY2_COOLDOWN_TARGET` | 未配置 |
-| team2 | winston | `ability2Cooldown%` | absolute_pve_target | `OW2_WINSTON_BARRIER_COOLDOWN` | `SET_PLAYER_WINSTON_ABILITY2_COOLDOWN_TARGET` | 未配置 |
-| team2 | genji | `ultGen%` | absolute_pve_target | `OW2_GENJI_ULT_COST` | `SET_PLAYER_GENJI_ULT_COST_TARGET` | 未配置 |
-| team2 | genji | `ability2Cooldown%` | absolute_pve_target | `OW2_GENJI_DEFLECT_COOLDOWN` | `SET_PLAYER_GENJI_ABILITY2_COOLDOWN_TARGET` | 未配置 |
-| team2 | junkrat | `ultGen%` | absolute_pve_target | `OW2_JUNKRAT_ULT_COST` | `SET_PLAYER_JUNKRAT_ULT_COST_TARGET` | `team2:ultGenPercent(OW2_JUNKRAT_ULT_COST, SET_ARAM_TEAM2_JUNKRAT_ULT_COST_TARGET)` |
-| team2 | tracer | `ultGen%` | absolute_pve_target | `OW2_TRACER_ULT_COST` | `SET_PLAYER_TRACER_ULT_COST_TARGET` | 未配置 |
-| team2 | tracer | `ability2Cooldown%` | absolute_pve_target | `OW2_TRACER_RECALL_COOLDOWN` | `SET_PLAYER_TRACER_ABILITY2_COOLDOWN_TARGET` | 未配置 |
-| team2 | zenyatta | `ultGen%` | absolute_pve_target | `OW2_ZENYATTA_ULT_COST` | `SET_PLAYER_ZENYATTA_ULT_COST_TARGET` | `team1:ultGenPercent(OW2_ZENYATTA_ULT_COST, SET_ARAM_TEAM1_ZENYATTA_ULT_COST_TARGET)` |
-| team2 | moira | `ultGen%` | absolute_pve_target | `OW2_MOIRA_ULT_COST` | `SET_PLAYER_MOIRA_ULT_COST_TARGET` | 未配置 |
-| team2 | reinhardt | `ability1Cooldown%` | absolute_pve_target | `OW2_REINHARDT_CHARGE_COOLDOWN_TIME` | `SET_PLAYER_REINHARDT_ABILITY1_COOLDOWN_TARGET` | `team1:ratioPercent(SET_ARAM_TEAM1_REINHARDT_ABILITY1_COOLDOWN_TARGET, OW2_REINHARDT_CHARGE_COOLDOWN_TIME)`, `team2:ratioPercent(SET_ARAM_TEAM2_REINHARDT_ABILITY1_COOLDOWN_TARGET, OW2_REINHARDT_CHARGE_COOLDOWN_TIME)` |
-| team2 | reinhardt | `secondaryFireRechargeRate%` | absolute_pve_target | `OW2_REINHARDT_BARRIER_REGEN` | `SET_PLAYER_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET` | `team1:ratioPercent(SET_ARAM_TEAM1_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET, OW2_REINHARDT_BARRIER_REGEN)`, `team2:ratioPercent(SET_ARAM_TEAM2_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET, OW2_REINHARDT_BARRIER_REGEN)` |
-| team2 | reinhardt | `health%` | absolute_pve_target | `OW2_REINHARDT_BARRIER_HEALTH` | `SET_PLAYER_REINHARDT_HEALTH_TARGET` | 未配置 |
-| team2 | reinhardt | `ultGen%` | absolute_pve_target | `OW2_REINHARDT_ULT_COST` | `SET_PLAYER_REINHARDT_ULT_COST_TARGET` | 未配置 |
-| team2 | sigma | `health%` | absolute_pve_target | `OW2_SIGMA_BARRIER_HEALTH` | `SET_PLAYER_SIGMA_HEALTH_TARGET` | 未配置 |
-| team2 | sigma | `ultGen%` | absolute_pve_target | `OW2_SIGMA_ULT_COST` | `SET_PLAYER_SIGMA_ULT_COST_TARGET` | 未配置 |
-| team2 | roadhog | `ability1Cooldown%` | absolute_pve_target | `OW2_ROADHOG_HOOK_COOLDOWN_TIME` | `SET_PLAYER_ROADHOG_ABILITY1_COOLDOWN_TARGET` | 未配置 |
-| team2 | kiriko | `ability2Cooldown%` | absolute_pve_target | `OW2_KIRIKO_SUZU_COOLDOWN` | `SET_PLAYER_KIRIKO_ABILITY2_COOLDOWN_TARGET` | `team1:ratioPercent(SET_ARAM_TEAM1_KIRIKO_ABILITY2_COOLDOWN_TARGET, OW2_KIRIKO_SUZU_COOLDOWN)`, `team2:ratioPercent(SET_ARAM_TEAM2_KIRIKO_ABILITY2_COOLDOWN_TARGET, OW2_KIRIKO_SUZU_COOLDOWN)` |
-| team2 | kiriko | `ultGen%` | absolute_pve_target | `OW2_KIRIKO_ULT_COST` | `SET_PLAYER_KIRIKO_ULT_COST_TARGET` | 未配置 |
+| team1 | domina | `ability2Cooldown%` | absolute_pve_target | `OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN` | `SET_DOMINA_ABILITY2_COOLDOWN_TARGET` | `allTeams:relativePercent(REL_ARAM_ALLTEAMS_DOMINA_ABILITY2_COOLDOWN_PERCENT, OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN)` |
+| team1 | domina | `secondaryFireCooldown%` | absolute_pve_target | `OW2_DOMINA_BARRIER_ARRAY_COOLDOWN` | `SET_DOMINA_SECONDARY_FIRE_COOLDOWN_TARGET` | `allTeams:relativePercent(REL_ARAM_ALLTEAMS_DOMINA_SECONDARY_FIRE_COOLDOWN_PERCENT, OW2_DOMINA_BARRIER_ARRAY_COOLDOWN)` |
+| team1 | sombra | `secondaryFireCooldown%` | relative_pve_modifier | `OW2_SOMBRA_HACK_COOLDOWN_TIME` | `REL_AI_SOMBRA_SECONDARY_FIRE_COOLDOWN_PERCENT` | `team1:relativePercent(REL_ARAM_TEAM1_SOMBRA_SECONDARY_FIRE_COOLDOWN_PERCENT, OW2_SOMBRA_HACK_COOLDOWN_TIME)`, `team2:relativePercent(REL_ARAM_TEAM2_SOMBRA_SECONDARY_FIRE_COOLDOWN_PERCENT, OW2_SOMBRA_HACK_COOLDOWN_TIME)` |
+| team1 | widowmaker | `ultGen%` | relative_pve_modifier | `OW2_WIDOWMAKER_ULT_COST` | `REL_AI_WIDOWMAKER_ULT_COST_PERCENT` | 未配置 |
+| team2 | hanzo | `ability2Cooldown%` | relative_pve_modifier | `OW2_HANZO_STORM_COOLDOWN` | `REL_PLAYER_HANZO_ABILITY2_COOLDOWN_PERCENT` | `team1:relativePercent(REL_ARAM_TEAM1_HANZO_ABILITY2_COOLDOWN_PERCENT, OW2_HANZO_STORM_COOLDOWN)`, `team2:relativePercent(REL_ARAM_TEAM2_HANZO_ABILITY2_COOLDOWN_PERCENT, OW2_HANZO_STORM_COOLDOWN)` |
+| team2 | hanzo | `ultGen%` | relative_pve_modifier | `OW2_HANZO_ULT_COST` | `REL_PLAYER_HANZO_ULT_COST_PERCENT` | 未配置 |
+| team2 | cassidy | `ultGen%` | relative_pve_modifier | `OW2_MCCREE_ULT_COST` | `REL_PLAYER_CASSIDY_ULT_COST_PERCENT` | 未配置 |
+| team2 | cassidy | `ability2Cooldown%` | relative_pve_modifier | `OW2_MCCREE_FLASHBANG_COOLDOWN` | `REL_PLAYER_CASSIDY_ABILITY2_COOLDOWN_PERCENT` | `team1:relativePercent(REL_ARAM_TEAM1_CASSIDY_ABILITY2_COOLDOWN_PERCENT, OW2_MCCREE_FLASHBANG_COOLDOWN)` |
+| team2 | bastion | `ability1Cooldown%` | relative_pve_modifier | `OW2_BASTION_RECONFIGURE_COOLDOWN` | `REL_PLAYER_BASTION_ABILITY1_COOLDOWN_PERCENT` | `team2:relativePercent(REL_ARAM_TEAM2_BASTION_ABILITY1_COOLDOWN_PERCENT, OW2_BASTION_RECONFIGURE_COOLDOWN)` |
+| team2 | soldier | `ability2Cooldown%` | relative_pve_modifier | `OW2_SOLDIER_BIOTIC_FIELD_COOLDOWN` | `REL_PLAYER_SOLDIER_ABILITY2_COOLDOWN_PERCENT` | `team1:relativePercent(REL_ARAM_TEAM1_SOLDIER_ABILITY2_COOLDOWN_PERCENT, OW2_SOLDIER_BIOTIC_FIELD_COOLDOWN)` |
+| team2 | orisa | `ability1Cooldown%` | relative_pve_modifier | `OW2_ORISA_FORTIFY_COOLDOWN` | `REL_PLAYER_ORISA_ABILITY1_COOLDOWN_PERCENT` | 未配置 |
+| team2 | orisa | `ultGen%` | relative_pve_modifier | `OW2_ORISA_ULT_COST` | `REL_PLAYER_ORISA_ULT_COST_PERCENT` | `team1:relativePercent(REL_ARAM_TEAM1_ORISA_ULT_COST_PERCENT, OW2_ORISA_ULT_COST)`, `team2:relativePercent(REL_ARAM_TEAM2_ORISA_ULT_COST_PERCENT, OW2_ORISA_ULT_COST)` |
+| team2 | ana | `ability2Cooldown%` | relative_pve_modifier | `OW2_ANA_BIOTIC_GRENADE_COOLDOWN` | `REL_PLAYER_ANA_ABILITY2_COOLDOWN_PERCENT` | `team1:relativePercent(REL_ARAM_TEAM1_ANA_ABILITY2_COOLDOWN_PERCENT, OW2_ANA_BIOTIC_GRENADE_COOLDOWN)`, `team2:relativePercent(REL_ARAM_TEAM2_ANA_ABILITY2_COOLDOWN_PERCENT, OW2_ANA_BIOTIC_GRENADE_COOLDOWN)` |
+| team2 | ana | `ultGen%` | relative_pve_modifier | `OW2_ANA_ULT_COST` | `REL_PLAYER_ANA_ULT_COST_PERCENT` | `team1:relativePercent(REL_ARAM_TEAM1_ANA_ULT_COST_PERCENT, OW2_ANA_ULT_COST)` |
+| team2 | ana | `ability1Cooldown%` | relative_pve_modifier | `OW2_ANA_SLEEP_DART_COOLDOWN_TIME` | `REL_PLAYER_ANA_ABILITY1_COOLDOWN_PERCENT` | `team1:relativePercent(REL_ARAM_TEAM1_ANA_ABILITY1_COOLDOWN_PERCENT, OW2_ANA_SLEEP_DART_COOLDOWN_TIME)`, `team2:relativePercent(REL_ARAM_TEAM2_ANA_ABILITY1_COOLDOWN_PERCENT, OW2_ANA_SLEEP_DART_COOLDOWN_TIME)` |
+| team2 | baptiste | `ability1Cooldown%` | relative_pve_modifier | `OW2_BAPTISTE_REGEN_BURST_COOLDOWN` | `REL_PLAYER_BAPTISTE_ABILITY1_COOLDOWN_PERCENT` | `team1:relativePercent(REL_ARAM_TEAM1_BAPTISTE_ABILITY1_COOLDOWN_PERCENT, OW2_BAPTISTE_REGEN_BURST_COOLDOWN)`, `team2:relativePercent(REL_ARAM_TEAM2_BAPTISTE_ABILITY1_COOLDOWN_PERCENT, OW2_BAPTISTE_REGEN_BURST_COOLDOWN)` |
+| team2 | baptiste | `ability2Cooldown%` | relative_pve_modifier | `OW2_BAPTISTE_LAMP_COOLDOWN_TIME` | `REL_PLAYER_BAPTISTE_ABILITY2_COOLDOWN_PERCENT` | `team1:relativePercent(REL_ARAM_TEAM1_BAPTISTE_ABILITY2_COOLDOWN_PERCENT, OW2_BAPTISTE_LAMP_COOLDOWN_TIME)`, `team2:relativePercent(REL_ARAM_TEAM2_BAPTISTE_ABILITY2_COOLDOWN_PERCENT, OW2_BAPTISTE_LAMP_COOLDOWN_TIME)` |
+| team2 | brigitte | `ability2Cooldown%` | relative_pve_modifier | `OW2_BRIGITTE_REPAIR_PACK_COOLDOWN` | `REL_PLAYER_BRIGITTE_ABILITY2_COOLDOWN_PERCENT` | 未配置 |
+| team2 | brigitte | `ultGen%` | relative_pve_modifier | `OW2_BRIGITTE_ULT_COST` | `REL_PLAYER_BRIGITTE_ULT_COST_PERCENT` | 未配置 |
+| team2 | brigitte | `shieldBashCooldown%` | relative_pve_modifier | `OW2_BRIGITTE_SHIELD_BASH_COOLDOWN` | `REL_PLAYER_BRIGITTE_SHIELD_BASH_COOLDOWN_PERCENT` | 未配置 |
+| team2 | brigitte | `shieldBashKb%` | relative_pve_modifier | `OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK` | `REL_PLAYER_BRIGITTE_SHIELD_BASH_KB_PERCENT` | `team1:relativePercent(REL_ARAM_TEAM1_BRIGITTE_SHIELD_BASH_KB_PERCENT, OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK)`, `team2:relativePercent(REL_ARAM_TEAM2_BRIGITTE_SHIELD_BASH_KB_PERCENT, OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK)` |
+| team2 | torbjorn | `ultGen%` | relative_pve_modifier | `OW2_TORBJORN_ULT_COST` | `REL_PLAYER_TORBJORN_ULT_COST_PERCENT` | 未配置 |
+| team2 | ramattra | `ability2Cooldown%` | relative_pve_modifier | `OW2_RAMATTRA_VORTEX_COOLDOWN` | `REL_PLAYER_RAMATTRA_ABILITY2_COOLDOWN_PERCENT` | 未配置 |
+| team2 | ramattra | `ability1Cooldown%` | relative_pve_modifier | `OW2_RAMATTRA_NEMESIS_COOLDOWN` | `REL_PLAYER_RAMATTRA_ABILITY1_COOLDOWN_PERCENT` | `team1:relativePercent(REL_ARAM_TEAM1_RAMATTRA_ABILITY1_COOLDOWN_PERCENT, OW2_RAMATTRA_NEMESIS_COOLDOWN)` |
+| team2 | ramattra | `ultGen%` | relative_pve_modifier | `OW2_RAMATTRA_ULT_COST` | `REL_PLAYER_RAMATTRA_ULT_COST_PERCENT` | `team1:relativePercent(REL_ARAM_TEAM1_RAMATTRA_ULT_COST_PERCENT, OW2_RAMATTRA_ULT_COST)` |
+| team2 | ramattra | `secondaryFireCooldown%` | relative_pve_modifier | `OW2_RAMATTRA_VOID_BARRIER_COOLDOWN` | `REL_PLAYER_RAMATTRA_SECONDARY_FIRE_COOLDOWN_PERCENT` | 未配置 |
+| team2 | venture | `ultGen%` | relative_pve_modifier | `OW2_VENTURE_ULT_COST` | `REL_PLAYER_VENTURE_ULT_COST_PERCENT` | 未配置 |
+| team2 | illari | `ability2Cooldown%` | relative_pve_modifier | `OW2_ILLARI_PYLON_COOLDOWN` | `REL_PLAYER_ILLARI_ABILITY2_COOLDOWN_PERCENT` | `allTeams:relativePercent(REL_ARAM_ALLTEAMS_ILLARI_ABILITY2_COOLDOWN_PERCENT, OW2_ILLARI_PYLON_COOLDOWN)` |
+| team2 | juno | `ultGen%` | relative_pve_modifier | `OW2_JUNO_ULT_COST` | `REL_PLAYER_JUNO_ULT_COST_PERCENT` | `allTeams:relativePercent(REL_ARAM_ALLTEAMS_JUNO_ULT_COST_PERCENT, OW2_JUNO_ULT_COST)` |
+| team2 | doomfist | `ammoRegenerationTime%` | relative_pve_modifier | `OW2_DOOMFIST_AMMO_REGEN` | `REL_PLAYER_DOOMFIST_AMMO_REGENERATION_TIME_PERCENT` | `team1:relativePercent(REL_ARAM_TEAM1_DOOMFIST_AMMO_REGENERATION_TIME_PERCENT, OW2_DOOMFIST_AMMO_REGEN)`, `team2:relativePercent(REL_ARAM_TEAM2_DOOMFIST_AMMO_REGENERATION_TIME_PERCENT, OW2_DOOMFIST_AMMO_REGEN)` |
+| team2 | doomfist | `ability1Cooldown%` | relative_pve_modifier | `OW2_DOOMFIST_POWER_BLOCK_COOLDOWN` | `REL_PLAYER_DOOMFIST_ABILITY1_COOLDOWN_PERCENT` | 未配置 |
+| team2 | doomfist | `ability2Cooldown%` | relative_pve_modifier | `OW2_DOOMFIST_SEISMIC_SLAM_COOLDOWN` | `REL_PLAYER_DOOMFIST_ABILITY2_COOLDOWN_PERCENT` | 未配置 |
+| team2 | zarya | `ultGen%` | relative_pve_modifier | `OW2_ZARYA_ULT_COST` | `REL_PLAYER_ZARYA_ULT_COST_PERCENT` | 未配置 |
+| team2 | pharah | `ability1Cooldown%` | relative_pve_modifier | `OW2_PHARAH_JUMP_JET_COOLDOWN` | `REL_PLAYER_PHARAH_ABILITY1_COOLDOWN_PERCENT` | 未配置 |
+| team2 | pharah | `ability2Cooldown%` | relative_pve_modifier | `OW2_PHARAH_CONCUSSIVE_BLAST_COOLDOWN` | `REL_PLAYER_PHARAH_ABILITY2_COOLDOWN_PERCENT` | 未配置 |
+| team2 | winston | `ability2Cooldown%` | relative_pve_modifier | `OW2_WINSTON_BARRIER_COOLDOWN` | `REL_PLAYER_WINSTON_ABILITY2_COOLDOWN_PERCENT` | 未配置 |
+| team2 | genji | `ultGen%` | relative_pve_modifier | `OW2_GENJI_ULT_COST` | `REL_PLAYER_GENJI_ULT_COST_PERCENT` | 未配置 |
+| team2 | genji | `ability2Cooldown%` | relative_pve_modifier | `OW2_GENJI_DEFLECT_COOLDOWN` | `REL_PLAYER_GENJI_ABILITY2_COOLDOWN_PERCENT` | 未配置 |
+| team2 | junkrat | `ultGen%` | relative_pve_modifier | `OW2_JUNKRAT_ULT_COST` | `REL_PLAYER_JUNKRAT_ULT_COST_PERCENT` | `team2:relativePercent(REL_ARAM_TEAM2_JUNKRAT_ULT_COST_PERCENT, OW2_JUNKRAT_ULT_COST)` |
+| team2 | tracer | `ultGen%` | relative_pve_modifier | `OW2_TRACER_ULT_COST` | `REL_PLAYER_TRACER_ULT_COST_PERCENT` | 未配置 |
+| team2 | tracer | `ability2Cooldown%` | relative_pve_modifier | `OW2_TRACER_RECALL_COOLDOWN` | `REL_PLAYER_TRACER_ABILITY2_COOLDOWN_PERCENT` | 未配置 |
+| team2 | zenyatta | `ultGen%` | relative_pve_modifier | `OW2_ZENYATTA_ULT_COST` | `REL_PLAYER_ZENYATTA_ULT_COST_PERCENT` | `team1:relativePercent(REL_ARAM_TEAM1_ZENYATTA_ULT_COST_PERCENT, OW2_ZENYATTA_ULT_COST)` |
+| team2 | moira | `ultGen%` | relative_pve_modifier | `OW2_MOIRA_ULT_COST` | `REL_PLAYER_MOIRA_ULT_COST_PERCENT` | 未配置 |
+| team2 | reinhardt | `ability1Cooldown%` | relative_pve_modifier | `OW2_REINHARDT_CHARGE_COOLDOWN_TIME` | `REL_PLAYER_REINHARDT_ABILITY1_COOLDOWN_PERCENT` | `team1:relativePercent(REL_ARAM_TEAM1_REINHARDT_ABILITY1_COOLDOWN_PERCENT, OW2_REINHARDT_CHARGE_COOLDOWN_TIME)`, `team2:relativePercent(REL_ARAM_TEAM2_REINHARDT_ABILITY1_COOLDOWN_PERCENT, OW2_REINHARDT_CHARGE_COOLDOWN_TIME)` |
+| team2 | reinhardt | `secondaryFireRechargeRate%` | relative_pve_modifier | `OW2_REINHARDT_BARRIER_REGEN` | `REL_PLAYER_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_PERCENT` | `team1:relativePercent(REL_ARAM_TEAM1_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_PERCENT, OW2_REINHARDT_BARRIER_REGEN)`, `team2:relativePercent(REL_ARAM_TEAM2_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_PERCENT, OW2_REINHARDT_BARRIER_REGEN)` |
+| team2 | reinhardt | `health%` | relative_pve_modifier | `OW2_REINHARDT_BARRIER_HEALTH` | `REL_PLAYER_REINHARDT_HEALTH_PERCENT` | 未配置 |
+| team2 | reinhardt | `ultGen%` | relative_pve_modifier | `OW2_REINHARDT_ULT_COST` | `REL_PLAYER_REINHARDT_ULT_COST_PERCENT` | 未配置 |
+| team2 | sigma | `health%` | relative_pve_modifier | `OW2_SIGMA_BARRIER_HEALTH` | `REL_PLAYER_SIGMA_HEALTH_PERCENT` | 未配置 |
+| team2 | sigma | `ultGen%` | relative_pve_modifier | `OW2_SIGMA_ULT_COST` | `REL_PLAYER_SIGMA_ULT_COST_PERCENT` | 未配置 |
+| team2 | roadhog | `ability1Cooldown%` | relative_pve_modifier | `OW2_ROADHOG_HOOK_COOLDOWN_TIME` | `REL_PLAYER_ROADHOG_ABILITY1_COOLDOWN_PERCENT` | 未配置 |
+| team2 | kiriko | `ability2Cooldown%` | relative_pve_modifier | `OW2_KIRIKO_SUZU_COOLDOWN` | `REL_PLAYER_KIRIKO_ABILITY2_COOLDOWN_PERCENT` | `team1:relativePercent(REL_ARAM_TEAM1_KIRIKO_ABILITY2_COOLDOWN_PERCENT, OW2_KIRIKO_SUZU_COOLDOWN)`, `team2:relativePercent(REL_ARAM_TEAM2_KIRIKO_ABILITY2_COOLDOWN_PERCENT, OW2_KIRIKO_SUZU_COOLDOWN)` |
+| team2 | kiriko | `ultGen%` | relative_pve_modifier | `OW2_KIRIKO_ULT_COST` | `REL_PLAYER_KIRIKO_ULT_COST_PERCENT` | 未配置 |
 | team2 | domina | `ability1Cooldown%` | absolute_pve_target | `OW2_DOMINA_SONIC_REPULSORS_COOLDOWN` | `SET_DOMINA_ABILITY1_COOLDOWN_TARGET` | 未配置 |
-| team2 | domina | `ability2Cooldown%` | absolute_pve_target | `OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN` | `SET_DOMINA_ABILITY2_COOLDOWN_TARGET` | `allTeams:ratioPercent(SET_ARAM_ALLTEAMS_DOMINA_ABILITY2_COOLDOWN_TARGET, OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN)` |
-| team2 | domina | `secondaryFireCooldown%` | absolute_pve_target | `OW2_DOMINA_BARRIER_ARRAY_COOLDOWN` | `SET_DOMINA_SECONDARY_FIRE_COOLDOWN_TARGET` | `allTeams:ratioPercent(SET_ARAM_ALLTEAMS_DOMINA_SECONDARY_FIRE_COOLDOWN_TARGET, OW2_DOMINA_BARRIER_ARRAY_COOLDOWN)` |
-| team2 | sombra | `secondaryFireCooldown%` | absolute_pve_target | `OW2_SOMBRA_HACK_COOLDOWN_TIME` | `SET_PLAYER_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET` | `team1:ratioPercent(SET_ARAM_TEAM1_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET, OW2_SOMBRA_HACK_COOLDOWN_TIME)`, `team2:ratioPercent(SET_ARAM_TEAM2_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET, OW2_SOMBRA_HACK_COOLDOWN_TIME)` |
-| team2 | widowmaker | `ultGen%` | absolute_pve_target | `OW2_WIDOWMAKER_ULT_COST` | `SET_PLAYER_WIDOWMAKER_ULT_COST_TARGET` | 未配置 |
-| allTeams | dva | `ability1Cooldown%` | absolute_pve_target | `OW2_DVA_BOOSTER_COOLDOWN_TIME` | `SET_DVA_ABILITY1_COOLDOWN_TARGET` | 未配置 |
-| allTeams | dva | `ability2Cooldown%` | absolute_pve_target | `OW2_DVA_MICRO_MISSILES_COOLDOWN_TIME` | `SET_DVA_ABILITY2_COOLDOWN_TARGET` | 未配置 |
-| allTeams | dva | `secondaryFireMaximumTime%` | absolute_pve_target | `OW2_DVA_MATRIX_DURATION` | `SET_DVA_SECONDARY_FIRE_MAXIMUM_TIME_TARGET` | `allTeams:ratioPercent(SET_ARAM_ALLTEAMS_DVA_SECONDARY_FIRE_MAXIMUM_TIME_TARGET, OW2_DVA_MATRIX_DURATION)` |
+| team2 | domina | `ability2Cooldown%` | absolute_pve_target | `OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN` | `SET_DOMINA_ABILITY2_COOLDOWN_TARGET` | `allTeams:relativePercent(REL_ARAM_ALLTEAMS_DOMINA_ABILITY2_COOLDOWN_PERCENT, OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN)` |
+| team2 | domina | `secondaryFireCooldown%` | absolute_pve_target | `OW2_DOMINA_BARRIER_ARRAY_COOLDOWN` | `SET_DOMINA_SECONDARY_FIRE_COOLDOWN_TARGET` | `allTeams:relativePercent(REL_ARAM_ALLTEAMS_DOMINA_SECONDARY_FIRE_COOLDOWN_PERCENT, OW2_DOMINA_BARRIER_ARRAY_COOLDOWN)` |
+| team2 | sombra | `secondaryFireCooldown%` | relative_pve_modifier | `OW2_SOMBRA_HACK_COOLDOWN_TIME` | `REL_PLAYER_SOMBRA_SECONDARY_FIRE_COOLDOWN_PERCENT` | `team1:relativePercent(REL_ARAM_TEAM1_SOMBRA_SECONDARY_FIRE_COOLDOWN_PERCENT, OW2_SOMBRA_HACK_COOLDOWN_TIME)`, `team2:relativePercent(REL_ARAM_TEAM2_SOMBRA_SECONDARY_FIRE_COOLDOWN_PERCENT, OW2_SOMBRA_HACK_COOLDOWN_TIME)` |
+| team2 | widowmaker | `ultGen%` | relative_pve_modifier | `OW2_WIDOWMAKER_ULT_COST` | `REL_PLAYER_WIDOWMAKER_ULT_COST_PERCENT` | 未配置 |
+| allTeams | dva | `ability1Cooldown%` | relative_pve_modifier | `OW2_DVA_BOOSTER_COOLDOWN_TIME` | `REL_DVA_ABILITY1_COOLDOWN_PERCENT` | 未配置 |
+| allTeams | dva | `ability2Cooldown%` | relative_pve_modifier | `OW2_DVA_MICRO_MISSILES_COOLDOWN_TIME` | `REL_DVA_ABILITY2_COOLDOWN_PERCENT` | 未配置 |
+| allTeams | dva | `secondaryFireMaximumTime%` | relative_pve_modifier | `OW2_DVA_MATRIX_DURATION` | `REL_DVA_SECONDARY_FIRE_MAXIMUM_TIME_PERCENT` | `allTeams:relativePercent(REL_ARAM_ALLTEAMS_DVA_SECONDARY_FIRE_MAXIMUM_TIME_PERCENT, OW2_DVA_MATRIX_DURATION)` |
 
 ## 缺失 reference 与人工设计审查
 

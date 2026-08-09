@@ -46,3 +46,12 @@ macro ratioPercent(value, baseValue):
 
 macro ultGenPercent(ow2UltCost, targetUltCost):
     percent((ow2UltCost) / (targetUltCost))
+
+macro relativePercent(modifier, reference):
+    modifier
+
+macro relativeRatioPercent(modifier, reference):
+    percent((reference * modifier / 100) / reference)
+
+macro relativeUltGenPercent(modifier, reference):
+    percent(reference / (reference / (modifier / 100)))

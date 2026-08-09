@@ -41,12 +41,12 @@ settings {
                 "damageDealt%": SETTINGS_TEAM1_HANZO_DAMAGE_DEALT_PERCENT,
                 "projectileSpeed%": SETTINGS_TEAM1_HANZO_PROJECTILE_SPEED_PERCENT,
                 "projectileGravity%": SETTINGS_TEAM1_HANZO_PROJECTILE_GRAVITY_PERCENT,
-                "ultGen%": ultGenPercent(OW2_HANZO_ULT_COST, SET_AI_HANZO_ULT_COST_TARGET)
+                "ultGen%": relativeUltGenPercent(REL_AI_HANZO_ULT_COST_PERCENT, OW2_HANZO_ULT_COST)
             },
             "cassidy": {
                 "damageDealt%": SETTINGS_TEAM1_CASSIDY_DAMAGE_DEALT_PERCENT,
                 "damageReceived%": SETTINGS_TEAM1_CASSIDY_DAMAGE_RECEIVED_PERCENT,
-                "ability2Cooldown%": ratioPercent(SET_AI_CASSIDY_ABILITY2_COOLDOWN_TARGET, OW2_MCCREE_FLASHBANG_COOLDOWN)
+                "ability2Cooldown%": relativeRatioPercent(REL_AI_CASSIDY_ABILITY2_COOLDOWN_PERCENT, OW2_MCCREE_FLASHBANG_COOLDOWN)
             },
             "lucio": {
                 "damageDealt%": SETTINGS_TEAM1_LUCIO_DAMAGE_DEALT_PERCENT,
@@ -55,12 +55,12 @@ settings {
                 "ability2Cooldown%": SETTINGS_TEAM1_LUCIO_ABILITY2_COOLDOWN_PERCENT,
                 "enableInfiniteAmmo": true,
                 "healingDealt%": SETTINGS_TEAM1_LUCIO_HEALING_DEALT_PERCENT,
-                "ultGen%": ultGenPercent(OW2_LUCIO_ULT_COST, SET_AI_LUCIO_ULT_COST_TARGET)
+                "ultGen%": relativeUltGenPercent(REL_AI_LUCIO_ULT_COST_PERCENT, OW2_LUCIO_ULT_COST)
             },
             "soldier": {
                 "damageDealt%": SETTINGS_TEAM1_SOLDIER_DAMAGE_DEALT_PERCENT,
                 "enableInfiniteAmmo": true,
-                "ability2Cooldown%": ratioPercent(SET_AI_SOLDIER_ABILITY2_COOLDOWN_TARGET, OW2_SOLDIER_BIOTIC_FIELD_COOLDOWN),
+                "ability2Cooldown%": relativeRatioPercent(REL_AI_SOLDIER_ABILITY2_COOLDOWN_PERCENT, OW2_SOLDIER_BIOTIC_FIELD_COOLDOWN),
 
                 "ultDuration%": SETTINGS_TEAM1_SOLDIER_ULT_DURATION_PERCENT,
                 "secondaryFireCooldown%": SETTINGS_TEAM1_SOLDIER_SECONDARY_FIRE_COOLDOWN_PERCENT,
@@ -78,7 +78,7 @@ settings {
             "orisa": {
                 "damageReceived%": SETTINGS_TEAM1_ORISA_DAMAGE_RECEIVED_PERCENT,
                 "projectileSpeed%": SETTINGS_TEAM1_ORISA_PROJECTILE_SPEED_PERCENT,
-                "ability1Cooldown%": ratioPercent(SET_AI_ORISA_ABILITY1_COOLDOWN_TARGET, OW2_ORISA_FORTIFY_COOLDOWN),
+                "ability1Cooldown%": relativeRatioPercent(REL_AI_ORISA_ABILITY1_COOLDOWN_PERCENT, OW2_ORISA_FORTIFY_COOLDOWN),
 
                 "secondaryFireCooldown%": SETTINGS_TEAM1_ORISA_SECONDARY_FIRE_COOLDOWN_PERCENT,
                 "projectileGravity%": SETTINGS_TEAM1_ORISA_PROJECTILE_GRAVITY_PERCENT,
@@ -86,24 +86,24 @@ settings {
                 "ability2Cooldown%": SETTINGS_TEAM1_ORISA_ABILITY2_COOLDOWN_PERCENT,
                 "health%": SETTINGS_TEAM1_ORISA_HEALTH_PERCENT,
                 "movementSpeed%": SETTINGS_TEAM1_ORISA_MOVEMENT_SPEED_PERCENT,
-                "ultGen%": ultGenPercent(OW2_ORISA_ULT_COST, SET_AI_ORISA_ULT_COST_TARGET)
+                "ultGen%": relativeUltGenPercent(REL_AI_ORISA_ULT_COST_PERCENT, OW2_ORISA_ULT_COST)
             },
             "ana": {
                 "enableInfiniteAmmo": true,
                 "healingDealt%": SETTINGS_TEAM1_ANA_HEALING_DEALT_PERCENT,
-                "ultGen%": ultGenPercent(OW2_ANA_ULT_COST, SET_AI_ANA_ULT_COST_TARGET),
+                "ultGen%": relativeUltGenPercent(REL_AI_ANA_ULT_COST_PERCENT, OW2_ANA_ULT_COST),
 
                 "enableSpawningWithUlt": true,
-                "ability1Cooldown%": ratioPercent(SET_AI_ANA_ABILITY1_COOLDOWN_TARGET, OW2_ANA_SLEEP_DART_COOLDOWN_TIME)
+                "ability1Cooldown%": relativeRatioPercent(REL_AI_ANA_ABILITY1_COOLDOWN_PERCENT, OW2_ANA_SLEEP_DART_COOLDOWN_TIME)
             },
             "baptiste": {
                 "damageDealt%": SETTINGS_TEAM1_BAPTISTE_DAMAGE_DEALT_PERCENT,
-                "ability1Cooldown%": ratioPercent(SET_AI_BAPTISTE_ABILITY1_COOLDOWN_TARGET, OW2_BAPTISTE_REGEN_BURST_COOLDOWN),
+                "ability1Cooldown%": relativeRatioPercent(REL_AI_BAPTISTE_ABILITY1_COOLDOWN_PERCENT, OW2_BAPTISTE_REGEN_BURST_COOLDOWN),
 
                 "enableInfiniteAmmo": true,
                 "healingDealt%": SETTINGS_TEAM1_BAPTISTE_HEALING_DEALT_PERCENT,
                 "ultDuration%": SETTINGS_TEAM1_BAPTISTE_ULT_DURATION_PERCENT,
-                "ability2Cooldown%": ratioPercent(SET_AI_BAPTISTE_ABILITY2_COOLDOWN_TARGET, OW2_BAPTISTE_LAMP_COOLDOWN_TIME)
+                "ability2Cooldown%": relativeRatioPercent(REL_AI_BAPTISTE_ABILITY2_COOLDOWN_PERCENT, OW2_BAPTISTE_LAMP_COOLDOWN_TIME)
             },
             "brigitte": {
                 "damageDealt%": SETTINGS_TEAM1_BRIGITTE_DAMAGE_DEALT_PERCENT,
@@ -114,9 +114,9 @@ settings {
                 "secondaryFireCooldown%": SETTINGS_TEAM1_BRIGITTE_SECONDARY_FIRE_COOLDOWN_PERCENT,
                 "healingDealt%": SETTINGS_TEAM1_BRIGITTE_HEALING_DEALT_PERCENT,
                 "health%": SETTINGS_TEAM1_BRIGITTE_HEALTH_PERCENT,
-                "ultGen%": ultGenPercent(OW2_BRIGITTE_ULT_COST, SET_AI_BRIGITTE_ULT_COST_TARGET),
+                "ultGen%": relativeUltGenPercent(REL_AI_BRIGITTE_ULT_COST_PERCENT, OW2_BRIGITTE_ULT_COST),
 
-                "shieldBashKb%": ratioPercent(SET_AI_BRIGITTE_SHIELD_BASH_KB_TARGET, OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK)
+                "shieldBashKb%": relativeRatioPercent(REL_AI_BRIGITTE_SHIELD_BASH_KB_PERCENT, OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK)
             },
             "freja": {
                 "damageDealt%": SETTINGS_TEAM1_FREJA_DAMAGE_DEALT_PERCENT,
@@ -136,7 +136,7 @@ settings {
                 "ability2Duration%": SETTINGS_TEAM1_TORBJORN_ABILITY2_DURATION_PERCENT,
                 "ability1Cooldown%": SETTINGS_TEAM1_TORBJORN_ABILITY1_COOLDOWN_PERCENT,
                 "combatUltGen%": SETTINGS_TEAM1_TORBJORN_COMBAT_ULT_GEN_PERCENT,
-                "ultGen%": ultGenPercent(OW2_TORBJORN_ULT_COST, SET_AI_TORBJORN_ULT_COST_TARGET),
+                "ultGen%": relativeUltGenPercent(REL_AI_TORBJORN_ULT_COST_PERCENT, OW2_TORBJORN_ULT_COST),
 
                 "ultDuration%": SETTINGS_TEAM1_TORBJORN_ULT_DURATION_PERCENT,
                 "passiveUltGen%": SETTINGS_TEAM1_TORBJORN_PASSIVE_ULT_GEN_PERCENT,
@@ -145,20 +145,20 @@ settings {
             "ramattra": {
                 "damageDealt%": SETTINGS_TEAM1_RAMATTRA_DAMAGE_DEALT_PERCENT,
                 "damageReceived%": SETTINGS_TEAM1_RAMATTRA_DAMAGE_RECEIVED_PERCENT,
-                "ability2Cooldown%": ratioPercent(SET_AI_RAMATTRA_ABILITY2_COOLDOWN_TARGET, OW2_RAMATTRA_VORTEX_COOLDOWN),
+                "ability2Cooldown%": relativeRatioPercent(REL_AI_RAMATTRA_ABILITY2_COOLDOWN_PERCENT, OW2_RAMATTRA_VORTEX_COOLDOWN),
 
-                "ability1Cooldown%": ratioPercent(SET_AI_RAMATTRA_ABILITY1_COOLDOWN_TARGET, OW2_RAMATTRA_NEMESIS_COOLDOWN),
+                "ability1Cooldown%": relativeRatioPercent(REL_AI_RAMATTRA_ABILITY1_COOLDOWN_PERCENT, OW2_RAMATTRA_NEMESIS_COOLDOWN),
 
                 "enableInfiniteAmmo": true,
-                "ultGen%": ultGenPercent(OW2_RAMATTRA_ULT_COST, SET_AI_RAMATTRA_ULT_COST_TARGET),
+                "ultGen%": relativeUltGenPercent(REL_AI_RAMATTRA_ULT_COST_PERCENT, OW2_RAMATTRA_ULT_COST),
 
                 "ultDuration%": SETTINGS_TEAM1_RAMATTRA_ULT_DURATION_PERCENT,
-                "secondaryFireCooldown%": ratioPercent(SET_AI_RAMATTRA_SECONDARY_FIRE_COOLDOWN_TARGET, OW2_RAMATTRA_VOID_BARRIER_COOLDOWN)
+                "secondaryFireCooldown%": relativeRatioPercent(REL_AI_RAMATTRA_SECONDARY_FIRE_COOLDOWN_PERCENT, OW2_RAMATTRA_VOID_BARRIER_COOLDOWN)
             },
             "venture": {
                 "damageDealt%": SETTINGS_TEAM1_VENTURE_DAMAGE_DEALT_PERCENT,
                 "damageReceived%": SETTINGS_TEAM1_VENTURE_DAMAGE_RECEIVED_PERCENT,
-                "ultGen%": ultGenPercent(OW2_VENTURE_ULT_COST, SET_AI_VENTURE_ULT_COST_TARGET),
+                "ultGen%": relativeUltGenPercent(REL_AI_VENTURE_ULT_COST_PERCENT, OW2_VENTURE_ULT_COST),
 
                 "ability1Duration%": SETTINGS_TEAM1_VENTURE_ABILITY1_DURATION_PERCENT,
                 "secondaryFireCooldown%": SETTINGS_TEAM1_VENTURE_SECONDARY_FIRE_COOLDOWN_PERCENT
@@ -196,7 +196,7 @@ settings {
                 "damageReceived%": SETTINGS_TEAM1_ILLARI_DAMAGE_RECEIVED_PERCENT,
                 "solarEnergyRecharge%": SETTINGS_TEAM1_ILLARI_SOLAR_ENERGY_RECHARGE_PERCENT,
                 "projectileSpeed%": SETTINGS_TEAM1_ILLARI_PROJECTILE_SPEED_PERCENT,
-                "ability2Cooldown%": ratioPercent(SET_AI_ILLARI_ABILITY2_COOLDOWN_TARGET, OW2_ILLARI_PYLON_COOLDOWN),
+                "ability2Cooldown%": relativeRatioPercent(REL_AI_ILLARI_ABILITY2_COOLDOWN_PERCENT, OW2_ILLARI_PYLON_COOLDOWN),
 
                 "enableInfiniteAmmo": true
             },
@@ -204,7 +204,7 @@ settings {
                 "healingDealt%": SETTINGS_TEAM1_JUNO_HEALING_DEALT_PERCENT,
                 "damageDealt%": SETTINGS_TEAM1_JUNO_DAMAGE_DEALT_PERCENT,
                 "damageReceived%": SETTINGS_TEAM1_JUNO_DAMAGE_RECEIVED_PERCENT,
-                "ultGen%": ultGenPercent(OW2_JUNO_ULT_COST, SET_AI_JUNO_ULT_COST_TARGET),
+                "ultGen%": relativeUltGenPercent(REL_AI_JUNO_ULT_COST_PERCENT, OW2_JUNO_ULT_COST),
 
                 "secondaryFireCooldown%": SETTINGS_TEAM1_JUNO_SECONDARY_FIRE_COOLDOWN_PERCENT,
                 "ability2Cooldown%": SETTINGS_TEAM1_JUNO_ABILITY2_COOLDOWN_PERCENT
@@ -212,7 +212,7 @@ settings {
             "doomfist": {
                 "damageDealt%": SETTINGS_TEAM1_DOOMFIST_DAMAGE_DEALT_PERCENT,
                 "damageReceived%": SETTINGS_TEAM1_DOOMFIST_DAMAGE_RECEIVED_PERCENT,
-                "ammoRegenerationTime%": ratioPercent(SET_AI_DOOMFIST_AMMO_REGENERATION_TIME_TARGET, OW2_DOOMFIST_AMMO_REGEN),
+                "ammoRegenerationTime%": relativeRatioPercent(REL_AI_DOOMFIST_AMMO_REGENERATION_TIME_PERCENT, OW2_DOOMFIST_AMMO_REGEN),
 
                 "enableInfiniteAmmo": true
             },
@@ -222,7 +222,7 @@ settings {
                 "ability2Cooldown%": SETTINGS_TEAM1_ZARYA_ABILITY2_COOLDOWN_PERCENT,
                 "enableInfiniteAmmo": true,
                 "ability1Cooldown%": SETTINGS_TEAM1_ZARYA_ABILITY1_COOLDOWN_PERCENT,
-                "ultGen%": ultGenPercent(OW2_ZARYA_ULT_COST, SET_AI_ZARYA_ULT_COST_TARGET)
+                "ultGen%": relativeUltGenPercent(REL_AI_ZARYA_ULT_COST_PERCENT, OW2_ZARYA_ULT_COST)
             },
             "reaper": {
                 "damageDealt%": SETTINGS_TEAM1_REAPER_DAMAGE_DEALT_PERCENT,
@@ -244,11 +244,11 @@ settings {
                 "damageDealt%": SETTINGS_TEAM1_PHARAH_DAMAGE_DEALT_PERCENT,
                 "damageReceived%": SETTINGS_TEAM1_PHARAH_DAMAGE_RECEIVED_PERCENT,
                 "passiveExtraFuel%": SETTINGS_TEAM1_PHARAH_PASSIVE_EXTRA_FUEL_PERCENT,
-                "ability1Cooldown%": ratioPercent(SET_AI_PHARAH_ABILITY1_COOLDOWN_TARGET, OW2_PHARAH_JUMP_JET_COOLDOWN),
+                "ability1Cooldown%": relativeRatioPercent(REL_AI_PHARAH_ABILITY1_COOLDOWN_PERCENT, OW2_PHARAH_JUMP_JET_COOLDOWN),
 
                 "ability1RefuelScalar": SETTINGS_TEAM1_PHARAH_ABILITY1_REFUEL_SCALAR,
                 "secondaryFireCooldown%": SETTINGS_TEAM1_PHARAH_SECONDARY_FIRE_COOLDOWN_PERCENT,
-                "ability2Cooldown%": ratioPercent(SET_AI_PHARAH_ABILITY2_COOLDOWN_TARGET, OW2_PHARAH_CONCUSSIVE_BLAST_COOLDOWN)
+                "ability2Cooldown%": relativeRatioPercent(REL_AI_PHARAH_ABILITY2_COOLDOWN_PERCENT, OW2_PHARAH_CONCUSSIVE_BLAST_COOLDOWN)
             },
             "jetpackCat": {
                 "damageDealt%": SETTINGS_TEAM1_JETPACK_CAT_DAMAGE_DEALT_PERCENT,
@@ -267,9 +267,9 @@ settings {
             "winston": {
                 "damageDealt%": SETTINGS_TEAM1_WINSTON_DAMAGE_DEALT_PERCENT,
                 "damageReceived%": SETTINGS_TEAM1_WINSTON_DAMAGE_RECEIVED_PERCENT,
-                "ability1Cooldown%": ratioPercent(SET_AI_WINSTON_ABILITY1_COOLDOWN_TARGET, OW2_WINSTON_JUMP_PACK_COOLDOWN_TIME),
+                "ability1Cooldown%": relativeRatioPercent(REL_AI_WINSTON_ABILITY1_COOLDOWN_PERCENT, OW2_WINSTON_JUMP_PACK_COOLDOWN_TIME),
 
-                "ability2Cooldown%": ratioPercent(SET_AI_WINSTON_ABILITY2_COOLDOWN_TARGET, OW2_WINSTON_BARRIER_COOLDOWN),
+                "ability2Cooldown%": relativeRatioPercent(REL_AI_WINSTON_ABILITY2_COOLDOWN_PERCENT, OW2_WINSTON_BARRIER_COOLDOWN),
 
                 "enableInfiniteAmmo": true
             },
@@ -279,28 +279,28 @@ settings {
                 "healingReceived%": SETTINGS_TEAM1_GENJI_HEALING_RECEIVED_PERCENT,
                 "enableInfiniteAmmo": true,
                 "ultDuration%": SETTINGS_TEAM1_GENJI_ULT_DURATION_PERCENT,
-                "ultGen%": ultGenPercent(OW2_GENJI_ULT_COST, SET_AI_GENJI_ULT_COST_TARGET)
+                "ultGen%": relativeUltGenPercent(REL_AI_GENJI_ULT_COST_PERCENT, OW2_GENJI_ULT_COST)
             },
             "junkrat": {
                 "damageDealt%": SETTINGS_TEAM1_JUNKRAT_DAMAGE_DEALT_PERCENT,
                 "ability2Cooldown%": SETTINGS_TEAM1_JUNKRAT_ABILITY2_COOLDOWN_PERCENT,
                 "enableInfiniteAmmo": true,
-                "ability1Cooldown%": ratioPercent(SET_AI_JUNKRAT_ABILITY1_COOLDOWN_TARGET, OW2_JUNKRAT_CONCUSSION_MINE_COOLDOWN)
+                "ability1Cooldown%": relativeRatioPercent(REL_AI_JUNKRAT_ABILITY1_COOLDOWN_PERCENT, OW2_JUNKRAT_CONCUSSION_MINE_COOLDOWN)
             },
             "tracer": {
                 "damageDealt%": SETTINGS_TEAM1_TRACER_DAMAGE_DEALT_PERCENT,
                 "damageReceived%": SETTINGS_TEAM1_TRACER_DAMAGE_RECEIVED_PERCENT,
                 "projectileSpeed%": SETTINGS_TEAM1_TRACER_PROJECTILE_SPEED_PERCENT,
-                "ultGen%": ultGenPercent(OW2_TRACER_ULT_COST, SET_AI_TRACER_ULT_COST_TARGET),
+                "ultGen%": relativeUltGenPercent(REL_AI_TRACER_ULT_COST_PERCENT, OW2_TRACER_ULT_COST),
 
-                "ability2Cooldown%": ratioPercent(SET_AI_TRACER_ABILITY2_COOLDOWN_TARGET, OW2_TRACER_RECALL_COOLDOWN),
+                "ability2Cooldown%": relativeRatioPercent(REL_AI_TRACER_ABILITY2_COOLDOWN_PERCENT, OW2_TRACER_RECALL_COOLDOWN),
 
                 "ability1Cooldown%": SETTINGS_TEAM1_TRACER_ABILITY1_COOLDOWN_PERCENT
             },
             "zenyatta": {
                 "damageDealt%": SETTINGS_TEAM1_ZENYATTA_DAMAGE_DEALT_PERCENT,
                 "healingReceived%": SETTINGS_TEAM1_ZENYATTA_HEALING_RECEIVED_PERCENT,
-                "ultGen%": ultGenPercent(OW2_ZENYATTA_ULT_COST, SET_AI_ZENYATTA_ULT_COST_TARGET),
+                "ultGen%": relativeUltGenPercent(REL_AI_ZENYATTA_ULT_COST_PERCENT, OW2_ZENYATTA_ULT_COST),
 
                 "projectileSpeed%": SETTINGS_TEAM1_ZENYATTA_PROJECTILE_SPEED_PERCENT,
                 "enableInfiniteAmmo": true,
@@ -346,22 +346,22 @@ settings {
                 "ability2Cooldown%": SETTINGS_TEAM1_MOIRA_ABILITY2_COOLDOWN_PERCENT,
                 "ability2MaxHealing%": SETTINGS_TEAM1_MOIRA_ABILITY2_MAX_HEALING_PERCENT,
                 "primaryFireRechargeRate%": SETTINGS_TEAM1_MOIRA_PRIMARY_FIRE_RECHARGE_RATE_PERCENT,
-                "ultGen%": ultGenPercent(OW2_MOIRA_ULT_COST, SET_AI_MOIRA_ULT_COST_TARGET)
+                "ultGen%": relativeUltGenPercent(REL_AI_MOIRA_ULT_COST_PERCENT, OW2_MOIRA_ULT_COST)
             },
             "reinhardt": {
-                "ability1Cooldown%": ratioPercent(SET_AI_REINHARDT_ABILITY1_COOLDOWN_TARGET, OW2_REINHARDT_CHARGE_COOLDOWN_TIME),
+                "ability1Cooldown%": relativeRatioPercent(REL_AI_REINHARDT_ABILITY1_COOLDOWN_PERCENT, OW2_REINHARDT_CHARGE_COOLDOWN_TIME),
 
                 "damageReceived%": SETTINGS_TEAM1_REINHARDT_DAMAGE_RECEIVED_PERCENT,
-                "secondaryFireRechargeRate%": ratioPercent(SET_AI_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET, OW2_REINHARDT_BARRIER_REGEN),
+                "secondaryFireRechargeRate%": relativeRatioPercent(REL_AI_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_PERCENT, OW2_REINHARDT_BARRIER_REGEN),
 
                 "combatUltGen%": SETTINGS_TEAM1_REINHARDT_COMBAT_ULT_GEN_PERCENT,
-                "health%": ratioPercent(SET_AI_REINHARDT_HEALTH_TARGET, OW2_REINHARDT_BARRIER_HEALTH)
+                "health%": relativeRatioPercent(REL_AI_REINHARDT_HEALTH_PERCENT, OW2_REINHARDT_BARRIER_HEALTH)
             },
             "sigma": {
                 "ability1Cooldown%": SETTINGS_TEAM1_SIGMA_ABILITY1_COOLDOWN_PERCENT,
                 "damageReceived%": SETTINGS_TEAM1_SIGMA_DAMAGE_RECEIVED_PERCENT,
                 "secondaryFireRechargeRate%": SETTINGS_TEAM1_SIGMA_SECONDARY_FIRE_RECHARGE_RATE_PERCENT,
-                "health%": ratioPercent(SET_AI_SIGMA_HEALTH_TARGET, OW2_SIGMA_BARRIER_HEALTH),
+                "health%": relativeRatioPercent(REL_AI_SIGMA_HEALTH_PERCENT, OW2_SIGMA_BARRIER_HEALTH),
 
                 "ability2Cooldown%": SETTINGS_TEAM1_SIGMA_ABILITY2_COOLDOWN_PERCENT
             },
@@ -378,9 +378,9 @@ settings {
                 "damageDealt%": SETTINGS_TEAM1_KIRIKO_DAMAGE_DEALT_PERCENT,
                 "projectileSpeed%": SETTINGS_TEAM1_KIRIKO_PROJECTILE_SPEED_PERCENT,
                 "healingDealt%": SETTINGS_TEAM1_KIRIKO_HEALING_DEALT_PERCENT,
-                "ability2Cooldown%": ratioPercent(SET_AI_KIRIKO_ABILITY2_COOLDOWN_TARGET, OW2_KIRIKO_SUZU_COOLDOWN),
+                "ability2Cooldown%": relativeRatioPercent(REL_AI_KIRIKO_ABILITY2_COOLDOWN_PERCENT, OW2_KIRIKO_SUZU_COOLDOWN),
 
-                "ultGen%": ultGenPercent(OW2_KIRIKO_ULT_COST, SET_AI_KIRIKO_ULT_COST_TARGET)
+                "ultGen%": relativeUltGenPercent(REL_AI_KIRIKO_ULT_COST_PERCENT, OW2_KIRIKO_ULT_COST)
             },
             "mizuki": {
                 "damageDealt%": SETTINGS_TEAM1_MIZUKI_DAMAGE_DEALT_PERCENT,
@@ -411,7 +411,7 @@ settings {
                 "healingReceived%": SETTINGS_TEAM1_SOMBRA_HEALING_RECEIVED_PERCENT,
                 "enableInfiniteAmmo": false,
                 "passiveUltGen%": SETTINGS_TEAM1_SOMBRA_PASSIVE_ULT_GEN_PERCENT,
-                "secondaryFireCooldown%": ratioPercent(SET_AI_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET, OW2_SOMBRA_HACK_COOLDOWN_TIME),
+                "secondaryFireCooldown%": relativeRatioPercent(REL_AI_SOMBRA_SECONDARY_FIRE_COOLDOWN_PERCENT, OW2_SOMBRA_HACK_COOLDOWN_TIME),
 
                 "ammoClipSize%": SETTINGS_TEAM1_SOMBRA_AMMO_CLIP_SIZE_PERCENT
             },
@@ -420,7 +420,7 @@ settings {
                 "damageReceived%": SETTINGS_TEAM1_WIDOWMAKER_DAMAGE_RECEIVED_PERCENT,
                 "enableInfiniteAmmo": true,
                 "movementSpeed%": SETTINGS_TEAM1_WIDOWMAKER_MOVEMENT_SPEED_PERCENT,
-                "ultGen%": ultGenPercent(OW2_WIDOWMAKER_ULT_COST, SET_AI_WIDOWMAKER_ULT_COST_TARGET)
+                "ultGen%": relativeUltGenPercent(REL_AI_WIDOWMAKER_ULT_COST_PERCENT, OW2_WIDOWMAKER_ULT_COST)
             },
             "general": {
                 "damageReceived%": SETTINGS_TEAM1_GENERAL_DAMAGE_RECEIVED_PERCENT,
@@ -431,9 +431,9 @@ settings {
         "team2": {
             "hanzo": {
                 "damageDealt%": SETTINGS_TEAM2_HANZO_DAMAGE_DEALT_PERCENT,
-                "ability2Cooldown%": ratioPercent(SET_PLAYER_HANZO_ABILITY2_COOLDOWN_TARGET, OW2_HANZO_STORM_COOLDOWN),
+                "ability2Cooldown%": relativeRatioPercent(REL_PLAYER_HANZO_ABILITY2_COOLDOWN_PERCENT, OW2_HANZO_STORM_COOLDOWN),
 
-                "ultGen%": ultGenPercent(OW2_HANZO_ULT_COST, SET_PLAYER_HANZO_ULT_COST_TARGET),
+                "ultGen%": relativeUltGenPercent(REL_PLAYER_HANZO_ULT_COST_PERCENT, OW2_HANZO_ULT_COST),
 
                 "projectileSpeed%": SETTINGS_TEAM2_HANZO_PROJECTILE_SPEED_PERCENT,
                 "ability1Cooldown%": SETTINGS_TEAM2_HANZO_ABILITY1_COOLDOWN_PERCENT
@@ -441,9 +441,9 @@ settings {
             "cassidy": {
                 "damageDealt%": SETTINGS_TEAM2_CASSIDY_DAMAGE_DEALT_PERCENT,
                 "damageReceived%": SETTINGS_TEAM2_CASSIDY_DAMAGE_RECEIVED_PERCENT,
-                "ultGen%": ultGenPercent(OW2_MCCREE_ULT_COST, SET_PLAYER_CASSIDY_ULT_COST_TARGET),
+                "ultGen%": relativeUltGenPercent(REL_PLAYER_CASSIDY_ULT_COST_PERCENT, OW2_MCCREE_ULT_COST),
 
-                "ability2Cooldown%": ratioPercent(SET_PLAYER_CASSIDY_ABILITY2_COOLDOWN_TARGET, OW2_MCCREE_FLASHBANG_COOLDOWN)
+                "ability2Cooldown%": relativeRatioPercent(REL_PLAYER_CASSIDY_ABILITY2_COOLDOWN_PERCENT, OW2_MCCREE_FLASHBANG_COOLDOWN)
             },
             "lucio": {
                 "passiveHealthRegen": false,
@@ -462,13 +462,13 @@ settings {
             "bastion": {
                 "secondaryFireCooldown%": SETTINGS_TEAM2_BASTION_SECONDARY_FIRE_COOLDOWN_PERCENT,
                 "damageDealt%": SETTINGS_TEAM2_BASTION_DAMAGE_DEALT_PERCENT,
-                "ability1Cooldown%": ratioPercent(SET_PLAYER_BASTION_ABILITY1_COOLDOWN_TARGET, OW2_BASTION_RECONFIGURE_COOLDOWN),
+                "ability1Cooldown%": relativeRatioPercent(REL_PLAYER_BASTION_ABILITY1_COOLDOWN_PERCENT, OW2_BASTION_RECONFIGURE_COOLDOWN),
 
                 "damageReceived%": SETTINGS_TEAM2_BASTION_DAMAGE_RECEIVED_PERCENT
             },
             "soldier": {
                 "damageDealt%": SETTINGS_TEAM2_SOLDIER_DAMAGE_DEALT_PERCENT,
-                "ability2Cooldown%": ratioPercent(SET_PLAYER_SOLDIER_ABILITY2_COOLDOWN_TARGET, OW2_SOLDIER_BIOTIC_FIELD_COOLDOWN),
+                "ability2Cooldown%": relativeRatioPercent(REL_PLAYER_SOLDIER_ABILITY2_COOLDOWN_PERCENT, OW2_SOLDIER_BIOTIC_FIELD_COOLDOWN),
 
                 "ultDuration%": SETTINGS_TEAM2_SOLDIER_ULT_DURATION_PERCENT,
                 "secondaryFireKb%": SETTINGS_TEAM2_SOLDIER_SECONDARY_FIRE_KB_PERCENT
@@ -484,33 +484,33 @@ settings {
             "orisa": {
                 "damageReceived%": SETTINGS_TEAM2_ORISA_DAMAGE_RECEIVED_PERCENT,
                 "projectileSpeed%": SETTINGS_TEAM2_ORISA_PROJECTILE_SPEED_PERCENT,
-                "ability1Cooldown%": ratioPercent(SET_PLAYER_ORISA_ABILITY1_COOLDOWN_TARGET, OW2_ORISA_FORTIFY_COOLDOWN),
+                "ability1Cooldown%": relativeRatioPercent(REL_PLAYER_ORISA_ABILITY1_COOLDOWN_PERCENT, OW2_ORISA_FORTIFY_COOLDOWN),
 
                 "secondaryFireCooldown%": SETTINGS_TEAM2_ORISA_SECONDARY_FIRE_COOLDOWN_PERCENT,
                 "enableInfiniteAmmo": true,
                 "health%": SETTINGS_TEAM2_ORISA_HEALTH_PERCENT,
                 "movementSpeed%": SETTINGS_TEAM2_ORISA_MOVEMENT_SPEED_PERCENT,
-                "ultGen%": ultGenPercent(OW2_ORISA_ULT_COST, SET_PLAYER_ORISA_ULT_COST_TARGET)
+                "ultGen%": relativeUltGenPercent(REL_PLAYER_ORISA_ULT_COST_PERCENT, OW2_ORISA_ULT_COST)
             },
             "ana": {
                 "passiveHealthRegen": false,
                 "damageDealt%": SETTINGS_TEAM2_ANA_DAMAGE_DEALT_PERCENT,
                 "healingDealt%": SETTINGS_TEAM2_ANA_HEALING_DEALT_PERCENT,
-                "ability2Cooldown%": ratioPercent(SET_PLAYER_ANA_ABILITY2_COOLDOWN_TARGET, OW2_ANA_BIOTIC_GRENADE_COOLDOWN),
+                "ability2Cooldown%": relativeRatioPercent(REL_PLAYER_ANA_ABILITY2_COOLDOWN_PERCENT, OW2_ANA_BIOTIC_GRENADE_COOLDOWN),
 
-                "ultGen%": ultGenPercent(OW2_ANA_ULT_COST, SET_PLAYER_ANA_ULT_COST_TARGET),
+                "ultGen%": relativeUltGenPercent(REL_PLAYER_ANA_ULT_COST_PERCENT, OW2_ANA_ULT_COST),
 
-                "ability1Cooldown%": ratioPercent(SET_PLAYER_ANA_ABILITY1_COOLDOWN_TARGET, OW2_ANA_SLEEP_DART_COOLDOWN_TIME)
+                "ability1Cooldown%": relativeRatioPercent(REL_PLAYER_ANA_ABILITY1_COOLDOWN_PERCENT, OW2_ANA_SLEEP_DART_COOLDOWN_TIME)
             },
             "baptiste": {
                 "passiveHealthRegen": false,
                 "damageDealt%": SETTINGS_TEAM2_BAPTISTE_DAMAGE_DEALT_PERCENT,
                 "ammoClipSize%": SETTINGS_TEAM2_BAPTISTE_AMMO_CLIP_SIZE_PERCENT,
-                "ability1Cooldown%": ratioPercent(SET_PLAYER_BAPTISTE_ABILITY1_COOLDOWN_TARGET, OW2_BAPTISTE_REGEN_BURST_COOLDOWN),
+                "ability1Cooldown%": relativeRatioPercent(REL_PLAYER_BAPTISTE_ABILITY1_COOLDOWN_PERCENT, OW2_BAPTISTE_REGEN_BURST_COOLDOWN),
 
                 "healingDealt%": SETTINGS_TEAM2_BAPTISTE_HEALING_DEALT_PERCENT,
                 "ultDuration%": SETTINGS_TEAM2_BAPTISTE_ULT_DURATION_PERCENT,
-                "ability2Cooldown%": ratioPercent(SET_PLAYER_BAPTISTE_ABILITY2_COOLDOWN_TARGET, OW2_BAPTISTE_LAMP_COOLDOWN_TIME)
+                "ability2Cooldown%": relativeRatioPercent(REL_PLAYER_BAPTISTE_ABILITY2_COOLDOWN_PERCENT, OW2_BAPTISTE_LAMP_COOLDOWN_TIME)
             },
             "brigitte": {
                 "passiveHealthRegen": false,
@@ -519,15 +519,15 @@ settings {
                 "ability1Kb%": SETTINGS_TEAM2_BRIGITTE_ABILITY1_KB_PERCENT,
                 "secondaryFireRechargeRate%": SETTINGS_TEAM2_BRIGITTE_SECONDARY_FIRE_RECHARGE_RATE_PERCENT,
                 "secondaryFireCooldown%": SETTINGS_TEAM2_BRIGITTE_SECONDARY_FIRE_COOLDOWN_PERCENT,
-                "ability2Cooldown%": ratioPercent(SET_PLAYER_BRIGITTE_ABILITY2_COOLDOWN_TARGET, OW2_BRIGITTE_REPAIR_PACK_COOLDOWN),
+                "ability2Cooldown%": relativeRatioPercent(REL_PLAYER_BRIGITTE_ABILITY2_COOLDOWN_PERCENT, OW2_BRIGITTE_REPAIR_PACK_COOLDOWN),
 
                 "health%": SETTINGS_TEAM2_BRIGITTE_HEALTH_PERCENT,
                 "healingDealt%": SETTINGS_TEAM2_BRIGITTE_HEALING_DEALT_PERCENT,
-                "ultGen%": ultGenPercent(OW2_BRIGITTE_ULT_COST, SET_PLAYER_BRIGITTE_ULT_COST_TARGET),
+                "ultGen%": relativeUltGenPercent(REL_PLAYER_BRIGITTE_ULT_COST_PERCENT, OW2_BRIGITTE_ULT_COST),
 
-                "shieldBashCooldown%": ratioPercent(SET_PLAYER_BRIGITTE_SHIELD_BASH_COOLDOWN_TARGET, OW2_BRIGITTE_SHIELD_BASH_COOLDOWN),
+                "shieldBashCooldown%": relativeRatioPercent(REL_PLAYER_BRIGITTE_SHIELD_BASH_COOLDOWN_PERCENT, OW2_BRIGITTE_SHIELD_BASH_COOLDOWN),
 
-                "shieldBashKb%": ratioPercent(SET_PLAYER_BRIGITTE_SHIELD_BASH_KB_TARGET, OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK)
+                "shieldBashKb%": relativeRatioPercent(REL_PLAYER_BRIGITTE_SHIELD_BASH_KB_PERCENT, OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK)
             },
             "freja": {
                 "damageDealt%": SETTINGS_TEAM2_FREJA_DAMAGE_DEALT_PERCENT,
@@ -541,7 +541,7 @@ settings {
                 "damageDealt%": SETTINGS_TEAM2_TORBJORN_DAMAGE_DEALT_PERCENT,
                 "ammoClipSize%": SETTINGS_TEAM2_TORBJORN_AMMO_CLIP_SIZE_PERCENT,
                 "combatUltGen%": SETTINGS_TEAM2_TORBJORN_COMBAT_ULT_GEN_PERCENT,
-                "ultGen%": ultGenPercent(OW2_TORBJORN_ULT_COST, SET_PLAYER_TORBJORN_ULT_COST_TARGET),
+                "ultGen%": relativeUltGenPercent(REL_PLAYER_TORBJORN_ULT_COST_PERCENT, OW2_TORBJORN_ULT_COST),
 
                 "ultDuration%": SETTINGS_TEAM2_TORBJORN_ULT_DURATION_PERCENT,
                 "passiveUltGen%": SETTINGS_TEAM2_TORBJORN_PASSIVE_ULT_GEN_PERCENT
@@ -549,21 +549,21 @@ settings {
             "ramattra": {
                 "damageDealt%": SETTINGS_TEAM2_RAMATTRA_DAMAGE_DEALT_PERCENT,
                 "damageReceived%": SETTINGS_TEAM2_RAMATTRA_DAMAGE_RECEIVED_PERCENT,
-                "ability2Cooldown%": ratioPercent(SET_PLAYER_RAMATTRA_ABILITY2_COOLDOWN_TARGET, OW2_RAMATTRA_VORTEX_COOLDOWN),
+                "ability2Cooldown%": relativeRatioPercent(REL_PLAYER_RAMATTRA_ABILITY2_COOLDOWN_PERCENT, OW2_RAMATTRA_VORTEX_COOLDOWN),
 
-                "ability1Cooldown%": ratioPercent(SET_PLAYER_RAMATTRA_ABILITY1_COOLDOWN_TARGET, OW2_RAMATTRA_NEMESIS_COOLDOWN),
+                "ability1Cooldown%": relativeRatioPercent(REL_PLAYER_RAMATTRA_ABILITY1_COOLDOWN_PERCENT, OW2_RAMATTRA_NEMESIS_COOLDOWN),
 
-                "ultGen%": ultGenPercent(OW2_RAMATTRA_ULT_COST, SET_PLAYER_RAMATTRA_ULT_COST_TARGET),
+                "ultGen%": relativeUltGenPercent(REL_PLAYER_RAMATTRA_ULT_COST_PERCENT, OW2_RAMATTRA_ULT_COST),
 
                 "ultDuration%": SETTINGS_TEAM2_RAMATTRA_ULT_DURATION_PERCENT,
-                "secondaryFireCooldown%": ratioPercent(SET_PLAYER_RAMATTRA_SECONDARY_FIRE_COOLDOWN_TARGET, OW2_RAMATTRA_VOID_BARRIER_COOLDOWN)
+                "secondaryFireCooldown%": relativeRatioPercent(REL_PLAYER_RAMATTRA_SECONDARY_FIRE_COOLDOWN_PERCENT, OW2_RAMATTRA_VOID_BARRIER_COOLDOWN)
             },
             "venture": {
                 "damageDealt%": SETTINGS_TEAM2_VENTURE_DAMAGE_DEALT_PERCENT,
                 "damageReceived%": SETTINGS_TEAM2_VENTURE_DAMAGE_RECEIVED_PERCENT,
                 "ability1Duration%": SETTINGS_TEAM2_VENTURE_ABILITY1_DURATION_PERCENT,
                 "secondaryFireCooldown%": SETTINGS_TEAM2_VENTURE_SECONDARY_FIRE_COOLDOWN_PERCENT,
-                "ultGen%": ultGenPercent(OW2_VENTURE_ULT_COST, SET_PLAYER_VENTURE_ULT_COST_TARGET)
+                "ultGen%": relativeUltGenPercent(REL_PLAYER_VENTURE_ULT_COST_PERCENT, OW2_VENTURE_ULT_COST)
             },
             "emre": {
                 "damageDealt%": SETTINGS_TEAM2_EMRE_DAMAGE_DEALT_PERCENT,
@@ -589,12 +589,12 @@ settings {
                 "damageReceived%": SETTINGS_TEAM2_ILLARI_DAMAGE_RECEIVED_PERCENT,
                 "solarEnergyRecharge%": SETTINGS_TEAM2_ILLARI_SOLAR_ENERGY_RECHARGE_PERCENT,
                 "projectileSpeed%": SETTINGS_TEAM2_ILLARI_PROJECTILE_SPEED_PERCENT,
-                "ability2Cooldown%": ratioPercent(SET_PLAYER_ILLARI_ABILITY2_COOLDOWN_TARGET, OW2_ILLARI_PYLON_COOLDOWN)
+                "ability2Cooldown%": relativeRatioPercent(REL_PLAYER_ILLARI_ABILITY2_COOLDOWN_PERCENT, OW2_ILLARI_PYLON_COOLDOWN)
             },
             "juno": {
                 "passiveHealthRegen": false,
                 "healingDealt%": SETTINGS_TEAM2_JUNO_HEALING_DEALT_PERCENT,
-                "ultGen%": ultGenPercent(OW2_JUNO_ULT_COST, SET_PLAYER_JUNO_ULT_COST_TARGET),
+                "ultGen%": relativeUltGenPercent(REL_PLAYER_JUNO_ULT_COST_PERCENT, OW2_JUNO_ULT_COST),
 
                 "secondaryFireCooldown%": SETTINGS_TEAM2_JUNO_SECONDARY_FIRE_COOLDOWN_PERCENT,
                 "ability2Cooldown%": SETTINGS_TEAM2_JUNO_ABILITY2_COOLDOWN_PERCENT
@@ -602,12 +602,12 @@ settings {
             "doomfist": {
                 "damageDealt%": SETTINGS_TEAM2_DOOMFIST_DAMAGE_DEALT_PERCENT,
                 "damageReceived%": SETTINGS_TEAM2_DOOMFIST_DAMAGE_RECEIVED_PERCENT,
-                "ammoRegenerationTime%": ratioPercent(SET_PLAYER_DOOMFIST_AMMO_REGENERATION_TIME_TARGET, OW2_DOOMFIST_AMMO_REGEN),
+                "ammoRegenerationTime%": relativeRatioPercent(REL_PLAYER_DOOMFIST_AMMO_REGENERATION_TIME_PERCENT, OW2_DOOMFIST_AMMO_REGEN),
 
-                "ability1Cooldown%": ratioPercent(SET_PLAYER_DOOMFIST_ABILITY1_COOLDOWN_TARGET, OW2_DOOMFIST_POWER_BLOCK_COOLDOWN),
+                "ability1Cooldown%": relativeRatioPercent(REL_PLAYER_DOOMFIST_ABILITY1_COOLDOWN_PERCENT, OW2_DOOMFIST_POWER_BLOCK_COOLDOWN),
 
                 "secondaryFireCooldown%": SETTINGS_TEAM2_DOOMFIST_SECONDARY_FIRE_COOLDOWN_PERCENT,
-                "ability2Cooldown%": ratioPercent(SET_PLAYER_DOOMFIST_ABILITY2_COOLDOWN_TARGET, OW2_DOOMFIST_SEISMIC_SLAM_COOLDOWN)
+                "ability2Cooldown%": relativeRatioPercent(REL_PLAYER_DOOMFIST_ABILITY2_COOLDOWN_PERCENT, OW2_DOOMFIST_SEISMIC_SLAM_COOLDOWN)
             },
             "zarya": {
                 "damageDealt%": SETTINGS_TEAM2_ZARYA_DAMAGE_DEALT_PERCENT,
@@ -615,7 +615,7 @@ settings {
                 "ammoClipSize%": SETTINGS_TEAM2_ZARYA_AMMO_CLIP_SIZE_PERCENT,
                 "ability2Cooldown%": SETTINGS_TEAM2_ZARYA_ABILITY2_COOLDOWN_PERCENT,
                 "ability1Cooldown%": SETTINGS_TEAM2_ZARYA_ABILITY1_COOLDOWN_PERCENT,
-                "ultGen%": ultGenPercent(OW2_ZARYA_ULT_COST, SET_PLAYER_ZARYA_ULT_COST_TARGET)
+                "ultGen%": relativeUltGenPercent(REL_PLAYER_ZARYA_ULT_COST_PERCENT, OW2_ZARYA_ULT_COST)
             },
             "reaper": {
                 "damageDealt%": SETTINGS_TEAM2_REAPER_DAMAGE_DEALT_PERCENT,
@@ -634,10 +634,10 @@ settings {
                 "damageDealt%": SETTINGS_TEAM2_PHARAH_DAMAGE_DEALT_PERCENT,
                 "damageReceived%": SETTINGS_TEAM2_PHARAH_DAMAGE_RECEIVED_PERCENT,
                 "passiveExtraFuel%": SETTINGS_TEAM2_PHARAH_PASSIVE_EXTRA_FUEL_PERCENT,
-                "ability1Cooldown%": ratioPercent(SET_PLAYER_PHARAH_ABILITY1_COOLDOWN_TARGET, OW2_PHARAH_JUMP_JET_COOLDOWN),
+                "ability1Cooldown%": relativeRatioPercent(REL_PLAYER_PHARAH_ABILITY1_COOLDOWN_PERCENT, OW2_PHARAH_JUMP_JET_COOLDOWN),
 
                 "ability1RefuelScalar": SETTINGS_TEAM2_PHARAH_ABILITY1_REFUEL_SCALAR,
-                "ability2Cooldown%": ratioPercent(SET_PLAYER_PHARAH_ABILITY2_COOLDOWN_TARGET, OW2_PHARAH_CONCUSSIVE_BLAST_COOLDOWN)
+                "ability2Cooldown%": relativeRatioPercent(REL_PLAYER_PHARAH_ABILITY2_COOLDOWN_PERCENT, OW2_PHARAH_CONCUSSIVE_BLAST_COOLDOWN)
             },
             "jetpackCat": {
                 "damageDealt%": SETTINGS_TEAM2_JETPACK_CAT_DAMAGE_DEALT_PERCENT,
@@ -657,7 +657,7 @@ settings {
             "winston": {
                 "damageDealt%": SETTINGS_TEAM2_WINSTON_DAMAGE_DEALT_PERCENT,
                 "damageReceived%": SETTINGS_TEAM2_WINSTON_DAMAGE_RECEIVED_PERCENT,
-                "ability2Cooldown%": ratioPercent(SET_PLAYER_WINSTON_ABILITY2_COOLDOWN_TARGET, OW2_WINSTON_BARRIER_COOLDOWN)
+                "ability2Cooldown%": relativeRatioPercent(REL_PLAYER_WINSTON_ABILITY2_COOLDOWN_PERCENT, OW2_WINSTON_BARRIER_COOLDOWN)
             },
             "genji": {
                 "damageDealt%": SETTINGS_TEAM2_GENJI_DAMAGE_DEALT_PERCENT,
@@ -665,9 +665,9 @@ settings {
                 "ability1Cooldown%": SETTINGS_TEAM2_GENJI_ABILITY1_COOLDOWN_PERCENT,
                 "enableInfiniteAmmo": true,
                 "ultDuration%": SETTINGS_TEAM2_GENJI_ULT_DURATION_PERCENT,
-                "ultGen%": ultGenPercent(OW2_GENJI_ULT_COST, SET_PLAYER_GENJI_ULT_COST_TARGET),
+                "ultGen%": relativeUltGenPercent(REL_PLAYER_GENJI_ULT_COST_PERCENT, OW2_GENJI_ULT_COST),
 
-                "ability2Cooldown%": ratioPercent(SET_PLAYER_GENJI_ABILITY2_COOLDOWN_TARGET, OW2_GENJI_DEFLECT_COOLDOWN)
+                "ability2Cooldown%": relativeRatioPercent(REL_PLAYER_GENJI_ABILITY2_COOLDOWN_PERCENT, OW2_GENJI_DEFLECT_COOLDOWN)
             },
             "junkrat": {
                 "damageDealt%": SETTINGS_TEAM2_JUNKRAT_DAMAGE_DEALT_PERCENT,
@@ -675,7 +675,7 @@ settings {
                 "combatUltGen%": SETTINGS_TEAM2_JUNKRAT_COMBAT_ULT_GEN_PERCENT,
                 "primaryFireKb%": SETTINGS_TEAM2_JUNKRAT_PRIMARY_FIRE_KB_PERCENT,
                 "ability2Cooldown%": SETTINGS_TEAM2_JUNKRAT_ABILITY2_COOLDOWN_PERCENT,
-                "ultGen%": ultGenPercent(OW2_JUNKRAT_ULT_COST, SET_PLAYER_JUNKRAT_ULT_COST_TARGET),
+                "ultGen%": relativeUltGenPercent(REL_PLAYER_JUNKRAT_ULT_COST_PERCENT, OW2_JUNKRAT_ULT_COST),
 
                 "ultDuration%": SETTINGS_TEAM2_JUNKRAT_ULT_DURATION_PERCENT,
                 "passiveUltGen%": SETTINGS_TEAM2_JUNKRAT_PASSIVE_ULT_GEN_PERCENT,
@@ -684,9 +684,9 @@ settings {
             "tracer": {
                 "damageDealt%": SETTINGS_TEAM2_TRACER_DAMAGE_DEALT_PERCENT,
                 "damageReceived%": SETTINGS_TEAM2_TRACER_DAMAGE_RECEIVED_PERCENT,
-                "ultGen%": ultGenPercent(OW2_TRACER_ULT_COST, SET_PLAYER_TRACER_ULT_COST_TARGET),
+                "ultGen%": relativeUltGenPercent(REL_PLAYER_TRACER_ULT_COST_PERCENT, OW2_TRACER_ULT_COST),
 
-                "ability2Cooldown%": ratioPercent(SET_PLAYER_TRACER_ABILITY2_COOLDOWN_TARGET, OW2_TRACER_RECALL_COOLDOWN),
+                "ability2Cooldown%": relativeRatioPercent(REL_PLAYER_TRACER_ABILITY2_COOLDOWN_PERCENT, OW2_TRACER_RECALL_COOLDOWN),
 
                 "ability1Cooldown%": SETTINGS_TEAM2_TRACER_ABILITY1_COOLDOWN_PERCENT
             },
@@ -694,7 +694,7 @@ settings {
                 "passiveHealthRegen": false,
                 "damageDealt%": SETTINGS_TEAM2_ZENYATTA_DAMAGE_DEALT_PERCENT,
                 "damageReceived%": SETTINGS_TEAM2_ZENYATTA_DAMAGE_RECEIVED_PERCENT,
-                "ultGen%": ultGenPercent(OW2_ZENYATTA_ULT_COST, SET_PLAYER_ZENYATTA_ULT_COST_TARGET),
+                "ultGen%": relativeUltGenPercent(REL_PLAYER_ZENYATTA_ULT_COST_PERCENT, OW2_ZENYATTA_ULT_COST),
 
                 "projectileSpeed%": SETTINGS_TEAM2_ZENYATTA_PROJECTILE_SPEED_PERCENT
             },
@@ -736,16 +736,16 @@ settings {
                 "ability2Cooldown%": SETTINGS_TEAM2_MOIRA_ABILITY2_COOLDOWN_PERCENT,
                 "ability2MaxHealing%": SETTINGS_TEAM2_MOIRA_ABILITY2_MAX_HEALING_PERCENT,
                 "primaryFireMaximumTime%": SETTINGS_TEAM2_MOIRA_PRIMARY_FIRE_MAXIMUM_TIME_PERCENT,
-                "ultGen%": ultGenPercent(OW2_MOIRA_ULT_COST, SET_PLAYER_MOIRA_ULT_COST_TARGET)
+                "ultGen%": relativeUltGenPercent(REL_PLAYER_MOIRA_ULT_COST_PERCENT, OW2_MOIRA_ULT_COST)
             },
             "reinhardt": {
                 "damageDealt%": SETTINGS_TEAM2_REINHARDT_DAMAGE_DEALT_PERCENT,
-                "ability1Cooldown%": ratioPercent(SET_PLAYER_REINHARDT_ABILITY1_COOLDOWN_TARGET, OW2_REINHARDT_CHARGE_COOLDOWN_TIME),
+                "ability1Cooldown%": relativeRatioPercent(REL_PLAYER_REINHARDT_ABILITY1_COOLDOWN_PERCENT, OW2_REINHARDT_CHARGE_COOLDOWN_TIME),
                 "damageReceived%": SETTINGS_TEAM2_REINHARDT_DAMAGE_RECEIVED_PERCENT,
-                "secondaryFireRechargeRate%": ratioPercent(SET_PLAYER_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET, OW2_REINHARDT_BARRIER_REGEN),
+                "secondaryFireRechargeRate%": relativeRatioPercent(REL_PLAYER_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_PERCENT, OW2_REINHARDT_BARRIER_REGEN),
                 "combatUltGen%": SETTINGS_TEAM2_REINHARDT_COMBAT_ULT_GEN_PERCENT,
-                "health%": ratioPercent(SET_PLAYER_REINHARDT_HEALTH_TARGET, OW2_REINHARDT_BARRIER_HEALTH),
-                "ultGen%": ultGenPercent(OW2_REINHARDT_ULT_COST, SET_PLAYER_REINHARDT_ULT_COST_TARGET),
+                "health%": relativeRatioPercent(REL_PLAYER_REINHARDT_HEALTH_PERCENT, OW2_REINHARDT_BARRIER_HEALTH),
+                "ultGen%": relativeUltGenPercent(REL_PLAYER_REINHARDT_ULT_COST_PERCENT, OW2_REINHARDT_ULT_COST),
                 "passiveUltGen%": SETTINGS_TEAM2_REINHARDT_PASSIVE_ULT_GEN_PERCENT
             },
             "sierra": {
@@ -760,9 +760,9 @@ settings {
                 "ability1Cooldown%": SETTINGS_TEAM2_SIGMA_ABILITY1_COOLDOWN_PERCENT,
                 "damageReceived%": SETTINGS_TEAM2_SIGMA_DAMAGE_RECEIVED_PERCENT,
                 "secondaryFireRechargeRate%": SETTINGS_TEAM2_SIGMA_SECONDARY_FIRE_RECHARGE_RATE_PERCENT,
-                "health%": ratioPercent(SET_PLAYER_SIGMA_HEALTH_TARGET, OW2_SIGMA_BARRIER_HEALTH),
+                "health%": relativeRatioPercent(REL_PLAYER_SIGMA_HEALTH_PERCENT, OW2_SIGMA_BARRIER_HEALTH),
 
-                "ultGen%": ultGenPercent(OW2_SIGMA_ULT_COST, SET_PLAYER_SIGMA_ULT_COST_TARGET),
+                "ultGen%": relativeUltGenPercent(REL_PLAYER_SIGMA_ULT_COST_PERCENT, OW2_SIGMA_ULT_COST),
 
                 "ability2Cooldown%": SETTINGS_TEAM2_SIGMA_ABILITY2_COOLDOWN_PERCENT
             },
@@ -770,16 +770,16 @@ settings {
                 "damageDealt%": SETTINGS_TEAM2_ROADHOG_DAMAGE_DEALT_PERCENT,
                 "damageReceived%": SETTINGS_TEAM2_ROADHOG_DAMAGE_RECEIVED_PERCENT,
                 "secondaryFireCooldown%": SETTINGS_TEAM2_ROADHOG_SECONDARY_FIRE_COOLDOWN_PERCENT,
-                "ability1Cooldown%": ratioPercent(SET_PLAYER_ROADHOG_ABILITY1_COOLDOWN_TARGET, OW2_ROADHOG_HOOK_COOLDOWN_TIME)
+                "ability1Cooldown%": relativeRatioPercent(REL_PLAYER_ROADHOG_ABILITY1_COOLDOWN_PERCENT, OW2_ROADHOG_HOOK_COOLDOWN_TIME)
             },
             "kiriko": {
                 "passiveHealthRegen": false,
                 "ability1Distance%": SETTINGS_TEAM2_KIRIKO_ABILITY1_DISTANCE_PERCENT,
                 "damageDealt%": SETTINGS_TEAM2_KIRIKO_DAMAGE_DEALT_PERCENT,
                 "healingDealt%": SETTINGS_TEAM2_KIRIKO_HEALING_DEALT_PERCENT,
-                "ability2Cooldown%": ratioPercent(SET_PLAYER_KIRIKO_ABILITY2_COOLDOWN_TARGET, OW2_KIRIKO_SUZU_COOLDOWN),
+                "ability2Cooldown%": relativeRatioPercent(REL_PLAYER_KIRIKO_ABILITY2_COOLDOWN_PERCENT, OW2_KIRIKO_SUZU_COOLDOWN),
 
-                "ultGen%": ultGenPercent(OW2_KIRIKO_ULT_COST, SET_PLAYER_KIRIKO_ULT_COST_TARGET)
+                "ultGen%": relativeUltGenPercent(REL_PLAYER_KIRIKO_ULT_COST_PERCENT, OW2_KIRIKO_ULT_COST)
             },
             "mizuki": {
                 "damageDealt%": SETTINGS_TEAM2_MIZUKI_DAMAGE_DEALT_PERCENT,
@@ -808,13 +808,13 @@ settings {
                 "ability2Cooldown%": SETTINGS_TEAM2_SOMBRA_ABILITY2_COOLDOWN_PERCENT,
                 "damageReceived%": SETTINGS_TEAM2_SOMBRA_DAMAGE_RECEIVED_PERCENT,
                 "passiveUltGen%": SETTINGS_TEAM2_SOMBRA_PASSIVE_ULT_GEN_PERCENT,
-                "secondaryFireCooldown%": ratioPercent(SET_PLAYER_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET, OW2_SOMBRA_HACK_COOLDOWN_TIME)
+                "secondaryFireCooldown%": relativeRatioPercent(REL_PLAYER_SOMBRA_SECONDARY_FIRE_COOLDOWN_PERCENT, OW2_SOMBRA_HACK_COOLDOWN_TIME)
             },
             "widowmaker": {
                 "damageDealt%": SETTINGS_TEAM2_WIDOWMAKER_DAMAGE_DEALT_PERCENT,
                 "damageReceived%": SETTINGS_TEAM2_WIDOWMAKER_DAMAGE_RECEIVED_PERCENT,
                 "ammoClipSize%": SETTINGS_TEAM2_WIDOWMAKER_AMMO_CLIP_SIZE_PERCENT,
-                "ultGen%": ultGenPercent(OW2_WIDOWMAKER_ULT_COST, SET_PLAYER_WIDOWMAKER_ULT_COST_TARGET)
+                "ultGen%": relativeUltGenPercent(REL_PLAYER_WIDOWMAKER_ULT_COST_PERCENT, OW2_WIDOWMAKER_ULT_COST)
             },
             "general": {
                 "ultGen%": SETTINGS_TEAM2_GENERAL_ULT_GEN_PERCENT,
@@ -824,12 +824,12 @@ settings {
             "dva": {
                 "damageDealt%": SETTINGS_ALL_TEAMS_DVA_DAMAGE_DEALT_PERCENT,
                 "damageReceived%": SETTINGS_ALL_TEAMS_DVA_DAMAGE_RECEIVED_PERCENT,
-                "ability1Cooldown%": ratioPercent(SET_DVA_ABILITY1_COOLDOWN_TARGET, OW2_DVA_BOOSTER_COOLDOWN_TIME),
+                "ability1Cooldown%": relativeRatioPercent(REL_DVA_ABILITY1_COOLDOWN_PERCENT, OW2_DVA_BOOSTER_COOLDOWN_TIME),
 
-                "ability2Cooldown%": ratioPercent(SET_DVA_ABILITY2_COOLDOWN_TARGET, OW2_DVA_MICRO_MISSILES_COOLDOWN_TIME),
+                "ability2Cooldown%": relativeRatioPercent(REL_DVA_ABILITY2_COOLDOWN_PERCENT, OW2_DVA_MICRO_MISSILES_COOLDOWN_TIME),
 
                 "secondaryFireRechargeRate%": SETTINGS_ALL_TEAMS_DVA_SECONDARY_FIRE_RECHARGE_RATE_PERCENT,
-                "secondaryFireMaximumTime%": ratioPercent(SET_DVA_SECONDARY_FIRE_MAXIMUM_TIME_TARGET, OW2_DVA_MATRIX_DURATION)
+                "secondaryFireMaximumTime%": relativeRatioPercent(REL_DVA_SECONDARY_FIRE_MAXIMUM_TIME_PERCENT, OW2_DVA_MATRIX_DURATION)
             },
             "lifeweaver": {
                 "healingDealt%": SETTINGS_ALL_TEAMS_LIFEWEAVER_HEALING_DEALT_PERCENT,
