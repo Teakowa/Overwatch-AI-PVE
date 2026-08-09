@@ -90,7 +90,8 @@ The remaining global declarations are explicitly classified under keep or defer.
 
 | Variable | Kind | Current owner | Consumers | Main/ARAM | Target owner | Action | Blocker |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| wuyang_buff | playervar (slot 18) | prelude/player-vars.opy | heroes/wuyang/ability2.opy; bootstrap/player-lifecycle-and-reset.opy; bootstrap/aram-player-lifecycle-and-reset.opy | M+A | new heroes/wuyang/state.opy included by both entry manifests | P-WUYANG move Wuyang-only state with slot 18 and an explicit reset hook | shared lifecycle currently clears fields directly |
+No unambiguous hero-owned player state remains after the P-WUYANG wave. The
+Wuyang declaration and lifecycle reset now live in heroes/wuyang/state.opy.
 
 ### move: shared mechanic state
 
@@ -142,7 +143,7 @@ request to combine all rows into one commit.
 
 ## Audit evidence and maintenance
 
-- The current declaration inventory is 24 globalvar plus 33 playervar entries; the matrix has
+- The current declaration inventory is 24 globalvar plus 32 playervar entries; the matrix has
   one row for each remaining declaration.
 - The remaining prelude declarations are reachable from the applicable entry roots. The consumer paths above were
   searched across src, including bootstrap, AI, utilities, hero Main rules, and ARAM

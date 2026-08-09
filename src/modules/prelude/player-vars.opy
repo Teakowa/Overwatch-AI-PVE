@@ -19,7 +19,6 @@ playervar mauga_berserker_soul
 playervar brigitte_buff
 playervar zarya_graviton_buff
 playervar KnockbackDirection
-playervar wuyang_buff
 playervar hazard_buff
 playervar zarya_buff
 playervar heart_steel
