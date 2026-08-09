@@ -8,9 +8,9 @@ Use this workflow to produce Chinese player-facing balance notes from gameplay c
 2. Split Player and AI blocks when values differ.
 3. Put cooldown changes under concrete ability keys, not `General`.
 4. Use time wording for cooldowns.
-5. Keep terminology consistent with the changelog glossary.
+5. Keep terminology consistent with the project glossary.
 
 ## Format Reference
 
 Read [balance-notes-format-spec.md](/Users/teakowa/Repos/teakowa/Overwatch-AI-PVE/docs/references/balance-notes-format-spec.md).
-For term wording and definitions, read [changelog-terminology.md](/Users/teakowa/Repos/teakowa/Overwatch-AI-PVE/docs/references/changelog-terminology.md).
+For term wording and definitions, read [terminology-glossary.md](/Users/teakowa/Repos/teakowa/Overwatch-AI-PVE/docs/references/terminology-glossary.md).
