@@ -27,7 +27,6 @@ globalvar	WuyangBuff	25
 globalvar	Brigitte	26
 globalvar	SigmaBuff	27
 globalvar	JunoBuff	28
-globalvar	Ana_GrenadeDamage	29
 globalvar	DoomBuff	30
 globalvar	Zen_KnockupStrength	31
 globalvar	Ram_Annihilation	32
@@ -65,7 +64,6 @@ globalvar	TorbjornBuff	63
 globalvar	WidowmakerBuff	64
 globalvar	WinstonBuff	65
 globalvar	ShionBuff	66
-globalvar	Ana_NanoHealAmp	67
 playervar	reset_pvar	0
 playervar	heroNum	1
 playervar	botTemp	2

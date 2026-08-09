@@ -70,6 +70,9 @@ or `playervar` in the repository.
 - [ ] Run duplicate/include-graph checks, contract checks, Main and ARAM builds, and
       behavior-specific static checks before committing.
 
-The Ana Biotic Grenade migration is the reference pattern: hero-owned settings remain
-under `src/heroes/ana/`, while burning and combat eligibility are explicit shared
-dependencies rather than ambient prelude state.
+The Ana Biotic Grenade migration is the reference pattern. `Ana_GrenadeDamage` is
+declared with its preserved slot in both `src/heroes/ana/settings.opy` and
+`src/heroes/ana/settings.aram.opy`; `Ana_NanoHealAmp` is declared in the Main settings
+module, and `nano_full_health` remains in the Main/ARAM rules modules. Their Workshop
+setting IDs and values are unchanged. Burning and combat eligibility remain explicit
+shared dependencies rather than ambient prelude state.

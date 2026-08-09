@@ -30,7 +30,6 @@ globalvar WuyangBuff
 globalvar Brigitte
 globalvar SigmaBuff
 globalvar JunoBuff
-globalvar Ana_GrenadeDamage
 globalvar DoomBuff
 globalvar Zen_KnockupStrength
 globalvar Ram_Annihilation
@@ -68,4 +67,3 @@ globalvar TorbjornBuff
 globalvar WidowmakerBuff
 globalvar WinstonBuff
 globalvar ShionBuff
-globalvar Ana_NanoHealAmp
