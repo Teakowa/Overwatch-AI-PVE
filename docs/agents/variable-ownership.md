@@ -93,3 +93,18 @@ and is included explicitly by both entry manifests. The current branch has no ac
 `burn_stack` readers or writers after the burn-stack behavior was retired, so no hero
 effect or reset rule is moved here. Future burning consumers must include or depend on
 this responsibility-named module instead of restoring an ambient prelude declaration.
+
+### Combat-policy pilot audit
+
+`src/modules/combat-policy/custom-effect-guards.opy` exposes
+`Player.blocksCustomDot()` for the exact custom-DOT protection decision previously
+encoded in Ana's rule. Its implementation retains the existing
+`zarya_buff[1] != null` behavior, while Ana no longer reads that storage directly.
+The existing `INVINCIBLE`/`PHASED_OUT` and `has_nano` conditions remain separate and
+are mechanically checked with the policy call.
+
+The following direct `zarya_buff` consumers remain deferred because their surrounding
+semantics are not the same custom-DOT policy: Freja's knockback threshold, Genji's
+execution threshold, Shion's damage threshold, Sojourn's damage threshold, Orisa's
+own protection state, Roadhog's execution, and Hazard's direct damage. Zarya's own
+initialization and lifecycle writes remain hero-owned storage internals.

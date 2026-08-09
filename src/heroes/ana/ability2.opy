@@ -8,7 +8,7 @@ rule "[Ana] Biotic Grenade Hit":
     @Condition (victim.hasStatus(Status.INVINCIBLE) or victim.hasStatus(Status.PHASED_OUT)) == false
     @Condition victim.has_nano != true
 
-    if victim.zarya_buff[1] != null:
+    if victim.blocksCustomDot():
         goto lbl_0
     eventPlayer.setStatusEffect(attacker, Status.BURNING, ANA_ABILITY2_BURNING_DURATION)
     victim.startDamageOverTime(attacker, ANA_ABILITY2_DOT_DURATION, victim.maxHealthPercent(Ana_GrenadeDamage[0]))

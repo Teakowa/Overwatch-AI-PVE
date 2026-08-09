@@ -305,6 +305,7 @@ function classifyEntryPhase(entryLabel: EntryLabel, relPath: string): number | n
     relPath === "src/main_mode_profile.opy" ||
     relPath === "src/aram_protocol.opy" ||
     relPath === "src/modules/burning/state.opy" ||
+    relPath === "src/modules/combat-policy/custom-effect-guards.opy" ||
     relPath === "src/heroes/settings.opy" ||
     relPath === "src/heroes/settings.aram.opy" ||
     /^src\/heroes\/[^/]+\/settings(\.aram)?\.opy$/.test(relPath) ||
@@ -473,6 +474,7 @@ async function main(): Promise<void> {
       "modules/prelude/player-vars.opy",
       "modules/prelude/subroutine.opy",
       "modules/burning/state.opy",
+      "modules/combat-policy/custom-effect-guards.opy",
       "modules/bootstrap/init-and-settings.opy",
       "modules/bootstrap/anti-crash.opy",
       "modules/bootstrap/blacklist.opy",
@@ -523,6 +525,7 @@ async function main(): Promise<void> {
       "modules/prelude/player-vars.opy",
       "modules/prelude/subroutine.opy",
       "modules/burning/state.opy",
+      "modules/combat-policy/custom-effect-guards.opy",
       "aram_protocol.opy",
       "modules/bootstrap/aram-mode-settings.opy",
       "modules/bootstrap/aram-hero-ability-settings.opy",
@@ -707,6 +710,31 @@ async function main(): Promise<void> {
     }
   }
   validateProtocolBaseline(reporter, protocolMappings, preludeDeclarations);
+
+  const combatPolicyLines = await readLines(resolveRepo("src/modules/combat-policy/custom-effect-guards.opy"));
+  const anaAbility2Lines = await readLines(resolveRepo("src/heroes/ana/ability2.opy"));
+  const policyMacroCount = combatPolicyLines.filter((line) => line === "macro Player.blocksCustomDot():").length;
+  const policyStorageGuardCount = combatPolicyLines.filter((line) => line === "    self.zarya_buff[1] != null").length;
+  const anaEligibilityConditions = [
+    "    @Condition isHero(attacker, Hero.ANA)",
+    "    @Condition eventAbility == Button.ABILITY_2",
+    "    @Condition (victim.hasStatus(Status.INVINCIBLE) or victim.hasStatus(Status.PHASED_OUT)) == false",
+    "    @Condition victim.has_nano != true",
+  ];
+  const anaEligibilityPreserved = anaEligibilityConditions.every((line) => anaAbility2Lines.includes(line));
+  const anaPolicyCallCount = anaAbility2Lines.filter((line) => line === "    if victim.blocksCustomDot():").length;
+  const anaDirectStateReadCount = anaAbility2Lines.filter((line) => line.includes("zarya_buff")).length;
+  if (
+    policyMacroCount === 1 &&
+    policyStorageGuardCount === 1 &&
+    anaEligibilityPreserved &&
+    anaPolicyCallCount === 1 &&
+    anaDirectStateReadCount === 0
+  ) {
+    reporter.pass("Ana custom DOT policy preserves eligibility conditions without direct Zarya state reads");
+  } else {
+    reporter.fail("Ana custom DOT policy boundary or eligibility conditions changed");
+  }
 
   const entryRoots = [
     { label: "main", filePath: resolveRepo("src/main.opy") },

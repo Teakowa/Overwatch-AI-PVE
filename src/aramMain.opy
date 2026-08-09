@@ -15,6 +15,7 @@
 #!include "modules/prelude/player-vars.opy"
 #!include "modules/prelude/subroutine.opy"
 #!include "modules/burning/state.opy"
+#!include "modules/combat-policy/custom-effect-guards.opy"
 #!include "aram_protocol.opy"
 
 #
