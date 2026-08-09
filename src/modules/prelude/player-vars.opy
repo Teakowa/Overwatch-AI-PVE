@@ -35,5 +35,4 @@ playervar expected_scoped_damage
 playervar aram_extra_pool_applied
 playervar burn_stack
 playervar hero_switch_pvar
-playervar domina_ai_busy
-playervar domina_secondary_retry_blocked
+
