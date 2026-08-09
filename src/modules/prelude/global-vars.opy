@@ -14,17 +14,12 @@ globalvar Heros
 globalvar Hero_BAN
 globalvar Genji
 globalvar HeadshotDamage
-globalvar IllariBuff
-globalvar MercyBuff
 globalvar SombraBuff
 globalvar Tracer_Ability
 globalvar ReaperBuff
 globalvar S76Buff
 globalvar SojournBuff
 globalvar FrejaBuff
-globalvar WuyangBuff
-globalvar Brigitte
-globalvar JunoBuff
 globalvar Zen_KnockupStrength
 globalvar VendettaBuff
 globalvar Counters
@@ -37,7 +32,6 @@ globalvar ChangelogBodyTable
 globalvar HanzoBuff
 globalvar BaptisteBuff
 globalvar CassidyBuff
-globalvar LucioBuff
 globalvar JunkratBuff
 globalvar MoiraBuff
 globalvar VentureBuff
@@ -49,7 +43,6 @@ globalvar EchoBuff
 globalvar EmreBuff
 globalvar JetpackCatBuff
 globalvar JunkerQueenBuff
-globalvar LifeweaverBuff
 globalvar MeiBuff
 globalvar MizukiBuff
 globalvar PharahBuff

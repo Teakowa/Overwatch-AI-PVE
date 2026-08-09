@@ -11,17 +11,12 @@ globalvar	Heros	9
 globalvar	Hero_BAN	10
 globalvar	Genji	11
 globalvar	HeadshotDamage	13
-globalvar	IllariBuff	15
-globalvar	MercyBuff	16
 globalvar	SombraBuff	17
 globalvar	Tracer_Ability	18
 globalvar	ReaperBuff	19
 globalvar	S76Buff	21
 globalvar	SojournBuff	22
 globalvar	FrejaBuff	24
-globalvar	WuyangBuff	25
-globalvar	Brigitte	26
-globalvar	JunoBuff	28
 globalvar	Zen_KnockupStrength	31
 globalvar	VendettaBuff	33
 globalvar	Counters	34
@@ -34,7 +29,6 @@ globalvar	ChangelogBodyTable	40
 globalvar	HanzoBuff	41
 globalvar	BaptisteBuff	42
 globalvar	CassidyBuff	43
-globalvar	LucioBuff	44
 globalvar	JunkratBuff	45
 globalvar	MoiraBuff	46
 globalvar	VentureBuff	48
@@ -46,7 +40,6 @@ globalvar	EchoBuff	53
 globalvar	EmreBuff	54
 globalvar	JetpackCatBuff	55
 globalvar	JunkerQueenBuff	56
-globalvar	LifeweaverBuff	57
 globalvar	MeiBuff	58
 globalvar	MizukiBuff	59
 globalvar	PharahBuff	60
