@@ -26,6 +26,7 @@ rule "[AI/control]: Domina Secondary":
     @Condition eventPlayer.isDummy() != false
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.isFiringPrimaryFire() != true
     @Condition eventPlayer.getAbilityCooldown(Button.SECONDARY_FIRE) == 0
     @Condition eventPlayer.botTarget != null
     @Condition eventPlayer.botTarget.isAlive() == true
@@ -42,6 +43,7 @@ rule "[AI/control]: Domina Ability 1":
     @Condition eventPlayer.isDummy() != false
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.isFiringPrimaryFire() != true
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) == 0
     @Condition eventPlayer.botTarget != null
     @Condition eventPlayer.botTarget.isAlive() == true
@@ -62,6 +64,7 @@ rule "[AI/control]: Domina Ability 2":
     @Condition eventPlayer.isDummy() != false
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.isFiringPrimaryFire() != true
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) == 0
     @Condition eventPlayer.botTarget != null
     @Condition eventPlayer.botTarget.isAlive() == true
