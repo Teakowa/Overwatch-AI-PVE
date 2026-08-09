@@ -12,16 +12,9 @@ globalvar ProjectileSpeed
 globalvar BotHeroArray
 globalvar Heros
 globalvar Hero_BAN
-globalvar Genji
 globalvar HeadshotDamage
-globalvar SombraBuff
-globalvar Tracer_Ability
-globalvar ReaperBuff
-globalvar S76Buff
 globalvar SojournBuff
-globalvar FrejaBuff
 globalvar Zen_KnockupStrength
-globalvar VendettaBuff
 globalvar Counters
 globalvar Counter_Bot
 globalvar Blacklist
@@ -31,11 +24,7 @@ globalvar ChangelogHeroes
 globalvar ChangelogBodyTable
 globalvar HanzoBuff
 globalvar BaptisteBuff
-globalvar CassidyBuff
-globalvar JunkratBuff
 globalvar MoiraBuff
-globalvar VentureBuff
-globalvar WreckingBallBuff
 globalvar AnranBuff
 globalvar BastionBuff
 globalvar DominaBuff
@@ -45,8 +34,4 @@ globalvar JetpackCatBuff
 globalvar JunkerQueenBuff
 globalvar MeiBuff
 globalvar MizukiBuff
-globalvar PharahBuff
 globalvar SierraBuff
-globalvar TorbjornBuff
-globalvar WidowmakerBuff
-globalvar ShionBuff
