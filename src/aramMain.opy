@@ -14,6 +14,7 @@
 #!include "modules/prelude/global-vars.opy"
 #!include "modules/prelude/player-vars.opy"
 #!include "modules/prelude/subroutine.opy"
+#!include "modules/burning/state.opy"
 #!include "aram_protocol.opy"
 
 #

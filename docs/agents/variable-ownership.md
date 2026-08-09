@@ -85,3 +85,11 @@ reverted Domina AI serialization change tracked by #61. The ownership refactor d
 not reintroduce that behavior; if a future Domina implementation adds either state,
 the declaration must live in the narrowest `src/heroes/domina/` module and be covered
 by the same Main/ARAM uniqueness checks.
+
+### Burning mechanic owner audit
+
+`src/modules/burning/state.opy` owns the preserved `burn_stack` player-variable slot
+and is included explicitly by both entry manifests. The current branch has no active
+`burn_stack` readers or writers after the burn-stack behavior was retired, so no hero
+effect or reset rule is moved here. Future burning consumers must include or depend on
+this responsibility-named module instead of restoring an ambient prelude declaration.
