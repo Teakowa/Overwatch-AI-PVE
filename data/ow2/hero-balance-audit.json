@@ -22,16 +22,16 @@
   "summary": {
     "activeOw2ReferenceDefinitions": 61,
     "commentedOw2ReferenceDefinitions": 0,
-    "directOw2Consumers": 58,
-    "duplicateBaselineFacts": 6,
-    "consumedDuplicateBaselineFacts": 6,
+    "directOw2Consumers": 61,
+    "duplicateBaselineFacts": 3,
+    "consumedDuplicateBaselineFacts": 3,
     "mainDerivedSettings": 99,
     "aramSettingEntries": 386,
     "aramDirectNumericSettings": 335,
     "heroWorkshopSettingEntries": 186,
-    "missingProjectConsumedReferences": 3,
+    "missingProjectConsumedReferences": 0,
     "unusedOw2ReferenceDefinitions": 0,
-    "semanticReviewItems": 344
+    "semanticReviewItems": 338
   },
   "coverage": {
     "files": [
@@ -45,7 +45,7 @@
         "path": "src/constants/player_constants.opy",
         "role": "项目常数、目标和重复 baseline 别名",
         "inspected": true,
-        "relevantEntries": 6
+        "relevantEntries": 3
       },
       {
         "path": "src/constants/hero_balance_constants.opy",
@@ -205,7 +205,7 @@
       "sameValue": false,
       "referenceActive": true,
       "referenceLine": 38,
-      "legacyLine": 125,
+      "legacyLine": 122,
       "consumers": [
         {
           "file": "src/modules/prelude/settings.opy",
@@ -229,7 +229,7 @@
       "sameValue": false,
       "referenceActive": true,
       "referenceLine": 39,
-      "legacyLine": 124,
+      "legacyLine": 121,
       "consumers": [
         {
           "file": "src/modules/prelude/settings.opy",
@@ -249,7 +249,7 @@
       "sameValue": false,
       "referenceActive": true,
       "referenceLine": 40,
-      "legacyLine": 126,
+      "legacyLine": 123,
       "consumers": [
         {
           "file": "src/modules/prelude/settings.opy",
@@ -262,54 +262,6 @@
         {
           "file": "src/utilities/changelog_text.opy",
           "line": 12
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_DVA_BOOSTER_COOLDOWN_TIME",
-      "legacyName": "DVA_BOOSTER_COOLDOWN_TIME",
-      "referenceValue": "4",
-      "legacyValue": "(DVA_BOOSTER_COOLDOWN_TIME_RAW * 85 / 100)",
-      "sameValue": false,
-      "referenceActive": true,
-      "referenceLine": 48,
-      "legacyLine": 114,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 827
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_DVA_MATRIX_DURATION",
-      "legacyName": "DVA_MATRIX_DURATION",
-      "referenceValue": "2",
-      "legacyValue": "(DVA_MATRIX_DURATION_RAW * 134 / 100)",
-      "sameValue": false,
-      "referenceActive": true,
-      "referenceLine": 49,
-      "legacyLine": 116,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 832
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_DVA_MICRO_MISSILES_COOLDOWN_TIME",
-      "legacyName": "DVA_MICRO_MISSILES_COOLDOWN_TIME",
-      "referenceValue": "8",
-      "legacyValue": "(DVA_MICRO_MISSILES_COOLDOWN_TIME_RAW * 86 / 100)",
-      "sameValue": false,
-      "referenceActive": true,
-      "referenceLine": 50,
-      "legacyLine": 118,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 829
         }
       ]
     }
@@ -5874,38 +5826,33 @@
         "team": "allTeams",
         "hero": "dva",
         "field": "ability1Cooldown%",
-        "value": "ratioPercent(DVA_BOOSTER_COOLDOWN_TIME, DVA_BOOSTER_COOLDOWN_TIME_RAW)",
+        "value": "ratioPercent(SET_DVA_ABILITY1_COOLDOWN_TARGET, OW2_DVA_BOOSTER_COOLDOWN_TIME)",
         "file": "src/modules/prelude/settings.opy",
         "line": 827,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
-          "DVA_BOOSTER_COOLDOWN_TIME",
-          "DVA_BOOSTER_COOLDOWN_TIME_RAW"
+          "SET_DVA_ABILITY1_COOLDOWN_TARGET",
+          "OW2_DVA_BOOSTER_COOLDOWN_TIME"
         ],
         "targetTokens": [
-          "DVA_BOOSTER_COOLDOWN_TIME"
+          "SET_DVA_ABILITY1_COOLDOWN_TARGET"
         ],
         "functionName": "ratioPercent",
         "expressionArguments": [
-          "DVA_BOOSTER_COOLDOWN_TIME",
-          "DVA_BOOSTER_COOLDOWN_TIME_RAW"
+          "SET_DVA_ABILITY1_COOLDOWN_TARGET",
+          "OW2_DVA_BOOSTER_COOLDOWN_TIME"
         ],
-        "referenceToken": "DVA_BOOSTER_COOLDOWN_TIME_RAW",
-        "targetToken": "DVA_BOOSTER_COOLDOWN_TIME",
-        "canonicalReference": null,
-        "referenceResolved": false,
+        "referenceToken": "OW2_DVA_BOOSTER_COOLDOWN_TIME",
+        "targetToken": "SET_DVA_ABILITY1_COOLDOWN_TARGET",
+        "canonicalReference": "OW2_DVA_BOOSTER_COOLDOWN_TIME",
+        "referenceResolved": true,
         "aramRepresentations": []
       },
       "aram": [],
-      "canonicalReference": null,
-      "duplicateBaselineNames": [
-        "DVA_BOOSTER_COOLDOWN_TIME_RAW"
-      ],
-      "migrationNotes": [
-        "reference token cannot be resolved to an active OW2 definition",
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "canonicalReference": "OW2_DVA_BOOSTER_COOLDOWN_TIME",
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "allTeams.dva.ability2Cooldown%",
@@ -5918,38 +5865,33 @@
         "team": "allTeams",
         "hero": "dva",
         "field": "ability2Cooldown%",
-        "value": "ratioPercent(DVA_MICRO_MISSILES_COOLDOWN_TIME, DVA_MICRO_MISSILES_COOLDOWN_TIME_RAW)",
+        "value": "ratioPercent(SET_DVA_ABILITY2_COOLDOWN_TARGET, OW2_DVA_MICRO_MISSILES_COOLDOWN_TIME)",
         "file": "src/modules/prelude/settings.opy",
         "line": 829,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
-          "DVA_MICRO_MISSILES_COOLDOWN_TIME",
-          "DVA_MICRO_MISSILES_COOLDOWN_TIME_RAW"
+          "SET_DVA_ABILITY2_COOLDOWN_TARGET",
+          "OW2_DVA_MICRO_MISSILES_COOLDOWN_TIME"
         ],
         "targetTokens": [
-          "DVA_MICRO_MISSILES_COOLDOWN_TIME"
+          "SET_DVA_ABILITY2_COOLDOWN_TARGET"
         ],
         "functionName": "ratioPercent",
         "expressionArguments": [
-          "DVA_MICRO_MISSILES_COOLDOWN_TIME",
-          "DVA_MICRO_MISSILES_COOLDOWN_TIME_RAW"
+          "SET_DVA_ABILITY2_COOLDOWN_TARGET",
+          "OW2_DVA_MICRO_MISSILES_COOLDOWN_TIME"
         ],
-        "referenceToken": "DVA_MICRO_MISSILES_COOLDOWN_TIME_RAW",
-        "targetToken": "DVA_MICRO_MISSILES_COOLDOWN_TIME",
-        "canonicalReference": null,
-        "referenceResolved": false,
+        "referenceToken": "OW2_DVA_MICRO_MISSILES_COOLDOWN_TIME",
+        "targetToken": "SET_DVA_ABILITY2_COOLDOWN_TARGET",
+        "canonicalReference": "OW2_DVA_MICRO_MISSILES_COOLDOWN_TIME",
+        "referenceResolved": true,
         "aramRepresentations": []
       },
       "aram": [],
-      "canonicalReference": null,
-      "duplicateBaselineNames": [
-        "DVA_MICRO_MISSILES_COOLDOWN_TIME_RAW"
-      ],
-      "migrationNotes": [
-        "reference token cannot be resolved to an active OW2 definition",
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "canonicalReference": "OW2_DVA_MICRO_MISSILES_COOLDOWN_TIME",
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "allTeams.dva.secondaryFireMaximumTime%",
@@ -5962,27 +5904,27 @@
         "team": "allTeams",
         "hero": "dva",
         "field": "secondaryFireMaximumTime%",
-        "value": "ratioPercent(DVA_MATRIX_DURATION, DVA_MATRIX_DURATION_RAW)",
+        "value": "ratioPercent(SET_DVA_SECONDARY_FIRE_MAXIMUM_TIME_TARGET, OW2_DVA_MATRIX_DURATION)",
         "file": "src/modules/prelude/settings.opy",
         "line": 832,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
-          "DVA_MATRIX_DURATION",
-          "DVA_MATRIX_DURATION_RAW"
+          "SET_DVA_SECONDARY_FIRE_MAXIMUM_TIME_TARGET",
+          "OW2_DVA_MATRIX_DURATION"
         ],
         "targetTokens": [
-          "DVA_MATRIX_DURATION"
+          "SET_DVA_SECONDARY_FIRE_MAXIMUM_TIME_TARGET"
         ],
         "functionName": "ratioPercent",
         "expressionArguments": [
-          "DVA_MATRIX_DURATION",
-          "DVA_MATRIX_DURATION_RAW"
+          "SET_DVA_SECONDARY_FIRE_MAXIMUM_TIME_TARGET",
+          "OW2_DVA_MATRIX_DURATION"
         ],
-        "referenceToken": "DVA_MATRIX_DURATION_RAW",
-        "targetToken": "DVA_MATRIX_DURATION",
-        "canonicalReference": null,
-        "referenceResolved": false,
+        "referenceToken": "OW2_DVA_MATRIX_DURATION",
+        "targetToken": "SET_DVA_SECONDARY_FIRE_MAXIMUM_TIME_TARGET",
+        "canonicalReference": "OW2_DVA_MATRIX_DURATION",
+        "referenceResolved": true,
         "aramRepresentations": [
           {
             "mode": "aram",
@@ -6014,14 +5956,9 @@
           "targetTokens": []
         }
       ],
-      "canonicalReference": null,
-      "duplicateBaselineNames": [
-        "DVA_MATRIX_DURATION_RAW"
-      ],
-      "migrationNotes": [
-        "reference token cannot be resolved to an active OW2 definition",
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "canonicalReference": "OW2_DVA_MATRIX_DURATION",
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     }
   ],
   "directOw2Consumers": [
@@ -6274,6 +6211,36 @@
         {
           "file": "src/modules/prelude/settings.opy",
           "line": 610
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_DVA_BOOSTER_COOLDOWN_TIME",
+      "value": "4",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 827
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_DVA_MATRIX_DURATION",
+      "value": "2",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 832
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_DVA_MICRO_MISSILES_COOLDOWN_TIME",
+      "value": "8",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 829
         }
       ]
     },
@@ -6774,44 +6741,7 @@
       ]
     }
   ],
-  "missingProjectConsumedReferences": [
-    {
-      "id": "allTeams.dva.ability1Cooldown%",
-      "hero": "dva",
-      "field": "ability1Cooldown%",
-      "team": "allTeams",
-      "referenceToken": "DVA_BOOSTER_COOLDOWN_TIME_RAW",
-      "source": {
-        "file": "src/modules/prelude/settings.opy",
-        "line": 827
-      },
-      "reason": "Main derives a Workshop percentage from a token that is not an active canonical OW2 definition; do not migrate it without deciding whether it is an absolute target or a relative modifier."
-    },
-    {
-      "id": "allTeams.dva.ability2Cooldown%",
-      "hero": "dva",
-      "field": "ability2Cooldown%",
-      "team": "allTeams",
-      "referenceToken": "DVA_MICRO_MISSILES_COOLDOWN_TIME_RAW",
-      "source": {
-        "file": "src/modules/prelude/settings.opy",
-        "line": 829
-      },
-      "reason": "Main derives a Workshop percentage from a token that is not an active canonical OW2 definition; do not migrate it without deciding whether it is an absolute target or a relative modifier."
-    },
-    {
-      "id": "allTeams.dva.secondaryFireMaximumTime%",
-      "hero": "dva",
-      "field": "secondaryFireMaximumTime%",
-      "team": "allTeams",
-      "referenceToken": "DVA_MATRIX_DURATION_RAW",
-      "source": {
-        "file": "src/modules/prelude/settings.opy",
-        "line": 832
-      },
-      "reason": "Main derives a Workshop percentage from a token that is not an active canonical OW2 definition; do not migrate it without deciding whether it is an absolute target or a relative modifier."
-    }
-  ],
+  "missingProjectConsumedReferences": [],
   "unusedOw2ReferenceDefinitions": [],
   "aramDirectNumericSettings": [
     {
@@ -12808,49 +12738,13 @@
   ],
   "semanticReviewRequired": [
     {
-      "id": "allTeams.dva.ability1Cooldown%",
-      "category": "missing_reference",
-      "hero": "dva",
-      "field": "ability1Cooldown%",
-      "source": {
-        "file": "src/modules/prelude/settings.opy",
-        "line": 827
-      },
-      "value": "DVA_BOOSTER_COOLDOWN_TIME_RAW",
-      "reason": "Main derives a Workshop percentage from a token that is not an active canonical OW2 definition; do not migrate it without deciding whether it is an absolute target or a relative modifier."
-    },
-    {
-      "id": "allTeams.dva.ability2Cooldown%",
-      "category": "missing_reference",
-      "hero": "dva",
-      "field": "ability2Cooldown%",
-      "source": {
-        "file": "src/modules/prelude/settings.opy",
-        "line": 829
-      },
-      "value": "DVA_MICRO_MISSILES_COOLDOWN_TIME_RAW",
-      "reason": "Main derives a Workshop percentage from a token that is not an active canonical OW2 definition; do not migrate it without deciding whether it is an absolute target or a relative modifier."
-    },
-    {
-      "id": "allTeams.dva.secondaryFireMaximumTime%",
-      "category": "missing_reference",
-      "hero": "dva",
-      "field": "secondaryFireMaximumTime%",
-      "source": {
-        "file": "src/modules/prelude/settings.opy",
-        "line": 832
-      },
-      "value": "DVA_MATRIX_DURATION_RAW",
-      "reason": "Main derives a Workshop percentage from a token that is not an active canonical OW2 definition; do not migrate it without deciding whether it is an absolute target or a relative modifier."
-    },
-    {
       "id": "duplicate.DOMINA_BARRIER_ARRAY_COOLDOWN",
       "category": "divergent_duplicate",
       "hero": "DOMINA",
       "field": "DOMINA_BARRIER_ARRAY_COOLDOWN",
       "source": {
         "file": "src/constants/player_constants.opy",
-        "line": 125
+        "line": 122
       },
       "value": "8",
       "reason": "legacy value differs from OW2_DOMINA_BARRIER_ARRAY_COOLDOWN (14); this may be a target or a stale duplicate"
@@ -12862,7 +12756,7 @@
       "field": "DOMINA_CRYSTAL_CHARGE_COOLDOWN",
       "source": {
         "file": "src/constants/player_constants.opy",
-        "line": 124
+        "line": 121
       },
       "value": "6",
       "reason": "legacy value differs from OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN (8); this may be a target or a stale duplicate"
@@ -12874,46 +12768,10 @@
       "field": "DOMINA_SONIC_REPULSORS_COOLDOWN",
       "source": {
         "file": "src/constants/player_constants.opy",
-        "line": 126
+        "line": 123
       },
       "value": "6",
       "reason": "legacy value differs from OW2_DOMINA_SONIC_REPULSORS_COOLDOWN (7); this may be a target or a stale duplicate"
-    },
-    {
-      "id": "duplicate.DVA_BOOSTER_COOLDOWN_TIME",
-      "category": "divergent_duplicate",
-      "hero": "DVA",
-      "field": "DVA_BOOSTER_COOLDOWN_TIME",
-      "source": {
-        "file": "src/constants/player_constants.opy",
-        "line": 114
-      },
-      "value": "(DVA_BOOSTER_COOLDOWN_TIME_RAW * 85 / 100)",
-      "reason": "legacy value differs from OW2_DVA_BOOSTER_COOLDOWN_TIME (4); this may be a target or a stale duplicate"
-    },
-    {
-      "id": "duplicate.DVA_MATRIX_DURATION",
-      "category": "divergent_duplicate",
-      "hero": "DVA",
-      "field": "DVA_MATRIX_DURATION",
-      "source": {
-        "file": "src/constants/player_constants.opy",
-        "line": 116
-      },
-      "value": "(DVA_MATRIX_DURATION_RAW * 134 / 100)",
-      "reason": "legacy value differs from OW2_DVA_MATRIX_DURATION (2); this may be a target or a stale duplicate"
-    },
-    {
-      "id": "duplicate.DVA_MICRO_MISSILES_COOLDOWN_TIME",
-      "category": "divergent_duplicate",
-      "hero": "DVA",
-      "field": "DVA_MICRO_MISSILES_COOLDOWN_TIME",
-      "source": {
-        "file": "src/constants/player_constants.opy",
-        "line": 118
-      },
-      "value": "(DVA_MICRO_MISSILES_COOLDOWN_TIME_RAW * 86 / 100)",
-      "reason": "legacy value differs from OW2_DVA_MICRO_MISSILES_COOLDOWN_TIME (8); this may be a target or a stale duplicate"
     },
     {
       "id": "aram.team1.hanzo.ability2Quantity%",

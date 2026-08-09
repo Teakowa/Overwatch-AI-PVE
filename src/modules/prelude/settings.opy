@@ -824,12 +824,12 @@ settings {
             "dva": {
                 "damageDealt%": SETTINGS_ALL_TEAMS_DVA_DAMAGE_DEALT_PERCENT,
                 "damageReceived%": SETTINGS_ALL_TEAMS_DVA_DAMAGE_RECEIVED_PERCENT,
-                "ability1Cooldown%": ratioPercent(DVA_BOOSTER_COOLDOWN_TIME, DVA_BOOSTER_COOLDOWN_TIME_RAW),
+                "ability1Cooldown%": ratioPercent(SET_DVA_ABILITY1_COOLDOWN_TARGET, OW2_DVA_BOOSTER_COOLDOWN_TIME),
 
-                "ability2Cooldown%": ratioPercent(DVA_MICRO_MISSILES_COOLDOWN_TIME, DVA_MICRO_MISSILES_COOLDOWN_TIME_RAW),
+                "ability2Cooldown%": ratioPercent(SET_DVA_ABILITY2_COOLDOWN_TARGET, OW2_DVA_MICRO_MISSILES_COOLDOWN_TIME),
 
                 "secondaryFireRechargeRate%": SETTINGS_ALL_TEAMS_DVA_SECONDARY_FIRE_RECHARGE_RATE_PERCENT,
-                "secondaryFireMaximumTime%": ratioPercent(DVA_MATRIX_DURATION, DVA_MATRIX_DURATION_RAW)
+                "secondaryFireMaximumTime%": ratioPercent(SET_DVA_SECONDARY_FIRE_MAXIMUM_TIME_TARGET, OW2_DVA_MATRIX_DURATION)
             },
             "lifeweaver": {
                 "healingDealt%": SETTINGS_ALL_TEAMS_LIFEWEAVER_HEALING_DEALT_PERCENT,
