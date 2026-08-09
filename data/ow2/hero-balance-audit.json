@@ -22,9 +22,9 @@
   "summary": {
     "activeOw2ReferenceDefinitions": 61,
     "commentedOw2ReferenceDefinitions": 0,
-    "directOw2Consumers": 3,
-    "duplicateBaselineFacts": 61,
-    "consumedDuplicateBaselineFacts": 61,
+    "directOw2Consumers": 58,
+    "duplicateBaselineFacts": 6,
+    "consumedDuplicateBaselineFacts": 6,
     "mainDerivedSettings": 99,
     "aramSettingEntries": 386,
     "aramDirectNumericSettings": 335,
@@ -45,7 +45,7 @@
         "path": "src/constants/player_constants.opy",
         "role": "项目常数、目标和重复 baseline 别名",
         "inspected": true,
-        "relevantEntries": 61
+        "relevantEntries": 6
       },
       {
         "path": "src/constants/hero_balance_constants.opy",
@@ -198,230 +198,6 @@
   },
   "duplicateBaselineFacts": [
     {
-      "canonicalReference": "OW2_ANA_BIOTIC_GRENADE_COOLDOWN",
-      "legacyName": "ANA_BIOTIC_GRENADE_COOLDOWN",
-      "referenceValue": "12",
-      "legacyValue": "12",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 12,
-      "legacyLine": 49,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 499
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_ANA_SLEEP_DART_COOLDOWN_TIME",
-      "legacyName": "ANA_SLEEP_DART_COOLDOWN_TIME",
-      "referenceValue": "12",
-      "legacyValue": "12",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 13,
-      "legacyLine": 50,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 97
-        },
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 503
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_ANA_ULT_COST",
-      "legacyName": "ANA_ULT_COST",
-      "referenceValue": "2300",
-      "legacyValue": "2300",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 14,
-      "legacyLine": 51,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 94
-        },
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 501
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_ANRAN_DANCING_BLAZE_COOLDOWN",
-      "legacyName": "ANRAN_DANCING_BLAZE_COOLDOWN",
-      "referenceValue": "8",
-      "legacyValue": "8",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 17,
-      "legacyLine": 62,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 184
-        },
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 584
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_ANRAN_INFERNO_RUSH_COOLDOWN",
-      "legacyName": "ANRAN_INFERNO_RUSH_COOLDOWN",
-      "referenceValue": "8",
-      "legacyValue": "8",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 18,
-      "legacyLine": 61,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 183
-        },
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 583
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_BAPTISTE_LAMP_COOLDOWN_TIME",
-      "legacyName": "BAPTISTE_LAMP_COOLDOWN_TIME",
-      "referenceValue": "22",
-      "legacyValue": "22",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 21,
-      "legacyLine": 78,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 106
-        },
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 513
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_BAPTISTE_REGEN_BURST_COOLDOWN",
-      "legacyName": "BAPTISTE_REGEN_BURST_COOLDOWN",
-      "referenceValue": "14",
-      "legacyValue": "14",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 22,
-      "legacyLine": 79,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 101
-        },
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 509
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_BASTION_RECONFIGURE_COOLDOWN",
-      "legacyName": "BASTION_RECONFIGURE_COOLDOWN",
-      "referenceValue": "12",
-      "legacyValue": "12",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 25,
-      "legacyLine": 88,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 465
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_BRIGITTE_REPAIR_PACK_COOLDOWN",
-      "legacyName": "BRIGITTE_REPAIR_PACK_COOLDOWN",
-      "referenceValue": "5",
-      "legacyValue": "5",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 28,
-      "legacyLine": 95,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 522
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_BRIGITTE_SHIELD_BASH_COOLDOWN",
-      "legacyName": "BRIGITTE_SHIELD_BASH_COOLDOWN",
-      "referenceValue": "5",
-      "legacyValue": "5",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 29,
-      "legacyLine": 96,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 528
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK",
-      "legacyName": "BRIGITTE_SHIELD_BASH_KNOCKBACK",
-      "referenceValue": "2",
-      "legacyValue": "2",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 30,
-      "legacyLine": 97,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 119
-        },
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 530
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_BRIGITTE_ULT_COST",
-      "legacyName": "BRIGITTE_ULT_COST",
-      "referenceValue": "2700",
-      "legacyValue": "2700",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 31,
-      "legacyLine": 98,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 117
-        },
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 526
-        }
-      ]
-    },
-    {
       "canonicalReference": "OW2_DOMINA_BARRIER_ARRAY_COOLDOWN",
       "legacyName": "DOMINA_BARRIER_ARRAY_COOLDOWN",
       "referenceValue": "14",
@@ -429,7 +205,7 @@
       "sameValue": false,
       "referenceActive": true,
       "referenceLine": 38,
-      "legacyLine": 142,
+      "legacyLine": 125,
       "consumers": [
         {
           "file": "src/modules/prelude/settings.opy",
@@ -453,7 +229,7 @@
       "sameValue": false,
       "referenceActive": true,
       "referenceLine": 39,
-      "legacyLine": 141,
+      "legacyLine": 124,
       "consumers": [
         {
           "file": "src/modules/prelude/settings.opy",
@@ -473,7 +249,7 @@
       "sameValue": false,
       "referenceActive": true,
       "referenceLine": 40,
-      "legacyLine": 143,
+      "legacyLine": 126,
       "consumers": [
         {
           "file": "src/modules/prelude/settings.opy",
@@ -490,58 +266,6 @@
       ]
     },
     {
-      "canonicalReference": "OW2_DOOMFIST_AMMO_REGEN",
-      "legacyName": "DOOMFIST_AMMO_REGEN",
-      "referenceValue": "0.4",
-      "legacyValue": "0.4",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 43,
-      "legacyLine": 119,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 215
-        },
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 605
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_DOOMFIST_POWER_BLOCK_COOLDOWN",
-      "legacyName": "DOOMFIST_POWER_BLOCK_COOLDOWN",
-      "referenceValue": "8",
-      "legacyValue": "8",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 44,
-      "legacyLine": 120,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 607
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_DOOMFIST_SEISMIC_SLAM_COOLDOWN",
-      "legacyName": "DOOMFIST_SEISMIC_SLAM_COOLDOWN",
-      "referenceValue": "7.5",
-      "legacyValue": "7.5",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 45,
-      "legacyLine": 121,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 610
-        }
-      ]
-    },
-    {
       "canonicalReference": "OW2_DVA_BOOSTER_COOLDOWN_TIME",
       "legacyName": "DVA_BOOSTER_COOLDOWN_TIME",
       "referenceValue": "4",
@@ -549,7 +273,7 @@
       "sameValue": false,
       "referenceActive": true,
       "referenceLine": 48,
-      "legacyLine": 131,
+      "legacyLine": 114,
       "consumers": [
         {
           "file": "src/modules/prelude/settings.opy",
@@ -565,7 +289,7 @@
       "sameValue": false,
       "referenceActive": true,
       "referenceLine": 49,
-      "legacyLine": 133,
+      "legacyLine": 116,
       "consumers": [
         {
           "file": "src/modules/prelude/settings.opy",
@@ -581,771 +305,11 @@
       "sameValue": false,
       "referenceActive": true,
       "referenceLine": 50,
-      "legacyLine": 135,
+      "legacyLine": 118,
       "consumers": [
         {
           "file": "src/modules/prelude/settings.opy",
           "line": 829
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_GENJI_DEFLECT_COOLDOWN",
-      "legacyName": "GENJI_DEFLECT_COOLDOWN",
-      "referenceValue": "10",
-      "legacyValue": "10",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 53,
-      "legacyLine": 153,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 670
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_GENJI_ULT_COST",
-      "legacyName": "GENJI_ULT_COST",
-      "referenceValue": "2125",
-      "legacyValue": "2125",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 54,
-      "legacyLine": 154,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 282
-        },
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 668
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_HANZO_STORM_COOLDOWN",
-      "legacyName": "HANZO_STORM_COOLDOWN",
-      "referenceValue": "8",
-      "legacyValue": "8",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 57,
-      "legacyLine": 163,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 434
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_HANZO_ULT_COST",
-      "legacyName": "HANZO_ULT_COST",
-      "referenceValue": "1700",
-      "legacyValue": "1700",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 58,
-      "legacyLine": 164,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 44
-        },
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 436
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_ILLARI_PYLON_COOLDOWN",
-      "legacyName": "ILLARI_PYLON_COOLDOWN",
-      "referenceValue": "6",
-      "legacyValue": "6",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 61,
-      "legacyLine": 195,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 199
-        },
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 592
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_JUNKRAT_CONCUSSION_MINE_COOLDOWN",
-      "legacyName": "JUNKRAT_CONCUSSION_MINE_COOLDOWN",
-      "referenceValue": "8",
-      "legacyValue": "8",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 64,
-      "legacyLine": 180,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 288
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_JUNKRAT_ULT_COST",
-      "legacyName": "JUNKRAT_ULT_COST",
-      "referenceValue": "2100",
-      "legacyValue": "2100",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 65,
-      "legacyLine": 181,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 678
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_JUNO_ULT_COST",
-      "legacyName": "JUNO_ULT_COST",
-      "referenceValue": "3135",
-      "legacyValue": "3135",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 68,
-      "legacyLine": 188,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 207
-        },
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 597
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_KIRIKO_SUZU_COOLDOWN",
-      "legacyName": "KIRIKO_SUZU_COOLDOWN",
-      "referenceValue": "14",
-      "legacyValue": "14",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 71,
-      "legacyLine": 202,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 381
-        },
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 780
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_KIRIKO_ULT_COST",
-      "legacyName": "KIRIKO_ULT_COST",
-      "referenceValue": "2525",
-      "legacyValue": "2525",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 72,
-      "legacyLine": 203,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 383
-        },
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 782
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_LUCIO_ULT_COST",
-      "legacyName": "LUCIO_ULT_COST",
-      "referenceValue": "2650",
-      "legacyValue": "2650",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 75,
-      "legacyLine": 214,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 58
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_MCCREE_FLASHBANG_COOLDOWN",
-      "legacyName": "MCCREE_FLASHBANG_COOLDOWN",
-      "referenceValue": "12",
-      "legacyValue": "12",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 34,
-      "legacyLine": 110,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 49
-        },
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 446
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_MCCREE_ULT_COST",
-      "legacyName": "MCCREE_ULT_COST",
-      "referenceValue": "1800",
-      "legacyValue": "1800",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 35,
-      "legacyLine": 111,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 444
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_MOIRA_ULT_COST",
-      "legacyName": "MOIRA_ULT_COST",
-      "referenceValue": "2700",
-      "legacyValue": "2700",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 78,
-      "legacyLine": 226,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 349
-        },
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 739
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_ORISA_FORTIFY_COOLDOWN",
-      "legacyName": "ORISA_FORTIFY_COOLDOWN",
-      "referenceValue": "16",
-      "legacyValue": "16",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 81,
-      "legacyLine": 233,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 81
-        },
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 487
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_ORISA_ULT_COST",
-      "legacyName": "ORISA_ULT_COST",
-      "referenceValue": "2150",
-      "legacyValue": "2150",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 82,
-      "legacyLine": 235,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 89
-        },
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 493
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_PHARAH_CONCUSSIVE_BLAST_COOLDOWN",
-      "legacyName": "PHARAH_CONCUSSIVE_BLAST_COOLDOWN",
-      "referenceValue": "7",
-      "legacyValue": "7",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 85,
-      "legacyLine": 244,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 251
-        },
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 640
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_PHARAH_JUMP_JET_COOLDOWN",
-      "legacyName": "PHARAH_JUMP_JET_COOLDOWN",
-      "referenceValue": "14",
-      "legacyValue": "14",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 86,
-      "legacyLine": 245,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 247
-        },
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 637
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_RAMATTRA_NEMESIS_COOLDOWN",
-      "legacyName": "RAMATTRA_NEMESIS_COOLDOWN",
-      "referenceValue": "8",
-      "legacyValue": "8",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 89,
-      "legacyLine": 254,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 150
-        },
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 554
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_RAMATTRA_ULT_COST",
-      "legacyName": "RAMATTRA_ULT_COST",
-      "referenceValue": "2300",
-      "legacyValue": "2300",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 90,
-      "legacyLine": 255,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 153
-        },
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 556
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_RAMATTRA_VOID_BARRIER_COOLDOWN",
-      "legacyName": "RAMATTRA_VOID_BARRIER_COOLDOWN",
-      "referenceValue": "16",
-      "legacyValue": "16",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 91,
-      "legacyLine": 256,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 156
-        },
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 559
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_RAMATTRA_VORTEX_COOLDOWN",
-      "legacyName": "RAMATTRA_VORTEX_COOLDOWN",
-      "referenceValue": "11",
-      "legacyValue": "11",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 92,
-      "legacyLine": 257,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 148
-        },
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 552
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_REINHARDT_BARRIER_HEALTH",
-      "legacyName": "REINHARDT_BARRIER_HEALTH",
-      "referenceValue": "1500",
-      "legacyValue": "1500",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 95,
-      "legacyLine": 273,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 358
-        },
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 747
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_REINHARDT_BARRIER_REGEN",
-      "legacyName": "REINHARDT_BARRIER_REGEN",
-      "referenceValue": "150",
-      "legacyValue": "150",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 96,
-      "legacyLine": 274,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 355
-        },
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 745
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_REINHARDT_CHARGE_COOLDOWN_TIME",
-      "legacyName": "REINHARDT_CHARGE_COOLDOWN_TIME",
-      "referenceValue": "10",
-      "legacyValue": "10",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 97,
-      "legacyLine": 275,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 352
-        },
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 743
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_REINHARDT_ULT_COST",
-      "legacyName": "REINHARDT_ULT_COST",
-      "referenceValue": "1960",
-      "legacyValue": "1960",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 98,
-      "legacyLine": 276,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 748
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_ROADHOG_HOOK_COOLDOWN_TIME",
-      "legacyName": "ROADHOG_HOOK_COOLDOWN_TIME",
-      "referenceValue": "8",
-      "legacyValue": "8",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 101,
-      "legacyLine": 290,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 773
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_SIGMA_BARRIER_HEALTH",
-      "legacyName": "SIGMA_BARRIER_HEALTH",
-      "referenceValue": "700",
-      "legacyValue": "700",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 104,
-      "legacyLine": 296,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 364
-        },
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 763
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_SIGMA_ULT_COST",
-      "legacyName": "SIGMA_ULT_COST",
-      "referenceValue": "2300",
-      "legacyValue": "2300",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 105,
-      "legacyLine": 297,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 765
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_SOLDIER_BIOTIC_FIELD_COOLDOWN",
-      "legacyName": "SOLDIER_BIOTIC_FIELD_COOLDOWN",
-      "referenceValue": "15",
-      "legacyValue": "15",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 108,
-      "legacyLine": 307,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 63
-        },
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 471
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_SOMBRA_HACK_COOLDOWN_TIME",
-      "legacyName": "SOMBRA_HACK_COOLDOWN_TIME",
-      "referenceValue": "6",
-      "legacyValue": "6",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 111,
-      "legacyLine": 314,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 414
-        },
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 811
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_TORBJORN_ULT_COST",
-      "legacyName": "TORBJORN_ULT_COST",
-      "referenceValue": "2350",
-      "legacyValue": "2350",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 114,
-      "legacyLine": 323,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 139
-        },
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 544
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_TRACER_RECALL_COOLDOWN",
-      "legacyName": "TRACER_RECALL_COOLDOWN",
-      "referenceValue": "13",
-      "legacyValue": "13",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 117,
-      "legacyLine": 330,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 296
-        },
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 689
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_TRACER_ULT_COST",
-      "legacyName": "TRACER_ULT_COST",
-      "referenceValue": "1375",
-      "legacyValue": "1375",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 118,
-      "legacyLine": 331,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 294
-        },
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 687
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_VENTURE_ULT_COST",
-      "legacyName": "VENTURE_ULT_COST",
-      "referenceValue": "2125",
-      "legacyValue": "2125",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 121,
-      "legacyLine": 340,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 161
-        },
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 566
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_WIDOWMAKER_ULT_COST",
-      "legacyName": "WIDOWMAKER_ULT_COST",
-      "referenceValue": "1400",
-      "legacyValue": "1400",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 124,
-      "legacyLine": 347,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 423
-        },
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 817
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_WINSTON_BARRIER_COOLDOWN",
-      "legacyName": "WINSTON_BARRIER_COOLDOWN",
-      "referenceValue": "13",
-      "legacyValue": "13",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 127,
-      "legacyLine": 354,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 272
-        },
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 660
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_WINSTON_JUMP_PACK_COOLDOWN_TIME",
-      "legacyName": "WINSTON_JUMP_PACK_COOLDOWN_TIME",
-      "referenceValue": "5",
-      "legacyValue": "5",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 128,
-      "legacyLine": 355,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 270
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_ZARYA_ULT_COST",
-      "legacyName": "ZARYA_ULT_COST",
-      "referenceValue": "2500",
-      "legacyValue": "2500",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 131,
-      "legacyLine": 365,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 225
-        },
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 618
-        }
-      ]
-    },
-    {
-      "canonicalReference": "OW2_ZENYATTA_ULT_COST",
-      "legacyName": "ZENYATTA_ULT_COST",
-      "referenceValue": "2500",
-      "legacyValue": "2500",
-      "sameValue": true,
-      "referenceActive": true,
-      "referenceLine": 134,
-      "legacyLine": 372,
-      "consumers": [
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 303
-        },
-        {
-          "file": "src/modules/prelude/settings.opy",
-          "line": 697
         }
       ]
     }
@@ -1362,13 +326,13 @@
         "team": "team1",
         "hero": "hanzo",
         "field": "ultGen%",
-        "value": "ultGenPercent(HANZO_ULT_COST, SET_AI_HANZO_ULT_COST_TARGET)",
+        "value": "ultGenPercent(OW2_HANZO_ULT_COST, SET_AI_HANZO_ULT_COST_TARGET)",
         "file": "src/modules/prelude/settings.opy",
         "line": 44,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
-          "HANZO_ULT_COST",
+          "OW2_HANZO_ULT_COST",
           "SET_AI_HANZO_ULT_COST_TARGET"
         ],
         "targetTokens": [
@@ -1376,10 +340,10 @@
         ],
         "functionName": "ultGenPercent",
         "expressionArguments": [
-          "HANZO_ULT_COST",
+          "OW2_HANZO_ULT_COST",
           "SET_AI_HANZO_ULT_COST_TARGET"
         ],
-        "referenceToken": "HANZO_ULT_COST",
+        "referenceToken": "OW2_HANZO_ULT_COST",
         "targetToken": "SET_AI_HANZO_ULT_COST_TARGET",
         "canonicalReference": "OW2_HANZO_ULT_COST",
         "referenceResolved": true,
@@ -1387,12 +351,8 @@
       },
       "aram": [],
       "canonicalReference": "OW2_HANZO_ULT_COST",
-      "duplicateBaselineNames": [
-        "HANZO_ULT_COST"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team1.cassidy.ability2Cooldown%",
@@ -1405,14 +365,14 @@
         "team": "team1",
         "hero": "cassidy",
         "field": "ability2Cooldown%",
-        "value": "ratioPercent(SET_AI_CASSIDY_ABILITY2_COOLDOWN_TARGET, MCCREE_FLASHBANG_COOLDOWN)",
+        "value": "ratioPercent(SET_AI_CASSIDY_ABILITY2_COOLDOWN_TARGET, OW2_MCCREE_FLASHBANG_COOLDOWN)",
         "file": "src/modules/prelude/settings.opy",
         "line": 49,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_AI_CASSIDY_ABILITY2_COOLDOWN_TARGET",
-          "MCCREE_FLASHBANG_COOLDOWN"
+          "OW2_MCCREE_FLASHBANG_COOLDOWN"
         ],
         "targetTokens": [
           "SET_AI_CASSIDY_ABILITY2_COOLDOWN_TARGET"
@@ -1420,9 +380,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_AI_CASSIDY_ABILITY2_COOLDOWN_TARGET",
-          "MCCREE_FLASHBANG_COOLDOWN"
+          "OW2_MCCREE_FLASHBANG_COOLDOWN"
         ],
-        "referenceToken": "MCCREE_FLASHBANG_COOLDOWN",
+        "referenceToken": "OW2_MCCREE_FLASHBANG_COOLDOWN",
         "targetToken": "SET_AI_CASSIDY_ABILITY2_COOLDOWN_TARGET",
         "canonicalReference": "OW2_MCCREE_FLASHBANG_COOLDOWN",
         "referenceResolved": true,
@@ -1458,12 +418,8 @@
         }
       ],
       "canonicalReference": "OW2_MCCREE_FLASHBANG_COOLDOWN",
-      "duplicateBaselineNames": [
-        "MCCREE_FLASHBANG_COOLDOWN"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team1.lucio.ultGen%",
@@ -1476,13 +432,13 @@
         "team": "team1",
         "hero": "lucio",
         "field": "ultGen%",
-        "value": "ultGenPercent(LUCIO_ULT_COST, SET_AI_LUCIO_ULT_COST_TARGET)",
+        "value": "ultGenPercent(OW2_LUCIO_ULT_COST, SET_AI_LUCIO_ULT_COST_TARGET)",
         "file": "src/modules/prelude/settings.opy",
         "line": 58,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
-          "LUCIO_ULT_COST",
+          "OW2_LUCIO_ULT_COST",
           "SET_AI_LUCIO_ULT_COST_TARGET"
         ],
         "targetTokens": [
@@ -1490,10 +446,10 @@
         ],
         "functionName": "ultGenPercent",
         "expressionArguments": [
-          "LUCIO_ULT_COST",
+          "OW2_LUCIO_ULT_COST",
           "SET_AI_LUCIO_ULT_COST_TARGET"
         ],
-        "referenceToken": "LUCIO_ULT_COST",
+        "referenceToken": "OW2_LUCIO_ULT_COST",
         "targetToken": "SET_AI_LUCIO_ULT_COST_TARGET",
         "canonicalReference": "OW2_LUCIO_ULT_COST",
         "referenceResolved": true,
@@ -1501,12 +457,8 @@
       },
       "aram": [],
       "canonicalReference": "OW2_LUCIO_ULT_COST",
-      "duplicateBaselineNames": [
-        "LUCIO_ULT_COST"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team1.soldier.ability2Cooldown%",
@@ -1519,14 +471,14 @@
         "team": "team1",
         "hero": "soldier",
         "field": "ability2Cooldown%",
-        "value": "ratioPercent(SET_AI_SOLDIER_ABILITY2_COOLDOWN_TARGET, SOLDIER_BIOTIC_FIELD_COOLDOWN)",
+        "value": "ratioPercent(SET_AI_SOLDIER_ABILITY2_COOLDOWN_TARGET, OW2_SOLDIER_BIOTIC_FIELD_COOLDOWN)",
         "file": "src/modules/prelude/settings.opy",
         "line": 63,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_AI_SOLDIER_ABILITY2_COOLDOWN_TARGET",
-          "SOLDIER_BIOTIC_FIELD_COOLDOWN"
+          "OW2_SOLDIER_BIOTIC_FIELD_COOLDOWN"
         ],
         "targetTokens": [
           "SET_AI_SOLDIER_ABILITY2_COOLDOWN_TARGET"
@@ -1534,9 +486,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_AI_SOLDIER_ABILITY2_COOLDOWN_TARGET",
-          "SOLDIER_BIOTIC_FIELD_COOLDOWN"
+          "OW2_SOLDIER_BIOTIC_FIELD_COOLDOWN"
         ],
-        "referenceToken": "SOLDIER_BIOTIC_FIELD_COOLDOWN",
+        "referenceToken": "OW2_SOLDIER_BIOTIC_FIELD_COOLDOWN",
         "targetToken": "SET_AI_SOLDIER_ABILITY2_COOLDOWN_TARGET",
         "canonicalReference": "OW2_SOLDIER_BIOTIC_FIELD_COOLDOWN",
         "referenceResolved": true,
@@ -1572,12 +524,8 @@
         }
       ],
       "canonicalReference": "OW2_SOLDIER_BIOTIC_FIELD_COOLDOWN",
-      "duplicateBaselineNames": [
-        "SOLDIER_BIOTIC_FIELD_COOLDOWN"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team1.orisa.ability1Cooldown%",
@@ -1590,14 +538,14 @@
         "team": "team1",
         "hero": "orisa",
         "field": "ability1Cooldown%",
-        "value": "ratioPercent(SET_AI_ORISA_ABILITY1_COOLDOWN_TARGET, ORISA_FORTIFY_COOLDOWN)",
+        "value": "ratioPercent(SET_AI_ORISA_ABILITY1_COOLDOWN_TARGET, OW2_ORISA_FORTIFY_COOLDOWN)",
         "file": "src/modules/prelude/settings.opy",
         "line": 81,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_AI_ORISA_ABILITY1_COOLDOWN_TARGET",
-          "ORISA_FORTIFY_COOLDOWN"
+          "OW2_ORISA_FORTIFY_COOLDOWN"
         ],
         "targetTokens": [
           "SET_AI_ORISA_ABILITY1_COOLDOWN_TARGET"
@@ -1605,9 +553,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_AI_ORISA_ABILITY1_COOLDOWN_TARGET",
-          "ORISA_FORTIFY_COOLDOWN"
+          "OW2_ORISA_FORTIFY_COOLDOWN"
         ],
-        "referenceToken": "ORISA_FORTIFY_COOLDOWN",
+        "referenceToken": "OW2_ORISA_FORTIFY_COOLDOWN",
         "targetToken": "SET_AI_ORISA_ABILITY1_COOLDOWN_TARGET",
         "canonicalReference": "OW2_ORISA_FORTIFY_COOLDOWN",
         "referenceResolved": true,
@@ -1615,12 +563,8 @@
       },
       "aram": [],
       "canonicalReference": "OW2_ORISA_FORTIFY_COOLDOWN",
-      "duplicateBaselineNames": [
-        "ORISA_FORTIFY_COOLDOWN"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team1.orisa.ultGen%",
@@ -1633,13 +577,13 @@
         "team": "team1",
         "hero": "orisa",
         "field": "ultGen%",
-        "value": "ultGenPercent(ORISA_ULT_COST, SET_AI_ORISA_ULT_COST_TARGET)",
+        "value": "ultGenPercent(OW2_ORISA_ULT_COST, SET_AI_ORISA_ULT_COST_TARGET)",
         "file": "src/modules/prelude/settings.opy",
         "line": 89,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
-          "ORISA_ULT_COST",
+          "OW2_ORISA_ULT_COST",
           "SET_AI_ORISA_ULT_COST_TARGET"
         ],
         "targetTokens": [
@@ -1647,10 +591,10 @@
         ],
         "functionName": "ultGenPercent",
         "expressionArguments": [
-          "ORISA_ULT_COST",
+          "OW2_ORISA_ULT_COST",
           "SET_AI_ORISA_ULT_COST_TARGET"
         ],
-        "referenceToken": "ORISA_ULT_COST",
+        "referenceToken": "OW2_ORISA_ULT_COST",
         "targetToken": "SET_AI_ORISA_ULT_COST_TARGET",
         "canonicalReference": "OW2_ORISA_ULT_COST",
         "referenceResolved": true,
@@ -1712,12 +656,8 @@
         }
       ],
       "canonicalReference": "OW2_ORISA_ULT_COST",
-      "duplicateBaselineNames": [
-        "ORISA_ULT_COST"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team1.ana.ultGen%",
@@ -1730,13 +670,13 @@
         "team": "team1",
         "hero": "ana",
         "field": "ultGen%",
-        "value": "ultGenPercent(ANA_ULT_COST, SET_AI_ANA_ULT_COST_TARGET)",
+        "value": "ultGenPercent(OW2_ANA_ULT_COST, SET_AI_ANA_ULT_COST_TARGET)",
         "file": "src/modules/prelude/settings.opy",
         "line": 94,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
-          "ANA_ULT_COST",
+          "OW2_ANA_ULT_COST",
           "SET_AI_ANA_ULT_COST_TARGET"
         ],
         "targetTokens": [
@@ -1744,10 +684,10 @@
         ],
         "functionName": "ultGenPercent",
         "expressionArguments": [
-          "ANA_ULT_COST",
+          "OW2_ANA_ULT_COST",
           "SET_AI_ANA_ULT_COST_TARGET"
         ],
-        "referenceToken": "ANA_ULT_COST",
+        "referenceToken": "OW2_ANA_ULT_COST",
         "targetToken": "SET_AI_ANA_ULT_COST_TARGET",
         "canonicalReference": "OW2_ANA_ULT_COST",
         "referenceResolved": true,
@@ -1783,12 +723,8 @@
         }
       ],
       "canonicalReference": "OW2_ANA_ULT_COST",
-      "duplicateBaselineNames": [
-        "ANA_ULT_COST"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team1.ana.ability1Cooldown%",
@@ -1801,14 +737,14 @@
         "team": "team1",
         "hero": "ana",
         "field": "ability1Cooldown%",
-        "value": "ratioPercent(SET_AI_ANA_ABILITY1_COOLDOWN_TARGET, ANA_SLEEP_DART_COOLDOWN_TIME)",
+        "value": "ratioPercent(SET_AI_ANA_ABILITY1_COOLDOWN_TARGET, OW2_ANA_SLEEP_DART_COOLDOWN_TIME)",
         "file": "src/modules/prelude/settings.opy",
         "line": 97,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_AI_ANA_ABILITY1_COOLDOWN_TARGET",
-          "ANA_SLEEP_DART_COOLDOWN_TIME"
+          "OW2_ANA_SLEEP_DART_COOLDOWN_TIME"
         ],
         "targetTokens": [
           "SET_AI_ANA_ABILITY1_COOLDOWN_TARGET"
@@ -1816,9 +752,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_AI_ANA_ABILITY1_COOLDOWN_TARGET",
-          "ANA_SLEEP_DART_COOLDOWN_TIME"
+          "OW2_ANA_SLEEP_DART_COOLDOWN_TIME"
         ],
-        "referenceToken": "ANA_SLEEP_DART_COOLDOWN_TIME",
+        "referenceToken": "OW2_ANA_SLEEP_DART_COOLDOWN_TIME",
         "targetToken": "SET_AI_ANA_ABILITY1_COOLDOWN_TARGET",
         "canonicalReference": "OW2_ANA_SLEEP_DART_COOLDOWN_TIME",
         "referenceResolved": true,
@@ -1880,12 +816,8 @@
         }
       ],
       "canonicalReference": "OW2_ANA_SLEEP_DART_COOLDOWN_TIME",
-      "duplicateBaselineNames": [
-        "ANA_SLEEP_DART_COOLDOWN_TIME"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team1.baptiste.ability1Cooldown%",
@@ -1898,14 +830,14 @@
         "team": "team1",
         "hero": "baptiste",
         "field": "ability1Cooldown%",
-        "value": "ratioPercent(SET_AI_BAPTISTE_ABILITY1_COOLDOWN_TARGET, BAPTISTE_REGEN_BURST_COOLDOWN)",
+        "value": "ratioPercent(SET_AI_BAPTISTE_ABILITY1_COOLDOWN_TARGET, OW2_BAPTISTE_REGEN_BURST_COOLDOWN)",
         "file": "src/modules/prelude/settings.opy",
         "line": 101,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_AI_BAPTISTE_ABILITY1_COOLDOWN_TARGET",
-          "BAPTISTE_REGEN_BURST_COOLDOWN"
+          "OW2_BAPTISTE_REGEN_BURST_COOLDOWN"
         ],
         "targetTokens": [
           "SET_AI_BAPTISTE_ABILITY1_COOLDOWN_TARGET"
@@ -1913,9 +845,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_AI_BAPTISTE_ABILITY1_COOLDOWN_TARGET",
-          "BAPTISTE_REGEN_BURST_COOLDOWN"
+          "OW2_BAPTISTE_REGEN_BURST_COOLDOWN"
         ],
-        "referenceToken": "BAPTISTE_REGEN_BURST_COOLDOWN",
+        "referenceToken": "OW2_BAPTISTE_REGEN_BURST_COOLDOWN",
         "targetToken": "SET_AI_BAPTISTE_ABILITY1_COOLDOWN_TARGET",
         "canonicalReference": "OW2_BAPTISTE_REGEN_BURST_COOLDOWN",
         "referenceResolved": true,
@@ -1977,12 +909,8 @@
         }
       ],
       "canonicalReference": "OW2_BAPTISTE_REGEN_BURST_COOLDOWN",
-      "duplicateBaselineNames": [
-        "BAPTISTE_REGEN_BURST_COOLDOWN"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team1.baptiste.ability2Cooldown%",
@@ -1995,14 +923,14 @@
         "team": "team1",
         "hero": "baptiste",
         "field": "ability2Cooldown%",
-        "value": "ratioPercent(SET_AI_BAPTISTE_ABILITY2_COOLDOWN_TARGET, BAPTISTE_LAMP_COOLDOWN_TIME)",
+        "value": "ratioPercent(SET_AI_BAPTISTE_ABILITY2_COOLDOWN_TARGET, OW2_BAPTISTE_LAMP_COOLDOWN_TIME)",
         "file": "src/modules/prelude/settings.opy",
         "line": 106,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_AI_BAPTISTE_ABILITY2_COOLDOWN_TARGET",
-          "BAPTISTE_LAMP_COOLDOWN_TIME"
+          "OW2_BAPTISTE_LAMP_COOLDOWN_TIME"
         ],
         "targetTokens": [
           "SET_AI_BAPTISTE_ABILITY2_COOLDOWN_TARGET"
@@ -2010,9 +938,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_AI_BAPTISTE_ABILITY2_COOLDOWN_TARGET",
-          "BAPTISTE_LAMP_COOLDOWN_TIME"
+          "OW2_BAPTISTE_LAMP_COOLDOWN_TIME"
         ],
-        "referenceToken": "BAPTISTE_LAMP_COOLDOWN_TIME",
+        "referenceToken": "OW2_BAPTISTE_LAMP_COOLDOWN_TIME",
         "targetToken": "SET_AI_BAPTISTE_ABILITY2_COOLDOWN_TARGET",
         "canonicalReference": "OW2_BAPTISTE_LAMP_COOLDOWN_TIME",
         "referenceResolved": true,
@@ -2074,12 +1002,8 @@
         }
       ],
       "canonicalReference": "OW2_BAPTISTE_LAMP_COOLDOWN_TIME",
-      "duplicateBaselineNames": [
-        "BAPTISTE_LAMP_COOLDOWN_TIME"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team1.brigitte.ultGen%",
@@ -2092,13 +1016,13 @@
         "team": "team1",
         "hero": "brigitte",
         "field": "ultGen%",
-        "value": "ultGenPercent(BRIGITTE_ULT_COST, SET_AI_BRIGITTE_ULT_COST_TARGET)",
+        "value": "ultGenPercent(OW2_BRIGITTE_ULT_COST, SET_AI_BRIGITTE_ULT_COST_TARGET)",
         "file": "src/modules/prelude/settings.opy",
         "line": 117,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
-          "BRIGITTE_ULT_COST",
+          "OW2_BRIGITTE_ULT_COST",
           "SET_AI_BRIGITTE_ULT_COST_TARGET"
         ],
         "targetTokens": [
@@ -2106,10 +1030,10 @@
         ],
         "functionName": "ultGenPercent",
         "expressionArguments": [
-          "BRIGITTE_ULT_COST",
+          "OW2_BRIGITTE_ULT_COST",
           "SET_AI_BRIGITTE_ULT_COST_TARGET"
         ],
-        "referenceToken": "BRIGITTE_ULT_COST",
+        "referenceToken": "OW2_BRIGITTE_ULT_COST",
         "targetToken": "SET_AI_BRIGITTE_ULT_COST_TARGET",
         "canonicalReference": "OW2_BRIGITTE_ULT_COST",
         "referenceResolved": true,
@@ -2117,12 +1041,8 @@
       },
       "aram": [],
       "canonicalReference": "OW2_BRIGITTE_ULT_COST",
-      "duplicateBaselineNames": [
-        "BRIGITTE_ULT_COST"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team1.brigitte.shieldBashKb%",
@@ -2135,14 +1055,14 @@
         "team": "team1",
         "hero": "brigitte",
         "field": "shieldBashKb%",
-        "value": "ratioPercent(SET_AI_BRIGITTE_SHIELD_BASH_KB_TARGET, BRIGITTE_SHIELD_BASH_KNOCKBACK)",
+        "value": "ratioPercent(SET_AI_BRIGITTE_SHIELD_BASH_KB_TARGET, OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK)",
         "file": "src/modules/prelude/settings.opy",
         "line": 119,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_AI_BRIGITTE_SHIELD_BASH_KB_TARGET",
-          "BRIGITTE_SHIELD_BASH_KNOCKBACK"
+          "OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK"
         ],
         "targetTokens": [
           "SET_AI_BRIGITTE_SHIELD_BASH_KB_TARGET"
@@ -2150,9 +1070,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_AI_BRIGITTE_SHIELD_BASH_KB_TARGET",
-          "BRIGITTE_SHIELD_BASH_KNOCKBACK"
+          "OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK"
         ],
-        "referenceToken": "BRIGITTE_SHIELD_BASH_KNOCKBACK",
+        "referenceToken": "OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK",
         "targetToken": "SET_AI_BRIGITTE_SHIELD_BASH_KB_TARGET",
         "canonicalReference": "OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK",
         "referenceResolved": true,
@@ -2214,12 +1134,8 @@
         }
       ],
       "canonicalReference": "OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK",
-      "duplicateBaselineNames": [
-        "BRIGITTE_SHIELD_BASH_KNOCKBACK"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team1.torbjorn.ultGen%",
@@ -2232,13 +1148,13 @@
         "team": "team1",
         "hero": "torbjorn",
         "field": "ultGen%",
-        "value": "ultGenPercent(TORBJORN_ULT_COST, SET_AI_TORBJORN_ULT_COST_TARGET)",
+        "value": "ultGenPercent(OW2_TORBJORN_ULT_COST, SET_AI_TORBJORN_ULT_COST_TARGET)",
         "file": "src/modules/prelude/settings.opy",
         "line": 139,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
-          "TORBJORN_ULT_COST",
+          "OW2_TORBJORN_ULT_COST",
           "SET_AI_TORBJORN_ULT_COST_TARGET"
         ],
         "targetTokens": [
@@ -2246,10 +1162,10 @@
         ],
         "functionName": "ultGenPercent",
         "expressionArguments": [
-          "TORBJORN_ULT_COST",
+          "OW2_TORBJORN_ULT_COST",
           "SET_AI_TORBJORN_ULT_COST_TARGET"
         ],
-        "referenceToken": "TORBJORN_ULT_COST",
+        "referenceToken": "OW2_TORBJORN_ULT_COST",
         "targetToken": "SET_AI_TORBJORN_ULT_COST_TARGET",
         "canonicalReference": "OW2_TORBJORN_ULT_COST",
         "referenceResolved": true,
@@ -2257,12 +1173,8 @@
       },
       "aram": [],
       "canonicalReference": "OW2_TORBJORN_ULT_COST",
-      "duplicateBaselineNames": [
-        "TORBJORN_ULT_COST"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team1.ramattra.ability2Cooldown%",
@@ -2275,14 +1187,14 @@
         "team": "team1",
         "hero": "ramattra",
         "field": "ability2Cooldown%",
-        "value": "ratioPercent(SET_AI_RAMATTRA_ABILITY2_COOLDOWN_TARGET, RAMATTRA_VORTEX_COOLDOWN)",
+        "value": "ratioPercent(SET_AI_RAMATTRA_ABILITY2_COOLDOWN_TARGET, OW2_RAMATTRA_VORTEX_COOLDOWN)",
         "file": "src/modules/prelude/settings.opy",
         "line": 148,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_AI_RAMATTRA_ABILITY2_COOLDOWN_TARGET",
-          "RAMATTRA_VORTEX_COOLDOWN"
+          "OW2_RAMATTRA_VORTEX_COOLDOWN"
         ],
         "targetTokens": [
           "SET_AI_RAMATTRA_ABILITY2_COOLDOWN_TARGET"
@@ -2290,9 +1202,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_AI_RAMATTRA_ABILITY2_COOLDOWN_TARGET",
-          "RAMATTRA_VORTEX_COOLDOWN"
+          "OW2_RAMATTRA_VORTEX_COOLDOWN"
         ],
-        "referenceToken": "RAMATTRA_VORTEX_COOLDOWN",
+        "referenceToken": "OW2_RAMATTRA_VORTEX_COOLDOWN",
         "targetToken": "SET_AI_RAMATTRA_ABILITY2_COOLDOWN_TARGET",
         "canonicalReference": "OW2_RAMATTRA_VORTEX_COOLDOWN",
         "referenceResolved": true,
@@ -2300,12 +1212,8 @@
       },
       "aram": [],
       "canonicalReference": "OW2_RAMATTRA_VORTEX_COOLDOWN",
-      "duplicateBaselineNames": [
-        "RAMATTRA_VORTEX_COOLDOWN"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team1.ramattra.ability1Cooldown%",
@@ -2318,14 +1226,14 @@
         "team": "team1",
         "hero": "ramattra",
         "field": "ability1Cooldown%",
-        "value": "ratioPercent(SET_AI_RAMATTRA_ABILITY1_COOLDOWN_TARGET, RAMATTRA_NEMESIS_COOLDOWN)",
+        "value": "ratioPercent(SET_AI_RAMATTRA_ABILITY1_COOLDOWN_TARGET, OW2_RAMATTRA_NEMESIS_COOLDOWN)",
         "file": "src/modules/prelude/settings.opy",
         "line": 150,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_AI_RAMATTRA_ABILITY1_COOLDOWN_TARGET",
-          "RAMATTRA_NEMESIS_COOLDOWN"
+          "OW2_RAMATTRA_NEMESIS_COOLDOWN"
         ],
         "targetTokens": [
           "SET_AI_RAMATTRA_ABILITY1_COOLDOWN_TARGET"
@@ -2333,9 +1241,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_AI_RAMATTRA_ABILITY1_COOLDOWN_TARGET",
-          "RAMATTRA_NEMESIS_COOLDOWN"
+          "OW2_RAMATTRA_NEMESIS_COOLDOWN"
         ],
-        "referenceToken": "RAMATTRA_NEMESIS_COOLDOWN",
+        "referenceToken": "OW2_RAMATTRA_NEMESIS_COOLDOWN",
         "targetToken": "SET_AI_RAMATTRA_ABILITY1_COOLDOWN_TARGET",
         "canonicalReference": "OW2_RAMATTRA_NEMESIS_COOLDOWN",
         "referenceResolved": true,
@@ -2371,12 +1279,8 @@
         }
       ],
       "canonicalReference": "OW2_RAMATTRA_NEMESIS_COOLDOWN",
-      "duplicateBaselineNames": [
-        "RAMATTRA_NEMESIS_COOLDOWN"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team1.ramattra.ultGen%",
@@ -2389,13 +1293,13 @@
         "team": "team1",
         "hero": "ramattra",
         "field": "ultGen%",
-        "value": "ultGenPercent(RAMATTRA_ULT_COST, SET_AI_RAMATTRA_ULT_COST_TARGET)",
+        "value": "ultGenPercent(OW2_RAMATTRA_ULT_COST, SET_AI_RAMATTRA_ULT_COST_TARGET)",
         "file": "src/modules/prelude/settings.opy",
         "line": 153,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
-          "RAMATTRA_ULT_COST",
+          "OW2_RAMATTRA_ULT_COST",
           "SET_AI_RAMATTRA_ULT_COST_TARGET"
         ],
         "targetTokens": [
@@ -2403,10 +1307,10 @@
         ],
         "functionName": "ultGenPercent",
         "expressionArguments": [
-          "RAMATTRA_ULT_COST",
+          "OW2_RAMATTRA_ULT_COST",
           "SET_AI_RAMATTRA_ULT_COST_TARGET"
         ],
-        "referenceToken": "RAMATTRA_ULT_COST",
+        "referenceToken": "OW2_RAMATTRA_ULT_COST",
         "targetToken": "SET_AI_RAMATTRA_ULT_COST_TARGET",
         "canonicalReference": "OW2_RAMATTRA_ULT_COST",
         "referenceResolved": true,
@@ -2442,12 +1346,8 @@
         }
       ],
       "canonicalReference": "OW2_RAMATTRA_ULT_COST",
-      "duplicateBaselineNames": [
-        "RAMATTRA_ULT_COST"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team1.ramattra.secondaryFireCooldown%",
@@ -2460,14 +1360,14 @@
         "team": "team1",
         "hero": "ramattra",
         "field": "secondaryFireCooldown%",
-        "value": "ratioPercent(SET_AI_RAMATTRA_SECONDARY_FIRE_COOLDOWN_TARGET, RAMATTRA_VOID_BARRIER_COOLDOWN)",
+        "value": "ratioPercent(SET_AI_RAMATTRA_SECONDARY_FIRE_COOLDOWN_TARGET, OW2_RAMATTRA_VOID_BARRIER_COOLDOWN)",
         "file": "src/modules/prelude/settings.opy",
         "line": 156,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_AI_RAMATTRA_SECONDARY_FIRE_COOLDOWN_TARGET",
-          "RAMATTRA_VOID_BARRIER_COOLDOWN"
+          "OW2_RAMATTRA_VOID_BARRIER_COOLDOWN"
         ],
         "targetTokens": [
           "SET_AI_RAMATTRA_SECONDARY_FIRE_COOLDOWN_TARGET"
@@ -2475,9 +1375,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_AI_RAMATTRA_SECONDARY_FIRE_COOLDOWN_TARGET",
-          "RAMATTRA_VOID_BARRIER_COOLDOWN"
+          "OW2_RAMATTRA_VOID_BARRIER_COOLDOWN"
         ],
-        "referenceToken": "RAMATTRA_VOID_BARRIER_COOLDOWN",
+        "referenceToken": "OW2_RAMATTRA_VOID_BARRIER_COOLDOWN",
         "targetToken": "SET_AI_RAMATTRA_SECONDARY_FIRE_COOLDOWN_TARGET",
         "canonicalReference": "OW2_RAMATTRA_VOID_BARRIER_COOLDOWN",
         "referenceResolved": true,
@@ -2485,12 +1385,8 @@
       },
       "aram": [],
       "canonicalReference": "OW2_RAMATTRA_VOID_BARRIER_COOLDOWN",
-      "duplicateBaselineNames": [
-        "RAMATTRA_VOID_BARRIER_COOLDOWN"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team1.venture.ultGen%",
@@ -2503,13 +1399,13 @@
         "team": "team1",
         "hero": "venture",
         "field": "ultGen%",
-        "value": "ultGenPercent(VENTURE_ULT_COST, SET_AI_VENTURE_ULT_COST_TARGET)",
+        "value": "ultGenPercent(OW2_VENTURE_ULT_COST, SET_AI_VENTURE_ULT_COST_TARGET)",
         "file": "src/modules/prelude/settings.opy",
         "line": 161,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
-          "VENTURE_ULT_COST",
+          "OW2_VENTURE_ULT_COST",
           "SET_AI_VENTURE_ULT_COST_TARGET"
         ],
         "targetTokens": [
@@ -2517,10 +1413,10 @@
         ],
         "functionName": "ultGenPercent",
         "expressionArguments": [
-          "VENTURE_ULT_COST",
+          "OW2_VENTURE_ULT_COST",
           "SET_AI_VENTURE_ULT_COST_TARGET"
         ],
-        "referenceToken": "VENTURE_ULT_COST",
+        "referenceToken": "OW2_VENTURE_ULT_COST",
         "targetToken": "SET_AI_VENTURE_ULT_COST_TARGET",
         "canonicalReference": "OW2_VENTURE_ULT_COST",
         "referenceResolved": true,
@@ -2528,12 +1424,8 @@
       },
       "aram": [],
       "canonicalReference": "OW2_VENTURE_ULT_COST",
-      "duplicateBaselineNames": [
-        "VENTURE_ULT_COST"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team1.illari.ability2Cooldown%",
@@ -2546,14 +1438,14 @@
         "team": "team1",
         "hero": "illari",
         "field": "ability2Cooldown%",
-        "value": "ratioPercent(SET_AI_ILLARI_ABILITY2_COOLDOWN_TARGET, ILLARI_PYLON_COOLDOWN)",
+        "value": "ratioPercent(SET_AI_ILLARI_ABILITY2_COOLDOWN_TARGET, OW2_ILLARI_PYLON_COOLDOWN)",
         "file": "src/modules/prelude/settings.opy",
         "line": 199,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_AI_ILLARI_ABILITY2_COOLDOWN_TARGET",
-          "ILLARI_PYLON_COOLDOWN"
+          "OW2_ILLARI_PYLON_COOLDOWN"
         ],
         "targetTokens": [
           "SET_AI_ILLARI_ABILITY2_COOLDOWN_TARGET"
@@ -2561,9 +1453,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_AI_ILLARI_ABILITY2_COOLDOWN_TARGET",
-          "ILLARI_PYLON_COOLDOWN"
+          "OW2_ILLARI_PYLON_COOLDOWN"
         ],
-        "referenceToken": "ILLARI_PYLON_COOLDOWN",
+        "referenceToken": "OW2_ILLARI_PYLON_COOLDOWN",
         "targetToken": "SET_AI_ILLARI_ABILITY2_COOLDOWN_TARGET",
         "canonicalReference": "OW2_ILLARI_PYLON_COOLDOWN",
         "referenceResolved": true,
@@ -2599,12 +1491,8 @@
         }
       ],
       "canonicalReference": "OW2_ILLARI_PYLON_COOLDOWN",
-      "duplicateBaselineNames": [
-        "ILLARI_PYLON_COOLDOWN"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team1.juno.ultGen%",
@@ -2617,13 +1505,13 @@
         "team": "team1",
         "hero": "juno",
         "field": "ultGen%",
-        "value": "ultGenPercent(JUNO_ULT_COST, SET_AI_JUNO_ULT_COST_TARGET)",
+        "value": "ultGenPercent(OW2_JUNO_ULT_COST, SET_AI_JUNO_ULT_COST_TARGET)",
         "file": "src/modules/prelude/settings.opy",
         "line": 207,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
-          "JUNO_ULT_COST",
+          "OW2_JUNO_ULT_COST",
           "SET_AI_JUNO_ULT_COST_TARGET"
         ],
         "targetTokens": [
@@ -2631,10 +1519,10 @@
         ],
         "functionName": "ultGenPercent",
         "expressionArguments": [
-          "JUNO_ULT_COST",
+          "OW2_JUNO_ULT_COST",
           "SET_AI_JUNO_ULT_COST_TARGET"
         ],
-        "referenceToken": "JUNO_ULT_COST",
+        "referenceToken": "OW2_JUNO_ULT_COST",
         "targetToken": "SET_AI_JUNO_ULT_COST_TARGET",
         "canonicalReference": "OW2_JUNO_ULT_COST",
         "referenceResolved": true,
@@ -2670,12 +1558,8 @@
         }
       ],
       "canonicalReference": "OW2_JUNO_ULT_COST",
-      "duplicateBaselineNames": [
-        "JUNO_ULT_COST"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team1.doomfist.ammoRegenerationTime%",
@@ -2688,14 +1572,14 @@
         "team": "team1",
         "hero": "doomfist",
         "field": "ammoRegenerationTime%",
-        "value": "ratioPercent(SET_AI_DOOMFIST_AMMO_REGENERATION_TIME_TARGET, DOOMFIST_AMMO_REGEN)",
+        "value": "ratioPercent(SET_AI_DOOMFIST_AMMO_REGENERATION_TIME_TARGET, OW2_DOOMFIST_AMMO_REGEN)",
         "file": "src/modules/prelude/settings.opy",
         "line": 215,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_AI_DOOMFIST_AMMO_REGENERATION_TIME_TARGET",
-          "DOOMFIST_AMMO_REGEN"
+          "OW2_DOOMFIST_AMMO_REGEN"
         ],
         "targetTokens": [
           "SET_AI_DOOMFIST_AMMO_REGENERATION_TIME_TARGET"
@@ -2703,9 +1587,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_AI_DOOMFIST_AMMO_REGENERATION_TIME_TARGET",
-          "DOOMFIST_AMMO_REGEN"
+          "OW2_DOOMFIST_AMMO_REGEN"
         ],
-        "referenceToken": "DOOMFIST_AMMO_REGEN",
+        "referenceToken": "OW2_DOOMFIST_AMMO_REGEN",
         "targetToken": "SET_AI_DOOMFIST_AMMO_REGENERATION_TIME_TARGET",
         "canonicalReference": "OW2_DOOMFIST_AMMO_REGEN",
         "referenceResolved": true,
@@ -2767,12 +1651,8 @@
         }
       ],
       "canonicalReference": "OW2_DOOMFIST_AMMO_REGEN",
-      "duplicateBaselineNames": [
-        "DOOMFIST_AMMO_REGEN"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team1.zarya.ultGen%",
@@ -2785,13 +1665,13 @@
         "team": "team1",
         "hero": "zarya",
         "field": "ultGen%",
-        "value": "ultGenPercent(ZARYA_ULT_COST, SET_AI_ZARYA_ULT_COST_TARGET)",
+        "value": "ultGenPercent(OW2_ZARYA_ULT_COST, SET_AI_ZARYA_ULT_COST_TARGET)",
         "file": "src/modules/prelude/settings.opy",
         "line": 225,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
-          "ZARYA_ULT_COST",
+          "OW2_ZARYA_ULT_COST",
           "SET_AI_ZARYA_ULT_COST_TARGET"
         ],
         "targetTokens": [
@@ -2799,10 +1679,10 @@
         ],
         "functionName": "ultGenPercent",
         "expressionArguments": [
-          "ZARYA_ULT_COST",
+          "OW2_ZARYA_ULT_COST",
           "SET_AI_ZARYA_ULT_COST_TARGET"
         ],
-        "referenceToken": "ZARYA_ULT_COST",
+        "referenceToken": "OW2_ZARYA_ULT_COST",
         "targetToken": "SET_AI_ZARYA_ULT_COST_TARGET",
         "canonicalReference": "OW2_ZARYA_ULT_COST",
         "referenceResolved": true,
@@ -2810,12 +1690,8 @@
       },
       "aram": [],
       "canonicalReference": "OW2_ZARYA_ULT_COST",
-      "duplicateBaselineNames": [
-        "ZARYA_ULT_COST"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team1.pharah.ability1Cooldown%",
@@ -2828,14 +1704,14 @@
         "team": "team1",
         "hero": "pharah",
         "field": "ability1Cooldown%",
-        "value": "ratioPercent(SET_AI_PHARAH_ABILITY1_COOLDOWN_TARGET, PHARAH_JUMP_JET_COOLDOWN)",
+        "value": "ratioPercent(SET_AI_PHARAH_ABILITY1_COOLDOWN_TARGET, OW2_PHARAH_JUMP_JET_COOLDOWN)",
         "file": "src/modules/prelude/settings.opy",
         "line": 247,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_AI_PHARAH_ABILITY1_COOLDOWN_TARGET",
-          "PHARAH_JUMP_JET_COOLDOWN"
+          "OW2_PHARAH_JUMP_JET_COOLDOWN"
         ],
         "targetTokens": [
           "SET_AI_PHARAH_ABILITY1_COOLDOWN_TARGET"
@@ -2843,9 +1719,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_AI_PHARAH_ABILITY1_COOLDOWN_TARGET",
-          "PHARAH_JUMP_JET_COOLDOWN"
+          "OW2_PHARAH_JUMP_JET_COOLDOWN"
         ],
-        "referenceToken": "PHARAH_JUMP_JET_COOLDOWN",
+        "referenceToken": "OW2_PHARAH_JUMP_JET_COOLDOWN",
         "targetToken": "SET_AI_PHARAH_ABILITY1_COOLDOWN_TARGET",
         "canonicalReference": "OW2_PHARAH_JUMP_JET_COOLDOWN",
         "referenceResolved": true,
@@ -2853,12 +1729,8 @@
       },
       "aram": [],
       "canonicalReference": "OW2_PHARAH_JUMP_JET_COOLDOWN",
-      "duplicateBaselineNames": [
-        "PHARAH_JUMP_JET_COOLDOWN"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team1.pharah.ability2Cooldown%",
@@ -2871,14 +1743,14 @@
         "team": "team1",
         "hero": "pharah",
         "field": "ability2Cooldown%",
-        "value": "ratioPercent(SET_AI_PHARAH_ABILITY2_COOLDOWN_TARGET, PHARAH_CONCUSSIVE_BLAST_COOLDOWN)",
+        "value": "ratioPercent(SET_AI_PHARAH_ABILITY2_COOLDOWN_TARGET, OW2_PHARAH_CONCUSSIVE_BLAST_COOLDOWN)",
         "file": "src/modules/prelude/settings.opy",
         "line": 251,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_AI_PHARAH_ABILITY2_COOLDOWN_TARGET",
-          "PHARAH_CONCUSSIVE_BLAST_COOLDOWN"
+          "OW2_PHARAH_CONCUSSIVE_BLAST_COOLDOWN"
         ],
         "targetTokens": [
           "SET_AI_PHARAH_ABILITY2_COOLDOWN_TARGET"
@@ -2886,9 +1758,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_AI_PHARAH_ABILITY2_COOLDOWN_TARGET",
-          "PHARAH_CONCUSSIVE_BLAST_COOLDOWN"
+          "OW2_PHARAH_CONCUSSIVE_BLAST_COOLDOWN"
         ],
-        "referenceToken": "PHARAH_CONCUSSIVE_BLAST_COOLDOWN",
+        "referenceToken": "OW2_PHARAH_CONCUSSIVE_BLAST_COOLDOWN",
         "targetToken": "SET_AI_PHARAH_ABILITY2_COOLDOWN_TARGET",
         "canonicalReference": "OW2_PHARAH_CONCUSSIVE_BLAST_COOLDOWN",
         "referenceResolved": true,
@@ -2896,12 +1768,8 @@
       },
       "aram": [],
       "canonicalReference": "OW2_PHARAH_CONCUSSIVE_BLAST_COOLDOWN",
-      "duplicateBaselineNames": [
-        "PHARAH_CONCUSSIVE_BLAST_COOLDOWN"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team1.winston.ability1Cooldown%",
@@ -2914,14 +1782,14 @@
         "team": "team1",
         "hero": "winston",
         "field": "ability1Cooldown%",
-        "value": "ratioPercent(SET_AI_WINSTON_ABILITY1_COOLDOWN_TARGET, WINSTON_JUMP_PACK_COOLDOWN_TIME)",
+        "value": "ratioPercent(SET_AI_WINSTON_ABILITY1_COOLDOWN_TARGET, OW2_WINSTON_JUMP_PACK_COOLDOWN_TIME)",
         "file": "src/modules/prelude/settings.opy",
         "line": 270,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_AI_WINSTON_ABILITY1_COOLDOWN_TARGET",
-          "WINSTON_JUMP_PACK_COOLDOWN_TIME"
+          "OW2_WINSTON_JUMP_PACK_COOLDOWN_TIME"
         ],
         "targetTokens": [
           "SET_AI_WINSTON_ABILITY1_COOLDOWN_TARGET"
@@ -2929,9 +1797,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_AI_WINSTON_ABILITY1_COOLDOWN_TARGET",
-          "WINSTON_JUMP_PACK_COOLDOWN_TIME"
+          "OW2_WINSTON_JUMP_PACK_COOLDOWN_TIME"
         ],
-        "referenceToken": "WINSTON_JUMP_PACK_COOLDOWN_TIME",
+        "referenceToken": "OW2_WINSTON_JUMP_PACK_COOLDOWN_TIME",
         "targetToken": "SET_AI_WINSTON_ABILITY1_COOLDOWN_TARGET",
         "canonicalReference": "OW2_WINSTON_JUMP_PACK_COOLDOWN_TIME",
         "referenceResolved": true,
@@ -2939,12 +1807,8 @@
       },
       "aram": [],
       "canonicalReference": "OW2_WINSTON_JUMP_PACK_COOLDOWN_TIME",
-      "duplicateBaselineNames": [
-        "WINSTON_JUMP_PACK_COOLDOWN_TIME"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team1.winston.ability2Cooldown%",
@@ -2957,14 +1821,14 @@
         "team": "team1",
         "hero": "winston",
         "field": "ability2Cooldown%",
-        "value": "ratioPercent(SET_AI_WINSTON_ABILITY2_COOLDOWN_TARGET, WINSTON_BARRIER_COOLDOWN)",
+        "value": "ratioPercent(SET_AI_WINSTON_ABILITY2_COOLDOWN_TARGET, OW2_WINSTON_BARRIER_COOLDOWN)",
         "file": "src/modules/prelude/settings.opy",
         "line": 272,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_AI_WINSTON_ABILITY2_COOLDOWN_TARGET",
-          "WINSTON_BARRIER_COOLDOWN"
+          "OW2_WINSTON_BARRIER_COOLDOWN"
         ],
         "targetTokens": [
           "SET_AI_WINSTON_ABILITY2_COOLDOWN_TARGET"
@@ -2972,9 +1836,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_AI_WINSTON_ABILITY2_COOLDOWN_TARGET",
-          "WINSTON_BARRIER_COOLDOWN"
+          "OW2_WINSTON_BARRIER_COOLDOWN"
         ],
-        "referenceToken": "WINSTON_BARRIER_COOLDOWN",
+        "referenceToken": "OW2_WINSTON_BARRIER_COOLDOWN",
         "targetToken": "SET_AI_WINSTON_ABILITY2_COOLDOWN_TARGET",
         "canonicalReference": "OW2_WINSTON_BARRIER_COOLDOWN",
         "referenceResolved": true,
@@ -2982,12 +1846,8 @@
       },
       "aram": [],
       "canonicalReference": "OW2_WINSTON_BARRIER_COOLDOWN",
-      "duplicateBaselineNames": [
-        "WINSTON_BARRIER_COOLDOWN"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team1.genji.ultGen%",
@@ -3000,13 +1860,13 @@
         "team": "team1",
         "hero": "genji",
         "field": "ultGen%",
-        "value": "ultGenPercent(GENJI_ULT_COST, SET_AI_GENJI_ULT_COST_TARGET)",
+        "value": "ultGenPercent(OW2_GENJI_ULT_COST, SET_AI_GENJI_ULT_COST_TARGET)",
         "file": "src/modules/prelude/settings.opy",
         "line": 282,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
-          "GENJI_ULT_COST",
+          "OW2_GENJI_ULT_COST",
           "SET_AI_GENJI_ULT_COST_TARGET"
         ],
         "targetTokens": [
@@ -3014,10 +1874,10 @@
         ],
         "functionName": "ultGenPercent",
         "expressionArguments": [
-          "GENJI_ULT_COST",
+          "OW2_GENJI_ULT_COST",
           "SET_AI_GENJI_ULT_COST_TARGET"
         ],
-        "referenceToken": "GENJI_ULT_COST",
+        "referenceToken": "OW2_GENJI_ULT_COST",
         "targetToken": "SET_AI_GENJI_ULT_COST_TARGET",
         "canonicalReference": "OW2_GENJI_ULT_COST",
         "referenceResolved": true,
@@ -3025,12 +1885,8 @@
       },
       "aram": [],
       "canonicalReference": "OW2_GENJI_ULT_COST",
-      "duplicateBaselineNames": [
-        "GENJI_ULT_COST"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team1.junkrat.ability1Cooldown%",
@@ -3043,14 +1899,14 @@
         "team": "team1",
         "hero": "junkrat",
         "field": "ability1Cooldown%",
-        "value": "ratioPercent(SET_AI_JUNKRAT_ABILITY1_COOLDOWN_TARGET, JUNKRAT_CONCUSSION_MINE_COOLDOWN)",
+        "value": "ratioPercent(SET_AI_JUNKRAT_ABILITY1_COOLDOWN_TARGET, OW2_JUNKRAT_CONCUSSION_MINE_COOLDOWN)",
         "file": "src/modules/prelude/settings.opy",
         "line": 288,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_AI_JUNKRAT_ABILITY1_COOLDOWN_TARGET",
-          "JUNKRAT_CONCUSSION_MINE_COOLDOWN"
+          "OW2_JUNKRAT_CONCUSSION_MINE_COOLDOWN"
         ],
         "targetTokens": [
           "SET_AI_JUNKRAT_ABILITY1_COOLDOWN_TARGET"
@@ -3058,9 +1914,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_AI_JUNKRAT_ABILITY1_COOLDOWN_TARGET",
-          "JUNKRAT_CONCUSSION_MINE_COOLDOWN"
+          "OW2_JUNKRAT_CONCUSSION_MINE_COOLDOWN"
         ],
-        "referenceToken": "JUNKRAT_CONCUSSION_MINE_COOLDOWN",
+        "referenceToken": "OW2_JUNKRAT_CONCUSSION_MINE_COOLDOWN",
         "targetToken": "SET_AI_JUNKRAT_ABILITY1_COOLDOWN_TARGET",
         "canonicalReference": "OW2_JUNKRAT_CONCUSSION_MINE_COOLDOWN",
         "referenceResolved": true,
@@ -3068,12 +1924,8 @@
       },
       "aram": [],
       "canonicalReference": "OW2_JUNKRAT_CONCUSSION_MINE_COOLDOWN",
-      "duplicateBaselineNames": [
-        "JUNKRAT_CONCUSSION_MINE_COOLDOWN"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team1.tracer.ultGen%",
@@ -3086,13 +1938,13 @@
         "team": "team1",
         "hero": "tracer",
         "field": "ultGen%",
-        "value": "ultGenPercent(TRACER_ULT_COST, SET_AI_TRACER_ULT_COST_TARGET)",
+        "value": "ultGenPercent(OW2_TRACER_ULT_COST, SET_AI_TRACER_ULT_COST_TARGET)",
         "file": "src/modules/prelude/settings.opy",
         "line": 294,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
-          "TRACER_ULT_COST",
+          "OW2_TRACER_ULT_COST",
           "SET_AI_TRACER_ULT_COST_TARGET"
         ],
         "targetTokens": [
@@ -3100,10 +1952,10 @@
         ],
         "functionName": "ultGenPercent",
         "expressionArguments": [
-          "TRACER_ULT_COST",
+          "OW2_TRACER_ULT_COST",
           "SET_AI_TRACER_ULT_COST_TARGET"
         ],
-        "referenceToken": "TRACER_ULT_COST",
+        "referenceToken": "OW2_TRACER_ULT_COST",
         "targetToken": "SET_AI_TRACER_ULT_COST_TARGET",
         "canonicalReference": "OW2_TRACER_ULT_COST",
         "referenceResolved": true,
@@ -3111,12 +1963,8 @@
       },
       "aram": [],
       "canonicalReference": "OW2_TRACER_ULT_COST",
-      "duplicateBaselineNames": [
-        "TRACER_ULT_COST"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team1.tracer.ability2Cooldown%",
@@ -3129,14 +1977,14 @@
         "team": "team1",
         "hero": "tracer",
         "field": "ability2Cooldown%",
-        "value": "ratioPercent(SET_AI_TRACER_ABILITY2_COOLDOWN_TARGET, TRACER_RECALL_COOLDOWN)",
+        "value": "ratioPercent(SET_AI_TRACER_ABILITY2_COOLDOWN_TARGET, OW2_TRACER_RECALL_COOLDOWN)",
         "file": "src/modules/prelude/settings.opy",
         "line": 296,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_AI_TRACER_ABILITY2_COOLDOWN_TARGET",
-          "TRACER_RECALL_COOLDOWN"
+          "OW2_TRACER_RECALL_COOLDOWN"
         ],
         "targetTokens": [
           "SET_AI_TRACER_ABILITY2_COOLDOWN_TARGET"
@@ -3144,9 +1992,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_AI_TRACER_ABILITY2_COOLDOWN_TARGET",
-          "TRACER_RECALL_COOLDOWN"
+          "OW2_TRACER_RECALL_COOLDOWN"
         ],
-        "referenceToken": "TRACER_RECALL_COOLDOWN",
+        "referenceToken": "OW2_TRACER_RECALL_COOLDOWN",
         "targetToken": "SET_AI_TRACER_ABILITY2_COOLDOWN_TARGET",
         "canonicalReference": "OW2_TRACER_RECALL_COOLDOWN",
         "referenceResolved": true,
@@ -3154,12 +2002,8 @@
       },
       "aram": [],
       "canonicalReference": "OW2_TRACER_RECALL_COOLDOWN",
-      "duplicateBaselineNames": [
-        "TRACER_RECALL_COOLDOWN"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team1.zenyatta.ultGen%",
@@ -3172,13 +2016,13 @@
         "team": "team1",
         "hero": "zenyatta",
         "field": "ultGen%",
-        "value": "ultGenPercent(ZENYATTA_ULT_COST, SET_AI_ZENYATTA_ULT_COST_TARGET)",
+        "value": "ultGenPercent(OW2_ZENYATTA_ULT_COST, SET_AI_ZENYATTA_ULT_COST_TARGET)",
         "file": "src/modules/prelude/settings.opy",
         "line": 303,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
-          "ZENYATTA_ULT_COST",
+          "OW2_ZENYATTA_ULT_COST",
           "SET_AI_ZENYATTA_ULT_COST_TARGET"
         ],
         "targetTokens": [
@@ -3186,10 +2030,10 @@
         ],
         "functionName": "ultGenPercent",
         "expressionArguments": [
-          "ZENYATTA_ULT_COST",
+          "OW2_ZENYATTA_ULT_COST",
           "SET_AI_ZENYATTA_ULT_COST_TARGET"
         ],
-        "referenceToken": "ZENYATTA_ULT_COST",
+        "referenceToken": "OW2_ZENYATTA_ULT_COST",
         "targetToken": "SET_AI_ZENYATTA_ULT_COST_TARGET",
         "canonicalReference": "OW2_ZENYATTA_ULT_COST",
         "referenceResolved": true,
@@ -3225,12 +2069,8 @@
         }
       ],
       "canonicalReference": "OW2_ZENYATTA_ULT_COST",
-      "duplicateBaselineNames": [
-        "ZENYATTA_ULT_COST"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team1.moira.ultGen%",
@@ -3243,13 +2083,13 @@
         "team": "team1",
         "hero": "moira",
         "field": "ultGen%",
-        "value": "ultGenPercent(MOIRA_ULT_COST, SET_AI_MOIRA_ULT_COST_TARGET)",
+        "value": "ultGenPercent(OW2_MOIRA_ULT_COST, SET_AI_MOIRA_ULT_COST_TARGET)",
         "file": "src/modules/prelude/settings.opy",
         "line": 349,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
-          "MOIRA_ULT_COST",
+          "OW2_MOIRA_ULT_COST",
           "SET_AI_MOIRA_ULT_COST_TARGET"
         ],
         "targetTokens": [
@@ -3257,10 +2097,10 @@
         ],
         "functionName": "ultGenPercent",
         "expressionArguments": [
-          "MOIRA_ULT_COST",
+          "OW2_MOIRA_ULT_COST",
           "SET_AI_MOIRA_ULT_COST_TARGET"
         ],
-        "referenceToken": "MOIRA_ULT_COST",
+        "referenceToken": "OW2_MOIRA_ULT_COST",
         "targetToken": "SET_AI_MOIRA_ULT_COST_TARGET",
         "canonicalReference": "OW2_MOIRA_ULT_COST",
         "referenceResolved": true,
@@ -3268,12 +2108,8 @@
       },
       "aram": [],
       "canonicalReference": "OW2_MOIRA_ULT_COST",
-      "duplicateBaselineNames": [
-        "MOIRA_ULT_COST"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team1.reinhardt.ability1Cooldown%",
@@ -3286,14 +2122,14 @@
         "team": "team1",
         "hero": "reinhardt",
         "field": "ability1Cooldown%",
-        "value": "ratioPercent(SET_AI_REINHARDT_ABILITY1_COOLDOWN_TARGET, REINHARDT_CHARGE_COOLDOWN_TIME)",
+        "value": "ratioPercent(SET_AI_REINHARDT_ABILITY1_COOLDOWN_TARGET, OW2_REINHARDT_CHARGE_COOLDOWN_TIME)",
         "file": "src/modules/prelude/settings.opy",
         "line": 352,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_AI_REINHARDT_ABILITY1_COOLDOWN_TARGET",
-          "REINHARDT_CHARGE_COOLDOWN_TIME"
+          "OW2_REINHARDT_CHARGE_COOLDOWN_TIME"
         ],
         "targetTokens": [
           "SET_AI_REINHARDT_ABILITY1_COOLDOWN_TARGET"
@@ -3301,9 +2137,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_AI_REINHARDT_ABILITY1_COOLDOWN_TARGET",
-          "REINHARDT_CHARGE_COOLDOWN_TIME"
+          "OW2_REINHARDT_CHARGE_COOLDOWN_TIME"
         ],
-        "referenceToken": "REINHARDT_CHARGE_COOLDOWN_TIME",
+        "referenceToken": "OW2_REINHARDT_CHARGE_COOLDOWN_TIME",
         "targetToken": "SET_AI_REINHARDT_ABILITY1_COOLDOWN_TARGET",
         "canonicalReference": "OW2_REINHARDT_CHARGE_COOLDOWN_TIME",
         "referenceResolved": true,
@@ -3365,12 +2201,8 @@
         }
       ],
       "canonicalReference": "OW2_REINHARDT_CHARGE_COOLDOWN_TIME",
-      "duplicateBaselineNames": [
-        "REINHARDT_CHARGE_COOLDOWN_TIME"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team1.reinhardt.secondaryFireRechargeRate%",
@@ -3383,14 +2215,14 @@
         "team": "team1",
         "hero": "reinhardt",
         "field": "secondaryFireRechargeRate%",
-        "value": "ratioPercent(SET_AI_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET, REINHARDT_BARRIER_REGEN)",
+        "value": "ratioPercent(SET_AI_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET, OW2_REINHARDT_BARRIER_REGEN)",
         "file": "src/modules/prelude/settings.opy",
         "line": 355,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_AI_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET",
-          "REINHARDT_BARRIER_REGEN"
+          "OW2_REINHARDT_BARRIER_REGEN"
         ],
         "targetTokens": [
           "SET_AI_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET"
@@ -3398,9 +2230,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_AI_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET",
-          "REINHARDT_BARRIER_REGEN"
+          "OW2_REINHARDT_BARRIER_REGEN"
         ],
-        "referenceToken": "REINHARDT_BARRIER_REGEN",
+        "referenceToken": "OW2_REINHARDT_BARRIER_REGEN",
         "targetToken": "SET_AI_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET",
         "canonicalReference": "OW2_REINHARDT_BARRIER_REGEN",
         "referenceResolved": true,
@@ -3462,12 +2294,8 @@
         }
       ],
       "canonicalReference": "OW2_REINHARDT_BARRIER_REGEN",
-      "duplicateBaselineNames": [
-        "REINHARDT_BARRIER_REGEN"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team1.reinhardt.health%",
@@ -3480,14 +2308,14 @@
         "team": "team1",
         "hero": "reinhardt",
         "field": "health%",
-        "value": "ratioPercent(SET_AI_REINHARDT_HEALTH_TARGET, REINHARDT_BARRIER_HEALTH)",
+        "value": "ratioPercent(SET_AI_REINHARDT_HEALTH_TARGET, OW2_REINHARDT_BARRIER_HEALTH)",
         "file": "src/modules/prelude/settings.opy",
         "line": 358,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_AI_REINHARDT_HEALTH_TARGET",
-          "REINHARDT_BARRIER_HEALTH"
+          "OW2_REINHARDT_BARRIER_HEALTH"
         ],
         "targetTokens": [
           "SET_AI_REINHARDT_HEALTH_TARGET"
@@ -3495,9 +2323,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_AI_REINHARDT_HEALTH_TARGET",
-          "REINHARDT_BARRIER_HEALTH"
+          "OW2_REINHARDT_BARRIER_HEALTH"
         ],
-        "referenceToken": "REINHARDT_BARRIER_HEALTH",
+        "referenceToken": "OW2_REINHARDT_BARRIER_HEALTH",
         "targetToken": "SET_AI_REINHARDT_HEALTH_TARGET",
         "canonicalReference": "OW2_REINHARDT_BARRIER_HEALTH",
         "referenceResolved": true,
@@ -3505,12 +2333,8 @@
       },
       "aram": [],
       "canonicalReference": "OW2_REINHARDT_BARRIER_HEALTH",
-      "duplicateBaselineNames": [
-        "REINHARDT_BARRIER_HEALTH"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team1.sigma.health%",
@@ -3523,14 +2347,14 @@
         "team": "team1",
         "hero": "sigma",
         "field": "health%",
-        "value": "ratioPercent(SET_AI_SIGMA_HEALTH_TARGET, SIGMA_BARRIER_HEALTH)",
+        "value": "ratioPercent(SET_AI_SIGMA_HEALTH_TARGET, OW2_SIGMA_BARRIER_HEALTH)",
         "file": "src/modules/prelude/settings.opy",
         "line": 364,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_AI_SIGMA_HEALTH_TARGET",
-          "SIGMA_BARRIER_HEALTH"
+          "OW2_SIGMA_BARRIER_HEALTH"
         ],
         "targetTokens": [
           "SET_AI_SIGMA_HEALTH_TARGET"
@@ -3538,9 +2362,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_AI_SIGMA_HEALTH_TARGET",
-          "SIGMA_BARRIER_HEALTH"
+          "OW2_SIGMA_BARRIER_HEALTH"
         ],
-        "referenceToken": "SIGMA_BARRIER_HEALTH",
+        "referenceToken": "OW2_SIGMA_BARRIER_HEALTH",
         "targetToken": "SET_AI_SIGMA_HEALTH_TARGET",
         "canonicalReference": "OW2_SIGMA_BARRIER_HEALTH",
         "referenceResolved": true,
@@ -3548,12 +2372,8 @@
       },
       "aram": [],
       "canonicalReference": "OW2_SIGMA_BARRIER_HEALTH",
-      "duplicateBaselineNames": [
-        "SIGMA_BARRIER_HEALTH"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team1.kiriko.ability2Cooldown%",
@@ -3566,14 +2386,14 @@
         "team": "team1",
         "hero": "kiriko",
         "field": "ability2Cooldown%",
-        "value": "ratioPercent(SET_AI_KIRIKO_ABILITY2_COOLDOWN_TARGET, KIRIKO_SUZU_COOLDOWN)",
+        "value": "ratioPercent(SET_AI_KIRIKO_ABILITY2_COOLDOWN_TARGET, OW2_KIRIKO_SUZU_COOLDOWN)",
         "file": "src/modules/prelude/settings.opy",
         "line": 381,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_AI_KIRIKO_ABILITY2_COOLDOWN_TARGET",
-          "KIRIKO_SUZU_COOLDOWN"
+          "OW2_KIRIKO_SUZU_COOLDOWN"
         ],
         "targetTokens": [
           "SET_AI_KIRIKO_ABILITY2_COOLDOWN_TARGET"
@@ -3581,9 +2401,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_AI_KIRIKO_ABILITY2_COOLDOWN_TARGET",
-          "KIRIKO_SUZU_COOLDOWN"
+          "OW2_KIRIKO_SUZU_COOLDOWN"
         ],
-        "referenceToken": "KIRIKO_SUZU_COOLDOWN",
+        "referenceToken": "OW2_KIRIKO_SUZU_COOLDOWN",
         "targetToken": "SET_AI_KIRIKO_ABILITY2_COOLDOWN_TARGET",
         "canonicalReference": "OW2_KIRIKO_SUZU_COOLDOWN",
         "referenceResolved": true,
@@ -3645,12 +2465,8 @@
         }
       ],
       "canonicalReference": "OW2_KIRIKO_SUZU_COOLDOWN",
-      "duplicateBaselineNames": [
-        "KIRIKO_SUZU_COOLDOWN"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team1.kiriko.ultGen%",
@@ -3663,13 +2479,13 @@
         "team": "team1",
         "hero": "kiriko",
         "field": "ultGen%",
-        "value": "ultGenPercent(KIRIKO_ULT_COST, SET_AI_KIRIKO_ULT_COST_TARGET)",
+        "value": "ultGenPercent(OW2_KIRIKO_ULT_COST, SET_AI_KIRIKO_ULT_COST_TARGET)",
         "file": "src/modules/prelude/settings.opy",
         "line": 383,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
-          "KIRIKO_ULT_COST",
+          "OW2_KIRIKO_ULT_COST",
           "SET_AI_KIRIKO_ULT_COST_TARGET"
         ],
         "targetTokens": [
@@ -3677,10 +2493,10 @@
         ],
         "functionName": "ultGenPercent",
         "expressionArguments": [
-          "KIRIKO_ULT_COST",
+          "OW2_KIRIKO_ULT_COST",
           "SET_AI_KIRIKO_ULT_COST_TARGET"
         ],
-        "referenceToken": "KIRIKO_ULT_COST",
+        "referenceToken": "OW2_KIRIKO_ULT_COST",
         "targetToken": "SET_AI_KIRIKO_ULT_COST_TARGET",
         "canonicalReference": "OW2_KIRIKO_ULT_COST",
         "referenceResolved": true,
@@ -3688,12 +2504,8 @@
       },
       "aram": [],
       "canonicalReference": "OW2_KIRIKO_ULT_COST",
-      "duplicateBaselineNames": [
-        "KIRIKO_ULT_COST"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team1.domina.ability1Cooldown%",
@@ -3879,14 +2691,14 @@
         "team": "team1",
         "hero": "sombra",
         "field": "secondaryFireCooldown%",
-        "value": "ratioPercent(SET_AI_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET, SOMBRA_HACK_COOLDOWN_TIME)",
+        "value": "ratioPercent(SET_AI_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET, OW2_SOMBRA_HACK_COOLDOWN_TIME)",
         "file": "src/modules/prelude/settings.opy",
         "line": 414,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_AI_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET",
-          "SOMBRA_HACK_COOLDOWN_TIME"
+          "OW2_SOMBRA_HACK_COOLDOWN_TIME"
         ],
         "targetTokens": [
           "SET_AI_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET"
@@ -3894,9 +2706,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_AI_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET",
-          "SOMBRA_HACK_COOLDOWN_TIME"
+          "OW2_SOMBRA_HACK_COOLDOWN_TIME"
         ],
-        "referenceToken": "SOMBRA_HACK_COOLDOWN_TIME",
+        "referenceToken": "OW2_SOMBRA_HACK_COOLDOWN_TIME",
         "targetToken": "SET_AI_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET",
         "canonicalReference": "OW2_SOMBRA_HACK_COOLDOWN_TIME",
         "referenceResolved": true,
@@ -3958,12 +2770,8 @@
         }
       ],
       "canonicalReference": "OW2_SOMBRA_HACK_COOLDOWN_TIME",
-      "duplicateBaselineNames": [
-        "SOMBRA_HACK_COOLDOWN_TIME"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team1.widowmaker.ultGen%",
@@ -3976,13 +2784,13 @@
         "team": "team1",
         "hero": "widowmaker",
         "field": "ultGen%",
-        "value": "ultGenPercent(WIDOWMAKER_ULT_COST, SET_AI_WIDOWMAKER_ULT_COST_TARGET)",
+        "value": "ultGenPercent(OW2_WIDOWMAKER_ULT_COST, SET_AI_WIDOWMAKER_ULT_COST_TARGET)",
         "file": "src/modules/prelude/settings.opy",
         "line": 423,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
-          "WIDOWMAKER_ULT_COST",
+          "OW2_WIDOWMAKER_ULT_COST",
           "SET_AI_WIDOWMAKER_ULT_COST_TARGET"
         ],
         "targetTokens": [
@@ -3990,10 +2798,10 @@
         ],
         "functionName": "ultGenPercent",
         "expressionArguments": [
-          "WIDOWMAKER_ULT_COST",
+          "OW2_WIDOWMAKER_ULT_COST",
           "SET_AI_WIDOWMAKER_ULT_COST_TARGET"
         ],
-        "referenceToken": "WIDOWMAKER_ULT_COST",
+        "referenceToken": "OW2_WIDOWMAKER_ULT_COST",
         "targetToken": "SET_AI_WIDOWMAKER_ULT_COST_TARGET",
         "canonicalReference": "OW2_WIDOWMAKER_ULT_COST",
         "referenceResolved": true,
@@ -4001,12 +2809,8 @@
       },
       "aram": [],
       "canonicalReference": "OW2_WIDOWMAKER_ULT_COST",
-      "duplicateBaselineNames": [
-        "WIDOWMAKER_ULT_COST"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team2.hanzo.ability2Cooldown%",
@@ -4019,14 +2823,14 @@
         "team": "team2",
         "hero": "hanzo",
         "field": "ability2Cooldown%",
-        "value": "ratioPercent(SET_PLAYER_HANZO_ABILITY2_COOLDOWN_TARGET, HANZO_STORM_COOLDOWN)",
+        "value": "ratioPercent(SET_PLAYER_HANZO_ABILITY2_COOLDOWN_TARGET, OW2_HANZO_STORM_COOLDOWN)",
         "file": "src/modules/prelude/settings.opy",
         "line": 434,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_PLAYER_HANZO_ABILITY2_COOLDOWN_TARGET",
-          "HANZO_STORM_COOLDOWN"
+          "OW2_HANZO_STORM_COOLDOWN"
         ],
         "targetTokens": [
           "SET_PLAYER_HANZO_ABILITY2_COOLDOWN_TARGET"
@@ -4034,9 +2838,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_PLAYER_HANZO_ABILITY2_COOLDOWN_TARGET",
-          "HANZO_STORM_COOLDOWN"
+          "OW2_HANZO_STORM_COOLDOWN"
         ],
-        "referenceToken": "HANZO_STORM_COOLDOWN",
+        "referenceToken": "OW2_HANZO_STORM_COOLDOWN",
         "targetToken": "SET_PLAYER_HANZO_ABILITY2_COOLDOWN_TARGET",
         "canonicalReference": "OW2_HANZO_STORM_COOLDOWN",
         "referenceResolved": true,
@@ -4098,12 +2902,8 @@
         }
       ],
       "canonicalReference": "OW2_HANZO_STORM_COOLDOWN",
-      "duplicateBaselineNames": [
-        "HANZO_STORM_COOLDOWN"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team2.hanzo.ultGen%",
@@ -4116,13 +2916,13 @@
         "team": "team2",
         "hero": "hanzo",
         "field": "ultGen%",
-        "value": "ultGenPercent(HANZO_ULT_COST, SET_PLAYER_HANZO_ULT_COST_TARGET)",
+        "value": "ultGenPercent(OW2_HANZO_ULT_COST, SET_PLAYER_HANZO_ULT_COST_TARGET)",
         "file": "src/modules/prelude/settings.opy",
         "line": 436,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
-          "HANZO_ULT_COST",
+          "OW2_HANZO_ULT_COST",
           "SET_PLAYER_HANZO_ULT_COST_TARGET"
         ],
         "targetTokens": [
@@ -4130,10 +2930,10 @@
         ],
         "functionName": "ultGenPercent",
         "expressionArguments": [
-          "HANZO_ULT_COST",
+          "OW2_HANZO_ULT_COST",
           "SET_PLAYER_HANZO_ULT_COST_TARGET"
         ],
-        "referenceToken": "HANZO_ULT_COST",
+        "referenceToken": "OW2_HANZO_ULT_COST",
         "targetToken": "SET_PLAYER_HANZO_ULT_COST_TARGET",
         "canonicalReference": "OW2_HANZO_ULT_COST",
         "referenceResolved": true,
@@ -4141,12 +2941,8 @@
       },
       "aram": [],
       "canonicalReference": "OW2_HANZO_ULT_COST",
-      "duplicateBaselineNames": [
-        "HANZO_ULT_COST"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team2.cassidy.ultGen%",
@@ -4159,13 +2955,13 @@
         "team": "team2",
         "hero": "cassidy",
         "field": "ultGen%",
-        "value": "ultGenPercent(MCCREE_ULT_COST, SET_PLAYER_CASSIDY_ULT_COST_TARGET)",
+        "value": "ultGenPercent(OW2_MCCREE_ULT_COST, SET_PLAYER_CASSIDY_ULT_COST_TARGET)",
         "file": "src/modules/prelude/settings.opy",
         "line": 444,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
-          "MCCREE_ULT_COST",
+          "OW2_MCCREE_ULT_COST",
           "SET_PLAYER_CASSIDY_ULT_COST_TARGET"
         ],
         "targetTokens": [
@@ -4173,10 +2969,10 @@
         ],
         "functionName": "ultGenPercent",
         "expressionArguments": [
-          "MCCREE_ULT_COST",
+          "OW2_MCCREE_ULT_COST",
           "SET_PLAYER_CASSIDY_ULT_COST_TARGET"
         ],
-        "referenceToken": "MCCREE_ULT_COST",
+        "referenceToken": "OW2_MCCREE_ULT_COST",
         "targetToken": "SET_PLAYER_CASSIDY_ULT_COST_TARGET",
         "canonicalReference": "OW2_MCCREE_ULT_COST",
         "referenceResolved": true,
@@ -4184,12 +2980,8 @@
       },
       "aram": [],
       "canonicalReference": "OW2_MCCREE_ULT_COST",
-      "duplicateBaselineNames": [
-        "MCCREE_ULT_COST"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team2.cassidy.ability2Cooldown%",
@@ -4202,14 +2994,14 @@
         "team": "team2",
         "hero": "cassidy",
         "field": "ability2Cooldown%",
-        "value": "ratioPercent(SET_PLAYER_CASSIDY_ABILITY2_COOLDOWN_TARGET, MCCREE_FLASHBANG_COOLDOWN)",
+        "value": "ratioPercent(SET_PLAYER_CASSIDY_ABILITY2_COOLDOWN_TARGET, OW2_MCCREE_FLASHBANG_COOLDOWN)",
         "file": "src/modules/prelude/settings.opy",
         "line": 446,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_PLAYER_CASSIDY_ABILITY2_COOLDOWN_TARGET",
-          "MCCREE_FLASHBANG_COOLDOWN"
+          "OW2_MCCREE_FLASHBANG_COOLDOWN"
         ],
         "targetTokens": [
           "SET_PLAYER_CASSIDY_ABILITY2_COOLDOWN_TARGET"
@@ -4217,9 +3009,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_PLAYER_CASSIDY_ABILITY2_COOLDOWN_TARGET",
-          "MCCREE_FLASHBANG_COOLDOWN"
+          "OW2_MCCREE_FLASHBANG_COOLDOWN"
         ],
-        "referenceToken": "MCCREE_FLASHBANG_COOLDOWN",
+        "referenceToken": "OW2_MCCREE_FLASHBANG_COOLDOWN",
         "targetToken": "SET_PLAYER_CASSIDY_ABILITY2_COOLDOWN_TARGET",
         "canonicalReference": "OW2_MCCREE_FLASHBANG_COOLDOWN",
         "referenceResolved": true,
@@ -4255,12 +3047,8 @@
         }
       ],
       "canonicalReference": "OW2_MCCREE_FLASHBANG_COOLDOWN",
-      "duplicateBaselineNames": [
-        "MCCREE_FLASHBANG_COOLDOWN"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team2.bastion.ability1Cooldown%",
@@ -4273,14 +3061,14 @@
         "team": "team2",
         "hero": "bastion",
         "field": "ability1Cooldown%",
-        "value": "ratioPercent(SET_PLAYER_BASTION_ABILITY1_COOLDOWN_TARGET, BASTION_RECONFIGURE_COOLDOWN)",
+        "value": "ratioPercent(SET_PLAYER_BASTION_ABILITY1_COOLDOWN_TARGET, OW2_BASTION_RECONFIGURE_COOLDOWN)",
         "file": "src/modules/prelude/settings.opy",
         "line": 465,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_PLAYER_BASTION_ABILITY1_COOLDOWN_TARGET",
-          "BASTION_RECONFIGURE_COOLDOWN"
+          "OW2_BASTION_RECONFIGURE_COOLDOWN"
         ],
         "targetTokens": [
           "SET_PLAYER_BASTION_ABILITY1_COOLDOWN_TARGET"
@@ -4288,9 +3076,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_PLAYER_BASTION_ABILITY1_COOLDOWN_TARGET",
-          "BASTION_RECONFIGURE_COOLDOWN"
+          "OW2_BASTION_RECONFIGURE_COOLDOWN"
         ],
-        "referenceToken": "BASTION_RECONFIGURE_COOLDOWN",
+        "referenceToken": "OW2_BASTION_RECONFIGURE_COOLDOWN",
         "targetToken": "SET_PLAYER_BASTION_ABILITY1_COOLDOWN_TARGET",
         "canonicalReference": "OW2_BASTION_RECONFIGURE_COOLDOWN",
         "referenceResolved": true,
@@ -4326,12 +3114,8 @@
         }
       ],
       "canonicalReference": "OW2_BASTION_RECONFIGURE_COOLDOWN",
-      "duplicateBaselineNames": [
-        "BASTION_RECONFIGURE_COOLDOWN"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team2.soldier.ability2Cooldown%",
@@ -4344,14 +3128,14 @@
         "team": "team2",
         "hero": "soldier",
         "field": "ability2Cooldown%",
-        "value": "ratioPercent(SET_PLAYER_SOLDIER_ABILITY2_COOLDOWN_TARGET, SOLDIER_BIOTIC_FIELD_COOLDOWN)",
+        "value": "ratioPercent(SET_PLAYER_SOLDIER_ABILITY2_COOLDOWN_TARGET, OW2_SOLDIER_BIOTIC_FIELD_COOLDOWN)",
         "file": "src/modules/prelude/settings.opy",
         "line": 471,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_PLAYER_SOLDIER_ABILITY2_COOLDOWN_TARGET",
-          "SOLDIER_BIOTIC_FIELD_COOLDOWN"
+          "OW2_SOLDIER_BIOTIC_FIELD_COOLDOWN"
         ],
         "targetTokens": [
           "SET_PLAYER_SOLDIER_ABILITY2_COOLDOWN_TARGET"
@@ -4359,9 +3143,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_PLAYER_SOLDIER_ABILITY2_COOLDOWN_TARGET",
-          "SOLDIER_BIOTIC_FIELD_COOLDOWN"
+          "OW2_SOLDIER_BIOTIC_FIELD_COOLDOWN"
         ],
-        "referenceToken": "SOLDIER_BIOTIC_FIELD_COOLDOWN",
+        "referenceToken": "OW2_SOLDIER_BIOTIC_FIELD_COOLDOWN",
         "targetToken": "SET_PLAYER_SOLDIER_ABILITY2_COOLDOWN_TARGET",
         "canonicalReference": "OW2_SOLDIER_BIOTIC_FIELD_COOLDOWN",
         "referenceResolved": true,
@@ -4397,12 +3181,8 @@
         }
       ],
       "canonicalReference": "OW2_SOLDIER_BIOTIC_FIELD_COOLDOWN",
-      "duplicateBaselineNames": [
-        "SOLDIER_BIOTIC_FIELD_COOLDOWN"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team2.orisa.ability1Cooldown%",
@@ -4415,14 +3195,14 @@
         "team": "team2",
         "hero": "orisa",
         "field": "ability1Cooldown%",
-        "value": "ratioPercent(SET_PLAYER_ORISA_ABILITY1_COOLDOWN_TARGET, ORISA_FORTIFY_COOLDOWN)",
+        "value": "ratioPercent(SET_PLAYER_ORISA_ABILITY1_COOLDOWN_TARGET, OW2_ORISA_FORTIFY_COOLDOWN)",
         "file": "src/modules/prelude/settings.opy",
         "line": 487,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_PLAYER_ORISA_ABILITY1_COOLDOWN_TARGET",
-          "ORISA_FORTIFY_COOLDOWN"
+          "OW2_ORISA_FORTIFY_COOLDOWN"
         ],
         "targetTokens": [
           "SET_PLAYER_ORISA_ABILITY1_COOLDOWN_TARGET"
@@ -4430,9 +3210,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_PLAYER_ORISA_ABILITY1_COOLDOWN_TARGET",
-          "ORISA_FORTIFY_COOLDOWN"
+          "OW2_ORISA_FORTIFY_COOLDOWN"
         ],
-        "referenceToken": "ORISA_FORTIFY_COOLDOWN",
+        "referenceToken": "OW2_ORISA_FORTIFY_COOLDOWN",
         "targetToken": "SET_PLAYER_ORISA_ABILITY1_COOLDOWN_TARGET",
         "canonicalReference": "OW2_ORISA_FORTIFY_COOLDOWN",
         "referenceResolved": true,
@@ -4440,12 +3220,8 @@
       },
       "aram": [],
       "canonicalReference": "OW2_ORISA_FORTIFY_COOLDOWN",
-      "duplicateBaselineNames": [
-        "ORISA_FORTIFY_COOLDOWN"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team2.orisa.ultGen%",
@@ -4458,13 +3234,13 @@
         "team": "team2",
         "hero": "orisa",
         "field": "ultGen%",
-        "value": "ultGenPercent(ORISA_ULT_COST, SET_PLAYER_ORISA_ULT_COST_TARGET)",
+        "value": "ultGenPercent(OW2_ORISA_ULT_COST, SET_PLAYER_ORISA_ULT_COST_TARGET)",
         "file": "src/modules/prelude/settings.opy",
         "line": 493,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
-          "ORISA_ULT_COST",
+          "OW2_ORISA_ULT_COST",
           "SET_PLAYER_ORISA_ULT_COST_TARGET"
         ],
         "targetTokens": [
@@ -4472,10 +3248,10 @@
         ],
         "functionName": "ultGenPercent",
         "expressionArguments": [
-          "ORISA_ULT_COST",
+          "OW2_ORISA_ULT_COST",
           "SET_PLAYER_ORISA_ULT_COST_TARGET"
         ],
-        "referenceToken": "ORISA_ULT_COST",
+        "referenceToken": "OW2_ORISA_ULT_COST",
         "targetToken": "SET_PLAYER_ORISA_ULT_COST_TARGET",
         "canonicalReference": "OW2_ORISA_ULT_COST",
         "referenceResolved": true,
@@ -4537,12 +3313,8 @@
         }
       ],
       "canonicalReference": "OW2_ORISA_ULT_COST",
-      "duplicateBaselineNames": [
-        "ORISA_ULT_COST"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team2.ana.ability2Cooldown%",
@@ -4555,14 +3327,14 @@
         "team": "team2",
         "hero": "ana",
         "field": "ability2Cooldown%",
-        "value": "ratioPercent(SET_PLAYER_ANA_ABILITY2_COOLDOWN_TARGET, ANA_BIOTIC_GRENADE_COOLDOWN)",
+        "value": "ratioPercent(SET_PLAYER_ANA_ABILITY2_COOLDOWN_TARGET, OW2_ANA_BIOTIC_GRENADE_COOLDOWN)",
         "file": "src/modules/prelude/settings.opy",
         "line": 499,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_PLAYER_ANA_ABILITY2_COOLDOWN_TARGET",
-          "ANA_BIOTIC_GRENADE_COOLDOWN"
+          "OW2_ANA_BIOTIC_GRENADE_COOLDOWN"
         ],
         "targetTokens": [
           "SET_PLAYER_ANA_ABILITY2_COOLDOWN_TARGET"
@@ -4570,9 +3342,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_PLAYER_ANA_ABILITY2_COOLDOWN_TARGET",
-          "ANA_BIOTIC_GRENADE_COOLDOWN"
+          "OW2_ANA_BIOTIC_GRENADE_COOLDOWN"
         ],
-        "referenceToken": "ANA_BIOTIC_GRENADE_COOLDOWN",
+        "referenceToken": "OW2_ANA_BIOTIC_GRENADE_COOLDOWN",
         "targetToken": "SET_PLAYER_ANA_ABILITY2_COOLDOWN_TARGET",
         "canonicalReference": "OW2_ANA_BIOTIC_GRENADE_COOLDOWN",
         "referenceResolved": true,
@@ -4634,12 +3406,8 @@
         }
       ],
       "canonicalReference": "OW2_ANA_BIOTIC_GRENADE_COOLDOWN",
-      "duplicateBaselineNames": [
-        "ANA_BIOTIC_GRENADE_COOLDOWN"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team2.ana.ultGen%",
@@ -4652,13 +3420,13 @@
         "team": "team2",
         "hero": "ana",
         "field": "ultGen%",
-        "value": "ultGenPercent(ANA_ULT_COST, SET_PLAYER_ANA_ULT_COST_TARGET)",
+        "value": "ultGenPercent(OW2_ANA_ULT_COST, SET_PLAYER_ANA_ULT_COST_TARGET)",
         "file": "src/modules/prelude/settings.opy",
         "line": 501,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
-          "ANA_ULT_COST",
+          "OW2_ANA_ULT_COST",
           "SET_PLAYER_ANA_ULT_COST_TARGET"
         ],
         "targetTokens": [
@@ -4666,10 +3434,10 @@
         ],
         "functionName": "ultGenPercent",
         "expressionArguments": [
-          "ANA_ULT_COST",
+          "OW2_ANA_ULT_COST",
           "SET_PLAYER_ANA_ULT_COST_TARGET"
         ],
-        "referenceToken": "ANA_ULT_COST",
+        "referenceToken": "OW2_ANA_ULT_COST",
         "targetToken": "SET_PLAYER_ANA_ULT_COST_TARGET",
         "canonicalReference": "OW2_ANA_ULT_COST",
         "referenceResolved": true,
@@ -4705,12 +3473,8 @@
         }
       ],
       "canonicalReference": "OW2_ANA_ULT_COST",
-      "duplicateBaselineNames": [
-        "ANA_ULT_COST"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team2.ana.ability1Cooldown%",
@@ -4723,14 +3487,14 @@
         "team": "team2",
         "hero": "ana",
         "field": "ability1Cooldown%",
-        "value": "ratioPercent(SET_PLAYER_ANA_ABILITY1_COOLDOWN_TARGET, ANA_SLEEP_DART_COOLDOWN_TIME)",
+        "value": "ratioPercent(SET_PLAYER_ANA_ABILITY1_COOLDOWN_TARGET, OW2_ANA_SLEEP_DART_COOLDOWN_TIME)",
         "file": "src/modules/prelude/settings.opy",
         "line": 503,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_PLAYER_ANA_ABILITY1_COOLDOWN_TARGET",
-          "ANA_SLEEP_DART_COOLDOWN_TIME"
+          "OW2_ANA_SLEEP_DART_COOLDOWN_TIME"
         ],
         "targetTokens": [
           "SET_PLAYER_ANA_ABILITY1_COOLDOWN_TARGET"
@@ -4738,9 +3502,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_PLAYER_ANA_ABILITY1_COOLDOWN_TARGET",
-          "ANA_SLEEP_DART_COOLDOWN_TIME"
+          "OW2_ANA_SLEEP_DART_COOLDOWN_TIME"
         ],
-        "referenceToken": "ANA_SLEEP_DART_COOLDOWN_TIME",
+        "referenceToken": "OW2_ANA_SLEEP_DART_COOLDOWN_TIME",
         "targetToken": "SET_PLAYER_ANA_ABILITY1_COOLDOWN_TARGET",
         "canonicalReference": "OW2_ANA_SLEEP_DART_COOLDOWN_TIME",
         "referenceResolved": true,
@@ -4802,12 +3566,8 @@
         }
       ],
       "canonicalReference": "OW2_ANA_SLEEP_DART_COOLDOWN_TIME",
-      "duplicateBaselineNames": [
-        "ANA_SLEEP_DART_COOLDOWN_TIME"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team2.baptiste.ability1Cooldown%",
@@ -4820,14 +3580,14 @@
         "team": "team2",
         "hero": "baptiste",
         "field": "ability1Cooldown%",
-        "value": "ratioPercent(SET_PLAYER_BAPTISTE_ABILITY1_COOLDOWN_TARGET, BAPTISTE_REGEN_BURST_COOLDOWN)",
+        "value": "ratioPercent(SET_PLAYER_BAPTISTE_ABILITY1_COOLDOWN_TARGET, OW2_BAPTISTE_REGEN_BURST_COOLDOWN)",
         "file": "src/modules/prelude/settings.opy",
         "line": 509,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_PLAYER_BAPTISTE_ABILITY1_COOLDOWN_TARGET",
-          "BAPTISTE_REGEN_BURST_COOLDOWN"
+          "OW2_BAPTISTE_REGEN_BURST_COOLDOWN"
         ],
         "targetTokens": [
           "SET_PLAYER_BAPTISTE_ABILITY1_COOLDOWN_TARGET"
@@ -4835,9 +3595,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_PLAYER_BAPTISTE_ABILITY1_COOLDOWN_TARGET",
-          "BAPTISTE_REGEN_BURST_COOLDOWN"
+          "OW2_BAPTISTE_REGEN_BURST_COOLDOWN"
         ],
-        "referenceToken": "BAPTISTE_REGEN_BURST_COOLDOWN",
+        "referenceToken": "OW2_BAPTISTE_REGEN_BURST_COOLDOWN",
         "targetToken": "SET_PLAYER_BAPTISTE_ABILITY1_COOLDOWN_TARGET",
         "canonicalReference": "OW2_BAPTISTE_REGEN_BURST_COOLDOWN",
         "referenceResolved": true,
@@ -4899,12 +3659,8 @@
         }
       ],
       "canonicalReference": "OW2_BAPTISTE_REGEN_BURST_COOLDOWN",
-      "duplicateBaselineNames": [
-        "BAPTISTE_REGEN_BURST_COOLDOWN"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team2.baptiste.ability2Cooldown%",
@@ -4917,14 +3673,14 @@
         "team": "team2",
         "hero": "baptiste",
         "field": "ability2Cooldown%",
-        "value": "ratioPercent(SET_PLAYER_BAPTISTE_ABILITY2_COOLDOWN_TARGET, BAPTISTE_LAMP_COOLDOWN_TIME)",
+        "value": "ratioPercent(SET_PLAYER_BAPTISTE_ABILITY2_COOLDOWN_TARGET, OW2_BAPTISTE_LAMP_COOLDOWN_TIME)",
         "file": "src/modules/prelude/settings.opy",
         "line": 513,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_PLAYER_BAPTISTE_ABILITY2_COOLDOWN_TARGET",
-          "BAPTISTE_LAMP_COOLDOWN_TIME"
+          "OW2_BAPTISTE_LAMP_COOLDOWN_TIME"
         ],
         "targetTokens": [
           "SET_PLAYER_BAPTISTE_ABILITY2_COOLDOWN_TARGET"
@@ -4932,9 +3688,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_PLAYER_BAPTISTE_ABILITY2_COOLDOWN_TARGET",
-          "BAPTISTE_LAMP_COOLDOWN_TIME"
+          "OW2_BAPTISTE_LAMP_COOLDOWN_TIME"
         ],
-        "referenceToken": "BAPTISTE_LAMP_COOLDOWN_TIME",
+        "referenceToken": "OW2_BAPTISTE_LAMP_COOLDOWN_TIME",
         "targetToken": "SET_PLAYER_BAPTISTE_ABILITY2_COOLDOWN_TARGET",
         "canonicalReference": "OW2_BAPTISTE_LAMP_COOLDOWN_TIME",
         "referenceResolved": true,
@@ -4996,12 +3752,8 @@
         }
       ],
       "canonicalReference": "OW2_BAPTISTE_LAMP_COOLDOWN_TIME",
-      "duplicateBaselineNames": [
-        "BAPTISTE_LAMP_COOLDOWN_TIME"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team2.brigitte.ability2Cooldown%",
@@ -5014,14 +3766,14 @@
         "team": "team2",
         "hero": "brigitte",
         "field": "ability2Cooldown%",
-        "value": "ratioPercent(SET_PLAYER_BRIGITTE_ABILITY2_COOLDOWN_TARGET, BRIGITTE_REPAIR_PACK_COOLDOWN)",
+        "value": "ratioPercent(SET_PLAYER_BRIGITTE_ABILITY2_COOLDOWN_TARGET, OW2_BRIGITTE_REPAIR_PACK_COOLDOWN)",
         "file": "src/modules/prelude/settings.opy",
         "line": 522,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_PLAYER_BRIGITTE_ABILITY2_COOLDOWN_TARGET",
-          "BRIGITTE_REPAIR_PACK_COOLDOWN"
+          "OW2_BRIGITTE_REPAIR_PACK_COOLDOWN"
         ],
         "targetTokens": [
           "SET_PLAYER_BRIGITTE_ABILITY2_COOLDOWN_TARGET"
@@ -5029,9 +3781,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_PLAYER_BRIGITTE_ABILITY2_COOLDOWN_TARGET",
-          "BRIGITTE_REPAIR_PACK_COOLDOWN"
+          "OW2_BRIGITTE_REPAIR_PACK_COOLDOWN"
         ],
-        "referenceToken": "BRIGITTE_REPAIR_PACK_COOLDOWN",
+        "referenceToken": "OW2_BRIGITTE_REPAIR_PACK_COOLDOWN",
         "targetToken": "SET_PLAYER_BRIGITTE_ABILITY2_COOLDOWN_TARGET",
         "canonicalReference": "OW2_BRIGITTE_REPAIR_PACK_COOLDOWN",
         "referenceResolved": true,
@@ -5039,12 +3791,8 @@
       },
       "aram": [],
       "canonicalReference": "OW2_BRIGITTE_REPAIR_PACK_COOLDOWN",
-      "duplicateBaselineNames": [
-        "BRIGITTE_REPAIR_PACK_COOLDOWN"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team2.brigitte.ultGen%",
@@ -5057,13 +3805,13 @@
         "team": "team2",
         "hero": "brigitte",
         "field": "ultGen%",
-        "value": "ultGenPercent(BRIGITTE_ULT_COST, SET_PLAYER_BRIGITTE_ULT_COST_TARGET)",
+        "value": "ultGenPercent(OW2_BRIGITTE_ULT_COST, SET_PLAYER_BRIGITTE_ULT_COST_TARGET)",
         "file": "src/modules/prelude/settings.opy",
         "line": 526,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
-          "BRIGITTE_ULT_COST",
+          "OW2_BRIGITTE_ULT_COST",
           "SET_PLAYER_BRIGITTE_ULT_COST_TARGET"
         ],
         "targetTokens": [
@@ -5071,10 +3819,10 @@
         ],
         "functionName": "ultGenPercent",
         "expressionArguments": [
-          "BRIGITTE_ULT_COST",
+          "OW2_BRIGITTE_ULT_COST",
           "SET_PLAYER_BRIGITTE_ULT_COST_TARGET"
         ],
-        "referenceToken": "BRIGITTE_ULT_COST",
+        "referenceToken": "OW2_BRIGITTE_ULT_COST",
         "targetToken": "SET_PLAYER_BRIGITTE_ULT_COST_TARGET",
         "canonicalReference": "OW2_BRIGITTE_ULT_COST",
         "referenceResolved": true,
@@ -5082,12 +3830,8 @@
       },
       "aram": [],
       "canonicalReference": "OW2_BRIGITTE_ULT_COST",
-      "duplicateBaselineNames": [
-        "BRIGITTE_ULT_COST"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team2.brigitte.shieldBashCooldown%",
@@ -5100,14 +3844,14 @@
         "team": "team2",
         "hero": "brigitte",
         "field": "shieldBashCooldown%",
-        "value": "ratioPercent(SET_PLAYER_BRIGITTE_SHIELD_BASH_COOLDOWN_TARGET, BRIGITTE_SHIELD_BASH_COOLDOWN)",
+        "value": "ratioPercent(SET_PLAYER_BRIGITTE_SHIELD_BASH_COOLDOWN_TARGET, OW2_BRIGITTE_SHIELD_BASH_COOLDOWN)",
         "file": "src/modules/prelude/settings.opy",
         "line": 528,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_PLAYER_BRIGITTE_SHIELD_BASH_COOLDOWN_TARGET",
-          "BRIGITTE_SHIELD_BASH_COOLDOWN"
+          "OW2_BRIGITTE_SHIELD_BASH_COOLDOWN"
         ],
         "targetTokens": [
           "SET_PLAYER_BRIGITTE_SHIELD_BASH_COOLDOWN_TARGET"
@@ -5115,9 +3859,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_PLAYER_BRIGITTE_SHIELD_BASH_COOLDOWN_TARGET",
-          "BRIGITTE_SHIELD_BASH_COOLDOWN"
+          "OW2_BRIGITTE_SHIELD_BASH_COOLDOWN"
         ],
-        "referenceToken": "BRIGITTE_SHIELD_BASH_COOLDOWN",
+        "referenceToken": "OW2_BRIGITTE_SHIELD_BASH_COOLDOWN",
         "targetToken": "SET_PLAYER_BRIGITTE_SHIELD_BASH_COOLDOWN_TARGET",
         "canonicalReference": "OW2_BRIGITTE_SHIELD_BASH_COOLDOWN",
         "referenceResolved": true,
@@ -5125,12 +3869,8 @@
       },
       "aram": [],
       "canonicalReference": "OW2_BRIGITTE_SHIELD_BASH_COOLDOWN",
-      "duplicateBaselineNames": [
-        "BRIGITTE_SHIELD_BASH_COOLDOWN"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team2.brigitte.shieldBashKb%",
@@ -5143,14 +3883,14 @@
         "team": "team2",
         "hero": "brigitte",
         "field": "shieldBashKb%",
-        "value": "ratioPercent(SET_PLAYER_BRIGITTE_SHIELD_BASH_KB_TARGET, BRIGITTE_SHIELD_BASH_KNOCKBACK)",
+        "value": "ratioPercent(SET_PLAYER_BRIGITTE_SHIELD_BASH_KB_TARGET, OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK)",
         "file": "src/modules/prelude/settings.opy",
         "line": 530,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_PLAYER_BRIGITTE_SHIELD_BASH_KB_TARGET",
-          "BRIGITTE_SHIELD_BASH_KNOCKBACK"
+          "OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK"
         ],
         "targetTokens": [
           "SET_PLAYER_BRIGITTE_SHIELD_BASH_KB_TARGET"
@@ -5158,9 +3898,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_PLAYER_BRIGITTE_SHIELD_BASH_KB_TARGET",
-          "BRIGITTE_SHIELD_BASH_KNOCKBACK"
+          "OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK"
         ],
-        "referenceToken": "BRIGITTE_SHIELD_BASH_KNOCKBACK",
+        "referenceToken": "OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK",
         "targetToken": "SET_PLAYER_BRIGITTE_SHIELD_BASH_KB_TARGET",
         "canonicalReference": "OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK",
         "referenceResolved": true,
@@ -5222,12 +3962,8 @@
         }
       ],
       "canonicalReference": "OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK",
-      "duplicateBaselineNames": [
-        "BRIGITTE_SHIELD_BASH_KNOCKBACK"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team2.torbjorn.ultGen%",
@@ -5240,13 +3976,13 @@
         "team": "team2",
         "hero": "torbjorn",
         "field": "ultGen%",
-        "value": "ultGenPercent(TORBJORN_ULT_COST, SET_PLAYER_TORBJORN_ULT_COST_TARGET)",
+        "value": "ultGenPercent(OW2_TORBJORN_ULT_COST, SET_PLAYER_TORBJORN_ULT_COST_TARGET)",
         "file": "src/modules/prelude/settings.opy",
         "line": 544,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
-          "TORBJORN_ULT_COST",
+          "OW2_TORBJORN_ULT_COST",
           "SET_PLAYER_TORBJORN_ULT_COST_TARGET"
         ],
         "targetTokens": [
@@ -5254,10 +3990,10 @@
         ],
         "functionName": "ultGenPercent",
         "expressionArguments": [
-          "TORBJORN_ULT_COST",
+          "OW2_TORBJORN_ULT_COST",
           "SET_PLAYER_TORBJORN_ULT_COST_TARGET"
         ],
-        "referenceToken": "TORBJORN_ULT_COST",
+        "referenceToken": "OW2_TORBJORN_ULT_COST",
         "targetToken": "SET_PLAYER_TORBJORN_ULT_COST_TARGET",
         "canonicalReference": "OW2_TORBJORN_ULT_COST",
         "referenceResolved": true,
@@ -5265,12 +4001,8 @@
       },
       "aram": [],
       "canonicalReference": "OW2_TORBJORN_ULT_COST",
-      "duplicateBaselineNames": [
-        "TORBJORN_ULT_COST"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team2.ramattra.ability2Cooldown%",
@@ -5283,14 +4015,14 @@
         "team": "team2",
         "hero": "ramattra",
         "field": "ability2Cooldown%",
-        "value": "ratioPercent(SET_PLAYER_RAMATTRA_ABILITY2_COOLDOWN_TARGET, RAMATTRA_VORTEX_COOLDOWN)",
+        "value": "ratioPercent(SET_PLAYER_RAMATTRA_ABILITY2_COOLDOWN_TARGET, OW2_RAMATTRA_VORTEX_COOLDOWN)",
         "file": "src/modules/prelude/settings.opy",
         "line": 552,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_PLAYER_RAMATTRA_ABILITY2_COOLDOWN_TARGET",
-          "RAMATTRA_VORTEX_COOLDOWN"
+          "OW2_RAMATTRA_VORTEX_COOLDOWN"
         ],
         "targetTokens": [
           "SET_PLAYER_RAMATTRA_ABILITY2_COOLDOWN_TARGET"
@@ -5298,9 +4030,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_PLAYER_RAMATTRA_ABILITY2_COOLDOWN_TARGET",
-          "RAMATTRA_VORTEX_COOLDOWN"
+          "OW2_RAMATTRA_VORTEX_COOLDOWN"
         ],
-        "referenceToken": "RAMATTRA_VORTEX_COOLDOWN",
+        "referenceToken": "OW2_RAMATTRA_VORTEX_COOLDOWN",
         "targetToken": "SET_PLAYER_RAMATTRA_ABILITY2_COOLDOWN_TARGET",
         "canonicalReference": "OW2_RAMATTRA_VORTEX_COOLDOWN",
         "referenceResolved": true,
@@ -5308,12 +4040,8 @@
       },
       "aram": [],
       "canonicalReference": "OW2_RAMATTRA_VORTEX_COOLDOWN",
-      "duplicateBaselineNames": [
-        "RAMATTRA_VORTEX_COOLDOWN"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team2.ramattra.ability1Cooldown%",
@@ -5326,14 +4054,14 @@
         "team": "team2",
         "hero": "ramattra",
         "field": "ability1Cooldown%",
-        "value": "ratioPercent(SET_PLAYER_RAMATTRA_ABILITY1_COOLDOWN_TARGET, RAMATTRA_NEMESIS_COOLDOWN)",
+        "value": "ratioPercent(SET_PLAYER_RAMATTRA_ABILITY1_COOLDOWN_TARGET, OW2_RAMATTRA_NEMESIS_COOLDOWN)",
         "file": "src/modules/prelude/settings.opy",
         "line": 554,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_PLAYER_RAMATTRA_ABILITY1_COOLDOWN_TARGET",
-          "RAMATTRA_NEMESIS_COOLDOWN"
+          "OW2_RAMATTRA_NEMESIS_COOLDOWN"
         ],
         "targetTokens": [
           "SET_PLAYER_RAMATTRA_ABILITY1_COOLDOWN_TARGET"
@@ -5341,9 +4069,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_PLAYER_RAMATTRA_ABILITY1_COOLDOWN_TARGET",
-          "RAMATTRA_NEMESIS_COOLDOWN"
+          "OW2_RAMATTRA_NEMESIS_COOLDOWN"
         ],
-        "referenceToken": "RAMATTRA_NEMESIS_COOLDOWN",
+        "referenceToken": "OW2_RAMATTRA_NEMESIS_COOLDOWN",
         "targetToken": "SET_PLAYER_RAMATTRA_ABILITY1_COOLDOWN_TARGET",
         "canonicalReference": "OW2_RAMATTRA_NEMESIS_COOLDOWN",
         "referenceResolved": true,
@@ -5379,12 +4107,8 @@
         }
       ],
       "canonicalReference": "OW2_RAMATTRA_NEMESIS_COOLDOWN",
-      "duplicateBaselineNames": [
-        "RAMATTRA_NEMESIS_COOLDOWN"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team2.ramattra.ultGen%",
@@ -5397,13 +4121,13 @@
         "team": "team2",
         "hero": "ramattra",
         "field": "ultGen%",
-        "value": "ultGenPercent(RAMATTRA_ULT_COST, SET_PLAYER_RAMATTRA_ULT_COST_TARGET)",
+        "value": "ultGenPercent(OW2_RAMATTRA_ULT_COST, SET_PLAYER_RAMATTRA_ULT_COST_TARGET)",
         "file": "src/modules/prelude/settings.opy",
         "line": 556,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
-          "RAMATTRA_ULT_COST",
+          "OW2_RAMATTRA_ULT_COST",
           "SET_PLAYER_RAMATTRA_ULT_COST_TARGET"
         ],
         "targetTokens": [
@@ -5411,10 +4135,10 @@
         ],
         "functionName": "ultGenPercent",
         "expressionArguments": [
-          "RAMATTRA_ULT_COST",
+          "OW2_RAMATTRA_ULT_COST",
           "SET_PLAYER_RAMATTRA_ULT_COST_TARGET"
         ],
-        "referenceToken": "RAMATTRA_ULT_COST",
+        "referenceToken": "OW2_RAMATTRA_ULT_COST",
         "targetToken": "SET_PLAYER_RAMATTRA_ULT_COST_TARGET",
         "canonicalReference": "OW2_RAMATTRA_ULT_COST",
         "referenceResolved": true,
@@ -5450,12 +4174,8 @@
         }
       ],
       "canonicalReference": "OW2_RAMATTRA_ULT_COST",
-      "duplicateBaselineNames": [
-        "RAMATTRA_ULT_COST"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team2.ramattra.secondaryFireCooldown%",
@@ -5468,14 +4188,14 @@
         "team": "team2",
         "hero": "ramattra",
         "field": "secondaryFireCooldown%",
-        "value": "ratioPercent(SET_PLAYER_RAMATTRA_SECONDARY_FIRE_COOLDOWN_TARGET, RAMATTRA_VOID_BARRIER_COOLDOWN)",
+        "value": "ratioPercent(SET_PLAYER_RAMATTRA_SECONDARY_FIRE_COOLDOWN_TARGET, OW2_RAMATTRA_VOID_BARRIER_COOLDOWN)",
         "file": "src/modules/prelude/settings.opy",
         "line": 559,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_PLAYER_RAMATTRA_SECONDARY_FIRE_COOLDOWN_TARGET",
-          "RAMATTRA_VOID_BARRIER_COOLDOWN"
+          "OW2_RAMATTRA_VOID_BARRIER_COOLDOWN"
         ],
         "targetTokens": [
           "SET_PLAYER_RAMATTRA_SECONDARY_FIRE_COOLDOWN_TARGET"
@@ -5483,9 +4203,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_PLAYER_RAMATTRA_SECONDARY_FIRE_COOLDOWN_TARGET",
-          "RAMATTRA_VOID_BARRIER_COOLDOWN"
+          "OW2_RAMATTRA_VOID_BARRIER_COOLDOWN"
         ],
-        "referenceToken": "RAMATTRA_VOID_BARRIER_COOLDOWN",
+        "referenceToken": "OW2_RAMATTRA_VOID_BARRIER_COOLDOWN",
         "targetToken": "SET_PLAYER_RAMATTRA_SECONDARY_FIRE_COOLDOWN_TARGET",
         "canonicalReference": "OW2_RAMATTRA_VOID_BARRIER_COOLDOWN",
         "referenceResolved": true,
@@ -5493,12 +4213,8 @@
       },
       "aram": [],
       "canonicalReference": "OW2_RAMATTRA_VOID_BARRIER_COOLDOWN",
-      "duplicateBaselineNames": [
-        "RAMATTRA_VOID_BARRIER_COOLDOWN"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team2.venture.ultGen%",
@@ -5511,13 +4227,13 @@
         "team": "team2",
         "hero": "venture",
         "field": "ultGen%",
-        "value": "ultGenPercent(VENTURE_ULT_COST, SET_PLAYER_VENTURE_ULT_COST_TARGET)",
+        "value": "ultGenPercent(OW2_VENTURE_ULT_COST, SET_PLAYER_VENTURE_ULT_COST_TARGET)",
         "file": "src/modules/prelude/settings.opy",
         "line": 566,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
-          "VENTURE_ULT_COST",
+          "OW2_VENTURE_ULT_COST",
           "SET_PLAYER_VENTURE_ULT_COST_TARGET"
         ],
         "targetTokens": [
@@ -5525,10 +4241,10 @@
         ],
         "functionName": "ultGenPercent",
         "expressionArguments": [
-          "VENTURE_ULT_COST",
+          "OW2_VENTURE_ULT_COST",
           "SET_PLAYER_VENTURE_ULT_COST_TARGET"
         ],
-        "referenceToken": "VENTURE_ULT_COST",
+        "referenceToken": "OW2_VENTURE_ULT_COST",
         "targetToken": "SET_PLAYER_VENTURE_ULT_COST_TARGET",
         "canonicalReference": "OW2_VENTURE_ULT_COST",
         "referenceResolved": true,
@@ -5536,12 +4252,8 @@
       },
       "aram": [],
       "canonicalReference": "OW2_VENTURE_ULT_COST",
-      "duplicateBaselineNames": [
-        "VENTURE_ULT_COST"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team2.illari.ability2Cooldown%",
@@ -5554,14 +4266,14 @@
         "team": "team2",
         "hero": "illari",
         "field": "ability2Cooldown%",
-        "value": "ratioPercent(SET_PLAYER_ILLARI_ABILITY2_COOLDOWN_TARGET, ILLARI_PYLON_COOLDOWN)",
+        "value": "ratioPercent(SET_PLAYER_ILLARI_ABILITY2_COOLDOWN_TARGET, OW2_ILLARI_PYLON_COOLDOWN)",
         "file": "src/modules/prelude/settings.opy",
         "line": 592,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_PLAYER_ILLARI_ABILITY2_COOLDOWN_TARGET",
-          "ILLARI_PYLON_COOLDOWN"
+          "OW2_ILLARI_PYLON_COOLDOWN"
         ],
         "targetTokens": [
           "SET_PLAYER_ILLARI_ABILITY2_COOLDOWN_TARGET"
@@ -5569,9 +4281,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_PLAYER_ILLARI_ABILITY2_COOLDOWN_TARGET",
-          "ILLARI_PYLON_COOLDOWN"
+          "OW2_ILLARI_PYLON_COOLDOWN"
         ],
-        "referenceToken": "ILLARI_PYLON_COOLDOWN",
+        "referenceToken": "OW2_ILLARI_PYLON_COOLDOWN",
         "targetToken": "SET_PLAYER_ILLARI_ABILITY2_COOLDOWN_TARGET",
         "canonicalReference": "OW2_ILLARI_PYLON_COOLDOWN",
         "referenceResolved": true,
@@ -5607,12 +4319,8 @@
         }
       ],
       "canonicalReference": "OW2_ILLARI_PYLON_COOLDOWN",
-      "duplicateBaselineNames": [
-        "ILLARI_PYLON_COOLDOWN"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team2.juno.ultGen%",
@@ -5625,13 +4333,13 @@
         "team": "team2",
         "hero": "juno",
         "field": "ultGen%",
-        "value": "ultGenPercent(JUNO_ULT_COST, SET_PLAYER_JUNO_ULT_COST_TARGET)",
+        "value": "ultGenPercent(OW2_JUNO_ULT_COST, SET_PLAYER_JUNO_ULT_COST_TARGET)",
         "file": "src/modules/prelude/settings.opy",
         "line": 597,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
-          "JUNO_ULT_COST",
+          "OW2_JUNO_ULT_COST",
           "SET_PLAYER_JUNO_ULT_COST_TARGET"
         ],
         "targetTokens": [
@@ -5639,10 +4347,10 @@
         ],
         "functionName": "ultGenPercent",
         "expressionArguments": [
-          "JUNO_ULT_COST",
+          "OW2_JUNO_ULT_COST",
           "SET_PLAYER_JUNO_ULT_COST_TARGET"
         ],
-        "referenceToken": "JUNO_ULT_COST",
+        "referenceToken": "OW2_JUNO_ULT_COST",
         "targetToken": "SET_PLAYER_JUNO_ULT_COST_TARGET",
         "canonicalReference": "OW2_JUNO_ULT_COST",
         "referenceResolved": true,
@@ -5678,12 +4386,8 @@
         }
       ],
       "canonicalReference": "OW2_JUNO_ULT_COST",
-      "duplicateBaselineNames": [
-        "JUNO_ULT_COST"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team2.doomfist.ammoRegenerationTime%",
@@ -5696,14 +4400,14 @@
         "team": "team2",
         "hero": "doomfist",
         "field": "ammoRegenerationTime%",
-        "value": "ratioPercent(SET_PLAYER_DOOMFIST_AMMO_REGENERATION_TIME_TARGET, DOOMFIST_AMMO_REGEN)",
+        "value": "ratioPercent(SET_PLAYER_DOOMFIST_AMMO_REGENERATION_TIME_TARGET, OW2_DOOMFIST_AMMO_REGEN)",
         "file": "src/modules/prelude/settings.opy",
         "line": 605,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_PLAYER_DOOMFIST_AMMO_REGENERATION_TIME_TARGET",
-          "DOOMFIST_AMMO_REGEN"
+          "OW2_DOOMFIST_AMMO_REGEN"
         ],
         "targetTokens": [
           "SET_PLAYER_DOOMFIST_AMMO_REGENERATION_TIME_TARGET"
@@ -5711,9 +4415,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_PLAYER_DOOMFIST_AMMO_REGENERATION_TIME_TARGET",
-          "DOOMFIST_AMMO_REGEN"
+          "OW2_DOOMFIST_AMMO_REGEN"
         ],
-        "referenceToken": "DOOMFIST_AMMO_REGEN",
+        "referenceToken": "OW2_DOOMFIST_AMMO_REGEN",
         "targetToken": "SET_PLAYER_DOOMFIST_AMMO_REGENERATION_TIME_TARGET",
         "canonicalReference": "OW2_DOOMFIST_AMMO_REGEN",
         "referenceResolved": true,
@@ -5775,12 +4479,8 @@
         }
       ],
       "canonicalReference": "OW2_DOOMFIST_AMMO_REGEN",
-      "duplicateBaselineNames": [
-        "DOOMFIST_AMMO_REGEN"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team2.doomfist.ability1Cooldown%",
@@ -5793,14 +4493,14 @@
         "team": "team2",
         "hero": "doomfist",
         "field": "ability1Cooldown%",
-        "value": "ratioPercent(SET_PLAYER_DOOMFIST_ABILITY1_COOLDOWN_TARGET, DOOMFIST_POWER_BLOCK_COOLDOWN)",
+        "value": "ratioPercent(SET_PLAYER_DOOMFIST_ABILITY1_COOLDOWN_TARGET, OW2_DOOMFIST_POWER_BLOCK_COOLDOWN)",
         "file": "src/modules/prelude/settings.opy",
         "line": 607,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_PLAYER_DOOMFIST_ABILITY1_COOLDOWN_TARGET",
-          "DOOMFIST_POWER_BLOCK_COOLDOWN"
+          "OW2_DOOMFIST_POWER_BLOCK_COOLDOWN"
         ],
         "targetTokens": [
           "SET_PLAYER_DOOMFIST_ABILITY1_COOLDOWN_TARGET"
@@ -5808,9 +4508,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_PLAYER_DOOMFIST_ABILITY1_COOLDOWN_TARGET",
-          "DOOMFIST_POWER_BLOCK_COOLDOWN"
+          "OW2_DOOMFIST_POWER_BLOCK_COOLDOWN"
         ],
-        "referenceToken": "DOOMFIST_POWER_BLOCK_COOLDOWN",
+        "referenceToken": "OW2_DOOMFIST_POWER_BLOCK_COOLDOWN",
         "targetToken": "SET_PLAYER_DOOMFIST_ABILITY1_COOLDOWN_TARGET",
         "canonicalReference": "OW2_DOOMFIST_POWER_BLOCK_COOLDOWN",
         "referenceResolved": true,
@@ -5818,12 +4518,8 @@
       },
       "aram": [],
       "canonicalReference": "OW2_DOOMFIST_POWER_BLOCK_COOLDOWN",
-      "duplicateBaselineNames": [
-        "DOOMFIST_POWER_BLOCK_COOLDOWN"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team2.doomfist.ability2Cooldown%",
@@ -5836,14 +4532,14 @@
         "team": "team2",
         "hero": "doomfist",
         "field": "ability2Cooldown%",
-        "value": "ratioPercent(SET_PLAYER_DOOMFIST_ABILITY2_COOLDOWN_TARGET, DOOMFIST_SEISMIC_SLAM_COOLDOWN)",
+        "value": "ratioPercent(SET_PLAYER_DOOMFIST_ABILITY2_COOLDOWN_TARGET, OW2_DOOMFIST_SEISMIC_SLAM_COOLDOWN)",
         "file": "src/modules/prelude/settings.opy",
         "line": 610,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_PLAYER_DOOMFIST_ABILITY2_COOLDOWN_TARGET",
-          "DOOMFIST_SEISMIC_SLAM_COOLDOWN"
+          "OW2_DOOMFIST_SEISMIC_SLAM_COOLDOWN"
         ],
         "targetTokens": [
           "SET_PLAYER_DOOMFIST_ABILITY2_COOLDOWN_TARGET"
@@ -5851,9 +4547,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_PLAYER_DOOMFIST_ABILITY2_COOLDOWN_TARGET",
-          "DOOMFIST_SEISMIC_SLAM_COOLDOWN"
+          "OW2_DOOMFIST_SEISMIC_SLAM_COOLDOWN"
         ],
-        "referenceToken": "DOOMFIST_SEISMIC_SLAM_COOLDOWN",
+        "referenceToken": "OW2_DOOMFIST_SEISMIC_SLAM_COOLDOWN",
         "targetToken": "SET_PLAYER_DOOMFIST_ABILITY2_COOLDOWN_TARGET",
         "canonicalReference": "OW2_DOOMFIST_SEISMIC_SLAM_COOLDOWN",
         "referenceResolved": true,
@@ -5861,12 +4557,8 @@
       },
       "aram": [],
       "canonicalReference": "OW2_DOOMFIST_SEISMIC_SLAM_COOLDOWN",
-      "duplicateBaselineNames": [
-        "DOOMFIST_SEISMIC_SLAM_COOLDOWN"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team2.zarya.ultGen%",
@@ -5879,13 +4571,13 @@
         "team": "team2",
         "hero": "zarya",
         "field": "ultGen%",
-        "value": "ultGenPercent(ZARYA_ULT_COST, SET_PLAYER_ZARYA_ULT_COST_TARGET)",
+        "value": "ultGenPercent(OW2_ZARYA_ULT_COST, SET_PLAYER_ZARYA_ULT_COST_TARGET)",
         "file": "src/modules/prelude/settings.opy",
         "line": 618,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
-          "ZARYA_ULT_COST",
+          "OW2_ZARYA_ULT_COST",
           "SET_PLAYER_ZARYA_ULT_COST_TARGET"
         ],
         "targetTokens": [
@@ -5893,10 +4585,10 @@
         ],
         "functionName": "ultGenPercent",
         "expressionArguments": [
-          "ZARYA_ULT_COST",
+          "OW2_ZARYA_ULT_COST",
           "SET_PLAYER_ZARYA_ULT_COST_TARGET"
         ],
-        "referenceToken": "ZARYA_ULT_COST",
+        "referenceToken": "OW2_ZARYA_ULT_COST",
         "targetToken": "SET_PLAYER_ZARYA_ULT_COST_TARGET",
         "canonicalReference": "OW2_ZARYA_ULT_COST",
         "referenceResolved": true,
@@ -5904,12 +4596,8 @@
       },
       "aram": [],
       "canonicalReference": "OW2_ZARYA_ULT_COST",
-      "duplicateBaselineNames": [
-        "ZARYA_ULT_COST"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team2.pharah.ability1Cooldown%",
@@ -5922,14 +4610,14 @@
         "team": "team2",
         "hero": "pharah",
         "field": "ability1Cooldown%",
-        "value": "ratioPercent(SET_PLAYER_PHARAH_ABILITY1_COOLDOWN_TARGET, PHARAH_JUMP_JET_COOLDOWN)",
+        "value": "ratioPercent(SET_PLAYER_PHARAH_ABILITY1_COOLDOWN_TARGET, OW2_PHARAH_JUMP_JET_COOLDOWN)",
         "file": "src/modules/prelude/settings.opy",
         "line": 637,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_PLAYER_PHARAH_ABILITY1_COOLDOWN_TARGET",
-          "PHARAH_JUMP_JET_COOLDOWN"
+          "OW2_PHARAH_JUMP_JET_COOLDOWN"
         ],
         "targetTokens": [
           "SET_PLAYER_PHARAH_ABILITY1_COOLDOWN_TARGET"
@@ -5937,9 +4625,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_PLAYER_PHARAH_ABILITY1_COOLDOWN_TARGET",
-          "PHARAH_JUMP_JET_COOLDOWN"
+          "OW2_PHARAH_JUMP_JET_COOLDOWN"
         ],
-        "referenceToken": "PHARAH_JUMP_JET_COOLDOWN",
+        "referenceToken": "OW2_PHARAH_JUMP_JET_COOLDOWN",
         "targetToken": "SET_PLAYER_PHARAH_ABILITY1_COOLDOWN_TARGET",
         "canonicalReference": "OW2_PHARAH_JUMP_JET_COOLDOWN",
         "referenceResolved": true,
@@ -5947,12 +4635,8 @@
       },
       "aram": [],
       "canonicalReference": "OW2_PHARAH_JUMP_JET_COOLDOWN",
-      "duplicateBaselineNames": [
-        "PHARAH_JUMP_JET_COOLDOWN"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team2.pharah.ability2Cooldown%",
@@ -5965,14 +4649,14 @@
         "team": "team2",
         "hero": "pharah",
         "field": "ability2Cooldown%",
-        "value": "ratioPercent(SET_PLAYER_PHARAH_ABILITY2_COOLDOWN_TARGET, PHARAH_CONCUSSIVE_BLAST_COOLDOWN)",
+        "value": "ratioPercent(SET_PLAYER_PHARAH_ABILITY2_COOLDOWN_TARGET, OW2_PHARAH_CONCUSSIVE_BLAST_COOLDOWN)",
         "file": "src/modules/prelude/settings.opy",
         "line": 640,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_PLAYER_PHARAH_ABILITY2_COOLDOWN_TARGET",
-          "PHARAH_CONCUSSIVE_BLAST_COOLDOWN"
+          "OW2_PHARAH_CONCUSSIVE_BLAST_COOLDOWN"
         ],
         "targetTokens": [
           "SET_PLAYER_PHARAH_ABILITY2_COOLDOWN_TARGET"
@@ -5980,9 +4664,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_PLAYER_PHARAH_ABILITY2_COOLDOWN_TARGET",
-          "PHARAH_CONCUSSIVE_BLAST_COOLDOWN"
+          "OW2_PHARAH_CONCUSSIVE_BLAST_COOLDOWN"
         ],
-        "referenceToken": "PHARAH_CONCUSSIVE_BLAST_COOLDOWN",
+        "referenceToken": "OW2_PHARAH_CONCUSSIVE_BLAST_COOLDOWN",
         "targetToken": "SET_PLAYER_PHARAH_ABILITY2_COOLDOWN_TARGET",
         "canonicalReference": "OW2_PHARAH_CONCUSSIVE_BLAST_COOLDOWN",
         "referenceResolved": true,
@@ -5990,12 +4674,8 @@
       },
       "aram": [],
       "canonicalReference": "OW2_PHARAH_CONCUSSIVE_BLAST_COOLDOWN",
-      "duplicateBaselineNames": [
-        "PHARAH_CONCUSSIVE_BLAST_COOLDOWN"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team2.winston.ability2Cooldown%",
@@ -6008,14 +4688,14 @@
         "team": "team2",
         "hero": "winston",
         "field": "ability2Cooldown%",
-        "value": "ratioPercent(SET_PLAYER_WINSTON_ABILITY2_COOLDOWN_TARGET, WINSTON_BARRIER_COOLDOWN)",
+        "value": "ratioPercent(SET_PLAYER_WINSTON_ABILITY2_COOLDOWN_TARGET, OW2_WINSTON_BARRIER_COOLDOWN)",
         "file": "src/modules/prelude/settings.opy",
         "line": 660,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_PLAYER_WINSTON_ABILITY2_COOLDOWN_TARGET",
-          "WINSTON_BARRIER_COOLDOWN"
+          "OW2_WINSTON_BARRIER_COOLDOWN"
         ],
         "targetTokens": [
           "SET_PLAYER_WINSTON_ABILITY2_COOLDOWN_TARGET"
@@ -6023,9 +4703,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_PLAYER_WINSTON_ABILITY2_COOLDOWN_TARGET",
-          "WINSTON_BARRIER_COOLDOWN"
+          "OW2_WINSTON_BARRIER_COOLDOWN"
         ],
-        "referenceToken": "WINSTON_BARRIER_COOLDOWN",
+        "referenceToken": "OW2_WINSTON_BARRIER_COOLDOWN",
         "targetToken": "SET_PLAYER_WINSTON_ABILITY2_COOLDOWN_TARGET",
         "canonicalReference": "OW2_WINSTON_BARRIER_COOLDOWN",
         "referenceResolved": true,
@@ -6033,12 +4713,8 @@
       },
       "aram": [],
       "canonicalReference": "OW2_WINSTON_BARRIER_COOLDOWN",
-      "duplicateBaselineNames": [
-        "WINSTON_BARRIER_COOLDOWN"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team2.genji.ultGen%",
@@ -6051,13 +4727,13 @@
         "team": "team2",
         "hero": "genji",
         "field": "ultGen%",
-        "value": "ultGenPercent(GENJI_ULT_COST, SET_PLAYER_GENJI_ULT_COST_TARGET)",
+        "value": "ultGenPercent(OW2_GENJI_ULT_COST, SET_PLAYER_GENJI_ULT_COST_TARGET)",
         "file": "src/modules/prelude/settings.opy",
         "line": 668,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
-          "GENJI_ULT_COST",
+          "OW2_GENJI_ULT_COST",
           "SET_PLAYER_GENJI_ULT_COST_TARGET"
         ],
         "targetTokens": [
@@ -6065,10 +4741,10 @@
         ],
         "functionName": "ultGenPercent",
         "expressionArguments": [
-          "GENJI_ULT_COST",
+          "OW2_GENJI_ULT_COST",
           "SET_PLAYER_GENJI_ULT_COST_TARGET"
         ],
-        "referenceToken": "GENJI_ULT_COST",
+        "referenceToken": "OW2_GENJI_ULT_COST",
         "targetToken": "SET_PLAYER_GENJI_ULT_COST_TARGET",
         "canonicalReference": "OW2_GENJI_ULT_COST",
         "referenceResolved": true,
@@ -6076,12 +4752,8 @@
       },
       "aram": [],
       "canonicalReference": "OW2_GENJI_ULT_COST",
-      "duplicateBaselineNames": [
-        "GENJI_ULT_COST"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team2.genji.ability2Cooldown%",
@@ -6094,14 +4766,14 @@
         "team": "team2",
         "hero": "genji",
         "field": "ability2Cooldown%",
-        "value": "ratioPercent(SET_PLAYER_GENJI_ABILITY2_COOLDOWN_TARGET, GENJI_DEFLECT_COOLDOWN)",
+        "value": "ratioPercent(SET_PLAYER_GENJI_ABILITY2_COOLDOWN_TARGET, OW2_GENJI_DEFLECT_COOLDOWN)",
         "file": "src/modules/prelude/settings.opy",
         "line": 670,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_PLAYER_GENJI_ABILITY2_COOLDOWN_TARGET",
-          "GENJI_DEFLECT_COOLDOWN"
+          "OW2_GENJI_DEFLECT_COOLDOWN"
         ],
         "targetTokens": [
           "SET_PLAYER_GENJI_ABILITY2_COOLDOWN_TARGET"
@@ -6109,9 +4781,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_PLAYER_GENJI_ABILITY2_COOLDOWN_TARGET",
-          "GENJI_DEFLECT_COOLDOWN"
+          "OW2_GENJI_DEFLECT_COOLDOWN"
         ],
-        "referenceToken": "GENJI_DEFLECT_COOLDOWN",
+        "referenceToken": "OW2_GENJI_DEFLECT_COOLDOWN",
         "targetToken": "SET_PLAYER_GENJI_ABILITY2_COOLDOWN_TARGET",
         "canonicalReference": "OW2_GENJI_DEFLECT_COOLDOWN",
         "referenceResolved": true,
@@ -6119,12 +4791,8 @@
       },
       "aram": [],
       "canonicalReference": "OW2_GENJI_DEFLECT_COOLDOWN",
-      "duplicateBaselineNames": [
-        "GENJI_DEFLECT_COOLDOWN"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team2.junkrat.ultGen%",
@@ -6137,13 +4805,13 @@
         "team": "team2",
         "hero": "junkrat",
         "field": "ultGen%",
-        "value": "ultGenPercent(JUNKRAT_ULT_COST, SET_PLAYER_JUNKRAT_ULT_COST_TARGET)",
+        "value": "ultGenPercent(OW2_JUNKRAT_ULT_COST, SET_PLAYER_JUNKRAT_ULT_COST_TARGET)",
         "file": "src/modules/prelude/settings.opy",
         "line": 678,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
-          "JUNKRAT_ULT_COST",
+          "OW2_JUNKRAT_ULT_COST",
           "SET_PLAYER_JUNKRAT_ULT_COST_TARGET"
         ],
         "targetTokens": [
@@ -6151,10 +4819,10 @@
         ],
         "functionName": "ultGenPercent",
         "expressionArguments": [
-          "JUNKRAT_ULT_COST",
+          "OW2_JUNKRAT_ULT_COST",
           "SET_PLAYER_JUNKRAT_ULT_COST_TARGET"
         ],
-        "referenceToken": "JUNKRAT_ULT_COST",
+        "referenceToken": "OW2_JUNKRAT_ULT_COST",
         "targetToken": "SET_PLAYER_JUNKRAT_ULT_COST_TARGET",
         "canonicalReference": "OW2_JUNKRAT_ULT_COST",
         "referenceResolved": true,
@@ -6190,12 +4858,8 @@
         }
       ],
       "canonicalReference": "OW2_JUNKRAT_ULT_COST",
-      "duplicateBaselineNames": [
-        "JUNKRAT_ULT_COST"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team2.tracer.ultGen%",
@@ -6208,13 +4872,13 @@
         "team": "team2",
         "hero": "tracer",
         "field": "ultGen%",
-        "value": "ultGenPercent(TRACER_ULT_COST, SET_PLAYER_TRACER_ULT_COST_TARGET)",
+        "value": "ultGenPercent(OW2_TRACER_ULT_COST, SET_PLAYER_TRACER_ULT_COST_TARGET)",
         "file": "src/modules/prelude/settings.opy",
         "line": 687,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
-          "TRACER_ULT_COST",
+          "OW2_TRACER_ULT_COST",
           "SET_PLAYER_TRACER_ULT_COST_TARGET"
         ],
         "targetTokens": [
@@ -6222,10 +4886,10 @@
         ],
         "functionName": "ultGenPercent",
         "expressionArguments": [
-          "TRACER_ULT_COST",
+          "OW2_TRACER_ULT_COST",
           "SET_PLAYER_TRACER_ULT_COST_TARGET"
         ],
-        "referenceToken": "TRACER_ULT_COST",
+        "referenceToken": "OW2_TRACER_ULT_COST",
         "targetToken": "SET_PLAYER_TRACER_ULT_COST_TARGET",
         "canonicalReference": "OW2_TRACER_ULT_COST",
         "referenceResolved": true,
@@ -6233,12 +4897,8 @@
       },
       "aram": [],
       "canonicalReference": "OW2_TRACER_ULT_COST",
-      "duplicateBaselineNames": [
-        "TRACER_ULT_COST"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team2.tracer.ability2Cooldown%",
@@ -6251,14 +4911,14 @@
         "team": "team2",
         "hero": "tracer",
         "field": "ability2Cooldown%",
-        "value": "ratioPercent(SET_PLAYER_TRACER_ABILITY2_COOLDOWN_TARGET, TRACER_RECALL_COOLDOWN)",
+        "value": "ratioPercent(SET_PLAYER_TRACER_ABILITY2_COOLDOWN_TARGET, OW2_TRACER_RECALL_COOLDOWN)",
         "file": "src/modules/prelude/settings.opy",
         "line": 689,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_PLAYER_TRACER_ABILITY2_COOLDOWN_TARGET",
-          "TRACER_RECALL_COOLDOWN"
+          "OW2_TRACER_RECALL_COOLDOWN"
         ],
         "targetTokens": [
           "SET_PLAYER_TRACER_ABILITY2_COOLDOWN_TARGET"
@@ -6266,9 +4926,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_PLAYER_TRACER_ABILITY2_COOLDOWN_TARGET",
-          "TRACER_RECALL_COOLDOWN"
+          "OW2_TRACER_RECALL_COOLDOWN"
         ],
-        "referenceToken": "TRACER_RECALL_COOLDOWN",
+        "referenceToken": "OW2_TRACER_RECALL_COOLDOWN",
         "targetToken": "SET_PLAYER_TRACER_ABILITY2_COOLDOWN_TARGET",
         "canonicalReference": "OW2_TRACER_RECALL_COOLDOWN",
         "referenceResolved": true,
@@ -6276,12 +4936,8 @@
       },
       "aram": [],
       "canonicalReference": "OW2_TRACER_RECALL_COOLDOWN",
-      "duplicateBaselineNames": [
-        "TRACER_RECALL_COOLDOWN"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team2.zenyatta.ultGen%",
@@ -6294,13 +4950,13 @@
         "team": "team2",
         "hero": "zenyatta",
         "field": "ultGen%",
-        "value": "ultGenPercent(ZENYATTA_ULT_COST, SET_PLAYER_ZENYATTA_ULT_COST_TARGET)",
+        "value": "ultGenPercent(OW2_ZENYATTA_ULT_COST, SET_PLAYER_ZENYATTA_ULT_COST_TARGET)",
         "file": "src/modules/prelude/settings.opy",
         "line": 697,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
-          "ZENYATTA_ULT_COST",
+          "OW2_ZENYATTA_ULT_COST",
           "SET_PLAYER_ZENYATTA_ULT_COST_TARGET"
         ],
         "targetTokens": [
@@ -6308,10 +4964,10 @@
         ],
         "functionName": "ultGenPercent",
         "expressionArguments": [
-          "ZENYATTA_ULT_COST",
+          "OW2_ZENYATTA_ULT_COST",
           "SET_PLAYER_ZENYATTA_ULT_COST_TARGET"
         ],
-        "referenceToken": "ZENYATTA_ULT_COST",
+        "referenceToken": "OW2_ZENYATTA_ULT_COST",
         "targetToken": "SET_PLAYER_ZENYATTA_ULT_COST_TARGET",
         "canonicalReference": "OW2_ZENYATTA_ULT_COST",
         "referenceResolved": true,
@@ -6347,12 +5003,8 @@
         }
       ],
       "canonicalReference": "OW2_ZENYATTA_ULT_COST",
-      "duplicateBaselineNames": [
-        "ZENYATTA_ULT_COST"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team2.moira.ultGen%",
@@ -6365,13 +5017,13 @@
         "team": "team2",
         "hero": "moira",
         "field": "ultGen%",
-        "value": "ultGenPercent(MOIRA_ULT_COST, SET_PLAYER_MOIRA_ULT_COST_TARGET)",
+        "value": "ultGenPercent(OW2_MOIRA_ULT_COST, SET_PLAYER_MOIRA_ULT_COST_TARGET)",
         "file": "src/modules/prelude/settings.opy",
         "line": 739,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
-          "MOIRA_ULT_COST",
+          "OW2_MOIRA_ULT_COST",
           "SET_PLAYER_MOIRA_ULT_COST_TARGET"
         ],
         "targetTokens": [
@@ -6379,10 +5031,10 @@
         ],
         "functionName": "ultGenPercent",
         "expressionArguments": [
-          "MOIRA_ULT_COST",
+          "OW2_MOIRA_ULT_COST",
           "SET_PLAYER_MOIRA_ULT_COST_TARGET"
         ],
-        "referenceToken": "MOIRA_ULT_COST",
+        "referenceToken": "OW2_MOIRA_ULT_COST",
         "targetToken": "SET_PLAYER_MOIRA_ULT_COST_TARGET",
         "canonicalReference": "OW2_MOIRA_ULT_COST",
         "referenceResolved": true,
@@ -6390,12 +5042,8 @@
       },
       "aram": [],
       "canonicalReference": "OW2_MOIRA_ULT_COST",
-      "duplicateBaselineNames": [
-        "MOIRA_ULT_COST"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team2.reinhardt.ability1Cooldown%",
@@ -6408,14 +5056,14 @@
         "team": "team2",
         "hero": "reinhardt",
         "field": "ability1Cooldown%",
-        "value": "ratioPercent(SET_PLAYER_REINHARDT_ABILITY1_COOLDOWN_TARGET, REINHARDT_CHARGE_COOLDOWN_TIME)",
+        "value": "ratioPercent(SET_PLAYER_REINHARDT_ABILITY1_COOLDOWN_TARGET, OW2_REINHARDT_CHARGE_COOLDOWN_TIME)",
         "file": "src/modules/prelude/settings.opy",
         "line": 743,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_PLAYER_REINHARDT_ABILITY1_COOLDOWN_TARGET",
-          "REINHARDT_CHARGE_COOLDOWN_TIME"
+          "OW2_REINHARDT_CHARGE_COOLDOWN_TIME"
         ],
         "targetTokens": [
           "SET_PLAYER_REINHARDT_ABILITY1_COOLDOWN_TARGET"
@@ -6423,9 +5071,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_PLAYER_REINHARDT_ABILITY1_COOLDOWN_TARGET",
-          "REINHARDT_CHARGE_COOLDOWN_TIME"
+          "OW2_REINHARDT_CHARGE_COOLDOWN_TIME"
         ],
-        "referenceToken": "REINHARDT_CHARGE_COOLDOWN_TIME",
+        "referenceToken": "OW2_REINHARDT_CHARGE_COOLDOWN_TIME",
         "targetToken": "SET_PLAYER_REINHARDT_ABILITY1_COOLDOWN_TARGET",
         "canonicalReference": "OW2_REINHARDT_CHARGE_COOLDOWN_TIME",
         "referenceResolved": true,
@@ -6487,12 +5135,8 @@
         }
       ],
       "canonicalReference": "OW2_REINHARDT_CHARGE_COOLDOWN_TIME",
-      "duplicateBaselineNames": [
-        "REINHARDT_CHARGE_COOLDOWN_TIME"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team2.reinhardt.secondaryFireRechargeRate%",
@@ -6505,14 +5149,14 @@
         "team": "team2",
         "hero": "reinhardt",
         "field": "secondaryFireRechargeRate%",
-        "value": "ratioPercent(SET_PLAYER_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET, REINHARDT_BARRIER_REGEN)",
+        "value": "ratioPercent(SET_PLAYER_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET, OW2_REINHARDT_BARRIER_REGEN)",
         "file": "src/modules/prelude/settings.opy",
         "line": 745,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_PLAYER_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET",
-          "REINHARDT_BARRIER_REGEN"
+          "OW2_REINHARDT_BARRIER_REGEN"
         ],
         "targetTokens": [
           "SET_PLAYER_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET"
@@ -6520,9 +5164,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_PLAYER_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET",
-          "REINHARDT_BARRIER_REGEN"
+          "OW2_REINHARDT_BARRIER_REGEN"
         ],
-        "referenceToken": "REINHARDT_BARRIER_REGEN",
+        "referenceToken": "OW2_REINHARDT_BARRIER_REGEN",
         "targetToken": "SET_PLAYER_REINHARDT_SECONDARY_FIRE_RECHARGE_RATE_TARGET",
         "canonicalReference": "OW2_REINHARDT_BARRIER_REGEN",
         "referenceResolved": true,
@@ -6584,12 +5228,8 @@
         }
       ],
       "canonicalReference": "OW2_REINHARDT_BARRIER_REGEN",
-      "duplicateBaselineNames": [
-        "REINHARDT_BARRIER_REGEN"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team2.reinhardt.health%",
@@ -6602,14 +5242,14 @@
         "team": "team2",
         "hero": "reinhardt",
         "field": "health%",
-        "value": "ratioPercent(SET_PLAYER_REINHARDT_HEALTH_TARGET, REINHARDT_BARRIER_HEALTH)",
+        "value": "ratioPercent(SET_PLAYER_REINHARDT_HEALTH_TARGET, OW2_REINHARDT_BARRIER_HEALTH)",
         "file": "src/modules/prelude/settings.opy",
         "line": 747,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_PLAYER_REINHARDT_HEALTH_TARGET",
-          "REINHARDT_BARRIER_HEALTH"
+          "OW2_REINHARDT_BARRIER_HEALTH"
         ],
         "targetTokens": [
           "SET_PLAYER_REINHARDT_HEALTH_TARGET"
@@ -6617,9 +5257,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_PLAYER_REINHARDT_HEALTH_TARGET",
-          "REINHARDT_BARRIER_HEALTH"
+          "OW2_REINHARDT_BARRIER_HEALTH"
         ],
-        "referenceToken": "REINHARDT_BARRIER_HEALTH",
+        "referenceToken": "OW2_REINHARDT_BARRIER_HEALTH",
         "targetToken": "SET_PLAYER_REINHARDT_HEALTH_TARGET",
         "canonicalReference": "OW2_REINHARDT_BARRIER_HEALTH",
         "referenceResolved": true,
@@ -6627,12 +5267,8 @@
       },
       "aram": [],
       "canonicalReference": "OW2_REINHARDT_BARRIER_HEALTH",
-      "duplicateBaselineNames": [
-        "REINHARDT_BARRIER_HEALTH"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team2.reinhardt.ultGen%",
@@ -6645,13 +5281,13 @@
         "team": "team2",
         "hero": "reinhardt",
         "field": "ultGen%",
-        "value": "ultGenPercent(REINHARDT_ULT_COST, SET_PLAYER_REINHARDT_ULT_COST_TARGET)",
+        "value": "ultGenPercent(OW2_REINHARDT_ULT_COST, SET_PLAYER_REINHARDT_ULT_COST_TARGET)",
         "file": "src/modules/prelude/settings.opy",
         "line": 748,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
-          "REINHARDT_ULT_COST",
+          "OW2_REINHARDT_ULT_COST",
           "SET_PLAYER_REINHARDT_ULT_COST_TARGET"
         ],
         "targetTokens": [
@@ -6659,10 +5295,10 @@
         ],
         "functionName": "ultGenPercent",
         "expressionArguments": [
-          "REINHARDT_ULT_COST",
+          "OW2_REINHARDT_ULT_COST",
           "SET_PLAYER_REINHARDT_ULT_COST_TARGET"
         ],
-        "referenceToken": "REINHARDT_ULT_COST",
+        "referenceToken": "OW2_REINHARDT_ULT_COST",
         "targetToken": "SET_PLAYER_REINHARDT_ULT_COST_TARGET",
         "canonicalReference": "OW2_REINHARDT_ULT_COST",
         "referenceResolved": true,
@@ -6670,12 +5306,8 @@
       },
       "aram": [],
       "canonicalReference": "OW2_REINHARDT_ULT_COST",
-      "duplicateBaselineNames": [
-        "REINHARDT_ULT_COST"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team2.sigma.health%",
@@ -6688,14 +5320,14 @@
         "team": "team2",
         "hero": "sigma",
         "field": "health%",
-        "value": "ratioPercent(SET_PLAYER_SIGMA_HEALTH_TARGET, SIGMA_BARRIER_HEALTH)",
+        "value": "ratioPercent(SET_PLAYER_SIGMA_HEALTH_TARGET, OW2_SIGMA_BARRIER_HEALTH)",
         "file": "src/modules/prelude/settings.opy",
         "line": 763,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_PLAYER_SIGMA_HEALTH_TARGET",
-          "SIGMA_BARRIER_HEALTH"
+          "OW2_SIGMA_BARRIER_HEALTH"
         ],
         "targetTokens": [
           "SET_PLAYER_SIGMA_HEALTH_TARGET"
@@ -6703,9 +5335,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_PLAYER_SIGMA_HEALTH_TARGET",
-          "SIGMA_BARRIER_HEALTH"
+          "OW2_SIGMA_BARRIER_HEALTH"
         ],
-        "referenceToken": "SIGMA_BARRIER_HEALTH",
+        "referenceToken": "OW2_SIGMA_BARRIER_HEALTH",
         "targetToken": "SET_PLAYER_SIGMA_HEALTH_TARGET",
         "canonicalReference": "OW2_SIGMA_BARRIER_HEALTH",
         "referenceResolved": true,
@@ -6713,12 +5345,8 @@
       },
       "aram": [],
       "canonicalReference": "OW2_SIGMA_BARRIER_HEALTH",
-      "duplicateBaselineNames": [
-        "SIGMA_BARRIER_HEALTH"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team2.sigma.ultGen%",
@@ -6731,13 +5359,13 @@
         "team": "team2",
         "hero": "sigma",
         "field": "ultGen%",
-        "value": "ultGenPercent(SIGMA_ULT_COST, SET_PLAYER_SIGMA_ULT_COST_TARGET)",
+        "value": "ultGenPercent(OW2_SIGMA_ULT_COST, SET_PLAYER_SIGMA_ULT_COST_TARGET)",
         "file": "src/modules/prelude/settings.opy",
         "line": 765,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
-          "SIGMA_ULT_COST",
+          "OW2_SIGMA_ULT_COST",
           "SET_PLAYER_SIGMA_ULT_COST_TARGET"
         ],
         "targetTokens": [
@@ -6745,10 +5373,10 @@
         ],
         "functionName": "ultGenPercent",
         "expressionArguments": [
-          "SIGMA_ULT_COST",
+          "OW2_SIGMA_ULT_COST",
           "SET_PLAYER_SIGMA_ULT_COST_TARGET"
         ],
-        "referenceToken": "SIGMA_ULT_COST",
+        "referenceToken": "OW2_SIGMA_ULT_COST",
         "targetToken": "SET_PLAYER_SIGMA_ULT_COST_TARGET",
         "canonicalReference": "OW2_SIGMA_ULT_COST",
         "referenceResolved": true,
@@ -6756,12 +5384,8 @@
       },
       "aram": [],
       "canonicalReference": "OW2_SIGMA_ULT_COST",
-      "duplicateBaselineNames": [
-        "SIGMA_ULT_COST"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team2.roadhog.ability1Cooldown%",
@@ -6774,14 +5398,14 @@
         "team": "team2",
         "hero": "roadhog",
         "field": "ability1Cooldown%",
-        "value": "ratioPercent(SET_PLAYER_ROADHOG_ABILITY1_COOLDOWN_TARGET, ROADHOG_HOOK_COOLDOWN_TIME)",
+        "value": "ratioPercent(SET_PLAYER_ROADHOG_ABILITY1_COOLDOWN_TARGET, OW2_ROADHOG_HOOK_COOLDOWN_TIME)",
         "file": "src/modules/prelude/settings.opy",
         "line": 773,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_PLAYER_ROADHOG_ABILITY1_COOLDOWN_TARGET",
-          "ROADHOG_HOOK_COOLDOWN_TIME"
+          "OW2_ROADHOG_HOOK_COOLDOWN_TIME"
         ],
         "targetTokens": [
           "SET_PLAYER_ROADHOG_ABILITY1_COOLDOWN_TARGET"
@@ -6789,9 +5413,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_PLAYER_ROADHOG_ABILITY1_COOLDOWN_TARGET",
-          "ROADHOG_HOOK_COOLDOWN_TIME"
+          "OW2_ROADHOG_HOOK_COOLDOWN_TIME"
         ],
-        "referenceToken": "ROADHOG_HOOK_COOLDOWN_TIME",
+        "referenceToken": "OW2_ROADHOG_HOOK_COOLDOWN_TIME",
         "targetToken": "SET_PLAYER_ROADHOG_ABILITY1_COOLDOWN_TARGET",
         "canonicalReference": "OW2_ROADHOG_HOOK_COOLDOWN_TIME",
         "referenceResolved": true,
@@ -6799,12 +5423,8 @@
       },
       "aram": [],
       "canonicalReference": "OW2_ROADHOG_HOOK_COOLDOWN_TIME",
-      "duplicateBaselineNames": [
-        "ROADHOG_HOOK_COOLDOWN_TIME"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team2.kiriko.ability2Cooldown%",
@@ -6817,14 +5437,14 @@
         "team": "team2",
         "hero": "kiriko",
         "field": "ability2Cooldown%",
-        "value": "ratioPercent(SET_PLAYER_KIRIKO_ABILITY2_COOLDOWN_TARGET, KIRIKO_SUZU_COOLDOWN)",
+        "value": "ratioPercent(SET_PLAYER_KIRIKO_ABILITY2_COOLDOWN_TARGET, OW2_KIRIKO_SUZU_COOLDOWN)",
         "file": "src/modules/prelude/settings.opy",
         "line": 780,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_PLAYER_KIRIKO_ABILITY2_COOLDOWN_TARGET",
-          "KIRIKO_SUZU_COOLDOWN"
+          "OW2_KIRIKO_SUZU_COOLDOWN"
         ],
         "targetTokens": [
           "SET_PLAYER_KIRIKO_ABILITY2_COOLDOWN_TARGET"
@@ -6832,9 +5452,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_PLAYER_KIRIKO_ABILITY2_COOLDOWN_TARGET",
-          "KIRIKO_SUZU_COOLDOWN"
+          "OW2_KIRIKO_SUZU_COOLDOWN"
         ],
-        "referenceToken": "KIRIKO_SUZU_COOLDOWN",
+        "referenceToken": "OW2_KIRIKO_SUZU_COOLDOWN",
         "targetToken": "SET_PLAYER_KIRIKO_ABILITY2_COOLDOWN_TARGET",
         "canonicalReference": "OW2_KIRIKO_SUZU_COOLDOWN",
         "referenceResolved": true,
@@ -6896,12 +5516,8 @@
         }
       ],
       "canonicalReference": "OW2_KIRIKO_SUZU_COOLDOWN",
-      "duplicateBaselineNames": [
-        "KIRIKO_SUZU_COOLDOWN"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team2.kiriko.ultGen%",
@@ -6914,13 +5530,13 @@
         "team": "team2",
         "hero": "kiriko",
         "field": "ultGen%",
-        "value": "ultGenPercent(KIRIKO_ULT_COST, SET_PLAYER_KIRIKO_ULT_COST_TARGET)",
+        "value": "ultGenPercent(OW2_KIRIKO_ULT_COST, SET_PLAYER_KIRIKO_ULT_COST_TARGET)",
         "file": "src/modules/prelude/settings.opy",
         "line": 782,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
-          "KIRIKO_ULT_COST",
+          "OW2_KIRIKO_ULT_COST",
           "SET_PLAYER_KIRIKO_ULT_COST_TARGET"
         ],
         "targetTokens": [
@@ -6928,10 +5544,10 @@
         ],
         "functionName": "ultGenPercent",
         "expressionArguments": [
-          "KIRIKO_ULT_COST",
+          "OW2_KIRIKO_ULT_COST",
           "SET_PLAYER_KIRIKO_ULT_COST_TARGET"
         ],
-        "referenceToken": "KIRIKO_ULT_COST",
+        "referenceToken": "OW2_KIRIKO_ULT_COST",
         "targetToken": "SET_PLAYER_KIRIKO_ULT_COST_TARGET",
         "canonicalReference": "OW2_KIRIKO_ULT_COST",
         "referenceResolved": true,
@@ -6939,12 +5555,8 @@
       },
       "aram": [],
       "canonicalReference": "OW2_KIRIKO_ULT_COST",
-      "duplicateBaselineNames": [
-        "KIRIKO_ULT_COST"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team2.domina.ability1Cooldown%",
@@ -7130,14 +5742,14 @@
         "team": "team2",
         "hero": "sombra",
         "field": "secondaryFireCooldown%",
-        "value": "ratioPercent(SET_PLAYER_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET, SOMBRA_HACK_COOLDOWN_TIME)",
+        "value": "ratioPercent(SET_PLAYER_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET, OW2_SOMBRA_HACK_COOLDOWN_TIME)",
         "file": "src/modules/prelude/settings.opy",
         "line": 811,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
           "SET_PLAYER_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET",
-          "SOMBRA_HACK_COOLDOWN_TIME"
+          "OW2_SOMBRA_HACK_COOLDOWN_TIME"
         ],
         "targetTokens": [
           "SET_PLAYER_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET"
@@ -7145,9 +5757,9 @@
         "functionName": "ratioPercent",
         "expressionArguments": [
           "SET_PLAYER_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET",
-          "SOMBRA_HACK_COOLDOWN_TIME"
+          "OW2_SOMBRA_HACK_COOLDOWN_TIME"
         ],
-        "referenceToken": "SOMBRA_HACK_COOLDOWN_TIME",
+        "referenceToken": "OW2_SOMBRA_HACK_COOLDOWN_TIME",
         "targetToken": "SET_PLAYER_SOMBRA_SECONDARY_FIRE_COOLDOWN_TARGET",
         "canonicalReference": "OW2_SOMBRA_HACK_COOLDOWN_TIME",
         "referenceResolved": true,
@@ -7209,12 +5821,8 @@
         }
       ],
       "canonicalReference": "OW2_SOMBRA_HACK_COOLDOWN_TIME",
-      "duplicateBaselineNames": [
-        "SOMBRA_HACK_COOLDOWN_TIME"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "team2.widowmaker.ultGen%",
@@ -7227,13 +5835,13 @@
         "team": "team2",
         "hero": "widowmaker",
         "field": "ultGen%",
-        "value": "ultGenPercent(WIDOWMAKER_ULT_COST, SET_PLAYER_WIDOWMAKER_ULT_COST_TARGET)",
+        "value": "ultGenPercent(OW2_WIDOWMAKER_ULT_COST, SET_PLAYER_WIDOWMAKER_ULT_COST_TARGET)",
         "file": "src/modules/prelude/settings.opy",
         "line": 817,
         "isNumericLiteral": false,
         "category": "absolute_pve_target",
         "referenceTokens": [
-          "WIDOWMAKER_ULT_COST",
+          "OW2_WIDOWMAKER_ULT_COST",
           "SET_PLAYER_WIDOWMAKER_ULT_COST_TARGET"
         ],
         "targetTokens": [
@@ -7241,10 +5849,10 @@
         ],
         "functionName": "ultGenPercent",
         "expressionArguments": [
-          "WIDOWMAKER_ULT_COST",
+          "OW2_WIDOWMAKER_ULT_COST",
           "SET_PLAYER_WIDOWMAKER_ULT_COST_TARGET"
         ],
-        "referenceToken": "WIDOWMAKER_ULT_COST",
+        "referenceToken": "OW2_WIDOWMAKER_ULT_COST",
         "targetToken": "SET_PLAYER_WIDOWMAKER_ULT_COST_TARGET",
         "canonicalReference": "OW2_WIDOWMAKER_ULT_COST",
         "referenceResolved": true,
@@ -7252,12 +5860,8 @@
       },
       "aram": [],
       "canonicalReference": "OW2_WIDOWMAKER_ULT_COST",
-      "duplicateBaselineNames": [
-        "WIDOWMAKER_ULT_COST"
-      ],
-      "migrationNotes": [
-        "consumer currently uses a non-namespaced player constant"
-      ]
+      "duplicateBaselineNames": [],
+      "migrationNotes": []
     },
     {
       "id": "allTeams.dva.ability1Cooldown%",
@@ -7422,6 +6026,182 @@
   ],
   "directOw2Consumers": [
     {
+      "canonicalReference": "OW2_ANA_BIOTIC_GRENADE_COOLDOWN",
+      "value": "12",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 499
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_ANA_SLEEP_DART_COOLDOWN_TIME",
+      "value": "12",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 97
+        },
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 503
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_ANA_ULT_COST",
+      "value": "2300",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 94
+        },
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 501
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_ANRAN_DANCING_BLAZE_COOLDOWN",
+      "value": "8",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 184
+        },
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 584
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_ANRAN_INFERNO_RUSH_COOLDOWN",
+      "value": "8",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 183
+        },
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 583
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_BAPTISTE_LAMP_COOLDOWN_TIME",
+      "value": "22",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 106
+        },
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 513
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_BAPTISTE_REGEN_BURST_COOLDOWN",
+      "value": "14",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 101
+        },
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 509
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_BASTION_RECONFIGURE_COOLDOWN",
+      "value": "12",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 465
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_BRIGITTE_REPAIR_PACK_COOLDOWN",
+      "value": "5",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 522
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_BRIGITTE_SHIELD_BASH_COOLDOWN",
+      "value": "5",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 528
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_BRIGITTE_SHIELD_BASH_KNOCKBACK",
+      "value": "2",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 119
+        },
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 530
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_BRIGITTE_ULT_COST",
+      "value": "2700",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 117
+        },
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 526
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_MCCREE_FLASHBANG_COOLDOWN",
+      "value": "12",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 49
+        },
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 446
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_MCCREE_ULT_COST",
+      "value": "1800",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 444
+        }
+      ]
+    },
+    {
       "canonicalReference": "OW2_DOMINA_BARRIER_ARRAY_COOLDOWN",
       "value": "14",
       "consumers": [
@@ -7460,6 +6240,536 @@
         {
           "file": "src/modules/prelude/settings.opy",
           "line": 802
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_DOOMFIST_AMMO_REGEN",
+      "value": "0.4",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 215
+        },
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 605
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_DOOMFIST_POWER_BLOCK_COOLDOWN",
+      "value": "8",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 607
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_DOOMFIST_SEISMIC_SLAM_COOLDOWN",
+      "value": "7.5",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 610
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_GENJI_DEFLECT_COOLDOWN",
+      "value": "10",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 670
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_GENJI_ULT_COST",
+      "value": "2125",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 282
+        },
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 668
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_HANZO_STORM_COOLDOWN",
+      "value": "8",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 434
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_HANZO_ULT_COST",
+      "value": "1700",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 44
+        },
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 436
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_ILLARI_PYLON_COOLDOWN",
+      "value": "6",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 199
+        },
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 592
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_JUNKRAT_CONCUSSION_MINE_COOLDOWN",
+      "value": "8",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 288
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_JUNKRAT_ULT_COST",
+      "value": "2100",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 678
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_JUNO_ULT_COST",
+      "value": "3135",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 207
+        },
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 597
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_KIRIKO_SUZU_COOLDOWN",
+      "value": "14",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 381
+        },
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 780
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_KIRIKO_ULT_COST",
+      "value": "2525",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 383
+        },
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 782
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_LUCIO_ULT_COST",
+      "value": "2650",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 58
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_MOIRA_ULT_COST",
+      "value": "2700",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 349
+        },
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 739
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_ORISA_FORTIFY_COOLDOWN",
+      "value": "16",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 81
+        },
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 487
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_ORISA_ULT_COST",
+      "value": "2150",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 89
+        },
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 493
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_PHARAH_CONCUSSIVE_BLAST_COOLDOWN",
+      "value": "7",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 251
+        },
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 640
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_PHARAH_JUMP_JET_COOLDOWN",
+      "value": "14",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 247
+        },
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 637
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_RAMATTRA_NEMESIS_COOLDOWN",
+      "value": "8",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 150
+        },
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 554
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_RAMATTRA_ULT_COST",
+      "value": "2300",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 153
+        },
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 556
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_RAMATTRA_VOID_BARRIER_COOLDOWN",
+      "value": "16",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 156
+        },
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 559
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_RAMATTRA_VORTEX_COOLDOWN",
+      "value": "11",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 148
+        },
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 552
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_REINHARDT_BARRIER_HEALTH",
+      "value": "1500",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 358
+        },
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 747
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_REINHARDT_BARRIER_REGEN",
+      "value": "150",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 355
+        },
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 745
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_REINHARDT_CHARGE_COOLDOWN_TIME",
+      "value": "10",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 352
+        },
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 743
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_REINHARDT_ULT_COST",
+      "value": "1960",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 748
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_ROADHOG_HOOK_COOLDOWN_TIME",
+      "value": "8",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 773
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_SIGMA_BARRIER_HEALTH",
+      "value": "700",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 364
+        },
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 763
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_SIGMA_ULT_COST",
+      "value": "2300",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 765
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_SOLDIER_BIOTIC_FIELD_COOLDOWN",
+      "value": "15",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 63
+        },
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 471
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_SOMBRA_HACK_COOLDOWN_TIME",
+      "value": "6",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 414
+        },
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 811
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_TORBJORN_ULT_COST",
+      "value": "2350",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 139
+        },
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 544
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_TRACER_RECALL_COOLDOWN",
+      "value": "13",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 296
+        },
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 689
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_TRACER_ULT_COST",
+      "value": "1375",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 294
+        },
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 687
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_VENTURE_ULT_COST",
+      "value": "2125",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 161
+        },
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 566
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_WIDOWMAKER_ULT_COST",
+      "value": "1400",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 423
+        },
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 817
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_WINSTON_BARRIER_COOLDOWN",
+      "value": "13",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 272
+        },
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 660
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_WINSTON_JUMP_PACK_COOLDOWN_TIME",
+      "value": "5",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 270
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_ZARYA_ULT_COST",
+      "value": "2500",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 225
+        },
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 618
+        }
+      ]
+    },
+    {
+      "canonicalReference": "OW2_ZENYATTA_ULT_COST",
+      "value": "2500",
+      "consumers": [
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 303
+        },
+        {
+          "file": "src/modules/prelude/settings.opy",
+          "line": 697
         }
       ]
     }
@@ -13540,7 +12850,7 @@
       "field": "DOMINA_BARRIER_ARRAY_COOLDOWN",
       "source": {
         "file": "src/constants/player_constants.opy",
-        "line": 142
+        "line": 125
       },
       "value": "8",
       "reason": "legacy value differs from OW2_DOMINA_BARRIER_ARRAY_COOLDOWN (14); this may be a target or a stale duplicate"
@@ -13552,7 +12862,7 @@
       "field": "DOMINA_CRYSTAL_CHARGE_COOLDOWN",
       "source": {
         "file": "src/constants/player_constants.opy",
-        "line": 141
+        "line": 124
       },
       "value": "6",
       "reason": "legacy value differs from OW2_DOMINA_CRYSTAL_CHARGE_COOLDOWN (8); this may be a target or a stale duplicate"
@@ -13564,7 +12874,7 @@
       "field": "DOMINA_SONIC_REPULSORS_COOLDOWN",
       "source": {
         "file": "src/constants/player_constants.opy",
-        "line": 143
+        "line": 126
       },
       "value": "6",
       "reason": "legacy value differs from OW2_DOMINA_SONIC_REPULSORS_COOLDOWN (7); this may be a target or a stale duplicate"
@@ -13576,7 +12886,7 @@
       "field": "DVA_BOOSTER_COOLDOWN_TIME",
       "source": {
         "file": "src/constants/player_constants.opy",
-        "line": 131
+        "line": 114
       },
       "value": "(DVA_BOOSTER_COOLDOWN_TIME_RAW * 85 / 100)",
       "reason": "legacy value differs from OW2_DVA_BOOSTER_COOLDOWN_TIME (4); this may be a target or a stale duplicate"
@@ -13588,7 +12898,7 @@
       "field": "DVA_MATRIX_DURATION",
       "source": {
         "file": "src/constants/player_constants.opy",
-        "line": 133
+        "line": 116
       },
       "value": "(DVA_MATRIX_DURATION_RAW * 134 / 100)",
       "reason": "legacy value differs from OW2_DVA_MATRIX_DURATION (2); this may be a target or a stale duplicate"
@@ -13600,7 +12910,7 @@
       "field": "DVA_MICRO_MISSILES_COOLDOWN_TIME",
       "source": {
         "file": "src/constants/player_constants.opy",
-        "line": 135
+        "line": 118
       },
       "value": "(DVA_MICRO_MISSILES_COOLDOWN_TIME_RAW * 86 / 100)",
       "reason": "legacy value differs from OW2_DVA_MICRO_MISSILES_COOLDOWN_TIME (8); this may be a target or a stale duplicate"
