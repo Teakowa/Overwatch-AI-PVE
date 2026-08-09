@@ -14,6 +14,7 @@
     "tool:hero-pipeline": "tsx tools/hero-pipeline.ts",
     "tool:changelog-sync": "tsx tools/changelog-sync.ts",
     "tool:module-metrics-sync": "tsx tools/module-metrics-sync.ts",
+    "tool:audit-hero-balance": "tsx tools/audit-hero-balance.ts",
     "tool:player-constants-reachability": "tsx tools/player-constants-reachability.ts",
     "tool:fandom:fetch-heroes": "tsx tools/fandom/fetch-heroes.ts",
     "tool:fandom:fetch-hero-details": "tsx tools/fandom/fetch-hero-details.ts",
