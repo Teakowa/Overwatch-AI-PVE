@@ -17,9 +17,9 @@ macro RESET_STATS_EXTRA():
     eventPlayer.setHealingDealt(100)
     eventPlayer.setMaxHealth(100)
     if isHero(eventPlayer, Hero.MOIRA):
-        eventPlayer.setDamageDealt(125 + eventPlayer.getStatistic(Stat.ELIMINATIONS))
-        eventPlayer.setHealingDealt(125 + eventPlayer.getStatistic(Stat.ELIMINATIONS))
-        eventPlayer.setMaxHealth(125 + eventPlayer.getStatistic(Stat.ELIMINATIONS))
+        eventPlayer.setDamageDealt((100 + MoiraBuff[0]) + eventPlayer.getStatistic(Stat.ELIMINATIONS) * (2.5 if eventPlayer.getTeam() == Team.1 else 2))
+        eventPlayer.setHealingDealt((100 + MoiraBuff[0]) + eventPlayer.getStatistic(Stat.ELIMINATIONS) * (2.5 if eventPlayer.getTeam() == Team.1 else 2))
+        eventPlayer.setMaxHealth((100 + MoiraBuff[0]) + eventPlayer.getStatistic(Stat.ELIMINATIONS) * (2.5 if eventPlayer.getTeam() == Team.1 else 2))
 
 macro RESET_STATUSES_EXTRA():
     eventPlayer.brigitte_buff[0] = false

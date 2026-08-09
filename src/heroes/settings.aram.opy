@@ -29,7 +29,7 @@
 #!include "cassidy/settings.opy"
 #!include "lucio/settings.opy"
 #!include "junkrat/settings.opy"
-#!include "moira/settings.opy"
+#!include "moira/settings.aram.opy"
 #!include "reinhardt/settings.aram.opy"
 #!include "venture/settings.opy"
 #!include "wrecking_ball/settings.opy"
