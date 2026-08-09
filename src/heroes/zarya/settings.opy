@@ -1,5 +1,7 @@
 #!mainFile "../../main.opy"
 
+globalvar ZaryaBuff 14
+
 macro INIT_ZARYA_WORKSHOP_SETTINGS():
     ZaryaBuff[0] = createWorkshopSettingBool("英雄：查莉娅", "胜利意志（被动）", true, 115)
     ZaryaBuff[1] = createWorkshopSettingInt("英雄：查莉娅", "胜利意志（被动） 持续时间", ZARYA_WILL_TO_WIN_DURATION_DEFAULT, ZARYA_WILL_TO_WIN_DURATION_MIN, ZARYA_WILL_TO_WIN_DURATION_MAX, 116)
