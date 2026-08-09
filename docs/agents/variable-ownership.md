@@ -4,6 +4,9 @@ This contract separates Workshop storage scope from module ownership. `globalvar
 `playervar` describe how Overwatch stores a value; they do not decide which module is
 responsible for that value.
 
+The current declaration inventory and ordered migration waves are tracked in
+`docs/agents/variable-ownership-matrix.md`.
+
 ### R-VAR-OWNERSHIP
 
 Every declaration belongs to exactly one ownership category:
