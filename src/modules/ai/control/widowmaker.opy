@@ -10,7 +10,7 @@ rule "[AI/control]: Widowmaker Fly Sky Attack Mode":
     @Condition eventPlayer.isOnGround() == true
     @Condition eventPlayer.getPosition().y > -2
     @Condition (eventPlayer.hasStatus(Status.KNOCKED_DOWN) or eventPlayer.hasStatus(Status.ASLEEP) or eventPlayer.hasStatus(Status.FROZEN)) != true
-    @Condition len(getPlayersInRadius(eventPlayer, 22, getOppositeTeam(eventPlayer.getTeam()))) > 0
+    @Condition eventPlayer.botHasNearbyEnemy == true
     
     wait(0.3)
     eventPlayer.setAbility2Enabled(false)

@@ -11,7 +11,7 @@ rule "[AI/control]: Domina Primary":
     @Condition eventPlayer.botTarget != null
     @Condition eventPlayer.botTarget.isAlive() == true
     @Condition isInLoS(eventPlayer, eventPlayer.botTarget) == true
-    @Condition distance(eventPlayer, eventPlayer.botTarget) <= 25
+    @Condition eventPlayer.botTargetDistance != null and eventPlayer.botTargetDistance <= 25
 
     eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
     wait(WAIT_AI_THROTTLE_MIN, Wait.ABORT_WHEN_FALSE)

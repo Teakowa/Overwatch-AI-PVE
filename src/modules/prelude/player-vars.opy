@@ -5,6 +5,8 @@ playervar reset_pvar
 playervar heroNum
 playervar botTemp
 playervar botTarget
+playervar botHasNearbyEnemy
+playervar botTargetDistance
 playervar Strafe
 playervar third_person
 playervar hudText

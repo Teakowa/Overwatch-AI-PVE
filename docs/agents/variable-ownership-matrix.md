@@ -75,6 +75,8 @@ The remaining global declarations are explicitly classified under keep or defer.
 | heroNum | playervar | prelude/player-vars.opy | ai/core, ai/movement, ai/control; heroes/ana/init.opy, heroes/anran/init.opy | M+A | prelude/player-vars.opy | K-P1 keep AI hero identity state | shared AI lookup |
 | botTemp | playervar | prelude/player-vars.opy | ai/control/common.opy, ai/control/genji.opy | M+A | prelude/player-vars.opy | K-P2 keep AI scratch state | shared AI control |
 | botTarget | playervar | prelude/player-vars.opy | ai/core, ai/movement, ai/control, utilities/bot_aim2target.opy | M+A | prelude/player-vars.opy | K-P2 keep AI targeting state | shared AI control |
+| botHasNearbyEnemy | playervar | prelude/player-vars.opy | ai/movement/movement.opy (single writer), ai/movement/movement.opy, ai/control/widowmaker.opy | M+A | prelude/player-vars.opy | K-P2 keep AI perception state (22m no-LoS presence, updated by the 0.5s movement cycle) | shared AI control |
+| botTargetDistance | playervar | prelude/player-vars.opy | ai/movement/movement.opy (single writer), ai/control/juno.opy, ai/control/domina.opy | M+A | prelude/player-vars.opy | K-P2 keep AI target-distance cache (distance to valid in-LoS botTarget, ~0.5s stale, null when target invalid) | shared AI control |
 | Strafe | playervar | prelude/player-vars.opy | ai/movement/movement.opy, ai/control/venture.opy | M+A | prelude/player-vars.opy | K-P2 keep AI movement state | shared AI control |
 | hudText | playervar | prelude/player-vars.opy | debug/changelog.opy, bootstrap/player-hud-text-init.opy, bootstrap/safety-blacklist-ban.opy, bootstrap/aram-safety-blacklist-ban.opy, utilities/reset_hero.opy, hero HUD rules | M+A | prelude/player-vars.opy | K-P3 keep shared HUD lifecycle state | many hero HUD writers |
 | unaffected | playervar | prelude/player-vars.opy | modules/hero_rules/player_shared.opy and hero ability/status rules | M+A | prelude/player-vars.opy | K-P4 keep shared combat-status gate | intentionally cross-hero |
@@ -139,7 +141,7 @@ request to combine all rows into one commit.
 
 ## Audit evidence and maintenance
 
-- The current declaration inventory is 24 globalvar plus 27 playervar entries; the matrix has
+- The current declaration inventory is 24 globalvar plus 29 playervar entries; the matrix has
   one row for each remaining declaration.
 - The remaining prelude declarations are reachable from the applicable entry roots. The consumer paths above were
   searched across src, including bootstrap, AI, utilities, hero Main rules, and ARAM

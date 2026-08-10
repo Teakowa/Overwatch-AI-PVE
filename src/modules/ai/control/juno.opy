@@ -80,7 +80,7 @@ rule "[AI/control]: Juno Ultimate":
     @Condition eventPlayer.isAlive() == true
     
     waitUntil(
-        eventPlayer.botTarget != null and eventPlayer.botTarget.isAlive() == true and isInLoS(eventPlayer, eventPlayer.botTarget) == true and distance(eventPlayer, eventPlayer.botTarget) <= 10,
+        eventPlayer.botTarget != null and eventPlayer.botTarget.isAlive() == true and isInLoS(eventPlayer, eventPlayer.botTarget) == true and eventPlayer.botTargetDistance != null and eventPlayer.botTargetDistance <= 10,
         4
     )
     eventPlayer.forceButtonPress(Button.ULTIMATE)

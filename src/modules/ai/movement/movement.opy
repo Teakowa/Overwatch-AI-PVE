@@ -8,13 +8,16 @@ rule "[AI/Movement]: Movement":
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.isAlive() == true
     
+    eventPlayer.botHasNearbyEnemy = len(getPlayersInRadius(eventPlayer, 22, getOppositeTeam(eventPlayer.getTeam()))) > 0
     if eventPlayer.botTarget == null or eventPlayer.botTarget.isAlive() != true or isInLoS(eventPlayer, eventPlayer.botTarget) != true:
+        eventPlayer.botTargetDistance = null
         eventPlayer.startThrottleInDirection(directionTowards(eventPlayer, eventPlayer.reset_pvar[15]), 1, Relativity.TO_WORLD)
         eventPlayer.Strafe = 0
         chaseAtRate(eventPlayer.Strafe, 0, 9999)
     else:
+        eventPlayer.botTargetDistance = distance(eventPlayer, eventPlayer.botTarget)
         eventPlayer.startThrottleInDirection(directionFromAngles(horizontalAngleOfDirection(directionTowards(eventPlayer, eventPlayer.botTarget)) + eventPlayer.Strafe, 0), 1, Relativity.TO_WORLD)
-        if distance(eventPlayer, eventPlayer.botTarget) <= FalloffMin[eventPlayer.heroNum]:
+        if eventPlayer.botTargetDistance <= FalloffMin[eventPlayer.heroNum]:
             eventPlayer.Strafe = 90
             chaseAtRate(eventPlayer.Strafe, 90, 0)
         elif eventPlayer.getHero() in getTankHeroes():
@@ -37,7 +40,7 @@ rule "[AI/Movement]: Strafing":
     @Condition not isHero(eventPlayer, Hero.ILLARI)
     @Condition not isHero(eventPlayer, Hero.ECHO)
     @Condition not isHero(eventPlayer, Hero.GENJI)
-    @Condition len(getPlayersInRadius(eventPlayer, 22, getOppositeTeam(eventPlayer.getTeam()))) > 0
+    @Condition eventPlayer.botHasNearbyEnemy == true
     
     eventPlayer.startThrottleInDirection(random.choice([Vector.LEFT, Vector.RIGHT]), 1, Relativity.TO_PLAYER)
     wait(random.uniform(0.2, 0.5), Wait.ABORT_WHEN_FALSE)
@@ -52,7 +55,7 @@ rule "[AI/Movement]: Strafing Genji":
     @Team 1
     @Hero genji
     @Condition eventPlayer.isAlive() == true
-    @Condition len(getPlayersInRadius(eventPlayer, 22, getOppositeTeam(eventPlayer.getTeam()))) > 0
+    @Condition eventPlayer.botHasNearbyEnemy == true
     
     eventPlayer.startThrottleInDirection(random.choice([Vector.LEFT, Vector.RIGHT]), 1, Relativity.TO_PLAYER)
     wait(random.uniform(0.2, 0.8), Wait.ABORT_WHEN_FALSE)
@@ -67,7 +70,7 @@ rule "[AI/Movement]: Jump Crouch":
     @Team 1
     @Condition eventPlayer.isAlive() == true
     #@Condition eventPlayer.isUsingUltimate() == false
-    @Condition (len(getPlayersInRadius(eventPlayer, 22, getOppositeTeam(eventPlayer.getTeam()))) > 0 or eventPlayer.isFiringPrimaryFire() or eventPlayer.isFiringSecondaryFire()) == true
+    @Condition (eventPlayer.botHasNearbyEnemy == true or eventPlayer.isFiringPrimaryFire() or eventPlayer.isFiringSecondaryFire()) == true
     
     if random.randint(1, 100) <= 33:
         goto lbl_0
