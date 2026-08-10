@@ -22,6 +22,7 @@ globalvar CustomAI
 globalvar CustomAIArray
 globalvar ChangelogHeroes
 globalvar ChangelogBodyTable
+globalvar ChangelogCommon
 globalvar HanzoBuff
 globalvar BaptisteBuff
 globalvar MoiraBuff
