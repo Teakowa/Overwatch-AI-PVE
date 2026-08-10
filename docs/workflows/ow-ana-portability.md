@@ -1,5 +1,7 @@
 # Ana Biotic Grenade portability boundary
 
+> 本文是 `docs/agents/minimal-dependency-boundary.md` 的具体参考 fixture，不是按安娜或某个技能定义的全局规则。
+
 `src/heroes/ana/ability2.opy` is the reference portability fragment for the
 ownership refactor. The reproducible check is:
 

@@ -29,6 +29,7 @@
 | --- | --- | --- |
 | 任意任务 | `docs/agents/project-scope.md` | `docs/agents/rules-index.md` |
 | `globalvar` / `playervar` 所有权或 prelude 迁移 | `docs/agents/variable-ownership.md` | `docs/agents/protocol-constraints.md` |
+| 模块抽取、跨 Main/ARAM 复用、include graph、`#!mainFile` 或最小 fixture 边界变更 | `docs/agents/minimal-dependency-boundary.md` | `docs/agents/variable-ownership.md`、`docs/agents/protocol-constraints.md` |
 | `src/main.opy` 或 `src/modules/prelude/*` | `docs/agents/main-contract.md` | `docs/agents/protocol-constraints.md` |
 | `src/modules/hero_init/*` | `docs/agents/hero-init-contract.md` | `docs/agents/protocol-constraints.md` |
 | `src/modules/hero_rules/*` 或高频 `src/modules/ai/*` | `docs/agents/performance-stability.md` | `docs/agents/protocol-constraints.md` |
@@ -44,7 +45,7 @@
 2. 不要重排或复用已有变量、数组、子程序的协议索引；新增协议项只能追加。
 3. 每个声明必须有明确且唯一的模块所有权，并在使用它的 expanded include graph 中可达；跨英雄直接读取私有存储前必须先解决语义接口问题。
 4. 不要破坏英雄 dispatcher、init/reset 清理链路，或引入无等待循环和未经评估的高频昂贵操作。
-5. 不要绕过适用的 contract、性能、构建、ARAM 重复覆盖或 portability 检查。
+5. 不要绕过适用的 contract、性能、构建、ARAM 重复覆盖或模块依赖边界检查。
 6. 不要把 Team 1（AI）与 Team 2（玩家）的职责边界混在一起。
 7. 不要为了“整理”而改动与任务无关的生成文件、用户改动或模块结构。
 
@@ -72,7 +73,7 @@
 ### 按任务追加的工具
 
 - 变量所有权迁移：先检查 expanded Main/ARAM include graph、读写/reset/lifecycle 消费者，再运行 duplicate/include-graph、contract、Main/ARAM build 和行为静态检查。
-- Ana portability：`pnpm run tool:check-ana-portability`。
+- 模块最小依赖边界：涉及模块抽取或跨 Main/ARAM 复用时，按 `docs/agents/minimal-dependency-boundary.md` 建立最小 fixture；安娜生物手雷的具体参考检查为 `pnpm run tool:check-ana-portability`，仅在该片段或其依赖边界改动时运行。
 - 英雄变更：`tools/hero-pipeline.ts --from-diff`；需要构建或 cooldown 严格检查时追加 `--build`、`--strict-cooldown-placement`，也可使用 `--report-template` 或 `--hero <name>`。对应 wrapper 为 `pnpm run tool:hero-pipeline`。
 - changelog 同步：`tools/changelog-sync.ts --from-diff`；提交前覆盖检查可追加 `--strict-coverage --strict-language --strict-settings-sync`，报告模式为 `--report`，也可使用 `--hero <name>`。对应 wrapper 为 `pnpm run tool:changelog-sync`。
 - ARAM 候选报告：`tools/check-aram-overrides-duplicates.ts --check --emit-candidates build/reports/aram-delta-whitelist-candidates.tsv`。
@@ -83,7 +84,7 @@
 
 ### 建议门禁顺序
 
-1. `pnpm run tool:check-ana-portability`（涉及 Ana portability 时）
+1. 最小依赖 fixture（涉及模块边界时）
 2. `tools/hero-pipeline.ts --from-diff`（涉及英雄时）
 3. `tools/check-contracts.ts --build`
 4. `pnpm run perf:scan`
