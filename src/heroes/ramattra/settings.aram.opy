@@ -1,6 +1,6 @@
 #!mainFile "../../aramMain.opy"
 
-globalvar Ram_Annihilation 32
+globalvar Ram_Annihilation
 
 macro INIT_RAMATTRA_WORKSHOP_SETTINGS():
     Ram_Annihilation[0] = createWorkshopSettingInt("英雄：拉玛刹", "天罚形态：铁臂：最大临时生命值", 400, 0, 1000, 100)

@@ -1,6 +1,6 @@
 #!mainFile "../../main.opy"
 
-globalvar HazardBuff 23
+globalvar HazardBuff
 
 macro INIT_HAZARD_WORKSHOP_SETTINGS():
     HazardBuff[0] = createWorkshopSettingInt("英雄：骇灾", "尖刺护体：基于受到伤害的额外伤害 %", HAZARD_SPIKED_GUARD_DAMAGE_SCALAR_PERCENT_DEFAULT, HAZARD_SPIKED_GUARD_DAMAGE_SCALAR_PERCENT_MIN, HAZARD_SPIKED_GUARD_DAMAGE_SCALAR_PERCENT_MAX, 70) / 100

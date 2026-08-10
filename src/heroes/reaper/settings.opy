@@ -1,6 +1,6 @@
 #!mainFile "../../main.opy"
 
-globalvar ReaperBuff 19
+globalvar ReaperBuff
 
 macro INIT_REAPER_WORKSHOP_SETTINGS():
     ReaperBuff[0] = createWorkshopSettingInt("英雄：死神", "收割：击杀获得灵魂层数", REAPER_REAP_SOULS_ON_KILL_DEFAULT, REAPER_REAP_SOULS_ON_KILL_MIN, REAPER_REAP_SOULS_ON_KILL_MAX, 119)

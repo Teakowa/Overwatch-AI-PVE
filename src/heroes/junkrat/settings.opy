@@ -1,6 +1,6 @@
 #!mainFile "../../main.opy"
 
-globalvar JunkratBuff 45
+globalvar JunkratBuff
 
 macro INIT_JUNKRAT_WORKSHOP_SETTINGS():
     JunkratBuff[0] = createWorkshopSettingFloat("英雄：狂鼠", "纵火狂：点燃持续时间", JUNKRAT_RULES_BURNING_DURATION, 0, 10, 144)

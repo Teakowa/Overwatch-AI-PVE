@@ -1,6 +1,6 @@
 #!mainFile "../../main.opy"
 
-globalvar ZaryaBuff 14
+globalvar ZaryaBuff
 
 macro INIT_ZARYA_WORKSHOP_SETTINGS():
     ZaryaBuff[0] = createWorkshopSettingBool("英雄：查莉娅", "胜利意志（被动）", true, 115)

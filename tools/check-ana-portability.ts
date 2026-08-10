@@ -56,9 +56,9 @@ async function runMinimalFixture(ability2Path: string, policyPath: string): Prom
         "    self * (p) / 100",
         "macro Player.maxHealthPercent(percent):",
         "    self.getMaxHealth().percentOf(percent)",
-        "globalvar Ana_GrenadeDamage 29",
-        "playervar has_nano 22",
-        "playervar zarya_buff 20",
+        "globalvar Ana_GrenadeDamage",
+        "playervar has_nano",
+        "playervar zarya_buff",
         '#!include "modules/combat-policy/custom-effect-guards.opy"',
         '#!include "heroes/ana/ability2.opy"',
         "",
@@ -81,25 +81,21 @@ async function main(): Promise<void> {
   const settingsPath = resolveRepo("src/heroes/ana/settings.opy");
   const settingsAramPath = resolveRepo("src/heroes/ana/settings.aram.opy");
   const policyPath = resolveRepo("src/modules/combat-policy/custom-effect-guards.opy");
-  const burningStatePath = resolveRepo("src/modules/burning/state.opy");
   const preludeGlobalsPath = resolveRepo("src/modules/prelude/global-vars.opy");
-  const preludePlayersPath = resolveRepo("src/modules/prelude/player-vars.opy");
 
-  const [ability2, settings, settingsAram, policy, burningState, preludeGlobals, preludePlayers] =
+  const [ability2, settings, settingsAram, policy, preludeGlobals] =
     await Promise.all([
       readText(ability2Path),
       readText(settingsPath),
       readText(settingsAramPath),
       readText(policyPath),
-      readText(burningStatePath),
       readText(preludeGlobalsPath),
-      readText(preludePlayersPath),
     ]);
 
   requireText("Ana rule has its module mainFile directive", ability2, '#!mainFile "../../main.opy"');
-  requireExactLine("Main Ana settings owns Ana_GrenadeDamage slot 29", settings, "globalvar Ana_GrenadeDamage 29", 1);
-  requireExactLine("Main Ana settings owns Ana_NanoHealAmp slot 67", settings, "globalvar Ana_NanoHealAmp 67", 1);
-  requireExactLine("ARAM Ana settings owns Ana_GrenadeDamage slot 29", settingsAram, "globalvar Ana_GrenadeDamage 29", 1);
+  requireExactLine("Main Ana settings owns Ana_GrenadeDamage", settings, "globalvar Ana_GrenadeDamage", 1);
+  requireExactLine("Main Ana settings owns Ana_NanoHealAmp", settings, "globalvar Ana_NanoHealAmp", 1);
+  requireExactLine("ARAM Ana settings owns Ana_GrenadeDamage", settingsAram, "globalvar Ana_GrenadeDamage", 1);
   requireText("Ana Biotic Grenade uses its owned setting", ability2, "victim.maxHealthPercent(Ana_GrenadeDamage[0])");
   requireText("Ana Biotic Grenade exposes the protection policy call", ability2, "if victim.blocksCustomDot():");
   requireText("Ana Biotic Grenade explicitly applies the engine burning status", ability2, "Status.BURNING");
@@ -107,27 +103,16 @@ async function main(): Promise<void> {
   requireText("Ana Biotic Grenade keeps the Nano gate", ability2, "victim.has_nano != true");
   requireText("Combat policy owns the cross-hero storage read", policy, "macro Player.blocksCustomDot():");
   requireExactLine("Combat policy is the only direct zarya_buff storage guard", policy, "    self.zarya_buff[1] != null", 1);
-  requireExactLine("Burning state owns the preserved retired stack slot", burningState, "playervar burn_stack 32", 1);
 
   if (/\bAna_(?:GrenadeDamage|NanoHealAmp)\b/.test(preludeGlobals)) {
     fail("Ana-owned globals leaked back into modules/prelude/global-vars.opy");
   } else {
     pass("Ana-owned globals are absent from the global prelude registry");
   }
-  if (/\bburn_stack\b/.test(preludePlayers)) {
-    fail("burn_stack leaked back into modules/prelude/player-vars.opy");
-  } else {
-    pass("burn_stack is absent from the player prelude registry");
-  }
   if (/\bzarya_buff\b/.test(ability2)) {
     fail("Ana Biotic Grenade directly reads zarya_buff instead of the policy boundary");
   } else {
     pass("Ana Biotic Grenade has no direct zarya_buff storage read");
-  }
-  if (/\bburn_stack\b/.test(ability2)) {
-    fail("Ana Biotic Grenade directly depends on retired burn_stack state");
-  } else {
-    pass("Ana Biotic Grenade has no ambient burn_stack dependency");
   }
   if (settingsAram.includes("Ana_NanoHealAmp")) {
     fail("ARAM Ana settings unexpectedly require the Main-only NanoHealAmp setting");

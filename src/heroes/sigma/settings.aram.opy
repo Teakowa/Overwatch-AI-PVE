@@ -1,6 +1,6 @@
 #!mainFile "../../aramMain.opy"
 
-globalvar SigmaBuff 27
+globalvar SigmaBuff
 
 macro INIT_SIGMA_WORKSHOP_SETTINGS():
     SigmaBuff[0] = createWorkshopSettingInt("英雄：西格玛", "超能之球：基于当前生命值造成额外伤害 %", 50, 0, 200, 130) / 100

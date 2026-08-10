@@ -1,6 +1,6 @@
 #!mainFile "../../main.opy"
 
-globalvar Orisa_Fortify 12
+globalvar Orisa_Fortify
 
 macro INIT_ORISA_WORKSHOP_SETTINGS():
     Orisa_Fortify[0] = createWorkshopSettingInt("英雄：奥丽莎", "强固防御：获得的临时护甲", ORISA_FORTIFY_OVERHEALTH_DEFAULT, ORISA_FORTIFY_OVERHEALTH_MIN, ORISA_FORTIFY_OVERHEALTH_MAX, 50)

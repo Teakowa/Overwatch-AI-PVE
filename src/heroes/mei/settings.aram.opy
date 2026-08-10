@@ -1,6 +1,6 @@
 #!mainFile "../../aramMain.opy"
 
-globalvar MeiBuff 58
+globalvar MeiBuff
 
 macro INIT_MEI_WORKSHOP_SETTINGS():
     MeiBuff[0] = createWorkshopSettingFloat("英雄：美", "冰风暴射击：冻结持续时间", MEI_ARAM_FROZEN_DURATION, 0, 5, 170)

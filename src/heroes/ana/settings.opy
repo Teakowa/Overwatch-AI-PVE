@@ -1,7 +1,7 @@
 #!mainFile "../../main.opy"
 
-globalvar Ana_GrenadeDamage 29
-globalvar Ana_NanoHealAmp 67
+globalvar Ana_GrenadeDamage
+globalvar Ana_NanoHealAmp
 
 macro INIT_ANA_WORKSHOP_SETTINGS():
     Ana_GrenadeDamage[0] = createWorkshopSettingInt("英雄：安娜", "生物手雷：额外最大生命值伤害 %", ANA_GRENADE_MAX_HEALTH_DAMAGE_PERCENT_DEFAULT, ANA_GRENADE_MAX_HEALTH_DAMAGE_PERCENT_MIN, ANA_GRENADE_MAX_HEALTH_DAMAGE_PERCENT_MAX, 104)

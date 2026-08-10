@@ -1,6 +1,6 @@
 #!mainFile "../../main.opy"
 
-globalvar Tracer_Ability 18
+globalvar Tracer_Ability
 
 macro INIT_TRACER_WORKSHOP_SETTINGS():
     Tracer_Ability[0] = createWorkshopSettingBool("英雄：猎空", "猎空：参与击杀后重置技能冷却", true, 113)

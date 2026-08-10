@@ -1,6 +1,6 @@
 #!mainFile "../../main.opy"
 
-globalvar WuyangBuff 25
+globalvar WuyangBuff
 
 macro INIT_WUYANG_WORKSHOP_SETTINGS():
     WuyangBuff[2] = createWorkshopSettingInt("英雄：无漾", "飞流步：每秒自我治疗", WUYANG_FLOW_STEP_SELF_HEAL_PER_SECOND_DEFAULT, WUYANG_FLOW_STEP_SELF_HEAL_PER_SECOND_MIN, WUYANG_FLOW_STEP_SELF_HEAL_PER_SECOND_MAX, 138)

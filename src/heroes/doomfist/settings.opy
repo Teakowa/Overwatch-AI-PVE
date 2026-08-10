@@ -1,6 +1,6 @@
 #!mainFile "../../main.opy"
 
-globalvar DoomBuff 30
+globalvar DoomBuff
 
 macro INIT_DOOMFIST_WORKSHOP_SETTINGS():
     DoomBuff[0] = createWorkshopSettingFloat("英雄：末日铁拳", "悍猛格挡：伤害吸收倍率", DOOMFIST_POWER_BLOCK_ABSORB_MULTIPLIER_DEFAULT, DOOMFIST_POWER_BLOCK_ABSORB_MULTIPLIER_MIN, DOOMFIST_POWER_BLOCK_ABSORB_MULTIPLIER_MAX, 131)

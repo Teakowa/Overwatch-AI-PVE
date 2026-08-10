@@ -1,6 +1,6 @@
 #!mainFile "../../aramMain.opy"
 
-globalvar S76Buff 21
+globalvar S76Buff
 
 macro INIT_SOLDIER76_WORKSHOP_SETTINGS():
     S76Buff[0] = createWorkshopSettingInt("英雄：士兵 76", "生物力场：心之钢叠层间隔", 1, 0, 5, 124)

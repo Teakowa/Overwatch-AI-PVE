@@ -1,6 +1,6 @@
 #!mainFile "../../main.opy"
 
-globalvar VendettaBuff 33
+globalvar VendettaBuff
 
 macro INIT_VENDETTA_WORKSHOP_SETTINGS():
     VendettaBuff[0] = createWorkshopSettingInt("英雄：斩仇", "帕拉蒂尼之牙：暴击造成额外最大生命值伤害 %", VENDETTA_CRIT_MAX_HEALTH_DAMAGE_PERCENT_DEFAULT, VENDETTA_CRIT_MAX_HEALTH_DAMAGE_PERCENT_MIN, VENDETTA_CRIT_MAX_HEALTH_DAMAGE_PERCENT_MAX, 150)

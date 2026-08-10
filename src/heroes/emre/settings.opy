@@ -1,6 +1,6 @@
 #!mainFile "../../main.opy"
 
-globalvar EmreBuff 54
+globalvar EmreBuff
 
 macro INIT_EMRE_WORKSHOP_SETTINGS():
     EmreBuff[0] = createWorkshopSettingFloat("英雄：埃姆雷", "赛博手雷：点燃持续时间", EMRE_ABILITY2_BURNING_DURATION, 0, 10, 160)

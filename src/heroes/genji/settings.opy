@@ -1,6 +1,6 @@
 #!mainFile "../../main.opy"
 
-globalvar Genji 11
+globalvar Genji
 
 macro INIT_GENJI_WORKSHOP_SETTINGS():
     Genji[0] = createWorkshopSettingInt("英雄：源氏", "分数", GENJI_SCORE_DEFAULT, GENJI_SCORE_MIN, GENJI_SCORE_MAX, 60)

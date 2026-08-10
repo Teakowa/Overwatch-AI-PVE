@@ -1,6 +1,6 @@
 #!mainFile "../../aramMain.opy"
 
-globalvar MaugaBuff 20
+globalvar MaugaBuff
 
 macro INIT_MAUGA_WORKSHOP_SETTINGS():
     MaugaBuff[0] = createWorkshopSettingInt("英雄：毛加", "狂战士之魂：额外最大生命值 %", 200, 0, 500, 122)

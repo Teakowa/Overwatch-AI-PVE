@@ -27,14 +27,14 @@ For a Main/ARAM reuse, provide the following narrow boundary:
 | Responsibility | Source in this project | Reuse requirement |
 | --- | --- | --- |
 | Biotic Grenade rule | `src/heroes/ana/ability2.opy` | Copy the rule and retain its event, status, and damage conditions. |
-| Ana setting | `src/heroes/ana/settings.opy` or `settings.aram.opy` | Provide `Ana_GrenadeDamage` with slot `29`; the Workshop setting values and IDs are mode-specific. |
+| Ana setting | `src/heroes/ana/settings.opy` or `settings.aram.opy` | Provide `Ana_GrenadeDamage`; the Workshop setting values and IDs are mode-specific. |
 | Protection policy | `src/modules/combat-policy/custom-effect-guards.opy` | Provide `Player.blocksCustomDot()` or an equivalent semantic policy. The rule does not read `zarya_buff` directly. |
 | Balance constants | `src/constants/hero_balance_constants.opy` | Provide `ANA_ABILITY2_BURNING_DURATION` and `ANA_ABILITY2_DOT_DURATION`, or equivalent values. |
 | Engine/runtime surface | Overwatch Workshop built-ins | Provide `Hero.ANA`, `Button.ABILITY_2`, `Status.BURNING`, player events, and the referenced Player methods. |
 
-`Status.BURNING` is an explicit Workshop status dependency. The current rule does
-not use the retired `burn_stack` state from `modules/burning/state.opy`; that module
-must not be copied merely because the effect is burning.
+`Status.BURNING` is an explicit Workshop status dependency. The retired `burn_stack`
+state and its unused owner module have been removed; that state must not be recreated
+merely because the effect is burning.
 
 ## Intentionally project-specific
 

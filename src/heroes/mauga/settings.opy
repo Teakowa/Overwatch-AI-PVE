@@ -1,6 +1,6 @@
 #!mainFile "../../main.opy"
 
-globalvar MaugaBuff 20
+globalvar MaugaBuff
 
 macro INIT_MAUGA_WORKSHOP_SETTINGS():
     MaugaBuff[0] = createWorkshopSettingInt("英雄：毛加", "狂战士之魂：额外最大生命值 %", MAUGA_BERSERKER_SOUL_MAX_HEALTH_PERCENT_DEFAULT, MAUGA_BERSERKER_SOUL_MAX_HEALTH_PERCENT_MIN, MAUGA_BERSERKER_SOUL_MAX_HEALTH_PERCENT_MAX, 122)

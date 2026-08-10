@@ -1,6 +1,6 @@
 #!mainFile "../../aramMain.opy"
 
-globalvar Ana_GrenadeDamage 29
+globalvar Ana_GrenadeDamage
 
 macro INIT_ANA_WORKSHOP_SETTINGS():
     Ana_GrenadeDamage[0] = createWorkshopSettingInt("英雄：安娜", "生物手雷：额外最大生命值伤害 %", 15, 0, 20, 104)

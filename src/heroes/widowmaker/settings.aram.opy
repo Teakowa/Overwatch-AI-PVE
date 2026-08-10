@@ -1,6 +1,6 @@
 #!mainFile "../../aramMain.opy"
 
-globalvar WidowmakerBuff 64
+globalvar WidowmakerBuff
 
 macro INIT_WIDOWMAKER_WORKSHOP_SETTINGS():
     WidowmakerBuff[0] = createWorkshopSettingInt("英雄：黑百合", "狙击暴击：额外最大生命值伤害 %", 50, 0, 100, 185)

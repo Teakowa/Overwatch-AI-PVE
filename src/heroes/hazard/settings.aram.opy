@@ -1,6 +1,6 @@
 #!mainFile "../../aramMain.opy"
 
-globalvar HazardBuff 23
+globalvar HazardBuff
 
 macro INIT_HAZARD_WORKSHOP_SETTINGS():
     HazardBuff[0] = createWorkshopSettingInt("英雄：骇灾", "狂跃：造成目标最大生命值的额外伤害 %", 30, 0, 500, 70) / 100

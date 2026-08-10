@@ -1,6 +1,6 @@
 #!mainFile "../../main.opy"
 
-globalvar DominaBuff 52
+globalvar DominaBuff
 
 macro INIT_DOMINA_WORKSHOP_SETTINGS():
     DominaBuff[0] = createWorkshopSettingInt("英雄：金驭", "主攻击：额外最大生命值伤害 %", DOMINA_RULES_MAX_HEALTH_PERCENT, 0, 50, 156)

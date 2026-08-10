@@ -1,6 +1,6 @@
 #!mainFile "../../aramMain.opy"
 
-globalvar AnranBuff 50
+globalvar AnranBuff
 
 macro INIT_ANRAN_WORKSHOP_SETTINGS():
     AnranBuff[0] = createWorkshopSettingFloat("英雄：安燃", "踏焰疾行：虚化持续时间", ANRAN_ABILITY2_PHASED_OUT_DURATION, 0, 5, 151)

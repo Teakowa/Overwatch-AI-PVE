@@ -1,6 +1,6 @@
 #!mainFile "../../main.opy"
 
-globalvar JetpackCatBuff 55
+globalvar JetpackCatBuff
 
 macro INIT_JETPACK_CAT_WORKSHOP_SETTINGS():
     JetpackCatBuff[0] = createWorkshopSettingInt("英雄：喷气猫", "狂乱飞行：受到伤害 %", JETPACK_CAT_ABILITY1_DAMAGE_RECEIVED, 0, 100, 162)

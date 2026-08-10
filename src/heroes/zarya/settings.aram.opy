@@ -1,6 +1,6 @@
 #!mainFile "../../aramMain.opy"
 
-globalvar ZaryaBuff 14
+globalvar ZaryaBuff
 
 macro INIT_ZARYA_WORKSHOP_SETTINGS():
     ZaryaBuff[0] = createWorkshopSettingInt("英雄：查莉娅", "投射屏障 为目标提供的临时生命值", 100, 0, 150, 117)

@@ -1,6 +1,6 @@
 #!mainFile "../../aramMain.opy"
 
-globalvar FrejaBuff 24
+globalvar FrejaBuff
 
 macro INIT_FREJA_WORKSHOP_SETTINGS():
     FrejaBuff[0] = createWorkshopSettingInt("英雄：弗蕾娅", "无情猎杀：每层伤害", 25, 0, 75, 133)

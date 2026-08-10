@@ -13,7 +13,7 @@ Every declaration belongs to exactly one ownership category:
 
 | Category | Owner boundary | Typical examples | Prelude status |
 | --- | --- | --- | --- |
-| `keep: infrastructure/shared protocol` | Cross-entry infrastructure or a stable public protocol used by unrelated modules | reset/init state, player identity, AI targeting, shared combat modifiers | Keep in `src/modules/prelude/*.opy` and record in the shared ABI baseline |
+| `keep: infrastructure/shared protocol` | Cross-entry infrastructure or a stable public protocol used by unrelated modules | reset/init state, player identity, AI targeting, shared combat modifiers | Keep in `src/modules/prelude/*.opy` |
 | `move: hero-owned global state/settings` | One hero's settings or global mechanic | a hero's Workshop-setting array | Declare under `src/heroes/<hero>/` |
 | `move: hero-owned player state` | One hero's per-player implementation state | a hero AI gate or private runtime flag | Declare under the narrowest `src/heroes/<hero>/` module |
 | `move: shared mechanic state` | A responsibility-named mechanic used by multiple heroes | burning stacks and lifecycle | Declare under a responsibility-named shared mechanic module |
@@ -34,29 +34,12 @@ Every declaration belongs to exactly one ownership category:
    narrowly scoped semantic predicate or access policy before moving the storage.
 6. Main-only and ARAM-only declarations may live in their mode-specific owner files.
    A declaration shared by both entries must be declared once in each entry's include
-   closure, with the same logical name and an explicit stable slot when migration
-   requires preserving the existing Workshop index.
+   closure, with the same logical name.
 7. Every module-local declaration must carry the repository's `#!mainFile` directive,
    be reachable from the entry that uses it, and be unique within that entry's expanded
    include graph.
 8. New modules must use a responsibility-first name. Do not add generic `shared`,
    `common`, or catch-all variable buckets for convenience.
-
-## Prelude ABI baseline
-
-`tools/data/contract-guard/protocol-indexes.tsv` is the baseline for the declarations
-that remain in the shared prelude protocol. It is not a registry of every `globalvar`
-or `playervar` in the repository.
-
-- A prelude declaration is part of the baseline only when it is classified as
-  `keep: infrastructure/shared protocol`.
-- A hero-private or mechanic-owned declaration must be removed from both prelude and
-  the baseline when it is migrated.
-- The relative order and explicit storage slots of the remaining baseline declarations
-  must not change. A moved declaration may retain its old explicit slot in its owner
-  module so that removing it from prelude does not renumber unrelated protocol state.
-- Adding a new shared-prelude declaration requires an intentional baseline update and a
-  separate review of its ABI impact.
 
 ## One-variable migration checklist
 
@@ -66,15 +49,11 @@ or `playervar` in the repository.
 - [ ] Resolve direct cross-module storage reads or mark the variable `defer`.
 - [ ] Choose the narrowest responsibility-named owner and add/verify `#!mainFile`.
 - [ ] Move the declaration without changing its logical name or setting IDs.
-- [ ] Preserve the old explicit slot when removing a declaration would shift shared
-      protocol state.
-- [ ] Remove migrated names from the prelude ABI baseline; never reorder the remaining
-      entries to make a check pass.
 - [ ] Run duplicate/include-graph checks, contract checks, Main and ARAM builds, and
       behavior-specific static checks before committing.
 
 The Ana Biotic Grenade migration is the reference pattern. `Ana_GrenadeDamage` is
-declared with its preserved slot in both `src/heroes/ana/settings.opy` and
+declared in both `src/heroes/ana/settings.opy` and
 `src/heroes/ana/settings.aram.opy`; `Ana_NanoHealAmp` is declared in the Main settings
 module, and `nano_full_health` remains in the Main/ARAM rules modules. Their Workshop
 setting IDs and values are unchanged. Burning and combat eligibility remain explicit
@@ -91,11 +70,10 @@ by the same Main/ARAM uniqueness checks.
 
 ### Burning mechanic owner audit
 
-`src/modules/burning/state.opy` owns the preserved `burn_stack` player-variable slot
-and is included explicitly by both entry manifests. The current branch has no active
-`burn_stack` readers or writers after the burn-stack behavior was retired, so no hero
-effect or reset rule is moved here. Future burning consumers must include or depend on
-this responsibility-named module instead of restoring an ambient prelude declaration.
+The branch has no active `burn_stack` readers or writers after the burn-stack behavior
+was retired, so the unused declaration and owner module were removed. Future burning
+consumers must declare state only when an active responsibility-named mechanic requires
+it, instead of restoring ambient prelude state.
 
 ### Combat-policy pilot audit
 

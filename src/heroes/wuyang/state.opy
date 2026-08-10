@@ -1,6 +1,6 @@
 #!mainFile "../../main.opy"
 
-playervar wuyang_buff 18
+playervar wuyang_buff
 
 macro Player.resetWuyangState():
     self.wuyang_buff[3] = false

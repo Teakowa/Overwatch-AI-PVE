@@ -1,6 +1,6 @@
 #!mainFile "../../main.opy"
 
-globalvar SierraBuff 62
+globalvar SierraBuff
 
 macro INIT_SIERRA_WORKSHOP_SETTINGS():
     SierraBuff[0] = createWorkshopSettingInt("英雄：西拉", "重构力场：每跳自我治疗", SIERRA_ABILITY1_HEAL, 0, 100, 179)

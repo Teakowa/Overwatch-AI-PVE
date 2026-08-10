@@ -1,6 +1,6 @@
 #!mainFile "../../aramMain.opy"
 
-globalvar EmreBuff 54
+globalvar EmreBuff
 
 macro INIT_EMRE_WORKSHOP_SETTINGS():
     EmreBuff[0] = createWorkshopSettingInt("英雄：埃姆雷", "赛博手雷：额外最大生命值伤害 %", EMRE_ARAM_ABILITY2_MAX_HEALTH_PERCENT, 0, 50, 160)

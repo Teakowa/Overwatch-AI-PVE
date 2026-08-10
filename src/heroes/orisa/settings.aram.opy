@@ -1,6 +1,6 @@
 #!mainFile "../../aramMain.opy"
 
-globalvar Orisa_Fortify 12
+globalvar Orisa_Fortify
 
 macro INIT_ORISA_WORKSHOP_SETTINGS():
     Orisa_Fortify[0] = createWorkshopSettingInt("英雄：奥丽莎", "强固防御获得的临时护甲", 100, 0, 200, 50)

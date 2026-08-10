@@ -1,6 +1,6 @@
 #!mainFile "../../main.opy"
 
-globalvar FrejaBuff 24
+globalvar FrejaBuff
 
 macro INIT_FREJA_WORKSHOP_SETTINGS():
     FrejaBuff[0] = createWorkshopSettingInt("英雄：弗蕾娅", "无情猎杀：每层伤害", FREJA_RELENTLESS_HUNT_DAMAGE_PER_STACK_DEFAULT, FREJA_RELENTLESS_HUNT_DAMAGE_PER_STACK_MIN, FREJA_RELENTLESS_HUNT_DAMAGE_PER_STACK_MAX, 133)

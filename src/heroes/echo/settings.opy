@@ -1,6 +1,6 @@
 #!mainFile "../../main.opy"
 
-globalvar EchoBuff 53
+globalvar EchoBuff
 
 macro INIT_ECHO_WORKSHOP_SETTINGS():
     EchoBuff[0] = createWorkshopSettingInt("英雄：回声", "聚焦光束：伤害倍率 %", ECHO_ABILITY2_DAMAGE_DEALT, 100, 300, 158)

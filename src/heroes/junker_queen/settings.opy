@@ -1,6 +1,6 @@
 #!mainFile "../../main.opy"
 
-globalvar JunkerQueenBuff 56
+globalvar JunkerQueenBuff
 
 macro INIT_JUNKER_QUEEN_WORKSHOP_SETTINGS():
     JunkerQueenBuff[0] = createWorkshopSettingInt("英雄：渣客女王", "号令怒吼：每名被嘲讽敌人提供额外生命值", 500, 0, 1000, 166)

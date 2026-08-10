@@ -1,6 +1,6 @@
 #!mainFile "../../main.opy"
 
-globalvar MizukiBuff 59
+globalvar MizukiBuff
 
 macro INIT_MIZUKI_WORKSHOP_SETTINGS():
     MizukiBuff[0] = createWorkshopSettingFloat("英雄：水月", "替身人偶：无敌与虚化持续时间", MIZUKI_ABILITY1_INVINCIBLE_DURATION, 0, 5, 172)

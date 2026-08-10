@@ -5,7 +5,7 @@
 ## 1. Canonical 入口
 
 - 入口顺序与主入口边界：`docs/agents/main-contract.md`
-- 变量索引、分隔规则名、`#!mainFile` 与 `@Disabled`：`docs/agents/protocol-constraints.md`
+- 变量所有权/声明名、分隔规则名、`#!mainFile` 与 `@Disabled`：`docs/agents/variable-ownership.md`、`docs/agents/protocol-constraints.md`
 - Hero Init Detect / Initialize：`docs/agents/hero-init-contract.md`
 - 高频规则、Anti Crash 与性能边界：`docs/agents/performance-stability.md`
 - 提交门禁与检查顺序：`docs/agents/gates-and-commits.md`

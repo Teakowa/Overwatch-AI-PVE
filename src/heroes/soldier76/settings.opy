@@ -1,6 +1,6 @@
 #!mainFile "../../main.opy"
 
-globalvar S76Buff 21
+globalvar S76Buff
 
 macro INIT_SOLDIER76_WORKSHOP_SETTINGS():
     S76Buff[0] = createWorkshopSettingInt("英雄：士兵 76", "辅助攻击：燃烧持续时间", SOLDIER76_HELIX_BURN_DURATION_DEFAULT, SOLDIER76_HELIX_BURN_DURATION_MIN, SOLDIER76_HELIX_BURN_DURATION_MAX, 124)

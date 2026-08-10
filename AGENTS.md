@@ -13,7 +13,7 @@ This file is the minimal entrypoint for AI agents. Canonical rule bodies live un
 
 - This repository is an Overwatch Workshop / OverPy project with one primary entry (`src/main.opy`) and one ARAM entry (`src/aramMain.opy`).
 - Collaboration is contract-first: canonical constraints are registered in `docs/agents/rules-index.md` and implemented in `docs/agents/*.md`.
-- High-risk change surfaces are include ordering, protocol index stability, hero init/reset chain integrity, and high-frequency AI/hero logic.
+- High-risk change surfaces are include ordering, declaration ownership/name uniqueness, hero init/reset chain integrity, and high-frequency AI/hero logic.
 - Validation combines `pnpm` build/perf scripts and repo-local guard scripts in `tools/*.ts`.
 
 ## Minimal Red Lines
@@ -51,13 +51,13 @@ Use these as the only canonical policy sources:
 
 1. Project scope and output boundaries -> `docs/agents/project-scope.md`
 2. Main entry/include contracts -> `docs/agents/main-contract.md`
-3. Protocol/index immutability constraints -> `docs/agents/protocol-constraints.md`
+3. Protocol, naming, and include-boundary constraints -> `docs/agents/protocol-constraints.md`
 4. Hero init/reset contract -> `docs/agents/hero-init-contract.md`
 5. Performance and stability guardrails -> `docs/agents/performance-stability.md`
 6. Gate sequencing and commit constraints -> `docs/agents/gates-and-commits.md`
 7. Pre-commit self checklist -> `docs/agents/self-checklist.md`
 8. Rule registry and ownership mapping -> `docs/agents/rules-index.md`
-9. Variable ownership and prelude ABI boundary -> `docs/agents/variable-ownership.md`
+9. Variable ownership and include-graph boundary -> `docs/agents/variable-ownership.md`
 
 ## Workflow Command Pointers
 
