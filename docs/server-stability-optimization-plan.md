@@ -57,7 +57,7 @@
 **改动模式**：
 
 - 删除所有有效及注释的 `getAverageServerLoad()` 调用；移除已禁用 Anti Crash 规则、相关设置初始化与编译期常量。
-- 为避免 Workshop 公共变量索引漂移，保留 `global-vars.opy` 中既有 `ANTI_CRASH_*` 声明及其原有顺序，但不再读写这些槽位。
+- 保留 `global-vars.opy` 中仍属于共享基础设施的 `ANTI_CRASH_*` 声明，但不再读写这些变量。
 - 使用固定等待值替换动态等待；保留原有槽位错峰与 `Wait.ABORT_WHEN_FALSE`、`Wait.RESTART_WHEN_TRUE` 等控制语义。
 - 同步修订性能规范和规则索引：项目策略改为禁止运行时服务器负载采样，使用静态节流、错峰和硬上限。
 

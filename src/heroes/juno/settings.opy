@@ -1,5 +1,6 @@
 #!mainFile "../../main.opy"
 
+globalvar JunoBuff
+
 macro INIT_JUNO_WORKSHOP_SETTINGS():
     JunoBuff = createWorkshopSettingInt("英雄：朱诺", "轨道射线：友方英雄伤害减免 %", JUNO_ORBITAL_RAY_DAMAGE_REDUCTION_PERCENT_DEFAULT, JUNO_ORBITAL_RAY_DAMAGE_REDUCTION_PERCENT_MIN, JUNO_ORBITAL_RAY_DAMAGE_REDUCTION_PERCENT_MAX, 130)
-

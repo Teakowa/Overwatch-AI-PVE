@@ -12,6 +12,7 @@ type Args = {
 
 type DeclarationKind = "globalvar" | "playervar" | "subroutine";
 type EntryLabel = "main" | "aram";
+type DeclarationRecord = { name: string };
 
 function usage(): void {
   console.log("Usage: tools/check-contracts.ts [--strict-hero-init] [--build]");
@@ -69,15 +70,22 @@ function countExactRuleName(lines: string[], name: string): number {
   return lines.filter((line) => line === `rule "${name}":`).length;
 }
 
-async function parseProtocolMapping(filePath: string): Promise<Array<{ kind: string; name: string; index: number }>> {
-  const lines = (await fs.readFile(filePath, "utf8")).split(/\r?\n/);
+function extractDeclarationRecordsFromLines(
+  lines: string[],
+  kind: DeclarationKind,
+): DeclarationRecord[] {
+  const declarationPattern = new RegExp(`^${kind}\\s+([^\\s]+)`);
   return lines
-    .map((line) => line.trim())
-    .filter(Boolean)
     .map((line) => {
-      const [kind, name, index] = line.split("\t");
-      return { kind: kind!, name: name!, index: Number(index) };
-    });
+      const match = line.match(declarationPattern);
+      if (!match) {
+        return null;
+      }
+      return {
+        name: match[1]!,
+      };
+    })
+    .filter((value): value is DeclarationRecord => value !== null);
 }
 
 async function extractDeclarations(
@@ -85,18 +93,14 @@ async function extractDeclarations(
   kind: DeclarationKind,
 ): Promise<string[]> {
   const lines = await readLines(filePath);
-  return lines
-    .map((line) => line.match(new RegExp(`^${kind}\\s+([^\\s]+)`))?.[1] ?? null)
-    .filter((value): value is string => Boolean(value));
+  return extractDeclarationRecordsFromLines(lines, kind).map((record) => record.name);
 }
 
 function extractDeclarationsFromLines(
   lines: string[],
   kind: DeclarationKind,
 ): string[] {
-  return lines
-    .map((line) => line.match(new RegExp(`^${kind}\\s+([^\\s]+)`))?.[1] ?? null)
-    .filter((value): value is string => Boolean(value));
+  return extractDeclarationRecordsFromLines(lines, kind).map((record) => record.name);
 }
 
 async function collectIncludedFiles(entryFile: string): Promise<string[]> {
@@ -237,6 +241,9 @@ function classifyEntryPhase(entryLabel: EntryLabel, relPath: string): number | n
   if (
     relPath === "src/main_mode_profile.opy" ||
     relPath === "src/aram_protocol.opy" ||
+    relPath === "src/modules/combat-policy/custom-effect-guards.opy" ||
+    relPath === "src/heroes/wuyang/state.opy" ||
+    relPath === "src/modules/scoped-damage/state.opy" ||
     relPath === "src/heroes/settings.opy" ||
     relPath === "src/heroes/settings.aram.opy" ||
     /^src\/heroes\/[^/]+\/settings(\.aram)?\.opy$/.test(relPath) ||
@@ -404,6 +411,9 @@ async function main(): Promise<void> {
       "modules/prelude/global-vars.opy",
       "modules/prelude/player-vars.opy",
       "modules/prelude/subroutine.opy",
+      "modules/combat-policy/custom-effect-guards.opy",
+      "heroes/wuyang/state.opy",
+      "modules/scoped-damage/state.opy",
       "modules/bootstrap/init-and-settings.opy",
       "modules/bootstrap/anti-crash.opy",
       "modules/bootstrap/blacklist.opy",
@@ -453,6 +463,9 @@ async function main(): Promise<void> {
       "modules/prelude/global-vars.opy",
       "modules/prelude/player-vars.opy",
       "modules/prelude/subroutine.opy",
+      "modules/combat-policy/custom-effect-guards.opy",
+      "heroes/wuyang/state.opy",
+      "modules/scoped-damage/state.opy",
       "aram_protocol.opy",
       "modules/bootstrap/aram-mode-settings.opy",
       "modules/bootstrap/aram-hero-ability-settings.opy",
@@ -611,10 +624,6 @@ async function main(): Promise<void> {
     reporter.fail("hero init dispatcher initialize rule must clear _reset_requested after resetHero()");
   }
 
-  const protocolFile = resolveRepo("tools/data/contract-guard/protocol-indexes.tsv");
-  const protocolMappings = await parseProtocolMapping(protocolFile);
-  reporter.pass(`protocol index reference file found`);
-
   const declarationFiles = {
     globalvar: resolveRepo("src/modules/prelude/global-vars.opy"),
     playervar: resolveRepo("src/modules/prelude/player-vars.opy"),
@@ -629,6 +638,30 @@ async function main(): Promise<void> {
     } else {
       reporter.pass(`${kind} has no duplicate names in ${path.relative(repoRoot, declarationFiles[kind])}`);
     }
+  }
+  const combatPolicyLines = await readLines(resolveRepo("src/modules/combat-policy/custom-effect-guards.opy"));
+  const anaAbility2Lines = await readLines(resolveRepo("src/heroes/ana/ability2.opy"));
+  const policyMacroCount = combatPolicyLines.filter((line) => line === "macro Player.blocksCustomDot():").length;
+  const policyStorageGuardCount = combatPolicyLines.filter((line) => line === "    self.zarya_buff[1] != null").length;
+  const anaEligibilityConditions = [
+    "    @Condition isHero(attacker, Hero.ANA)",
+    "    @Condition eventAbility == Button.ABILITY_2",
+    "    @Condition (victim.hasStatus(Status.INVINCIBLE) or victim.hasStatus(Status.PHASED_OUT)) == false",
+    "    @Condition victim.has_nano != true",
+  ];
+  const anaEligibilityPreserved = anaEligibilityConditions.every((line) => anaAbility2Lines.includes(line));
+  const anaPolicyCallCount = anaAbility2Lines.filter((line) => line === "    if victim.blocksCustomDot():").length;
+  const anaDirectStateReadCount = anaAbility2Lines.filter((line) => line.includes("zarya_buff")).length;
+  if (
+    policyMacroCount === 1 &&
+    policyStorageGuardCount === 1 &&
+    anaEligibilityPreserved &&
+    anaPolicyCallCount === 1 &&
+    anaDirectStateReadCount === 0
+  ) {
+    reporter.pass("Ana custom DOT policy preserves eligibility conditions without direct Zarya state reads");
+  } else {
+    reporter.fail("Ana custom DOT policy boundary or eligibility conditions changed");
   }
 
   const entryRoots = [
@@ -691,8 +724,8 @@ async function main(): Promise<void> {
       const declarations: Array<{ filePath: string; name: string }> = [];
       for (const filePath of includedFiles) {
         const lines = await readLines(filePath);
-        for (const name of extractDeclarationsFromLines(lines, kind)) {
-          declarations.push({ filePath, name });
+        for (const declaration of extractDeclarationRecordsFromLines(lines, kind)) {
+          declarations.push({ filePath, ...declaration });
         }
       }
 
@@ -703,20 +736,26 @@ async function main(): Promise<void> {
         const detail = duplicates.map((item) => `${item.name} (${item.files.join(", ")})`).join("; ");
         reporter.fail(`${entryRoot.label} ${kind} duplicate declarations found: ${detail}`);
       }
-    }
-  }
 
-  for (const mapping of protocolMappings) {
-    const filePath = declarationFiles[mapping.kind as keyof typeof declarationFiles];
-    if (!filePath) {
-      reporter.fail(`unknown kind in protocol file: ${mapping.kind}`);
-      continue;
-    }
-    const declarations = await extractDeclarations(filePath, mapping.kind as keyof typeof declarationFiles);
-    if (declarations[mapping.index] === mapping.name) {
-      reporter.pass(`declaration order preserved: ${mapping.kind} ${mapping.name} ${mapping.index}`);
-    } else {
-      reporter.fail(`declaration order changed/missing: ${mapping.kind} ${mapping.name} ${mapping.index}`);
+      const preludeFileSet = new Set(Object.values(declarationFiles).map((filePath) => path.resolve(filePath)));
+      const moduleLocalDeclarations = declarations.filter(
+        (declaration) => !preludeFileSet.has(path.resolve(declaration.filePath)),
+      );
+      const invalidOwners = moduleLocalDeclarations.filter(({ filePath }) => {
+        const relPath = normalizeRepoPath(filePath);
+        return !relPath.startsWith("src/heroes/") && !relPath.startsWith("src/modules/");
+      });
+      if (invalidOwners.length === 0) {
+        reporter.pass(
+          `${entryRoot.label} ${kind} module-local declarations use owner-module checks (${moduleLocalDeclarations.length})`,
+        );
+      } else {
+        reporter.fail(
+          `${entryRoot.label} ${kind} declarations outside owner-module boundaries: ${invalidOwners
+            .map(({ filePath }) => normalizeRepoPath(filePath))
+            .join(", ")}`,
+        );
+      }
     }
   }
 

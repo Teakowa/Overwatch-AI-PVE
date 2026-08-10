@@ -6,13 +6,12 @@
 | --- | --- | --- | --- | --- |
 | R-SCOPE-ENTRY | docs/agents/project-scope.md | #r-scope-entry | 任意改动需建立项目上下文 | repo-maintainers |
 | R-SCOPE-OUTPUT | docs/agents/project-scope.md | #r-scope-output | 涉及产物或构建输出说明 | repo-maintainers |
+| R-VAR-OWNERSHIP | docs/agents/variable-ownership.md | #r-var-ownership | 新增、移动或审计 `globalvar` / `playervar` 所有权 | repo-maintainers |
 | R-MAIN-TOP-ORDER | docs/agents/main-contract.md | #r-main-top-order | 改 `src/main.opy` 或 prelude | repo-maintainers |
 | R-MAIN-INCLUDE-ORDER | docs/agents/main-contract.md | #r-main-include-order | 改 include 编排 | repo-maintainers |
 | R-MAIN-NO-INDEX-INCLUDE | docs/agents/main-contract.md | #r-main-no-index-include | 调整 main include | repo-maintainers |
 | R-MAIN-CONSTANTS-BEFORE-PRELUDE | docs/agents/main-contract.md | #r-main-constants-before-prelude | 调整 constants/settings 依赖 | repo-maintainers |
 | R-MAIN-SECTION-DELIMITERS | docs/agents/main-contract.md | #r-main-section-delimiters | 改初始化分段规则 | repo-maintainers |
-| R-PROTO-INDEX-IMMUTABLE | docs/agents/protocol-constraints.md | #r-proto-index-immutable | 改变量/子程序声明 | repo-maintainers |
-| R-PROTO-APPEND-NO-REORDER | docs/agents/protocol-constraints.md | #r-proto-append-no-reorder | 新增变量/规则 | repo-maintainers |
 | R-PROTO-KEEP-DELIMITER-NAMES | docs/agents/protocol-constraints.md | #r-proto-keep-delimiter-names | 改关键分隔规则 | repo-maintainers |
 | R-PROTO-KEEP-DISABLED | docs/agents/protocol-constraints.md | #r-proto-keep-disabled | 清理或启停规则 | repo-maintainers |
 | R-PROTO-RULE-NAME-STYLE | docs/agents/protocol-constraints.md | #r-proto-rule-name-style | 新增/改名规则 | repo-maintainers |
@@ -32,7 +31,6 @@
 | R-PERF-LOW-FREQ-HEAVY-OPS | docs/agents/performance-stability.md | #r-perf-low-freq-heavy-ops | 大数组/高成本检测改动 | repo-maintainers |
 | R-PERF-NO-RUNTIME-LOAD-SAMPLING | docs/agents/performance-stability.md | #r-perf-no-runtime-load-sampling | 动态负载采样或 Anti Crash 相关改动 | repo-maintainers |
 | R-CHECK-MAIN-CONTRACT | docs/agents/self-checklist.md | #r-check-main-contract | 提交前自检 | repo-maintainers |
-| R-CHECK-INDEX-PROTOCOL | docs/agents/self-checklist.md | #r-check-index-protocol | 提交前自检 | repo-maintainers |
 | R-CHECK-HERO-INIT-CHAIN | docs/agents/self-checklist.md | #r-check-hero-init-chain | 提交前自检 | repo-maintainers |
 | R-CHECK-NO-WAITLESS-LOOP | docs/agents/self-checklist.md | #r-check-no-waitless-loop | 提交前自检 | repo-maintainers |
 | R-CHECK-TEAM-BOUNDARY | docs/agents/self-checklist.md | #r-check-team-boundary | 提交前自检 | repo-maintainers |

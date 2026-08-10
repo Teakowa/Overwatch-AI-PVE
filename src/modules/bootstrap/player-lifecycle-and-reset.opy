@@ -55,8 +55,7 @@ def clearMoveSpeedDebuffs():
 
     eventPlayer.brigitte_buff[0] = false
     eventPlayer.orisa_buff = false
-    eventPlayer.wuyang_buff[3] = false
-    eventPlayer.wuyang_buff[4] = false
+    eventPlayer.resetWuyangState()
     eventPlayer.mov_speed_penalty = 0
     eventPlayer.mov_speed_buff = 0
     applySignedMoveSpeed()

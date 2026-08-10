@@ -8,7 +8,7 @@
 - 保持硬约束不变：
   - 顶层编排顺序不变（`prelude -> optimizeStrict -> constants -> modules`）。
   - 关键分隔规则名不变：`Initialize AI Scripts`、`Initialize AI Scripts End`、`Initialize Heroes`、`Initialize Heors End`。
-  - `globalvar/playervar/subroutine` 索引不重排。
+  - `globalvar/playervar/subroutine` 声明名保持唯一，owner 与 include 图保持有效。
   - `@Disabled` 规则不随意删除。
 
 ## 1. 实施清单
@@ -47,6 +47,6 @@
 
 - 编译通过：`pnpm run build`、`pnpm run build:release`。
 - 分区顺序与分隔规则名保持不变。
-- 变量与子程序索引保持不变。
+- 变量与子程序声明名保持唯一，owner 与 include 图保持有效。
 - 不引入无等待高频循环。
 - 运行时禁止负载采样；使用静态节流、错峰和硬上限控制服务器压力。

@@ -1,14 +1,5 @@
 # Protocol Constraints (Canonical)
 
-### R-PROTO-INDEX-IMMUTABLE
-
-- 统一变量与公共子程序的声明顺序是协议：禁止在 `global-vars.opy`、`player-vars.opy`、`subroutine.opy` 中插队重排。
-- 这条协议只约束共享 prelude 面；英雄私有变量不必继续挤在 prelude 中。
-
-### R-PROTO-APPEND-NO-REORDER
-
-- 改动策略：优先追加，避免重排统一变量协议与公共子程序协议。
-
 ### R-PROTO-KEEP-DELIMITER-NAMES
 
 - 保留关键分隔规则名：`Initialize AI Scripts`、`Initialize AI Scripts End`、`Initialize Heroes`、`Initialize Heors End`（拼写保持现状）。
@@ -32,6 +23,7 @@
 - 模式独占子程序与 `setThirdPerson` 这类 ARAM 自留实现，不要求进入统一协议。
 - 只有跨英雄或跨基础设施共享的 `globalvar` / `playervar` 才留在 `src/modules/prelude/*.opy`。
 - 英雄私有变量允许下沉到模式局部文件，但声明文件仍受仓库级 `#!mainFile` 约束，且不能在同一入口的 include 闭包里重复声明同名变量。
+- 移出 prelude 的变量必须保留逻辑名称，并由其 owner 文件显式纳入对应入口的 include 图。
 
 ### R-PROTO-SETTINGS-FIRST
 

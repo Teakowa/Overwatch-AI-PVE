@@ -5,7 +5,7 @@
 ## 规范来源
 
 - 入口顺序、分隔规则与 `#!mainFile` 相关约束：`docs/agents/main-contract.md`
-- 协议、索引与命名约束：`docs/agents/protocol-constraints.md`
+- 协议、声明命名与所有权约束：`docs/agents/protocol-constraints.md`、`docs/agents/variable-ownership.md`
 - Hero Init 约束：`docs/agents/hero-init-contract.md`
 - 性能与 Anti Crash 约束：`docs/agents/performance-stability.md`
 

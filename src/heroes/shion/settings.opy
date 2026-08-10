@@ -1,5 +1,7 @@
 #!mainFile "../../main.opy"
 
+globalvar ShionBuff
+
 macro INIT_SHION_WORKSHOP_SETTINGS():
     ShionBuff[0] = createWorkshopSettingInt("英雄：死怨", "狂势（被动）最大层数", 5, 1, 10, 188)
     ShionBuff[1] = createWorkshopSettingInt("英雄：死怨", "狂势（被动）满层增益：额外伤害增幅 %", 30, 0, 200, 189)

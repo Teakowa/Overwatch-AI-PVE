@@ -14,6 +14,9 @@
 #!include "modules/prelude/global-vars.opy"
 #!include "modules/prelude/player-vars.opy"
 #!include "modules/prelude/subroutine.opy"
+#!include "modules/combat-policy/custom-effect-guards.opy"
+#!include "heroes/wuyang/state.opy"
+#!include "modules/scoped-damage/state.opy"
 #!include "aram_protocol.opy"
 
 #

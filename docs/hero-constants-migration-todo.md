@@ -17,8 +17,8 @@
 
 - 不能破坏现有主入口与 include 顺序：
   - `src/main.opy` 保持 `constants/player_constants.opy -> prelude 四文件 -> #!optimizeStrict -> bootstrap/utilities/ai/hero_rules/hero_init/debug 扁平 include`。
-- 不能改动变量协议索引：
-  - `globalvar/playervar/subroutine` 索引号不重排。
+- 不能破坏变量声明的所有权与入口 include 图：
+  - `globalvar/playervar/subroutine` 名称在每个入口图中保持唯一。
 - 不能改动关键分隔规则名：
   - `Initialize AI Scripts`
   - `Initialize AI Scripts End`

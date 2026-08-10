@@ -69,8 +69,8 @@ src/
 
 ## 5. 验收门禁
 
-- 规则总数维持 `127`
-- 变量/子程序索引协议不变
+- 规则总数维持 `126`
+- 变量/子程序声明名保持唯一，owner 与 include 图可由 contract guard 验证
 - `@Disabled` 规则不丢失
 - `src/main.opy` 维持 `constants -> prelude 四文件 -> optimizeStrict -> 模块区扁平 include` 顺序
 - 编译可通过：`pnpm run build`

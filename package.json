@@ -10,6 +10,7 @@
     "perf:scan:strict": "node tools/perf-loop-scan.mjs --strict src",
     "tool:bump-version": "tsx tools/bump-version.ts",
     "tool:check-contracts": "tsx tools/check-contracts.ts",
+    "tool:check-ana-portability": "tsx tools/check-ana-portability.ts",
     "tool:check-aram-overrides-duplicates": "tsx tools/check-aram-overrides-duplicates.ts",
     "tool:hero-pipeline": "tsx tools/hero-pipeline.ts",
     "tool:changelog-sync": "tsx tools/changelog-sync.ts",

@@ -12,6 +12,9 @@
 #!include "modules/prelude/global-vars.opy"
 #!include "modules/prelude/player-vars.opy"
 #!include "modules/prelude/subroutine.opy"
+#!include "modules/combat-policy/custom-effect-guards.opy"
+#!include "heroes/wuyang/state.opy"
+#!include "modules/scoped-damage/state.opy"
 
 # Bootstrap: init, anti-crash, blacklist, lifecycle
 #!include "modules/bootstrap/init-and-settings.opy"
