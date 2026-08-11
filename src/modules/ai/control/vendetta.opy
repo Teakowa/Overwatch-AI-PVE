@@ -10,6 +10,7 @@ rule "[AI/control]: Vendetta Primary":
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.botTarget != null
     @Condition eventPlayer.botTarget.isAlive() == true
+    @Condition eventPlayer.isUsingUltimate() != true
     @Condition isInLoS(eventPlayer, eventPlayer.botTarget) == true
     
     eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
@@ -30,6 +31,7 @@ rule "[AI/control]: Vendetta Secondary":
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.botTarget != null
     @Condition eventPlayer.botTarget.isAlive() == true
+    @Condition eventPlayer.isUsingUltimate() != true
     @Condition isInLoS(eventPlayer, eventPlayer.botTarget) == true
     
     eventPlayer.startForcingButton(Button.SECONDARY_FIRE)
@@ -49,13 +51,13 @@ rule "[AI/control]: Vendetta Ability 1":
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_1) == 0
     @Condition eventPlayer.botTarget != null
     @Condition eventPlayer.botTarget.isAlive() == true
+    @Condition eventPlayer.isUsingUltimate() != true
     @Condition isInLoS(eventPlayer, eventPlayer.botTarget) == true
     
     waitUntil(true and distance(eventPlayer.getPosition(), eventPlayer.botTarget.getPosition() * vect(1, 0, 1)) < 6.8, random.uniform(0.65, 1.2))
     eventPlayer.startForcingButton(Button.ABILITY_1)
     wait(WAIT_AI_THROTTLE_MIN)
     eventPlayer.stopForcingButton(Button.ABILITY_1)
-
 
 
 rule "[AI/control]: Vendetta Ability 2":
@@ -68,6 +70,7 @@ rule "[AI/control]: Vendetta Ability 2":
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) != true
     @Condition eventPlayer.botTarget != null
     @Condition eventPlayer.botTarget.isAlive() == true
+    @Condition eventPlayer.isUsingUltimate() != true
     @Condition isInLoS(eventPlayer, eventPlayer.botTarget) == true
     
     eventPlayer.startForcingButton(Button.ABILITY_2)
@@ -95,5 +98,7 @@ rule "[AI/control]: Vendetta Ultimate":
     eventPlayer.stopForcingButton(Button.PRIMARY_FIRE)
     eventPlayer.forceButtonPress(Button.ULTIMATE)
     wait(random.uniform(2, 4))
+    eventPlayer.forceButtonPress(Button.PRIMARY_FIRE)
+    wait()
     eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
 
