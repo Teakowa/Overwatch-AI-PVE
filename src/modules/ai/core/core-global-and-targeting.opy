@@ -17,6 +17,7 @@ rule "[AI/global]: Per second healing":
     @Event eachPlayer
     @Team 1
     @Condition isGameInProgress() == true
+    @Condition not isMatchBetweenRounds()
     
     eventPlayer.startHealingOverTime(eventPlayer, 3600, 8)
 

@@ -7,6 +7,7 @@ rule "[AI]: Target in line of sight":
     @Condition eventPlayer.isDummy() != false
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.hasSpawned() == true
+    @Condition not isMatchBetweenRounds()
     @Condition eventPlayer.getHero() in CustomAIArray.concat([Hero.REAPER, Hero.KIRIKO, Hero.MAUGA, Hero.SOJOURN, Hero.GENJI, Hero.TRACER]) == true
 
     if len(getPlayersInRadius(eventPlayer, 22, getOppositeTeam(eventPlayer.getTeam()), LosCheck.SURFACES)) == 0:
@@ -34,7 +35,9 @@ rule "[AI]: Target in line of sight":
     wait(0.512)
     if ruleCondition:
         loop()
-    #eventPlayer.botTarget = null
+    # Drop the cached target whenever the perception loop ends (transition,
+    # death, or spawn loss) so no stale target can trigger abilities later.
+    eventPlayer.botTarget = null
 
 
 
@@ -44,6 +47,7 @@ rule "[AI]: Target increase aim to prep for flicking to a target entering range"
     @Condition eventPlayer.isDummy() != false
     @Condition eventPlayer.isAlive() == true
     @Condition eventPlayer.hasSpawned() == true
+    @Condition not isMatchBetweenRounds()
     @Condition eventPlayer.botTarget != null
     
     botAim2Target()

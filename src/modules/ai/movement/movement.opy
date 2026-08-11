@@ -7,6 +7,7 @@ rule "[AI/Movement]: Movement":
     @Condition eventPlayer.isDummy() != false
     @Condition eventPlayer.hasSpawned() == true
     @Condition eventPlayer.isAlive() == true
+    @Condition not isMatchBetweenRounds()
     
     eventPlayer.botHasNearbyEnemy = len(getPlayersInRadius(eventPlayer, 22, getOppositeTeam(eventPlayer.getTeam()))) > 0
     if eventPlayer.botTarget == null or eventPlayer.botTarget.isAlive() != true or isInLoS(eventPlayer, eventPlayer.botTarget) != true:
@@ -40,6 +41,7 @@ rule "[AI/Movement]: Strafing":
     @Condition not isHero(eventPlayer, Hero.ILLARI)
     @Condition not isHero(eventPlayer, Hero.ECHO)
     @Condition not isHero(eventPlayer, Hero.GENJI)
+    @Condition not isMatchBetweenRounds()
     @Condition eventPlayer.botHasNearbyEnemy == true
     
     eventPlayer.startThrottleInDirection(random.choice([Vector.LEFT, Vector.RIGHT]), 1, Relativity.TO_PLAYER)
@@ -55,6 +57,7 @@ rule "[AI/Movement]: Strafing Genji":
     @Team 1
     @Hero genji
     @Condition eventPlayer.isAlive() == true
+    @Condition not isMatchBetweenRounds()
     @Condition eventPlayer.botHasNearbyEnemy == true
     
     eventPlayer.startThrottleInDirection(random.choice([Vector.LEFT, Vector.RIGHT]), 1, Relativity.TO_PLAYER)
@@ -69,6 +72,7 @@ rule "[AI/Movement]: Jump Crouch":
     @Event eachPlayer
     @Team 1
     @Condition eventPlayer.isAlive() == true
+    @Condition not isMatchBetweenRounds()
     #@Condition eventPlayer.isUsingUltimate() == false
     @Condition (eventPlayer.botHasNearbyEnemy == true or eventPlayer.isFiringPrimaryFire() or eventPlayer.isFiringSecondaryFire()) == true
     

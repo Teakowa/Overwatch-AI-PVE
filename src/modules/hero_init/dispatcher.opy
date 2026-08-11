@@ -228,3 +228,4 @@ rule "[hero_init/dispatcher.opy]: initialize hero":
     eventPlayer._last_hero_played = eventPlayer.init_hero
     eventPlayer.call_init = false
     eventPlayer._reset_requested = false
+    eventPlayer._round_reinit_pending = false

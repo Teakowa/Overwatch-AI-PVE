@@ -3,6 +3,7 @@
 
 #!defineMember _reset_requested reset_pvar[0]
 #!defineMember _friendly_brigitte_reference reset_pvar[1]
+#!defineMember _round_reinit_pending reset_pvar[10]
 #!defineMember _friendly_kiriko_reference reset_pvar[3]
 #!defineMember _friendly_sombra_reference reset_pvar[4]
 #!defineMember _enemy_ramattra_reference reset_pvar[5]
