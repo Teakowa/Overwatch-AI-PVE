@@ -36,8 +36,6 @@ rule "[reset.opy]: Reinitialize hero on new round":
     @Condition isMatchBetweenRounds() == true
     @Condition not isHero(eventPlayer, Hero.SOMBRA)
 
-    eventPlayer.extra_hero = true
-    eventPlayer.aram_extra_pool_applied = false
     waitUntil(not isMatchBetweenRounds(), Math.INFINITY)
     wait(eventPlayer.getSlot() * 10 + 0.25)
     eventPlayer.ram_block_damage = 0

@@ -81,10 +81,10 @@ The remaining global declarations are explicitly classified under keep or defer.
 | hudText | playervar | prelude/player-vars.opy | debug/changelog.opy, bootstrap/player-hud-text-init.opy, bootstrap/safety-blacklist-ban.opy, bootstrap/aram-safety-blacklist-ban.opy, utilities/reset_hero.opy, hero HUD rules | M+A | prelude/player-vars.opy | K-P3 keep shared HUD lifecycle state | many hero HUD writers |
 | unaffected | playervar | prelude/player-vars.opy | modules/hero_rules/player_shared.opy and hero ability/status rules | M+A | prelude/player-vars.opy | K-P4 keep shared combat-status gate | intentionally cross-hero |
 | heros | playervar | prelude/player-vars.opy | bootstrap/aram-extra-hero-pool.opy, bootstrap/aram-safety-blacklist-ban.opy | A | prelude/player-vars.opy | K-P5 keep ARAM hero-pool state | ARAM protocol |
-| extra_hero | playervar | prelude/player-vars.opy | bootstrap/aram-player-lifecycle-and-reset.opy, bootstrap/aram-extra-hero-pool.opy | A | prelude/player-vars.opy | K-P5 keep ARAM lifecycle state | ARAM protocol |
+| extra_hero | playervar | prelude/player-vars.opy | bootstrap/aram-extra-hero-pool.opy | A | prelude/player-vars.opy | K-P5 keep ARAM lifecycle state | ARAM protocol |
 | mov_speed_penalty | playervar | prelude/player-vars.opy | bootstrap lifecycle/reset, utilities/reset_stats.opy, Orisa/Brigitte/Ramattra/Roadhog/Zenyatta ARAM rules | M+A | prelude/player-vars.opy | K-P6 keep shared movement modifier state | multiple hero mechanics write it |
 | mov_speed_buff | playervar | prelude/player-vars.opy | bootstrap lifecycle/reset, utilities/reset_stats.opy, Orisa/Brigitte/Ramattra/Roadhog/Reaper/Venture/Zenyatta ARAM rules | M+A | prelude/player-vars.opy | K-P6 keep shared movement modifier state | multiple hero mechanics write it |
-| aram_extra_pool_applied | playervar | prelude/player-vars.opy | bootstrap/aram-extra-hero-pool.opy, bootstrap/aram-player-lifecycle-and-reset.opy, bootstrap/aram-safety-blacklist-ban.opy | A | prelude/player-vars.opy | K-P7 keep ARAM phase protocol | none |
+| aram_extra_pool_applied | playervar | prelude/player-vars.opy | bootstrap/aram-extra-hero-pool.opy, bootstrap/aram-safety-blacklist-ban.opy | A | prelude/player-vars.opy | K-P7 keep ARAM phase protocol (round-phase token of last pool/lock sync) | none |
 | hero_switch_pvar | playervar | prelude/player-vars.opy | utilities/hero_switch.opy | M+A | prelude/player-vars.opy | K-P8 keep hero-init protocol storage | member aliases are public to init chain |
 
 ### move: hero-owned player state
