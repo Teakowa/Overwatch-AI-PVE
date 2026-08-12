@@ -24,19 +24,13 @@ rule "[kiriko]: remove swift step hp":
 
 rule "[kiriko]: swift step hp":
     @Event eachPlayer
-    @Condition getPlayersOnHero(Hero.KIRIKO, eventPlayer.getTeam())[0].isHoldingButton(Button.ABILITY_1) == true
-    @Condition getPlayersOnHero(Hero.KIRIKO, eventPlayer.getTeam())[0].isUsingAbility1() == true
-    @Condition len(eventPlayer.kiriko_buff) < 5
+    @Hero kiriko
+    @Condition eventPlayer.isHoldingButton(Button.ABILITY_1) == true
+    @Condition eventPlayer.isUsingAbility1() == true
 
-    waitUntil(not eventPlayer.reset_pvar[3].isUsingAbility1() and len(getPlayersInRadius(eventPlayer.reset_pvar[3], KIRIKO_ABILITY1_RADIUS, eventPlayer.getTeam(), LosCheck.SURFACES)) > 0 and eventPlayer.reset_pvar[3].hasStatus(Status.PHASED_OUT) == true, 0.5)
+    waitUntil(not eventPlayer.isUsingAbility1() and len(getPlayersInRadius(eventPlayer, KIRIKO_ABILITY1_RADIUS, eventPlayer.getTeam(), LosCheck.SURFACES)) > 0 and eventPlayer.hasStatus(Status.PHASED_OUT) == true, 0.5)
     wait(WAIT_SHORT_FRAME)
-    #if eventPlayer.kiriko_buff == null:
-    #        goto lbl_0
-    #removeHealthPool(eventPlayer.kiriko_buff[0])
-    lbl_0:
-    if not eventPlayer.isAlive() or distance(eventPlayer.reset_pvar[3], eventPlayer) > 5 and not isInLoS(eventPlayer.reset_pvar[3], eventPlayer):
-        goto lbl_1
-    eventPlayer.addHealthPool(Health.NORMAL, KIRIKO_ABILITY1_NORMAL_HEALTH_POOL_AMOUNT, false, false)
-    #eventPlayer.kiriko_buff = getLastCreatedHealthPool()
-    lbl_1:
-    eventPlayer.kiriko_buff.append(getLastCreatedHealthPool())
+    for eventPlayer.kiriko_step_idx in range(len(getPlayers(eventPlayer.getTeam()))):
+        if getPlayers(eventPlayer.getTeam())[eventPlayer.kiriko_step_idx].isAlive() == true and (distance(eventPlayer, getPlayers(eventPlayer.getTeam())[eventPlayer.kiriko_step_idx]) <= KIRIKO_ABILITY1_RADIUS or isInLoS(eventPlayer, getPlayers(eventPlayer.getTeam())[eventPlayer.kiriko_step_idx])) and len(getPlayers(eventPlayer.getTeam())[eventPlayer.kiriko_step_idx].kiriko_buff) < 5:
+            getPlayers(eventPlayer.getTeam())[eventPlayer.kiriko_step_idx].addHealthPool(Health.NORMAL, KIRIKO_ABILITY1_NORMAL_HEALTH_POOL_AMOUNT, false, false)
+            getPlayers(eventPlayer.getTeam())[eventPlayer.kiriko_step_idx].kiriko_buff.append(getLastCreatedHealthPool())
