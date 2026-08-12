@@ -392,6 +392,7 @@ async function auditHero(slug: string, args: Args, reporter: Reporter): Promise<
   const initFile = resolveRepo("src/heroes", slug, "init.opy");
   const changelogEntries = extractHeroChangelogEntries(await fs.readFile(resolveRepo(changelogTablePath), "utf8"));
   const heroesMain = await readLines(resolveRepo("src/heroes/main.opy"));
+  const mainEntry = await readLines(resolveRepo("src/main.opy"));
   const heroesAram = await readLines(resolveRepo("src/heroes/aram.opy"));
   const heroInitDispatcher = await readLines(resolveRepo("src/modules/hero_init/dispatcher.opy"));
   const heroInitSubroutines = heroInitDispatcher;
@@ -413,13 +414,13 @@ async function auditHero(slug: string, args: Args, reporter: Reporter): Promise<
     ? reporter.pass("hero rules include exists in src/heroes/main.opy")
     : reporter.fail(`hero rules include missing/duplicated in src/heroes/main.opy (count=${rulesIncludeCount})`);
 
-  const mainInitIncludeCount = countOccurrences(heroesMain, `#!include "${slug}/init.opy"`);
+  const mainInitIncludeCount = countOccurrences(mainEntry, `#!include "heroes/${slug}/init.opy"`);
   const aramInitIncludeCount = countOccurrences(heroesAram, `#!include "${slug}/init.opy"`);
   if (mainInitIncludeCount === 1 && aramInitIncludeCount === 1) {
-    reporter.pass("hero init include exists in src/heroes/main.opy and src/heroes/aram.opy");
+    reporter.pass("hero init include exists in src/main.opy and src/heroes/aram.opy");
   } else {
     reporter.fail(
-      `hero init include missing/duplicated in src/heroes/main.opy + src/heroes/aram.opy (main=${mainInitIncludeCount} aram=${aramInitIncludeCount})`,
+      `hero init include missing/duplicated in src/main.opy + src/heroes/aram.opy (main=${mainInitIncludeCount} aram=${aramInitIncludeCount})`,
     );
   }
 
