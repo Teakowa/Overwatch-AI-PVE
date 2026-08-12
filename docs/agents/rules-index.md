@@ -31,6 +31,8 @@
 | R-PERF-DEFER-STARTUP-BURST | docs/agents/performance-stability.md | #r-perf-defer-startup-burst | 开局初始化改动 | repo-maintainers |
 | R-PERF-LOW-FREQ-HEAVY-OPS | docs/agents/performance-stability.md | #r-perf-low-freq-heavy-ops | 大数组/高成本检测改动 | repo-maintainers |
 | R-PERF-NO-RUNTIME-LOAD-SAMPLING | docs/agents/performance-stability.md | #r-perf-no-runtime-load-sampling | 动态负载采样或 Anti Crash 相关改动 | repo-maintainers |
+| R-PERF-EXECUTION-MODEL | docs/agents/performance-stability.md | #r-perf-execution-model | 性能分析/性能改动 | repo-maintainers |
+| R-PERF-PERSISTENT-ACTION-LIFECYCLE | docs/agents/performance-stability.md | #r-perf-persistent-action-lifecycle | 高频/长生命周期动作改动 | repo-maintainers |
 | R-CHECK-MAIN-CONTRACT | docs/agents/self-checklist.md | #r-check-main-contract | 提交前自检 | repo-maintainers |
 | R-CHECK-HERO-INIT-CHAIN | docs/agents/self-checklist.md | #r-check-hero-init-chain | 提交前自检 | repo-maintainers |
 | R-CHECK-NO-WAITLESS-LOOP | docs/agents/self-checklist.md | #r-check-no-waitless-loop | 提交前自检 | repo-maintainers |

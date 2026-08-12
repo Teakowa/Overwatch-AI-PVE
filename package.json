@@ -8,6 +8,7 @@
     "build:aram": "mkdir -p build && overpy compile -i src/aramMain.opy --root src -l zh-CN -o build/aram.ow",
     "perf:scan": "node tools/perf-loop-scan.mjs src",
     "perf:scan:strict": "node tools/perf-loop-scan.mjs --strict src",
+    "perf:scan:self-test": "node tools/perf-loop-scan.mjs --self-test",
     "tool:bump-version": "tsx tools/bump-version.ts",
     "tool:check-contracts": "tsx tools/check-contracts.ts",
     "tool:check-ana-portability": "tsx tools/check-ana-portability.ts",

@@ -1,0 +1,8 @@
+{
+  "01_event_radius_after_cheap.opy": [{ "type": "EVENT_EXPENSIVE_CONDITION", "severity": "LOW" }],
+  "02_event_radius_before_cheap.opy": [{ "type": "EVENT_EXPENSIVE_CONDITION", "severity": "MEDIUM" }],
+  "03_repeated_producer_lookup.opy": [{ "type": "REPEATED_QUERY" }],
+  "04_persistent_action_phase_gated.opy": [{ "type": "PERSISTENT_ACTION_LIFECYCLE" }],
+  "05_normal_wait_rule.opy": [],
+  "06_normal_subroutine.opy": []
+}
