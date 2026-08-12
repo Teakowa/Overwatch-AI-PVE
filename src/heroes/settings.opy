@@ -19,6 +19,7 @@
 #!include "sigma/settings.opy"
 #!include "juno/settings.opy"
 #!include "doomfist/settings.opy"
+#!include "dmon/settings.opy"
 #!include "freja/settings.opy"
 #!include "wuyang/settings.opy"
 #!include "hanzo/settings.opy"

@@ -51,6 +51,7 @@ subroutine heroInitSigma
 subroutine heroInitRamattra
 subroutine heroInitJuno
 subroutine heroInitDoomfist
+subroutine heroInitDmon
 subroutine heroInitLifeweaver
 subroutine heroInitMauga
 subroutine heroInitIllari
@@ -205,6 +206,9 @@ def heroInitDispatcher():
             break
         case Hero.DOOMFIST:
             heroInitDoomfist()
+            break
+        case Hero.DMON:
+            heroInitDmon()
             break
         case Hero.LIFEWEAVER:
             heroInitLifeweaver()

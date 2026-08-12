@@ -399,6 +399,7 @@ async function main(): Promise<void> {
       "heroes/ramattra/init.opy",
       "heroes/juno/init.opy",
       "heroes/doomfist/init.opy",
+      "heroes/dmon/init.opy",
       "heroes/lifeweaver/init.opy",
       "heroes/mauga/init.opy",
       "heroes/illari/init.opy",

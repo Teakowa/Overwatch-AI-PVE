@@ -19,6 +19,7 @@
 #!include "sigma/settings.aram.opy"
 #!include "juno/settings.aram.opy"
 #!include "doomfist/settings.aram.opy"
+#!include "dmon/settings.aram.opy"
 #!include "freja/settings.aram.opy"
 #!include "wuyang/settings.opy"
 #!include "hanzo/settings.aram.opy"

@@ -97,6 +97,7 @@
 #!include "heroes/ramattra/init.opy"
 #!include "heroes/juno/init.opy"
 #!include "heroes/doomfist/init.opy"
+#!include "heroes/dmon/init.opy"
 #!include "heroes/lifeweaver/init.opy"
 #!include "heroes/mauga/init.opy"
 #!include "heroes/illari/init.opy"

@@ -50,6 +50,7 @@
 #!include "ramattra/init.opy"
 #!include "juno/init.opy"
 #!include "doomfist/init.opy"
+#!include "dmon/init.opy"
 #!include "lifeweaver/init.opy"
 #!include "mauga/init.opy"
 #!include "illari/init.opy"

@@ -31,6 +31,7 @@
 #!include "tracer/rules.opy"
 #!include "reinhardt/rules.opy"
 #!include "doomfist/rules.opy"
+#!include "dmon/rules.opy"
 #!include "hazard/rules.opy"
 #!include "domina/rules.opy"
 #!include "reaper/rules.opy"

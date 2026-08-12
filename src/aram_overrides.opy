@@ -43,6 +43,7 @@
 #!include "heroes/widowmaker/aram.opy"
 #!include "heroes/echo/rules.opy"
 #!include "heroes/domina/rules.opy"
+#!include "heroes/dmon/rules.opy"
 #!include "heroes/emre/aram.opy"
 #!include "heroes/jetpack_cat/aram.opy"
 #!include "heroes/anran/aram.opy"
