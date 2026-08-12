@@ -8,11 +8,12 @@ rule "[D.Mon]: Plasma Saber proc":
     @Condition eventPlayer.isInAlternateForm() != true
 
     damage(victim, attacker, victim.maxHealthPercent(DMON_PRIMARY_MAX_HEALTH_PERCENT))
-    heal(attacker, attacker, DMON_PRIMARY_HEAL)
+    heal(attacker, attacker, DMON_PRIMARY_HEAL + (victim.maxHealthPercent(DMON_PRIMARY_MAX_HEALTH_PERCENT) * 0.5))
     wait(0.35)
 
 rule "[D.Mon]: Plasma Saber rush":
     @Event playerDealtKnockback
+    @Hero dmon
     @Condition eventAbility == Button.PRIMARY_FIRE
     
     victim.setStatusEffect(attacker, Status.STUNNED, 0.8)
