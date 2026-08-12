@@ -1,1 +1,1 @@
-#!define VERSION "26.0812.7"
+#!define VERSION "26.0812.8"
