@@ -43,12 +43,13 @@ rule "[AI/ultimate]: Counter Ultimate Ability":
 rule "[AI/ultimate]: Auto use Ultimate Ability":
     @Event playerTookDamage
     @Team 1
+    @Condition eventPlayer.isAlive() == true
+    @Condition eventPlayer.getUltCharge() == 100
+    @Condition victim.getHero() in Counter_Bot == false
     #@Condition getPlayersInRadius(eventPlayer, 10, getOppositeTeam(eventPlayer.getTeam()), LosCheck.SURFACES) >= 3
     @Condition len(getPlayersInRadius(eventPlayer, 10, getOppositeTeam(eventPlayer.getTeam()), LosCheck.SURFACES)) >= 3
     #@Condition getPlayersInRadius(eventPlayer, 15, eventPlayer.getTeam(), LosCheck.SURFACES) >= 3
     @Condition len(getPlayersInRadius(eventPlayer, 15, eventPlayer.getTeam(), LosCheck.SURFACES)) >= 3
-    @Condition victim.getHero() in Counter_Bot == false
-    @Condition (eventPlayer.isAlive() and eventPlayer.getUltCharge() == 100) == true
     
     eventPlayer.startForcingButton(Button.ULTIMATE)
     wait(0.34)
