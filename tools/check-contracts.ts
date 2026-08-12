@@ -866,17 +866,40 @@ async function main(): Promise<void> {
   }
 
   if (args.runBuild) {
-    console.log("Running build gate: pnpm run build");
+    console.log("Running build gate: pnpm run build && pnpm run build:aram");
     try {
       runCommand("pnpm", ["run", "build"]);
+      runCommand("pnpm", ["run", "build:aram"]);
       reporter.pass("build succeeded");
     } catch {
       reporter.fail("build failed");
     }
+    await checkSettingsCapacity(reporter);
   }
 
   reporter.summary();
   process.exit(reporter.exitCode());
+}
+
+const WORKSHOP_SETTINGS_LIMIT = 128;
+const WORKSHOP_SETTINGS_MARGIN_WARN = 5;
+
+async function checkSettingsCapacity(reporter: Reporter): Promise<void> {
+  const countSettings = async (outputPath: string): Promise<number> => {
+    const content = await fs.readFile(outputPath, "utf8");
+    return (content.match(/地图工坊设置/g) ?? []).length;
+  };
+  const mainCount = await countSettings(resolveRepo("build/workshop.ow"));
+  const aramCount = await countSettings(resolveRepo("build/aram.ow"));
+  const aramRemaining = WORKSHOP_SETTINGS_LIMIT - aramCount;
+  reporter.pass(
+    `workshop settings: main=${mainCount} aram=${aramCount} (limit ${WORKSHOP_SETTINGS_LIMIT}, aram remaining ${aramRemaining})`,
+  );
+  if (aramRemaining < 0) {
+    reporter.fail(`ARAM workshop settings over limit: ${aramCount}/${WORKSHOP_SETTINGS_LIMIT}`);
+  } else if (aramRemaining < WORKSHOP_SETTINGS_MARGIN_WARN) {
+    reporter.warn(`ARAM workshop settings margin thin: ${aramRemaining} remaining (< ${WORKSHOP_SETTINGS_MARGIN_WARN})`);
+  }
 }
 
 main().catch((error: Error) => {
