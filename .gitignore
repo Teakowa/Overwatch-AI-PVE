@@ -26,9 +26,6 @@ node_modules/
 # pnpm
 .pnpm-store
 
-# Overwatch Workshop build output
-workshop.ow
-
 docs/参考脚本
 
 # Local planning scratch files
