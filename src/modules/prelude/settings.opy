@@ -609,6 +609,9 @@ settings {
                 "secondaryFireCooldown%": SETTINGS_TEAM2_DOOMFIST_SECONDARY_FIRE_COOLDOWN_PERCENT,
                 "ability2Cooldown%": relativeRatioPercent(REL_PLAYER_DOOMFIST_ABILITY2_COOLDOWN_PERCENT, OW2_DOOMFIST_SEISMIC_SLAM_COOLDOWN)
             },
+            "dmon": {
+                "damageDealt%": SETTINGS_TEAM2_DMON_DAMAGE_DEALT_PERCENT
+            },
             "zarya": {
                 "damageDealt%": SETTINGS_TEAM2_ZARYA_DAMAGE_DEALT_PERCENT,
                 "damageReceived%": SETTINGS_TEAM2_ZARYA_DAMAGE_RECEIVED_PERCENT,

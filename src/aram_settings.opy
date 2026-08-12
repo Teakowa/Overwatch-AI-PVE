@@ -498,6 +498,9 @@ settings {
                 "secondaryFireRechargeRate%": 200,
                 "secondaryFireMaximumTime%": relativePercent(REL_ARAM_ALLTEAMS_DVA_SECONDARY_FIRE_MAXIMUM_TIME_PERCENT, OW2_DVA_MATRIX_DURATION)
             },
+            "dmon": {
+                "damageDealt%": 115
+            },
             "illari": {
                 "passiveHealthRegen": false,
                 "damageDealt%": 120,
