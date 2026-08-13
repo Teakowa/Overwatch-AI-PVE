@@ -1,15 +1,38 @@
 #!mainFile "../../main.opy"
 #!optimizeStrict
 
+# Centralized true-damage primitive: directly reduces the victim's health via
+# setHealth(), bypassing the damageReceived% mitigation chain (an extra
+# damage() instance would re-enter it). Guards mirror the project protection
+# contract (unaffected / untargetable). Known boundaries that cannot be proven
+# by the compiler and need in-game verification: direct setHealth() grants no
+# kill credit or ultimate charge, emits no damage / taken-damage events, and
+# does not consume Armor / Shields / Overhealth first (Overwatch's natural
+# layer order is not replicated; a target can sit at 0 health with layers left).
+macro dmonTrueDamage(victim, amount):
+    if victim.isAlive() == true:
+        if victim.unaffected != true:
+            if victim.untargetable() != true:
+                victim.setHealth(victim.getHealth() - amount)
+
 rule "[D.Mon]: Plasma Saber proc":
     @Event playerDealtDamage
     @Hero dmon
     @Condition eventAbility == Button.PRIMARY_FIRE
     @Condition eventPlayer.isInAlternateForm() != true
 
-    damage(victim, attacker, victim.maxHealthPercent(DmonBuff[0]))
+    dmonTrueDamage(victim, victim.maxHealthPercent(DmonBuff[0]))
     heal(attacker, attacker, DmonBuff[1] + (victim.maxHealthPercent(DmonBuff[0]) * 0.5))
     wait(0.35)
+
+rule "[D.Mon]: Fusion Repeater armor-special":
+    @Event playerDealtDamage
+    @Hero dmon
+    @Condition eventAbility == Button.ABILITY_2
+    @Condition eventPlayer.isInAlternateForm() != true
+    @Condition victim.getHealthOfType(Health.ARMOR) > 0
+
+    dmonTrueDamage(victim, eventDamage * DmonBuff[5] / 100)
 
 rule "[D.Mon]: Plasma Saber rush":
     @Event playerDealtKnockback
