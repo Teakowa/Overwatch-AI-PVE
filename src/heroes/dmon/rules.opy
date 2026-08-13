@@ -3,17 +3,14 @@
 
 # Centralized true-damage primitive: directly reduces the victim's health via
 # setHealth(), bypassing the damageReceived% mitigation chain (an extra
-# damage() instance would re-enter it). Guards mirror the project protection
-# contract (unaffected / untargetable). Known boundaries that cannot be proven
-# by the compiler and need in-game verification: direct setHealth() grants no
-# kill credit or ultimate charge, emits no damage / taken-damage events, and
-# does not consume Armor / Shields / Overhealth first (Overwatch's natural
-# layer order is not replicated; a target can sit at 0 health with layers left).
+# damage() instance would re-enter it). A playerDealtDamage event already
+# implies the victim was alive and hittable, so no extra protection checks.
+# Known boundaries (not compiler-provable, pending in-game verification):
+# direct setHealth() grants no kill credit or ultimate charge, emits no
+# damage / taken-damage events, and does not consume Armor / Shields /
+# Overhealth first (Overwatch's natural layer order is not replicated).
 macro dmonTrueDamage(victim, amount):
-    if victim.isAlive() == true:
-        if victim.unaffected != true:
-            if victim.untargetable() != true:
-                victim.setHealth(victim.getHealth() - amount)
+    victim.setHealth(victim.getHealth() - amount)
 
 rule "[D.Mon]: Plasma Saber proc":
     @Event playerDealtDamage
