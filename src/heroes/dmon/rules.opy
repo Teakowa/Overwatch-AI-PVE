@@ -7,9 +7,19 @@ rule "[D.Mon]: Plasma Saber proc":
     @Condition eventAbility == Button.PRIMARY_FIRE
     @Condition eventPlayer.isInAlternateForm() != true
 
-    damage(victim, attacker, victim.maxHealthPercent(DmonBuff[0]))
+    victim.setHealth(victim.getHealth() - victim.maxHealthPercent(DmonBuff[0]))
     heal(attacker, attacker, DmonBuff[1] + (victim.maxHealthPercent(DmonBuff[0]) * 0.5))
     wait(0.35)
+
+rule "[D.Mon]: Fusion Repeater armor-special":
+    @Event playerDealtDamage
+    @Hero dmon
+    @Condition eventAbility == Button.ABILITY_2
+    @Condition eventPlayer.isInAlternateForm() != true
+    @Condition victim.getHealthOfType(Health.ARMOR) > 0
+
+    victim.setHealth(victim.getHealth() - (eventDamage * DmonBuff[5] / 100))
+    wait(0.1)
 
 rule "[D.Mon]: Plasma Saber rush":
     @Event playerDealtKnockback
