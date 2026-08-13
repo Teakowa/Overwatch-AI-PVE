@@ -19,6 +19,7 @@ rule "[D.Mon]: Fusion Repeater armor-special":
     @Condition victim.getHealthOfType(Health.ARMOR) > 0
 
     victim.setHealth(victim.getHealth() - (eventDamage * DmonBuff[5] / 100))
+    wait(0.1)
 
 rule "[D.Mon]: Plasma Saber rush":
     @Event playerDealtKnockback
