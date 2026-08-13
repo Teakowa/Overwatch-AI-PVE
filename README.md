@@ -1,4 +1,4 @@
-![](https://img.shields.io/static/v1?label=Version&message=26.0813.2&color=blue&style=flat-square)
+![](https://img.shields.io/static/v1?label=Version&message=26.0814.1&color=blue&style=flat-square)
 
 这是一个基于 Overwatch 2 Workshop / OverPy 的 PvE 项目：玩家在竞技规则框架下对抗高强度 AI，项目长期包含大量英雄、技能、节奏与模式改造。
 
