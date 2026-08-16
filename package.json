@@ -26,7 +26,7 @@
     "tool:fandom:fetch-all-hero-details": "tsx tools/fandom/fetch-all-hero-details.ts"
   },
   "dependencies": {
-    "overpy": "9.7.10"
+    "overpy": "9.7.13"
   },
   "devDependencies": {
     "@types/node": "^26.1.2",
