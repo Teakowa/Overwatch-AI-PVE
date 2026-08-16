@@ -30,7 +30,6 @@
 #!include "utilities/reset_frenemies.opy"
 #!include "utilities/hero_switch.opy"
 #!include "utilities/reset_stats.opy"
-#!include "utilities/enable_all_abilities.opy"
 #!include "utilities/knockback.opy"
 #!include "utilities/set_third_person.opy"
 #!include "modules/bootstrap/blacklist.opy"

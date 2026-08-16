@@ -6,8 +6,8 @@
 # Eligibility and pool application are independent of attack/defense state.
 # `extra_hero` is the authoritative eligibility flag. `aram_extra_pool_applied`
 # stores the getMatchRound() phase in which the pool/lock was last synchronized
-# (null = dirty / never synchronized), so a real round/side change re-syncs
-# eligible players exactly once without per-frame setAllowedHeroes() churn.
+# (null = dirty / never synchronized), so a real round/side change or eligible
+# death re-syncs players without per-frame setAllowedHeroes() churn.
 
 def setPlayerHeros():
     @Name "[Player]: set extra hero"
@@ -35,8 +35,7 @@ rule "[Player]: Dead count":
     @Event playerDied
     @Team 2
     @Condition isGameInProgress() == true
-    @Condition eventPlayer.extra_hero != true
-    @Condition eventPlayer.getStatistic(Stat.DEATHS) >= 2
+    @Condition (eventPlayer.extra_hero == true or eventPlayer.getStatistic(Stat.DEATHS) >= 2) == true
 
     waitUntil(eventPlayer.isInSpawnRoom(), 8)
     eventPlayer.extra_hero = true

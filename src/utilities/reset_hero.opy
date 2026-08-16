@@ -24,6 +24,5 @@ def resetHero():
     resetStats()
     resetStatuses()
     resetFrenemies()
-    enableAllAbilities()
     #wait at least 1 tick
     RESET_HERO_WAIT()

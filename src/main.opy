@@ -29,7 +29,6 @@
 #!include "utilities/reset_frenemies.opy"
 #!include "utilities/hero_switch.opy"
 #!include "utilities/reset_stats.opy"
-#!include "utilities/enable_all_abilities.opy"
 #!include "utilities/bot_aim2target.opy"
 
 # AI core logic
