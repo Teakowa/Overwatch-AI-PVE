@@ -16,8 +16,8 @@ importers:
         specifier: ^26.4.1
         version: 26.4.1
       tsx:
-        specifier: ^4.23.9
-        version: 4.23.9
+        specifier: ^4.23.13
+        version: 4.23.13
       typescript:
         specifier: ^7.0.2
         version: 7.0.2
@@ -317,8 +317,8 @@ packages:
     resolution: {integrity: sha512-dCPsfwXHfV59BrzQSWW0Ow9X7b8SvkzllkNMTNRbVzzxJxHPuFX9P8pcYbZ5rcl9LVJ8N1JUlG+3y2qempfTqA==}
     hasBin: true
 
-  tsx@4.23.9:
-    resolution: {integrity: sha512-6q8uTORRGauQVjqMQnKUucLFoeXZAfw6zKvG35GLbdKWbLdeOtZ3H4mhyA5mxuUd2o2cRTskhj59nLLQseUvUw==}
+  tsx@4.23.13:
+    resolution: {integrity: sha512-BL5MGkRln6aDYhb0xbQlEAGw743BaZYWdbWtdJOBriYJboKgUUYCadFp2/FpBBZquBC/ezNBn7wMMPx7FDZUDw==}
     engines: {node: '>=18.0.0'}
     hasBin: true
 
@@ -508,7 +508,7 @@ snapshots:
 
   overpy@9.7.13: {}
 
-  tsx@4.23.9:
+  tsx@4.23.13:
     dependencies:
       esbuild: 0.28.2
     optionalDependencies:
