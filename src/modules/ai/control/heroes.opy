@@ -20,3 +20,4 @@
 #!include "domina.opy"
 #!include "sierra.opy"
 #!include "shion.opy"
+#!include "dmon.opy"
